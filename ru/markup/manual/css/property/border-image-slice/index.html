@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство border-image-slice — acteck.off</title>
+  <meta name="description" content="Свойство border-image-slice — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство border-image-slice</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>border-image-slice</code> указывает
+	браузеру, какие части картинки пойдут на
+	уголки, а какие на стороны (а какая часть
+	будет центральной). На уголки идут <code data-gs="comd/n" data-x>4</code>
+	части, на стороны идут <code data-gs="comd/n" data-x>4</code> части и одна
+	часть (центральная) идет на фон элемента
+	(опционально, ключевое слово <code data-gs="comd/v" data-x>fill</code>).
+</p>
+<p>
+	Для более подробной информации смотрите свойство
+	<a href="../border-image/index.html"><code data-gs="comd/c" data-x>border-image</code></a>.
+</p>
+
+<h2>Синтаксис</h2>
+<show>
+	<+css+>
+		селектор {
+			border-image-slice: от <code data-gs="comd/n" data-x>1</code>-го до <code data-gs="comd/n" data-x>4</code>-х чисел | от <code data-gs="comd/n" data-x>1</code>-го до <code data-gs="comd/n" data-x>4</code>-х процентов;
+		}
+	<-css->
+</show>
+<p>
+	С числами и процентами через пробел может
+	стоять ключевое слово <code data-gs="comd/v" data-x>fill</code>.
+</p>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th>проценты</th>
+		<td>
+			Проценты рассчитываются относительно размера изображения.
+			Горизонтальные относительно ширины, вертикальные — относительно высоты.
+		</td>
+	</tr>
+	<tr>
+		<th>числа</th>
+		<td>
+			Числа - это пиксели (для растрового изображения) или координаты (для векторного). 
+			Единицы измерения не указываются.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>fill</code></th>
+		<td>
+			Поведение по умолчанию предполагает то, что центральная часть
+			изображения будет отброшена. Для того чтобы задействовать ее,
+			необходимо использовать ключевое слово <code data-gs="comd/v" data-x>fill</code> в дополнение
+			к числам или процентам.
+		</td>
+	</tr>
+</table>
+
+<h2>Количество параметров</h2>
+<p>
+	Смещение может принимать <code data-gs="comd/n" data-x>1</code>, <code data-gs="comd/n" data-x>2</code>,
+	<code data-gs="comd/n" data-x>3</code> или <code data-gs="comd/n" data-x>4</code> параметра. Обратите
+	внимание на то, что единицы измерения для
+	смещения не пишутся (например, просто <code data-gs="comd/n" data-x>20</code>,
+	а не <code data-gs="comd/u" data-x>20px</code>). Также можно задавать толщину в <code data-gs="comd/u" data-x>%</code>.
+</p>
+<table data-w="cont/desc">
+	<tr>
+		<th>Число параметров</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/n" data-x>1</code></th>
+		<td>Toлщина для всех сторон одновременно.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/n" data-x>2</code></th>
+		<td>1 2; - <code data-gs="comd/u" data-x>1px</code> для верха и низа, <code data-gs="comd/u" data-x>2px</code> для левой и правой.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/n" data-x>3</code></th>
+		<td><code data-gs="comd/n" data-x>1 2 3</code>; - <code data-gs="comd/u" data-x>1px</code> для верха, <code data-gs="comd/u" data-x>2px</code> для левой и правой, <code data-gs="comd/u" data-x>3px</code> для низа.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/n" data-x>4</code></th>
+		<td><code data-gs="comd/n" data-x>1 2 3 4</code>; - <code data-gs="comd/u" data-x>1px</code> для верха, <code data-gs="comd/u" data-x>2px</code> для правой, <code data-gs="comd/u" data-x>3px</code> для низа, <code data-gs="comd/u" data-x>4px</code> для левой.</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <b>100%(?)</b>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-image-source: url("image.png");
+	border-image-slice: 26;
+	border-style: solid;
+	border-width: 26px;
+	width: 200px;
+	height: 200px;
+	background: green;
+	margin: 0 auto;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-image-source: url(&quot;/cont/markup/manual/css/property/border-image-slice/@/image/border-image.png&quot;);
+			border-image-slice: 26;
+			border-style: solid;
+			border-width: 26px;
+			width: 200px;
+			height: 200px;
+			background: green;
+			margin: 0 auto;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-image-source: url("image.png");
+	border-image-slice: 26;
+	border-image-repeat: repeat;
+	border-style: solid;
+	border-width: 26px;
+	width: 200px;
+	height: 200px;
+	background: green;
+	margin: 0 auto;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-image-source: url(&quot;/cont/markup/manual/css/property/border-image-slice/@/image/border-image.png&quot;);
+			border-image-slice: 26;
+			border-image-repeat: repeat;
+			border-style: solid;
+			border-width: 26px;
+			width: 200px;
+			height: 200px;
+			background: green;
+			margin: 0 auto;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../border-image/index.html"><code data-gs="comd/c" data-x>border-image</code></a>, <br>
+			которое является сокращением для границы-картинки
+		</li>
+		<li>
+			свойство <a href="../border-image-source/index.html"><code data-gs="comd/c" data-x>border-image-source</code></a>, <br>
+			которое задает путь к картинке для границы
+		</li>
+		<li>
+			свойство <a href="../border-image-repeat/index.html"><code data-gs="comd/c" data-x>border-image-repeat</code></a>, <br>
+			которое повторение картинки для границы
+		</li>
+		<li>
+			свойство <a href="../border-image-width/index.html"><code data-gs="comd/c" data-x>border-image-width</code></a>, <br>
+			которое задает размер картинки для границы
+		</li>
+		<li>
+			свойство <a href="../border-image-outset/index.html"><code data-gs="comd/c" data-x>border-image-outset</code></a>, <br>
+			которое задает сдвиг картинки для границы
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Иключения в асинхронных коллбэках в JavaScript — acteck.off</title>
+  <meta name="description" content="Иключения в асинхронных коллбэках в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Иключения в асинхронных коллбэках в JavaScript</h1>
+    <p>
+	Пусть, если параметром <code data-gs="comd/c" data-x>make</code> передан
+	номер несуществующего элемента массива -
+	это исключительная ситуация. Как вы уже знаете,
+	исключения, возникшие внутри асинхронной
+	функции, не могут быть пойманы через <code data-gs="comd/c" data-x>try-catch</code>.
+	В нашем случае исключение, возникшее внутри
+	<code data-gs="comd/c" data-x>make</code> или коллбэка, не будет поймано:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
+	make(10, function(res) {
+		console.log(res);
+	});
+} catch(err) {
+	// не поймается
+}</code>
+</div>
+<p>
+	В коллбэк-подходе с исключениями работают
+	следующим образом: в первый параметр коллбэка
+	отправляют результат, а во второй - ошибку.
+	В этом случае обработка ошибок происходит
+	следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">make(10, function(res, err) {
+	if (!err) {
+		console.log(res); // ошибки не возникло, выведем результат
+	} else {
+		console.log(err); // ошибка возникла, выведем ее текст
+	}
+});</code>
+</div>
+<p>
+	Давайте переделаем код нашей функции
+	<code data-gs="comd/c" data-x>make</code> в соответствии с описанным:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function make(num, callback) {
+	setTimeout(function() {
+		let arr = [1, 2, 3, 4, 5];
+		
+		let err;
+		if (arr[num] === undefined) {
+			err = 'elem not exists'; // текст ошибки
+		} else {
+			err = null; // ошибки нет
+		}
+		
+		callback(arr[num], err);
+	}, 3000);
+}</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

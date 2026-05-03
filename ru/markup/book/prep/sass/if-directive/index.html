@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Директива @if в SASS — acteck.off</title>
+  <meta name="description" content="Директива @if в SASS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Директива @if в SASS</h1>
+    <p>
+	Если нам нужно, чтобы определенные
+	стили применялись только при соблюдении
+	конкретных условий, то мы используем
+	директиву <code data-gs="comd/c" data-x>@if</code>, возвращающую любое
+	значение, за исключением <code data-gs="comd/c" data-x>false</code> и <code data-gs="comd/c" data-x>null</code>:
+</p>
+<p>
+	Рассмотрим следующий пример:
+</p>
+<div data-p="bock/pane" data-p-file="styles.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">#main-button {
+	@if 2 - 1 == 1 {
+		color: green;
+	}
+	@if (2+3) &lt; 3 {
+		color: orange;
+	}
+	@if null {
+		color: red;
+	}
+}</code>
+</div>
+<p>
+	Результат компиляции:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#main-button {
+	color: green; 
+}</code>
+</div>
+<p>
+	Также при постановке условия после <code data-gs="comd/c" data-x>@if</code>
+	можно применять несколько <code data-gs="comd/c" data-x>@else if</code>
+	и одно выражение <code data-gs="comd/c" data-x>@else</code>. 
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">$var: 20px;
+
+a {
+	@if $var == 10px {
+		color: blue;
+	} @else if $var == 25px {
+		color: red;
+	} @else if $var == 10px+10px {
+		color: green;
+	} @else {
+		color: black;
+	}
+}</code>
+</div>
+<p>
+	Теперь посмотрим в файл <code data-gs="comd/c" data-x>styles.css</code>:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">a {
+	color: green;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">$size: 20px;
+$font-size: 14px;
+
+body {
+	@if $size == $font-size {
+		background-color: #7e7ed8;
+	} @else if $size &gt; $font-size {
+		color: #f1bbbb;
+	} @else {
+		color: #000000;
+	}
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">$size: 20px;
+$font-size: 14px;
+
+.active {
+	@if $size &lt; $font-size {
+		color: red;
+	} @else if $size &gt; $font-size {
+		color: green;
+	} @else {
+		color: #000000;
+	}
+}
+
+.not-active {
+	@if $size == $font-size {
+		display:block ;
+	} @else {
+		display: none;
+	}
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

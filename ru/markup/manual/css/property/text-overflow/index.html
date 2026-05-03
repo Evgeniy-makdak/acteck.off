@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство text-overflow — acteck.off</title>
+  <meta name="description" content="Свойство text-overflow — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство text-overflow</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>text-overflow</code> добавляет троеточие
+	в конец обрезанного текста в знак того, что
+	текст не помещался в блок и был обрезан.
+</p>
+<p>
+	Для работы свойства текст должен быть обрезан
+	через свойство <a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>
+	или свойство <a href="../overflow-x/index.html"><code data-gs="comd/c" data-x>overflow-x</code></a>
+	в значении <code data-gs="comd/v" data-x>hidden</code>, <code data-gs="comd/v" data-x>auto</code> или
+	<code data-gs="comd/v" data-x>scroll</code>. Если задано <code data-gs="comd/v" data-x>visible</code> (а так
+	и есть по умолчанию) - <code data-gs="comd/c" data-x>text-overflow</code>
+	работать не будет.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	text-overflow: ellipsis | clip;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>ellipsis</code></th>
+		<td>Добавляет в конец обрезанного текста троеточие.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>clip</code></th>
+		<td>
+			Не добавляет троеточие в конец (это значение по умолчанию, нужно для
+			отмены действия свойства при необходимости).
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>clip</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Вылезающий текст</h2>
+<p>
+	В данном примере очень длинное слово не поместится
+	в контейнер и вылезет за его границы. Обрезания
+	не происходит:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet
+	loooooooooooooooooooooooooooooooongword,
+	consectetur loooooooooooooooooooooooooooooooongword
+	adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	overflow: visible;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			overflow: visible;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet
+			loooooooooooooooooooooooooooooooongword,
+			consectetur loooooooooooooooooooooooooooooooongword
+			adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Добавим свойство overflow</h2>
+<p>
+	Сейчас все, что вылезло за границы контейнера,
+	просто обрежется:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet
+	loooooooooooooooooooooooooooooooongword,
+	consectetur loooooooooooooooooooooooooooooooongword
+	adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	overflow: hidden;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			overflow: hidden;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet
+			loooooooooooooooooooooooooooooooongword,
+			consectetur loooooooooooooooooooooooooooooooongword
+			adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение ellipsis</h2>
+<p>
+	Сейчас в дополнение к свойству <a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>
+	добавим еще и <code data-gs="comd/c" data-x>text-overflow</code> в значении
+	<code data-gs="comd/v" data-x>ellipsis</code>. Обрезанному тексту добавится
+	троеточие в конец:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet
+	loooooooooooooooooooooooooooooooongword,
+	consectetur loooooooooooooooooooooooooooooooongword
+	adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet
+			loooooooooooooooooooooooooooooooongword,
+			consectetur loooooooooooooooooooooooooooooooongword
+			adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. С полосами прокрутки</h2>
+<p>
+	Если задать <b>overflow: auto</b> и <b>text-overflow:
+	ellipsis</b>, то появится полоса прокрутки,
+	но троеточие по-прежнему будет добавлено.
+	Попробуйте прокрутить полосу прокрутки в примере:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet
+	loooooooooooooooooooooooooooooooongword,
+	consectetur loooooooooooooooooooooooooooooooongword
+	adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	overflow: auto;
+	text-overflow: ellipsis;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			overflow: auto;
+			text-overflow: ellipsis;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet
+			loooooooooooooooooooooooooooooooongword,
+			consectetur loooooooooooooooooooooooooooooooongword
+			adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Если нет очень длинных слов</h2>
+<p>
+	Если нет настолько длинных слов, чтобы они
+	вылазили за границу контейнера, то обрезания
+	не произойдет (ничего же не вылазит). Посмотрите
+	следующий пример:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Текст в одну строку</h2>
+<p>
+	Однако, бывают ситуации, когда мы хотим,
+	чтобы текст обрезался, если он слишком длинный
+	(текст вообще, а не отдельные слова) и не
+	переносился на следующую строку. Это делается
+	с помощью добавления свойства <a href="../white-space/index.html"><code data-gs="comd/c" data-x>white-space</code></a>
+	в значении <code data-gs="comd/v" data-x>nowrap</code>, которое запретит
+	перенос текста на другую строку. Посмотрите
+	на пример, теперь текст обрезается:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Ширина в процентах</h2>
+<p>
+	Если задать ширину блока в %, то обрезание
+	тоже будет работать корректно:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet
+	loooooooooooooooooooooooooooooooongword,
+	consectetur loooooooooooooooooooooooooooooooongword
+	adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 80%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 80%;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet
+			loooooooooooooooooooooooooooooooongword,
+			consectetur loooooooooooooooooooooooooooooooongword
+			adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойства <a href="../word-break/index.html"><code data-gs="comd/c" data-x>word-break</code></a>
+			и <a href="../overflow-wrap/index.html"><code data-gs="comd/c" data-x>overflow-wrap</code></a>, <br>
+			которые позволяют перенести буквы длинного слова на новую строку
+		</li>
+		<li>
+			свойство <a href="../hyphens/index.html"><code data-gs="comd/c" data-x>hyphens</code></a>, <br>
+			которое включает переносы слов по слогам
+		</li>
+		<li>
+			свойство <a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>, <br>
+			которое обрезает вылезающие за границу блока части
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

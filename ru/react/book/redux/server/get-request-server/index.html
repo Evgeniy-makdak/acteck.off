@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отправка данных с сервера по GET-запросу в Redux — acteck.off</title>
+  <meta name="description" content="Отправка данных с сервера по GET-запросу в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Отправка данных с сервера по GET-запросу в Redux</h1>
+    <p>
+	Итак у нас есть база с данными. Первое, что
+	мы будем делать при запуске нашего Redux
+	приложения - это получать с сервера данные
+	с продуктами. Для этого нам нужно из
+	нашего приложения отправить GET-запрос.
+	Давайте обработаем его на стороне сервера.
+</p>
+<p>
+	Откроем наше приложение с продуктами,
+	а в нем файл <code data-gs="comd/p" data-x>server.js</code>. Для того, чтобы
+	работать с HTTP-запросами, нам нужно
+	импортировать в файл несколько
+	инструментов из msw, давайте сделаем это:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { http, HttpResponse, delay } from 'msw'</code>
+</div>
+<p>
+	Также сразу сделаем поправки на реальность,
+	то есть возможные задержки в сети. Пусть
+	значение нашей искусственной задержки будет
+	составлять <code data-gs="comd/n" data-x>2</code> секунды, чтобы мы видели как
+	подгружаются данные. Напишем ее после
+	<code data-gs="comd/c" data-x>const PRODS_PER_SELLER = 2</code>:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const ARTIFICIAL_DELAY_MS = 2000</code>
+</div>
+<p>
+	А теперь в конце файла перед экспортом
+	воркера заведем массив для API
+	обработчиков запросов:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const handlers = []</code>
+</div>
+<p>
+	И затем в квадратных скобочках напишем
+	первый обработчик для перехвата GET-запроса
+	продуктов:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const handlers = [http.get()]</code>
+</div>
+<p>
+	Первым параметром для <code data-gs="comd/c" data-x>http.get</code> мы передадим
+	какой-то фейковый адрес, например
+	<code data-gs="comd/s" data-x>'/fakeServer/products'</code>, а вторым асинхронный
+	callback:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const handlers = [http.get('/fakeServer/products', async () =&gt; {})]</code>
+</div>
+<p>
+	Теперь напишем код для этого callback. С
+	помощью него мы извлечем все продукты из БД.
+	Здесь мы также используем функцию
+	<code data-gs="comd/c" data-x>serializeProduct</code>, код которой мы написали
+	на прошлом занятии. Давайте передадим
+	ее в <code data-gs="comd/c" data-x>map</code>. Затем сделаем задержку (как будто
+	сеть тормозит) и вернем в <code data-gs="comd/c" data-x>response</code> объекты
+	с данными продуктов в виде JSON:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const handlers = [
+	http.get('/fakeServer/products', async () =&gt; {
+		const products = db.product.getAll().map(serializeProduct)
+		await delay(ARTIFICIAL_DELAY_MS)
+		return HttpResponse.json(products)
+	}),
+]</code>
+</div>
+<p>
+	И последнее. Мы написали первый handler
+	для нашего воркера, давайте передадим этому воркеру
+	массив <code data-gs="comd/c" data-x>handlers</code>. Для этого исправим последнюю строчку
+	кода в файле на:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const worker = setupWorker(...handlers)</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами,
+		а в нем файл <code data-gs="comd/p" data-x>server.js</code>. Импортируйте
+		в файл указанные инструменты из msw.
+		Изучив материал данного урока, создайте
+		пустой массив обработчиков для
+		перехватов запросов. Напишите в нем
+		код для обработчика GET-запроса студентов.
+		В качестве пути пусть у вас будет
+		<code data-gs="comd/s" data-x>'/fakeServer/students'</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В конце файла не забудьте передать
+		массив обработчиков <code data-gs="comd/c" data-x>handlers</code> воркеру.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

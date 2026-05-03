@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Адаптивные размеры шрифтов в CSS — acteck.off</title>
+  <meta name="description" content="Адаптивные размеры шрифтов в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Адаптивные размеры шрифтов в CSS</h1>
+    <p>
+	Вы уже знаете, что единицы <code data-gs="comd/u" data-x>rem</code> считаются
+	относительно размера шрифта корневого элемента,
+	по умолчанию равного <code data-gs="comd/u" data-x>16px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">html {
+	font-size: 16px; /* значение по умолчанию */
+}</code>
+</div>
+<p>
+	Такую особенность используют, чтобы массово
+	менять размеры шрифтов при изменении ширины
+	экрана. Давайте посмотрим, как это делается.
+</p>
+<p>
+	Пусть нашим тегам заданы следующие размеры:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">h1 {
+	font-size: 1.5rem; /* соответствует 24px */
+}
+p {
+	font-size: 1rem; /* соответствует 16px */
+	margin: 2rem;    /* соответствует 32px */
+}</code>
+</div>
+<p>
+	Давайте сделаем так, чтобы при изменении
+	ширины экрана адаптивно изменялись размеры,
+	заданные через <code data-gs="comd/u" data-x>rem</code>. Для этого с помощью
+	медиазапросов будем менять размер шрифта
+	корневого элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (max-width: 600px) {
+	html {
+		font-size: 16px;
+	}
+}
+@media (min-width: 600px) and (max-width: 1200px) {
+	html {
+		font-size: 18px;
+	}
+}
+@media (min-width: 1200px) {
+	html {
+		font-size: 20px;
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (max-width: 300px) {
+	h1 {
+		font-size: 32px;
+	}
+	h2 {
+		font-size: 24px;
+	}
+	p {
+		font-size: 16px;
+	}
+}
+@media (min-width: 300px) and (max-width: 900px) {
+	h1 {
+		font-size: 36px;
+	}
+	h2 {
+		font-size: 27px;
+	}
+	p {
+		font-size: 18px;
+	}
+}
+@media (min-width: 900px) {
+	h1 {
+		font-size: 40px;
+	}
+	h2 {
+		font-size: 30px;
+	}
+	p {
+		font-size: 20px;
+	}
+}</code>
+	</div>
+	<p>
+		Упростите приведенный код, используя описанную
+		в учебнике технику.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

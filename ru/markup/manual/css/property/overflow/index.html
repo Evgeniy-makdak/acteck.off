@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство overflow — acteck.off</title>
+  <meta name="description" content="Свойство overflow — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство overflow</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>overflow</code> указывает браузеру,
+	как поступать с содержимым (текст, картинки,
+	другие блоки), которое вылазит за границы
+	блока (за его ширину или высоту). Браузер
+	может скрыть вылезающую часть, добавить полосы
+	прокрутки или ничего не делать (оставить
+	как есть - вылезшим за границы).
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	overflow: hidden | scroll | auto | visible;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>hidden</code></th>
+		<td>Скрывает то содержимое, которое вылезло за границы блока.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>scroll</code></th>
+		<td>
+			Добавляет полосы прокрутки, причем всегда,
+			даже если ничего не вылазит (в этом случае они будут неактивными).
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>auto</code></th>
+		<td>
+			Добавляет полосы прокрутки при необходимости: если содержимое не
+			помещается - они появятся, если все помещается - их не будет.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>visible</code></th>
+		<td>Не скрывает то содержимое, которое вылезло за границы блока.</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>visible</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Значение visible</h2>
+<p>
+	В данном примере очень длинное слово не поместится
+	в контейнер и вылезет за его границы. Обрезания
+	не происходит:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet
+	loooooooooooooooooooooooooooooooongword,
+	consectetur adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	overflow: visible;
+	border: 1px solid red;
+	width: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			overflow: visible;
+			border: 1px solid red;
+			width: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet
+			loooooooooooooooooooooooooooooooongword,
+			consectetur adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение visible</h2>
+<p>
+	А сейчас ограничена не только ширина, но
+	и высота (текст вылезет за блок и по высоте):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet
+	loooooooooooooooooooooooooooooooongword,
+	consectetur adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	height: 40px;
+	overflow: visible;
+	border: 1px solid red;
+	margin-bottom: 20px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			height: 40px;
+			overflow: visible;
+			border: 1px solid red;
+			margin-bottom: 20px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet
+			loooooooooooooooooooooooooooooooongword,
+			consectetur adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение hidden</h2>
+<p>
+	Сейчас все, что вылезло за границы контейнера
+	просто обрежется (и по высоте тоже). Обратите
+	внимание на то, что обрезание по высоте происходит
+	только тогда, когда она задана явно. В противном
+	случае текст расширяет контейнер по
+	высоте - и никакого обрезания не будет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet
+	loooooooooooooooooooooooooooooooongword,
+	consectetur adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	overflow: hidden;
+	width: 200px;
+	height: 40px;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			overflow: hidden;
+			width: 200px;
+			height: 40px;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet
+			loooooooooooooooooooooooooooooooongword,
+			consectetur adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение scroll</h2>
+<p>
+	При значении <code data-gs="comd/v" data-x>scroll</code> полосы прокрутки
+	будут всегда, даже если ничего не вылазит
+	(в этом случае они будут неактивными). Сейчас
+	текст не вылазит ни по ширине, ни по высоте,
+	но полосы прокрутки все равно есть (неактивные):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet
+	loooooooooooooooooooooooooooooooongword,
+	consectetur adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	overflow: scroll;
+	width: 400px;
+	height: 100px;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			overflow: scroll;
+			width: 400px;
+			height: 100px;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet
+			loooooooooooooooooooooooooooooooongword,
+			consectetur adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение auto</h2>
+<p>
+	При значении <code data-gs="comd/v" data-x>auto</code> полосы прокрутки
+	добавляются только, если содержимое вылазит
+	за контейнер. Сейчас их нет, так как все
+	помещается:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet
+	loooooooooooooooooooooooooooooooongword,
+	consectetur adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	overflow: auto;
+	width: 400px;
+	height: 100px;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			overflow: auto;
+			width: 400px;
+			height: 100px;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet
+			loooooooooooooooooooooooooooooooongword,
+			consectetur adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение auto</h2>
+<p>
+	А теперь ограничим ширину - появится горизонтальная
+	полоса прокрутки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet
+	loooooooooooooooooooooooooooooooongword,
+	consectetur adipiscing elit.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	overflow: auto;
+	height: 100px;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			overflow: auto;
+			height: 100px;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet
+			loooooooooooooooooooooooooooooooongword,
+			consectetur adipiscing elit.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../word-break/index.html"><code data-gs="comd/c" data-x>word-break</code></a>, <br>
+			переносящее буквы длинного слова на новую строку
+		</li>
+		<li>
+			свойство <a href="../overflow-wrap/index.html"><code data-gs="comd/c" data-x>overflow-wrap</code></a>, <br>
+			переносящее буквы длинного слова на новую строку
+		</li>
+		<li>
+			свойство <a href="../overflow-x/index.html"><code data-gs="comd/c" data-x>overflow-x</code></a>, <br>
+			которое обрезает вылезающие по горизонтали части
+		</li>
+		<li>
+			свойство <a href="../overflow-y/index.html"><code data-gs="comd/c" data-x>overflow-y</code></a>, <br>
+			которое обрезает вылезающие по вертикали части
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

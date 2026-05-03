@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство z-index — acteck.off</title>
+  <meta name="description" content="Свойство z-index — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство z-index</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>z-index</code> устанавливает, кто
+	будет сверху в случае, если несколько элементов
+	накладываются друг на друга.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	z-index: число | auto;
+}</code>
+</div>
+<p>
+	Число должно быть целым, положительным или
+	отрицательным. Может быть нулем.
+</p>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th>Число</th>
+		<td>
+			Целое число задает порядок наложения элементов:
+			при накладывании элементов друг на друга сверху
+			окажется тот, у которого <code data-gs="comd/c" data-x>z-index</code> больше.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>auto</code></th>
+		<td>
+			Порядок наложения строится автоматически: выше будет
+			тот элемент, который расположен ниже в HTML коде.
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>auto</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В данном примере блоки будут накладываться
+	друг на друга в порядке их следования в HTML
+	коде (<code data-gs="comd/c" data-x>z-index</code> не задан и будет иметь
+	значение по умолчанию - <code data-gs="comd/v" data-x>auto</code>). Первый
+	блок будет в самом низу (красный), а последний
+	- выше всех (зеленый):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="div1"&gt;&lt;/div&gt;
+&lt;div id="div2"&gt;&lt;/div&gt;
+&lt;div id="div3"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#div1 {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	width: 50px;
+	height: 50px;
+	background: red;
+}
+#div2 {
+	position: absolute;
+	top: 60px;
+	left: 60px;
+	width: 50px;
+	height: 50px;
+	background: blue;
+}
+#div3 {
+	position: absolute;
+	top: 90px;
+	left: 90px;
+	width: 50px;
+	height: 50px;
+	background: green;
+}</code>
+	
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+			height: 200px;
+		}
+		</style>
+		<style>
+			#div1 {
+			position: absolute;
+			top: 30px;
+			left: 30px;
+			width: 50px;
+			height: 50px;
+			background: red;
+		}
+		#div2 {
+			position: absolute;
+			top: 60px;
+			left: 60px;
+			width: 50px;
+			height: 50px;
+			background: blue;
+		}
+		#div3 {
+			position: absolute;
+			top: 90px;
+			left: 90px;
+			width: 50px;
+			height: 50px;
+			background: green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;div1&quot;></div>
+		<div id=&quot;div2&quot;></div>
+		<div id=&quot;div3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Поменяем порядок наложения, задав <code data-gs="comd/c" data-x>z-index</code>.
+	Красному блоку - <code data-gs="comd/n" data-x>3</code>, голубому - <code data-gs="comd/n" data-x>2</code>,
+	зеленому - <code data-gs="comd/n" data-x>1</code>. Порядок наложения поменяется
+	на обратный (выше всех будет блок с <code data-gs="comd/c" data-x>z-index</code>
+	<code data-gs="comd/n" data-x>3</code>):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="div1"&gt;&lt;/div&gt;
+&lt;div id="div2"&gt;&lt;/div&gt;
+&lt;div id="div3"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#div1 {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	width: 50px;
+	height: 50px;
+	background: red;
+	z-index: 3;
+}
+#div2 {
+	position: absolute;
+	top: 60px;
+	left: 60px;
+	width: 50px;
+	height: 50px;
+	background: blue;
+	z-index: 2;
+}
+#div3 {
+	position: absolute;
+	top: 90px;
+	left: 90px;
+	width: 50px;
+	height: 50px;
+	background: green;
+	z-index: 1;
+}</code>
+	
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+			height: 200px;
+		}
+		</style>
+		<style>
+			#div1 {
+			position: absolute;
+			top: 30px;
+			left: 30px;
+			width: 50px;
+			height: 50px;
+			background: red;
+			z-index: 3;
+		}
+		#div2 {
+			position: absolute;
+			top: 60px;
+			left: 60px;
+			width: 50px;
+			height: 50px;
+			background: blue;
+			z-index: 2;
+		}
+		#div3 {
+			position: absolute;
+			top: 90px;
+			left: 90px;
+			width: 50px;
+			height: 50px;
+			background: green;
+			z-index: 1;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;div1&quot;></div>
+		<div id=&quot;div2&quot;></div>
+		<div id=&quot;div3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

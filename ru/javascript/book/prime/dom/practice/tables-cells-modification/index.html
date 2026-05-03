@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Изменение ячеек HTML таблицы на JavaScript — acteck.off</title>
+  <meta name="description" content="Изменение ячеек HTML таблицы на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Изменение ячеек HTML таблицы на JavaScript</h1>
+    <p>
+	Пусть дана некоторая HTML таблица <code data-gs="comd/z" data-x>#table</code>.
+	Пусть перед нами стоит задача что-то сделать
+	с каждой ячейкой таблицы, например, записать
+	в каждую из них текст <code data-gs="comd/s" data-x>'!'</code>.
+</p>
+<p>
+	Давайте обсудим нюансы решения подобной задачи.
+</p>
+<p>
+	Как вы знаете, HTML таблица имеет двухмерную
+	структуру: есть ряды, а в них ячейки. Можно
+	решить нашу задачу следующим образом: перебрать
+	циклом ряды и в каждом ряду перебрать циклом
+	ячейки и сделать с ними нужное нам действие.
+	To есть приведенная схема решения подобна
+	тому, как бы мы создавали такую таблицу,
+	заполняя ее рядами и ячейками.
+</p>
+<p>
+	Однако, в данном случае, два вложенных цикла
+	будут лишними: можно просто получить все
+	<code data-gs="comd/c" data-x>td</code> и перебрать их циклом, выполняя
+	нужную операцию. Сделаем это:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let tds = document.querySelectorAll('#table td');
+
+for (let td of tds) {
+	td.textContent = '!';
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть дана некоторая HTML таблица с числами
+		и кнопка. По нажатию на кнопку увеличьте
+		число в каждой ячейки таблицы в два раза.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

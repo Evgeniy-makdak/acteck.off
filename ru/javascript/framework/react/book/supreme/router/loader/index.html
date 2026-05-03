@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Загрузчик данных для маршрута в React Router — acteck.off</title>
+  <meta name="description" content="Загрузчик данных для маршрута в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Загрузчик данных для маршрута в React Router</h1>
+    <p>
+	На прошлом уроке мы извлекли данные
+	продуктов из хранилища. Теперь эти
+	данные нужно загрузить в элемент
+	маршрута. Для этого используется
+	функция загрузчика (<span data-gs="lang/e" data-x>loader</span>). Сейчас
+	мы ее создадим.
+</p>
+<p>
+	Откроем <code data-gs="comd/p" data-x>root.jsx</code>, добавим
+	сюда строчку импорта <code data-gs="comd/p" data-x>getProducts</code>
+	из <code data-gs="comd/p" data-x>forStorage.js</code>:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { getProducts } from '../forStorage'</code>
+</div>
+<p>
+	Сразу после строчек импорта и перед функцией
+	<code data-gs="comd/c" data-x>Root</code> напишем код функции <code data-gs="comd/c" data-x>loader</code>,
+	которая через <code data-gs="comd/c" data-x>getProducts</code> будет
+	возвращать нам данные с продуктами из
+	хранилища. Вообще такие функции надо писать
+	в отдельном файле, но мы немного
+	поленимся, так что не обращайте внимание на
+	предупреждение:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function loader() {
+	const products = await getProducts();
+	return { products };
+}</code>
+</div>
+<p>
+	Давайте теперь добавим импорт нашего
+	загрузчика в <code data-gs="comd/p" data-x>main.jsx</code>. Этот
+	загрузчик у нас будет для
+	корня, поэтому назовем его
+	<code data-gs="comd/c" data-x>rootLoader</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Root, { loader as rootLoader } from './routes/root';</code>
+</div>
+<p>
+	И добавим его в наш объект маршрута
+	в свойство <code data-gs="comd/c" data-x>loader</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([
+	{
+		path: '/',
+		element: &lt;Root /&gt;,
+		errorElement: &lt;ErrorPage404 /&gt;,
+		loader: rootLoader,
+		children: [
+			{
+				path: 'products/:productId',
+				element: &lt;Product /&gt;,
+			},
+		],
+	},
+]);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлым урокам. Пользуясь
+		материалами урока, напишите в файле
+		<code data-gs="comd/p" data-x>root.jsx</code> функцию <code data-gs="comd/c" data-x>loader</code>
+		для загрузки данных студентов и добавьте
+		ее в объект маршрута в main.jsx.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

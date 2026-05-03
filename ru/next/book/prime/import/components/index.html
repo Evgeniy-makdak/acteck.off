@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Импорт компонентов в NextJS — acteck.off</title>
+  <meta name="description" content="Импорт компонентов в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/next/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Импорт компонентов в NextJS</h1>
+    <p>
+	Импортировать можно не только файлы
+	с данными, но и компоненты подобно тому,
+	как мы привыкли действовать при работе
+	в обычном React. Давайте посмотрим,
+	как это работает.
+</p>
+<p>
+	Для начала введем некоторые соглашения.
+	Как вы уже знаете, в папке <code data-gs="comd/p" data-x>src/app</code>
+	размещаются страницы сайта. Давайте
+	разместим дочерние компоненты в папке
+	<code data-gs="comd/p" data-x>src/comp</code>.
+</p>
+<p>
+	Давайте теперь подключим дочерний
+	компонент к какой-нибудь странице.
+	Пусть у нас есть такая
+	страница:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Test() {
+	return &lt;&gt;
+		&lt;h1&gt;Test&lt;/h1&gt;
+	&lt;/&gt;;
+}</code>
+</div>
+<p>
+	Пусть у нас есть следующий
+	дочерний компонент:
+</p>
+<div data-p="bock/pane" data-p-file="src/comp/child/child.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Child() {
+	return &lt;p&gt;
+		child
+	&lt;/p&gt;;
+}</code>
+</div>
+<p>
+	Импортируем наш дочерний компонент
+	к нашей странице:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Child from '@/comp/child/child.jsx';
+
+export default function Test() {
+	return &lt;&gt;
+		&lt;h1&gt;Test&lt;/h1&gt;
+	&lt;/&gt;;
+}</code>
+</div>
+<p>
+	Выполним вставку импортированного компонента.
+	Для этого используем тег с именем
+	переменной компонента:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Child from '@/comp/child/child.jsx';
+
+export default function Test() {
+	return &lt;&gt;
+		&lt;h1&gt;Test&lt;/h1&gt;
+		&lt;Child /&gt;
+	&lt;/&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте несколько дочерних
+		компонентов. Импортируйте их
+		к вашим страницам.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

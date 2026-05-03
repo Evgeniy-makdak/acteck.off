@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Наследование CSS свойств — acteck.off</title>
+  <meta name="description" content="Наследование CSS свойств — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Наследование CSS свойств</h1>
+    <p>
+	Пусть у нас есть абзац, а в нем какой-то
+	текст в теге <code data-gs="comd/c" data-x>i</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	This is some &lt;i&gt;text&lt;/i&gt; in paragraph.
+&lt;/p&gt;</code>
+</div>
+<p>
+	Давайте покрасим абзацы в красный цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: red;
+}</code>
+</div>
+<p>
+	В результате покрасится не только текст абзаца,
+	но и текст тега <code data-gs="comd/c" data-x>i</code>:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			color: red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			This is some <i>text</i> in paragraph.
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Все дело в том, что свойство <code data-gs="comd/c" data-x>color</code>
+	<dfn data-gs="comd/d" data-x>наследуется</dfn>. Это значит, что если
+	у родительского тега задан какой-то цвет,
+	то такой цвет будет и потомков. Наследуются
+	не все CSS свойства, но многие (из тех, что
+	вы уже знаете - все наследуются).
+</p>
+<p>
+	При желании, однако, можно переопределить
+	свойство родителя, задав селектор потомка.
+	Например, давайте абзацу зададим красный
+	цвет, а курсиву - голубой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	This is some &lt;i&gt;text&lt;/i&gt; in paragraph.
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: red;
+}
+i {
+	color: blue;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			color: red;
+		}
+		i {
+			color: blue;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			This is some <i>text</i> in paragraph.
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Порядок селекторов в CSS коде в таком случае
+	не имеет значения. Если переставить местами
+	селектор <code data-gs="comd/z" data-x>i</code> и селектор <code data-gs="comd/z" data-x>p</code>, все будет работать
+	так же:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	This is some &lt;i&gt;text&lt;/i&gt; in paragraph.
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">i {
+	color: blue;
+}
+p {
+	color: red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			i {
+			color: blue;
+		}
+		p {
+			color: red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			This is some <i>text</i> in paragraph.
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<div data-w="cont/task">
+	<p>
+		Изучив код, скажите какой цвет будет иметь
+		текст в теге <code data-gs="comd/c" data-x>b</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	This is some &lt;b&gt;text&lt;/b&gt; in paragraph.
+&lt;/p&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: blue;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Изучив код, скажите какой цвет будет иметь
+		текст в теге <code data-gs="comd/c" data-x>b</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	This is some &lt;b&gt;text&lt;/b&gt; in paragraph.
+&lt;/p&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: blue;
+}
+b {
+	color: red;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Изучив код, скажите какой цвет будет иметь
+		текст в теге <code data-gs="comd/c" data-x>b</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	This is some &lt;b&gt;text&lt;/b&gt; in paragraph.
+&lt;/p&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">b {
+	color: red;
+}
+p {
+	color: blue;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Изучив код, скажите какой цвет будет иметь
+		текст в теге <code data-gs="comd/c" data-x>li</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+&lt;/ul&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">ul {
+	color: blue;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Изучив код, скажите какой цвет будет иметь
+		текст в теге <code data-gs="comd/c" data-x>li</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+&lt;/ul&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">ul {
+	color: blue;
+}
+li {
+	color: red;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Изучив код, скажите какой цвет будет иметь
+		текст в теге <code data-gs="comd/c" data-x>i</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;text &lt;i&gt;italic&lt;/i&gt; text&lt;/li&gt;
+	&lt;li&gt;text &lt;i&gt;italic&lt;/i&gt; text&lt;/li&gt;
+	&lt;li&gt;text &lt;i&gt;italic&lt;/i&gt; text&lt;/li&gt;
+&lt;/ul&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">ul {
+	color: blue;
+}
+li {
+	color: red;
+}
+i {
+	color: green;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Изучив код, скажите какой размер будет иметь
+		текст в теге <code data-gs="comd/c" data-x>i</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;text &lt;i&gt;italic&lt;/i&gt; text&lt;/li&gt;
+	&lt;li&gt;text &lt;i&gt;italic&lt;/i&gt; text&lt;/li&gt;
+	&lt;li&gt;text &lt;i&gt;italic&lt;/i&gt; text&lt;/li&gt;
+&lt;/ul&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">i {
+	font-size: 30px;
+}
+ul {
+	font-size: 20px;
+}
+li {
+	color: red;
+	font-weight: bold;
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

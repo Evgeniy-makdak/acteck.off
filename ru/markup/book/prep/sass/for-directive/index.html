@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Директива @for в SASS — acteck.off</title>
+  <meta name="description" content="Директива @for в SASS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Директива @for в SASS</h1>
+    <p>
+	С помощью директивы <code data-gs="comd/c" data-x>@for</code>
+	можно вывести определенные стили
+	в количестве, указанном
+	переменной-счетчиком.
+	Первый вариант записи <code data-gs="comd/c" data-x>@for</code> выглядит так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $var from (begin) through (end)</code>
+</div>
+<p>
+	В этом случае в диапазон строго включаются
+	значения (begin) и (end).
+	Стоит обратить внимание на то, что
+	(begin) и (end) - должны возвращать
+	целые числа, поскольку они задают
+	направление счёта, т.е. если (begin)
+	меньше, чем (end), счётчик будет расти
+	и соответственно, если наоборот - убывать.
+</p>
+<p>
+	Рассмотрим работу директивы <code data-gs="comd/c" data-x>@for</code>
+	в первом варианте синтаксиса
+	на следующем примере:
+</p>
+<div data-p="bock/pane" data-p-file="styles.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $count from 1 through 5 {
+	.li-#{$count} {
+		width: $count + px;
+	}
+}</code>
+</div>
+<p>
+	Результат компиляции:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.li-1 {
+	width: 1px; 
+}
+.li-2 {
+	width: 2px; 
+}
+.li-3 {
+	width: 3px; 
+}
+.li-4 {
+	width: 4px; 
+}
+.li-5 {
+	width: 5px; 
+}</code>
+</div>
+<p>
+	Во втором варианте запись
+	выглядит следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $var from (begin) to (end)</code>
+</div>
+<p>
+	Причем здесь значение (end)
+	отбрасывается.
+</p>
+<p>
+	Возьмем предыдущий пример и запишем
+	его во втором варианте:
+</p>
+<div data-p="bock/pane" data-p-file="styles.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $count from 1 to 5 {
+	.li-#{$count} {
+		width: $count + px;
+	}
+}</code>
+</div>
+<p>
+	Теперь обратите внимание
+	на получившийся код:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.li-1 {
+	width: 1px; 
+}
+
+.li-2 {
+	width: 2px; 
+}
+
+.li-3 {
+	width: 3px; 
+}
+
+.li-4 {
+	width: 4px; 
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $var from 5 through 1 {
+	li-#{$var} {
+		padding: 10 * $var + px;
+	}
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $var from 1 to 3 {
+	.navbar-link-#{$var} {
+		color: blue;
+		width: 10px * $var;
+	}
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

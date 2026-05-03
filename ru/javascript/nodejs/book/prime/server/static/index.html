@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реализуем статический сервер на NodeJS — acteck.off</title>
+  <meta name="description" content="Реализуем статический сервер на NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/nodejs/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Реализуем статический сервер на NodeJS</h1>
+    <p>
+	Давайте теперь сделаем так, чтобы по URL
+	на нашем сайте искался соответствующий ему
+	HTML файл. Например, если запрашивается <code data-gs="comd/p" data-x>/page.html</code>,
+	то мы должны отдать такой же файл, а если
+	запрашивается <code data-gs="comd/p" data-x>/dir/test.html</code>,
+	то мы должны отдать файл <code data-gs="comd/p" data-x>test.html</code>
+	из папки <code data-gs="comd/p" data-x>dir</code>.
+</p>
+<p>
+	Давайте все наши HTML файлы разместим в папке
+	<code data-gs="comd/p" data-x>root</code>. Это будет корневая папка нашего
+	сайта и поиск HTML файлов мы будем начинать
+	относительно этой папки.
+</p>
+<p>
+	Реализуем описанное:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">http.createServer(async (request, response) =&gt; {
+	if (request.url != '/favicon.ico') {
+		let path = 'root' + request.url'; // преобразуем URL в путь к файлу
+		let text = await fs.promises.readFile(path, 'utf8');
+		
+		response.writeHead(200, {'Content-Type': 'text/html'});
+		response.write(text);
+		response.end();
+	}
+}).listen(3000);</code>
+</div>
+<p>
+	Давайте теперь обработаем URL вида <code data-gs="comd/p" data-x>/dir/sub/</code>.
+	Как вы видите, в этом адресе не указано имя
+	файла и его расширение. В интернете принято
+	считать, что такой адрес ссылается на файл
+	<code data-gs="comd/p" data-x>index.html</code>, находящийся в этой папке.
+	To есть наш URL следует трактовать как <code data-gs="comd/p" data-x>/dir/sub/index.html</code>.
+</p>
+<p>
+	Давайте модифицируем наш код:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">http.createServer(async (request, response) =&gt; {
+	if (request.url != '/favicon.ico') {
+		let path = 'root' + request.url';
+		
+		if ((await fs.promises.stat(path)).isDirectory()) {
+			path += 'index.html';
+		}
+		
+		let text = await fs.promises.readFile(path, 'utf8');
+		
+		response.writeHead(200, {'Content-Type': 'text/html'});
+		response.write(text);
+		response.end();
+	}
+}).listen(3000);</code>
+</div>
+<p>
+	Если запрошенный URL не соответствует файлу
+	на нашем сайте, очевидно, что мы должны отдавать
+	<code data-gs="comd/n" data-x>404</code> ошибку. Сделаем это:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">http.createServer(async (request, response) =&gt; {
+	if (request.url != '/favicon.ico') {
+		let text;
+		let status;
+		let path = 'root' + request.url;
+		
+		try {
+			if ((await fs.promises.stat(path)).isDirectory()) {
+				path += '/index.html';
+			}
+			
+			status = 200;
+			text = await fs.promises.readFile(path, 'utf8');
+		} catch (err) {
+			status = 404;
+			text = 'page not found';
+		}
+		
+		response.writeHead(status, {'Content-Type': 'text/html'});
+		response.write(text);
+		response.end();
+	}
+}).listen(3000);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Рееализуйте описанный статический сервер.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте так, чтобы <code data-gs="comd/n" data-x>404</code> страница тоже
+		бралась из файла, например, из файла <code data-gs="comd/p" data-x>root/404.html</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		При обращении к папке URL со слешем <code data-gs="comd/p" data-x>/dir/sub/</code>
+		и без слеша считаются одинаковым <code data-gs="comd/p" data-x>/dir/sub</code>
+		и оба ведут на <code data-gs="comd/p" data-x>index</code> папки. Проверьте,
+		как наш сервер справляется с этим. Если есть
+		какие-то проблемы - исправьте их.
+	</p>
+</div>
+
+<h2>Выдача ресурсов</h2>
+<p>
+	Давайте теперь модифицируем наш сервер так,
+	чтобы кроме HTML файлов, автоматически также
+	выдавались запрошенные ресурсы.
+</p>
+<p>
+	Для начала давайте сделаем функцию, которая
+	будет принимать путь к файлу и по расширению
+	этого файла выдавать его mime тип:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getMimeType(path) {
+	let mimes = {
+		html: 'text/html',
+		jpeg: 'image/jpeg',
+		jpg:  'image/jpeg',
+		png:  'image/png',
+		svg:  'image/svg+xml',
+		json: 'application/json',
+		js:   'text/javascript',
+		css:  'text/css',
+		ico:  'image/x-icon',
+	};
+	
+	let exts = Object.keys(mimes);
+	let extReg = new RegExp('\\.(' + exts.join('|') + ')$');
+	
+	let ext = path.match(extReg)[1];
+	
+	if (ext) {
+		return mimes[ext];
+	} else {
+		return 'text/plain';
+	}
+}</code>
+</div>
+<p>
+	Имея такую функцию, легко адаптировать наш
+	сервер для выдачи файлов любого типа:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">http.createServer(async (request, response) =&gt; {
+	let text;
+	let status;
+	let path = 'root' + request.url;
+	
+	try {
+		if ((await fs.promises.stat(path)).isDirectory()) {
+			path += '/index.html';
+		}
+		
+		status = 200;
+		text = await fs.promises.readFile(path, 'utf8');
+	} catch (err) {
+		status = 404;
+		text = 'page not found';
+	}
+	
+	response.writeHead(status, {'Content-Type': getMimeType(path)}); // изменение
+	response.write(text);
+	response.end();
+}).listen(3000);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Скопируйте функцию <code data-gs="comd/c" data-x>getMimeType</code> из
+		учебника. Исправьте код вашего сервера, используя
+		эту функцию.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте сайт о вашем городе. Пусть сайт
+		состоит из <code data-gs="comd/n" data-x>6</code>-ти HTML страниц. К этим
+		страницам должен быть подключен общий CSS
+		файл, общий JavaScript файл, добавлены картинки.
+		На каждой странице должна быть менюшка, с
+		помощью которой можно будет перемещаться
+		по страницам сайта.
+	</p>
+</div>
+
+<h2>Убираем расширение из URL</h2>
+<p>
+	Мы реализовали наш сервер так, что все URL
+	(кроме адресов папок) заканчиваются расширением
+	<code data-gs="comd/p" data-x>.html</code>. Однако, в современном мире
+	наличие расширения файла в адресе считается
+	признаком дурного тона и старомодности.
+</p>
+<p>
+	Для красоты необходимо сделать так, чтобы
+	адрес вида <code data-gs="comd/p" data-x>/page/</code> соответствовал
+	файлу <code data-gs="comd/p" data-x>root/page.html</code>, адрес вида <code data-gs="comd/p" data-x>/dir/page/</code>
+	- файлу <code data-gs="comd/p" data-x>root/dir/page.html</code>, а адрес
+	главной страницы <code data-gs="comd/p" data-x>/</code> - файлу <code data-gs="comd/p" data-x>root/index.html</code>.
+</p>
+<p>
+	При этом запросы к ресурсам должны работать,
+	как и работали.
+</p>
+<div data-w="cont/task">
+	<p>
+		Уберите из ваших адресов расширения HTML файлов.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Перебор объектов в Vue — acteck.off</title>
+  <meta name="description" content="Перебор объектов в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/vue/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/vue/index.html">Vue</a>
+    </div>
+
+    <h1>Перебор объектов в Vue</h1>
+    <p>
+	Объекты также перебираются с помощью
+	директивы <code data-gs="comd/c" data-x>v-for</code>. Давайте
+	посмотрим, как это делается.
+	Пусть у нас есть следующий
+	объект:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		obj: {a: 1, b: 2, c: 3},
+	}
+}</code>
+</div>
+<p>
+	Переберем этот объект циклом
+	и выведем его элементы:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;p v-for="elem in obj"&gt;
+		{{ elem }}
+	&lt;/p&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	А теперь выведем и ключи,
+	и элементы:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;p v-for="(elem, key) in obj"&gt;
+		{{ key }} {{ elem }}
+	&lt;/p&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	А теперь выведем еще и порядковые
+	номера элементов в объекте:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;p v-for="(elem, key, index) in obj"&gt;
+		{{ index }}
+		{{ key }}
+		{{ elem }}
+	&lt;/p&gt;
+&lt;/template&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий объект:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{
+	user1: '100$',
+	user2: '200$',
+	user3: '300$',
+}</code>
+	</div>
+	<p>
+		С помощью <code data-gs="comd/c" data-x>v-for</code> выведите на экран следующее:
+	</p>
+	<div class="block">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;100$&lt;/li&gt;
+	&lt;li&gt;200$&lt;/li&gt;
+	&lt;li&gt;300$&lt;/li&gt;
+&lt;/ul&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий объект:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{
+	user1: '100$',
+	user2: '200$',
+	user3: '300$',
+}</code>
+	</div>
+	<p>
+		С помощью <code data-gs="comd/c" data-x>v-for</code> выведите на экран следующее:
+	</p>
+	<div class="block">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;user1 - 100$&lt;/li&gt;
+	&lt;li&gt;user2 - 200$&lt;/li&gt;
+	&lt;li&gt;user3 - 300$&lt;/li&gt;
+&lt;/ul&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте предыдущую задачу так, чтобы
+		в конце каждой <code data-gs="comd/c" data-x>li</code> стоял еще и порядковый
+		номер элемента в объекте. Вот так:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;user1 - 100$ - 0&lt;/li&gt;
+	&lt;li&gt;user2 - 200$ - 1&lt;/li&gt;
+	&lt;li&gt;user3 - 300$ - 2&lt;/li&gt;
+&lt;/ul&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте предыдущую задачу так, чтобы
+		номера начинались не с нуля, а с единицы. Вот так:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;user1 - 100$ - 1&lt;/li&gt;
+	&lt;li&gt;user2 - 200$ - 2&lt;/li&gt;
+	&lt;li&gt;user3 - 300$ - 3&lt;/li&gt;
+&lt;/ul&gt;</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

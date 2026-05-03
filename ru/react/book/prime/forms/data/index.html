@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обработка данных формы по нажатию на кнопку в React — acteck.off</title>
+  <meta name="description" content="Обработка данных формы по нажатию на кнопку в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Обработка данных формы по нажатию на кнопку в React</h1>
+    <p>
+	В предыдущем уроке мы делали так, чтобы при
+	вводе символа в инпут в абзаце мгновенно
+	появлялся результат. Это, конечно же, смотрится
+	красиво, но имеет недостаток.
+</p>
+<p>
+	Представим себе, что нам нужно сделать некоторую
+	"тяжелую", ресурсоемкую операцию. Не очень
+	оптимально делать ее на каждый ввод символа
+	- лучше дождаться окончательного ввода данных
+	и потом выполнить нужную операцию один раз
+	и результат вывести в абзац.
+</p>
+<p>
+	Для этого нам нужно ввести кнопку, по нажатию
+	на которую будет совершаться наша ресурсоемкая
+	операция. В таком случае у нас опять каждому
+	инпуту будет соответствовать свой стейт,
+	плюс еще один стейт нам нужен для записи
+	результата операции и отображения его на экран.
+</p>
+<p>
+	Посмотрим на примере. Пусть у нас есть два
+	инпута и кнопка. По нажатию на кнопку давайте
+	найдем сумму чисел, введенных в инпуты.
+</p>
+<p>
+	Реализуем:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [value1, setValue1] = useState(0);
+	const [value2, setValue2] = useState(0);
+	const [result, setResult] = useState(0);
+	
+	function handleChange1(event) {
+		setValue1(event.target.value);
+	}
+	
+	function handleChange2(event) {
+		setValue2(event.target.value);
+	}
+	
+	function handleClick() {
+		setResult(Number(value1) + Number(value2));
+	}
+	
+	return &lt;div&gt;
+		&lt;input value={value1} onChange={handleChange1} /&gt;
+		&lt;input value={value2} onChange={handleChange2} /&gt;
+		
+		&lt;button onClick={handleClick}&gt;btn&lt;/button&gt;
+		&lt;p&gt;result: {result}&lt;/p&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Можно использовать сокращенный вариант:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [value1, setValue1] = useState(0);
+	const [value2, setValue2] = useState(0);
+	const [result, setResult] = useState(0);
+	
+	return &lt;div&gt;
+		&lt;input value={value1} onChange={event =&gt; setValue1(event.target.value)} /&gt;
+		&lt;input value={value2} onChange={event =&gt; setValue2(event.target.value)} /&gt;
+		
+		&lt;button onClick={() =&gt; setResult(Number(value1) + Number(value2))}&gt;btn&lt;/button&gt;
+		&lt;p&gt;result: {result}&lt;/p&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны два инпута, две кнопки и абзац. Пусть
+		в инпуты вводятся числа. По нажатию на первую
+		кнопку найдите сумму чисел, а по нажатию
+		на вторую кнопку - произведение. Результат
+		выводите в абзац.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны два инпута, кнопка и абзац. Пусть в
+		инпуты вводятся даты в формате <span data-gs="comd/f" data-x>2025-12-31</span>.
+		По нажатию на кнопку найдите разницу между
+		датами в днях и результат выведите в абзац.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу так, чтобы
+		по умолчанию в инпутах стояла текущая дата.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан инпут и абзац. В инпут вводится число.
+		По потери фокуса выведите в абзац сумму цифр
+		введенного числа.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан инпут и абзац. В инпут вводится число.
+		По потери фокуса выведите в абзац произведение
+		делителей введенного числа.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

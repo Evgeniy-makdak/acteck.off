@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Основной принцип работы фреймворка NextJS — acteck.off</title>
+  <meta name="description" content="Основной принцип работы фреймворка NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/next/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Основной принцип работы фреймворка NextJS</h1>
+    <p>
+	В предыдущих уроках мы установили
+	фреймворк NextJS и познакомились
+	с его базовой структурой.
+	Пришло время заняться основной работой.
+</p>
+<p>
+	Основной частью NextJS является <dfn data-gs="comd/d" data-x>роутинг</dfn>.
+	Роутинг работает так: когда пользователь
+	вбивает в адресную строку браузера
+	какой-то URL, фреймворк NextJS будет
+	отдавать в браузер определенный файл,
+	соответствующий этому URL.
+</p>
+<p>
+	Роутинг в NextJS устроен особым образом.
+	Его суть заключается в том, что каждому
+	запрошенному URL соответствует некая
+	папка внутри <code data-gs="comd/p" data-x>src/app</code>.
+</p>
+<p>
+	При этом внутри папки должен быть
+	файл с названием <code data-gs="comd/p" data-x>page.jsx</code>.
+	Именно этот файл и будет отдаваться
+	в браузер. Причем в этом файле мы
+	будем писать код на JSX, а в браузер
+	будет отправляться готовый HTML код страницы.
+</p>
+<p>
+	Давайте посмотрим на примере.
+	Пусть мы хотим, чтобы по URL <code data-gs="comd/p" data-x>/test/</code>
+	отдавался некоторый текст.
+</p>
+<p>
+	Создадим соответствующую папку: <code data-gs="comd/p" data-x>src/app/test</code>.
+	Внутри этой папки сделаем файл <code data-gs="comd/p" data-x>page.jsx</code>
+	со следующим содержимым:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Test() {
+	return &lt;h1&gt;hello, user!&lt;/h1&gt;;
+}</code>
+</div>
+<p>
+	Откройте в браузере наш URL:
+	<a href="http://localhost:3000/test">/test</a>.
+	И вы увидите текст, написанный нами внутри
+	JSX файла.
+</p>
+<p>
+	Попробуйте поменяйте текст и сохраните
+	файл. После этого текст автоматически
+	поменяется и в браузере. Так работает
+	NextJS в режиме разработки.
+</p>
+<div data-w="cont/task">
+	<p>
+		Сделайте так, чтобы при обращении на адрес
+		<code data-gs="comd/p" data-x>/about</code> в браузер выводилось
+		сообщение с вашим именем и
+		фамилией.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

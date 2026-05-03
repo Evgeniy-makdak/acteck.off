@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статические методы в TypeScript — acteck.off</title>
+  <meta name="description" content="Статические методы в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/typescript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Статические методы в TypeScript</h1>
+    <p>
+	Статическими могут быть не только свойства,
+	но и методы. Такие методы можно вызывать
+	без создания объекта класса. 
+</p>
+<p>
+	Давайте посмотрим на примере. Сделаем
+	класс, выполняющий суммирование элементов
+	массива. Сделаем в нем статический метод,
+	параметром принимающий массив, а возвращающий
+	сумму элементов массива: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class Calc {
+	public static getSum(arr: number[]): number {
+		let sum: number = 0;
+		
+		for (let elem of arr) {
+			sum += elem;
+		}
+		
+		return sum;
+	}
+}</code>
+</div>
+<p>
+	Воспользуемся этим методом, чтобы найти
+	сумму элементов какого-нибудь массива: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let num: number = Calc.getSum([1, 2, 3, 4, 5]);
+console.log(num);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		В класс <code data-gs="comd/c" data-x>Calc</code> добавьте методы, которые
+		будут находить сумму квадратов и сумму
+		кубов элементов массивов. 
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

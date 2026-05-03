@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оптимизация работы с DOM в JavaScript — acteck.off</title>
+  <meta name="description" content="Оптимизация работы с DOM в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Оптимизация работы с DOM в JavaScript</h1>
+    <p>
+	Работа с DOM это медленная операция.
+	Поэтому нужно сводить к минимуму
+	получение элементов, чтение и запись
+	данных, особенно в цикле.
+</p>
+<p>
+	Давайте посмотрим на примере.
+	Пусть у нас есть инпут, в который
+	вводится число:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input&gt;</code>
+</div>
+<p>
+	Давайте по потери фокуса проверим,
+	что введенное число находится в заданном
+	диапазоне:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let input = document.querySelector('input');
+
+input.addEventListener('blur', function() {
+	if (+input.value &gt; 0 && +input.value &lt;= 10) {
+		console.log('+++');
+	} else {
+		console.log('---');
+	}
+});</code>
+</div>
+<p>
+	Проблема в том, что мы два раза
+	прочитываем текст из инпута, хотя
+	число в нем не меняется. Это,
+	конечно же, не оптимально.
+	Оптимизируем:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let input = document.querySelector('input');
+
+input.addEventListener('blur', function() {
+	let num = +input.value;
+	
+	if (num &gt; 0 && num &lt;= 10) {
+		console.log('+++');
+	} else {
+		console.log('---');
+	}
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Следующий код проверяет введенное значение.
+		Выполните оптимизацию:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let input = document.querySelector('input');
+
+input.addEventListener('blur', function() {
+	if (input.value === '1' || input.value === '2') {
+		console.log('+++');
+	} else {
+		console.log('---');
+	}
+});</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Следующий код ищет сумму целых чисел
+		от единицы до введенного в инпут числа.
+		Выполните оптимизацию:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let input = document.querySelector('input');
+
+input.addEventListener('blur', function() {
+	let sum = 0;
+	
+	for (let i = 1; i &lt;= +input.value; i++) {
+		sum += i;
+	}
+	
+	console.log(sum);
+});</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Следующий код ищет сумму делителей
+		введенного в инпут числа.
+		Выполните оптимизацию:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input&gt;
+&lt;div&gt;&lt;/div&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let input = document.querySelector('input');
+
+input.addEventListener('blur', function() {
+	let sum = 0;
+	
+	for (let i = 1; i &lt;= +input.value; i++) {
+		if (input.value % i === 0) {
+			sum += i;
+			
+			let div = document.querySelector('div');
+			div.textContent = sum;
+		}
+	}
+});</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Следующий код возводит числа из абзацев
+		в квадрат. Выполните оптимизацию:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;1&lt;/p&gt;
+&lt;p&gt;2&lt;/p&gt;
+&lt;p&gt;3&lt;/p&gt;
+&lt;p&gt;4&lt;/p&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');
+
+for (let elem of elems) {
+	elem.textContent = elem.textContent * elem.textContent;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Следующий код проверяет, что в инпут введена
+		строка длиной в заданном диапазоне.
+		Выполните оптимизацию:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input data-min="5" data-max="10"&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let inp = document.querySelector('input');
+
+inp.addEventListener('blur', function() {
+	if (inp.dataset.min &gt; inp.value.length || inp.dataset.max &lt; inp.value.length) {
+		console.log('+++');
+	} else {
+		console.log('---');
+	}
+});</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

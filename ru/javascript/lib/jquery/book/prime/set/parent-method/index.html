@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод parent в jQuery — acteck.off</title>
+  <meta name="description" content="Метод parent в jQuery — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод parent в jQuery</h1>
+    <p>
+	Мы с вами уже немного разбирали метод
+	<a href="../../../../manual/parent/index.html"><code data-gs="comd/c" data-x>parent</code></a>,
+	когда обсуждали псевдокласс
+	<a href="../../../../manual/selector/parent/index.html"><code data-gs="comd/z" data-x>parent</code></a>.
+	Напоминаю, что метод <code data-gs="comd/c" data-x>parent</code> и селектор <code data-gs="comd/z" data-x>parent</code>
+	делают разные вещи, первый находит родителя элемента, а
+	второй все непустые элементы (являющиеся родителями).
+</p>
+<p>
+	В следующем примере мы найдем элемент <code data-gs="comd/c" data-x>#test</code>,
+	затем найдем его родителя с помощью <code data-gs="comd/c" data-x>parent</code>
+	и поставим ему текст <code data-gs="comd/s" data-x>'!'</code>. Пусть у нас есть
+	следующий HTML код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;outside&lt;/p&gt;
+&lt;div&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+	&lt;p id="test"&gt;inside&lt;/p&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;outside&lt;/p&gt;</code>
+</div>
+<p>
+	А теперь мы прописываем метод <code data-gs="comd/c" data-x>parent</code> в
+	Javascript код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').parent().html('!');</code>
+</div>
+<p>
+	Не забывайте про то, что в этот метод
+	можно передавать селектор, для дополнительной
+	фильтрации родителей.
+</p>
+<div data-w="cont/task">
+	<p>
+		Найдите родителя элемента с классом
+		<code data-gs="comd/z" data-x>www</code> и покрасьте его в красный
+		цвет.  
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Найдите родителей всех тегов <code data-gs="comd/c" data-x>b</code>
+		и сделайте их красным цветом.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Найдите родителей всех тегов <code data-gs="comd/c" data-x>b</code>, и те,
+		которые имеют класс <code data-gs="comd/z" data-x>test</code>
+		покрасьте в красный цвет.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

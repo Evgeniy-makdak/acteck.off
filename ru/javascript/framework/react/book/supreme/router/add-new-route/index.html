@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавление ещё одного маршрута в React Router — acteck.off</title>
+  <meta name="description" content="Добавление ещё одного маршрута в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Добавление ещё одного маршрута в React Router</h1>
+    <p>
+	У нас есть корневой маршрут, ведущий
+	на главную страницу, на которой у нас
+	есть ссылки для продуктов. Давайте
+	теперь добавим еще один маршрут, чтобы
+	при клике по одной из ссылок у нас
+	отображалась страничка для продукта,
+	а не экран с ошибкой.
+</p>
+<p>
+	Для начала давайте откроем наше приложение,
+	которое мы делали на прошлых уроках и
+	создадим в папке <code data-gs="comd/p" data-x>routes</code>
+	файл <code data-gs="comd/p" data-x>product.jsx</code>. Сделаем в нем
+	компонент <code data-gs="comd/c" data-x>Product</code>:
+</p>
+<div data-p="bock/pane" data-p-file="routes/product.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product() {}
+
+export default Product;</code>
+</div>
+<p>
+	Теперь создадим внутри <code data-gs="comd/c" data-x>Product</code>
+	объект <code data-gs="comd/c" data-x>product</code>, со свойствами
+	<code data-gs="comd/c" data-x>name</code>, <code data-gs="comd/c" data-x>cost</code> и <code data-gs="comd/c" data-x>amount</code>,
+	пока это будут некоторые
+	фиксированные значения:
+</p>
+<div data-p="bock/pane" data-p-file="routes/product.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product() {
+	const product = {
+		name: 'Product',
+		cost: 400,
+		amount: 5,
+	};
+}
+
+export default Product;</code>
+</div>
+<p>
+	И на страничке продукта мы будем
+	выводить, соответственно, его название,
+	стоимость и количество:
+</p>
+<div data-p="bock/pane" data-p-file="routes/product.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
+	&lt;div&gt;
+		&lt;h2&gt;Product page&lt;/h2&gt;
+		&lt;p&gt;Name: {product.name}&lt;/p&gt;
+		&lt;p&gt;Cost: {product.cost}&lt;/p&gt;
+		&lt;p&gt;Amount: {product.amount}&lt;/p&gt;
+	&lt;/div&gt;
+);</code>
+</div>
+<p>
+	Обязательно добавим импорт компонента
+	<code data-gs="comd/c" data-x>Product</code> в файл <code data-gs="comd/p" data-x>main.jsx</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Product from './routes/product';</code>
+</div>
+<p>
+	И, наконец, добавим еще один маршрут
+	в наше приложение, сделаем это сразу
+	после корневого. В качестве пути
+	укажем <code data-gs="comd/v" data-x>'products/:productId'</code>, а в
+	качестве элемента для отображения
+	у нас выступает компонент <code data-gs="comd/c" data-x>Product</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{
+	path: '/',
+	element: &lt;Root /&gt;,
+	errorElement: &lt;ErrorPage404 /&gt;,
+},
+{
+	path: 'products/:productId',
+	element: &lt;Product /&gt;,
+},</code>
+</div>	
+<p>
+	А теперь запускаем приложение,
+	кликаем по ссылкам и оказываемся
+	на страничке с продуктом (пока она
+	у нас одинаковая для всех ссылок),
+	а не с ошибкой.
+</p>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлым урокам. Пользуясь
+		материалами урока, создайте подобным
+		образом файл <code data-gs="comd/p" data-x>student.jsx</code>, пусть на
+		страничке студента будет выводиться
+		его имя, фамилия, год поступления и
+		специальность. Добавьте новый маршрут
+		для странички студента в файле <code data-gs="comd/p" data-x>main.jsx</code>,
+		установите значение <code data-gs="comd/c" data-x>path</code> в
+		<code data-gs="comd/s" data-x>'students/:studentId'</code>. Убедитесь,
+		что при клике по ссылкам вы попадаете
+		теперь на страничку студента.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

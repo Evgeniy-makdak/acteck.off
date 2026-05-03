@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Схема трехколоночного макета сайта в CSS — acteck.off</title>
+  <meta name="description" content="Схема трехколоночного макета сайта в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Схема трехколоночного макета сайта в CSS</h1>
+    <p>
+	Давайте теперь сделаем трехколоночный макет.
+	Вот пример того, что у нас должно получится:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="P">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			* {
+			box-sizing: border-box;
+		}
+		
+		#wrapper {
+			width: 1100px;
+			margin: 30px auto;
+			border: 1px solid black;
+		}
+		#header {
+			height: 200px;
+			padding: 20px;
+			border: 1px solid black;
+		}
+		#container {
+			display: flex;
+		}
+		#content {
+			width: 660px;
+			height: 700px;
+			padding: 20px;
+			border: 1px solid black;
+		}
+		#left {
+			width: 200px;
+			margin-right: 20px;
+			padding: 20px;
+			border: 1px solid black;
+		}
+		#right {
+			width: 200px;
+			margin-left: 20px;
+			padding: 20px;
+			border: 1px solid black;
+		}
+		#footer {
+			height: 200px;
+			padding: 20px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+			<div id=&quot;header&quot;>
+				header
+			</div>
+			<div id=&quot;container&quot;>
+				<div id=&quot;left&quot;>
+					left sidebar
+				</div>
+				<div id=&quot;content&quot;>
+					content
+				</div>
+				<div id=&quot;right&quot;>
+					right sidebar
+				</div>
+			</div>
+			<div id=&quot;footer&quot;>
+				footer
+			</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+<p>
+	Для начала напишем структуру сайта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="wrapper"&gt;
+	&lt;div id="header"&gt;
+		header
+	&lt;/div&gt;
+	&lt;div id="container"&gt;
+		&lt;div id="left"&gt;
+			left sidebar
+		&lt;/div&gt;
+		&lt;div id="content"&gt;
+			content
+		&lt;/div&gt;
+		&lt;div id="right"&gt;
+			right sidebar
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div id="footer"&gt;
+		footer
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Зададим ширину враппера и отцентрируем его:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#wrapper {
+	width: 1100px;
+	margin: 30px auto;
+	border: 1px solid black;
+}</code>
+</div>
+<p>
+	Поставим блоки контейнера в ряд:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#container {
+	display: flex;
+}</code>
+</div>
+<p>
+	Назначим теперь ширины блоков так, чтобы
+	в сумме они давали ширину враппера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#content {
+	width: 700px;
+}
+#left {
+	width: 200px;
+}
+#right {
+	width: 200px;
+}</code>
+</div>
+<p>
+	Давайте теперь добавим <code data-gs="comd/c" data-x>margin</code>ы, отщипнув
+	их ширину от контента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#content {
+	width: 660px;
+}
+#left {
+	width: 200px;
+	margin-right: 20px;
+}
+#right {
+	width: 200px;
+	margin-left: 20px;
+}</code>
+</div>
+<p>
+	Добавим остальные стили:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#content {
+	width: 660px;
+	height: 700px;
+	padding: 20px;
+	border: 1px solid black;
+}
+#left {
+	width: 200px;
+	margin-right: 20px;
+	padding: 20px;
+	border: 1px solid black;
+}
+#right {
+	width: 200px;
+	margin-left: 20px;
+	padding: 20px;
+	border: 1px solid black;
+}</code>
+</div>
+<p>
+	Напишем итоговый код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="wrapper"&gt;
+	&lt;div id="header"&gt;
+		header
+	&lt;/div&gt;
+	&lt;div id="container"&gt;
+		&lt;div id="left"&gt;
+			left sidebar
+		&lt;/div&gt;
+		&lt;div id="content"&gt;
+			content
+		&lt;/div&gt;
+		&lt;div id="right"&gt;
+			right sidebar
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div id="footer"&gt;
+		footer
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">* {
+	box-sizing: border-box;
+}
+
+#wrapper {
+	width: 1100px;
+	margin: 30px auto;
+	border: 1px solid black;
+}
+#header {
+	height: 200px;
+	padding: 20px;
+	border: 1px solid black;
+}
+#container {
+	display: flex;
+}
+#content {
+	width: 660px;
+	height: 700px;
+	padding: 20px;
+	border: 1px solid black;
+}
+#left {
+	width: 200px;
+	margin-right: 20px;
+	padding: 20px;
+	border: 1px solid black;
+}
+#right {
+	width: 200px;
+	margin-left: 20px;
+	padding: 20px;
+	border: 1px solid black;
+}
+#footer {
+	height: 200px;
+	padding: 20px;
+	border: 1px solid black;
+}</code>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="P">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			#wrapper {
+				width: 1200px;
+				margin: 30px auto;
+				border: 1px solid black;
+			}
+			#header {
+				height: 250px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#container {
+				display: flex;
+			}
+			#content {
+				width: 640px;
+				height: 700px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#left {
+				width: 300px;
+				margin-right: 30px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#right {
+				width: 300px;
+				margin-left: 30px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#footer {
+				height: 100px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+				<div id=&quot;header&quot;>
+					header
+				</div>
+				<div id=&quot;container&quot;>
+					<div id=&quot;left&quot;>
+						left sidebar
+					</div>
+					<div id=&quot;content&quot;>
+						content
+					</div>
+					<div id=&quot;right&quot;>
+						right sidebar
+					</div>
+				</div>
+				<div id=&quot;footer&quot;>
+					footer
+				</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="P">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			#wrapper {
+				width: 1000px;
+				margin: 30px auto;
+				border: 1px solid black;
+			}
+			#header {
+				height: 250px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#container {
+				display: flex;
+			}
+			#content {
+				width: 520px;
+				height: 700px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#left {
+				width: 250px;
+				margin-right: 15px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#right {
+				width: 200px;
+				margin-left: 15px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#footer {
+				height: 100px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+				<div id=&quot;header&quot;>
+					header
+				</div>
+				<div id=&quot;container&quot;>
+					<div id=&quot;left&quot;>
+						left sidebar
+					</div>
+					<div id=&quot;content&quot;>
+						content
+					</div>
+					<div id=&quot;right&quot;>
+						right sidebar
+					</div>
+				</div>
+				<div id=&quot;footer&quot;>
+					footer
+				</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="P">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			#wrapper {
+				width: 1000px;
+				margin: 30px auto;
+				border: 1px solid black;
+			}
+			#header {
+				height: 250px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#container {
+				display: flex;
+			}
+			#content {
+				width: 560px;
+				height: 700px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#left {
+				width: 200px;
+				margin-left: 20px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#right {
+				width: 200px;
+				margin-left: 20px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#footer {
+				height: 100px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+				<div id=&quot;header&quot;>
+					header
+				</div>
+				<div id=&quot;container&quot;>
+					<div id=&quot;content&quot;>
+						content
+					</div>
+					<div id=&quot;left&quot;>
+						left sidebar
+					</div>
+					<div id=&quot;right&quot;>
+						right sidebar
+					</div>
+				</div>
+				<div id=&quot;footer&quot;>
+					footer
+				</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

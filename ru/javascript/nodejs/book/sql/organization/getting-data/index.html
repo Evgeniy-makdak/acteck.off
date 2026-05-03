@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Получение данных из связанных таблиц в NodeJS — acteck.off</title>
+  <meta name="description" content="Получение данных из связанных таблиц в NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/nodejs/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Получение данных из связанных таблиц в NodeJS</h1>
+    <p>
+	Давайте сделаем запрос, который достанет
+	всех юзеров вместе с их городами. Для этого понадобится команда
+	<a href="../../../../../../sql/manual/left-join/index.html"><code data-gs="comd/q" data-x>LEFT JOIN</code></a>:
+</p>
+<p>
+	Ее синтаксис выглядит следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT поля FROM имя_таблицы
+	LEFT JOIN имя_связанной_таблицы ON условие_связи
+WHERE условие_выборки</code>
+</div>
+<p>
+	Давайте разберем отдельные части синтаксиса
+	этой команды.
+</p>
+
+<h2>Поля</h2>
+<p>
+	Так как выборка идет из нескольких таблиц,
+	то выборка всех полей через <code data-gs="comd/c" data-x>*</code> не будет
+	работать. Следующий запрос выберет поля только
+	из основной таблицы, но не из связанной:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT *</code>
+</div>
+<p>
+	Для того, чтобы данные выбирались из всех
+	таблиц, нужно перед <code data-gs="comd/c" data-x>*</code> указать имя
+	таблицы для выборки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT users.*, cities.*</code>
+</div>
+<p>
+	Либо можно перечислить нужные нам поля с
+	указанием имени таблицы перед ними:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT users.name, cities.name</code>
+</div>
+<p>
+	Эти два способа имеют проблему. Дело в том,
+	что если поля в таблицах имеют одинаковые
+	имена, то в массиве произойдет конфликт
+	имен и победит только одно поле, а второго
+	не будет.
+</p>
+<p>
+	Для решения проблемы нужно конфликтные имена
+	переименовывать через команду <code data-gs="comd/q" data-x>as</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT users.name, cities.name as city_name</code>
+</div>
+
+<h2>Связь</h2>
+<p>
+	После команды <code data-gs="comd/q" data-x>ON</code> мы должны указать
+	поля из двух таблиц, по которым осуществляется
+	связь. В нашем случае это будет поле <code data-gs="comd/c" data-x>id</code>
+	из таблицы с городами и поле <code data-gs="comd/c" data-x>city_id</code>
+	из таблицы с юзерами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="sql">ON cities.id=users.city_id</code>
+</div>
+
+<h2>Запрос</h2>
+<p>
+	В итоге запрос, который достанет юзеров вместе
+	с их городами будет выглядеть следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT
+	users.name, cities.name as city_name
+FROM
+	users
+LEFT JOIN cities ON cities.id=users.city_id</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Пусть у вас есть таблица с товарами и таблица
+		с их категориями. Напишите запрос, который
+		достанет названия товаров вместе с их
+		категориями.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Директива v-show в Vue — acteck.off</title>
+  <meta name="description" content="Директива v-show в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/vue/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/vue/index.html">Vue</a>
+    </div>
+
+    <h1>Директива v-show в Vue</h1>
+    <p>
+	Ещё одним вариантом условного отображения
+	является директива <code data-gs="comd/c" data-x>v-show</code>.
+	Используется очень похоже:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;p v-show="isAuth"&gt;
+		+++
+	&lt;/p&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	Отличия в том, что элемент с <code data-gs="comd/c" data-x>v-show</code> будет всегда
+	отрисовываться и оставаться в DOM, а переключаться
+	будет лишь его CSS свойство <a href="../../../../../markup/manual/css/property/display/index.html"><code data-gs="comd/c" data-x>display</code></a>.
+</p>
+<p>
+	Директива <code data-gs="comd/c" data-x>v-if</code> выполняет "настоящую"
+	условную отрисовку, так как гарантирует,
+	что слушатели событий и дочерние компоненты
+	внутри блока должным образом уничтожаются
+	и воссоздаются при переключениях условия.
+</p>
+<p>
+	Директива <code data-gs="comd/c" data-x>v-if</code> также ленивая: если условие
+	ложно на момент первоначальной отрисовки,
+	то она ничего не сделает - условный блок
+	не будет отрисован до тех пор,
+	пока условие не станет истинным.
+</p>
+<p>
+	Для сравнения, <code data-gs="comd/c" data-x>v-show</code> намного проще - элемент
+	всегда отрисовывается, вне зависимости от
+	исходного состояния с переключением на основе CSS.
+</p>
+<p>
+	В целом, у <code data-gs="comd/c" data-x>v-if</code> выше затраты на переключение,
+	в то время как <code data-gs="comd/c" data-x>v-show</code> имеет больше затрат
+	на первичную отрисовку. Так что используйте <code data-gs="comd/c" data-x>v-show</code>,
+	если переключения будут частыми,
+	и предпочитайте <code data-gs="comd/c" data-x>v-if</code>, если условие
+	может и не измениться во время исполнения.
+</p>
+<div data-w="cont/nott">
+	<p>
+		Директиву <code data-gs="comd/c" data-x>v-show</code> нельзя использовать на элементе
+		<code data-gs="comd/c" data-x>template</code> и она не работает с <code data-gs="comd/c" data-x>v-else</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан абзац и кнопка. Сделайте так,
+		чтобы абзац тогглился по нажатию
+		на кнопку.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, в чем отличия директив
+		<code data-gs="comd/c" data-x>v-show</code> и <code data-gs="comd/c" data-x>v-if</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, когда лучше использовать
+		директиву <code data-gs="comd/c" data-x>v-show</code>, а когда - <code data-gs="comd/c" data-x>v-if</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, какие ограничения
+		имеет директива <code data-gs="comd/c" data-x>v-show</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

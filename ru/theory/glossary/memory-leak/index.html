@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Утечки памяти — acteck.off</title>
+  <meta name="description" content="Утечки памяти — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../ru/theory/glossary/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../ru/theory/glossary/index.html">Теория</a>
+    </div>
+
+    <h1>Утечки памяти</h1>
+    <p>
+	Процесс <dfn data-gs="comd/d" data-x>утечки памяти</dfn> представляет собой
+	постепенное увеличение объема оперативной
+	памяти, которую потребляет запущенная
+	программа. Как правило, является следствием
+	допущенной ошибки в программе,
+	из-за которой неиспользуемая память
+	не освобождается.
+</p>
+<p>
+	Особенно опасны утечки памяти у программ,
+	работающих долгое время без перезагрузки.
+	В этом случае через некоторое время
+	такая программа может исчерпать весь
+	доступный объем оперативной памяти,
+	что приведет к аварийной остановке
+	программы или, что еще хуже,
+	к некорректной работе.
+</p>
+<p>
+	Существуют следующие способы предотвращения утечки памяти:
+</p>
+<ul>
+	<li>
+		Применение сборщиков мусора, которые освобождают
+		неиспользуемую память, но вместе с тем
+		забирают часть ресурсов системы на
+		свою работу, что приводит к подтормаживаниям
+		ее работы или зависаниям.
+	</li>
+	<li>
+		Перезапуск программы с помощью внешней программы,
+		в результате которого после окончания работы
+		программы вся память снова возвращается в систему
+		и утечки становятся не такими масштабными.
+	</li>
+	<li>
+		Отказ от динамического распределения памяти, что
+		в свою очередь исключает подобные ошибки, но
+		и ограничивает функциональность программ.
+	</li>
+	<li>
+		Использование владеющих указателей для того,
+		чтобы согласовать время жизни указателя
+		и время жизни объекта, на который он ссылается.
+		Однако этот способ не подходит для
+		циклических ссылок между объектами.
+	</li>
+</ul>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			период <a href="../runtime/index.html">время выполнения</a>, <br>
+			за который выполняется программа
+		</li>
+		<li>
+			<a href="../source-data/index.html">Исходные данные</a>, <br>
+			которые представляют собой местоположение данных
+		</li>
+		<li>
+			совокупность программ <a href="../software/index.html">ПО</a>, <br>
+			которая обеспечивает функционирование приложений
+		</li>
+		<li>
+			совокупность программ <a href="../operating-system/index.html">ОС</a>, <br>
+			которая обеспечивает управление системами компьютера
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

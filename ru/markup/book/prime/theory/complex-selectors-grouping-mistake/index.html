@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ошибка при группировке сложных CSS селекторов — acteck.off</title>
+  <meta name="description" content="Ошибка при группировке сложных CSS селекторов — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Ошибка при группировке сложных CSS селекторов</h1>
+    <p>
+	Все, что разделено запятой при группировке,
+	должно представлять собой полноценный селектор.
+	Давайте посмотрим, где здесь можно ошибиться.
+</p>
+<p>
+	Пусть у нас есть вот такой код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2 {
+	color: red;
+}
+#block h3 {
+	color: red;
+}</code>
+</div>
+<p>
+	Давайте сгруппируем два селектора в один.
+	Вот правильный вариант группировки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2, #block h3 {
+	color: red;
+}</code>
+</div>
+<p>
+	А вот неправильный вариант группировки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2, h3 {
+	color: red;
+}</code>
+</div>
+<p>
+	В этом неправильном варианте группировки
+	новичкам почему-то кажется, что <code data-gs="comd/z" data-x>#block</code>
+	относится и к <code data-gs="comd/c" data-x>h2</code>, и к <code data-gs="comd/c" data-x>h3</code>, стоящему
+	после запятой. Но селекторы не действуют
+	через запятую и фактически этот неправильный
+	вариант группировки можно переписать вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2 {
+	color: red;
+}
+h3 {
+	color: red;
+}</code>
+</div>
+<p>
+	Сравните с изначальным вариантом, который
+	мы начали сокращать:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2 {
+	color: red;
+}
+#block h3 {
+	color: red;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Упростите код, используя группировку селекторов:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h1 {
+	text-align: center;
+}
+#block h2 {
+	text-align: center;
+	color: blue;
+}
+#block h3 {
+	text-align: center;
+	font-size: 16px;
+	color: red;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Упростите код, используя группировку селекторов:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h1.eee {
+	text-align: center;
+	font-size: 30px;
+}
+#block h2.zzz {
+	text-align: center;
+	font-size: 20px;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Упростите код, используя группировку селекторов:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">.xxx .kkk {
+	text-align: center;
+}
+.eee h2.zzz {
+	text-align: center;
+}
+#eee h2 {
+	text-align: center;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Упростите код, используя группировку селекторов:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">.eee h2.zzz {
+	text-align: center;
+}
+.xxx {
+	text-align: center;
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

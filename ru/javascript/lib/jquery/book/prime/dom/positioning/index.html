@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Позиционирование в jQuery — acteck.off</title>
+  <meta name="description" content="Позиционирование в jQuery — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Позиционирование в jQuery</h1>
+    <p>
+	Для работы с координатами элементов в jQuery
+	есть методы <a href="../../../../manual/width/index.html"><code data-gs="comd/c" data-x>position</code></a>
+	и <a href="../../../../manual/offset/index.html"><code data-gs="comd/c" data-x>offset</code></a>.
+</p>
+<p>
+	Эти методы служат для получения или изменения
+	текущих координат элемента и в качестве результата
+	возвращают объект, содержащий свойства <code data-gs="comd/c" data-x>top</code>
+	и <code data-gs="comd/c" data-x>left</code>.
+</p>
+<p>
+	Ошибки в вычислениях могут возникать, если пользователь
+	меняет размеры страницы. Также методы не получают
+	координаты скрытых элементов.
+</p>
+<p>
+	Метод <code data-gs="comd/c" data-x>offset</code> получает позицию элемента
+	относительно документа, а <code data-gs="comd/c" data-x>position</code> позицию
+	элемента относительно отступов родителя.
+</p>
+<p>
+	Пусть у нас есть следующий HTML код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+&lt;p id="test"&gt;text&lt;/p&gt;
+&lt;/div&gt;
+&lt;p id="text1"&gt;&lt;/p&gt;
+&lt;p id="text2"&gt;&lt;/p&gt;</code>
+</div>
+<p>
+	К абзацам привязаны CSS стили:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	width: 150px;
+	border: 1px solid blueviolet;
+}
+#test {
+	margin: 5px;
+	text-align: center;
+	outline: 1px solid green;
+}</code>
+</div>
+	<p>
+		Давайте получим позицию дива <code data-gs="comd/z" data-x>test</code> этими
+		методами, и, обратившись к ключам полученного
+		объекта, выведем эту информацию ниже в абзацах:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let offset = $('#test').offset();
+$('#text1').text(
+	'(OFFSET()) left: ' + offset.left + ', top: ' + offset.top
+);
+let position = $('#test').position();
+$('#text2').text(
+	'(POSITION()) left: ' + position.left + ', top: ' + position.top
+);</code>
+	</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

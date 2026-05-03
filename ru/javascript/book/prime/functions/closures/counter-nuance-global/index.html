@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Глобальная переменная счетчика в JavaScript — acteck.off</title>
+  <meta name="description" content="Глобальная переменная счетчика в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Глобальная переменная счетчика в JavaScript</h1>
+    <p>
+	Вынесем переменную <code data-gs="comd/c" data-x>num</code> за функции,
+	тем самым сделав ее глобальной:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1; // глобальная переменная
+
+function test() {
+	return function() {
+		console.log(num);
+		num++;
+	};
+}</code>
+</div>
+<p>
+	В этом случае все возвращаемые функции будут
+	изменять эту глобальную переменную и счетчики
+	будут работать уже зависимо друг от друга:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1;
+
+function test() {
+	return function() {
+		console.log(num);
+		num++;
+	};
+}
+
+let func1 = test(); // первый счетчик
+func1();  // выведет 1
+func1();  // выведет 2
+
+let func2 = test(); // второй счетчик
+func2();  // выведет 3
+func2();  // выведет 4</code>
+</div>
+<p>
+	Почему же наш предыдущий код делал независимые
+	счетчики? Напомню этот код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
+	let num = 1;
+	
+	return function() {
+		console.log(num);
+		num++;
+	};
+};</code>
+</div>
+<p>
+	Дело в том, что переменная <code data-gs="comd/c" data-x>num</code> - локальная
+	внутри функции <code data-gs="comd/c" data-x>test</code>. Поэтому каждый
+	вызов <code data-gs="comd/c" data-x>test</code> порождает свою локальную
+	переменную.
+</p>
+<p>
+	Поэтому возвращаемые функции будут ссылаться
+	каждая на свою локальную переменную функции
+	<code data-gs="comd/c" data-x>test</code>. Именно так и достигается независимость
+	работы.
+</p>
+<p>
+	Если же сделать <code data-gs="comd/c" data-x>num</code> глобальной переменной
+	- это тоже будет замыканием. Просто лексические
+	окружения возвращаемых функций ссылаются
+	на одну и ту же переменную <code data-gs="comd/c" data-x>num</code> - любые
+	изменения с этой переменной будут видны во
+	всех функциях.
+</p>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let counter = 0;
+		
+function test() {
+	return function() {
+		console.log(counter);
+		counter++;
+	};
+}
+
+let func = test;
+
+let func1 = func();
+let func2 = func();
+func1();
+func2();
+func1();
+func2();</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
+	let counter = 0;
+	
+	return function() {
+		return function() {
+			console.log(counter);
+			counter++;
+		};
+	};
+}
+
+let func = test()();
+
+let func1 = func;
+let func2 = func;
+func1();
+func2();
+func1();
+func2();</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
+	let counter = 0;
+	
+	return function() {
+		return function() {
+			console.log(counter);
+			counter++;
+		};
+	};
+}
+
+let func = test();
+
+let func1 = func();
+let func2 = func();
+func1();
+func2();
+func1();
+func2();</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Стилизация элементов на JavaScript — acteck.off</title>
+  <meta name="description" content="Стилизация элементов на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Стилизация элементов на JavaScript</h1>
+    <p>
+	Пусть у нас есть несколько абзацев:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text1&lt;/p&gt;
+&lt;p&gt;text2&lt;/p&gt;
+&lt;p&gt;text3&lt;/p&gt;</code>
+</div>
+<p>
+	Давайте переберем эти абзацы циклом и в конец
+	каждого абзаца добавим ссылку, по нажатию
+	на которую тексту абзаца будет добавляться
+	некоторая стилизация. К примеру, текст абзаца
+	будет становится перечеркнутым (это делает
+	CSS свойство <a href="../../../../../../markup/manual/css/property/text-decoration/index.html"><code data-gs="comd/c" data-x>text-decoration</code></a>).
+</p>
+<p>
+	Давайте обсудим два нюанса такой задачи.
+</p>
+<p>
+	Во-первых, как уже обсуждалось в предыдущих
+	уроках, не следует менять стили абзацы напрямую
+	через JavaScript - гораздо удобнее будет
+	навешивать какие-нибудь CSS классы.
+</p>
+<p>
+	Во-вторых, при реализации такой задачи вас
+	ожидает некоторый сюрприз. Чтобы понять его
+	суть, давайте посмотрим на HTML код абзацев
+	после добавления ссылок:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text1&lt;a href=""&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;text2&lt;a href=""&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;text3&lt;a href=""&gt;link&lt;/a&gt;&lt;/p&gt;</code>
+</div>
+<p>
+	Представим теперь, что по нажатию на ссылку
+	текст абзаца перечеркнется. Однако, ссылка
+	в данном случае также является частью абзаца
+	и тоже перечеркнется! Скорее всего такой
+	эффект нам не нужен. Мы хотим, чтобы текст
+	перечеркивался, но ссылка - нет.
+</p>
+<p>
+	Для решения проблемы нужно просто обернуть
+	текст абзаца в тег <code data-gs="comd/c" data-x>span</code>, вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;&lt;span&gt;text1&lt;/span&gt;&lt;a href=""&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;text2&lt;/span&gt;&lt;a href=""&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;text3&lt;/span&gt;&lt;a href=""&gt;link&lt;/a&gt;&lt;/p&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий HTML код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text1&lt;/p&gt;
+&lt;p&gt;text2&lt;/p&gt;
+&lt;p&gt;text3&lt;/p&gt;</code>
+	</div>
+	<p>
+		Добавьте в конец каждого абзаца ссылку, по
+		клику на которую текст абзаца будет перечеркиваться
+		(а ссылка - нет).
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу так, чтобы
+		после нажатия на ссылку эта ссылка удалялась
+		из абзаца (а текст абзаца становился перечеркнутым).
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана некоторая HTML таблица. Добавьте в эту
+		таблицу еще одну колонку со ссылкой. По нажатию
+		на эту ссылку ряд с этой ссылкой должен стать
+		зеленого фона.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу так, чтобы
+		первое нажатие по ссылке красило ряд в зеленый
+		фон, а второе нажатие отменяло это действие.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

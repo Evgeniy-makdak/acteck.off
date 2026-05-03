@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API memo в React — acteck.off</title>
+  <meta name="description" content="API memo в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>API memo в React</h1>
+    <p>
+	Прежде чем мы рассмотрим следующий хук,
+	необходимо упомянуть и о полезном API
+	<code data-gs="comd/c" data-x>memo</code>, который помогает нам
+	избегать повторного рендеринга компонента,
+	если его пропсы остаются неизменными. 
+</p>
+<p>
+	Давайте разберем это на примере. Создадим
+	комопонент <code data-gs="comd/c" data-x>App</code>, в котором будет два
+	инпута, в которые, предположим, вводятся
+	имя и фамилия:
+</p>	
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
+	&lt;div&gt;
+		&lt;label&gt;
+			name:
+			&lt;input value={name} onChange={(e) =&gt; setName(e.target.value)} /&gt;
+		&lt;/label&gt;
+		&lt;br /&gt;
+		&lt;label&gt;
+			surname:
+			&lt;input value={surn} onChange={(e) =&gt; setSurn(e.target.value)} /&gt;
+		&lt;/label&gt;
+	&lt;/div&gt;
+);</code>
+</div>
+<p>
+	Добавим в начало компонента
+	стейты для них:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [name, setName] = useState('');
+const [surn, setSurn] = useState('');</code>
+</div>
+<p>
+	Сделаем еще и дочерний компонент
+	<code data-gs="comd/p" data-x>Child.js</code>, пусть он выводит
+	приветствие, в котором будет отображаться
+	вводимое имя. Также в консоли будет выводится
+	строка <code data-gs="comd/s" data-x>'child render'</code> при
+	каждом рендеринге этого компонента:
+</p>
+<div data-p="bock/pane" data-p-file="Child.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Child({ name }) {
+	console.log('child render');
+	return &lt;h3&gt;Hello {name}!&lt;/h3&gt;;
+}</code>
+</div>
+<p>
+	Добавим <code data-gs="comd/c" data-x>Child</code> в верстку основного
+	компонента после последнего инпута
+	и будем в качестве пропса передавать
+	ему имя:
+</p>
+	<div data-p="bock/pane" data-p-file="App.jsx">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;Child name={name} /&gt;</code>
+</div>
+<p>
+	Импортируем его в основной комопонент:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Child from './Child';</code>
+</div>
+<p>
+	А теперь откроем консоль и будем в
+	поля ввода вбивать имя и фамилию. Здесь
+	мы увидим, что даже при вводе символов в
+	поле для фамилии, наш дочерний компонент
+	будет каждый раз перерисовываться. Никаких
+	проблем, ведь у нас небольшой компонент.
+	Но представьте, если бы этот компонент
+	отображал большое количество данных
+	и при этом, каждый раз перерисовывался.		
+</p>	
+<p>
+	А сейчас давайте обернем дочерний
+	компонент в <code data-gs="comd/c" data-x>memo</code>, и посмотрим,
+	как изменится рендеринг. Для начала
+	импортируем в него <code data-gs="comd/c" data-x>memo</code>:
+</p>
+<div data-p="bock/pane" data-p-file="Child.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { memo } from 'react';</code>
+</div>
+<p>
+	Затем создадим новую переменную и
+	присвоим ей наш <code data-gs="comd/c" data-x>Child</code>, обернутый
+	в <code data-gs="comd/c" data-x>memo</code>. У нас получится следующее
+	<a href="../../../../../javascript/book/prime/functions/types/declaration-types/index.html">функциональное выражение</a>:  
+</p>
+<div data-p="bock/pane" data-p-file="Child.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const Child = memo( function Child({ name }) {
+	console.log('child render');
+	return &lt;h3&gt;Hello {name}!&lt;/h3&gt;;
+});</code>
+</div>
+<p>
+	Откроем консоль и будем снова 
+	вводить имя и фамилию в поля. Сейчас
+	мы видим, что при введении фамилии,
+	наш дочерний компонент не
+	перерисовывается.
+</p>
+<p>
+	Нужно помнить, что это не будет работать,
+	если при неизменных пропсах будут меняться
+	стейты, задействованные комопонентом или
+	контекст, использующий изменения. 
+</p>
+<div data-w="cont/task">
+	<p>
+		Возьмите код компонента <code data-gs="comd/c" data-x>App</code>,
+		который мы делали на этом уроке, оставьте
+		в нем только первый инпут. Создайте React
+		компонент <code data-gs="comd/c" data-x>Text</code>, содержащий абзац
+		с текстом <code data-gs="comd/s" data-x>'long text'</code>, и
+		разместите его в <code data-gs="comd/c" data-x>App</code> после инпута.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В компоненте <code data-gs="comd/c" data-x>Text</code> добавьте
+		строчку <code data-gs="comd/c" data-x>console.log('text render');</code>.
+		Убедитесь, что при вводе символов
+		в инпут компонент <code data-gs="comd/c" data-x>Text</code>
+		перерисовывается каждый раз.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		А теперь оберните компонент
+		<code data-gs="comd/c" data-x>Text</code> в <code data-gs="comd/c" data-x>memo</code>. Убедитесь,
+		что при вводе символов в инпут
+		компонент <code data-gs="comd/c" data-x>Text</code> не перерисовывается
+		повторно.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

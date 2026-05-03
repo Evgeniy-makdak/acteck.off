@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реактивное добавление в массив объектов в React — acteck.off</title>
+  <meta name="description" content="Реактивное добавление в массив объектов в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Реактивное добавление в массив объектов в React</h1>
+    <p>
+	Давайте теперь изучим реактивность массива
+	объектов. В данном случае мы должны
+	будем производить любые изменения,
+	обращаясь к элементам  по <code data-gs="comd/c" data-x>id</code>,
+	которые хранятся внутри самих объектов.
+</p>
+<p>
+	Давайте попробуем. Пусть у нас
+	есть следующий массив объектов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initNotes = [
+	{
+		id: 'GYi9G_uC4gBF1e2SixDvu',
+		prop1: 'value11',
+		prop2: 'value12',
+		prop3: 'value13',
+	},
+	{
+		id: 'IWSpfBPSV3SXgRF87uO74',
+		prop1: 'value21',
+		prop2: 'value22',
+		prop3: 'value23',
+	},
+	{
+		id: 'JAmjRlfQT8rLTm5tG2m1L',
+		prop1: 'value31',
+		prop2: 'value32',
+		prop3: 'value33',
+	},
+];</code>
+</div>
+<p>
+	Давайте выведем каждый элемент нашего
+	массива в отдельном теге <code data-gs="comd/c" data-x>li</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [notes, setNotes] = useState(initNotes);
+	
+	const result = notes.map(note =&gt; {
+		return &lt;li key={note.id}&gt;
+			&lt;span&gt;{note.prop1}&lt;/span&gt;
+			&lt;span&gt;{note.prop2}&lt;/span&gt;
+			&lt;span&gt;{note.prop3}&lt;/span&gt;
+		&lt;/li&gt;;
+	});
+	
+	return &lt;div&gt;
+		&lt;ul&gt;
+			{result}
+		&lt;/ul&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте кнопку, по нажатию на которую
+		будет добавляться новый элемент
+		в конец массива, тем самым добавляя новый
+		<code data-gs="comd/c" data-x>li</code> в конец тега <code data-gs="comd/c" data-x>ul</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте три инпута и кнопку. По нажатию
+		на кнопку из данных инпута создайте новую
+		<code data-gs="comd/c" data-x>li</code> в конце тега <code data-gs="comd/c" data-x>ul</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

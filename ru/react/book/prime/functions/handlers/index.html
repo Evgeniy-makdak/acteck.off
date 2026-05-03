@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Навешивание событий в JSX — acteck.off</title>
+  <meta name="description" content="Навешивание событий в JSX — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Навешивание событий в JSX</h1>
+    <p>
+	Давайте теперь изучим работу с событиями
+	на React. К примеру, сделаем так, чтобы по
+	клику на блок выводился <code data-gs="comd/c" data-x>alert</code> с некоторым текстом.
+</p>
+<p>
+	Пусть у нас есть функция <code data-gs="comd/c" data-x>showMess</code>,
+	которая выводит <code data-gs="comd/c" data-x>alert</code> с сообщением, а в HTML
+	коде есть кнопка, по клику на которую нам
+	и хотелось бы видеть этот <code data-gs="comd/c" data-x>alert</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	function showMess() {
+		alert('hello');
+	}
+	
+	return &lt;div&gt;
+		&lt;button&gt;show&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Давайте привяжем к нашей кнопке событие <code data-gs="comd/c" data-x>onclick</code>
+	так, чтобы по клику на этот див срабатывала
+	функция <code data-gs="comd/c" data-x>showMess</code>. Для этого нужно
+	добавить атрибут <code data-gs="comd/c" data-x>onClick</code> (именно в
+	camelCase, то есть <code data-gs="comd/c" data-x>onClick</code>, а не <code data-gs="comd/c" data-x>onclick</code>),
+	а в нем указать функцию, которая выполнится
+	по этому событию:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	function showMess() {
+		alert('hello');
+	}
+	
+	return &lt;div&gt;
+		&lt;button onClick={showMess}&gt;show&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Таким образом и происходит работа с событиями:
+	добавляется атрибут (к примеру, <code data-gs="comd/c" data-x>onClick</code>
+	или <code data-gs="comd/c" data-x>onFocus</code>), значением атрибута указывается
+	метод, который будет вызван по этому событию.
+</p>
+<div data-w="cont/task">
+	<p>
+		Дан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	function show1() {
+		alert(1);
+	}
+	
+	function show2() {
+		alert(2);
+	}
+	
+	return &lt;div&gt;
+		&lt;button&gt;act1&lt;/button&gt;
+		&lt;button&gt;act2&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+	</div>
+	<p>
+		Сделайте так, чтобы по клику на первую кнопку
+		срабатывала первая функция, а по клику на
+		вторую кнопку - вторая функция.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Состояние навигации в React Router — acteck.off</title>
+  <meta name="description" content="Состояние навигации в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Состояние навигации в React Router</h1>
+    <p>
+	Если мы кликаем по продуктам в списке,
+	мы видим, что в первый раз страничка
+	с продуктом подгружается с задержкой,
+	а в остальные уже быстро, тоже самое
+	при добавлении и обновлении продукта,
+	поскольку у нас есть кэш на стороне
+	клиента.		
+</p>
+<p>
+	В этом уроке мы покажем пользователю
+	в каком состоянии находится наша
+	страничка. В этом нам может помочь
+	хук <code data-gs="comd/c" data-x>useNavigation</code>. Результатом
+	своей работы этот хук выдает объект с
+	рядом свойств. Нас будет интересовать
+	одно из них - свойство <code data-gs="comd/c" data-x>state</code>.
+</p>
+<p>
+	Свойство <code data-gs="comd/c" data-x>state</code> может иметь <code data-gs="comd/n" data-x>3</code>
+	значения: <code data-gs="comd/s" data-x>'idle'</code> (ничего не происходит),
+	<code data-gs="comd/s" data-x>'submitting'</code> (когда при отправке формы
+	через POST, PUT, PATCH или DELETE вызван <code data-gs="comd/c" data-x>action</code>
+	маршрута), <code data-gs="comd/s" data-x>'loading'</code> (когда вызван
+	загрузчик для следующего маршрута, чтобы
+	отрисовать следующую страницу). Нас будет
+	интересовать последнее значение.
+</p>
+<p>
+	Давайте зайдем в файл <code data-gs="comd/p" data-x>root.jsx</code> и
+	импортируем этот хук:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useNavigation } from 'react-router-dom';</code>
+</div>
+<p>
+	Затем, для возвращаемого хуком результата,
+	заведем переменную <code data-gs="comd/c" data-x>navigation</code> в функции
+	<code data-gs="comd/c" data-x>Root</code> - перед <code data-gs="comd/c" data-x>return</code>:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const { products } = useLoaderData();
+const navigation = useNavigation();</code>
+</div>
+<p>
+	А теперь воспользуемся ее свойством
+	<code data-gs="comd/c" data-x>state</code>, если это будет значение
+	<code data-gs="comd/s" data-x>'loading'</code>, то мы установим класс
+	<code data-gs="comd/z" data-x>loading</code> для дива, в котором у нас
+	происходит прорисовка данных продукта:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;div id="product" className={navigation.state === 'loading' ? 'loading' : ''}&gt;
+	&lt;Outlet /&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Нам осталось добавить стилей для
+	класса <code data-gs="comd/z" data-x>loading</code> в <code data-gs="comd/p" data-x>index.css</code>. Давайте
+	в случае состояния загрузки просто
+	будем увеличивать <a href="../../../../../markup/manual/css/property/opacity/index.html"><code data-gs="comd/c" data-x>opacity</code></a>:
+</p>
+<div data-p="bock/pane" data-p-file="index.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div.loading {
+	opacity: 0.3;
+}</code>
+</div>
+<p>
+	Теперь, если, перезагрузив сайт,
+	покликать на продукты в списке или,
+	например, добавить новый продукт, мы
+	увидим, что текущая страничка на какой-то
+	момент поблекнет, прежде чем появится
+	следующая.
+</p>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлым урокам. Пользуясь
+		материалами урока, при помощи хука
+		<code data-gs="comd/c" data-x>useNavigation</code> сделайте так, чтобы
+		юзер мог видеть, что следующая
+		страница с данными студента
+		подгружается.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

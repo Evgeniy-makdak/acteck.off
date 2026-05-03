@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Флаги в функциях JavaScript — acteck.off</title>
+  <meta name="description" content="Флаги в функциях JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Флаги в функциях JavaScript</h1>
+    <p>
+	В функциях можно использовать флаги
+	в неявном виде с помощью инструкции
+	<code data-gs="comd/c" data-x>return</code>. Давайте посмотрим,
+	как это делается. Пусть у нас есть
+	следующая функция, проверяющая,
+	что все элементы массива положительные
+	числа:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function isPositive(arr) {
+	let flag = true;
+	
+	for (let elem of arr) {
+		if (elem &lt; 0) {
+			flag = false;
+		}
+	}
+	
+	return flag;
+}</code>
+</div>
+<p>
+	Давайте перепишем код функции с помощью
+	неявного использования флагов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function isPositive(arr) {
+	for (let elem of arr) {
+		if (elem &lt; 0) {
+			return false;
+		}
+	}
+	
+	return true;
+}</code>
+</div>
+<p>
+	Как это работает: если в массиве найдется
+	нужный элемент - мы выйдем из функции
+	(и из цикла тоже) с помощью <code data-gs="comd/c" data-x>return</code>.
+	Но если в массиве не найдется нужный элемент
+	- выхода из функции не произойдет и выполнение
+	дойдет до команды <code data-gs="comd/c" data-x>return true</code>. И
+	получится, что функция вернет <code data-gs="comd/c" data-x>true</code>
+	в знак того, что в массиве все элементы
+	положительные.
+</p>
+<div data-w="cont/task">
+	<p>
+		Сделайте функцию, которая параметром будет
+		принимать массив с числами, и проверять,
+		что все элементы в этом массиве являются
+		четными числами.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте функцию, которая параметром будет
+		принимать число и проверять, что все цифры
+		это числа являются нечетными.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте функцию, которая параметром будет
+		принимать массив и проверять, есть ли в этом
+		массиве два одинаковых элемента подряд.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

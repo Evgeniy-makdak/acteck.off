@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство justify-items — acteck.off</title>
+  <meta name="description" content="Свойство justify-items — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство justify-items</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>justify-items</code> задает
+	выравнивание элементов внутри ячеек грида
+	по горизонтальной оси.
+	Наиболее наглядно выравнивание можно заметить
+	при просмотре грида в отладчике браузера.
+	Применяется к родительскому элементу.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	justify-items: flex-start | flex-end | center ;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>flex-start</code></th>
+		<td>Элементы прижаты к началу горизонтальной оси.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>flex-end</code></th>
+		<td>Блоки прижаты к концу горизонтальной оси.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>center</code></th>
+		<td>Блоки стоят по центру горизонтальной оси.</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span>. Выравнивание по началу горизонтальной оси</h2>
+<p>
+	Давайте выравним наши элементы
+	внутри ячеек по началу горизонтальной оси:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+	&lt;div&gt;5&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	justify-items: start;
+	grid-template-columns: 100px 100px;
+	grid-template-rows: repeat(3, 1fr);
+	gap: 10px;
+	padding: 10px;
+	height: 200px;
+	width: 400px;
+	border: 2px solid #696989;
+}
+#parent &gt; div {
+	gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			justify-items: start;
+			grid-template-columns: 100px 100px;
+			grid-template-rows: repeat(3, 1fr);
+			gap: 10px;
+			padding: 10px;
+			height: 200px;
+			width: 400px;
+			border: 2px solid #696989;
+		}
+		#parent > div {
+			gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	А теперь посмотрим на наш грид
+	в отладчике:
+</p>
+<div data-w="cont/shot">
+	<img src="../../../../../cont/markup/manual/css/property/justify-items/@/screenshot/start.png" max-width="1301" data-knCr"10:410" data-nC"440">
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Выравнивание по центру горизонтальной оси</h2>
+<p>
+	Давайте выравним наши элементы
+	в ячейках по центру горизонтальной оси:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+	&lt;div&gt;5&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	justify-items: center;
+	grid-template-columns: 100px 100px;
+	grid-template-rows: repeat(3, 1fr);
+	gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+	height: 200px;
+	width: 400px;
+}
+#parent &gt; div {
+	gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			justify-items: center;
+			grid-template-columns: 100px 100px;
+			grid-template-rows: repeat(3, 1fr);
+			gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+			height: 200px;
+			width: 400px;
+		}
+		#parent > div {
+			gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Подключив отладчик браузера мы увидим наш грид:
+</p>
+<div data-w="cont/shot">
+	<img src="../../../../../cont/markup/manual/css/property/justify-items/@/screenshot/center.png" max-width="1301" data-knCr"10:410" data-nC"440">
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Выравнивание по концу горизонтальной оси</h2>
+<p>
+	Давайте выравним наши элементы
+	по концу горизонтальной оси:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+	&lt;div&gt;5&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	justify-items: end;
+	grid-template-columns: 100px 100px;
+	grid-template-rows: repeat(3, 1fr);
+	gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+	height: 200px;
+	width: 400px;
+}
+#parent &gt; div {
+	gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			justify-items: end;
+			grid-template-columns: 100px 100px;
+			grid-template-rows: repeat(3, 1fr);
+			gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+			height: 200px;
+			width: 400px;
+		}
+		#parent > div {
+			gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Теперь посмотрим на грид через отладчик:
+</p>
+<div data-w="cont/shot">
+	<img src="../../../../../cont/markup/manual/css/property/justify-items/@/screenshot/end.png" max-width="1301" data-knCr"10:410" data-nC"440">
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../align-items/index.html"><code data-gs="comd/c" data-x>align-items</code></a>, <br>
+			которое задает выравнивание по поперечной оси
+		</li>
+		<li>
+			свойство <a href="../place-items/index.html"><code data-gs="comd/c" data-x>place-items</code></a>, <br>
+			которое задает выравнивание элементов внутри ячеек грида
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

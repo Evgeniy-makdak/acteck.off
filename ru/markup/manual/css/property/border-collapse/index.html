@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство border-collapse — acteck.off</title>
+  <meta name="description" content="Свойство border-collapse — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство border-collapse</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>border-collapse</code> заставляет
+	двойные границы между ячейками <a href="../../../html/tag/td/index.html"><code data-gs="comd/c" data-x>td</code></a>
+	или ячейками <a href="../../../html/tag/th/index.html"><code data-gs="comd/c" data-x>th</code></a>
+	HTML <a href="../../../html/tag/table/index.html">таблицы</a>
+	(и между границей ячейки и самой таблицы)
+	схлопнуться и выглядеть как одна.
+</p>
+<p>
+	Данное свойство применяется только для таблиц
+	и для элементов с <a href="../display/index.html"><code data-gs="comd/c" data-x>display</code></a>
+	в значении <code data-gs="comd/v" data-x>table</code> или <code data-gs="comd/v" data-x>inline-table</code>. Для обычных
+	блочных элементов оно, к большому сожалению,
+	работать не будет. Учтите, что применять
+	следует для таблицы, а не для ее ячеек.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	border-collapse: collapse | separate;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>collapse</code></th>
+		<td>
+			Двойные границы будут выглядеть как одна.
+			Есть побочные эффекты: перестанет работать свойство
+			<a href="../border-spacing/index.html"><code data-gs="comd/c" data-x>border-spacing</code></a>
+			и атрибут <a href="../../../html/attr/cellspacing/index.html"><code data-gs="comd/c" data-x>cellspacing</code></a>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>separate</code></th>
+		<td>
+			Каждая ячейка таблицы будет иметь свою границу
+			(поэтому в некоторых местах границы будут двойными,
+			если промежуток между ячейками нулевой).
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>separate</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Значение separate</h2>
+<p>
+	Сейчас в таблице все границы двойные (граница
+	задана и ячейкам, и самой таблице):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;3&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;4&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;7&lt;/td&gt;
+		&lt;td&gt;8&lt;/td&gt;
+		&lt;td&gt;9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table {
+	border-collapse: separate;
+	width: 400px;
+	border-spacing: 0;
+	border: 1px solid red;
+}
+td {
+	border: 1px solid red;
+	text-align: center;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table {
+			border-collapse: separate;
+			width: 400px;
+			border-spacing: 0;
+			border: 1px solid red;
+		}
+		td {
+			border: 1px solid red;
+			text-align: center;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение separate</h2>
+<p>
+	А сейчас граница задана ячейкам, но самой
+	таблице не задана. Там, где две ячейки имеют
+	общую границу, - границы будут двойные, в
+	остальных местах - одиночные:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;3&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;4&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;7&lt;/td&gt;
+		&lt;td&gt;8&lt;/td&gt;
+		&lt;td&gt;9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table {
+	border-collapse: separate;
+	width: 400px;
+	border-spacing: 0;
+}
+td {
+	border: 1px solid red;
+	text-align: center;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table {
+			border-collapse: separate;
+			width: 400px;
+			border-spacing: 0;
+		}
+		td {
+			border: 1px solid red;
+			text-align: center;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение collapse</h2>
+<p>
+	Сейчас в таблице все границы схлопнутся и
+	станут выглядеть толщиной в <code data-gs="comd/u" data-x>1px</code>, как
+	и хотелось бы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;3&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;4&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;7&lt;/td&gt;
+		&lt;td&gt;8&lt;/td&gt;
+		&lt;td&gt;9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table {
+	border-collapse: collapse;
+	width: 400px;
+	border: 1px solid red;
+}
+td {
+	border: 1px solid red;
+	text-align: center;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table {
+			border-collapse: collapse;
+			width: 400px;
+			border: 1px solid red;
+		}
+		td {
+			border: 1px solid red;
+			text-align: center;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

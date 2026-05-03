@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тег link — acteck.off</title>
+  <meta name="description" content="Тег link — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Тег link</h1>
+    <p>
+	Тег <code data-gs="comd/c" data-x>link</code> подключает CSS файлы на HTML
+	страницу. Кроме того, <code data-gs="comd/c" data-x>link</code> подключает
+	некоторые другие файлы, например, фавикон.
+	(Фавикон - это ярлычок сайта, который
+	виден во вкладке браузера. Его также можно
+	увидеть в некоторых поисковиках при поиске
+	напротив сайтов, например в Яндексе).
+</p>
+<p>
+	У данного тега очень много атрибутов и они
+	могут принимать разнообразные значения, однако
+	в реальной жизни они все практически не используются.
+	Самое популярное - это подключение
+	CSS и добавление фавикона.
+</p>
+<p>
+	Как подключить CSS:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;link rel="stylesheet" href="style.css"&gt;</code>
+</div>
+<p>
+	Как подключить фавикон:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;link href="favicon.ico" rel="shortcut icon" type="image/x-icon"&gt;</code>
+</div>
+<p>
+	Тег <code data-gs="comd/c" data-x>link</code> не требует закрывающего тега.
+</p>
+
+<h2>Атрибуты</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Атрибут</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>href</code></th>
+		<td>Путь к подключаемому файлу.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>media</code></th>
+		<td>
+			Тип устройства, для которого следует подключить файл. <br>
+			Что имеется ввиду - вы можете подключить CSS файл только для больших экранов (значение <code data-gs="comd/c" data-x>screen</code>)
+			или только для маленьких экранов: для мобильников или планшетов (значение <code data-gs="comd/c" data-x>handheld</code>).
+			<hr>
+			Возможные значения: <code data-gs="comd/v" data-x>all</code>, <code data-gs="comd/v" data-x>braille</code>, <code data-gs="comd/v" data-x>handheld</code>, <code data-gs="comd/v" data-x>print</code>, <code data-gs="comd/v" data-x>screen</code>, <code data-gs="comd/v" data-x>speech</code>, <code data-gs="comd/v" data-x>projection</code>, <code data-gs="comd/v" data-x>tty</code>, <code data-gs="comd/v" data-x>tv</code>.
+			Подробнее смотрите ниже.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>rel</code></th>
+		<td>
+			Тип подключаемого файла. 
+			<hr>
+			Возможные значения: <code data-gs="comd/v" data-x>stylesheet</code> | <code data-gs="comd/v" data-x>alternate</code>.
+			Значение <code data-gs="comd/v" data-x>stylesheet</code> указывает на то, что подключается CSS файл,
+			значение <code data-gs="comd/v" data-x>alternate</code> используется, к примеру, для указания ссылки
+			на файл в формате XML для описания ленты новостей, анонсов статей.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>charset</code></th>
+		<td>
+			Кодировка подключаемого файла.
+			В настоящее время стандартом является <code data-gs="comd/c" data-x>utf-8</code>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>type</code></th>
+		<td>
+			Тип данных подключаемого файла.
+		</td>
+	</tr>
+</table>
+
+<h2>Значения атрибута media</h2>
+<p>
+	В HTML5 в качестве значений могут быть указаны
+	медиа-запросы.
+</p>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>all</code></th>
+		<td>Все устройства.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>screen</code></th>
+		<td>Экран монитора.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>handheld</code></th>
+		<td>Телефоны, смартфоны, устройства с маленьким экраном.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>braille</code></th>
+		<td>Устройства, основанные на системе Брайля, предназначены для слепых людей.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>speech</code></th>
+		<td>
+			Речевые синтезаторы, а также программы для воспроизведения текста вслух.
+			Сюда же входят речевые браузеры.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>print</code></th>
+		<td>Принтеры.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>projection</code></th>
+		<td>Проекторы.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>tty</code></th>
+		<td>
+			Телетайпы, терминалы, портативные устройства с ограниченными возможностями экрана.
+			Для них не должны использоваться пиксели в качестве единиц измерения.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>tty</code></th>
+		<td>
+			Телевизоры, которые умеют открывать
+			web страницы (бывает и такое).
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>all</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте посмотрим, как выглядит структура
+	простейшей HTML страницы, к которой добавим
+	подключение CSS файлов и фавиконки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;link rel="stylesheet" href="style1.css"&gt;
+		&lt;link rel="stylesheet" href="style2.css" media="screen"&gt;
+		&lt;link href="favicon.ico" rel="shortcut icon" type="image/x-icon"&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			тег <a href="../style/index.html"><code data-gs="comd/c" data-x>style</code></a>, <br>
+			который добавляет CSS прямо на странице
+		</li>
+		<li>
+			атрибут <a href="../../attr/style/index.html"><code data-gs="comd/c" data-x>style</code></a>, <br>
+			который задает стили конкретному тегу
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

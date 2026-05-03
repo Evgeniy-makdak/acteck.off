@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство animation — acteck.off</title>
+  <meta name="description" content="Свойство animation — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство animation</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>animation</code> - это свойство
+	сокращение для анимации, позволяет задать
+	все свойства для анимации одновременно: <a href="../animation-name/index.html"><code data-gs="comd/c" data-x>animation-name</code></a>,
+	<a href="../animation-duration/index.html"><code data-gs="comd/c" data-x>animation-duration</code></a>,
+	<a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>,
+	<a href="../animation-timing-function/index.html"><code data-gs="comd/c" data-x>animation-timing-function</code></a>,
+	<a href="../animation-iteration-count/index.html"><code data-gs="comd/c" data-x>animation-iteration-count</code></a>,
+	<a href="../animation-direction/index.html"><code data-gs="comd/c" data-x>animation-direction</code></a>,
+	<a href="../animation-fill-mode/index.html"><code data-gs="comd/c" data-x>animation-fill-mode</code></a>,
+	<a href="../animation-play-state/index.html"><code data-gs="comd/c" data-x>animation-play-state</code></a>.
+</p>
+<p>
+	Порядок значения не имеет, время выполнения
+	анимации <code data-gs="comd/c" data-x>animation-duration</code> обязательно
+	должно стоять перед задержкой <code data-gs="comd/c" data-x>animation-delay</code>.
+	Обязательными являются только свойства <code data-gs="comd/c" data-x>animation-name</code>
+	и <code data-gs="comd/c" data-x>animation-duration</code>.
+</p>
+<p>
+	Свойство может также принимать значение <code data-gs="comd/v" data-x>none</code>,
+	которое отключает анимацию совсем. Данное
+	значение является значением по умолчанию.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	animation: значения;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В данном примере перед анимацией будет задержка
+	в <code data-gs="comd/n" data-x>3</code> секунды (перед каждым новым проигрыванием),
+	а затем анимация будет проигрываться в течении
+	<code data-gs="comd/n" data-x>6</code>-ти секунд:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
+	from {
+		margin-left: 0px;
+	}
+	to {
+		margin-left: 400px;
+	}
+}
+
+#elem {
+	animation: move 6s infinite 3s linear;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			@keyframes move {
+			from {
+				margin-left: 0px;
+			}
+			to {
+				margin-left: 400px;
+			}
+		}
+		
+		#elem {
+			animation: move 6s infinite 3s linear;
+			border: 1px solid black;
+			width: 50px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Возможные проблемы</h2>
+<p>
+	Анимация, записанная в краткой форме, может
+	не работать из-за своего названия. Давайте
+	рассмотрим следующую анимацию:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes reverse {
+	from {
+		left: 0;
+	}
+	to {
+	  left: 300px;
+	}
+}</code>
+</div>
+<p>
+	Заметьте, я использую название анимации <code data-gs="comd/v" data-x>reverse</code>.
+	На первый взгляд, все хорошо, но aнимация
+	не работает, т.к. <code data-gs="comd/v" data-x>reverse</code> - валидное
+	ключевое слово для свойства <a href="../animation-direction/index.html"><code data-gs="comd/c" data-x>animation-direction</code></a>.
+</p>
+<p>
+	Также анимация не будет работать при использовании
+	в краткой форме в названии других ключевых
+	слов. Но все работает хорошо при использовании
+	"полной" формы описания.
+</p>
+<p>
+	К ключевым словам-значениям <a href="../animation-direction/index.html"><code data-gs="comd/c" data-x>animation-direction</code></a>,
+	ломающими анимации, стоит отнести и ключевые
+	слова, относящиеся к функциям сглаживания,
+	а так же <code data-gs="comd/v" data-x>infinite</code>, <code data-gs="comd/v" data-x>alternate</code>,
+	<code data-gs="comd/v" data-x>running</code>, <code data-gs="comd/v" data-x>paused</code> и так далее.
+</p>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			команду <a href="../../command/keyframes/index.html"><code data-gs="comd/c" data-x>@keyframes</code></a>, <br>
+			задающую ключевые кадры анимации
+		</li>
+		<li>
+			плавные переходы <a href="../transition/index.html"><code data-gs="comd/c" data-x>transition</code></a>,
+			представляющие собой анимацию по наведению на элемент
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

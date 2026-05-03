@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Методы отправки форм в JavaScript — acteck.off</title>
+  <meta name="description" content="Методы отправки форм в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Методы отправки форм в JavaScript</h1>
+    <p>
+	Формы могут быть отправлены двумя способами:
+	методом GET или методом POST. Способ отправки
+	формы регулируется атрибутом <code data-gs="comd/c" data-x>method</code> формы.
+</p>
+<p>
+	Например, укажем для формы метод отправки GET:
+</p>
+<div data-p="bock/pane" data-p-file="public/form.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="/handler/" method="GET"&gt;
+	&lt;input name="test1"&gt;
+	&lt;input name="test2"&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;</code>
+</div>
+<p>
+	А теперь метод POST:
+</p>
+<div data-p="bock/pane" data-p-file="public/form.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="/handler/" method="POST"&gt;
+	&lt;input name="test1"&gt;
+	&lt;input name="test2"&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;</code>
+</div>
+<p>
+	Давайте теперь посмотрим, в чем разница между
+	двумя методами отправки. В случае метода
+	GET данные формы будут видны в браузере в
+	виде так называемой <dfn data-gs="comd/d" data-x>строки параметров</dfn>
+	(<span data-gs="lang/e" data-x>query string</span>), представляющей собой
+	пары вида <span data-gs="comd/f" data-x>ключ-значение</span>, где ключом
+	будет имя элемента формы, а значением - введенные
+	в него данные. При этом пары значений будут
+	разделены амперсандами.
+</p>
+<p>
+	Данные, отправленные методом GET, попадут
+	на нашем сервере в свойство <code data-gs="comd/c" data-x>get</code> объекта
+	с данными:
+</p>
+<div data-p="bock/pane" data-p-file="server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	'/handler/': function(data) {
+		console.log(data.get); // выведется в консоль сервера
+		return 'form data received';
+	}
+}</code>
+</div>
+<p>
+	А данные, отправленные методом POST, попадут
+	на нашем сервере в свойство <code data-gs="comd/c" data-x>post</code> объекта
+	с данными:
+</p>
+<div data-p="bock/pane" data-p-file="server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	'/handler/': function(data) {
+		console.log(data.post); // выведется в консоль сервера
+		return 'form data received';
+	}
+}</code>
+</div>
+<p>
+	Для краткости можно выполнить деструктуризацию,
+	чтобы получить наши данные в отдельную переменную:
+</p>
+<div data-p="bock/pane" data-p-file="server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	'/handler/': function({get, post}) {
+		console.log(get);
+		console.log(post);
+		return 'form data received';
+	}
+}</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

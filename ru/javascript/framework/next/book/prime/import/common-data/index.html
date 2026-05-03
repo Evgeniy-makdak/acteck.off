@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Общие данные компонентов в NextJS — acteck.off</title>
+  <meta name="description" content="Общие данные компонентов в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/next/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Общие данные компонентов в NextJS</h1>
+    <p>
+	Бывают ситуации, когда несколько компонентов
+	должны получить доступ к одним данным.
+	Для примера пусть у нас есть некоторый
+	массив с юзерами. Пусть на одном роуте
+	мы хотим показать список юзеров,
+	а на другом роуте с динамическим параметром -
+	описание конкретного юзера по его <code data-gs="comd/c" data-x>id</code>.
+</p>
+<p>
+	Давайте реализуем описанное.
+	Сделаем следующую файловую структуру:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/app/<ul><li data-s-type="D">/users/<ul><li data-s-type="F">users.js</li><li data-s-type="D">/list/<ul><li data-s-type="F">page.jsx</li></ul></li><li data-s-type="D">/show/[id]/<ul><li data-s-type="F">page.jsx</li></ul></li></ul></li></ul></li></ul></div></div>
+<p>
+	Сделаем отдельный файл с
+	данными юзеров:
+</p>
+<div data-p="bock/pane" data-p-file="/app/users/users.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default users = [
+	{
+		id: 1,
+		name: 'name1',
+		surn: 'surn1',
+	},
+	{
+		id: 2,
+		name: 'name2',
+		surn: 'surn2',
+	},
+	{
+		id: 3,
+		name: 'name3',
+		surn: 'surn3',
+	},
+];</code>
+</div>
+<p>
+	Сделаем компонент для показа
+	списка юзеров:
+</p>
+<div data-p="bock/pane" data-p-file="app/users/list/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import users from '../users.js';
+
+export default function List() {
+	let list = users.map(user =&gt; {
+		return &lt;li&gt;
+			{user.name}
+		&lt;/li&gt;;
+	});
+	
+	return &lt;ul&gt;
+		{list}
+	&lt;/ul&gt;;
+}</code>
+</div>
+<p>
+	Сделаем компонент для вывода
+	определенного юзера по его <code data-gs="comd/c" data-x>id</code>:
+</p>
+<div data-p="bock/pane" data-p-file="app/users/show/[id]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import users from '../../users.js';
+
+export default function User({params}) {
+	let user = users[params.id];
+	
+	return &lt;div&gt;
+		&lt;span&gt;{user.id}&lt;/span&gt;
+		&lt;span&gt;{user.name}&lt;/span&gt;
+		&lt;span&gt;{user.surn}&lt;/span&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий массив:
+	</p>
+	<div data-p="bock/pane" data-p-file="/app/prods/prods.js">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let prods = [
+	{
+		id: 1,
+		name: 'prod1',
+		cost: 100,
+		desc: 'desc1',
+	},
+	{
+		id: 2,
+		name: 'prod2',
+		cost: 200,
+		desc: 'desc2',
+	},
+	{
+		id: 3,
+		name: 'prod3',
+		cost: 300,
+		desc: 'desc3',
+	},
+];</code>
+	</div>
+	<p>
+		Сделайте два компонента. Пусть
+		первый показывает список продуктов,
+		а второй - подробное описание продукта.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

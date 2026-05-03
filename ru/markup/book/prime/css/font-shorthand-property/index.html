@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство-сокращение font в CSS — acteck.off</title>
+  <meta name="description" content="Свойство-сокращение font в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство-сокращение font в CSS</h1>
+    <p>
+	В предыдущем уроке мы разобрали много
+	свойств для текста. Зачастую достаточно накладно
+	отдельно прописывать каждое из этих свойств,
+	поэтому в CSS для большего удобства существует
+	специальное свойство-сокращение <code data-gs="comd/c" data-x>font</code>.
+	Данное свойство позволяет одновременно задать
+	размер шрифта, семейство, жирность, курсив
+	и межстрочный интервал.
+</p>
+<p>
+	Описываемое свойство имеет следующий синтаксис:
+</p>
+<p data-w="cont/repr">
+	font-style font-weight font-size / line-height font-family
+</p>
+<p>
+	При этом порядок свойств имеет значение,
+	и обязательными являются <code data-gs="comd/c" data-x>font-size</code>
+	и <code data-gs="comd/c" data-x>font-family</code>. Обратите внимание на то, что
+	другие свойства, кроме описанных выше в синтаксисе,
+	не входят в данное свойство сокращение.
+</p>
+<p>
+	Давайте посмотрим на примерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть следующие стили:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 16px;
+	font-family: Arial;
+}</code>
+</div>
+<p>
+	Давайте перепишем их через свойство-сокращение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font: 16px Arial;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть следующие стили:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 16px;
+	font-family: Arial;
+	line-height: 50px;
+}</code>
+</div>
+<p>
+	Давайте перепишем их через свойство-сокращение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font: 16px/50px Arial;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть следующие стили:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 16px;
+	font-family: Arial;
+	font-weight: bold;
+}</code>
+</div>
+<p>
+	Давайте перепишем их через свойство-сокращение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font: bold 16px Arial;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть следующие стили:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 16px;
+	font-family: Arial;
+	font-weight: bold;
+	line-height: 50px;
+	font-style: italic;
+}</code>
+</div>
+<p>
+	Давайте перепишем их через свойство-сокращение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font: bold italic 16px/50px Arial;
+}</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Сократите код, используя свойство-сокращение
+		<code data-gs="comd/c" data-x>font</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-family: "Times New Roman";
+	font-size: 13px;
+	line-height: 20px;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сократите код, используя свойство-сокращение
+		<code data-gs="comd/c" data-x>font</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	width: 300px;
+	font-family: Arial;
+	color: red;
+	font-size: 40px;
+	font-weight: bold;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сократите код, используя свойство-сокращение
+		<code data-gs="comd/c" data-x>font</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-family: Arial;
+	font-size: 40px;
+	font-weight: bold;
+	text-indent: 50px;
+	font-style: italic;
+	line-height: 60px;
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

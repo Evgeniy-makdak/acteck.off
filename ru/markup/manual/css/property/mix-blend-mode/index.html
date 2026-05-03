@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство mix-blend-mode — acteck.off</title>
+  <meta name="description" content="Свойство mix-blend-mode — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство mix-blend-mode</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>mix-blend-mode</code> задает
+	режим наложения исходного цвета на фоновый
+	цвет или фоновое изображение.
+	Значения для свойства аналогичны основным режимам
+	графических редакторов.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	mix-blend-mode: значения;
+}</code>
+</div>
+<p>
+        В таблице представлены основные значения для
+	свойства <code data-gs="comd/c" data-x>mix-blend-mode</code>:
+</p>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>normal</code></th>
+		<td>Обычный. Не используется смешивание цветов. Режим по умолчанию.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>multiply</code></th>
+		<td>
+                Умножение. В этом режиме значение основного цвета умножается
+			на значение совмещённого цвета. Результирующий
+			цвет всегда представляет собой более тёмный цвет.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>screen</code></th>
+		<td>
+                Осветление. В этом режиме перемножаются обратные
+			значения основного и совмещённого цвета.
+			В качестве результирующего цвета всегда
+			применяется более светлый цвет.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>overlay</code></th>
+		<td>
+                Перекрытие. В этом режиме цвета умножаются или осветляются
+			в зависимости от основного цвета.
+			Узоры или цвета перекрывают существующие
+			пиксели, оставляя неизменными светлые и
+			тёмные участки основного цвета.
+		</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте посмотрим как будет выглядеть изображение
+	со значением по умолчанию свойства
+	<code data-gs="comd/c" data-x>mix-blend-mode</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;img src="bg.png"&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	background: #C8EAF5;
+	width: 400px;
+	height: 300px;
+}
+img {
+	mix-blend-mode: normal;
+	width: 400px;
+	height: 300px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			div {
+			background: #C8EAF5;
+			width: 400px;
+			height: 300px;
+		}
+		img {
+			mix-blend-mode: normal;
+			width: 400px;
+			height: 300px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<img src=&quot;../../../../../cont/markup/manual/css/property/mix-blend-mode/@/image/bg.png&quot;>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте изменим режим наложения
+	на умножение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;img src="bg.png"&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	background: #C8EAF5;
+	width: 400px;
+	height: 300px;
+}
+img {
+	mix-blend-mode: multiply;
+	width: 400px;
+	height: 300px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			div {
+			background: #C8EAF5;
+			width: 400px;
+			height: 300px;
+		}
+		img {
+			mix-blend-mode: multiply;
+			width: 400px;
+			height: 300px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<img src=&quot;../../../../../cont/markup/manual/css/property/mix-blend-mode/@/image/bg.png&quot;>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте зададим свойству <code data-gs="comd/c" data-x>mix-blend-mode</code>
+	значение перекрытия:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;img src="bg.png"&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	background: #C8EAF5;
+	width: 400px;
+	height: 300px;
+}
+img {
+	mix-blend-mode: overlay;
+	width: 400px;
+	height: 300px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			div {
+			background: #C8EAF5;
+			width: 400px;
+			height: 300px;
+		}
+		img {
+			mix-blend-mode: overlay;
+			width: 400px;
+			height: 300px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<img src=&quot;../../../../../cont/markup/manual/css/property/mix-blend-mode/@/image/bg.png&quot;>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../background/index.html"><code data-gs="comd/c" data-x>background</code></a>, <br>
+			представляющее собой свойство-сокращение для фона
+		</li>
+		<li>
+			свойство <a href="../background-image/index.html"><code data-gs="comd/c" data-x>background-image</code></a>, <br>
+			с помощью которого блоку можно задать фоновую картинку
+		</li>
+		<li>
+			свойство <a href="../background-blend-mode/index.html"><code data-gs="comd/c" data-x>background-blend-mode</code></a>, <br>
+			с помощью которого можно наложить фоновое изображение на фоновый цвет
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

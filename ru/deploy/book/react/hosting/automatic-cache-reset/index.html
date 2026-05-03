@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Автоматический сброс кеша в билде React — acteck.off</title>
+  <meta name="description" content="Автоматический сброс кеша в билде React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Автоматический сброс кеша в билде React</h1>
+    <p>
+	Вы уже должны знать, что в браузерах
+	существует проблема кеша статики.
+	Суть проблемы в том, что для повышения
+	быстродействия браузер кеширует
+	файлы стилей, скриптов и изображений.
+</p>
+<p>
+	Это значит, что если на хостинге вы поменяете
+	что-то в ваших скриптах или стилях,
+	то изменения появятся только у новых
+	посетителей сайта. Старые посетители,
+	которые уже были на сайте ранее,
+	будут видеть закешированную
+	версию кода. Это, конечно же,
+	неприемлимо.
+</p>
+<p>
+	К счастью, в React эта проблема решается
+	автоматически. Ее решение состоит в том,
+	что файлы билда, помимо имени и расширения,
+	имеют случайную строку, которая называется
+	<dfn data-gs="comd/d" data-x>хеш</dfn>. Этот хеш соответствует содержимому
+	файла. Это значит, что при изменении
+	кода в файле, будет меняться и хеш в его имени.
+	Таким образом, браузер будет думать,
+	что это новый файл и скачает его себе.
+</p>
+<p>
+	Мы можем наблюдать хеши файлов
+	при их подключении в <code data-gs="comd/p" data-x>index.html</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;script defer="defer" src="/static/js/main.3dd63bcb.js"&gt;&lt;/script&gt;
+&lt;link href="/static/css/main.f855e6bc.css" rel="stylesheet"&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Выполните сборку проекта. Изучите,
+		какие хеши стоят у файлов в сборке.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не изменяя код вашего проекта
+		выполните сборку. Убедитесь,
+		что хеши файлов не изменятся.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Измените код вашего проекта.
+		Выполните сборку. Убедитесь,
+		что хеши файлов изменятся.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

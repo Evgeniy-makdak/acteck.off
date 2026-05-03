@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тег iframe — acteck.off</title>
+  <meta name="description" content="Тег iframe — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Тег iframe</h1>
+    <p>
+	Тег <code data-gs="comd/c" data-x>iframe</code> позволяет встраивать содержимое одного сайта в другой. Он используется для отображения контента, такого как видео, изображения или статьи, без необходимости открывать новое окно или вкладку.
+</p>
+<p>
+	Содержимое вставляемого сайта будет иметь
+	дизайн именного этого сайта. При этом CSS стили
+	нашего сайта, а также наш JavaScript код
+	не будут оказывать влияние на содержимое тега <code data-gs="comd/c" data-x>iframe</code>.
+</p>
+<p>
+	К содержимому <code data-gs="comd/c" data-x>iframe</code> можно применить
+	наш JavaScript, но для этого нужно действовать
+	особыми методами.
+</p>
+<p>
+	Тег <code data-gs="comd/c" data-x>iframe</code> широко используется на сайтах для встраивания видео с YouTube и других платформ, а также для отображения статей и изображений с других источников.
+</p>
+
+<h2>Атрибуты</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Атрибут</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>src</code></th>
+		<td>
+			Указывает адрес страницы, которая должна быть встроена.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>srcdoc</code></th>
+		<td>
+			Позволяет задать содержимое ифрейма
+			непосредственно в атрибуте.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>frameborder</code></th>
+		<td>
+			Задает рамку фокруг ифрейма.
+			<hr>
+			Значение <code data-gs="comd/v" data-x>yes</code> задает рамку (по умолчанию),
+			а значение <code data-gs="comd/v" data-x>no</code> убирает рамку.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>scrolling</code></th>
+		<td>
+			Задает полосы прокрутки внутри ифрейма.
+			<hr>
+			Значение <code data-gs="comd/v" data-x>auto</code> - прокрутка по необходимости (по умолчанию),
+			значение <code data-gs="comd/v" data-x>yes</code> - прокрутка всегда,
+			значение <code data-gs="comd/v" data-x>no</code> - прокрутки нет.
+		</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте вставим на наш сайт
+	ифрейм с другим сайтом (для примера
+	возьмем code.mu):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;iframe src="https://code.mu/" width="600" height="400"&gt;&lt;/iframe&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<iframe src=&quot;https://code.mu/&quot; width=&quot;600&quot; height=&quot;400&quot;></iframe>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Вставим на наш сайт видео с YouTube:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;iframe
+	src="https://www.youtube.com/embed/KzQrHpB1H8U"
+	allowfullscreen
+	width="400"
+	height="400"&gt;
+&lt;/iframe&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<iframe
+			src=&quot;https://www.youtube.com/embed/KzQrHpB1H8U&quot;
+			allowfullscreen
+			width=&quot;400&quot;
+			height=&quot;400&quot;>
+		</iframe>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Напишем содержимое прямо в ифрейме:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;iframe
+	srcdoc="&lt;h1&gt;head&lt;/h1&gt;&lt;p&gt;text&lt;/p&gt;"
+	width="300"
+	height="200"&gt;
+&lt;/iframe&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<iframe
+			srcdoc=&quot;<h1>head</h1><p>text</p>&quot;
+			width=&quot;300&quot;
+			height=&quot;200&quot;>
+		</iframe>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

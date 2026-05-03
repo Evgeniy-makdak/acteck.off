@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рекурсия и многомерные структуры в JavaScript — acteck.off</title>
+  <meta name="description" content="Рекурсия и многомерные структуры в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Рекурсия и многомерные структуры в JavaScript</h1>
+    <p>
+	Дан массив многомерный произвольного уровня
+	вложенности, например, такой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [
+	1,
+	[
+		2, 7, 8
+	],
+	[
+		3, 4, [5, [6, 7]],
+	]
+];</code>
+</div>
+<p>
+	Как вы видите, данный массив имеет сложную
+	структуру, причем предполагается, что эта
+	структура может быть произвольной и уровни
+	вложенности могут быть сколь угодно глубоко.
+</p>
+<p>
+	Пусть мы хотим вывести в консоль все примитивные
+	(то есть не массивы) элементы нашего массива.
+	В этом случае для перебора такого массива
+	у нас просто не получится использовать циклы,
+	так как массив имеет неправильную структуру
+	и неизвестный уровень вложенности.
+</p>
+<p>
+	Зато для перебора такого массива очень удобно
+	будет использовать рекурсию.
+</p>
+<p>
+	Для начала сделаем функцию, в которую параметром
+	будем передавать наш массив, а в функции
+	сделаем цикл для перебора нашего массива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(arr) {
+	for (let elem of arr) {
+		console.log(elem);
+	}
+}
+
+func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);</code>
+</div>
+<p>
+	Сделанный нами цикл будет перебирать только
+	элементы основного массива. To есть вначале
+	он выведет <code data-gs="comd/c" data-x>1</code>, потом <code data-gs="comd/c" data-x>[2, 7, 8]</code>,
+	а потом <code data-gs="comd/c" data-x>[3, 4, [5, [6, 7]]</code>.
+</p>
+<p>
+	Давайте теперь будем разделять в цикле элементы-примитивы
+	и элементы-массивы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(arr) {
+	for (let elem of arr) {
+		if (typeof elem == 'object') {
+			// элемент - массив
+		} else {
+			// элемент - примитив
+			console.log(elem);
+		}
+	}
+}
+
+func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);</code>
+</div>
+<p>
+	А теперь сделаем так, чтобы если наш элемент
+	- массив, функция вызывала сама себя, передавая
+	параметром этот массив:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(arr) {
+	for (let elem of arr) {
+		if (typeof elem == 'object') {
+			func(elem);
+		} else {
+			console.log(elem);
+		}
+	}
+}
+
+func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан многомерный объект произвольного уровня
+		вложенности, например, такой:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{a: 1, b: {c: 2, d: 3, e: 4}, f: {g: 5, j: 6, k: {l: 7, m: {n: 8, o: 9}}}}</code>
+	</div>
+	<p>
+		С помощью рекурсии выведите все примитивные
+		элементы этого объекта в консоль.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан многомерный массив произвольного уровня
+		вложенности, например, такой:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[1, [2, 7, 8], [3, 4, [5, [6, 7]]]]</code>
+	</div>
+	<p>
+		Напишите код, который развернет наш многомерный
+		массив в одномерный. Для приведенного выше
+		массива это будет выглядеть вот так:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[1, 2, 7, 8, 3, 4, 5, 6, 7]</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

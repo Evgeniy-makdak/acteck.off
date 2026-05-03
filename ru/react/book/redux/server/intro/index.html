@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обмен данными между Redux приложением и сервером — acteck.off</title>
+  <meta name="description" content="Обмен данными между Redux приложением и сервером — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Обмен данными между Redux приложением и сервером</h1>
+    <p>
+	Этот раздел будет для искушенных учеников,
+	которые не остановились на достигнутом в Redux
+	и решили дойти до конца этого учебника. В
+	следующих двух разделах мы затронем работу
+	приложения Redux с асинхронной логикой, свяжем
+	наше приложение	с серверной частью и научим
+	его обмениваться с ней данными.
+</p>
+<p>
+	Из предыдущих разделов мы знаем, что в основе
+	работы Redux приложения лежит синхронный механизм.
+	Основные этапы работы заключаются в отправке
+	экшенов при возникновении какого-то события в
+	приложении, затем обновлении стейта в store
+	функцией-редьюсером, уведомление компонентов
+	приложения об изменении стейта и соответственно
+	отображении нового значения стейта в компонентах.
+</p>
+<p>
+	В реальной жизни часто бывает так, что приложению
+	необходима и асинхронная логика, например при
+	работе с HTTP API запросами и получением данных
+	с какого-то внешнего сервера. Поэтому для того,
+	чтобы наш <code data-gs="comd/s" data-x>'синхронный'</code> Redux store мог работать
+	с такой асинхронной логикой используется так
+	называемое <dfn data-gs="comd/d" data-x>middlware</dfn> - программное обеспечение,
+	являющееся посредником или связкой между
+	store нашего приложения и, к примеру, 
+	сервером, с которым мы начнем работу в этой
+	главе учебника.
+</p>
+<p>
+	Для Redux создано множество таких middleware,
+	однако наиболее широко распространенным среди
+	них и официально рекомендуемым при работе Redux
+	приложений с асинхронной логикой пока еще остается
+	<a href="https://github.com/reduxjs/redux-thunk">Redux Thunk</a>.
+	Это ПО помогает нам использовать обычные
+	функции (или thunks), которые могут содержать
+	в себе асинхронный логику, такую как
+	<code data-gs="comd/c" data-x>setTimeout</code>, <code data-gs="comd/c" data-x>Promises</code>, <code data-gs="comd/c" data-x>async/await</code>,
+	для взаимодействии с нашим store. Что касается
+	самого термина, <dfn data-gs="comd/d" data-x>thunk</dfn> - это код, который
+	делает какую-то отложенную работу.
+</p>
+<p>
+	Теперь, когда мы немного познакомились с тем,
+	как нам работать в Redux с ансинхронной логикой,
+	мы можем приступить к реализации этого этапа
+	в нашем приложении. Нам нужно сделать так, чтобы
+	наше приложение могло взаимодействовать с каким-то
+	внешним сервером, принимая от него и передавая
+	ему данные. Другими словами, впереди нас ожидает
+	захватывающая и очень важная тема. Начнем. 
+</p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Внедрение одного сервиса в другой в Angular — acteck.off</title>
+  <meta name="description" content="Внедрение одного сервиса в другой в Angular — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/javascript/index.html">javascript</a>
+    </div>
+
+    <h1>Внедрение одного сервиса в другой в Angular</h1>
+    <p>
+	Для работы над проектом нам может понадобиться
+	внедрить один сервис в другой, чтобы
+	расширить их функциональность. Давайте
+	сделаем еще один сервис, который будет
+	выводить сообщения в консоль при добавлении
+	новых данных. 
+</p>
+<p>
+	Вначале в папке <code data-gs="comd/p" data-x>test/src/app</code> создаем
+	файл <code data-gs="comd/p" data-x>log.service.ts</code>. Экспортируем
+	класс <code data-gs="comd/c" data-x>LogService</code>, в котором пропишем
+	функцию <code data-gs="comd/c" data-x>write</code> для вывода сообщения
+	в консоль: 
+</p>
+<div data-p="bock/pane" data-p-file="log.service.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { Injectable } from '@angular/core';
+
+@Injectable()
+export class LogService {
+	write(message: string) {
+		console.log(message);
+	}
+}</code>
+</div>
+<p>
+	Далее переходим в наш сервис <code data-gs="comd/c" data-x>DataService</code>
+	и импортируем, инжектируем и используем
+	наш новый сервис: 
+</p>
+<div data-p="bock/pane" data-p-file="app/data.service.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { Injectable } from '@angular/core';
+import { LogService } from './log.service'; // импортируем
+
+@Injectable()
+export class DataService {
+	private data: string[] = ['a', 'b', 'c'];
+	
+	constructor(private logService: LogService) { // инжектируем
+		
+	}
+	
+	getData(): string[] {
+		this.logService.write('data received'); // используем
+		return this.data;
+	}
+	
+	addData(name: string){
+		this.data.push(name);
+		this.logService.write('new elem added'); // используем
+	}
+}</code>
+</div>
+<p>
+	Этого, однако, мало. Нужно еще прописать
+	новый сервис и в классе компонента, хотя
+	он там напрямую и не используется: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { Component } from '@angular/core';
+import {DataService} from './data.service';
+import {LogService} from './log.service'; // импортируем
+
+@Component({
+	........
+	providers: [DataService, LogService] // добавляем
+})</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

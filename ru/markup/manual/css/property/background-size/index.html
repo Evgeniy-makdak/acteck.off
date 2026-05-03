@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство background-size — acteck.off</title>
+  <meta name="description" content="Свойство background-size — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство background-size</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>background-size</code> задает размер
+	картинки фона. Значением свойства служат
+	любые <a href="../../reference/units/sizes/index.html">единицы
+	для размеров</a>, либо ключевые слова <code data-gs="comd/v" data-x>auto</code>,
+	<code data-gs="comd/v" data-x>cover</code> или <code data-gs="comd/v" data-x>contain</code>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	background-size: значение;
+}</code>
+</div>
+
+<h2>Ключевые слова</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>auto</code></th>
+		<td>
+			Фон будет иметь натуральный размер, такой,
+			как реальный размер картинки фона.
+			Если же <code data-gs="comd/v" data-x>auto</code> задано только для одной стороны,
+			то по этой стороне фон будет масштабироваться так,
+			чтобы иметь неискаженные пропорции.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>cover</code></th>
+		<td>
+			Масштабирует картинку так, чтобы она накрыла собой весь блок
+			с сохранением пропорций. Картинка будет стараться поместиться
+			целиком, но это не всегда будет получаться, поэтому какая-то
+			ее часть будет обрезаться. Блок всегда будет покрыт картинкой
+			целиком.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>contain</code></th>
+		<td>
+			Масштабирует картинку так, чтобы она целиком влезла в блок с
+			сохранением пропорций. При этом она может занять или всю ширину,
+			или всю высоту (зависит от пропорций картинки и от
+			размеров элемента). Блок в общем случае будет покрыт картинкой не
+			целиком (зато картинка всегда будет видна вся, хоть и в уменьшенном
+			варианте).
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>auto</code>.
+</p>
+
+<h2>Использование</h2>
+<p>
+	Единицы для размеров и <code data-gs="comd/v" data-x>auto</code> могут быть использованы
+	в различных комбинациях, например, так: <code data-gs="comd/v" data-x>auto 20px</code>,
+	или <code data-gs="comd/v" data-x>30% 20px</code>, или <code data-gs="comd/v" data-x>auto 30%</code> и так далее.
+	В этом случае первый параметр задает размер
+	фона по ширине, а второй параметр - размер
+	фона по высоте. Если указан один параметр - то он
+	будет задавать размер фона и по ширине,
+	и по высоте одновременно.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Сейчас фоновая картинка будет иметь свой
+	натуральный размер:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-repeat: no-repeat;
+	background-image: url("bg.png");
+	border: 1px solid black;
+	width: 550px;
+	height: 400px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-repeat: no-repeat;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-size/@/image/bg.png?v=3&quot;);
+			border: 1px solid black;
+			width: 550px;
+			height: 400px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Сейчас фоновая картинка будет размер <code data-gs="comd/u" data-x>300px</code>
+	на <code data-gs="comd/u" data-x>400px</code> (в нашем случае пропорции
+	картинки исказятся):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-size: 300px 400px;
+	background-repeat: no-repeat;
+	background-image: url("bg.png");
+	border: 1px solid black;
+	width: 400px;
+	height: 400px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-size: 300px 400px;
+			background-repeat: no-repeat;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-size/@/image/bg.png?v=3&quot;);
+			border: 1px solid black;
+			width: 400px;
+			height: 400px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Сейчас фоновая картинка будет размер <code data-gs="comd/u" data-x>400px</code>
+	на <code data-gs="comd/u" data-x>400px</code> (в нашем случае пропорции
+	картинки исказятся):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-size: 400px;
+	background-repeat: no-repeat;
+	background-image: url("bg.png");
+	border: 1px solid black;
+	width: 400px;
+	height: 400px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-size: 400px;
+			background-repeat: no-repeat;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-size/@/image/bg.png?v=3&quot;);
+			border: 1px solid black;
+			width: 400px;
+			height: 400px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Сейчас фоновая картинка будет размер <code data-gs="comd/u" data-x>400px</code>
+	по горизонтали, а по вертикали ее размер
+	подстроится так, чтобы пропорции не исказились:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-size: 400px auto;
+	background-repeat: no-repeat;
+	background-image: url("bg.png");
+	border: 1px solid black;
+	width: 400px;
+	height: 400px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-size: 400px auto;
+			background-repeat: no-repeat;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-size/@/image/bg.png?v=3&quot;);
+			border: 1px solid black;
+			width: 400px;
+			height: 400px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Сейчас фоновая картинка будет размер <code data-gs="comd/u" data-x>400px</code>
+	по вертикали, а по горизонтали ее размер
+	подстроится так, чтобы пропорции не исказились:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-size: auto 400px;
+	background-repeat: no-repeat;
+	background-image: url("bg.png");
+	border: 1px solid black;
+	width: 400px;
+	height: 400px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-size: auto 400px;
+			background-repeat: no-repeat;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-size/@/image/bg.png?v=3&quot;);
+			border: 1px solid black;
+			width: 400px;
+			height: 400px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение contain</h2>
+<p>
+	Посмотрите на работу значения <code data-gs="comd/v" data-x>contain</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem2" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem3" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem4" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem5" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem6" class="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.elem {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url("bg.png");
+	border: 1px solid black;
+	margin-bottom: 20px;
+}
+
+#elem1 {
+	width: 600px;
+	height: 500px;
+}
+
+#elem2 {
+	width: 500px;
+	height: 600px;
+}
+
+#elem3 {
+	width: 400px;
+	height: 400px;
+}
+
+#elem4 {
+	width: 300px;
+	height: 400px;
+}
+
+#elem5 {
+	width: 200px;
+	height: 400px;
+}
+
+#elem6 {
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.elem {
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-size/@/image/bg.png?v=3&quot;);
+			border: 1px solid black;
+			margin-bottom: 20px;
+		}
+		
+		#elem1 {
+			width: 600px;
+			height: 500px;
+		}
+		
+		#elem2 {
+			width: 500px;
+			height: 600px;
+		}
+		
+		#elem3 {
+			width: 400px;
+			height: 400px;
+		}
+		
+		#elem4 {
+			width: 300px;
+			height: 400px;
+		}
+		
+		#elem5 {
+			width: 200px;
+			height: 400px;
+		}
+		
+		#elem6 {
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem2&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem3&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem4&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem5&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem6&quot; class=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение cover</h2>
+<p>
+	Посмотрите на работу значения <code data-gs="comd/c" data-x>cover</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem2" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem3" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem4" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem5" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem6" class="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.elem {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: url("bg.png");
+	border: 1px solid black;
+	margin-bottom: 20px;
+}
+
+#elem1 {
+	width: 600px;
+	height: 500px;
+}
+
+#elem2 {
+	width: 500px;
+	height: 600px;
+}
+
+#elem3 {
+	width: 400px;
+	height: 400px;
+}
+
+#elem4 {
+	width: 300px;
+	height: 400px;
+}
+
+#elem5 {
+	width: 200px;
+	height: 400px;
+}
+
+#elem6 {
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.elem {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-size/@/image/bg.png?v=3&quot;);
+			border: 1px solid black;
+			margin-bottom: 20px;
+		}
+		
+		#elem1 {
+			width: 600px;
+			height: 500px;
+		}
+		
+		#elem2 {
+			width: 500px;
+			height: 600px;
+		}
+		
+		#elem3 {
+			width: 400px;
+			height: 400px;
+		}
+		
+		#elem4 {
+			width: 300px;
+			height: 400px;
+		}
+		
+		#elem5 {
+			width: 200px;
+			height: 400px;
+		}
+		
+		#elem6 {
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem2&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem3&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem4&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem5&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem6&quot; class=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Улучшим работу cover</h2>
+<p>
+	Работу значения <code data-gs="comd/c" data-x>cover</code> можно улучшить,
+	если отцентрировать картинку с помощью свойства
+	<a href="../background-position/index.html"><code data-gs="comd/c" data-x>background-position</code></a>
+	(в нашем случае на видимые части начнут попадать
+	головы лошадей, а не их задницы):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem2" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem3" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem4" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem5" class="elem"&gt;&lt;/div&gt;
+&lt;div id="elem6" class="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.elem {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: url("bg.png");
+	border: 1px solid black;
+	margin-bottom: 20px;
+}
+
+#elem1 {
+	width: 600px;
+	height: 500px;
+}
+
+#elem2 {
+	width: 500px;
+	height: 600px;
+}
+
+#elem3 {
+	width: 400px;
+	height: 400px;
+}
+
+#elem4 {
+	width: 300px;
+	height: 400px;
+}
+
+#elem5 {
+	width: 200px;
+	height: 400px;
+}
+
+#elem6 {
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.elem {
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-size/@/image/bg.png?v=3&quot;);
+			border: 1px solid black;
+			margin-bottom: 20px;
+		}
+		
+		#elem1 {
+			width: 600px;
+			height: 500px;
+		}
+		
+		#elem2 {
+			width: 500px;
+			height: 600px;
+		}
+		
+		#elem3 {
+			width: 400px;
+			height: 400px;
+		}
+		
+		#elem4 {
+			width: 300px;
+			height: 400px;
+		}
+		
+		#elem5 {
+			width: 200px;
+			height: 400px;
+		}
+		
+		#elem6 {
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem2&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem3&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem4&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem5&quot; class=&quot;elem&quot;></div>
+		<div id=&quot;elem6&quot; class=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../background/index.html"><code data-gs="comd/c" data-x>background</code></a>, <br>
+			представляющее собой свойство-сокращение для фона
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

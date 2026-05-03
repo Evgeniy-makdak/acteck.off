@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Создание записей в базе данных в Redux — acteck.off</title>
+  <meta name="description" content="Создание записей в базе данных в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Создание записей в базе данных в Redux</h1>
+    <p>
+	На прошлых занятиях мы подготовили все, чтобы
+	заполнить нашу базу данными. Давайте приступим.
+</p>
+<p>
+	Давайте откроем наше приложение с продуктами,
+	а в нем файл <code data-gs="comd/p" data-x>server.js</code>. Сначала мы
+	определимся сколько и каких объектов с данными
+	нам нужно. Продавцов у нас <code data-gs="comd/n" data-x>4</code>, пусть на каждого
+	из них приходится по <code data-gs="comd/n" data-x>3</code> продукта. Введем
+	для этого две константы сразу после строчек
+	с импортом:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const NUM_SELLERS = 4
+const PRODS_PER_SELLER = 3</code>
+</div>
+<p>
+	Теперь в конце файла перед экспортом воркера
+	сделаем цикл for, в котором мы с помощью
+	<code data-gs="comd/c" data-x>create</code> создадим записи в базе данных
+	для наших <code data-gs="comd/n" data-x>4</code> продавцов:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">for (let i = 0; i &lt; NUM_SELLERS; i++) {
+	const newSeller = db.seller.create(createSellerData(i))
+}</code>
+</div>
+<p>
+	На каждого продавца у нас приходится <code data-gs="comd/n" data-x>3</code>
+	продукта поэтому мы в цикле для продавцов
+	сделаем еще один вложенный for, в котором
+	будем создавать записи для продуктов:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">for (let i = 0; i &lt; NUM_SELLERS; i++) {
+	const newSeller = db.seller.create(createSellerData(i))
+
+	for (let j = 0; j &lt; PRODS_PER_SELLER; j++) {
+		const newProduct = createProductData(newSeller)
+		db.product.create(newProduct)
+	}
+}</code>
+</div>
+<p>
+	Отлично! На этом мы закончили работу
+	с базой данных.
+</p>
+<p>
+	Нам осталось только сделать еще одну
+	вещь. Нам нужно, чтобы в объекте с
+	продуктом в поле <code data-gs="comd/c" data-x>seller</code> передавался
+	id продавца. Давайте ниже после циклов
+	for напишем еще одну функцию
+	<code data-gs="comd/c" data-x>serializeProduct</code>, в которой мы
+	будем добавлять этот id:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const serializeProduct = (product) =&gt; ({
+	...product,
+	seller: product.seller.id,
+})</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Пусть у вас будет три преподавателя, а
+		на каждого из них приходится <code data-gs="comd/n" data-x>3</code> студента.
+		Ознакомившись с материалом этого урока,
+		воспользуйтесь циклом <code data-gs="comd/c" data-x>for</code> и создайте
+		в базе данных <code data-gs="comd/n" data-x>3</code> записи с преподавателями.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Далее сделайте второй цикл <code data-gs="comd/c" data-x>for</code> внутри цикла
+		из предыдущей задачи, с помощью которого
+		создайте <code data-gs="comd/n" data-x>3</code> студентов.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		После вложенных циклов <code data-gs="comd/c" data-x>for</code> напишите функцию
+		<code data-gs="comd/c" data-x>serializeStudent</code>, как показано в уроке,
+		которая будет вносить в поле <code data-gs="comd/c" data-x>teacher</code> id
+		преподавателя.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

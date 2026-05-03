@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Позиционирование относительно родителя в CSS — acteck.off</title>
+  <meta name="description" content="Позиционирование относительно родителя в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Позиционирование относительно родителя в CSS</h1>
+    <p>
+	Если элементу задан <code data-gs="comd/v" data-x>relative</code>, а его
+	потомку - <code data-gs="comd/v" data-x>absolute</code>, то этот потомок
+	будет позиционироваться относительно своего
+	родителя, а не относительно окна браузера.
+</p>
+<p>
+	Как правило, в таком случае родителю указывают
+	relative без смещений. В этом случае с этим
+	родителем ничего не происходит, но все его
+	потомки теперь будут позиционироваться относительно
+	него.
+</p>
+<p>
+	Давайте посмотрим на примерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Для начала давайте просто сделаем блок-родитель
+	и блок-потомок без позиционирования:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="child"&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	width: 500px;
+	height: 300px;
+	margin: 0 auto;
+	border: 1px solid red;
+}
+#child {
+	width: 200px;
+	height: 200px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			width: 500px;
+			height: 300px;
+			margin: 0 auto;
+			border: 1px solid red;
+		}
+		#child {
+			width: 200px;
+			height: 200px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;child&quot;></div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте теперь абсолютно спозиционируем зеленый
+	блок. Так как родителю не указан <code data-gs="comd/v" data-x>relative</code>,
+	то потомок будет позиционироваться относительно
+	окна браузера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="child"&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	width: 500px;
+	height: 300px;
+	margin: 0 auto;
+	border: 1px solid red;
+}
+#child {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	
+	width: 200px;
+	height: 200px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			width: 500px;
+			height: 300px;
+			margin: 0 auto;
+			border: 1px solid red;
+		}
+		#child {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			
+			width: 200px;
+			height: 200px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;child&quot;></div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Укажем теперь родителю <code data-gs="comd/v" data-x>relative</code>. В
+	этом случае потомок будет позиционироваться
+	относительно своего родителя:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="child"&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	position: relative;
+	width: 500px;
+	height: 300px;
+	margin: 0 auto;
+	border: 1px solid red;
+}
+#child {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	
+	width: 200px;
+	height: 200px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			position: relative;
+			width: 500px;
+			height: 300px;
+			margin: 0 auto;
+			border: 1px solid red;
+		}
+		#child {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			
+			width: 200px;
+			height: 200px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;child&quot;></div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Практические задачи</h2>
+<p>
+	В следующих задачах основной блок стоит по
+	центру с помощью <code data-gs="comd/c" data-x>margin</code> в значении
+	<code data-gs="comd/v" data-x>auto</code>, а остальные позиционируются
+	относительно него с помощью
+	свойства <code data-gs="comd/c" data-x>position</code>.
+</p>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#wrapper {
+				position: relative;
+				width: 500px;
+				height: 400px;
+				margin: 0 auto;
+				border: 1px solid green;
+			}
+
+			#elem1 {
+				border: 1px solid red;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+				<div id=&quot;elem1&quot;></div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#wrapper {
+				position: relative;
+				width: 500px;
+				height: 400px;
+				margin: 0 auto;
+				background-color: #4DEE99;
+			}
+
+			#elem1 {
+				background-color: #fff;
+				position: absolute;
+				right: 50px;
+				bottom: 50px;
+				width: 100px;
+				height: 100px;
+			}
+			#elem2 {
+				background-color: #fff;
+				position: absolute;
+				left: 50px;
+				top: 50px;
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+				<div id=&quot;elem1&quot;></div>
+				<div id=&quot;elem2&quot;></div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#wrapper {
+				position: relative;
+				width: 200px;
+				height: 430px;
+				margin: 0 auto;
+				border: 1px solid black;
+			}
+
+			#elem1 {
+				border: 1px solid black;
+				background-color: red;
+				position: absolute;
+				left: 50px;
+				top: 50px;
+				width: 100px;
+				height: 100px;
+				border-radius: 50px;
+			}
+			#elem2 {
+				background-color: yellow;
+				border: 1px solid black;
+				position: absolute;
+				left: 50px;
+				top: 160px;
+				width: 100px;
+				height: 100px;
+				border-radius: 50px;
+			}
+			#elem3 {
+				border: 1px solid black;
+				background-color: green;
+				position: absolute;
+				left: 50px;
+				top: 270px;
+				width: 100px;
+				height: 100px;
+				border-radius: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+				<div id=&quot;elem1&quot;></div>
+				<div id=&quot;elem2&quot;></div>
+				<div id=&quot;elem3&quot;></div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#wrapper {
+				position: relative;
+				width: 500px;
+				height: 500px;
+				margin: 0 auto;
+				background-color: #4DEE99;
+				border-radius: 250px;
+			}
+
+			.eye1 {
+				background-color: #fff;
+				position: absolute;
+				right: 100px;
+				top: 70px;
+				width: 100px;
+				height: 100px;
+				border-radius: 50px;
+			}
+			.eye2 {
+				background-color: #fff;
+				position: absolute;
+				left: 100px;
+				top: 70px;
+				width: 100px;
+				height: 100px;
+				border-radius: 50px;
+			}
+			.noise {
+				background-color: #fff;
+				position: absolute;
+				left: 215px;
+				top: 200px;
+				width: 70px;
+				height: 70px;
+				
+			}
+			.noise {
+				background-color: #fff;
+				position: absolute;
+				left: 215px;
+				top: 200px;
+				width: 70px;
+				height: 70px;
+				
+			}
+			.mouth {
+				background-color: #fff;
+				position: absolute;
+				left: 150px;
+				top: 350px;
+				width: 200px;
+				height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+				<div class=&quot;eye1&quot;></div>
+				<div class=&quot;eye2&quot;></div>
+				<div class=&quot;noise&quot;></div>
+				<div class=&quot;mouth&quot;></div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#wrapper {
+				position: relative;
+				width: 400px;
+				height: 400px;
+				margin: 0 auto;
+				background-color: #C4CD14;
+				border-radius: 200px;
+			}
+
+			.eye1 {
+				background-color: #fff;
+				position: absolute;
+				right: 80px;
+				top: 70px;
+				width: 80px;
+				height: 80px;
+				border-radius: 40px;
+				z-index: 3;
+			}
+			.eye2 {
+				background-color: #fff;
+				position: absolute;
+				left: 80px;
+				top: 70px;
+				width: 80px;
+				height: 80px;
+				border-radius: 40px;
+				z-index: 3;
+			}
+
+			.noise {
+				background-color: #fff;
+				position: absolute;
+				left: 165px;
+				top: 200px;
+				width: 70px;
+				height: 70px;
+				z-index: 3;
+				border-radius: 35px;
+				
+			}
+			.mouth1 {
+				background-color: #fff;
+				position: absolute;
+				left: 100px;
+				top: 155px;
+				width: 200px;
+				height: 200px;
+				border-radius: 100px;
+				z-index: 1;
+			}
+			.mouth2 {
+				background-color: #C4CD14;
+				position: absolute;
+				left: 50px;
+				top: 30px;
+				width: 300px;
+				height: 300px;
+				border-radius: 150px;
+				z-index: 2;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+				<div class=&quot;eye1&quot;></div>
+				<div class=&quot;eye2&quot;></div>
+				<div class=&quot;noise&quot;></div>
+				<div class=&quot;mouth1&quot;></div>
+				<div class=&quot;mouth2&quot;></div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

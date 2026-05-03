@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Связывание таблиц в базах данных в NodeJS — acteck.off</title>
+  <meta name="description" content="Связывание таблиц в базах данных в NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/nodejs/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Связывание таблиц в базах данных в NodeJS</h1>
+    <p>
+	Пусть у нас есть таблица с именами юзеров
+	и городами, в которых они живут:
+</p>
+<div data-w="bock/stab">
+	<table>
+		<caption>users</caption>
+		<tr>
+			<th>id</th>
+			<th>name</th>
+			<th>city</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>user1</td>
+			<td>city1</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>user2</td>
+			<td>city1</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>user3</td>
+			<td>city2</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>user4</td>
+			<td>city1</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>user5</td>
+			<td>city3</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>user6</td>
+			<td>city2</td>
+		</tr>
+	</table>
+</div>
+<p>
+	Недостатком этой таблицы является то, что
+	один и тот же город повторяется несколько
+	раз для разных юзеров. Это приводит к некоторым
+	проблемам.
+</p>
+<p>
+	Во-первых, постоянное повторение приводит
+	к тому, что база данных начинает занимать
+	намного больше места.
+</p>
+<p>
+	Во-вторых, достаточно неудобно выполнять
+	операции с городами. К примеру, мы хотим
+	вывести на экран список всех городов. Так
+	просто это сделать не получится. Нам придется
+	получить всех юзеров вместе с их городами,
+	затем удалить дубли из полученных городов
+	и только тогда мы получим этот список.
+</p>
+<p>
+	А теперь представим, что в базе <code data-gs="comd/n" data-x>10000</code>
+	юзеров из <code data-gs="comd/n" data-x>10</code> городов - ради этих <code data-gs="comd/n" data-x>10</code>
+	городов нам придется достать всю таблицу
+	из огромного количества строк - получится
+	очень медленная операция с бессмысленной
+	тратой ресурсов.
+</p>
+
+<h2>Решение проблемы</h2>
+<p>
+	Нужно разбить нашу таблицу на две: в одной
+	будут хранится города, а во второй - юзеры.
+	При этом в таблице с юзерами будет колонка
+	<code data-gs="comd/c" data-x>city_id</code>, которая будет <i>ссылаться</i>
+	на город юзера.
+</p>
+<p>
+	Итак, давайте сделаем две таблицы. Таблица
+	с городами:
+</p>
+<div data-w="bock/stab">
+	<table>
+		<caption>cities</caption>
+		<tr>
+			<th>id</th>
+			<th>name</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>city1</td>
+		</tr>
+		<tr>
+		<tr>
+			<td>2</td>
+			<td>city2</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>city3</td>
+		</tr>
+	</table>
+</div>
+<p>
+	Таблица с юзерами:
+</p>
+<div data-w="bock/stab">
+	<table>
+		<caption>users</caption>
+		<tr>
+			<th>id</th>
+			<th>name</th>
+			<th>city_id</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>user1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>user2</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>user3</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>user4</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>user5</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>user6</td>
+			<td>2</td>
+		</tr>
+	</table>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Пусть вам нужно хранить товары (название,
+		цена, количество) и категории этих товаров.
+		Распишите структуру хранения.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть вам нужно хранить реки и моря, в которые
+		впадают эти реки. Распишите структуру
+		хранения.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть вам нужно хранить города и страны,
+		в которых они находятся. Распишите структуру
+		хранения.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

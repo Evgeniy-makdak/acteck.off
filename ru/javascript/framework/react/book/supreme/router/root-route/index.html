@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Создание корневого маршрута в React Router — acteck.off</title>
+  <meta name="description" content="Создание корневого маршрута в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Создание корневого маршрута в React Router</h1>
+    <p>
+	Часто основной маршрут, ведущий на главную
+	страницу, называют корневым (<span data-gs="lang/e" data-x>root route</span>),
+	поскольку другие маршруты будут рендериться
+	внутри него. Очень удобно представить его
+	отдельным компонентом. Поэтому давайте снова
+	возьмем наше приложение и в папке <code data-gs="comd/p" data-x>src</code>
+	создадим еще одну и назовем ее <code data-gs="comd/p" data-x>routes</code>.
+	Теперь в этой папке создадим файл <code data-gs="comd/p" data-x>root.jsx</code>
+	для отдельного React компонента <code data-gs="comd/c" data-x>Root</code>. Код
+	в файле будет выглядеть так:
+</p>   
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Root() {
+	return &lt;div&gt;Hello Router!&lt;/div&gt;;
+}
+
+export default Root;</code>
+</div>
+<p>
+	А теперь давайте внесем изменения в кусочек
+	кода файла <code data-gs="comd/p" data-x>main.jsx</code>, поскольку в
+	качестве значения <code data-gs="comd/c" data-x>element</code> мы
+	теперь будем передавать компонент <code data-gs="comd/c" data-x>Root</code>,
+	а его содержимое теперь находится в
+	отдельном файле <code data-gs="comd/p" data-x>root.jsx</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([
+	{
+		path: '/',
+		element: &lt;Root /&gt;,
+	},
+]);</code>
+</div>
+<p>
+	Не забудем строчку импорта с нашим
+	компонентом в main.jsx:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Root from './routes/root';</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Откройте приложение, созданное вами в
+		заданиях к прошлым урокам. Создайте
+		для корневого маршрута отдельный React
+		компонент <code data-gs="comd/c" data-x>Root</code> в отдельном файле
+		<code data-gs="comd/p" data-x>root.jsx</code>, как описано в данном
+		уроке. Внесите изменения в ваш
+		<code data-gs="comd/p" data-x>main.jsx</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

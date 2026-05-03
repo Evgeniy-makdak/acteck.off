@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Перестроение блоков через медиазапросы в CSS — acteck.off</title>
+  <meta name="description" content="Перестроение блоков через медиазапросы в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Перестроение блоков через медиазапросы в CSS</h1>
+    <p>
+	Давайте научимся выполнять перестроения блоков
+	на различной ширине экрана. Для примера реализуем
+	вот такое поведение:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			width: 90%;
+			margin: 50px auto;
+		}
+		.child {
+			box-sizing: border-box;
+			padding: 20px;
+			border: 1px solid green;
+		}
+		
+		@media (max-width: 500px) {
+			.parent {
+				flex-direction: column;
+			}
+			.child {
+				margin-bottom: 10px;
+			}
+		}
+		@media (min-width: 500px) {
+			.parent {
+				justify-content: space-between;
+			}
+			.child {
+				width: 49.5%;
+			}
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+<p>
+	Для начала напишем HTML код наших блоков:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;1&lt;/div&gt;
+	&lt;div class="child"&gt;2&lt;/div&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Теперь давайте напишем стили родителю наших
+	блоков:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	width: 90%;
+	margin: 50px auto;
+	border: 1px solid red;
+}</code>
+</div>
+<p>
+	Теперь напишем стили самим блокам, не указывая
+	тех свойств, которые будут меняться
+	медиазапросами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.child {
+	box-sizing: border-box;
+	padding: 20px;
+	border: 1px solid green;
+}</code>
+</div>
+<p>
+	На большой ширине экрана пусть промежуток
+	между блоками рассчитывается
+	автоматически:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 500px) {
+	.parent {
+		justify-content: space-between;
+	}
+}</code>
+</div>
+<p>
+	Поставим ширину нашим блокам чуть меньше
+	<code data-gs="comd/u" data-x>50%</code>, чтобы оставить мест
+	под отступ:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 500px) {
+	.child {
+		width: 49.5%;
+	}
+}</code>
+</div>
+<p>
+	На маленькой ширине экрана поставим наши
+	блоки в колонку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (max-width: 500px) {
+	.parent {
+		flex-direction: column;
+	}
+}</code>
+</div>
+<p>
+	Зададим им нижний отступ:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (max-width: 500px) {
+	.child {
+		margin-bottom: 10px;
+	}
+}</code>
+</div>
+<p>
+	Соберем все вместе и получим следующий код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	width: 90%;
+	margin: 50px auto;
+}
+.child {
+	box-sizing: border-box;
+	padding: 20px;
+	border: 1px solid green;
+}
+
+@media (max-width: 500px) {
+	.parent {
+		flex-direction: column;
+	}
+	.child {
+		margin-bottom: 10px;
+	}
+}
+@media (min-width: 500px) {
+	.parent {
+		justify-content: space-between;
+	}
+	.child {
+		width: 49.5%;
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Повторите пример, приведенный ниже:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				display: flex;
+				width: 90%;
+				margin: 50px auto;
+			}
+			.child {
+				box-sizing: border-box;
+				padding: 20px;
+				border: 1px solid green;
+			}
+			
+			@media (max-width: 500px) {
+				.parent {
+					flex-direction: column;
+				}
+				.child {
+					margin-bottom: 10px;
+				}
+			}
+			@media (min-width: 500px) {
+				.parent {
+					justify-content: space-between;
+				}
+				.child1 {
+					width: 69%;
+				}
+				.child2 {
+					width: 30%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				<div class=&quot;child child1&quot;>1</div>
+				<div class=&quot;child child2&quot;>2</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Повторите пример, приведенный ниже:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				display: flex;
+				width: 90%;
+				margin: 50px auto;
+			}
+			.child {
+				box-sizing: border-box;
+				padding: 20px;
+				border: 1px solid green;
+			}
+			
+			@media (max-width: 500px) {
+				.parent {
+					flex-direction: column;
+				}
+				.child {
+					margin-bottom: 10px;
+				}
+			}
+			@media (min-width: 500px) {
+				.parent {
+					justify-content: space-between;
+				}
+				.child1 {
+					width: 59%;
+				}
+				.child2 {
+					width: 20%;
+				}
+				.child3 {
+					width: 20%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				<div class=&quot;child child1&quot;>1</div>
+				<div class=&quot;child child2&quot;>2</div>
+				<div class=&quot;child child3&quot;>3</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Повторите пример, приведенный ниже:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				display: flex;
+				width: 90%;
+				margin: 50px auto;
+			}
+			.child {
+				box-sizing: border-box;
+				padding: 20px;
+				border: 1px solid green;
+			}
+			
+			@media (max-width: 500px) {
+				.parent {
+					flex-direction: column;
+				}
+				.child {
+					margin-bottom: 10px;
+				}
+			}
+			@media (min-width: 500px) and (max-width: 900px) {
+				.parent {
+					justify-content: space-between;
+					flex-wrap: wrap;
+				}
+				.child1 {
+					width: 100%;
+					margin-bottom: 10px;
+				}
+				.child2 {
+					width: 49.2%;
+				}
+				.child3 {
+					width: 49.2%;
+				}
+			}
+			@media (min-width: 900px) {
+				.parent {
+					justify-content: space-between;
+				}
+				.child1 {
+					width: 58%;
+				}
+				.child2 {
+					width: 20%;
+				}
+				.child3 {
+					width: 20%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				<div class=&quot;child child1&quot;>1</div>
+				<div class=&quot;child child2&quot;>2</div>
+				<div class=&quot;child child3&quot;>3</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Повторите пример, приведенный ниже:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				display: flex;
+				width: 90%;
+				margin: 50px auto;
+			}
+			.child {
+				box-sizing: border-box;
+				padding: 20px;
+				border: 1px solid green;
+			}
+			
+			@media (max-width: 500px) {
+				.parent {
+					flex-direction: column;
+				}
+				.child {
+					margin-bottom: 10px;
+				}
+				.child1 {
+					order: 2;
+				}
+				.child2 {
+					order: 1;
+				}
+				.child3 {
+					order: 3;
+				}
+			}
+			@media (min-width: 500px) and (max-width: 900px) {
+				.parent {
+					justify-content: space-between;
+					flex-wrap: wrap;
+				}
+				.child1 {
+					width: 49.2%;
+					order: 2;
+				}
+				.child2 {
+					order: 1;
+					width: 100%;
+					margin-bottom: 10px;
+				}
+				.child3 {
+					order: 3;
+					width: 49.2%;
+				}
+			}
+			@media (min-width: 900px) {
+				.parent {
+					justify-content: space-between;
+				}
+				.child1 {
+					width: 20%;
+				}
+				.child2 {
+					width: 58%;
+				}
+				.child3 {
+					width: 20%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				<div class=&quot;child child1&quot;>1</div>
+				<div class=&quot;child child2&quot;>2</div>
+				<div class=&quot;child child3&quot;>3</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

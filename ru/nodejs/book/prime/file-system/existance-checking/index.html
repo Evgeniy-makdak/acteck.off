@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проверка существования файла в NodeJS — acteck.off</title>
+  <meta name="description" content="Проверка существования файла в NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/nodejs/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Проверка существования файла в NodeJS</h1>
+    <p>
+	Давайте научимся проверять существование файла
+	или папки. В современном NodeJS это
+	делается особым образом через метод
+	<code data-gs="comd/c" data-x>fs.access</code>, проверяющий возможность
+	доступа к файлу.
+</p>
+<p>
+	Для начала импортируем асинхронную
+	часть модуля <code data-gs="comd/c" data-x>fs</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';</code>
+</div>
+<p>
+	Теперь из общей части модуля <code data-gs="comd/c" data-x>fs</code>
+	импортируем специальные константы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import { constants } from 'fs';</code>
+</div>
+<p>
+	После этого в переменной <code data-gs="comd/c" data-x>constants</code>
+	будет специальный объект с константами,
+	содержащими специальные флаги, которые
+	мы будем передавать параметром в метод
+	<code data-gs="comd/c" data-x>access</code>, изменяя его поведение.
+</p>
+<p>
+	Следующий флаг используется для проверки
+	существования файла:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">constants.F_OK</code>
+</div>
+<p>
+	Давайте с помощью этого флага проверим
+	существование файла <code data-gs="comd/p" data-x>test.txt</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.access('test.txt', constants.F_OK);</code>
+</div>
+<p>
+	Наш метод <code data-gs="comd/c" data-x>access</code> своим резульатом
+	возвращает промис. Если файл существует,
+	но промис зарезолвится, а если нет - то
+	зареджектится:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.access('test.txt', constants.F_OK).then(() =&gt; {
+	console.log('file exists');
+}).catch(() =&gt; {
+	console.error('file does not exists');
+});</code>
+</div>
+<p>
+	Давайте перепишем наш код через <code data-gs="comd/c" data-x>await</code>.
+	Для этого обернем вызов <code data-gs="comd/c" data-x>access</code> в
+	конструкцию <code data-gs="comd/c" data-x>try-catch</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
+	await fs.access('test.txt', constants.F_OK);
+	console.log('file exists');
+} catch {
+	console.error('file does not exists');
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Проверьте, существует ли файл <code data-gs="comd/p" data-x>test.txt</code>.
+		Если существует, прочитайте его текст.
+	</p>
+</div>
+
+<h2>Другие флаги</h2>
+<p>
+	В наш метод <code data-gs="comd/c" data-x>access</code> можно передавать
+	и другие флаги. К примеру, следующий флаг
+	используется для проверки разрешения на
+	чтение файла:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">constants.R_OK</code>
+</div>
+<p>
+	А следующий флаг используется для проверки
+	разрешения на запись файла:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">constants.W_OK</code>
+</div>
+<p>
+	Давайте выполним проверку файла
+	на возможность чтения:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
+	await fs.access('test.txt', constants.R_OK);
+	console.log('can read');
+} catch {
+	console.error('cannot read');
+}</code>
+</div>
+<p>
+	А теперь выполним проверку файла на
+	возможность записи:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
+	await fs.access('test.txt', constants.W_OK);
+	console.log('can write');
+} catch {
+	console.error('cannot write');
+}</code>
+</div>
+<p>
+	А теперь проверим файл и на то, и на другое:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
+	await fs.access('test.txt', constants.R_OK | constants.W_OK);
+	console.log('can access');
+} catch {
+	console.error('cannot access');
+}</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

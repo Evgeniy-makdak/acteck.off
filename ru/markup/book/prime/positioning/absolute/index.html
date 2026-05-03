@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Абсолютное позиционирование элементов в CSS — acteck.off</title>
+  <meta name="description" content="Абсолютное позиционирование элементов в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Абсолютное позиционирование элементов в CSS</h1>
+    <p>
+	В данном уроке мы разберем абсолютное
+	позиционирование элементов. Оно позволяет
+	располагать элементы по указанным координатам
+	страницы. Например, можно расположить элемент
+	в позицию <code data-gs="comd/u" data-x>100px</code> сверху страницы и
+	<code data-gs="comd/u" data-x>200px</code> слева. Элемент переместится
+	туда, не взирая на то, что там будут располагаться
+	другие элементы и просто станет поверх их.
+	Говорят, что при этом элемент выпадает из
+	<dfn data-gs="comd/d" data-x>нормального потока</dfn> документа: все
+	остальные элементы будут вести себя так,
+	будто нашего элемента нет.
+</p>
+<p>
+	Для того, чтобы сделать элемент абсолютно
+	спозиционированным, этому элементу необходимо
+	задать свойство <code data-gs="comd/c" data-x>position</code> в значении
+	<code data-gs="comd/v" data-x>absolute</code>. Кроме этого свойства, нужны
+	еще два: одно будет задавать координату по
+	вертикали, а второе - по горизонтали.
+</p>
+<p>
+	Для вертикали нужно задать отступ или сверху,
+	или снизу. Отступ сверху задает свойство
+	<code data-gs="comd/c" data-x>top</code>, а отступ снизу - свойство <code data-gs="comd/c" data-x>bottom</code>.
+	Для горизонтали нужно задать отступ или слева,
+	или справа. Отступ слева задает свойство
+	<code data-gs="comd/c" data-x>left</code>, а отступ справа - свойство
+	<code data-gs="comd/c" data-x>right</code>.
+</p>
+<p>
+	Давайте посмотрим на примерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Для начала давайте просто сделаем два блока
+	без позиционирования (<i>обратите внимание
+	на то, что элементы не прижаты к краю окна,
+	так как <code data-gs="comd/c" data-x>body</code> имеет <code data-gs="comd/c" data-x>margin</code> по умолчанию</i>):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
+&lt;div id="elem2"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
+	width: 200px;
+	height: 200px;
+	border: 1px solid red;
+}
+#elem2 {
+	width: 100px;
+	height: 100px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem1 {
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		#elem2 {
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+		<div id=&quot;elem2&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте теперь зеленому блоку зададим абсолютное
+	позиционирование, поставив его в позицию
+	сверху <code data-gs="comd/u" data-x>150px</code> и слева <code data-gs="comd/u" data-x>100px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
+&lt;div id="elem2"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
+	width: 200px;
+	height: 200px;
+	border: 1px solid red;
+}
+#elem2 {
+	position: absolute;
+	top: 150px;
+	left: 100px;
+	
+	width: 100px;
+	height: 100px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem1 {
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		#elem2 {
+			position: absolute;
+			top: 150px;
+			left: 100px;
+			
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+		<div id=&quot;elem2&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте теперь поставим зеленый блок в позицию
+	<code data-gs="comd/u" data-x>0px</code> сверху и <code data-gs="comd/u" data-x>0px</code> слева:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
+&lt;div id="elem2"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
+	width: 200px;
+	height: 200px;
+	border: 1px solid red;
+}
+#elem2 {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	
+	width: 100px;
+	height: 100px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem1 {
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		#elem2 {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+		<div id=&quot;elem2&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте теперь поставим зеленый блок в позицию
+	<code data-gs="comd/u" data-x>0px</code> сверху и <code data-gs="comd/u" data-x>0px</code> справа:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
+&lt;div id="elem2"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
+	width: 200px;
+	height: 200px;
+	border: 1px solid red;
+}
+#elem2 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	
+	width: 100px;
+	height: 100px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem1 {
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		#elem2 {
+			position: absolute;
+			top: 0;
+			right: 0;
+			
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+		<div id=&quot;elem2&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте теперь поставим зеленый блок в позицию
+	<code data-gs="comd/u" data-x>0px</code> снизу и <code data-gs="comd/u" data-x>0px</code> справа:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
+&lt;div id="elem2"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
+	width: 200px;
+	height: 200px;
+	border: 1px solid red;
+}
+#elem2 {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	
+	width: 100px;
+	height: 100px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem1 {
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		#elem2 {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+		<div id=&quot;elem2&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте теперь поставим зеленый блок в позицию
+	<code data-gs="comd/u" data-x>0px</code> снизу и <code data-gs="comd/u" data-x>0px</code> слева:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
+&lt;div id="elem2"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
+	width: 200px;
+	height: 200px;
+	border: 1px solid red;
+}
+#elem2 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	
+	width: 100px;
+	height: 100px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem1 {
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		#elem2 {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+		<div id=&quot;elem2&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		С помощью абсолютного позиционирования разместите
+		блоки следующим образом:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+				height: 250px;
+			}
+		</style>
+		<style>
+			#elem1, #elem2, #elem3 {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+			}
+			#elem1 {
+				border: 1px solid red;
+				left: 30px;
+				top: 30px;
+			}
+			#elem2 {
+				border: 1px solid blue;
+				left: 100px;
+				top: 100px;
+			}
+			#elem3 {
+				border: 1px solid green;
+				left: 170px;
+				top: 170px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+			<div id=&quot;elem2&quot;></div>
+			<div id=&quot;elem3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		С помощью абсолютного позиционирования разместите
+		блоки следующим образом:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+				height: 100px;
+			}
+		</style>
+		<style>
+			#elem1, #elem2, #elem3 {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				top: 30px;
+			}
+			#elem1 {
+				border: 1px solid red;
+				left: 30px;
+			}
+			#elem2 {
+				border: 1px solid blue;
+				left: 100px;
+			}
+			#elem3 {
+				border: 1px solid green;
+				left: 170px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+			<div id=&quot;elem2&quot;></div>
+			<div id=&quot;elem3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		С помощью абсолютного позиционирования разместите
+		блоки следующим образом:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+				height: 150px;
+			}
+		</style>
+		<style>
+			#elem1, #elem2, #elem3 {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+			}
+			#elem1 {
+				border: 1px solid red;
+				left: 30px;
+				top: 30px;
+			}
+			#elem2 {
+				border: 1px solid blue;
+				left: 60px;
+				top: 60px;
+			}
+			#elem3 {
+				border: 1px solid green;
+				left: 90px;
+				top: 90px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+			<div id=&quot;elem2&quot;></div>
+			<div id=&quot;elem3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		С помощью абсолютного позиционирования разместите
+		блоки следующим образом:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+				height: 150px;
+			}
+		</style>
+		<style>
+			#elem1, #elem2, #elem3 {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+			}
+			#elem1 {
+				background-color: #FF8888;
+				left: 30px;
+				top: 30px;
+			}
+			#elem2 {
+				background-color: #7E89EB;
+				left: 60px;
+				top: 60px;
+			}
+			#elem3 {
+				background-color: #4DEE99;
+				left: 90px;
+				top: 90px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+			<div id=&quot;elem2&quot;></div>
+			<div id=&quot;elem3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

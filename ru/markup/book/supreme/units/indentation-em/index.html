@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отступы и единицы em в CSS — acteck.off</title>
+  <meta name="description" content="Отступы и единицы em в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Отступы и единицы em в CSS</h1>
+    <p>
+	Пусть у нас есть следующие теги:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;p&gt;
+		text
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Пусть размер шрифта абзаца задан в <code data-gs="comd/v" data-x>px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 20px;
+}</code>
+</div>
+<p>
+	Давайте установим марджин этого абзаца в
+	единицах <code data-gs="comd/u" data-x>em</code>. В этом случае размер
+	отступа будет вычисляться от размера шрифта
+	абзаца, а не его родителя:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 20px;
+	margin: 2em;  /* соответствует 40px */
+}</code>
+</div>
+<p>
+	Пусть теперь абзацу задан размер в <code data-gs="comd/u" data-x>em</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	font-size: 20px;
+}
+p {
+	font-size: 2em; /* соответствует 40px */
+}</code>
+</div>
+<p>
+	Давайте опять зададим <code data-gs="comd/c" data-x>margin</code> нашему
+	элементу. В этом случае он по-прежнему будет
+	рассчитываться от текущего значения шрифта
+	самого элемента. При этом само значение шрифта
+	будет рассчитываться относительно родителя:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	font-size: 20px;
+}
+p {
+	font-size: 2em; /* соответствует 40px */
+	margin: 2em;    /* соответствует 80px */
+}</code>
+</div>
+
+<h2>Практические задачи</h2>
+<p>
+	Пусть у нас есть HTML код, для которого мы
+	будем решать задачи:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;section&gt;
+	&lt;div&gt;
+		&lt;p&gt;
+			text
+		&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, какой размер шрифта и отступа
+		в <code data-gs="comd/v" data-x>px</code> будут иметь теги <code data-gs="comd/c" data-x>div</code> в
+		результате выполнения следующего
+		кода:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">section {
+	font-size: 10px;
+}
+div {
+	font-size: 2em;
+	margin: 2em;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, какой размер шрифта и отступа
+		в <code data-gs="comd/v" data-x>px</code> будут иметь теги <code data-gs="comd/c" data-x>div</code> в
+		результате выполнения следующего
+		кода:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">section {
+	font-size: 10px;
+}
+div {
+	font-size: 2em;
+	margin: 3em;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, какой размер шрифта и отступа
+		в <code data-gs="comd/v" data-x>px</code> будут иметь теги <code data-gs="comd/c" data-x>div</code> в
+		результате выполнения следующего
+		кода:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">section {
+	font-size: 10px;
+}
+div {
+	font-size: 2em;
+	margin: 0.5em;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, какой размер шрифта и отступа
+		в <code data-gs="comd/v" data-x>px</code> будут иметь теги <code data-gs="comd/c" data-x>p</code> в результате
+		выполнения следующего кода:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">section {
+	font-size: 10px;
+}
+div {
+	font-size: 2em;
+}
+p {
+	font-size: 2em;
+	margin: 2em;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, какой размер шрифта и отступа
+		в <code data-gs="comd/v" data-x>px</code> будут иметь теги <code data-gs="comd/c" data-x>p</code> в результате
+		выполнения следующего кода:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">section {
+	font-size: 10px;
+}
+div {
+	font-size: 1.5em;
+}
+p {
+	font-size: 1em;
+	margin: 1.5em;
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

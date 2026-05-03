@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редактирование отдельного элемента на JavaScript — acteck.off</title>
+  <meta name="description" content="Редактирование отдельного элемента на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Редактирование отдельного элемента на JavaScript</h1>
+    <p>
+	Сейчас мы научимся редактировать тексты
+	элементов с помощью полей ввода. Начнем с
+	простых вещей и будем постепенно усложнять.
+</p>
+<p>
+	Итак, пусть у нас даны абзац и инпут, расположенные
+	в одном родителе:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;p id="elem"&gt;text&lt;/p&gt;
+	&lt;input id="input"&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Давайте сделаем так, чтобы по потери фокуса
+	в инпуте его текст появлялся в абзаце:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+let input = document.querySelector('#input');
+
+input.addEventListener('blur', function() {
+	elem.textContent = this.value;
+});</code>
+</div>
+<p>
+	Давайте теперь сделаем так, чтобы по заходу
+	на страницу в инпуте уже стоял текст абзаца.
+	Таким образом мы с помощью инпута сможем
+	редактировать текст, расположенный в абзаце.
+</p>
+<p>
+	Реализуем:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+let input = document.querySelector('#input');
+
+input.value = elem.textContent; // записываем в инпут текст абзаца
+
+input.addEventListener('blur', function() {
+	elem.textContent = this.value;
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте приведенный выше код так, чтобы
+		текст абзаца менялся не по потери фокуса,
+		а по мере ввода текста в инпут.
+	</p>
+</div>
+
+<h2>Появление инпута</h2>
+<p>
+	Давайте теперь сделаем так, чтобы инпута
+	изначально не было на странице, а он появлялся
+	по клику на абзац. To есть наш начальный
+	HTML будет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;p id="elem"&gt;text&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Для начала просто реализуем появление инпута,
+	без редактирования:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', function() {
+	let input = document.createElement('input');
+	input.value = elem.textContent;
+	
+	elem.parentElement.appendChild(input);
+});</code>
+</div>
+<p>
+	А теперь давайте сделаем так, чтобы по потери
+	фокуса в инпуте менялся текст абзаца:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', function() {
+	let input = document.createElement('input');
+	input.value = elem.textContent;
+	
+	input.addEventListener('blur', function() {
+		elem.textContent = this.value;
+	});
+	
+	elem.parentElement.appendChild(input);
+});</code>
+</div>
+<p>
+	Наш код, однако, несовершенен, так как каждое
+	нажатие на абзац будет приводить к появлению
+	нового инпута.
+</p>
+<p>
+	Для решения проблемы просто будем по потери
+	фокуса удалять текущий инпут:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', function() {
+	let input = document.createElement('input');
+	input.value = elem.textContent;
+	
+	input.addEventListener('blur', function() {
+		elem.textContent = this.value;
+		this.remove(); // удалим инпут
+	});
+	
+	elem.parentElement.appendChild(input);
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Самостоятельно, не подсматривая в мой код,
+		решите описанную задачу.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Команда supports — acteck.off</title>
+  <meta name="description" content="Команда supports — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Команда supports</h1>
+    <p>
+	Команда <code data-gs="comd/c" data-x>@supports</code> задает стиль элементам с учетом
+	возможностей, поддерживаемых браузером.
+	В данной команде можно создавать условия с помощью
+	логических операторов <code data-gs="comd/c" data-x>not</code>,
+	<code data-gs="comd/c" data-x>and</code>, <code data-gs="comd/c" data-x>or</code>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@supports условие {
+	
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте зададим условие, что если ваш браузер поддерживает
+	свойство <code data-gs="comd/c" data-x>display</code> со значением <code data-gs="comd/v" data-x>flex</code>,
+	то отобразится только абзац с
+	соответствующим текстом, при этом цвет его шрифта
+	будет голубого цвета:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="yes"&gt;Your browser support display: flex.&lt;/p&gt;
+&lt;p class="no"&gt;Your browser does not support display: flex.&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@supports (display: flex) {
+	.no {
+		display: none;
+	}
+	p {
+		color: #467CBC;
+	}
+}
+@supports not (display: flex) {
+	.yes {
+		display: none;
+	}
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			@supports (display: flex) {
+			.no {
+				display: none;
+			}
+			p {
+				color: #467CBC;
+			}
+		}
+		@supports not (display: flex) {
+			.yes {
+				display: none;
+			}
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p class=&quot;yes&quot;>Your browser support display: flex.</p>
+		<p class=&quot;no&quot;>Your browser does not support display: flex.</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			команда <a href="../import/index.html"><code data-gs="comd/c" data-x>@import</code></a>, <br>
+			которая импортирует CSS-файл
+		</li>
+		<li>
+			команда <a href="../media/index.html"><code data-gs="comd/c" data-x>@media</code></a>, <br>
+			которая задает стиль для типа носителя
+		</li>
+		<li>
+			команда <a href="../important/index.html"><code data-gs="comd/c" data-x>!important</code></a>, <br>
+			которая задает приоритет стиля
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ошибка отсутствие флага в функции в JavaScript — acteck.off</title>
+  <meta name="description" content="Ошибка отсутствие флага в функции в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Ошибка отсутствие флага в функции в JavaScript</h1>
+    <p>
+	Пусть мы хотим сделать функцию,
+	которая параметром будет принимать
+	цифру и число, и проверять, есть
+	ли заданная цифра в числе:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(needle, num) {
+	// тут будет код
+}</code>
+</div>
+<p>
+	Вот так мы будем пользоваться нашей функцией:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(func('3', '12345')); // выведет true</code>
+</div>
+<p>
+	Некий программист написал решение этой
+	задачи:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(needle, num) {
+	for (let digit of num) {
+		if (digit === needle) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}</code>
+</div>
+<p>
+	Это решение, однако, работает некорректно.
+	Дело в том, что в цикле написано условие,
+	в котором в первой же итерации
+	выполнится или один <code data-gs="comd/c" data-x>return</code>,
+	или второй, тем самым осуществив
+	выход и из цикла, и из функции.
+</p>
+<p>
+	Перепишем наш код правильным
+	образом, используя
+	<a href="../../book/prime/functions/basis/flags/index.html">неявные флаги в функциях</a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(needle, num) {
+	for (let digit of num) {
+		if (digit === needle) {
+			return true;
+		}
+	}
+	
+	return false;
+}</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

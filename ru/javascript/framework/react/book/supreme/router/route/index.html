@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Маршруты в React Router — acteck.off</title>
+  <meta name="description" content="Маршруты в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Маршруты в React Router</h1>
+    <p>
+	Маршруты (<span data-gs="lang/a" data-x>Routes</span>) являются
+	наиважнейшей частью приложения на
+	React Router. Рассмотрим кусочек кода
+	с прошлого урока:
+</p>   
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([
+	{
+		path: '/',
+		element: &lt;div&gt;Hello Router!&lt;/div&gt;,
+	},
+]);</code>
+</div>
+<p>
+	Так вот, свойства объекта <code data-gs="comd/c" data-x>path</code> и
+	<code data-gs="comd/c" data-x>element</code>, которые мы передавали в
+	функцию при создании роутера, и есть
+	свойства объекта <code data-gs="comd/c" data-x>Route</code>. На самом деле,
+	этот объект имеет множество свойств, их
+	можно найти в официальной
+	<a href="https://reactrouter.com/en/main/route/route">документации</a>.
+	В дальнейшем, нам пригодятся некоторые
+	из них:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">interface RouteObject {
+	path?: string;
+	index?: boolean;
+	children?: React.ReactNode;
+	caseSensitive?: boolean;
+	id?: string;
+	loader?: LoaderFunction;
+	action?: ActionFunction;
+	element?: React.ReactNode | null;
+	Component?: React.ComponentType | null;
+	errorElement?: React.ReactNode | null;
+	ErrorBoundary?: React.ComponentType | null;
+	handle?: RouteObject["handle"];
+	shouldRevalidate?: ShouldRevalidateFunction;
+	lazy?: LazyRouteFunction&lt;RouteObject&gt;;
+}</code>
+</div>
+<p>
+	Можно было воспользоваться альтернативным
+	JSX стилем и написать свойства в виде пропсов
+	для компонента Route, тогда бы наш кусочек
+	кода выглядел бы так:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter(
+	createRoutesFromElements(
+		&lt;Route
+			path = '/'
+			element = {&lt;div&gt;Hello Router!&lt;/div&gt;}
+		/&gt;
+	)
+);</code>
+</div>
+<p>
+	И, конечно же, необходимо было бы
+	добавить ещё пару строчек в импорт:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import {
+	createRoutesFromElements,
+	createBrowserRouter,
+	RouterProvider,
+	Route,
+} from 'react-router-dom';</code>
+</div>
+<p>
+	Оба приведенных в уроке стиля равноценны.
+	Мы в дальнейшем будем придерживаться
+	первого варианта.
+</p>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлым урокам. Попробуйте
+		переписать кусочек кода для создания
+		роутера (старый пока закомментируйте),
+		используя альтернативный JSX синтаксис,
+		приведенный в уроке. Убедитесь,
+		что приложение работает.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Верните на место весь старый код,
+		а новый уберите. Убедитесь,
+		что приложение работает.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Именованные функциональные выражения в JavaScript — acteck.off</title>
+  <meta name="description" content="Именованные функциональные выражения в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Именованные функциональные выражения в JavaScript</h1>
+    <p>
+	Пусть у нас есть вот такое функциональное
+	выражение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = function() {
+	console.log('!');
+};
+
+test(); // выведет '!'</code>
+</div>
+<p>
+	Давайте нашей функции дадим имя <code data-gs="comd/c" data-x>func</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = function func() {
+	console.log('!');
+};
+
+test();</code>
+</div>
+<p>
+	Как вы уже знаете, по этому имени не обратиться
+	к функции:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = function func() {
+	console.log('!');
+};
+
+test(); // выведет '!'
+func(); // выдаст ошибку</code>
+</div>
+<p>
+	Зачем же давать имя функции, если оно не
+	будет доступно? Дело в том, что это имя будет
+	недоступно снаружи функции, но доступно внутри
+	этой функции.
+</p>
+<p>
+	Давайте проверим:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = function func() {
+	console.log(func); // функция выведет свой же исходный код
+};
+
+test(); // вызываем функцию</code>
+</div>
+<p>
+	Давайте вызовем нашу функцию внутри нее самой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = function func() {
+	console.log('!'); // выводим '!'
+	func(); // вызываем сами себя
+};
+
+test();</code>
+</div>
+<p>
+	Если запустить данный код, то в консоль будет
+	выводится бесконечное количество выводов в консоль.
+</p>
+<p>
+	На самом деле наша функция может быть вызвана
+	внутри себя не только как <code data-gs="comd/c" data-x>func</code>, но
+	и как <code data-gs="comd/c" data-x>test</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = function func() {
+	console.log('!');
+	test(); // вызываем сами себя
+};
+
+test();</code>
+</div>
+<p>
+	В чем же разница? Разница в том, что имя
+	<code data-gs="comd/c" data-x>test</code> - это просто переменная. В процессе
+	работы скрипта наша функция может записаться
+	в другую переменную или предаться параметром
+	- в этом случае связь между переменной <code data-gs="comd/c" data-x>test</code>
+	и функцией может пропасть.
+</p>
+<p>
+	Имя <code data-gs="comd/c" data-x>func</code> же жестко привязано к функции
+	специально для того, чтобы можно было обратиться
+	к нашей функции внутри нее самой.
+</p>
+<p>
+	Такие Function Expression с именем функции
+	называются <dfn data-gs="comd/d" data-x>именованными функциональными
+	выражениями</dfn>.
+</p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

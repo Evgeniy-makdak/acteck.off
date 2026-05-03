@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ошибка новичков в селекторе потомков — acteck.off</title>
+  <meta name="description" content="Ошибка новичков в селекторе потомков — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Ошибка новичков в селекторе потомков</h1>
+    <p>
+	Посмотрите на следующий селектор:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p.eee {
+	color: red;
+}</code>
+</div>
+<p>
+	Вы уже должны знать, что такой селектор выберет
+	абзацы с классом <code data-gs="comd/z" data-x>eee</code>. Например, вот эти:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="eee"&gt;
+	lorem ipsum
+&lt;/p&gt;
+&lt;p class="eee"&gt;
+	lorem ipsum
+&lt;/p&gt;</code>
+</div>
+<p>
+	Посмотрите теперь вот на этот селектор:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p .eee {
+	color: green;
+}</code>
+</div>
+<p>
+	Это селектор отличается от предыдущего тем,
+	что у него между именем тега и именем класса
+	стоит пробел. Этот пробел представляет собой
+	селектор потомков. To есть в данном случае
+	мы выбираем все элементы с классом <code data-gs="comd/z" data-x>eee</code>,
+	находящиеся внутри абзацев. Например, этот
+	селектор выберет следующие спены:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	lorem &lt;span class="eee"&gt;ipsum&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	lorem &lt;span class="eee"&gt;ipsum&lt;/span&gt;
+&lt;/p&gt;</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p .eee {
+			color: green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			lorem <span class=&quot;eee&quot;>ipsum</span>
+		</p>
+		<p>
+			lorem <span class=&quot;eee&quot;>ipsum</span>
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<div data-w="cont/nott">
+	<p>
+		Итак, еще раз: <code data-gs="comd/z" data-x>p.eee</code> - такой селектор выбирает абзацы с классом
+		<code data-gs="comd/z" data-x>eee</code>. А вот если я сделаю так: <code data-gs="comd/z" data-x>p .eee</code>, то выберу
+		все элементы с классом <code data-gs="comd/z" data-x>eee</code>, находящиеся <i>внутри</i> абзацев.
+		Прочувствуйте эту разницу.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, что выбирает селектор в приведенном
+		ниже коде. Затем напишите HTML код, подходящий
+		под этот селектор. Вот код с селектором:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p.bbb {
+	color: red;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, что выбирает селектор в приведенном
+		ниже коде. Затем напишите HTML код, подходящий
+		под этот селектор. Вот код с селектором:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p .bbb {
+	color: red;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, что выбирает селектор в приведенном
+		ниже коде. Затем напишите HTML код, подходящий
+		под этот селектор. Вот код с селектором:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">.eee p.bbb {
+	color: red;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, что выбирает селектор в приведенном
+		ниже коде. Затем напишите HTML код, подходящий
+		под этот селектор. Вот код с селектором:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">.eee p .bbb {
+	color: red;
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

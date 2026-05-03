@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Игра найди случайное число в таблице — acteck.off</title>
+  <meta name="description" content="Игра найди случайное число в таблице — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Игра найди случайное число в таблице</h1>
+    <p>
+	В данном уроке я покажу вам реализацию игры
+	"найди случайное число в таблице". Игровое
+	поле представляет собой таблицу с числами,
+	расположенными в случайном порядке. Игрок
+	должен находить числа в правильном порядке.
+	После победы игровое поле расширяется на
+	один ряд и одну колонку и игра продолжается далее.
+</p>
+<div data-w="cont/video">
+	<iframe src="https://www.youtube.com/embed/Yoh4XcbYNeQ" allowfullscreen></iframe>
+</div>
+
+<h2>Исходники кода</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.game td {
+	padding: 20px;
+	border: 1px solid black;
+}
+.active {
+	background: red;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="game1" class="game"&gt;&lt;/div&gt;
+&lt;div id="game2" class="game"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">initGame(document.querySelector('#game1'));
+initGame(document.querySelector('#game2'));
+
+function initGame(game) {
+	var field = createGameField(game);
+	
+	var size = 2;
+	
+	newGame();
+	
+	function newGame() {
+		clearGameField(field);
+		var cells = drawGameField(size, field);
+		addActivateHandler(cells);
+	}
+	
+	function addActivateHandler(cells) {
+		var counter = 1;
+		
+		for (var i = 0; i &lt; cells.length; i++) {
+			cells[i].addEventListener('click', function() {
+				if (this.innerHTML == counter) {
+					this.classList.add('active');
+					
+					if (counter == size * size) {
+						size++;
+						newGame();
+					}
+					
+					counter++;
+				}
+			});
+		}
+	}
+}
+
+function createGameField(game) {
+	var table = document.createElement('table');
+	game.appendChild(table);
+	
+	return table;
+}
+
+function clearGameField(field) {
+	field.innerHTML = '';
+}
+
+function drawGameField(size, field) {
+	var from = 1;
+	var to = size * size;
+
+	var arr = [];
+	arr = createArr(from, to);
+	arr = shuffleArr(arr);
+	arr = chunkArr(size, arr);
+	return createCells(arr, field);
+}
+
+// [[1, 2], [3, 4]]
+function createCells(arr, elem) {
+	var cells = [];
+	
+	for (var i = 0; i &lt; arr.length; i++) {
+		var tr = document.createElement('tr');
+		for (var j = 0; j &lt; arr[i].length; j++) {
+			var td = document.createElement('td');
+			td.innerHTML = arr[i][j];
+			tr.appendChild(td);
+			
+			cells.push(td);
+		}
+		
+		elem.appendChild(tr);
+	}
+	
+	return cells;
+}
+
+function createArr(from, to) {
+	var arr = [];
+	
+	for (var i = from; i &lt;= to; i++) {
+		arr.push(i);
+	}
+	
+	return arr;
+}
+
+function shuffleArr(arr) {
+	var result = [];
+	var length = arr.length;
+	
+	for (var i = 0; i &lt; length; i++) {
+		var random = getRandomInt(0, arr.length - 1);
+		var elem = arr.splice(random, 1)[0];
+		result.push(elem);
+	}
+	
+	return result;
+}
+
+// [1, 2, 3, 4, 5] -&gt; [[1, 2], [3, 4], [5]]
+function chunkArr(n, arr) {
+	var result = [];
+	var iterCount = Math.ceil(arr.length / n);
+	
+	for (var i = 0; i &lt; iterCount; i++) {
+		var elems = arr.splice(0, n);
+		result.push(elems);
+	}
+	
+	return result;
+}
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			видео <br>
+			<a href="../game-guess-number/index.html">
+				игра угадай число на JavaScript
+			</a>
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство white-space — acteck.off</title>
+  <meta name="description" content="Свойство white-space — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство white-space</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>white-space</code> устанавливает
+	как переносить текст на новую строку, а также
+	как отображать пробелы между словами и переносы
+	строк (места, где был нажат <code data-gs="comd/k" data-x>Enter</code> при наборе
+	кода).
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	white-space: nowrap | pre | pre-line | pre-wrap | normal;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>nowrap</code></th>
+		<td>
+			Запрещает тексту переносится на другую строку, даже если он не помещается
+			в ширину контейнера (в этом случае текст просто вылезет за его границы). 
+			Однако, добавление тега <a href="../../../html/tag/br/index.html"><code data-gs="comd/c" data-x>br</code></a>
+			заставит текст перенестись на новую строку.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>pre</code></th>
+		<td>
+			Текст показывается так, как был набран в блокноте при верстке сайта: со всеми пробелами и
+			enter-ами (если в коде набрано несколько пробелов - на экране тоже будет несколько).
+			При этом браузер не будет переносить текст на новую строку, если он не помещается
+			в контейнер - текст просто вылезет за его границы.
+			<hr>
+			Аналог <a href="../../../html/tag/pre/index.html">тега pre</a>, но в отличие от него не меняет
+			шрифт на моноширинный (про моноширинный шрифт см. свойство
+			<a href="../font-family/index.html"><code data-gs="comd/c" data-x>font-family</code></a>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>pre-wrap</code></th>
+		<td>
+			To же самое, что и pre, отличие в том, что если текст
+			слишком длинный и не влазит в контейнер - 
+			браузер перенесет его на другую строку.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>pre-line</code></th>
+		<td>
+			Браузер учитывает только Enter-ы в HTML коде и игнорирует
+			все остальное (несколько пробелов будут выглядеть как один,
+			браузер сам расставляет разрывы строк).
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>normal</code></th>
+		<td>
+			Стандартное поведение: браузер сам расставляет разрывы
+			строки так, чтобы слова поместились в контейнер.
+			Несколько пробелов в коде будут выглядеть
+			как один на экране.
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>normal</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Значение nowrap</h2>
+<p>
+	В данном примере текст не поместится в контейнер
+	и вылезет за его границы, так как задано
+	значение <code data-gs="comd/v" data-x>nowrap</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	white-space: nowrap;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			white-space: nowrap;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение nowrap и тег br</h2>
+<p>
+	Если добавить тег <code data-gs="comd/c" data-x>br</code> - текст перенесется
+	на новую строку (именно в том месте,
+	где стоит <code data-gs="comd/c" data-x>br</code>):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit &lt;br&gt; amet, consectetur adipiscing elitorire.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	white-space: nowrap;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			white-space: nowrap;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit <br> amet, consectetur adipiscing elitorire.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение pre</h2>
+<p>
+	В данном примере текст показывается так,
+	как был набран в редакторе HTML кода (со
+	всеми отступами клавишей <code data-gs="comd/k" data-x>Tab</code>, с <code data-gs="comd/k" data-x>Enter</code> и так
+	далее):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum
+	
+		dolor sit amet, consectetur adipiscing elitorire.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	white-space: pre;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			white-space: pre;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum
+			
+				dolor sit amet, consectetur adipiscing elitorire.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение pre-wrap</h2>
+<p>
+	А сейчас текст показывается так, как был
+	набран в редакторе HTML кода, однако, вылезающие
+	части переносятся на новую строку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum
+	
+		dolor sit amet, consectetur adipiscing elitorire.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	white-space: pre-wrap;
+	border: 1px solid red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			white-space: pre-wrap;
+			border: 1px solid red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum
+			
+				dolor sit amet, consectetur adipiscing elitorire.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойства <a href="../word-break/index.html"><code data-gs="comd/c" data-x>word-break</code></a>
+			и <a href="../overflow-wrap/index.html"><code data-gs="comd/c" data-x>overflow-wrap</code></a>, <br>
+			которые позволяют перенести буквы длинного слова на новую строку
+		</li>
+		<li>
+			свойство <a href="../tab-size/index.html"><code data-gs="comd/c" data-x>tab-size</code></a>, <br>
+			которое устанавливает размер отступа, созданного клавишей Tab
+		</li>
+		<li>
+			свойство <a href="../hyphens/index.html"><code data-gs="comd/c" data-x>hyphens</code></a>, <br>
+			которое включает переносы слов по слогам
+		</li>
+		<li>
+			свойство <a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>, <br>
+			которое обрезает вылезающие за границу блока части
+		</li>
+		<li>
+			тег <a href="../../../html/tag/pre/index.html"><code data-gs="comd/c" data-x>pre</code></a>, <br>
+			который показывает текст так, как он был набран в редакторе HTML кода
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

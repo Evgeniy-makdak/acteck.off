@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оптимизация цикличных операций в JavaScript — acteck.off</title>
+  <meta name="description" content="Оптимизация цикличных операций в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Оптимизация цикличных операций в JavaScript</h1>
+    <p>
+	Даже легкая операция, многократно
+	повторенная в цикле, может отнять
+	много ресурсов.
+</p>
+<p>
+	Давайте посмотрим на примере.
+	Пусть у нас дан некоторый массив:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3, 4, 5, 6];</code>
+</div>
+<p>
+	Давайте найдем среднее от элементов
+	этого массива. Для этого нужно найти сумму
+	элементов и поделить ее на количество.
+	Пусть некий программист уже решил эту задачу
+	следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let avg  = 0;
+
+for (let elem of arr) {
+	avg += elem / arr.length;
+}
+
+console.log(avg);</code>
+</div>
+<p>
+	Давайте рассмотрим проблемы такого решения.
+	Технически код работает верно и дает верный
+	ответ. Дело в том, что математически корректно
+	как делить всю сумму на количество, так
+	и делить каждое из слагаемых на количество.
+</p>
+<p>
+	Однако, возникает другая проблема. Дело
+	в том, что мы будем выполнять деление
+	столько раз, сколько элементов в нашем
+	массиве. И получается, что мы делаем
+	большое количество лишних операций,
+	ведь деление можно было бы выполнить
+	в конце - один раз, поделив всю
+	найденную сумму.
+</p>
+<p>
+	Давайте оптимизируем наш код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let sum = 0;
+
+for (let elem of arr) {
+	sum += elem;
+}
+
+let avg = sum / arr.length;
+console.log(avg);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Оптимизируйте следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let i = 1900; i &lt;= 2100; i++) {
+	let curr = new Date;
+	let date = new Date(i, curr.getMonth(), curr.getDate());
+	
+	if (curr.getDay() === date.getDay()) {
+		console.log(date);
+	}
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Оптимизируйте следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj = {a: 10, b: 20, c: 30, d: 40, e: 50};
+let sum = 0;
+	
+for (let key in obj) {
+	if (String(obj[key])[0] === '1' || String(obj[key])[0] === '2') {
+		sum += obj[key];
+	}
+}
+
+console.log(sum);</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

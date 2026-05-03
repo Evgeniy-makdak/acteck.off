@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кнопки для запуска и остановки таймера на JavaScript — acteck.off</title>
+  <meta name="description" content="Кнопки для запуска и остановки таймера на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Кнопки для запуска и остановки таймера на JavaScript</h1>
+    <p>
+	Давайте теперь сделаем две кнопки: по нажатию
+	на первую пусть таймер запускается, а по
+	нажатию на вторую - останавливается. Здесь
+	уже все будет не так просто и нас ждет подвох.
+	Для того, чтобы понять суть этого подвоха,
+	распишу создание кода по шагам.
+</p>
+<p>
+	Итак, делаем две кнопочки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="start"&gt;start&lt;/button&gt;
+&lt;button id="stop"&gt;stop&lt;/button&gt;</code>
+</div>
+<p>
+	Получаем ссылки на эти кнопки в переменные:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let start = document.querySelector('#start');
+let stop  = document.querySelector('#stop');</code>
+</div>
+<p>
+	По нажатию на первую кнопку стартуем таймер,
+	записав его номер в переменную:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">start.addEventListener('click', function() {
+	let timerId = setInterval(function() {
+		console.log('!')
+	}, 1000);
+});</code>
+</div>
+<p>
+	А теперь остановим таймер по нажатию на вторую
+	кнопку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">start.addEventListener('click', function() {
+	let timerId = setInterval(function() {
+		console.log('!')
+	}, 1000);
+});
+
+// Останавливаем таймер:
+stop.addEventListener('click', function() {
+	clearInterval(timerId);
+});</code>
+</div>
+<p>
+	Однако, если попытаться запустить приведенный
+	выше код, нас ждет сюрприз: при попытке остановить
+	таймер окажется, что переменная <code data-gs="comd/c" data-x>timerId</code>
+	равна <code data-gs="comd/c" data-x>undefined</code>! Почему так произошло?
+	Потому при запуске таймера мы сделали нашу
+	переменную <code data-gs="comd/c" data-x>timerId</code> локальной внутри
+	функции, привязанной к кнопке <code data-gs="comd/c" data-x>start</code>.
+</p>
+<p>
+	Для решения проблемы сделаем переменную <code data-gs="comd/c" data-x>timerId</code>
+	глобальной - в этом случае она будет доступна
+	как в функции запуска таймера, так и в функции
+	остановки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let timerId; // сделаем переменную глобальной
+
+start.addEventListener('click', function() {
+	timerId = setInterval(function() {
+		console.log('!')
+	}, 1000);
+});
+
+stop.addEventListener('click', function() {
+	clearInterval(timerId);
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть дана переменная, в которой изначально
+		хранится число <code data-gs="comd/n" data-x>100</code>. Даны также две
+		кнопки. По нажатию на первую кнопку запустите
+		таймер, который каждую секунду будет уменьшать
+		значение переменной на <code data-gs="comd/n" data-x>1</code> и выводить
+		новое значение в консоль. Как только значение
+		переменной достигнет нуля - остановите таймер.
+	</p>
+	<p>
+		По нажатию на вторую кнопку остановите таймер.
+		Также остановите таймер, если вторая кнопка
+		не была нажата, но значение переменной достигло
+		нуля.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Некоторый программист написал код, который
+		по нажатию на кнопку запускает таймер, выводящий
+		в консоль текущий момент времени:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="submit" id="start" value="start"&gt;
+&lt;input type="submit" id="stop"  value="stop"&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let start = document.querySelector('#start');
+let stop  = document.querySelector('#stop');
+
+start.addEventListener('click', function() {
+	let timerId = setInterval(function() {
+		let date = new Date;
+		console.log(date.getMinutes() + ' ' + date.getSeconds());
+	}, 1000);
+});
+
+stop.addEventListener('click', function() {
+	clearInterval(timerId);
+});</code>
+	</div>
+	<p>
+		После запуска кода, однако, оказалось, что
+		кнопка остановки не работает. Исправьте ошибку
+		автора кода.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Еще один программист также написал код для
+		решения предыдущей задачи:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="submit" id="start" value="start"&gt;
+&lt;input type="submit" id="stop"  value="stop"&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let start = document.querySelector('#start');
+let stop  = document.querySelector('#stop');
+
+let timerId;
+
+start.addEventListener('click', function() {
+	let timerId = setInterval(function() {
+		let date = new Date;
+		console.log(date.getMinutes() + ' ' + date.getSeconds());
+	}, 1000);
+});
+
+stop.addEventListener('click', function() {
+	clearInterval(timerId);
+});</code>
+	</div>
+	<p>
+		После запуска кода, однако, опять оказалось,
+		что кнопка остановки не работает. Исправьте
+		ошибку автора кода.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Еще один программист также написал код для
+		решения предыдущей задачи:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="submit" id="start" value="start"&gt;
+&lt;input type="submit" id="stop"  value="stop"&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let start = document.querySelector('start');
+let stop  = document.querySelector('stop');
+
+let timerId;
+
+start.addEventListener('click', function() {
+	setInterval(function() {
+		let date = new Date;
+		console.log(date.getMinutes() + ' ' + date.getSeconds());
+	}, 1000);
+});
+
+stop.addEventListener('click', function() {
+	clearInterval(timerId);
+});</code>
+	</div>
+	<p>
+		После запуска кода, однако, опять оказалось,
+		что кнопка остановки не работает. Исправьте
+		ошибку автора кода.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Еще один программист также написал код для
+		решения предыдущей задачи:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="submit" id="start" value="start"&gt;
+&lt;input type="submit" id="stop"  value="stop"&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let start = document.querySelector('start');
+let stop  = document.querySelector('stop');
+
+let timerId;
+
+start.addEventListener('click', function() {
+	let timerId = setInterval(function() {
+		let date = new Date;
+		console.log(date.getMinutes() + ' ' + date.getSeconds());
+	}, 1000);
+});
+
+stop.addEventListener('click', function() {
+	clearInterval();
+});</code>
+	</div>
+	<p>
+		После запуска кода, однако, опять оказалось,
+		что кнопка остановки не работает. Исправьте
+		ошибку автора кода.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Приведенный мною в теоретической части код
+		не учитывает то, что на кнопку старт можно
+		сделать несколько нажатий. Для исправления
+		этой проблемы можно по нажатию на кнопку
+		старт отвязывать событие от этой кнопки,
+		а по нажатию на кнопку стоп - привязывать
+		обратно. Исправьте проблему.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

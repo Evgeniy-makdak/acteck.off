@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Многомерные массивы в JavaScript — acteck.off</title>
+  <meta name="description" content="Многомерные массивы в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Многомерные массивы в JavaScript</h1>
+    <p>
+	Элементы массива могут быть не только строками
+	и числами, но и массивами. В этом случае
+	у нас получится массив массивов или <dfn data-gs="comd/d" data-x>многомерный
+	массив</dfn>.
+</p>
+<p>
+	В следующем примере массив <code data-gs="comd/c" data-x>arr</code> состоит
+	из трех элементов, в свою очередь являющихся
+	массивами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']];</code>
+</div>
+<p>
+	Перепишем в более понятном виде:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [
+	['a', 'b', 'c'],
+	['d', 'e', 'f'],
+	['g', 'h', 'i'],
+];</code>
+</div>
+<p>
+	В зависимости от уровня вложенности массивы
+	могут быть двухмерными - массив массивов,
+	трехмерными - массив массивов массивов (ну
+	и так далее - четырехмерными, пятимерными и тп).
+</p>
+<p>
+	Приведенный выше массив является двухмерным,
+	так как внутри одного массива расположены
+	другие подмассивы и уже в этих подмассивах
+	нет других массивов.
+</p>
+<p>
+	Чтобы вывести какой-либо элемент из двухмерного
+	массива следует писать уже не одну пару квадратных
+	скобок, а две:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [
+	['a', 'b', 'c'],
+	['d', 'e', 'f'],
+	['g', 'h', 'i'],
+];
+
+console.log(arr[0][1]); // выведет 'b'
+console.log(arr[1][2]); // выведет 'f'</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [
+	['a', 'b', 'c'],
+	['d', 'e', 'f'],
+	['g', 'h', 'i'],
+	['j', 'k', 'l'],
+];</code>
+	</div>
+	<p>
+		Выведите с его помощью элементы с текстом
+		<code data-gs="comd/s" data-x>'l'</code>, <code data-gs="comd/s" data-x>'e'</code>, <code data-gs="comd/s" data-x>'g'</code> и <code data-gs="comd/s" data-x>'a'</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [[1, 2], [3, 4], [5, 6]];</code>
+	</div>
+	<p>
+		Обращаясь к каждому элементу массива найдите
+		сумму всех его элементов.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

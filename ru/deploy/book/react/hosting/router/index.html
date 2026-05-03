@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Router на PHP хостинге — acteck.off</title>
+  <meta name="description" content="React Router на PHP хостинге — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>React Router на PHP хостинге</h1>
+    <p>
+	Как вы уже знаете, после сборки
+	проект React представляет собой
+	обычную статику, которую можно
+	загрузить на любой хостинг,
+	и она там сразу будет работать.
+</p>
+<p>
+	Есть, однако, проблема с React Router.
+	Дело в том, что Router при работе
+	меняет URL страниц в браузере.
+	При этом реально страница не перезагружается,
+	а только меняется URL средствами JavaScript.
+</p>
+<p>
+	В сайте, выложенном на хостинг,
+	Router будет работать. Но, если находясь
+	на какой-то странице сайта, кроме главной,
+	перезагрузить ее, то вывалится <code data-gs="comd/n" data-x>404</code>
+	ошибка.
+</p>
+<p>
+	И это логично, ведь браузер будет
+	искать файл по заданному URL,
+	как обычно работают статичные сайты.
+	А в нашем приложении такой страницы
+	не будет, так как мы только имитируем
+	их, а на самом деле все наше
+	приложение работает на <code data-gs="comd/p" data-x>index.html</code>.
+</p>
+<p>
+	Для решения проблемы нужно сделать так,
+	чтобы все URL, не ведущие на реально
+	существующие файлы, перенаправлялись
+	на <code data-gs="comd/p" data-x>index.html</code>. Это делается
+	средствами web-сервера, работающего
+	на хостинге.
+</p>
+<p>
+	Виртуальные хостинги работают на PHP.
+	Как правило в качестве сервера используется Apache.
+	В нем доступен специальный файл <code data-gs="comd/p" data-x>.htaccess</code>,
+	с помощью которого можно задать
+	перенаправление.
+</p>
+    <p>
+	Для этого вам в корне вашего сайта
+	нужно разместить файл <code data-gs="comd/p" data-x>.htaccess</code>
+	со следующим содержимым:
+</p>
+<div data-p="bock/pane" data-p-file=".htaccess">
+	<code data-w="bock/code" data-lo="high" data-m-lang="htaccess">RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте проект с React Router.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Залейте его на хостинг. Убедитесь,
+		что по умолчанию роутинг не работает.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Исправьте проблему с помощью
+		файла <code data-gs="comd/p" data-x>.htaccess</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

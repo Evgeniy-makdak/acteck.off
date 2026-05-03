@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жадность флекс элементов в CSS — acteck.off</title>
+  <meta name="description" content="Жадность флекс элементов в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Жадность флекс элементов в CSS</h1>
+    <p>
+	Пусть сейчас у нас есть два флекс-блока,
+	выстроенных в ряд. Этим блокам задана ширина
+	в <code data-gs="comd/u" data-x>100px</code>, а их родителю - <code data-gs="comd/u" data-x>300px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;1&lt;/div&gt;
+	&lt;div class="child"&gt;2&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	width: 300px;
+	height: 200px;
+	border: 1px solid red;
+}
+.child {
+	width: 100px;
+	height: 100px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			width: 300px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child {
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Как вы видите, суммарная ширина наших элементов
+	меньше ширины родителя, поэтому справа остается
+	пустое пространство.
+</p>
+<p>
+	При желании это пустое пространство можно
+	пропорционально разделить между нашими элементами.
+	Это делается с помощью свойства <code data-gs="comd/c" data-x>flex-grow</code>,
+	задаваемого флекс-элементам. Значением этого
+	свойства служит безразмерное число.
+</p>
+<p>
+	Давайте посмотрим на практике, как работает
+	это свойство.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Сейчас у нас два флекс-блока с шириной в
+	<code data-gs="comd/u" data-x>100px</code>. Их суммарная ширина элементов
+	<code data-gs="comd/u" data-x>200px</code>, а ширина родителя - <code data-gs="comd/u" data-x>300px</code>.
+	Получается, что остается свободное пространство
+	в <code data-gs="comd/u" data-x>100px</code>.
+</p>
+<p>
+	Если элементам не задан <code data-gs="comd/c" data-x>flex-grow</code>,
+	то мы просто увидим это свободное пространство.
+	Если же он им задан, то реальная ширина элементов
+	будет больше заданной - они пропорционально
+	поделят свободное пространство между собой
+	и добавят его к своей ширине.
+</p>
+<p>
+	Пусть для примера у первого элемента <code data-gs="comd/c" data-x>flex-grow</code>
+	равен <code data-gs="comd/n" data-x>1</code>, а у второго - <code data-gs="comd/n" data-x>3</code>. Давайте
+	вычислим, какую часть свободного пространства
+	получит каждый элемент.
+</p>
+<p>
+	Для начала нужно получить суммарное количество
+	единиц <code data-gs="comd/c" data-x>flex-grow</code> всех наших элементов.
+	У первого элемента он равен <code data-gs="comd/n" data-x>1</code>, а в
+	у второго - <code data-gs="comd/n" data-x>3</code>. Это значит, что в сумме
+	он равен <code data-gs="comd/n" data-x>4</code>.
+</p>
+<p>
+	Поделим теперь <code data-gs="comd/u" data-x>100px</code> свободного пространства
+	на <code data-gs="comd/n" data-x>4</code> и получим, что <code data-gs="comd/u" data-x>25px</code> приходится
+	на одну единицу <code data-gs="comd/c" data-x>flex-grow</code>. Получится,
+	что к первому элементу добавится одна единица
+	<code data-gs="comd/c" data-x>flex-grow</code>, то есть <code data-gs="comd/u" data-x>25px</code>, а
+	ко второму - три единицы, то
+	есть <code data-gs="comd/u" data-x>75px</code>.
+</p>
+<p>
+	Ширина первого элемента получится <code data-gs="comd/u" data-x>125px</code>,
+	а второго - <code data-gs="comd/u" data-x>175px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child elem1"&gt;1&lt;/div&gt;
+	&lt;div class="child elem2"&gt;2&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	width: 300px;
+	height: 200px;
+	border: 1px solid red;
+}
+.child {
+	height: 50px;
+	border: 1px solid green;
+}
+.elem1 {
+	width: 100px;
+	flex-grow: 1;
+}
+.elem2 {
+	width: 100px;
+	flex-grow: 3;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			width: 300px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child {
+			height: 50px;
+			border: 1px solid green;
+		}
+		.elem1 {
+			width: 100px;
+			flex-grow: 1;
+		}
+		.elem2 {
+			width: 100px;
+			flex-grow: 3;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child elem1&quot;>1</div>
+			<div class=&quot;child elem2&quot;>2</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть теперь ширина родителя равна <code data-gs="comd/u" data-x>400px</code>,
+	ширина первого элемента <code data-gs="comd/u" data-x>200px</code>, а ширина
+	второго элемента - <code data-gs="comd/u" data-x>100px</code>. Получится,
+	что свободное пространство опять
+	равно <code data-gs="comd/u" data-x>100px</code>.
+</p>
+<p>
+	Давайте каждому элементу зададим <code data-gs="comd/c" data-x>flex-grow</code>,
+	равный <code data-gs="comd/n" data-x>1</code>. В сумме получится <code data-gs="comd/n" data-x>2</code>,
+	то есть <code data-gs="comd/u" data-x>100px</code> свободного пространства
+	нужно разделить на <code data-gs="comd/n" data-x>2</code>. Получится, что
+	<code data-gs="comd/u" data-x>50px</code> приходится на одну
+	единицу жадности.
+</p>
+<p>
+	Так как у всех элементов одинаковое значение
+	<code data-gs="comd/c" data-x>flex-grow</code>, то ко всем элементам добавится
+	одинаковое значение в <code data-gs="comd/u" data-x>50px</code>. Это значит,
+	что первый элемент станет <code data-gs="comd/u" data-x>250px</code>, и
+	а второй станет <code data-gs="comd/u" data-x>150px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child elem1"&gt;1&lt;/div&gt;
+	&lt;div class="child elem2"&gt;2&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	width: 400px;
+	height: 200px;
+	border: 1px solid red;
+}
+.child {
+	height: 50px;
+	border: 1px solid green;
+}
+.elem1 {
+	width: 200px;
+	flex-grow: 1;
+}
+.elem2 {
+	width: 100px;
+	flex-grow: 1;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			width: 400px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child {
+			height: 50px;
+			border: 1px solid green;
+		}
+		.elem1 {
+			width: 200px;
+			flex-grow: 1;
+		}
+		.elem2 {
+			width: 100px;
+			flex-grow: 1;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child elem1&quot;>1</div>
+			<div class=&quot;child elem2&quot;>2</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть опять ширина родителя равна <code data-gs="comd/u" data-x>400px</code>,
+	ширина первого элемента <code data-gs="comd/u" data-x>200px</code>, а ширина
+	второго элемента - <code data-gs="comd/u" data-x>100px</code>.
+</p>
+<p>
+	Давайте теперь первому элементу установим
+	<code data-gs="comd/c" data-x>flex-grow</code> в значение <code data-gs="comd/n" data-x>3</code>, а второму
+	- в значении <code data-gs="comd/n" data-x>1</code>. Получится, что жадность
+	в сумме равна <code data-gs="comd/n" data-x>4</code>. Toгда одна единица
+	жадности равна <code data-gs="comd/e" data-x><code data-gs="comd/u" data-x>100px</code> / <code data-gs="comd/n" data-x>4</code> = <code data-gs="comd/u" data-x>25px</code></code>.
+</p>
+<p>
+	К первому элементу добавится <code data-gs="comd/u" data-x>75px</code>,
+	и он станет <code data-gs="comd/u" data-x>275px</code>, а ко второму -
+	<code data-gs="comd/u" data-x>25px</code>, он станет <code data-gs="comd/u" data-x>125px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child elem1"&gt;1&lt;/div&gt;
+	&lt;div class="child elem2"&gt;2&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	width: 400px;
+	height: 200px;
+	border: 1px solid red;
+}
+.child {
+	height: 50px;
+	border: 1px solid green;
+}
+.elem1 {
+	width: 200px;
+	flex-grow: 3;
+}
+.elem2 {
+	width: 100px;
+	flex-grow: 1;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			width: 400px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child {
+			height: 50px;
+			border: 1px solid green;
+		}
+		.elem1 {
+			width: 200px;
+			flex-grow: 3;
+		}
+		.elem2 {
+			width: 100px;
+			flex-grow: 1;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child elem1&quot;>1</div>
+			<div class=&quot;child elem2&quot;>2</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Практические задачи</h2>
+<p>
+	Во всех задачах ниже вам будет представлен
+	некоторый код с флекс-элементами, имеющими
+	ширину и <code data-gs="comd/c" data-x>flex-grow</code>. По представленному
+	коду рассчитайте, какие размеры будет иметь
+	каждый из элементов. Затем запустите код
+	и проверьте ваши расчеты, измерив реальные
+	ширины элементов.
+</p>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child elem1"&gt;1&lt;/div&gt;
+	&lt;div class="child elem2"&gt;2&lt;/div&gt;
+	&lt;div class="child elem3"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	width: 500px;
+	height: 200px;
+	border: 1px solid red;
+}
+.child {
+	height: 50px;
+	border: 1px solid green;
+}
+.elem1 {
+	width: 200px;
+	flex-grow: 3;
+}
+.elem2 {
+	width: 100px;
+	flex-grow: 1;
+}
+.elem3 {
+	width: 100px;
+	flex-grow: 1;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child elem1"&gt;1&lt;/div&gt;
+	&lt;div class="child elem2"&gt;2&lt;/div&gt;
+	&lt;div class="child elem3"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	width: 700px;
+	height: 200px;
+	border: 1px solid red;
+}
+.child {
+	height: 50px;
+	border: 1px solid green;
+}
+.elem1 {
+	width: 100px;
+	flex-grow: 1;
+}
+.elem2 {
+	width: 100px;
+	flex-grow: 2;
+}
+.elem3 {
+	width: 200px;
+	flex-grow: 3;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child elem1"&gt;1&lt;/div&gt;
+	&lt;div class="child elem2"&gt;2&lt;/div&gt;
+	&lt;div class="child elem3"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	width: 500px;
+	height: 200px;
+	border: 1px solid red;
+}
+.child {
+	height: 50px;
+	border: 1px solid green;
+}
+.elem1 {
+	width: 100px;
+	flex-grow: 1;
+}
+.elem2 {
+	width: 100px;
+	flex-grow: 1;
+}
+.elem3 {
+	width: 100px;
+	flex-grow: 1;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child elem1"&gt;1&lt;/div&gt;
+	&lt;div class="child elem2"&gt;2&lt;/div&gt;
+	&lt;div class="child elem3"&gt;3&lt;/div&gt;
+	&lt;div class="child elem4"&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	width: 1000px;
+	height: 200px;
+	border: 1px solid red;
+}
+.child {
+	height: 50px;
+	border: 1px solid green;
+}
+.elem1 {
+	width: 200px;
+	flex-grow: 1;
+}
+.elem2 {
+	width: 100px;
+	flex-grow: 2;
+}
+.elem3 {
+	width: 100px;
+	flex-grow: 4;
+}
+.elem4 {
+	width: 100px;
+	flex-grow: 3;
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

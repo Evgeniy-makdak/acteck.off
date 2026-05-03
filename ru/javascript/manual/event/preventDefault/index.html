@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод event.preventDefault — acteck.off</title>
+  <meta name="description" content="Метод event.preventDefault — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод event.preventDefault</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>event.preventDefault</code> позволяет
+	отменить действия браузера по умолчанию.
+	Например, сделать так, чтобы при клике по
+	ссылке не было перехода на другую страницу
+	или по нажатию на кнопку форма не отправлялась
+	на сервер. Как пользоваться: просто внутри функции,
+	которая привязана к событию, в любом месте
+	следует вызвать <code data-gs="comd/c" data-x>event.preventDefault()</code>,
+	где event - это объект <code data-gs="comd/c" data-x>Event</code>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">event.preventDefault();</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте сделаем так, чтобы по клику на ссылку
+	не происходило перехода на другую страницу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;a href="/" id="elem"&gt;ссылка&lt;/a&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', function(event) {
+	event.preventDefault();
+	alert('вы не можете перейти по этой ссылке!');
+});</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<a href=&quot;../../../../index.html&quot; id=&quot;elem&quot;>ссылка</a>
+		
+		<script>
+			
+			let elem = document.querySelector('#elem');
+		
+		elem.addEventListener('click', function(event) {
+			event.preventDefault();
+			alert('вы не можете перейти по этой ссылке!');
+		});
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../../dom/addEventListener/index.html"><code data-gs="comd/c" data-x>addEventListener</code></a>, <br>
+			который привязывает события
+		</li>
+		<li>
+			метод <a href="../../dom/removeEventListener/index.html"><code data-gs="comd/c" data-x>removeEventListener</code></a>, <br>
+			который отвязывает события
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

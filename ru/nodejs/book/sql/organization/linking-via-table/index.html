@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Связывание через таблицу связи в NodeJS — acteck.off</title>
+  <meta name="description" content="Связывание через таблицу связи в NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/nodejs/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Связывание через таблицу связи в NodeJS</h1>
+    <p>
+	Пусть теперь юзер был в разных городах. В
+	этом случае таблица с юзерами могла бы иметь
+	следующий вид:
+</p>
+<div data-w="bock/stab">
+	<table>
+		<caption>users</caption>
+		<tr>
+			<th>id</th>
+			<th>name</th>
+			<th>city</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>user1</td>
+			<td>city1, city2, city3</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>user2</td>
+			<td>city1, city2</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>user3</td>
+			<td>city2, city3</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>user4</td>
+			<td>city1</td>
+		</tr>
+	</table>
+</div>
+<p>
+	Понятно, что так хранить данные неправильно
+	- города нужно вынести в отдельную таблицу.
+	Вот она:
+</p>
+<div data-w="bock/stab">
+	<table>
+		<caption>cities</caption>
+		<tr>
+			<th>id</th>
+			<th>name</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>city1</td>
+		</tr>
+		<tr>
+		<tr>
+			<td>2</td>
+			<td>city2</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>city3</td>
+		</tr>
+	</table>
+</div>
+<p>
+	Однако, нам нужно сделать так, чтобы каждый
+	юзер мог ссылаться на несколько городов.
+	С помощью двух таблиц это сделать
+	невозможно.
+</p>
+<p>
+	Нам понадобится ввести так называемую <dfn data-gs="comd/d" data-x>таблицу связи</dfn>,
+	которая будет связывать юзера
+	с его городами.
+</p>
+<p>
+	В каждой записи этой таблицы будет хранится
+	связь между юзером и одним городом. При этом
+	для одного юзера в этой таблице будет столько
+	записей, в скольких городах он был.
+</p>
+<p>
+	Вот наша таблица связи:
+</p>
+<div data-w="bock/stab">
+	<table>
+		<caption>users_cities</caption>
+		<tr>
+			<th>id</th>
+			<th>user_id</th>
+			<th>city_id</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>1</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>1</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>2</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>2</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>3</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>3</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td>4</td>
+			<td>1</td>
+		</tr>
+	</table>
+</div>
+<p>
+	Таблица с юзерами будет хранить только имена
+	юзеров, без связей:
+</p>
+<div data-w="bock/stab">
+	<table>
+		<caption>users</caption>
+		<tr>
+			<th>id</th>
+			<th>name</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>user1</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>user2</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>user3</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>user4</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>user5</td>
+		</tr>
+	</table>
+</div>
+
+<h2>Запросы</h2>
+<p>
+	Давайте сделаем запрос, с помощью которого
+	вытащим юзеров вместе с их городами. Для
+	этого нам понадобится сделать два джоина:
+	первый джоин присоединит к юзерам таблицу
+	связи, а второй джоин по связям присоединит
+	города:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT
+	users.name as user_name, cities.name as city_name
+FROM
+	users
+LEFT JOIN users_cities ON users_cities.user_id=users.id
+LEFT JOIN cities ON users_cities.city_id=cities.id</code>
+</div>
+
+<h2>Результат запроса</h2>
+<p>
+	Результат нашего запроса будет содержать
+	имя каждого юзера столько раз, со сколькими
+	городами он связан:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[
+	{ user_name: 'user1', city_name: 'city1' },
+	{ user_name: 'user1', city_name: 'city2' },
+	{ user_name: 'user1', city_name: 'city3' },
+	{ user_name: 'user2', city_name: 'city1' },
+	{ user_name: 'user2', city_name: 'city2' },
+	{ user_name: 'user3', city_name: 'city2' },
+	{ user_name: 'user3', city_name: 'city3' },
+	{ user_name: 'user4', city_name: 'city1' },
+	{ user_name: 'user5', city_name: null },
+	{ user_name: 'user6', city_name: null }
+]</code>
+</div>
+<p>
+	Удобнее было бы переконвертировать такой
+	массив и превратить его в следующий
+	объект:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{
+	user1: [ 'city1', 'city2', 'city3' ],
+	user2: [ 'city1', 'city2' ],
+	user3: [ 'city2', 'city3' ],
+	user4: [ 'city1' ]
+}</code>
+</div>
+<p>
+	Напишем код, выполняющий такую конвертацию.
+	Сделаем пустой объект <code data-gs="comd/c" data-x>userCities</code>, в который будем
+	постепенно добавлять данные о юзерах и городах,
+	в которым они побывали.
+	С помощью метода <code data-gs="comd/c" data-x>forEach</code> к каждому
+	<code data-gs="comd/c" data-x>row</code> (ряду) из <code data-gs="comd/c" data-x>results</code> применим
+	стрелочную функцию. В теле этой функции
+	объявим две переменные: <code data-gs="comd/c" data-x>userName</code>
+	и <code data-gs="comd/c" data-x>cityName</code>, в которых будут хранится имя юзера
+	и название города. Далее пропишем условие -
+	если юзера нет в <code data-gs="comd/c" data-x>userCities</code>,
+	то он добавится в этот объект в качестве ключа.
+	Также укажем условие, что если <code data-gs="comd/c" data-x>city_name</code>
+	не равен <code data-gs="comd/c" data-x>null</code>, то он добавится как значение
+	ключа:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let [results, fields] = await connection.query(query);
+	
+let userCities = {};
+
+results.forEach(row =&gt; {
+	let userName = row.user_name;
+	let cityName = row.city_name;
+	
+	if (!(userName in userCities)) {
+		userCities[userName] = [];
+	}
+	if (cityName !== null) {
+		userCities[userName].push(cityName);
+	}
+});
+	
+console.log(userCities);</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Пусть товар может принадлежать нескольким
+		категориям. Распишите структуру
+		хранения.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите запрос, который достанет товары
+		вместе с их категориями.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Выведите полученные данные в виде списка
+		<code data-gs="comd/c" data-x>ul</code> так, чтобы в каждой <code data-gs="comd/c" data-x>li</code> вначале
+		стояло имя продукта, а после двоеточия через
+		запятую перечислялись категории этого продукта.
+		Примерно так:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;product1: category1, category2, category3&lt;/li&gt;
+	&lt;li&gt;product2: category1, category3&lt;/li&gt;
+	&lt;li&gt;product3: category1&lt;/li&gt;
+&lt;/ul&gt;</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

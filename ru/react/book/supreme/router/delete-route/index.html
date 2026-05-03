@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Удаление маршрута в React Router — acteck.off</title>
+  <meta name="description" content="Удаление маршрута в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Удаление маршрута в React Router</h1>
+    <p>
+	Функцию для удаления данных из
+	хранилища мы написали. Давайте
+	теперь добавим в верстку странички
+	продукта кусок кода с кнопкой для
+	удаления продукта. Добавим его сразу
+	после кнопки редактирования. Обернем
+	обе формы с кнопками в див <code data-gs="comd/z" data-x>#control</code>.
+	Затем в <code data-gs="comd/c" data-x>action</code> запишем значение
+	<code data-gs="comd/s" data-x>'delete'</code>. Также мы добавим диалоговое
+	окошко, чтобы юзер еще раз подтвердил - хочет
+	ли он удалить продукт:
+</p>
+<div data-p="bock/pane" data-p-file="routes/product.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;div id="control"&gt;
+	&lt;Form action="edit"&gt;
+		&lt;button type="submit"&gt;edit&lt;/button&gt;
+	&lt;/Form&gt;
+	&lt;Form
+		method="post"
+		action="delete"
+		onSubmit={(event) =&gt; {
+			if (!confirm('Do you want to delete this product?')) {
+				event.preventDefault();
+			}
+		}}
+	&gt;
+		&lt;button type="submit"&gt;delete&lt;/button&gt;
+	&lt;/Form&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Добавим также стилей в наш CSS файл:
+</p>
+<div data-p="bock/pane" data-p-file="index.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div#control {
+	display: flex;
+}
+
+button {
+	margin-right: 5px;
+}</code>
+</div>
+<p>
+	А сейчас мы создадим новый маршрут для
+	удаления продукта. Для этого откройте
+	папку <code data-gs="comd/p" data-x>routes</code> и создайте в ней файл
+	<code data-gs="comd/p" data-x>delete.jsx</code>. Добавим в него сразу
+	импорт <code data-gs="comd/c" data-x>redirect</code> и функции удаления
+	<code data-gs="comd/c" data-x>deleteProduct</code>:
+</p>
+<div data-p="bock/pane" data-p-file="routes/delete.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { redirect } from 'react-router-dom';
+import { deleteProduct } from '../forStorage';</code>
+</div>
+<p>
+	А затем, естественно, пишем нашу
+	функцию <code data-gs="comd/c" data-x>action</code>, которая будет
+	вызывать <code data-gs="comd/c" data-x>deleteProduct</code> по <code data-gs="comd/c" data-x>id</code>,
+	а после удаления перенаправит нас на главную
+	страничку:
+</p>
+<div data-p="bock/pane" data-p-file="routes/delete.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function action({ params }) {
+	await deleteProduct(params.productId);
+	return redirect('/');
+}</code>
+</div>
+<p>
+	Нам осталось только открыть <code data-gs="comd/p" data-x>main.jsx</code>.
+	Импортировать наш <code data-gs="comd/c" data-x>action</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { action as deleteAction } from './routes/delete';</code>
+</div>
+<p>
+	И установить его в качестве значения для
+	метода <code data-gs="comd/c" data-x>action</code> маршрута удаления. Сам
+	объект маршрута мы добавим в конец массива
+	<code data-gs="comd/c" data-x>children</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{
+	path: 'products/:productId/delete',
+	action: deleteAction,
+},</code>
+</div>
+<p>
+	Теперь мы можем кликнуть по какому-нибудь
+	продукту и удалить его при помощи кнопки
+	удаления. Можете заглянуть в localforage
+	панели разработчика и убедиться в этом.
+</p>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлым урокам. Пользуясь
+		материалами урока, добавьте кнопку для
+		удаления студента, сделайте новый
+		маршрут для удаления, добавьте его
+		в дочерние маршруты. Убедитесь, что все
+		работает.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод on — acteck.off</title>
+  <meta name="description" content="Метод on — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод on</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>on</code> позволяет добавить обработчик
+	событий к элементу. Чтобы удалить обработчик
+	можно воспользоваться методом
+	<a href="../off/index.html"><code data-gs="comd/c" data-x>off</code></a>,
+	чтобы событие сработало только один раз, а затем
+	обработчик удалил сам себя - воспользуйтесь методом
+	<a href="../one/index.html"><code data-gs="comd/c" data-x>one</code></a>.
+	Элементы, к которым мы привязываем обрабочик должны
+	существовать во время вызова <code data-gs="comd/c" data-x>on</code>.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Так мы добавляем обработчик событий к элементу,
+	в качестве первого параметра в виде строки передается
+	одно или несколько событий разделенных пробелами, вторым
+	параметром передаем допольнительный фильтрующий
+	селектор потомков внутри элемента, третьим - дополнительные
+	данные, которые передаются в обработчик в свойстве
+	<a href="../event/index.html"><code data-gs="comd/c" data-x>event.data</code></a>
+	при срабатывании события. Второй и третий парметры
+	необязательны. Четвертым передаем функцию-обработчик,
+	в которую передается объект события и необязательные
+	дополнительные параметры. Если вместо функции-обработчика
+	передать <code data-gs="comd/c" data-x>false</code>, то функция просто вернет <code data-gs="comd/c" data-x>false</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).on(события, [селектор], [данные], функция-обработчик(объект события, [дополнительные параметры]));</code>
+</div>
+<p>
+	Можно воспользоваться методом <code data-gs="comd/c" data-x>on</code> по-другому,
+	тогда в первый параметр передается
+	объект JavaScript, где ключи - тип события, а
+	значения - функции-обработчики, вызываемые
+	для событий:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).on({'тип события': handler}, [селектор], [данные]);</code>
+</div>
+<p>
+	Если мы не передаем дополнительный селектор,
+	то событие срабатывает на элементе, к которому мы
+	прикрепляем обработчик, в противном случае - на
+	элементе-потомке, который который соответствует
+	этому селектору (делегированные события).
+	Один и тот же обработчик события может быть
+	привязан к элементу несколько раз.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте в <a href="../../../../manual/dialog/alert/index.html"><code data-gs="comd/c" data-x>alert</code></a>,
+	отобразим текст абзаца с <code data-gs="comd/z" data-x>#test</code> при
+	клике по нему, клики по другим абзацам ни к чему
+	не приведут:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text1&lt;/p&gt;
+&lt;p id="test"&gt;text2&lt;/p&gt;
+&lt;p&gt;text3&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').on('click', function() {
+	alert( $(this).text() );
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте при клике на абзац выведем данные, которые
+	мы передали в метод <code data-gs="comd/c" data-x>on</code>. Воспользуемся
+	функцией-обработчиком <code data-gs="comd/c" data-x>testFunc</code>,
+	которую мы создали:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;click&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function testFunc(event) {
+	alert(event.data.text);
+}
+
+$('p').on('click', {text: 'aaa'}, testFunc);</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../off/index.html"><code data-gs="comd/c" data-x>off</code></a>, <br>
+			который позволяет удалить обработчик событий 
+			у элемента
+		</li>
+		<li>
+			метод <a href="../one/index.html"><code data-gs="comd/c" data-x>one</code></a>, <br>
+			который позволяет событию сработать один раз, 
+			а затем автоматически удалить обработчик
+		</li>
+		<li>
+			объект <a href="../event/index.html"><code data-gs="comd/c" data-x>event</code></a>, <br>
+			который содержит информацию о событии			
+		</li>
+		<li>
+			метод <a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>, <br>
+			который позволяет запустить все обработчики событий, 
+			привязанные к элементу для событий заданного типа
+		</li>
+		<li>
+			JavaScript метод <a href="../../../../manual/context/bind/index.html"><code data-gs="comd/c" data-x>bind</code></a>, <br>
+			который позволяет привязать контекст к функции			
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

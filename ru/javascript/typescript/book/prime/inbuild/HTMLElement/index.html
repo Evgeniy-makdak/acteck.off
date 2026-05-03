@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тип HTMLElement в TypeScript — acteck.off</title>
+  <meta name="description" content="Тип HTMLElement в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/typescript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Тип HTMLElement в TypeScript</h1>
+    <p>
+	Для DOM элементов также есть свои типы
+	данных. Давайте посмотрим работу с DOM
+	элементами на примере. Пусть у нас есть
+	следующий <code data-gs="comd/c" data-x>div</code>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;&lt;/div&gt;</code>
+</div>
+<p>
+	Давайте получим ссылку на этот <code data-gs="comd/c" data-x>div</code>
+	в переменную. Все DOM элементы относятся
+	к типу <code data-gs="comd/c" data-x>HTMLElement</code>. Укажем этот тип
+	нашей переменной: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let elem: HTMLElement;</code>
+</div>
+<p>
+	Запишем теперь в эту переменную ссылку на
+	наш <code data-gs="comd/c" data-x>div</code>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let elem: HTMLElement = document.querySelector('div');
+console.log(elem);</code>
+</div>
+<p>
+	Все дивы, помимо того, что являются DOM
+	элементами с типом <code data-gs="comd/c" data-x>HTMLElement</code>,
+	также относятся к типу <code data-gs="comd/c" data-x>HTMLDivElement</code>
+	(аналогичные типы есть и у других тегов).
+	Давайте для нашего элемента укажем более
+	точный тип: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let elem: HTMLDivElement = document.querySelector('div');
+console.log(elem);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте переменную, которая будет содержать
+		<a href="../../../../../book/supreme/promises/intro/index.html"><code data-gs="comd/c" data-x>promise</code></a>. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте переменную, которая будет содержать
+		DOM элемент. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте переменную, которая будет содержать
+		ссылку на тег <code data-gs="comd/c" data-x>ul</code>. 
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

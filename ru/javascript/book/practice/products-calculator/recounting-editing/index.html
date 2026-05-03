@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редактирование с перерасчетом в калькуляторе продуктов на JavaScript — acteck.off</title>
+  <meta name="description" content="Редактирование с перерасчетом в калькуляторе продуктов на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Редактирование с перерасчетом в калькуляторе продуктов на JavaScript</h1>
+    <p>
+	Давайте теперь доработаем функцию <code data-gs="comd/c" data-x>allowEdit</code>
+	так, чтобы выполнялся описанный в предыдущем
+	уроке перерасчет.
+</p>
+<p>
+	К данному моменту код вашей функции
+	должен выглядеть примерно так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function allowEdit(td) {
+	td.addEventListener('dblclick', function() {
+		let text = td.textContent
+		td.textContent = '';
+		
+		let input = document.createElement('input');
+		input.value = text;
+		input.focus();
+		td.appendChild(input);
+		
+		input.addEventListener('keydown', function(event) {
+			if (event.key == 'Enter') {
+				td.textContent = this.value;
+			}
+		});
+	});
+}</code>
+</div>
+<p>
+	Добавим код, который для ячейки с ценой и
+	для ячейки с количеством будет выполнять
+	перерасчет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function allowEdit(td) {
+	td.addEventListener('dblclick', function() {
+		let text = td.textContent
+		td.textContent = '';
+		
+		let input = document.createElement('input');
+		input.value = text;
+		input.focus();
+		td.appendChild(input);
+		
+		input.addEventListener('keydown', function(event) {
+			if (event.key == 'Enter') {
+				td.textContent = this.value;
+				
+				if (td.classList.contains('price') || td.classList.contains('amount')) {
+					// выполним перерасчет
+				}
+			}
+		});
+	});
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Допишите недостающую часть кода так, чтобы
+		при изменении ячейки с ценой или ячейки с
+		количеством изменялась стоимость покупки
+		в колонке <code data-gs="comd/c" data-x>cost</code>, а также выполнялся
+		перерасчет общей суммы.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

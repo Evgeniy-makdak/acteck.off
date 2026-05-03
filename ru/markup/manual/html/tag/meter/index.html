@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тег meter — acteck.off</title>
+  <meta name="description" content="Тег meter — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Тег meter</h1>
+    <p>
+	Тег <code data-gs="comd/c" data-x>meter</code> используется для вывода
+	некоторого значения в красиво оформленном виде.
+</p>
+<p>
+	Внешний вид тега представляет собой частично
+	или полностью закрашенную полоску. Полоска
+	может быть зеленой, желтой или красной (цвет
+	полоски зависит от значений атрибутов, об
+	этом будет ниже):
+</p>
+<p>
+	Тег <code data-gs="comd/c" data-x>meter</code> следует использовать, к
+	примеру, в следующей ситуации: вы хотите
+	вывести на экран текущее значение температуры,
+	при этом температура может изменятся от <code data-gs="comd/n" data-x>0</code>
+	до <code data-gs="comd/n" data-x>100</code>. Вам следует указать следующие
+	атрибуты: атрибут <code data-gs="comd/c" data-x>value</code> должен указывать
+	текущее значение температуры, атрибут <code data-gs="comd/c" data-x>min</code>
+	- минимально возможное значение (в нашем
+	случае 0), атрибут <code data-gs="comd/c" data-x>max</code> - максимально
+	возможное (в нашем случае 100).
+</p>
+<p>
+	В зависимости от значения атрибута <code data-gs="comd/c" data-x>value</code>
+	полоска будет маленькой или большой. Если
+	указать <code data-gs="comd/c" data-x>value</code> в значении <code data-gs="comd/n" data-x>10</code>,
+	то полоска будет маленькой (так как <code data-gs="comd/n" data-x>10</code>
+	очень близко к минимуму - к нулю), если же
+	указать значение <code data-gs="comd/n" data-x>90</code>, то полоска будет
+	большой (так как <code data-gs="comd/n" data-x>90</code> близко к максимуму
+	- к 100). Если указать значение 100 - то
+	полоска займет весь элемент (так как значение
+	достигло максимума).
+</p>
+<p>
+	Если указать значение, большее, чем <code data-gs="comd/n" data-x>100</code>,
+	то полоска все равно займет весь элемент.
+	Если же указать <code data-gs="comd/n" data-x>0</code> и менее - то полоски
+	совсем не будет.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута value <b>маленькое</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="10" min="0" max="100"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;10&quot; min=&quot;0&quot; max=&quot;100&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута value <b>большое</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="90" min="0" max="100"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;90&quot; min=&quot;0&quot; max=&quot;100&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута value <b>среднее</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="50" min="0" max="100"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;50&quot; min=&quot;0&quot; max=&quot;100&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута value <b>равно максимальному</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="100" min="0" max="100"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;100&quot; min=&quot;0&quot; max=&quot;100&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута value <b>равно минимальному</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="0" min="0" max="100"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;0&quot; min=&quot;0&quot; max=&quot;100&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута value <b>больше максимального</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="110" min="0" max="100"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;110&quot; min=&quot;0&quot; max=&quot;100&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута value <b>меньше минимального</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="-10" min="0" max="100"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;-10&quot; min=&quot;0&quot; max=&quot;100&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Добавляем атрибуты low и high</h2>
+<p>
+	В теге <code data-gs="comd/c" data-x>meter</code> есть еще <code data-gs="comd/n" data-x>2</code> атрибута:
+	<code data-gs="comd/c" data-x>low</code> и <code data-gs="comd/c" data-x>high</code>.
+</p>
+<p>
+	Рассмотрим их работу на примере температуры.
+	Напоминаю, что наша минимальная температура
+	равна <code data-gs="comd/n" data-x>0</code>, а максимальная - <code data-gs="comd/n" data-x>100</code>.
+	Пусть теперь мы хотим сделать следующие диапазоны
+	- "холодная температура" от <code data-gs="comd/n" data-x>0</code> до <code data-gs="comd/n" data-x>20</code>,
+	"нормальная" от <code data-gs="comd/n" data-x>20</code> до <code data-gs="comd/n" data-x>80</code> и
+	"горячая" от <code data-gs="comd/n" data-x>80</code> до <code data-gs="comd/n" data-x>100</code>.
+</p>
+<p>
+	Чтобы задать холодную температуру, укажем
+	значением атрибута <code data-gs="comd/c" data-x>low</code> число <code data-gs="comd/n" data-x>20</code>.
+	Получится, что от нуля (это значение атрибута
+	<code data-gs="comd/c" data-x>min</code>) до <code data-gs="comd/n" data-x>20</code> (значение атрибута
+	<code data-gs="comd/c" data-x>low</code>) у нас <b>область низких значений</b>.
+</p>
+<p>
+	Чтобы задать горячую температуру, укажем
+	значением атрибута <code data-gs="comd/c" data-x>high</code> число <code data-gs="comd/n" data-x>80</code>.
+	Получится, что от <code data-gs="comd/n" data-x>80</code> (это значение
+	атрибута <code data-gs="comd/c" data-x>high</code>) до <code data-gs="comd/n" data-x>100</code> (значение
+	атрибута <code data-gs="comd/c" data-x>max</code>) у нас <b>область высоких
+	значений</b>.
+</p>
+<p>
+	Нормальная температура будет от <code data-gs="comd/n" data-x>20</code>
+	(это значение атрибута <code data-gs="comd/c" data-x>low</code>) до <code data-gs="comd/n" data-x>80</code>
+	(значение атрибута <code data-gs="comd/c" data-x>high</code>). Эту область
+	назовем <b>областью нормальных значений</b>.
+</p>
+<p>
+	Теперь, в зависимости от того, в какую область
+	попадает значение атрибута <code data-gs="comd/c" data-x>value</code>,
+	полоска будет окрашиваться в зеленый или
+	желтый цвет. Зеленый будет, если мы попали
+	в <b>область нормальных значений</b>, а желтый
+	- если в <b>область высоких или низких значений</b>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадает в
+	<b>область низких значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="10" min="0" low="20" high="80" max="100"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;10&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадет в
+	<b>область нормальных значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="50" min="0" low="20" high="80" max="100"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;50&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадет в
+	<b>область высоких значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="90" min="0" low="20" high="80" max="100"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;90&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Добавляем атрибут optimum</h2>
+<p>
+	Атрибут <code data-gs="comd/c" data-x>optimum</code> определяет оптимальное
+	значение. Для нашего примера оптимальной
+	может быть холодная температура, нормальная
+	или горячая - на ваш выбор. Предположим,
+	что вы укажите, что <b>оптимальная температура
+	холодная</b>. Теперь, в зависимости от значения
+	атрибута <code data-gs="comd/c" data-x>value</code> (то есть от текущей
+	температуры) цвет полоски будет зеленый,
+	желтый или красный.
+</p>
+<p>
+	Если текущая температура попадает в область
+	оптимальных температур (а мы указали, что
+	оптимальная - холодная), то цвет полоски
+	будет зеленый. Если текущая температура попадает
+	в соседний с оптимальным диапазон (в нашем
+	случае это нормальная температура), то полоска
+	станет желтой. Если же текущая температура
+	попадает не в соседний с оптимальным диапазон
+	(в нашем случае это горячая температура),
+	то полоска станет красной.
+</p>
+<p>
+	Аналогичным образом все будет происходить,
+	если оптимальной температурой указать горячую.
+	В этом случае, если текущая температура попала
+	в область горячих температур - полоска будет
+	зеленой, если попала в область нормальных
+	- желтой, если в область холодных - красной.
+</p>
+<p>
+	Если оптимальной указать нормальную температуру,
+	то полоска может быть только зеленой (если
+	текущая температура попала в нормальную)
+	или желтой (если текущая температура попала
+	в соседа нормальной температуры, а это горячая
+	или холодная).
+</p>
+<p>
+	Чтобы указать, какой диапазон является оптимальным,
+	нужно указать в качестве значения атрибута
+	<code data-gs="comd/c" data-x>optimum</code> любое число из этого диапазона.
+</p>
+<p>
+	В примерах ниже значение атрибута <code data-gs="comd/c" data-x>optimum</code>
+	попадает в <b>область низких значений</b>
+	(то есть холодных температур).
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадает в
+	<b>область низких значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="10" min="0" low="20" high="80" max="100" optimum="10"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;10&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot; optimum=&quot;10&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадает в
+	<b>область нормальных значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="50" min="0" low="20" high="80" max="100" optimum="10"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;50&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot; optimum=&quot;10&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадает в
+	<b>область высоких значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="90" min="0" low="20" high="80" max="100" optimum="10"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;90&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot; optimum=&quot;10&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<p>
+	В примерах ниже значение атрибута <code data-gs="comd/c" data-x>optimum</code>
+	попадает в <b>область высоких значений</b>
+	(то есть горячих температур).
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадает в
+	<b>область низких значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="10" min="0" low="20" high="80" max="100" optimum="90"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;10&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot; optimum=&quot;90&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадает в
+	<b>область нормальных значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="50" min="0" low="20" high="80" max="100" optimum="90"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;50&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot; optimum=&quot;90&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадает в
+	<b>область высоких значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="90" min="0" low="20" high="80" max="100" optimum="90"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;90&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot; optimum=&quot;90&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<hr>
+<p>
+	В примерах ниже значение атрибута <code data-gs="comd/c" data-x>optimum</code>
+	попадает в <b>область нормальных значений</b>
+	(то есть нормальных температур).
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадает в
+	<b>область низких значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="10" min="0" low="20" high="80" max="100" optimum="50"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;10&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot; optimum=&quot;50&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадает в
+	<b>область нормальных значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="50" min="0" low="20" high="80" max="100" optimum="50"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;50&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot; optimum=&quot;50&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Значение атрибута <code data-gs="comd/c" data-x>value</code> попадает в
+	<b>область высоких значений</b>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="90" min="0" low="20" high="80" max="100" optimum="50"&gt;&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;90&quot; min=&quot;0&quot; low=&quot;20&quot; high=&quot;80&quot; max=&quot;100&quot; optimum=&quot;50&quot;></meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Старые браузеры</h2>
+<p>
+	Старые браузеры не смогут показать тег <code data-gs="comd/c" data-x>meter</code>
+	в красивом виде и будут выводить вместо этого
+	содержимое самого тега:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meter value="10" min="0" max="100"&gt;Этот текст покажется в старых браузерах.&lt;/meter&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<meter value=&quot;10&quot; min=&quot;0&quot; max=&quot;100&quot;>Этот текст покажется в старых браузерах.</meter>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Атрибуты</h2>
+<p>
+	Значение атрибутов может быть дробным и отрицательным
+	числом.
+</p>
+<table data-w="cont/desc">
+	<tr>
+		<th>Атрибут</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>value</code></th>
+		<td>Устанавливает текущее значение. <b>Обязательный атрибут.</b></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>min</code></th>
+		<td>Задает минимально возможное значение. Значение по умолчанию: <code data-gs="comd/n" data-x>0</code>.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>max</code></th>
+		<td>Задает максимально возможное значение. Значение по умолчанию: <code data-gs="comd/n" data-x>1</code>.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>low</code></th>
+		<td>
+			Задает границу области низких значений. Низкие значения будут от числа в атрибуте
+			<code data-gs="comd/c" data-x>min</code> до числа в атрибуте <code data-gs="comd/c" data-x>low</code>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>high</code></th>
+		<td>
+			Задает границу области низких значений. Низкие значения будут от числа в атрибуте
+			<code data-gs="comd/c" data-x>high</code> до числа в атрибуте <code data-gs="comd/c" data-x>max</code>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>optimum</code></th>
+		<td>Определяет область оптимальных значений.</td>
+	</tr>
+</table>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			тег <a href="../progress/index.html"><code data-gs="comd/c" data-x>progress</code></a>, <br>
+			который создает полосу загрузки.
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

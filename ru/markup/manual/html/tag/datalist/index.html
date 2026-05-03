@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тег datalist — acteck.off</title>
+  <meta name="description" content="Тег datalist — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Тег datalist</h1>
+    <p>
+	Тег <code data-gs="comd/c" data-x>datalist</code> создает автозаполнение
+	для полей ввода <a href="../input/index.html"><code data-gs="comd/c" data-x>input</code></a>
+	в HTML <a href="../form/index.html">форме</a>.
+</p>
+<p>
+	Суть автозаполнения: когда пользователь будет
+	пытаться набрать что-то в поле ввода, снизу
+	будет появляться всплывающая подсказка, которая
+	будет представлять собой список доступных
+	вариантов выбора. Пользователь сможет выбрать
+	один из предложенных вариантов, не вводя
+	его до конца.
+</p>
+<p>
+	Чтобы привязать к тегу <a href="../input/index.html"><code data-gs="comd/c" data-x>input</code></a>
+	автозаполнение, ему необходимо задать атрибут
+	<code data-gs="comd/c" data-x>list</code>, в котором следует указать атрибут <a href="../../attr/id/index.html"><code data-gs="comd/c" data-x>id</code></a>
+	привязываемого тега <code data-gs="comd/c" data-x>datalist</code>.
+</p>
+<p>
+	Варианты выбора хранятся в тегах <code data-gs="comd/c" data-x>option</code>,
+	которые в свою очередь хранятся в теге <code data-gs="comd/c" data-x>datalist</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте в поле ввода введем страну. Введем
+	вначале букву <code data-gs="comd/s" data-x>'b'</code> - и увидим вплывающую
+	подсказку из трех стран. Затем введем еще
+	и букву <code data-gs="comd/s" data-x>'e'</code> - количество предложенных
+	стран сократится до двух:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="text" list="country"&gt;
+&lt;datalist id="country"&gt;
+	&lt;option&gt;Belarus&lt;/option&gt;
+	&lt;option&gt;Belgium&lt;/option&gt;
+	&lt;option&gt;Bulgaria&lt;/option&gt;
+&lt;/datalist&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type=&quot;text&quot; list=&quot;country&quot;>
+		<datalist id=&quot;country&quot;>
+			<option>Belarus</option>
+			<option>Belgium</option>
+			<option>Bulgaria</option>
+		</datalist>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте теперь к тегу <code data-gs="comd/c" data-x>option</code> добавим
+	атрибут <code data-gs="comd/c" data-x>value</code>. При выборе определенной
+	страны в привязанный инпут попадет не название
+	страны, а содержимое атрибута <code data-gs="comd/c" data-x>value</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="text" list="country-value"&gt;
+&lt;datalist id="country-value"&gt;
+	&lt;option value="Belarus"&gt;Belarus - a country of lakes and potatoes&lt;/option&gt;
+	&lt;option value="Belgium"&gt;Belgium - a country where Belgians live&lt;/option&gt;
+	&lt;option value="Bulgaria"&gt;Bulgaria - a country for vacation&lt;/option&gt;
+&lt;/datalist&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type=&quot;text&quot; list=&quot;country-value&quot;>
+		<datalist id=&quot;country-value&quot;>
+			<option value=&quot;Belarus&quot;>Belarus - a country of lakes and potatoes</option>
+			<option value=&quot;Belgium&quot;>Belgium - a country where Belgians live</option>
+			<option value=&quot;Bulgaria&quot;>Bulgaria - a country for vacation</option>
+		</datalist>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Влияние атрибута autocomplete</h2>
+<p>
+	На выпадающий список подсказок оказывает
+	влияние атрибут <a href="../../attr/autocomplete/index.html"><code data-gs="comd/c" data-x>autocomplete</code></a>.
+	Если он включен (а так и будет по умолчанию),
+	то к значениям, которые вы задали в теге
+	<code data-gs="comd/c" data-x>datalist</code>, будут примешиваться те значения,
+	которые пользователь вводил в это поле ранее.
+</p>
+<p>
+	Вбейте в поле <code data-gs="comd/s" data-x>'Brazil'</code> и нажмите
+	кнопку отправки (без отправки браузер не запомнит эту страну).
+	Затем вернитесь к этому примеру
+	и введите букву <code data-gs="comd/s" data-x>'b'</code> - в появившемся
+	списке вы увидите не только <code data-gs="comd/n" data-x>3</code> страны
+	из <code data-gs="comd/c" data-x>datalist</code>, но и вбитую ранее страну (кроме
+	того, если вы проделаете то же самое со словом
+	<code data-gs="comd/s" data-x>'Belarus'</code> - в выпадающем списке будет
+	это значение будет два раза).
+</p>
+<p>
+	Если вам это мешает - отключите атрибут <a href="../../attr/autocomplete/index.html"><code data-gs="comd/c" data-x>autocomplete</code></a>,
+	добавив ему значение <code data-gs="comd/v" data-x>off</code>.
+</p>
+<p>
+	Проделайте описанные выше манипуляции с примером:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action=""&gt;
+	&lt;input type="text" list="country" autocomplete="on"&gt;
+	&lt;datalist id="country"&gt;
+		&lt;option&gt;Belarus&lt;/option&gt;
+		&lt;option&gt;Belgium&lt;/option&gt;
+		&lt;option&gt;Bulgaria&lt;/option&gt;
+		&lt;input type="submit"&gt;
+	&lt;/datalist&gt;
+&lt;/form&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<form action=&quot;&quot;>
+			<input type=&quot;text&quot; list=&quot;country&quot; autocomplete=&quot;on&quot;>
+			<datalist id=&quot;country&quot;>
+				<option>Belarus</option>
+				<option>Belgium</option>
+				<option>Bulgaria</option>
+				<input type=&quot;submit&quot;>
+			</datalist>
+		</form>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			атрибут <a href="../../attr/autocomplete/index.html"><code data-gs="comd/c" data-x>autocomplete</code></a>, <br>
+			который задает автозаполнение полям формы
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

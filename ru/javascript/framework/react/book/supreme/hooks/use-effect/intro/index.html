@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Хук эффекта useEffect в React — acteck.off</title>
+  <meta name="description" content="Хук эффекта useEffect в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Хук эффекта useEffect в React</h1>
+    <p>
+	Для работы с эффектами применяется
+	хук <code data-gs="comd/c" data-x>useEffect</code>.
+	Давайте посмотрим на его работу.
+</p>
+<p>
+	Для начала импортируем наш хук:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useEffect } from 'react';</code>
+</div>
+<p>
+	Создадим компонент <code data-gs="comd/c" data-x>App</code>, содержащий
+	заголовок:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	return (
+		&lt;div&gt;
+			&lt;h1&gt;React App&lt;/h1&gt;
+		&lt;/div&gt;
+	);
+}
+
+export default App;</code>
+</div>
+<p>
+	Предположим, что нам надо сделать какое-то
+	действие после рендеринга, например, 
+	установить цвет фона всей страницы. В
+	данном случае внешней системой будет
+	DOM браузера.
+</p>
+<p>
+	Применим наш хук:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	useEffect(() =&gt; {
+		document.body.style.backgroundColor = 'green';
+	}, []);
+	
+	...
+}</code>
+</div>
+<p>
+	Во втором параметре передается массив зависимостей.
+	В них входят значения, используемые функциями
+	компонента. Пока мы оставили их пустыми.
+	В этом случае цвет установится в
+	зеленый только один раз после рендеринга.
+	Совсем убрать второй параметр нельзя,
+	так как ваш компонент может
+	войти в бесконечный цикл. 
+</p>
+<div data-w="cont/task">
+	<p>
+		С помощью хука <code data-gs="comd/c" data-x>useEffect</code> поменяйте
+		тайтл страницы.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

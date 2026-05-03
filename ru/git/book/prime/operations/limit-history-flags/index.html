@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Флаги для ограничения вывода истории коммитов в Git — acteck.off</title>
+  <meta name="description" content="Флаги для ограничения вывода истории коммитов в Git — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/git/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/git/index.html">Git</a>
+    </div>
+
+    <h1>Флаги для ограничения вывода истории коммитов в Git</h1>
+    <p>
+	Ограничить вывод истории коммитов можно и
+	с учетом времени, когда они были сделаны.
+	Например, флаг <code data-gs="comd/c" data-x>--since=1day</code> отобразит
+	коммиты, сделанные за <code data-gs="comd/n" data-x>1</code> день.
+	Полный список флагов для ограничения вывода
+	коммитов смотрите ниже:
+</p>
+<table data-w="cont/desc">
+	<tr>
+		<th>Флаг</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>-(n)</code></th>
+		<td>Показывает последние коммиты с учетом указанного числа.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>--since, --after</code>*</th>
+		<td>Отображает коммиты, сделанные после указанной даты.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>--until, --before</code>*</th>
+		<td>Выводят коммиты, сделанные до указанной даты.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>--author</code>*</th>
+		<td>Отображает коммиты для файлов с указанным автором.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>--committer</code>*</th>
+		<td>
+			Выводит коммиты, сделанные указанным коммитером, т.е.
+			пользователем, вносящим изменения. Автор файла и коммитер
+			могут являться разными пользователями.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>grep</code></th>
+		<td>
+			Ищет и отображает коммиты, сообщение или примечание
+			которых содержит указанную строку.
+		</td>
+	</tr>
+</table>
+<p>
+	К некоторым ограничивающим флагам обязательным
+	требованиям является добавление после их названия знака <code data-gs="comd/s" data-x>=</code>
+	и параметра, по которому мы ограничиваем вывод истории коммитов.
+	Данные флаги отмечены в таблице <code data-gs="comd/c" data-x>*</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Вывод последних коммитов</h2>
+<p>
+	Давайте выведем в консоль два последних коммита:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log -2</code>
+</div>
+<p>
+	После выполнения команды мы увидим:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit 33498ca885348fba6060ad4c459963d9e756c8b6 (HEAD -&gt; master)
+Author: root &lt;root@node.com&gt;
+Date: Tue Sep 12 10:52:30 2023 +0100
+
+	Story1
+
+commit bb6945ff7c73c88981a0b2523c32e30f472fd918
+Author: root &lt;root@node.com&gt;
+Date: Tue Sep 12 10:47:27 2023 +0100
+
+	text</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Вывод коммитов, сделанных после указанной даты</h2>
+<p>
+	Давайте выведем в консоль коммиты, сделанные после
+	<code data-gs="comd/n" data-x>11</code> сентября <code data-gs="comd/n" data-x>2023</code> года:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log --since="2023-09-11"</code>
+</div>
+<p>
+	После выполнения команды мы увидим:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit 33498ca885348fba6060ad4c459963d9e756c8b6 (HEAD -&gt; master)
+Author: root &lt;root@node.com&gt;
+Date: Tue Sep 12 10:52:30 2023 +0100
+
+	Story1
+
+commit bb6945ff7c73c88981a0b2523c32e30f472fd918
+Author: root &lt;root@node.com&gt;
+Date: Tue Sep 12 10:47:27 2023 +0100
+
+	text</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Вывод коммитов, сделанных до указанной даты</h2>
+<p>
+	А теперь давайте выведем в консоль коммиты,
+	сделанные до <code data-gs="comd/n" data-x>11</code> сентября <code data-gs="comd/n" data-x>2023</code> года:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log --until="2023-09-11"</code>
+</div>
+<p>
+	После выполнения команды мы увидим:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit a99c51a34d6a89be9c56127e18a1e574d6188d61
+Author: root &lt;root@node.com&gt;
+Date: Fri Jun 16 15:20:43 2023 +0100
+
+initial commit</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Вывод коммитов, сделанные указанным автором файлов</h2>
+<p>
+	Давайте выведем в консоль все коммиты для файлов,
+	созданных пользователем <code data-gs="comd/s" data-x>'user'</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log --author="user"</code>
+</div>
+<p>
+	После выполнения команды мы увидим:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit 9c51a34d188d61a6a89be9c56127e18a1e574d69
+Author: user &lt;user@node.com&gt;
+Date: Fri Jun 10 10:10:23 2022 +0100
+
+initial commit</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Вывод коммитов, сделанных указанным коммитером</h2>
+<p>
+	А теперь давайте выведем в консоль
+	все коммиты, сделанные
+	пользователем <code data-gs="comd/s" data-x>'root'</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log --committer="root"</code>
+</div>
+<p>
+	После выполнения команды мы увидим:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit 33498ca885348fba6060ad4c459963d9e756c8b6 (HEAD -&gt; master)
+Author: root &lt;root@node.com&gt;
+Date: Tue Sep 12 10:52:30 2023 +0100
+
+	Story1
+
+commit bb6945ff7c73c88981a0b2523c32e30f472fd918
+Author: root &lt;root@node.com&gt;
+Date: Tue Sep 12 10:47:27 2023 +0100
+
+	text
+
+commit a99c51a34d6a89be9c56127e18a1e574d6188d61
+Author: root &lt;root@node.com&gt;
+Date: Fri Jun 16 15:20:43 2023 +0100
+
+	initial commit</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Вывод коммитов, указанное примечание</h2>
+<p>
+	Давайте выведем в консоль все коммиты,
+	в которых есть строка <code data-gs="comd/s" data-x>'text'</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log --grep "text"</code>
+</div>
+<p>
+	После выполнения команды мы увидим:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit bb6945ff7c73c88981a0b2523c32e30f472fd918
+Author: root &lt;root@node.com&gt;
+Date: Tue Sep 12 10:47:27 2023 +0100
+
+	text</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Движок сайта на NodeJS — acteck.off</title>
+  <meta name="description" content="Движок сайта на NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/nodejs/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Движок сайта на NodeJS</h1>
+    <p>
+	Давайте рассмотрим структуру типичного сайта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;page title&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id="wrapper"&gt;
+			&lt;header&gt;
+				common header
+				&lt;nav&gt;
+					common menu
+				&lt;/nav&gt;
+			&lt;/header&gt;
+			&lt;main&gt;
+				page content
+			&lt;/main&gt;
+			&lt;aside&gt;
+				common sidebar
+			&lt;/aside&gt;
+			&lt;footer&gt;
+				common footer
+			&lt;/footer&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<p>
+	Как вы видите, у страницы сайта как правило
+	есть хедер, футер, сайдбары и контент.
+</p>
+<p>
+	При этом на многостраничном сайте все страницы
+	сайта отличаются лишь контентом и тайтлом,
+	а хедер, футер и сайдбары остаются одинаковым.
+</p>
+<p>
+	Это создает определенные неудобства в поддержке
+	сайта: если у вас на сайте сто страниц, то
+	у них будет сто одинаковых хедеров, раскиданных
+	по ста файлам. Если вам что-то нужно будет
+	поменять в хедере сайта - вам придется сделать
+	это сто раз! Это, конечно же, не удобно.
+</p>
+<p>
+	Поэтому в современном сайтостроении принят
+	другой подход: создается <i>один</i> файл
+	шаблона сайта, содержащий все одинаковые
+	места, а также места, в которые будут вставляться
+	изменяемые части, например, тайтл и контент.
+</p>
+<p>
+	При этом тайл и контент страницы хранятся
+	в отдельных файлах. To есть получается, что
+	для каждой страницы сайта в файле хранится
+	только изменяющиеся тайтл и контент, а общие
+	хедер, футер и сайдбары хранятся в общем
+	файле с шаблоном сайта.
+</p>
+<p>
+	Когда браузер запрашивает страницу сайта,
+	то сервер по запрошенному URL получает файл
+	с тайтлом и контентом, затем берет файл шаблона
+	и подставляет тайл и контент в специально
+	обозначенные места шаблона.
+</p>
+<p>
+	В результате получается готовая HTML страница
+	со всеми частями, которая и отправляется
+	в браузер.
+</p>
+<p>
+	Места для вставки изменяющихся частей в шаблоне
+	обозначаются с помощью придуманных нами команд.
+	Например, я могу сказать, что место вставки
+	тайтла обозначим как <code data-gs="comd/c" data-x>{% get title %}</code>,
+	а место вставки контента как <code data-gs="comd/c" data-x>{% get content
+	%}</code>. С такими командами файл шаблона может
+	иметь следующий вид:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;{% get title %}&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id="wrapper"&gt;
+			&lt;header&gt;
+				common header
+			&lt;/header&gt;
+			&lt;main&gt;
+				{% get content %}
+			&lt;/main&gt;
+			&lt;aside&gt;
+				common sidebar
+			&lt;/aside&gt;
+			&lt;footer&gt;
+				common footer
+			&lt;/footer&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+
+<h2>Реализация</h2>
+<p>
+	Итак, давайте реализуем описанное. Для начала
+	продумаем файловую структуру. Пусть в папке
+	<code data-gs="comd/p" data-x>page</code> лежат изменяющиеся части, причем
+	тайтл и контент одной страницы в разных файлах
+	в одной папке. Адрес их папки пусть соответствует
+	URL страницы.
+</p>
+<p>
+	Пусть, к примеру, запрошен адрес <code data-gs="comd/p" data-x>/dir/name/</code>.
+	Toгда тайтл этой страницы будет лежать в
+	файле <code data-gs="comd/p" data-x>/page/dir/name/title.html</code>, а
+	контент - в файле <code data-gs="comd/p" data-x>/page/dir/name/content.html</code>.
+</p>
+<p>
+	В папке <code data-gs="comd/p" data-x>root</code> разместим ресурсы сайта
+	(для простоты их пока проигнорируем), а шаблон
+	сайта - в файле <code data-gs="comd/p" data-x>layout.html</code>.
+</p>
+<p>
+	Давайте теперь напишем код. Наш сервер при
+	запросе должен прочитать файл с тайтлом,
+	файл с контентом и файл с шаблоном. Затем
+	нужно в тексте шаблона поменять наши спец
+	команды на текст тайтла и текст контента.
+	Полученную в результате страницу можно отправлять
+	в браузер.
+</p>
+<p>
+	Реализуем описанное:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">http.createServer(async (request, response) =&gt; {
+	let lpath = 'layout.html';
+	let cpath = 'page' + request.url + 'content.html';
+	let tpath = 'page' + request.url + 'title.html';
+	
+	let layout  = await fs.promises.readFile(lpath, 'utf8');
+	let content = await fs.promises.readFile(cpath, 'utf8');
+	let title   = await fs.promises.readFile(tpath, 'utf8');
+	
+	layout = layout.replace(/\{% get content %\}/, content);
+	layout = layout.replace(/\{% get title %\}/,   title);
+	
+	response.writeHead(200, {'Content-Type': 'text/html'});
+	response.write(layout);
+	response.end();
+}).listen(3000);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Возьмите приведенный код и потестируйте его
+		работу.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Реализуйте показ <code data-gs="comd/n" data-x>404</code> страницы в случае,
+		если URL не соответствует файлу. Пусть <code data-gs="comd/n" data-x>404</code>
+		страница хранится в файле <code data-gs="comd/p" data-x>page/404/title.html</code>
+		и <code data-gs="comd/p" data-x>page/404/content.html</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Добавьте к вашему коду работу с ресурсами.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Кроме тайтла и контента на страницах сайта
+		может также изменяться мета-описание (погуглите).
+		Реализуйте возможность добавлять его к страницам
+		сайта.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Возьмите созданный вами в предыдущем уроке
+		сайт из <code data-gs="comd/n" data-x>6</code>-ти страниц. Переделайте
+		его в соответствии с данным уроком.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

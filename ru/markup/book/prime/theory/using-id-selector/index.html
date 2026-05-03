@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Использование id в CSS — acteck.off</title>
+  <meta name="description" content="Использование id в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Использование id в CSS</h1>
+    <p>
+	При использовании <code data-gs="comd/c" data-x>id</code> доступны все
+	манипуляции с селекторами, которые мы изучили
+	в предыдущих уроках.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть следующий код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;h2&gt;Title&lt;/h2&gt;
+	&lt;p&gt;text&lt;/p&gt;
+	&lt;p&gt;text&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Давайте выберем <code data-gs="comd/c" data-x>h2</code> из элемента с <code data-gs="comd/c" data-x>id</code>,
+	равным <code data-gs="comd/z" data-x>block</code>, и покрасим его в красный
+	цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2 {
+	color: red;
+}</code>
+</div>
+<p>
+	А теперь давайте выберем p из элемента с
+	<code data-gs="comd/c" data-x>id</code>, равным <code data-gs="comd/z" data-x>block</code>, и покрасим
+	его в зеленый цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block p {
+	color: green;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть теперь у нас есть следующий код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;h2 class="header"&gt;Title&lt;/h2&gt;
+	&lt;p&gt;text&lt;/p&gt;
+	&lt;p&gt;text&lt;/p&gt;
+	
+	&lt;h3 class="header"&gt;Title&lt;/h3&gt;
+	&lt;p&gt;text&lt;/p&gt;
+	&lt;p&gt;text&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Давайте выберем элементы с классом <code data-gs="comd/z" data-x>header</code>,
+	находящийся внутри элемента с <code data-gs="comd/c" data-x>id</code>,
+	равным <code data-gs="comd/z" data-x>block</code>, и покрасим их
+	в красный цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block .header {
+	color: red;
+}</code>
+</div>
+<p>
+	А теперь выберем заголовки <code data-gs="comd/c" data-x>h2</code> с классом
+	<code data-gs="comd/z" data-x>header</code>, находящийся внутри элемента
+	с <code data-gs="comd/c" data-x>id</code>, равным <code data-gs="comd/z" data-x>block</code>, и покрасим
+	их в красный цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2.header {
+	color: red;
+}</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все <code data-gs="comd/c" data-x>h2</code>,
+		находящиеся в элементе с <code data-gs="comd/c" data-x>id</code>, равным
+		<code data-gs="comd/z" data-x>elem</code>. Проверьте ваш селектор на следующем
+		коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	&lt;h2&gt;Choose&lt;/h2&gt;
+	&lt;p&gt;---&lt;/p&gt;
+	
+	&lt;h2&gt;Choose&lt;/h2&gt;
+	&lt;p&gt;---&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Do not +++&lt;/h2&gt;
+&lt;p&gt;---&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все элементы
+		с классом <code data-gs="comd/z" data-x>text</code>, находящиеся в элементе
+		с <code data-gs="comd/c" data-x>id</code>, равным <code data-gs="comd/z" data-x>elem</code>. Проверьте
+		ваш селектор на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	&lt;p class="text"&gt;+++&lt;/p&gt;
+	&lt;p class="text"&gt;+++&lt;/p&gt;
+	
+	&lt;ul&gt;
+		&lt;li class="text"&gt;+++&lt;/li&gt;
+		&lt;li class="text"&gt;+++&lt;/li&gt;
+		&lt;li class="text"&gt;+++&lt;/li&gt;
+		&lt;li&gt;---&lt;/li&gt;
+		&lt;li&gt;---&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p class="text"&gt;---&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все абзацы
+		с классом <code data-gs="comd/z" data-x>text</code>, находящиеся в элементе
+		с <code data-gs="comd/c" data-x>id</code>, равным <code data-gs="comd/z" data-x>elem</code>. Проверьте
+		ваш селектор на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	&lt;p class="text"&gt;+++&lt;/p&gt;
+	&lt;p class="text"&gt;+++&lt;/p&gt;
+	
+	&lt;ul&gt;
+		&lt;li class="text"&gt;---&lt;/li&gt;
+		&lt;li class="text"&gt;---&lt;/li&gt;
+		&lt;li class="text"&gt;---&lt;/li&gt;
+		&lt;li&gt;---&lt;/li&gt;
+		&lt;li&gt;---&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p class="text"&gt;---&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все <code data-gs="comd/c" data-x>li</code>
+		с классом <code data-gs="comd/z" data-x>text</code>, находящиеся в элементе
+		с <code data-gs="comd/c" data-x>id</code>, равным <code data-gs="comd/z" data-x>elem</code>. Проверьте
+		ваш селектор на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	&lt;p class="text"&gt;---&lt;/p&gt;
+	&lt;p class="text"&gt;---&lt;/p&gt;
+	
+	&lt;ul&gt;
+		&lt;li class="text"&gt;+++&lt;/li&gt;
+		&lt;li class="text"&gt;+++&lt;/li&gt;
+		&lt;li class="text"&gt;+++&lt;/li&gt;
+		&lt;li&gt;---&lt;/li&gt;
+		&lt;li&gt;---&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p class="text"&gt;---&lt;/p&gt;</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

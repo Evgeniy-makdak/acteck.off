@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Адаптивная плиточка без отступов в CSS — acteck.off</title>
+  <meta name="description" content="Адаптивная плиточка без отступов в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Адаптивная плиточка без отступов в CSS</h1>
+    <p>
+	Давайте сделаем плиточку, которая будет иметь
+	различное количество блоков в ряду в зависимости
+	от ширины экрана. Вот пример того, что у
+	нас должно получится:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-wrap: wrap;
+			width: 95%;
+			margin: 50px auto;
+		}
+		.child {
+			box-sizing: border-box;
+			height: 100px;
+			padding: 20px;
+			border: 1px solid green;
+		}
+		
+		@media (max-width: 400px) {
+			.child {
+				width: 100%;
+			}
+		}
+		@media (min-width: 400px) and (max-width: 700px) {
+			.child {
+				width: 50%;
+			}
+		}
+		@media (min-width: 700px) and (max-width: 1000px) {
+			.child {
+				width: 33.3333%;
+			}
+		}
+		@media (min-width: 1000px) {
+			.child {
+				width: 25%;
+			}
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+			<div class=&quot;child&quot;>4</div>
+			<div class=&quot;child&quot;>5</div>
+			<div class=&quot;child&quot;>6</div>
+			<div class=&quot;child&quot;>7</div>
+			<div class=&quot;child&quot;>8</div>
+			<div class=&quot;child&quot;>9</div>
+			<div class=&quot;child&quot;>10</div>
+			<div class=&quot;child&quot;>11</div>
+			<div class=&quot;child&quot;>12</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+<p>
+	Напишем сначала HTML код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;1&lt;/div&gt;
+	&lt;div class="child"&gt;2&lt;/div&gt;
+	&lt;div class="child"&gt;3&lt;/div&gt;
+	&lt;div class="child"&gt;4&lt;/div&gt;
+	&lt;div class="child"&gt;5&lt;/div&gt;
+	&lt;div class="child"&gt;6&lt;/div&gt;
+	&lt;div class="child"&gt;7&lt;/div&gt;
+	&lt;div class="child"&gt;8&lt;/div&gt;
+	&lt;div class="child"&gt;9&lt;/div&gt;
+	&lt;div class="child"&gt;10&lt;/div&gt;
+	&lt;div class="child"&gt;11&lt;/div&gt;
+	&lt;div class="child"&gt;12&lt;/div&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Давайте теперь добавим стили родителю блоков:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-wrap: wrap;
+	width: 95%;
+	margin: 50px auto;
+}</code>
+</div>
+<p>
+	Теперь зададим стили самим блокам, не задавая
+	им ширину:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.child {
+	box-sizing: border-box;
+	height: 100px;
+	padding: 20px;
+	border: 1px solid green;
+}</code>
+</div>
+<p>
+	Очевидно, что ширина блоков должна быть в
+	процентах, чтобы при изменении экрана блоки
+	плавно меняли свою ширину. При этом в определенных
+	точках экрана мы должны менять ширину блоков
+	так, чтобы в ряд помещалось определенное
+	количество этих блоков.
+</p>
+<p>
+	Давайте напишем код, который поставит четыре
+	блока в ряд:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 1000px) {
+	.child {
+		width: 25%;
+	}
+}</code>
+</div>
+<p>
+	А теперь поставим три блока в ряд:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 700px) and (max-width: 1000px) {
+	.child {
+		width: 33.3333%;
+	}
+}</code>
+</div>
+<p>
+	А теперь поставим два блока в ряд:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 400px) and (max-width: 700px) {
+	.child {
+		width: 50%;
+	}
+}</code>
+</div>
+<p>
+	Один блок в ряд:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (max-width: 400px) {
+	.child {
+		width: 100%;
+	}
+}</code>
+</div>
+<p>
+	Давайте соберем весь код вместе:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-wrap: wrap;
+	width: 95%;
+	margin: 50px auto;
+}
+.child {
+	box-sizing: border-box;
+	height: 100px;
+	padding: 20px;
+	border: 1px solid green;
+}
+
+@media (max-width: 400px) {
+	.child {
+		width: 100%;
+	}
+}
+@media (min-width: 400px) and (max-width: 700px) {
+	.child {
+		width: 50%;
+	}
+}
+@media (min-width: 700px) and (max-width: 1000px) {
+	.child {
+		width: 33.3333%;
+	}
+}
+@media (min-width: 1000px) {
+	.child {
+		width: 25%;
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте мой код так, чтобы ширина блоков
+		вычислялась через функцию <code data-gs="comd/c" data-x>calc</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте плитку, которая при уменьшении экрана
+		будет сначала четыре элемента в ряд, потом
+		два элемента в ряд, а потом один
+		элемент в ряд.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте плитку, которая при уменьшении экрана
+		будет сначала шесть элементов в ряд, потом
+		три элемента в ряд, а потом один
+		элемент в ряд.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Объекты в объектах в TypeScript — acteck.off</title>
+  <meta name="description" content="Объекты в объектах в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/typescript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Объекты в объектах в TypeScript</h1>
+    <p>
+	Объекты могут содержать в себе другие
+	объекты, описывающиеся отдельными интерфейсами.
+	Давайте посмотрим на примерах. 
+</p>
+<p>
+	Пусть у нас есть интерфейс, описывающий
+	объект с городом: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">interface City {
+	name: string
+}</code>
+</div>
+<p>
+	Сделаем также интерфейс, описывающий юзера.
+	При этом у юзера будет имя, возраст и
+	город, в свою являющийся объектом: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">interface User {
+	name: string,
+	age: number,
+	city: City
+}</code>
+</div>
+<p>
+	Давайте создадим объект с юзером: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let city: City = {name: 'london'};
+let user: User = {name: 'john', age: 30, city: city};</code>
+</div>
+<p>
+	Не обязательно для города создавать отдельную
+	переменную: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user: User = {
+	name: 'john',
+	age: 30,
+	city: {name: 'london'}
+};</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан объект: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let employee {
+	name: 'andrew',
+	potision: {
+		name: 'programmer'
+		salary: 1000,
+	},
+	addr: {
+		country: 'belarus',
+		city: 'minsk'
+	}
+};</code>
+	</div>
+	<p>
+		Сделайте интерфейс, описывающий структуру
+		этого объекта. Вынесите вложенные объекты
+		в отдельные интерфейсы. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан объект: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user: User = {
+	name: 'john',
+	age: 30,
+	parents: {
+		mother: {
+			name: 'jane',
+			age: 30,
+			parents: null
+		},
+		father: {
+			name: 'eric',
+			age: 30,
+			parents: null
+		}
+	}
+}</code>
+	</div>
+	<p>
+		Сделайте интерфейс, описывающий структуру
+		этого объекта. Вынесите вложенные объекты
+		в отдельные интерфейсы. 
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

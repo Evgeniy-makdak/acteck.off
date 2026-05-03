@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выбор элемента по уникальному id в CSS — acteck.off</title>
+  <meta name="description" content="Выбор элемента по уникальному id в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Выбор элемента по уникальному id в CSS</h1>
+    <p>
+	Как вы уже знаете, классы предназначены,
+	чтобы присваивать их группе элементов. Кроме
+	классов, можно также выбирать элементы по
+	<code data-gs="comd/c" data-x>id</code>, представляющим собой уникальный
+	идентификатор элемента. Под уникальностью
+	понимается то, что если у нас на странице
+	уже есть элемент с таким <code data-gs="comd/c" data-x>id</code>, то другого
+	элемента с таким же <code data-gs="comd/c" data-x>id</code> быть не должно.
+</p>
+<p>
+	Уникальный идентификатор задается с помощью
+	атрибута <code data-gs="comd/c" data-x>id</code>, в котором пишется придуманное
+	нами имя. Давайте, например, сделаем два
+	блока. Первому зададим <code data-gs="comd/c" data-x>id</code> в значении
+	<code data-gs="comd/z" data-x>block1</code>, а второму - в значении
+	<code data-gs="comd/z" data-x>block2</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block1"&gt;
+	&lt;p&gt;text&lt;/p&gt;
+	&lt;p&gt;text&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="block2"&gt;
+	&lt;p&gt;text&lt;/p&gt;
+	&lt;p&gt;text&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Чтобы обратиться к элементу с заданным <code data-gs="comd/c" data-x>id</code>,
+	нужно написать символ <code data-gs="comd/z" data-x>#</code> и придуманное
+	нами имя, вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block1 {
+	color: red;
+}
+#block2 {
+	color: green;
+}</code>
+</div>
+<div data-w="cont/nott">
+	<p>
+		Атрибут <code data-gs="comd/c" data-x>id</code> используется в том случае,
+		когда необходимо подчеркнуть уникальность
+		элемента. Классы используются тогда, когда
+		предполагается, что таких элементов может
+		быть много, даже если он сейчас один.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;
+	&lt;h2&gt;Title&lt;/h2&gt;
+	&lt;p&gt;
+		text
+	&lt;/p&gt;
+	&lt;p&gt;
+		text
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="elem2"&gt;
+	&lt;h2&gt;Title&lt;/h2&gt;
+	&lt;p&gt;
+		text
+	&lt;/p&gt;
+	&lt;p&gt;
+		text
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="elem3"&gt;
+	&lt;h2&gt;Title&lt;/h2&gt;
+	&lt;p&gt;
+		text
+	&lt;/p&gt;
+	&lt;p&gt;
+		text
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+	</div>
+	<p>
+		Покрасьте содержимое блока <code data-gs="comd/z" data-x>elem1</code> в
+		красный цвет, блока <code data-gs="comd/z" data-x>elem2</code> - в зеленый,
+		а блока <code data-gs="comd/z" data-x>elem3</code> - в голубой.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство offsetTop — acteck.off</title>
+  <meta name="description" content="Свойство offsetTop — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Свойство offsetTop</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>offsetTop</code> содержит смещение
+	элемента сверху относительно <a href="../offsetParent/index.html"><code data-gs="comd/c" data-x>offsetParent</code></a>.
+	Содержит расстояние от <code data-gs="comd/c" data-x>offsetParent</code> до границы
+	элемента.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">элемент.offsetTop;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем смещение элемента относительно
+	своего <code data-gs="comd/c" data-x>offsetParent</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent" style="position: relative;"&gt;
+	&lt;div id="elem" style="position: absolute; top: 100px;"&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+console.log(elem.offsetTop);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">100</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Отступы <a href="../../../../markup/manual/css/property/margin/index.html"><code data-gs="comd/c" data-x>margin</code></a>
+	также суммируются в смещение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent" style="position: relative;"&gt;
+	&lt;div id="elem" style="position: absolute; top: 100px; margin: 50px;"&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+console.log(elem.offsetTop);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">150</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../offsetLeft/index.html"><code data-gs="comd/c" data-x>offsetLeft</code></a>, <br>
+			которое содержит смещение элемента слева
+		</li>
+		<li>
+			метод <a href="../getBoundingClientRect/index.html"><code data-gs="comd/c" data-x>getBoundingClientRect</code></a>, <br>
+			который находит смещение элемента
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

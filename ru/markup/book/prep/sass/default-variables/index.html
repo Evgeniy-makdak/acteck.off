@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Переменные по умолчанию в SASS — acteck.off</title>
+  <meta name="description" content="Переменные по умолчанию в SASS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Переменные по умолчанию в SASS</h1>
+    <p>
+	В некоторых случаях, если значение
+	переменнойпока не определено,
+	но ее нужно использовать в коде,
+	мы можем задать ей значение по умолчанию,
+	после которого ставим метку <code data-gs="comd/c" data-x>!default</code>.
+</p>
+<p>
+	Необходимо отметить, что если переменной
+	уже было присвоено значение раньше,
+	то оно останется прежним, но вот
+	если мы создали новую пустую переменную,
+	то для нее будет указано значение по умолчанию.
+</p>
+<div data-p="bock/pane" data-p-file="styles.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">$name: "John";
+$name: "Bob" !default;
+$new_name: "Mark" !default;
+
+#main {
+	name: $name;
+	new_name: $new_name;
+}</code>
+</div>
+<p>
+	Результат компиляции приведенного кода будет
+	следующим:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#main {
+	name: "John";
+	new_name: "Mark";
+}</code>
+</div>
+<p>
+	Если же мы поставили переменной значение <code data-gs="comd/c" data-x>null</code>,
+	<code data-gs="comd/c" data-x>!default</code> рассмотрит ее как
+	не имеющую значения:
+</p>
+<div data-p="bock/pane" data-p-file="styles.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">$name: null;
+$name: "Bob" !default;
+
+#main {
+	name: $name;
+}</code>
+</div>
+<p>
+	После компиляции мы увидим:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#main {
+	name: "Bob"; 
+}</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

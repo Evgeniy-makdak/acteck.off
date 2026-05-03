@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство text-stroke — acteck.off</title>
+  <meta name="description" content="Свойство text-stroke — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство text-stroke</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>text-stroke</code> задает цвет и толщину контура
+	символов текста или его обводку. В качестве
+	значения в свойство нужно задавать
+	толщину обводки и через пробел цвет обводки.
+</p>
+	
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	text-stroke: толщина обводки и ее цвет;
+}</code>
+</div>
+
+<h2>Базовый пример</h2>
+<p>
+	Простая обводка текста:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="stroked-text"&gt;
+	Lorem ipsum dolor sit amet
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.stroked-text {
+	font-size: 48px;
+	font-weight: bold;
+	-webkit-text-stroke: 2px red;
+	text-stroke: 2px red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.stroked-text {
+			font-size: 48px;
+			font-weight: bold;
+			-webkit-text-stroke: 2px red;
+			text-stroke: 2px red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;stroked-text&quot;>
+			Lorem ipsum dolor sit amet
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+	
+<h2>Toлько обводка</h2>
+<p>
+	А теперь сделаем цвет текста совпадающим
+	с цветом фона (в нашем случае белый).
+	В результате останется только обводка:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="stroked-text"&gt;
+	Lorem ipsum dolor sit amet
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.stroked-text {
+	font-size: 48px;
+	font-weight: bold;
+	color: white;
+	-webkit-text-stroke: 2px black;
+	text-stroke: 2px black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.stroked-text {
+			font-size: 48px;
+			font-weight: bold;
+			color: white;
+			-webkit-text-stroke: 2px black;
+			text-stroke: 2px black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;stroked-text&quot;>
+			Lorem ipsum dolor sit amet
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Обводка с градиентом</h2>
+<p>
+	Сделаем градиентную обводку
+	с помощью свойства <a href="../background-clip/index.html"><code data-gs="comd/c" data-x>background-clip</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="gradient-stroke"&gt;
+	Lorem ipsum dolor sit amet
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.gradient-stroke {
+	font-size: 42px;
+	font-weight: bold;
+	background: linear-gradient(to right, #ff8a00, #e52e71);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	-webkit-text-stroke: 1px #333;
+	text-stroke: 1px #333;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.gradient-stroke {
+			font-size: 42px;
+			font-weight: bold;
+			background: linear-gradient(to right, #ff8a00, #e52e71);
+			-webkit-background-clip: text;
+			background-clip: text;
+			color: transparent;
+			-webkit-text-stroke: 1px #333;
+			text-stroke: 1px #333;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;gradient-stroke&quot;>
+			Lorem ipsum dolor sit amet
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Множественная обводка</h2>
+<p>
+	Эффект двойной обводки с помощью <a href="../text-shadow/index.html"><code data-gs="comd/c" data-x>text-shadow</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="double-stroke"&gt;
+	Lorem ipsum dolor sit amet
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.double-stroke {
+	font-size: 40px;
+	color: white;
+	-webkit-text-stroke: 3px #000;
+	text-stroke: 3px #000;
+	text-shadow: 
+		0 0 5px #000,
+		0 0 10px #000;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.double-stroke {
+			font-size: 40px;
+			color: white;
+			-webkit-text-stroke: 3px #000;
+			text-stroke: 3px #000;
+			text-shadow: 
+				0 0 5px #000,
+				0 0 10px #000;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;double-stroke&quot;>
+			Lorem ipsum dolor sit amet
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Анимированная обводка</h2>
+<p>
+	Добавим анимацию изменения обводки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="animated-stroke"&gt;
+	Lorem ipsum dolor sit amet
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.animated-stroke {
+	font-size: 38px;
+	color: white;
+	-webkit-text-stroke: 1px #ff0000;
+	text-stroke: 1px #ff0000;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% { -webkit-text-stroke: 1px #ff0000; text-stroke: 1px #ff0000; }
+	50% { -webkit-text-stroke: 3px #ff0000; text-stroke: 3px #ff0000; }
+	100% { -webkit-text-stroke: 1px #ff0000; text-stroke: 1px #ff0000; }
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.animated-stroke {
+			font-size: 38px;
+			color: white;
+			-webkit-text-stroke: 1px #ff0000;
+			text-stroke: 1px #ff0000;
+			animation: pulse 2s infinite;
+		}
+
+		@keyframes pulse {
+			0% { -webkit-text-stroke: 1px #ff0000; text-stroke: 1px #ff0000; }
+			50% { -webkit-text-stroke: 3px #ff0000; text-stroke: 3px #ff0000; }
+			100% { -webkit-text-stroke: 1px #ff0000; text-stroke: 1px #ff0000; }
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;animated-stroke&quot;>
+			Lorem ipsum dolor sit amet
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../text-fill-color/index.html"><code data-gs="comd/c" data-x>text-fill-color</code></a>, <br>
+			которое задает цвет заливки символам текста
+		</li>
+		<li>
+			свойство <a href="../text-stroke-color/index.html"><code data-gs="comd/c" data-x>text-stroke-color</code></a>, <br>
+			которое задает цвет обводке текста
+		</li>
+		<li>
+			свойство <a href="../text-stroke-width/index.html"><code data-gs="comd/c" data-x>text-stroke-width</code></a>, <br>
+			которое задает толщину обводки текста
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

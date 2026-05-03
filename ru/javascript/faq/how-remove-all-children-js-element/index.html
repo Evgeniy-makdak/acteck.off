@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Как удалить всех детей элемента JS — acteck.off</title>
+  <meta name="description" content="Как удалить всех детей элемента JS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Как удалить всех детей элемента JS</h1>
+    <p>
+	Рассмотрим несколько способов удаления
+	всех детей элемента с использованием
+	JavaScript. Пусть у нас есть следующий
+	родитель: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul id="list"&gt;
+	&lt;li&gt;1&lt;/li&gt;
+	&lt;li&gt;2&lt;/li&gt;
+	&lt;li&gt;3&lt;/li&gt;
+&lt;/ul&gt;</code>
+</div>
+
+<h2>Способ 1: удаление детей через textContent</h2>
+<p>
+	Самый простой способ удалить всех детей -
+	это родителю в <a href="../../manual/dom/textContent/index.html"><code data-gs="comd/c" data-x>textContent</code></a>.
+	записать пустое значение. Давайте сделаем
+	это. 
+</p>
+<p>
+	Получим ссылку на родителя с помощью метода
+	<a href="../../manual/dom/querySelector/index.html"><code data-gs="comd/c" data-x>querySelector</code></a>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let parent = document.querySelector('#list');</code>
+</div>
+<p>
+	Удалим все его дочерние элементы: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">parent.textContent = '';</code>
+</div>
+
+<h2>Способ 2: Использование метода remove</h2>
+<p>
+	Второй метод основан на использовании
+	метода <a href="../../manual/dom/remove/index.html"><code data-gs="comd/c" data-x>remove</code></a>.
+	Этот метод удаляет указанный дочерний
+	элемент из родительского элемента. Мы можем
+	получить массив дочерних элементов, перебрать
+	их циклом и удалить каждый из них. Давайте
+	сделаем это. Получим массив дочерних
+	элементов: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('#list li');</code>
+</div>
+<p>
+	Переберем их циклом и для каждого выполним
+	метод для удаления: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of elems) {
+	elem.remove();
+}</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

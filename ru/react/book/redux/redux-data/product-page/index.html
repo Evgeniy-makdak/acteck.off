@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница для продукта в Redux — acteck.off</title>
+  <meta name="description" content="Страница для продукта в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Страница для продукта в Redux</h1>
+    <p>
+	В данном уроке мы сделаем отдельную страницу
+	для вывода информации о конкретном продукте.
+</p>
+<p>
+	Откроем наше приложение с продуктами и в папке
+	<code data-gs="comd/p" data-x>products</code> создадим файл <code data-gs="comd/p" data-x>ProductPage.jsx</code>. Как
+	вы помните, каждый наш продукт имеет уникальный
+	id. Благодаря этому id мы сможем сгенерировать
+	уникальный URL странички для каждого продукта.
+	Традиционно он будет выглядеть как:
+	<code data-gs="comd/p" data-x>/products/id123</code>. И id будет содержаться в
+	его динамической части (самим маршрутом мы займемся
+	несколько позже).
+</p>
+<p>
+	Итак, давайте в <code data-gs="comd/p" data-x>ProductPage.jsx</code> создадим
+	пустой компонент <code data-gs="comd/c" data-x>ProductPage</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const ProductPage = () =&gt; {}</code>
+</div>
+<p>
+	Первое, что мы сделаем здесь - воспользуемся
+	хуком <code data-gs="comd/c" data-x>useParams</code>, чтобы вытянуть динамическую
+	часть URL для странички продукта, на которой
+	мы находимся:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const ProductPage = () =&gt; {
+	let params = useParams()
+	const { productId } = params
+}</code>
+</div>
+<p>
+	Далее по полученному id мы поищем
+	нужный продукт в слайсе <code data-gs="comd/c" data-x>products</code>
+	в store, используя уже знакомый нам
+	хук <code data-gs="comd/c" data-x>useSelector</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const product = useSelector((state) =&gt;
+	state.products.find((product) =&gt; product.id === productId)
+)</code>
+</div>
+<p>
+	Не забудем импортировать оба хука в файл:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'</code>
+</div>
+<p>
+	Если же нужного нам продукта не окажется
+	(к примеру, пользователь ввел некорректный
+	адрес), то мы выведем информацию об этом
+	на экран. На этом шаге код для компонента
+	<code data-gs="comd/c" data-x>ProductPage</code> должен выглядеть так:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const ProductPage = () =&gt; {
+	let params = useParams()
+	const { productId } = params
+
+	const product = useSelector((state) =&gt;
+		state.products.find((product) =&gt; product.id === productId)
+	)
+
+	if (!product) {
+		return &lt;p&gt;No such product&lt;/p&gt;
+	}
+}</code>
+</div>
+<p>
+	И нам остается только вывести полученные
+	данные продукта в верстке:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
+	&lt;div&gt;
+		&lt;h2&gt;{product.name}&lt;/h2&gt;
+		&lt;p&gt;Description: {product.desc}&lt;/p&gt;
+		&lt;p&gt;Price: {product.price}&lt;/p&gt;
+		&lt;p&gt;Amount:{product.amount}&lt;/p&gt;
+	&lt;/div&gt;
+)</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		В папке <code data-gs="comd/p" data-x>students</code> создайте файл
+		<code data-gs="comd/p" data-x>StudentPage.jsx</code>, в котором вы будете
+		получать и выводить информацию по
+		выбранному студенту.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		С помощью react-redux хука <code data-gs="comd/c" data-x>useSelector</code>
+		получите необходимую информацию о студенте,
+		как показано в уроке.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Выведите в компоненте полученную информацию
+		о студенте на экран.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Перебор многомерных структур JavaScript — acteck.off</title>
+  <meta name="description" content="Перебор многомерных структур JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Перебор многомерных структур JavaScript</h1>
+    <p>
+	Пусть у нас дан следующий объект
+	со студентами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let students = {
+	'group1': ['student11', 'student12', 'student13'],
+	'group2': ['student21', 'student22', 'student23'],
+	'group3': ['student31', 'student32'],
+};</code>
+</div>
+<p>
+	Давайте выведем на экран имена всех
+	студентов, перебрав наш объект двумя
+	вложенными циклами.
+</p>
+<p>
+	Как вы видите, у нас объект с массивами.
+	Это значит, что первый цикл должен быть по
+	объекту, а второй - по массивам. To есть
+	первый цикл будет <code data-gs="comd/c" data-x>for-in</code>, а второй
+	- <code data-gs="comd/c" data-x>for-of</code>, вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let group in students) {
+	for (let name of students[group]) {
+		console.log(name);
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана следующая структура с данными:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let data = {
+	1: [
+		'data11',
+		'data12',
+		'data13',
+	],
+	2: [
+		'data21',
+		'data22',
+		'data23',
+	],
+	3: [
+		'data31',
+		'data32',
+		'data33',
+	],
+	4: [
+		'data41',
+		'data42',
+		'data43',
+	],
+};</code>
+	</div>
+	<p>
+		С помощью вложенных циклов выведите на экран
+		все строки с данными.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана следующая структура с данными:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let data = [
+	{
+		1: 'data11',
+		2: 'data12',
+		3: 'data13',
+	},
+	{
+		1: 'data21',
+		2: 'data22',
+		3: 'data33',
+	},
+	{
+		1: 'data31',
+		2: 'data32',
+		3: 'data33',
+	},
+];</code>
+	</div>
+	<p>
+		С помощью вложенных циклов выведите на экран
+		все строки с данными.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана следующая структура с данными:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let data = [
+	{
+		1: [
+			'data111',
+			'data112',
+			'data113',
+		],
+		2: [
+			'data121',
+			'data122',
+			'data123',
+		],
+	},
+	{
+		1: [
+			'data211',
+			'data212',
+			'data213',
+		],
+		2: [
+			'data221',
+			'data222',
+			'data223',
+		],
+	},
+	{
+		1: [
+			'data411',
+			'data412',
+			'data413',
+		],
+		2: [
+			'data421',
+			'data422',
+			'data423',
+		],
+	},
+];</code>
+	</div>
+	<p>
+		С помощью вложенных циклов выведите на экран
+		все строки с данными.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

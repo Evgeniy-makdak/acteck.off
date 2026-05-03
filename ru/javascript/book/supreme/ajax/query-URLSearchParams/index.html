@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отправка данных через AJAX с помощью URLSearchParams в JavaScript — acteck.off</title>
+  <meta name="description" content="Отправка данных через AJAX с помощью URLSearchParams в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Отправка данных через AJAX с помощью URLSearchParams в JavaScript</h1>
+    <p>
+	Часто не очень удобно формировать
+	вручную Query String. Более удобно
+	это сделать через
+	<a href="../../http/URLSearchParams/index.html"><code data-gs="comd/c" data-x>URLSearchParams</code></a>:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	let searchParams = new URLSearchParams();
+	
+	searchParams.set('num1', '1');
+	searchParams.set('num2', '2');
+	
+	let promise = fetch('/handler/', {
+		method: 'post',
+		body: searchParams,
+	});
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		На клиенте дан див, кнопка и три инпута.
+		В инпуты вводятся числа. По нажатию на
+		кнопку отпавьте введенные числа на сервер.
+		Пусть сервер найдет сумму переданных чисел
+		и вернет ее обратно. Результат запишите в див.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

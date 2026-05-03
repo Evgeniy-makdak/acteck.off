@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Двусторонняя привязка событий в Angular — acteck.off</title>
+  <meta name="description" content="Двусторонняя привязка событий в Angular — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/javascript/index.html">javascript</a>
+    </div>
+
+    <h1>Двусторонняя привязка событий в Angular</h1>
+    <p>
+	Также в Angular можно сделать двустороннюю
+	привязку событий обоих компонентов:
+	родительского и дочернего. Давайте сделаем
+	в дочернем HTML-шаблоне инпут с двусторонней
+	привязкой имени пользователя и функции,
+	меняющей имя: 
+</p>
+<div data-p="bock/pane" data-p-file="app/user/user.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input [ngModel]="userName" (ngModelChange)="onNameChange($event)" /&gt;</code>
+</div>
+<p>
+	Перейдем в наш дочерний компонент и
+	импортируем в него декоратор <code data-gs="comd/c" data-x>@Input</code>.
+	Он нужен для работы с инпутами : 
+</p>
+<div data-p="bock/pane" data-p-file="app/user/user.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { Component, Input, Output, EventEmitter } from '@angular/core';</code>
+</div>
+<p>
+	Далее привязываем декоратор <code data-gs="comd/c" data-x>@Input</code>
+	к имени пользователя. А декоратор <code data-gs="comd/c" data-x>@Output</code>
+	привязываем к объекту <code data-gs="comd/c" data-x>userNameChange</code>,
+	который будет вызываться в функции <code data-gs="comd/c" data-x>onNameChange</code>: 
+</p>
+<div data-p="bock/pane" data-p-file="app/user/user.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class UserComponent {
+	@Input() userName: string = '';
+	@Output() userNameChange = new EventEmitter&lt;string&gt;();
+	onNameChange(model: string) {
+		this.userName = model;
+		this.userNameChange.emit(model);
+	}
+}</code>
+</div>
+<p>
+	Теперь переходим в главный компонент и
+	добавляем к его классу свойство имя: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
+	name: string = 'alex';
+}</code>
+</div>
+<p>
+	А в HTML-шаблоне родительского компонента
+	выполняем двустороннюю привязку свойства
+	<code data-gs="comd/c" data-x>userName</code> со значением свойства
+	<code data-gs="comd/c" data-x>name</code> родительского компонента: 
+</p>
+<div data-p="bock/pane" data-p-file="ap.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;user-data [(userName)]="name"&gt;&lt;/user-data&gt;
+&lt;p&gt;You choose name: {{ name }}&lt;/p&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Реализуйте двустороннюю привязку событий
+		родительского и дочернего компонентов
+		согласно приведенному в уроке примеру. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		На основе предыдущей задачи сделайте
+		двустороннюю привязку возраста пользователя. 
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

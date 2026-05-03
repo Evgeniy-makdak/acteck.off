@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавление дополнительной логики в Redux приложение — acteck.off</title>
+  <meta name="description" content="Добавление дополнительной логики в Redux приложение — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Добавление дополнительной логики в Redux приложение</h1>
+    <p>
+	На этом занятии мы добавим последний
+	компонент к нашему приложению. Если быть
+	конкретнее, то мы будем добавлять к продукту
+	реакцию пользователя, который его либо
+	заказывал, либо прочитал о нем
+	информацию.
+</p>
+<p>
+	Давайте откроем наше приложение с продуктами.
+	Как и в случае с названием продавца, нам
+	нужно показать реакцию пользователей в
+	нескольких местах приложения. А это значит,
+	что нам потребуется отдельный компонент. Поэтому
+	начнем с того, что в папке <code data-gs="comd/p" data-x>products</code> создадим
+	файл <code data-gs="comd/p" data-x>UserReactions.jsx</code>. Давайте для начала
+	пропишем в нем объект, в котором будут
+	наши реакции:
+</p>
+<div data-p="bock/pane" data-p-file="products/UserReactions.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const reactionObj = {
+	good: '+',
+	soso: '+/-',
+	bad: '-',
+}</code>
+</div>
+<p>
+	А ниже начнем писать саму функцию,
+	в которую будем передавать слайс
+	<code data-gs="comd/c" data-x>product</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/UserReactions.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const UserReactions = ({ product }) =&gt; {}</code>
+</div>
+<p>
+	Теперь в фигурных скобках напишем
+	тело функции <code data-gs="comd/c" data-x>UserReactions</code>. Для этого переберем
+	с помощью <code data-gs="comd/c" data-x>map</code> пары ключ-значение нашего
+	<code data-gs="comd/c" data-x>reactionObj</code>, для каждой получим обозначение
+	для кнопки (<code data-gs="comd/s" data-x>'+'</code>, <code data-gs="comd/s" data-x>'+/-'</code> или <code data-gs="comd/s" data-x>'-'</code>)
+	и численное значение той или иной реакции (его мы
+	будем вытягивать из <code data-gs="comd/c" data-x>product</code> в store
+	по названию реакции):
+</p>
+<div data-p="bock/pane" data-p-file="products/UserReactions.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const userReactions = Object.entries(reactionObj).map(([name, image]) =&gt; {
+	return (
+		&lt;button key={name} type="button" className="reaction-button"&gt;
+			{image} {product.reactions[name]}
+		&lt;/button&gt;
+	)
+})</code>
+</div>
+<p>
+	И после этого в конце кода функции
+	вернем верстку с кнопками
+	<code data-gs="comd/c" data-x>userReactions</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/UserReactions.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return &lt;div&gt;{userReactions}&lt;/div&gt;</code>
+</div>
+<p>
+	А также добавим еще немного стилей
+	в <code data-gs="comd/p" data-x>index.css</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.reaction-button {
+	margin-right: 10px;
+	margin-bottom: 10px;
+}</code>
+</div>
+<p>
+	Если это выглядит несколько запутанным,
+	не переживайте, далее вам станет все намного
+	понятнее.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		В вашем приложении будет возможность для
+		пользователей выбрать среди студентов
+		старосту группы и капитана спортивной
+		команды. Поэтому, изучив материалы урока,
+		создайте в папке <code data-gs="comd/p" data-x>students</code> файл
+		<code data-gs="comd/p" data-x>UserVotes.jsx</code>. В начале файла создайте
+		объект <code data-gs="comd/c" data-x>votesObj</code>, в котором у вас будет
+		два свойства - <code data-gs="comd/c" data-x>leader</code> и <code data-gs="comd/c" data-x>captain</code>, со
+		значениями <code data-gs="comd/v" data-x>GL</code> и <code data-gs="comd/v" data-x>TC</code>, в качестве
+		обозначения	для кнопок.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Ниже в файле после определения объекта
+		<code data-gs="comd/c" data-x>votesObj</code> напишите код функции
+		<code data-gs="comd/c" data-x>UserVotes</code>, по аналогии с материалом
+		из данного урока.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

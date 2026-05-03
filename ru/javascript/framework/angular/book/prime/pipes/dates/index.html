@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форматирование дат с помощью каналов в Angular — acteck.off</title>
+  <meta name="description" content="Форматирование дат с помощью каналов в Angular — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/javascript/index.html">javascript</a>
+    </div>
+
+    <h1>Форматирование дат с помощью каналов в Angular</h1>
+    <p>
+	С помощью канала <code data-gs="comd/c" data-x>DatePipe</code> мы можем
+	задать определенный формат выводимой дате.
+	Этот канал может принимать следующие
+	параметры для формата отображения даты: 
+</p>
+<table data-w="cont/desc">
+	<tr>
+		<th>Формат</th>
+		<th>Эквивалент</th>
+		<th>Пример (для en-US локали)</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'short'</code></th>
+		<td><code data-gs="comd/s" data-x>'M/d/yy, h:mm a'</code></td>
+		<td><code data-gs="comd/s" data-x>12/31/25, 3:00 AM</code></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'medium'</code></th>
+		<td><code data-gs="comd/s" data-x>'MMM d, y, h:mm:ss a'</code></td>
+		<td><code data-gs="comd/s" data-x>Dec 31, 2025, 3:00:00 AM</code></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'long'</code></th>
+		<td><code data-gs="comd/s" data-x>'MMMM d, y, h:mm:ss a z'</code></td>
+		<td><code data-gs="comd/s" data-x>December 31, 2025 at 3:00:00 AM GMT+3</code></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'full'</code></th>
+		<td><code data-gs="comd/s" data-x>'EEEE, MMMM d, y, h:mm:ss a zzzz'</code></td>
+		<td><code data-gs="comd/s" data-x>Wednesday, December 31, 2025 at 3:00:00 AM GMT+03:00</code></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'shortDate'</code></th>
+		<td><code data-gs="comd/s" data-x>'M/d/yy'</code></td>
+		<td><code data-gs="comd/s" data-x>12/31/25</code></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'mediumDate'</code></th>
+		<td><code data-gs="comd/s" data-x>'MMM d, y'</code></td>
+		<td><code data-gs="comd/s" data-x>Dec 31, 2025</code></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'longDate'</code></th>
+		<td><code data-gs="comd/s" data-x>'MMMM d, y'</code></td>
+		<td><code data-gs="comd/s" data-x>December 31, 2025</code></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'fullDate'</code></th>
+		<td><code data-gs="comd/s" data-x>'EEEE, MMMM d, y'</code></td>
+		<td><code data-gs="comd/s" data-x>Wednesday, December 31, 2025</code></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'shortTime'</code></th>
+		<td><code data-gs="comd/s" data-x>'h:mm a'</code></td>
+		<td><code data-gs="comd/s" data-x>3:00 AM</code></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'mediumTime'</code></th>
+		<td><code data-gs="comd/s" data-x>'h:mm:ss a'</code></td>
+		<td><code data-gs="comd/s" data-x>3:00:00 AM</code></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'longTime'</code></th>
+		<td><code data-gs="comd/s" data-x>'h:mm:ss a z'</code></td>
+		<td><code data-gs="comd/s" data-x>3:00:00 AM GMT+3</code></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>'fullTime'</code></th>
+		<td><code data-gs="comd/s" data-x>'h:mm:ss a zzzz'</code></td>
+		<td><code data-gs="comd/s" data-x>3:00:00 AM GMT+03:00</code></td>
+	</tr>
+</table>
+
+<h2>Примеры</h2>
+<p>
+	Давайте посмотрим работу канала на примерах.
+	Для этого в классе компонента зададим
+	свойство <code data-gs="comd/c" data-x>myDate</code>, в которое запишем
+	дату: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
+	public myDate: number = Date.parse('2025-12-31');
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте выведем нашу дату, не передавая в
+	канал никаких параметров: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	{{ myDate | date }}
+&lt;/div&gt;</code>
+</div>
+<p>
+	Результат выполненного кода: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;Dec 31, 2025&lt;/div&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь отобразим краткий вывод даты: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	{{ myDate | date:'shortDate' }}
+&lt;/div&gt;</code>
+</div>
+<p>
+	Результат выполненного кода: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;12/31/25&lt;/div&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте выведем нашу дату и заодно узнаем
+	на какой день недели она приходится: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	{{ myDate | date:'fullDate' }}
+&lt;/div&gt;</code>
+</div>
+<p>
+	Результат выполненного кода: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;Wednesday, December 31, 2025&lt;/div&gt;</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Дана дата: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">public myDate: number = Date.parse('2025-01-02');</code>
+	</div>
+	<p>
+		Отформатируйте ее в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'Jan 2, 2025'</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Отформатируйте дату из предыдущего задания
+		в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'1/2/25, 3:00 AM'</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Отформатируйте дату в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'1/2/25'</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Отформатируйте дату в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'January 2, 2025 at 3:00:00 AM GMT+3'</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Отформатируйте дату в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'Thursday, January 2, 2025'</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

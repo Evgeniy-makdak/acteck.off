@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство column-count — acteck.off</title>
+  <meta name="description" content="Свойство column-count — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство column-count</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>column-count</code> задает <i>рекомендуемое</i>
+	количество колонок в многоколоночном тексте.
+	Их реальное количество может отличаться от
+	заданного, в зависимости от ширины колонки
+	и размера промежутка между ними.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	column-count: число | auto;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th>число</th>
+		<td>
+			Задает указанное количество колонок. Toчнее, <i>рекомендует</i> браузеру
+			использовать это количество колонок, так как их реальное количество
+			может отличаться от заданного, в зависимости от ширины колонки и
+			размера промежутка между ними.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>auto</code></th>
+		<td>Браузер сам подбирает оптимальное количество колонок.</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>auto</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В данном примере текст разобьется на <code data-gs="comd/n" data-x>3</code>
+	колонки (конечно же, в браузерах, которые
+	поддерживают многоколоночность, в остальных
+	будет просто обычный текст в одну колонку):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	some long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	column-count: 3;
+	text-align: justify;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			column-count: 3;
+			text-align: justify;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение auto</h2>
+<p>
+	В данном примере указана ширина колонки <a href="../column-width/index.html"><code data-gs="comd/c" data-x>column-width</code></a>
+	в <code data-gs="comd/u" data-x>150px</code>, а их количество <code data-gs="comd/c" data-x>column-count</code>
+	стоит в значении <code data-gs="comd/v" data-x>auto</code> - браузер сам
+	подберет необходимое количество колонок и
+	промежуток между ними:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	some long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	column-count: auto;
+	column-width: 150px;
+	text-align: justify;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			column-count: auto;
+			column-width: 150px;
+			text-align: justify;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../column-width/index.html"><code data-gs="comd/c" data-x>column-width</code></a>, <br>
+			которое задает ширину колонки
+		</li>
+		<li>
+			свойство <a href="../column-gap/index.html"><code data-gs="comd/c" data-x>column-gap</code></a>, <br>
+			которое задает промежуток между колонками
+		</li>
+		<li>
+			свойство <a href="../column-rule/index.html"><code data-gs="comd/c" data-x>column-rule</code></a>, <br>
+			которое задает границу между колонками
+		</li>
+		<li>
+			свойство <a href="../column-span/index.html"><code data-gs="comd/c" data-x>column-span</code></a>, <br>
+			которое задает количество столбцов, на которые должен растягиваться элемент
+		</li>
+		<li>
+			свойство <a href="../columns/index.html"><code data-gs="comd/c" data-x>columns</code></a>, <br>
+			которое является свойством-сокращением для многоколоночности
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство font-family — acteck.off</title>
+  <meta name="description" content="Свойство font-family — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство font-family</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>font-family</code> устанавливает
+	тип шрифта.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	font-family: имя шрифта;
+}</code>
+</div>
+
+<h2>Замечание</h2>
+<p>
+	Если в имени шрифта содержатся пробелы, например,
+	<b>Times New Roman</b>, оно должно заключаться
+	в одинарные или двойные кавычки.
+</p>
+
+<h2>Замечание</h2>
+<p>
+	Можно перечислять несколько похожих шрифтов
+	через запятую. Когда браузер встречает первый
+	шрифт в списке, он проверяет его наличие на компьютере
+	пользователя. Если такого шрифта нет, берется
+	следующий шрифт из списка и также анализируется
+	на присутствие. Поэтому несколько шрифтов
+	увеличивает вероятность, что хотя бы один
+	из них будет обнаружен на
+	клиентском компьютере.
+</p>
+<p>
+	Заканчивают список обычно ключевым словом,
+	которое описывает тип шрифта (все шрифты
+	относятся к какому-нибудь типу) - <code data-gs="comd/v" data-x>serif</code>,
+	<code data-gs="comd/v" data-x>sans-serif</code>, <code data-gs="comd/v" data-x>cursive</code>, <code data-gs="comd/v" data-x>fantasy</code>
+	или <code data-gs="comd/v" data-x>monospace</code>.
+	Если браузер не нашел ни одного из указанных
+	шрифтов на компьютере пользователя, то он
+	выберет один из шрифтов указанного типа.
+</p>
+
+<h2>Типы шрифтов</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Тип</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>serif</code></th>
+		<td>Шрифт с засечками.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>sans-serif</code></th>
+		<td>Шрифт без засечек.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>cursive</code></th>
+		<td>Курсивный шрифт.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>fantasy</code></th>
+		<td>
+			Декоративный шрифт с красивыми завитушками и необычными эффектами.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>monospace</code></th>
+		<td>
+			Моноширинный шрифт, ширина каждого символа в котором одинакова.
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: шрифт, установленный
+	в браузере по умолчанию. Обычно это Times
+	New Roman.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Назначим шрифту семейство <code data-gs="comd/c" data-x>Arial</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	Lorem ipsum dolor sit amet.
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-family: Arial;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			font-family: Arial;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			Lorem ipsum dolor sit amet.
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Назначим шрифту семейство <b>Times New Roman</b>.
+	Так как название шрифта состоит из нескольких
+	слов, то берем его в кавычки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	Lorem ipsum dolor sit amet.
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-family: "Times New Roman";
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			font-family: &quot;Times New Roman&quot;;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			Lorem ipsum dolor sit amet.
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Назначим шрифту шрифт из группы <code data-gs="comd/v" data-x>serif</code>
+	(скорее всего возьмется Times New Roman):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	Lorem ipsum dolor sit amet.
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-family: serif;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			font-family: serif;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			Lorem ipsum dolor sit amet.
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Назначим шрифту шрифт из группы <code data-gs="comd/v" data-x>sans-serif</code>
+	(скорее всего возьмется Arial):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	Lorem ipsum dolor sit amet.
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-family: sans-serif;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			font-family: sans-serif;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			Lorem ipsum dolor sit amet.
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Назначим шрифту шрифт из группы <code data-gs="comd/v" data-x>fantasy</code>
+	(у вас может и не сработать из-за отсутствия
+	такого шрифта):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	Lorem ipsum dolor sit amet.
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-family: fantasy;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			font-family: fantasy;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			Lorem ipsum dolor sit amet.
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Назначим шрифту шрифт из группы <code data-gs="comd/v" data-x>monospace</code>
+	(буквы станут одинакового размера):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	Lorem ipsum dolor sit amet.
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-family: monospace;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			font-family: monospace;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			Lorem ipsum dolor sit amet.
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

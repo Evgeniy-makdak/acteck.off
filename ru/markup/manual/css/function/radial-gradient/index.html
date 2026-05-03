@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Функция radial-gradient — acteck.off</title>
+  <meta name="description" content="Функция radial-gradient — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Функция radial-gradient</h1>
+    <p>
+	Функция <code data-gs="comd/c" data-x>radial-gradient</code> задает радиальный
+	градиент. Данная функция применяется к свойствам, которые
+	задают картинку фона: <a href="../../property/background/index.html"><code data-gs="comd/c" data-x>background</code></a>,
+	<a href="../../property/background-image/index.html"><code data-gs="comd/c" data-x>background-image</code></a>
+	или картинку границы: <a href="../../property/border-image/index.html"><code data-gs="comd/c" data-x>border-image</code></a>,
+	<a href="../../property/border-image-source/index.html"><code data-gs="comd/c" data-x>background-image-source</code></a>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	background: radial-gradient([форма тип позиция], цвет1 размер1, цвет2 размер2...);
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th>форма</th>
+		<td>
+			Принимаемые значения:
+			<code data-gs="comd/v" data-x>ellipse</code> эллиптический градиент (по умолчанию),
+			<code data-gs="comd/v" data-x>circle</code> круговой градиент.
+		</td>
+	</tr>
+	<tr>
+		<th>тип</th>
+		<td>
+			Задает растяжение градиента.
+			Принимаемые значения:
+			<code data-gs="comd/v" data-x>closest-side</code>, <code data-gs="comd/v" data-x>closest-corner</code>,
+			<code data-gs="comd/v" data-x>farthest-side</code>, <code data-gs="comd/v" data-x>farthest-corner</code>.
+		</td>
+	</tr>
+	<tr>
+		<th>позиция</th>
+		<td>
+			После ключевого слова <code data-gs="comd/v" data-x>at</code>
+			указывается позиция в любых <a href="../../reference/units/sizes/index.html">единицах для размера</a>
+			или с помощью ключевых слов <code data-gs="comd/v" data-x>top</code>, <code data-gs="comd/v" data-x>bottom</code>,
+			<code data-gs="comd/v" data-x>left</code>, <code data-gs="comd/v" data-x>right</code>, <code data-gs="comd/v" data-x>center</code>
+			в различных комбинациях.
+		</td>
+	</tr>
+	<tr>
+		<th>цвет1</th>
+		<td>Начальный цвет градиента в любых <a href="../../reference/units/colors/index.html">единицах для цвета</a>.</td>
+	</tr>
+	<tr>
+		<th>цвет2</th>
+		<td>Конечный цвет градиента в любых <a href="../../reference/units/colors/index.html">единицах для цвета</a>.</td>
+	</tr>
+	<tr>
+		<th>размер</th>
+		<td>
+			Задает протяженность определенного цвета градиента
+			в любых <a href="../../reference/units/sizes/index.html">единицах для размера</a>.
+		</td>
+	</tr>
+</table>
+
+<h2>Значения для типа</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>closest-side</code></th>
+		<td>Форма градиента совпадает с ближайшей к нему стороной блока.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>closest-corner</code></th>
+		<td>Форма градиента вычисляется на основании информации о расстоянии до ближайшего угла блока.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>farthest-side</code></th>
+		<td>Градиент распространяется до дальней стороны блока.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>farthest-corner</code></th>
+		<td>Форма градиента вычисляется на основании информации о расстоянии до дальнего угла блока.</td>
+	</tr>
+</table>
+
+<h2>Замечание</h2>
+<p>
+	Тип и форму можно менять местами, а вот позиция
+	должна идти в конце первого параметра.
+	Тип градиента и его размер не работают друг
+	с другом (логично, они ведь конфликтуют).
+	Выигрывает размер.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Самый простой вариант</h2>
+<p>
+	Давайте просто зададим начальный и конечный цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(red, blue);
+	width: 200px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(red, blue);
+			width: 200px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Добавим позицию</h2>
+<p>
+	Давайте зададим положение центра:
+	<code data-gs="comd/u" data-x>30px</code> - отступ слева, <code data-gs="comd/u" data-x>100px</code> - отступ сверху:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(at 30px 100px, red, blue);
+	width: 200px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(at 30px 100px, red, blue);
+			width: 200px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Позиция в процентах</h2>
+<p>
+	Давайте зададим положение центра в процентах:
+	<code data-gs="comd/u" data-x>30%</code> - отступ слева, <code data-gs="comd/u" data-x>50%</code> - отступ сверху:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(at 30% 50%, red, blue);
+	width: 200px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(at 30% 50%, red, blue);
+			width: 200px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Позиция ключевым словом</h2>
+<p>
+	Можно использовать ключевые слова
+	<code data-gs="comd/v" data-x>top</code>, <code data-gs="comd/v" data-x>bottom</code>, <code data-gs="comd/v" data-x>left</code>,
+	<code data-gs="comd/v" data-x>right</code>, <code data-gs="comd/v" data-x>center</code> в различных
+	комбинациях. Поставим, к примеру, градиент
+	справа по центру:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(at right center, red, blue);
+	width: 200px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(at right center, red, blue);
+			width: 200px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Размер градиента</h2>
+<p>
+	В данном случае градиент будет работать так:
+	от <code data-gs="comd/u" data-x>0px</code> до <code data-gs="comd/u" data-x>20px</code> будет чистый
+	красный цвет, от <code data-gs="comd/u" data-x>20px</code> до <code data-gs="comd/u" data-x>60px</code> - градиент
+	от красного к голубому, после <code data-gs="comd/u" data-x>60px</code> - чистый
+	голубой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(red 20px, blue 60px);
+	width: 200px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(red 20px, blue 60px);
+			width: 200px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Несколько цветов подряд</h2>
+<p>
+	В данном случае градиент будет работать так:
+	от <code data-gs="comd/u" data-x>0px</code> до <code data-gs="comd/u" data-x>20px</code> будет чистый
+	красный цвет, от <code data-gs="comd/u" data-x>20px</code> до <code data-gs="comd/u" data-x>40px</code>
+	будет чистый голубой цвет, от <code data-gs="comd/u" data-x>40px</code>
+	до <code data-gs="comd/u" data-x>60px</code> - градиент от голубого к зеленому,
+	после <code data-gs="comd/u" data-x>60px</code> - чистый зеленый:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(red 20px, blue 20px, blue 40px, green 60px);
+	width: 200px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(red 20px, blue 20px, blue 40px, green 60px);
+			width: 200px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Размер + позиция</h2>
+<p>
+	Давайте одновременно зададим размеры для
+	разных цветов и позицию центра градиента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(at 30px 60px, red 20px, blue 60px);
+	width: 200px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(at 30px 60px, red 20px, blue 60px);
+			width: 200px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Форма градиента</h2>
+<p>
+	Форма градиента задается первым параметром
+	и может принимать <code data-gs="comd/n" data-x>2</code> значения: <code data-gs="comd/v" data-x>circle</code>
+	(круговой градиент) или <code data-gs="comd/v" data-x>ellipse</code> (эллиптический
+	градиент, по умолчанию). Почему же до этого
+	мы не видели эллиптических градиентов, хотя
+	он задается по умолчанию? Потому что до этого
+	форма блоков была квадратная. Если мы изменим
+	форму на прямоугольную, то увидим эллиптический
+	градиент:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(red 20px, blue 60px);
+	width: 300px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(red 20px, blue 60px);
+			width: 300px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Круглый градиент</h2>
+<p>
+	Давайте сделаем круглый градиент в прямоугольном
+	блоке. Для этого зададим первым параметром
+	форму градиента с помощью ключевого слова
+	<code data-gs="comd/v" data-x>circle</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(circle, red 20px, blue 60px);
+	width: 300px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(circle, red 20px, blue 60px);
+			width: 300px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Добавим позицию</h2>
+<p>
+	Давайте к предыдущему коду добавим еще и
+	позицию градиента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(circle at 30px 60px, red 20px, blue 60px);
+	width: 300px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(circle at 30px 60px, red 20px, blue 60px);
+			width: 300px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Тип farthest-corner + circle</h2>
+<p>
+	Форма градиента вычисляется на основании
+	информации о расстоянии до дальнего угла блока:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(circle farthest-corner at 60px 80px, red, blue);
+	width: 300px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(circle farthest-corner at 60px 80px, red, blue);
+			width: 300px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Тип farthest-corner + ellipse</h2>
+<p>
+	Форма градиента вычисляется на основании
+	информации о расстоянии до дальнего угла блока:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(ellipse farthest-corner at 60px 80px, red, blue);
+	width: 300px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(ellipse farthest-corner at 60px 80px, red, blue);
+			width: 300px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Тип farthest-side + circle</h2>
+<p>
+	Градиент распространяется до дальней стороны
+	блока:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(circle farthest-side at 60px 80px, red, blue);
+	width: 300px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(circle farthest-side at 60px 80px, red, blue);
+			width: 300px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Тип farthest-side + ellipse</h2>
+<p>
+	Градиент распространяется до дальней стороны
+	блока:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(ellipse farthest-side at 60px 80px, red, blue);
+	width: 300px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(ellipse farthest-side at 60px 80px, red, blue);
+			width: 300px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Тип closest-corner + circle</h2>
+<p>
+	Форма градиента вычисляется на основании
+	информации о расстоянии до ближайшего угла блока:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(circle closest-corner at 60px 80px, red, blue);
+	width: 300px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(circle closest-corner at 60px 80px, red, blue);
+			width: 300px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Тип closest-corner + ellipse</h2>
+<p>
+	Форма градиента вычисляется на основании
+	информации о расстоянии до ближайшего угла блока:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(ellipse closest-corner at 60px 80px, red, blue);
+	width: 300px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(ellipse closest-corner at 60px 80px, red, blue);
+			width: 300px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Тип closest-side + circle</h2>
+<p>
+	Форма градиента совпадает с ближайшей к нему
+	стороной блока:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(circle closest-side at 60px 80px, red, blue);
+	width: 300px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(circle closest-side at 60px 80px, red, blue);
+			width: 300px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Тип closest-side + ellipse</h2>
+<p>
+	Форма градиента совпадает с ближайшей к нему
+	стороной блока:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: radial-gradient(ellipse closest-side at 60px 80px, red, blue);
+	width: 300px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: radial-gradient(ellipse closest-side at 60px 80px, red, blue);
+			width: 300px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			функцию <a href="../linear-gradient/index.html"><code data-gs="comd/c" data-x>linear-gradient</code></a>, <br>
+			которая создает линейный градиент
+		</li>
+		<li>
+			функцию <a href="../repeating-linear-gradient/index.html"><code data-gs="comd/c" data-x>repeating-linear-gradient</code></a>, <br>
+			которая создает повторяющийся линейный градиент
+		</li>
+		<li>
+			функцию <a href="../repeating-radial-gradient/index.html"><code data-gs="comd/c" data-x>repeating-radial-gradient</code></a>, <br>
+			которая создает повторяющийся радиальный градиент
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

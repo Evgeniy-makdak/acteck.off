@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавление информации о продавце в Redux — acteck.off</title>
+  <meta name="description" content="Добавление информации о продавце в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Добавление информации о продавце в Redux</h1>
+    <p>
+	Мы с вами говорили о том, что наши продукты
+	фактически добавляются в приложение продавцами. Давайте
+	при добавлении нового продукта будем выводить
+	информацию о продавце.
+</p>
+<p>
+	Откроем наше приложение с продуктами,
+	а в нем файл <code data-gs="comd/p" data-x>productsSlice.js</code>. Давайте
+	будем передавать в <code data-gs="comd/c" data-x>prepare</code> еще один
+	параметр, назовем его <code data-gs="comd/c" data-x>sellerId</code> и установим
+	его далее для <code data-gs="comd/c" data-x>payload</code> экшена. Теперь наш
+	кусочек кода для <code data-gs="comd/c" data-x>prepare</code> будет таким:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">prepare(name, desc, price, amount, sellerId) {
+	return {
+		payload: {
+			id: nanoid(),
+			name,
+			desc,
+			price,
+			amount,
+			seller: sellerId,
+		},
+	}
+},</code>
+</div>
+<p>
+	Теперь нам нужно внести ряд изменений в файл
+	с формой для добавления продукта
+	<code data-gs="comd/p" data-x>NewProductForm.jsx</code>. Для начала добавим
+	еще один локальный стейт для id продавца:
+</p>
+<div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [sellerId, setSellerId] = useState('')</code>
+</div>
+<p>
+	Затем после объявления переменной
+	<code data-gs="comd/c" data-x>dispatch</code> для <code data-gs="comd/c" data-x>useDispatch</code>,
+	добавим код для получения слайса продавцов
+	из стейта при помощи хука <code data-gs="comd/c" data-x>useSelector</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const sellers = useSelector((state) =&gt; state.sellers)</code>
+</div>
+<p>
+	В обработчики для полей ввода добавим
+	еще один: 
+</p>
+<div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const onSellerChanged = (e) =&gt; setSellerId(e.target.value)</code>
+</div>
+<p>
+	Подправим <code data-gs="comd/c" data-x>onSaveProductClick</code>, добавив для
+	экшена <code data-gs="comd/c" data-x>productAdded</code> еще и <code data-gs="comd/c" data-x>sellerId</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">dispatch(productAdded(name, desc, price, amount, sellerId))</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Добавьте возможность внесения информации
+		о преподавателе, который добавил студентов.
+		Для этого, изучив материал урока, внесите
+		изменения для функции <code data-gs="comd/c" data-x>prepare</code> в файле
+		<code data-gs="comd/p" data-x>studentsSlice.js</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Внесите соответствующие изменения в
+		файл <code data-gs="comd/p" data-x>NewStudentForm.jsx</code>
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

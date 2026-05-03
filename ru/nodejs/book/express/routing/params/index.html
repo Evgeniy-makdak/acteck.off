@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Параметры маршрутов в Express — acteck.off</title>
+  <meta name="description" content="Параметры маршрутов в Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/nodejs/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Параметры маршрутов в Express</h1>
+    <p>
+	Пусть у нас есть следующий набор маршрутов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/test/1/', function(req, res) {
+	res.send('1');
+});
+
+app.get('/test/2/', function(req, res) {
+	res.send('2');
+});
+
+app.get('/test/3/', function(req, res) {
+	res.send('3');
+});</code>
+</div>
+<p>
+	Несложно заметить, что эти маршруты строятся
+	по одному шаблону: сначала идет <code data-gs="comd/p" data-x>/test/</code>,
+	а потом некоторое число. Express позволяет
+	группировать такие маршруты с помощью <dfn data-gs="comd/d" data-x>параметров</dfn>.
+</p>
+<p>
+	Параметры позволяют положить часть адреса
+	в переменную. В этом случае получится, что наш маршрут
+	будет обрабатывать не один адрес, а целую
+	группу адресов. К примеру, укажем параметр
+	с именем <code data-gs="comd/c" data-x>num</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/test/:num/', function(req, res) {
+	
+});</code>
+</div>
+<p>
+	Переданные параметры содержатся в свойстве
+	<code data-gs="comd/c" data-x>params</code> объекта запроса. Давайте выведем
+	в консоль значение нашего параметра:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/test/:num/', function(req, res) {
+	console.log(req.params.num);
+});</code>
+</div>
+<p>
+	А теперь давайте отправим полученный параметр
+	назад в браузер:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/test/:num/', function(req, res) {
+	res.send(req.params.num);
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Передайте в маршруте какое-нибудь число.
+		В качестве ответа верните в браузер квадрат
+		этого числа.
+	</p>
+</div>
+
+<h2>Несколько параметров маршрута</h2>
+<p>
+	Можно добавить в маршрут не один, а несколько
+	параметров:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/test/:num1/:num2/', function(req, res) {
+	res.send(req.params.num1 + ' ' + req.params.num2);
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Передайте в маршруте два числа. В качестве
+		ответа верните в браузер сумму этих чисел.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Передайте в маршруте три числа. В качестве
+		ответа верните в браузер сумму этих чисел.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

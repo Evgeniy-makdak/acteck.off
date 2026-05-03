@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Теория и применение рекурсии в JavaScript — acteck.off</title>
+  <meta name="description" content="Теория и применение рекурсии в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Теория и применение рекурсии в JavaScript</h1>
+    <p>
+	В данном видео я расскажу про рекурсию и
+	с ее помощью решу некоторые практические
+	задачи, например, перебор многомерного массива
+	любого уровня вложенности.
+</p>
+<div data-w="cont/video">
+	<iframe src="https://www.youtube.com/embed/-2RiM6tRk-Q" allowfullscreen></iframe>
+</div>
+
+<h2>Исходники кода</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">var i = 0;
+
+function func() {
+	console.log(i++);
+	
+	if (i &lt;= 10) {
+		func();
+	}
+}
+
+func();</code>
+</div>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(arr) {
+	console.log(arr.shift());
+	
+	if (arr.length != 0) {
+		func(arr);
+	}
+}
+
+func([1, 2, 3]);</code>
+</div>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getSum(arr, sum) {
+	sum += arr.shift();
+	
+	if (arr.length != 0) {
+		sum = getSum(arr, sum);
+	}
+	
+	return sum;
+}
+
+console.log(getSum([1, 2, 3], 0));</code>
+</div>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(arr, sum = 0) {
+	sum += arr.shift();
+	
+	if (arr.length != 0) {
+		sum = func(arr, sum);
+	}
+	
+	return sum;
+}
+
+console.log(func([1, 2, 3]));</code>
+</div>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">var sum = 0;
+function func(arr) {
+	sum += arr.shift();
+	
+	if (arr.length != 0) {
+		sum = func(arr);
+	}
+	
+	return sum;
+}
+
+console.log(func([1, 2, 3]));</code>
+</div>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(arr) {
+	for (var i = 0; i &lt; arr.length; i++) {
+		if (typeof arr[i] == 'object') {
+			arr[i] = func(arr[i]);
+		} else {
+			arr[i] = arr[i] + '!';
+		}
+	}
+	
+	return arr;
+}
+
+console.log(func([1, [2, 7, 8], [3, 4, [5, 6]]]));</code>
+</div>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function reduceNum(num) {
+	var sum = getDigitsSum(num);
+	
+	if (sum &gt;= 10) {
+		return reduceNum(sum);
+	} else {
+		return sum;
+	}
+}
+
+function getSum(arr) {
+	var sum = 0;
+	
+	for (var i = 0; i &lt; arr.length; i++) {
+		sum += Number(arr[i]);
+	}
+	
+	return sum;
+}
+
+function getDigits(num) {
+	return String(num).split('');
+}
+
+function getDigitsSum(num) {
+	return getSum(getDigits(num));
+}
+
+console.log(reduceNum(99));</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реактивный показ данных в React — acteck.off</title>
+  <meta name="description" content="Реактивный показ данных в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Реактивный показ данных в React</h1>
+    <p>
+	Пусть у нас есть массив объектов, содержащий в себе
+	названия и описания чего-либо:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initNotes = [
+	{
+		id: id(),
+		name: 'name1',
+		desc: 'long description 1'
+	},
+	{
+		id: id(),
+		name: 'name2',
+		desc: 'long description 2'
+	},
+	{
+		id: id(),
+		name: 'name3',
+		desc: 'long description 3'
+	},
+];</code>
+</div>
+<p>
+	Давайте выведем каждый элемент этого массива
+	в отдельном абзаце:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [notes, setNotes] = useState(initNotes);
+	
+	const result = notes.map(note =&gt; {
+		return &lt;p key={note.id}&gt;
+			{note.name}, 
+			&lt;i&gt;{note.desc}&lt;/i&gt;
+		&lt;/p&gt;;
+	});
+	
+	return &lt;div&gt;
+		{result}
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Давайте теперь сделаем так, чтобы описание
+	изначально было скрыто, но в конце каждого
+	абзаца добавим кнопки для показа описания
+	из этого абзаца.
+	Для этого в каждый объект с продуктом добавим
+	свойство <code data-gs="comd/c" data-x>show</code>, регулирующее показ описания:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initNotes = [
+	{
+		id: id(),
+		name: 'name1',
+		desc: 'long description 1',
+		show: false,
+	},
+	{
+		id: id(),
+		name: 'name2',
+		desc: 'long description 2',
+		show: false,
+	},
+	{
+		id: id(),
+		name: 'name3',
+		desc: 'long description 3',
+		show: false,
+	},
+];</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		В конце каждого абзаца сделайте кнопку,
+		по нажатию на которую будет показываться
+		полное описание продукта.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Динамическое изменение стилей в Angular — acteck.off</title>
+  <meta name="description" content="Динамическое изменение стилей в Angular — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/javascript/index.html">javascript</a>
+    </div>
+
+    <h1>Динамическое изменение стилей в Angular</h1>
+    <p>
+	С помощью директив <code data-gs="comd/c" data-x>ngClass</code> и
+	<code data-gs="comd/c" data-x>ngStyle</code> можно привязать выражения
+	к элементам, благодаря чему наши стили
+	будут изменяться динамически. 
+</p>
+<p>
+	Давайте сделаем так, чтобы текст срывался
+	или показывался с помощью свойства <code data-gs="comd/c" data-x>active</code>
+	класса компонента: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
+	active: boolean = true;
+	
+	toggle() {
+		this.active = !this.active;
+	}
+}</code>
+</div>
+<p>
+	Для этого напишем функцию <code data-gs="comd/c" data-x>toggle</code>,
+	которая попеременно будет включать или
+	выключать данное свойство: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
+	active: boolean = true;
+	
+	toggle() {
+		this.active = !this.active;
+	}
+}</code>
+</div>
+<p>
+	В CSS файле компонента задаем следующий
+	стиль классу: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.hidden {
+	display: none;
+}</code>
+</div>
+<p>
+	В темплейте компонента сделаем див, и
+	добавим ему CSS класс <code data-gs="comd/c" data-x>hidden</code>, который
+	будет включаться или выключаться в зависимости
+	от свойства <code data-gs="comd/c" data-x>active</code> из класса
+	компонента: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div [ngClass]="{hidden: active}"&gt;
+	text
+&lt;/div&gt;</code>
+</div>
+<p>
+	Сделаем также кнопку, по нажатию на которую
+	будет вызываться метод <code data-gs="comd/c" data-x>toggle</code>,
+	показывая или скрывая наш компонент: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button (click)="toggle()"&gt;
+	toggle
+&lt;/button&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны три блока. Сделайте три кнопки, каждая
+		из которых будет тогглить свой блок. 
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

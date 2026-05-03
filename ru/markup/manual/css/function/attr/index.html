@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Функция attr — acteck.off</title>
+  <meta name="description" content="Функция attr — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Функция attr</h1>
+    <p>
+	Функция <code data-gs="comd/c" data-x>attr</code> позволяет получить в
+	CSS значение атрибута HTML тега.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	свойство: attr(имя, тип, значение);
+}</code>
+</div>
+
+<h2>Параметры</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Параметр</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th>имя</th>
+		<td>
+			Имя атрибута элемента передаваемое в CSS.
+		</td>
+	</tr>
+	<tr>
+		<th>тип</th>
+		<td>
+			Тип значения свойства CSS. Допустимы следующие ключевые слова:
+			<code data-gs="comd/v" data-x>string</code> (строки), <code data-gs="comd/v" data-x>color</code> (цвет), <code data-gs="comd/v" data-x>url</code> (веб-адрес), <code data-gs="comd/v" data-x>integer</code> (целое число),
+			<code data-gs="comd/v" data-x>number</code> (вещественное число), <code data-gs="comd/v" data-x>angle</code> (угол), <code data-gs="comd/v" data-x>time</code> (время), <code data-gs="comd/v" data-x>deg</code> (градус),
+			а также единицы CSS вроде <code data-gs="comd/u" data-x>em</code>, <code data-gs="comd/u" data-x>px</code> и др.
+		</td>
+	</tr>
+	<tr>
+		<th>значение</th>
+		<td>
+			Значение, которое будет использоваться в том случае, если атрибута нет
+			или браузер не может его получить.
+		</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте после текста ссылки выведем значение
+	ее атрибута <code data-gs="comd/c" data-x>href</code> в круглых скобках:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;a href="http://google.com"&gt;ссылка&lt;/a&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">a::after {
+	content: ' (' attr(href) ')';
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			a::after {
+			content: ' (' attr(href) ')';
+		}
+		</style>
+	</head>
+	<body>
+		
+		<a href=&quot;http://google.com&quot;>ссылка</a>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../../property/content/index.html"><code data-gs="comd/c" data-x>content</code></a>, <br>
+			которое позволяет добавлять текст в элементы
+		</li>
+		<li>
+			псевдоэлемент <a href="../../pseudoelement/before/index.html"><code data-gs="comd/c" data-x>before</code></a>, <br>
+			который делает вставку после текста тега
+		</li>
+		<li>
+			псевдоэлемент <a href="../../pseudoelement/after/index.html"><code data-gs="comd/c" data-x>after</code></a>, <br>
+			который делает вставку перед текстом тега
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заполнение многомерных массивов по порядку в JavaScript — acteck.off</title>
+  <meta name="description" content="Заполнение многомерных массивов по порядку в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Заполнение многомерных массивов по порядку в JavaScript</h1>
+    <p>
+	В предыдущих примерах все числа в подмассивах
+	были одинаковыми. Давайте теперь сделаем
+	так, чтобы числа возрастали, вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
+</div>
+<p>
+	Для этого нужно сделать специальную переменную-счетчик,
+	которая будет увеличивать свое значение на
+	<code data-gs="comd/n" data-x>1</code> при каждой итерации внутреннего
+	цикла. Значение этого счетчика мы и будем
+	записывать в массив, вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+let k = 1; // счетчик
+
+for (let i = 0; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 0; j &lt; 3; j++) {
+		arr[i].push(k); // записываем счетчик
+		k++; // увеличиваем счетчик
+	}
+}
+
+console.log(arr);</code>
+</div>
+<p>
+	Можно упростить код, сделав увеличение
+	счетчика после присваивания:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0, k = 1; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 0; j &lt; 3; j++) {
+		arr[i].push(k++);
+	}
+}
+
+console.log(arr);</code>
+</div>
+<p>
+	Обратите внимание на то, что в данном случае
+	должно быть обязательно <code data-gs="comd/c" data-x>k++</code>, а не
+	<code data-gs="comd/c" data-x>++k</code>, так как второй вариант сначала
+	выполнит увеличение счетчика, а уже потом
+	запись в массив (то есть в результате массив
+	начнется с двойки, а не с единицы, вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[2, 3, 4], [5, 6, 7], [8, 9, 10]])</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сформируйте с помощью двух вложенных циклов
+		следующий массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2], [3, 4], [5, 6], [7, 8]]</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сформируйте с помощью двух вложенных циклов
+		следующий массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[2, 4, 6], [8, 10, 12], [14, 16, 18], [20, 22, 24]]</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сформируйте с помощью трех вложенных циклов
+		следующий трехмерный массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[[1, 2], [3, 4]], [[5, 6], [7, 8]]]</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать вот такой
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
+	</div>
+	<p>
+		Для этого был написан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 0; j &lt; 3; j++) {
+		arr[i][j] = k;
+		k++;
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать вот такой
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript"> [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
+	</div>
+	<p>
+		Для этого был написан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+let k = 1;
+
+for (let i = 0; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 0; j &lt; 3; j++) {
+		arr[i][j] = k;
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать вот такой
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
+	</div>
+	<p>
+		Для этого был написан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+let k = 1;
+
+for (let i = 0; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 0; j &lt; 3; j++) {
+		arr[i][j] = k;
+		k--;
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать вот такой
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
+	</div>
+	<p>
+		Для этого был написан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+let k;
+
+for (let i = 0; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 0; j &lt; 3; j++) {
+		arr[i][j] = k;
+		k++;
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать вот такой
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
+	</div>
+	<p>
+		Для этого был написан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0, k = 1; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 0; j &lt; 3; j++) {
+		arr[i][j] = k;
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать вот такой
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
+	</div>
+	<p>
+		Для этого был написан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0, k = 1; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 0, k++; j &lt; 3; j++) {
+		arr[i][j] = k;
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать вот такой
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
+	</div>
+	<p>
+		Для этого был написан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0, k = 1; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 0; j &lt; 3; j++; k++) {
+		arr[i][j] = k;
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать вот такой
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
+	</div>
+	<p>
+		Для этого был написан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0, k = 1; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 0; j &lt; 3; j++) {
+		arr[i][j] = ++k;
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать вот такой
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
+	</div>
+	<p>
+		Для этого был написан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+let k = 1;
+
+for (let i = 0; i &lt; 3; i++) {
+	arr[k] = [];
+	
+	for (let j = 0; j &lt; 3; j++) {
+		arr[i][j] = k;
+		k++;
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать вот такой
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
+	</div>
+	<p>
+		Для этого был написан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0, k = 1; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 0; j &lt; 3; k++) {
+		arr[i][j] = k;
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

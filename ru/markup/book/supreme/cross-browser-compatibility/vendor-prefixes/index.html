@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вендорные префиксы в CSS — acteck.off</title>
+  <meta name="description" content="Вендорные префиксы в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Вендорные префиксы в CSS</h1>
+    <p>
+	В прошлом среди браузеров сложилась следующая
+	ситуация: до того, как свойство CSS появится
+	в спецификации, браузеры реализовывали пробную
+	версию этого свойства со специальной приставкой,
+	которая называется <dfn data-gs="comd/d" data-x>вендорным префиксом</dfn>.
+</p>
+<p>
+	Давайте на примере свойства
+	<a href="../../../../manual/css/property/box-sizing/index.html"><code data-gs="comd/c" data-x>box-sizing</code></a>
+	посмотрим как это выглядит:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	box-sizing: border-box;
+}</code>
+</div>
+<p>
+	Это свойство начало поддерживаться только
+	с Firefox29, однако уже с версии Firefox2
+	оно было доступно с префиксом <code data-gs="comd/c" data-x>-moz</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	-moz-box-sizing: border-box;
+}</code>
+</div>
+<p>
+	Остальные браузеры имели аналогичные приставки:
+	<code data-gs="comd/c" data-x>-moz</code> - Mozilla Firefox, <code data-gs="comd/c" data-x>-webkit</code>
+	- браузеры на движке Webkit и Blink, <code data-gs="comd/c" data-x>-o</code>
+	- Opera на движке Presto, <code data-gs="comd/c" data-x>-ms</code> - IE.
+</p>
+<p>
+	Таким образом, наиболее кроссбраузерный вариант
+	свойства <code data-gs="comd/c" data-x>box-sizing</code>, с использованием
+	вендорных префиксов имел примерно
+	следующий вид:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}</code>
+</div>
+<p>
+	В настоящее время браузеры решили отказаться
+	от префиксов в связи с их неудобностью. И
+	сейчас вместо них используют так называемые
+	<dfn data-gs="comd/d" data-x>флаги</dfn>. Свойства теперь внедряются
+	в браузер, но по умолчанию отключены, однако
+	их можно включить в настройках браузера,
+	поставив соответствующий флажок в настройках.
+	Это сделано для того, чтобы разработчики
+	имели возможность поиграться с новым свойством
+	до его официального появления.
+</p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

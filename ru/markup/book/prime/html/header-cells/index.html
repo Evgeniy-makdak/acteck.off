@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ячейки-заголовки в таблице в HTML — acteck.off</title>
+  <meta name="description" content="Ячейки-заголовки в таблице в HTML — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Ячейки-заголовки в таблице в HTML</h1>
+    <p>
+	Кроме тегов <code data-gs="comd/c" data-x>td</code> существуют также теги
+	<code data-gs="comd/c" data-x>th</code>, которые также создают ячейки.
+	Но это уже будут не обычные ячейки, а <dfn data-gs="comd/d" data-x>ячейки-заголовки</dfn>,
+	которые указывают, что находится в данном
+	столбце (или строке) таблицы. По умолчанию
+	текст в таких ячейках <code data-gs="comd/c" data-x>th</code> будет жирный
+	и расположен по центру.
+</p>
+<p>
+	Давайте посмотрим на примере. Пусть у нас
+	есть вот такая таблица с работниками:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table border="1" width="300"&gt;
+	&lt;tr&gt;
+		&lt;td&gt;John&lt;/td&gt;
+		&lt;td&gt;Smith&lt;/td&gt;
+		&lt;td&gt;200$&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Nick&lt;/td&gt;
+		&lt;td&gt;Mayers&lt;/td&gt;
+		&lt;td&gt;300$&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Alex&lt;/td&gt;
+		&lt;td&gt;Jonson&lt;/td&gt;
+		&lt;td&gt;400$&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<table border=&quot;1&quot; width=&quot;300&quot;>
+			<tr>
+				<td>John</td>
+				<td>Smith</td>
+				<td>200$</td>
+			</tr>
+			<tr>
+				<td>Nick</td>
+				<td>Mayers</td>
+				<td>300$</td>
+			</tr>
+			<tr>
+				<td>Alex</td>
+				<td>Jonson</td>
+				<td>400$</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Как вы видите, в первом столбце хранится
+	имя работника, во втором столбце - фамилия,
+	а в третьем - зарплата. Давайте сделаем еще
+	один ряд в начале таблице, в котором разместим
+	заголовки колонок в тегах <code data-gs="comd/c" data-x>th</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table border="1" width="300"&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Name&lt;/th&gt;
+		&lt;th&gt;Surname&lt;/th&gt;
+		&lt;th&gt;Salary&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;John&lt;/td&gt;
+		&lt;td&gt;Smith&lt;/td&gt;
+		&lt;td&gt;200$&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Nick&lt;/td&gt;
+		&lt;td&gt;Mayers&lt;/td&gt;
+		&lt;td&gt;300$&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Alex&lt;/td&gt;
+		&lt;td&gt;Jonson&lt;/td&gt;
+		&lt;td&gt;400$&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<table border=&quot;1&quot; width=&quot;300&quot;>
+			<tr>
+				<th>Name</th>
+				<th>Surname</th>
+				<th>Salary</th>
+			</tr>
+			<tr>
+				<td>John</td>
+				<td>Smith</td>
+				<td>200$</td>
+			</tr>
+			<tr>
+				<td>Nick</td>
+				<td>Mayers</td>
+				<td>300$</td>
+			</tr>
+			<tr>
+				<td>Alex</td>
+				<td>Jonson</td>
+				<td>400$</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<div data-w="cont/task">
+	<p>
+		Повторите пример, приведенный ниже:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<table border=&quot;1&quot; width=&quot;400&quot;>
+				<tr>
+					<th>Product</th>
+					<th>Price</th>
+					<th>Quantity</th>
+				</tr>
+				<tr>
+					<td>Apples</td>
+					<td>100</td>
+					<td>5kg</td>
+				</tr>
+				<tr>
+					<td>Oranges</td>
+					<td>200</td>
+					<td>6kg</td>
+				</tr>
+				<tr>
+					<td>Bananas</td>
+					<td>300</td>
+					<td>7kg</td>
+				</tr>
+			</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

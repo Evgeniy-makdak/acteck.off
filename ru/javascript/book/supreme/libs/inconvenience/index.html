@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Неудобства библиотек в JavaScript — acteck.off</title>
+  <meta name="description" content="Неудобства библиотек в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Неудобства библиотек в JavaScript</h1>
+    <p>
+	Часто одни библиотеки зависят от других.
+	Поэтому перед тем, как подключить нужную
+	вам библиотеку, вам необходимо подключить
+	ее <dfn data-gs="comd/d" data-x>зависимости</dfn>.
+</p>
+<p>
+	Для примера рассмотрим библиотеку
+	<a href="https://kenwheeler.github.io/slick/">slick</a>
+	для создания слайдеров. Эта библиотека
+	зависит от библиотеки jQuery. Это
+	значит, что для подключения слайдера
+	вам нужно подключить еще и jQuery:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;script src="jquery-2.2.0.min.js"&gt;&lt;/script&gt;
+		&lt;script src="./slick/slick.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<p>
+	Неудобство такого подхода заключается в том,
+	что вам необходимо вручную скачивать библиотеку
+	и ее зависимости и при этом следить,
+	чтобы версии библиотек подходили
+	к друг другу. 
+	Если вы на сайте используете несколько
+	библиотек, то это может стать проблемой.
+	Например, каждая из ваших библиотек в своих
+	зависмостях может требовать jQuery и при этом
+	разных версий. Вам придется вручную разруливать
+	этот конфликт.
+</p>
+<div data-w="cont/task">
+	<p>
+		Скачайте себе библиотеку <a href="https://kenwheeler.github.io/slick/">slick</a>.
+		Подключите ее себе и создайте слайдер. Поиграйтесь с настройками,
+		описанными в документации.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

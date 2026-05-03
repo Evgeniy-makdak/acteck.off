@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство animation-fill-mode — acteck.off</title>
+  <meta name="description" content="Свойство animation-fill-mode — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство animation-fill-mode</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>animation-fill-mode</code> устанавливает
+	в каком положении останавливаться анимации
+	после окончания. По умолчанию анимация возвращается
+	в первоначальное значение и это может выглядеть
+	не очень красиво.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	animation-fill-mode: backwards | forwards | both | none;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>none</code></th>
+		<td>
+			Если установлена задержка анимации - то в течении времени задержки
+			элемент будет оставаться на месте, а потом скачком перейдет к <code data-gs="comd/u" data-x>0%</code> кадру.
+			После окончания анимации элемент не останется в том состоянии,
+			где остановился, а перепрыгнет в начальное состояние.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>backwards</code></th>
+		<td>
+			Заставляет элемент двигаться после загрузки страницы к <code data-gs="comd/u" data-x>0%</code> кадру,
+			даже если установлена задержка
+			<a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>,
+			и оставаться там, пока не начнется анимация.
+			После окончания анимации элемент
+			не останется в том состоянии, где остановился, 
+			а перепрыгнет в начальное состояние.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>forwards</code></th>
+		<td>
+			Указывает браузеру, что после окончания анимации элемент 
+			останется в том состоянии, где остановился.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>both</code></th>
+		<td>
+			Включает в себя backwards и forwards - после загрузки
+			страницы элемент установится к <code data-gs="comd/u" data-x>0%</code> кадру, а после
+			окончания анимации элемент останется там, где остановился.
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>none</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Значение none</h2>
+<p>
+	В данном примере <a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>
+	установлен в значение <code data-gs="comd/u" data-x>300px</code> для элемента,
+	а для первого кадра анимации - в <code data-gs="comd/u" data-x>0px</code>.
+	Так как нет задержки <a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>,
+	то элемент после загрузки страницы станет
+	в <code data-gs="comd/u" data-x>0px</code>, а не в <code data-gs="comd/u" data-x>300px</code>. Кроме
+	того, анимация после окончания будет перепрыгивать
+	в начальное значение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
+	from {
+		margin-left: 0;
+	}
+	to {
+		margin-left: 400px;
+	}
+}
+
+#elem {
+	margin-left: 300px;
+	animation-fill-mode: none;
+	animation-delay: 0s;
+	animation-duration: 3s;
+	animation-name: move;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			@keyframes move {
+			from {
+				margin-left: 0;
+			}
+			to {
+				margin-left: 400px;
+			}
+		}
+		
+		#elem {
+			margin-left: 300px;
+			animation-fill-mode: none;
+			animation-delay: 0s;
+			animation-duration: 3s;
+			animation-name: move;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			border: 1px solid black;
+			width: 50px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение none</h2>
+<p>
+	В данном примере <a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>
+	установлен в значение <code data-gs="comd/u" data-x>300px</code> для элемента,
+	а для первого кадра анимации - в <code data-gs="comd/u" data-x>0px</code>.
+	Также для элемента установлена задержка <a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>
+	в <code data-gs="comd/n" data-x>3</code> секунды, поэтому элемент после
+	загрузки страницы станет в <code data-gs="comd/u" data-x>300px</code>,
+	а не в <code data-gs="comd/u" data-x>0px</code>, и будет стоять там <code data-gs="comd/n" data-x>3</code>
+	секунды после начала анимации а потом скачком
+	перейдет к <code data-gs="comd/u" data-x>0px</code> - и анимация начнется оттуда.
+	Кроме того,анимация после окончания будет
+	перепрыгивать в начальное значение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
+	from {
+		margin-left: 0;
+	}
+	to {
+		margin-left: 400px;
+	}
+}
+
+#elem {
+	margin-left: 300px;
+	animation-fill-mode: none;
+	animation-delay: 0s;
+	animation-duration: 3s;
+	animation-name: move;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			@keyframes move {
+			from {
+				margin-left: 0;
+			}
+			to {
+				margin-left: 400px;
+			}
+		}
+		
+		#elem {
+			margin-left: 300px;
+			animation-fill-mode: none;
+			animation-delay: 0s;
+			animation-duration: 3s;
+			animation-name: move;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			border: 1px solid black;
+			width: 50px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение backwards</h2>
+<p>
+	В данном примере <a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>
+	установлен в значение <code data-gs="comd/u" data-x>300px</code> для элемента,
+	а для первого кадра анимации - в <code data-gs="comd/u" data-x>0px</code>.
+	Также для элемента установлен <code data-gs="comd/c" data-x>animation-fill-mode</code>
+	в значении <code data-gs="comd/v" data-x>backwards</code>, поэтому элемент
+	после загрузки страницы станет в <code data-gs="comd/u" data-x>0px</code>,
+	а не в <code data-gs="comd/u" data-x>300px</code>, как это было для <code data-gs="comd/c" data-x>animation-fill-mode</code>
+	в значении <code data-gs="comd/v" data-x>none</code>. Кроме того,анимация после
+	окончания будет перепрыгивать в начальное
+	значение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
+	from {
+		margin-left: 0;
+	}
+	to {
+		margin-left: 400px;
+	}
+}
+
+#elem {
+	margin-left: 300px;
+	animation-fill-mode: backwards;
+	animation-delay: 0s;
+	animation-duration: 3s;
+	animation-name: move;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			@keyframes move {
+			from {
+				margin-left: 0;
+			}
+			to {
+				margin-left: 400px;
+			}
+		}
+		
+		#elem {
+			margin-left: 300px;
+			animation-fill-mode: backwards;
+			animation-delay: 0s;
+			animation-duration: 3s;
+			animation-name: move;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			border: 1px solid black;
+			width: 50px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение none и количество повторений равно 1</h2>
+<p>
+	В данном примере <a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>
+	установлен в значение <code data-gs="comd/u" data-x>300px</code> для элемента,
+	а для первого кадра анимации - в <code data-gs="comd/u" data-x>0px</code>.
+	Также для элемента установлена задержка <a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>
+	в <code data-gs="comd/n" data-x>3</code> секунды, поэтому элемент после
+	загрузки страницы станет в <code data-gs="comd/u" data-x>300px</code>,
+	а не в <code data-gs="comd/u" data-x>0px</code>, и будет стоять там <code data-gs="comd/n" data-x>3</code>
+	секунды после начала анимации а потом скачком
+	перейдет к <code data-gs="comd/u" data-x>0px</code> - и анимация начнется оттуда.
+	Так как <code data-gs="comd/c" data-x>animation-fill-mode</code> установлен
+	в значении none, то после проигрывания анимации
+	элемент вернется в начальное значение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
+	from {
+		margin-left: 0;
+	}
+	to {
+		margin-left: 400px;
+	}
+}
+
+#elem {
+	margin-left: 300px;
+	animation-fill-mode: none;
+	animation-delay: 3s;
+	animation-duration: 3s;
+	animation-name: move;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			@keyframes move {
+			from {
+				margin-left: 0;
+			}
+			to {
+				margin-left: 400px;
+			}
+		}
+		
+		#elem {
+			margin-left: 300px;
+			animation-fill-mode: none;
+			animation-delay: 3s;
+			animation-duration: 3s;
+			animation-name: move;
+			animation-iteration-count: 1;
+			animation-timing-function: linear;
+			border: 1px solid black;
+			width: 50px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение forwards и количество повторений равно 1</h2>
+<p>
+	В данном примере <code data-gs="comd/c" data-x>animation-fill-mode</code>
+	установлен в значении <code data-gs="comd/v" data-x>forwards</code>, а
+	<a href="../animation-iteration-count/index.html">число
+	повторений анимации</a> - в <code data-gs="comd/n" data-x>1</code>. После
+	проигрывания анимации элемент останется в
+	том положении, где закончилась анимация,
+	а не прыгнет в исходную точку.
+</p>
+<p>
+	Кроме того, <code data-gs="comd/c" data-x>margin-left</code> установлен
+	в значение <code data-gs="comd/u" data-x>300px</code> для элемента, а для
+	первого кадра анимации - в <code data-gs="comd/u" data-x>0px</code>. Также
+	для элемента установлена задержка <code data-gs="comd/c" data-x>animation-delay</code>
+	в <code data-gs="comd/n" data-x>3</code> секунды, поэтому элемент после
+	загрузки страницы станет в <code data-gs="comd/u" data-x>300px</code>,
+	а не в <code data-gs="comd/u" data-x>0px</code>, и будет стоять там <code data-gs="comd/n" data-x>3</code>
+	секунды после начала анимации, а потом скачком
+	перейдет к <code data-gs="comd/u" data-x>0px</code> - и анимация начнется оттуда:
+</p>
+<div data-p="bock/pane">
+        <code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
+	from {
+		margin-left: 0;
+	}
+	to {
+		margin-left: 400px;
+	}
+}
+
+#elem {
+	margin-left: 300px;
+	animation-fill-mode: forwards;
+	animation-delay: 3s;
+	animation-duration: 3s;
+	animation-name: move;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			@keyframes move {
+			from {
+				margin-left: 0;
+			}
+			to {
+				margin-left: 400px;
+			}
+		}
+		
+		#elem {
+			margin-left: 300px;
+			animation-fill-mode: forwards;
+			animation-delay: 3s;
+			animation-duration: 3s;
+			animation-name: move;
+			animation-iteration-count: 1;
+			animation-timing-function: linear;
+			border: 1px solid black;
+			width: 50px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение both и количество повторений равно 1</h2>
+<p>
+	В данном примере <code data-gs="comd/c" data-x>animation-fill-mode</code>
+	установлен в значении <code data-gs="comd/v" data-x>both</code>, а <a href="../animation-iteration-count/index.html">число
+	повторений анимации</a> - в <code data-gs="comd/n" data-x>1</code>. После
+	загрузки страницы элемент будет стоять в
+	первом кадре анимации (в <code data-gs="comd/u" data-x>0px</code>, а не
+	в <code data-gs="comd/u" data-x>300px</code>), а после проигрывания анимации элемент
+	останется в том положении, где закончилась
+	анимация, а не прыгнет в исходную точку:
+</p>
+<div data-p="bock/pane">
+        <code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
+	from {
+		margin-left: 0;
+	}
+	to {
+		margin-left: 400px;
+	}
+}
+
+#elem {
+	margin-left: 300px;
+	animation-fill-mode: both;
+	animation-delay: 3s;
+	animation-duration: 3s;
+	animation-name: move;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			@keyframes move {
+			from {
+				margin-left: 0;
+			}
+			to {
+				margin-left: 400px;
+			}
+		}
+		
+		#elem {
+			margin-left: 300px;
+			animation-fill-mode: both;
+			animation-delay: 3s;
+			animation-duration: 3s;
+			animation-name: move;
+			animation-iteration-count: 1;
+			animation-timing-function: linear;
+			border: 1px solid black;
+			width: 50px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../animation-name/index.html"><code data-gs="comd/c" data-x>animation-name</code></a>, <br>
+			которое задает имя анимации
+		</li>
+		<li>
+			свойство <a href="../animation-duration/index.html"><code data-gs="comd/c" data-x>animation-duration</code></a>, <br>
+			которое задает продолжительность анимации
+		</li>
+		<li>
+			свойство <a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>, <br>
+			которое задает задержку перед выполнением анимации
+		</li>
+		<li>
+			свойство <a href="../animation-timing-function/index.html"><code data-gs="comd/c" data-x>animation-timing-function</code></a>, <br>
+			которое задает скорость выполнения анимации
+		</li>
+		<li>
+			свойство <a href="../animation-iteration-count/index.html"><code data-gs="comd/c" data-x>animation-iteration-count</code></a>, <br>
+			которое задает количество итераций анимации
+		</li>
+		<li>
+			свойство <a href="../animation-direction/index.html"><code data-gs="comd/c" data-x>animation-direction</code></a>, <br>
+			которое задает направление анимации
+		</li>
+		<li>
+			свойство <a href="../animation-play-state/index.html"><code data-gs="comd/c" data-x>animation-play-state</code></a>, <br>
+			которое позволяет поставить анимацию на паузу
+		</li>
+		<li>
+			свойство <a href="../animation/index.html"><code data-gs="comd/c" data-x>animation</code></a>, <br>
+			представляющее собой сокращение для анимаций
+		</li>
+		<li>
+			команду <a href="../../command/keyframes/index.html"><code data-gs="comd/c" data-x>@keyframes</code></a>, <br>
+			задающую ключевые кадры анимации
+		</li>
+		<li>
+			плавные переходы <a href="../transition/index.html"><code data-gs="comd/c" data-x>transition</code></a>,
+			представляющие собой анимацию по наведению на элемент
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство order — acteck.off</title>
+  <meta name="description" content="Свойство order — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство order</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>order</code> задает порядок следования
+	отдельно взятого <code data-gs="comd/c" data-x>flex</code>-блока внутри
+	<code data-gs="comd/c" data-x>flex</code>-контейнера. Применяется к конкретному
+	flex блоку.
+</p>
+<p>
+	Своим значением свойство принимает положительное
+	или отрицательное целое число. Чем меньше
+	число - тем раньше будет стоять элемент,
+	независимо от расположения в HTML коде относительно
+	других элементов.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	order: положительное или отрицательное число;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В данном примере всем блокам задан порядок
+	расположения с помощью <code data-gs="comd/c" data-x>order</code>. Самым первым
+	будет блок с отрицательным <code data-gs="comd/c" data-x>order</code> <code data-gs="comd/n" data-x>-1</code>,
+	потом с <code data-gs="comd/c" data-x>order</code> <code data-gs="comd/n" data-x>1</code> и так далее по возрастанию:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+	&lt;div id="elem4"&gt;4&lt;/div&gt;
+	&lt;div id="elem5"&gt;5&lt;/div&gt;
+	&lt;div id="elem6"&gt;6&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: row;
+}
+#parent &gt; div {
+	border: 1px solid #696989;
+	min-width: 100px;
+}
+#elem1 {
+	order: 4;
+}
+#elem2 {
+	order: 5;
+}
+#elem3 {
+	order: 3;
+}
+#elem4 {
+	order: 2;
+}
+#elem5 {
+	order: 1;
+}
+#elem6 {
+	order: -1;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: flex;
+			align-items: flex-start;
+			flex-direction: row;
+		}
+		#parent > div {
+			border: 1px solid #696989;
+			min-width: 100px;
+		}
+		#elem1 {
+			order: 4;
+		}
+		#elem2 {
+			order: 5;
+		}
+		#elem3 {
+			order: 3;
+		}
+		#elem4 {
+			order: 2;
+		}
+		#elem5 {
+			order: 1;
+		}
+		#elem6 {
+			order: -1;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+			<div id=&quot;elem4&quot;>4</div>
+			<div id=&quot;elem5&quot;>5</div>
+			<div id=&quot;elem6&quot;>6</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../flex-direction/index.html"><code data-gs="comd/c" data-x>flex-direction</code></a>, <br>
+			которое задает направление осей flex блоков
+		</li>
+		<li>
+			свойство <a href="../justify-content/index.html"><code data-gs="comd/c" data-x>justify-content</code></a>, <br>
+			которое задает выравнивание по главной оси
+		</li>
+		<li>
+			свойство <a href="../align-items/index.html"><code data-gs="comd/c" data-x>align-items</code></a>, <br>
+			которое задает выравнивание по поперечной оси
+		</li>
+		<li>
+			свойство <a href="../flex-wrap/index.html"><code data-gs="comd/c" data-x>flex-wrap</code></a>, <br>
+			которое многострочность flex блоков
+		</li>
+		<li>
+			свойство <a href="../flex-flow/index.html"><code data-gs="comd/c" data-x>flex-flow</code></a>, <br>
+			сокращение для flex-direction и flex-wrap
+		</li>
+		<li>
+			свойство <a href="../align-self/index.html"><code data-gs="comd/c" data-x>align-self</code></a>, <br>
+			которое задает выравнивание одного блока
+		</li>
+		<li>
+			свойство <a href="../flex-basis/index.html"><code data-gs="comd/c" data-x>flex-basis</code></a>, <br>
+			которое задает размер конкретного flex блока
+		</li>
+		<li>
+			свойство <a href="../flex-grow/index.html"><code data-gs="comd/c" data-x>flex-grow</code></a>, <br>
+			которое задает жадность flex блоков
+		</li>
+		<li>
+			свойство <a href="../flex-shrink/index.html"><code data-gs="comd/c" data-x>flex-shrink</code></a>, <br>
+			которое задает сжимаемость flex блоков
+		</li>
+		<li>
+			свойство <a href="../flex/index.html"><code data-gs="comd/c" data-x>flex</code></a>, <br>
+			сокращение для flex-grow, flex-shrink и flex-basis
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

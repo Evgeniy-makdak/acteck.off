@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод parent — acteck.off</title>
+  <meta name="description" content="Метод parent — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод parent</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>parent</code> получает
+	непосредственного родителя элемента.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Получение непосредственного родителя для
+	элементов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.parent();</code>
+</div>
+<p>
+	Можно также выбрать непосредственного родителя,
+	только если он удовлетворяет заданному селектору:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.parent(селектор);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем элемент <code data-gs="comd/z" data-x>#test</code> затем
+	найдем его родителя с помощью <code data-gs="comd/c" data-x>parent</code>
+	и поставим ему текст <code data-gs="comd/s" data-x>'!'</code> с помощью
+	<a href="../html/index.html"><code data-gs="comd/c" data-x>html</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;outside&lt;/p&gt;
+&lt;div&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+	&lt;p id="test"&gt;inside&lt;/p&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;outside&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').parent().html('!');</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;outside&lt;/p&gt;
+&lt;div&gt;
+	!
+&lt;/div&gt;
+&lt;p&gt;outside&lt;/p&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем элемент <code data-gs="comd/z" data-x>#test</code> затем
+	найдем его родителя с помощью <code data-gs="comd/c" data-x>parent</code>
+	и, если этот родитель <code data-gs="comd/c" data-x>div</code> с классом <code data-gs="comd/z" data-x>www</code>,
+	то поставим ему текст <code data-gs="comd/s" data-x>'!'</code> с помощью
+	<a href="../html/index.html"><code data-gs="comd/c" data-x>html</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;outside&lt;/p&gt;
+&lt;div class="www"&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+	&lt;p id="test"&gt;inside&lt;/p&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+	&lt;p&gt;inside&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;outside&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').parent('div.www').html('!');</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;outside&lt;/p&gt;
+&lt;div class="www"&gt;
+	!
+&lt;/div&gt;
+&lt;p&gt;outside&lt;/p&gt;</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../parents/index.html"><code data-gs="comd/c" data-x>parents</code></a>, <br>
+			который позволяет получить всех родителей
+			элемента
+		</li>
+		<li>
+			метод <a href="../closest/index.html"><code data-gs="comd/c" data-x>closest</code></a>, <br>
+			который позволяет получить ближайший родительский 
+			элемент, удовлетворяющий селектору
+		</li>
+		<li>
+			метод <a href="../parentsUntil/index.html"><code data-gs="comd/c" data-x>parentsUntil</code></a>, <br>
+			который позволяет получить всех родителей
+			элемента до указанного родителя
+		</li>
+		<li>
+			метод <a href="../children/index.html"><code data-gs="comd/c" data-x>children</code></a>, <br>
+			который позволяет получить потомков элемента
+		</li>
+		<li>
+			метод <a href="../contents/index.html"><code data-gs="comd/c" data-x>contents</code></a>, <br>
+			который позволяет получить потомков элемента и 
+			текст внутри этого элемента
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

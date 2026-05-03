@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Потеря контекста в JavaScript — acteck.off</title>
+  <meta name="description" content="Потеря контекста в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Потеря контекста в JavaScript</h1>
+    <p>
+	Пусть у нас есть функция в функции. Давайте
+	внешнюю функцию назовем <code data-gs="comd/c" data-x>parent</code>, а
+	внутреннюю - <code data-gs="comd/c" data-x>child</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function parent() {
+	function child() {
+		
+	}
+}</code>
+</div>
+<p>
+	Из <a href="../../functions/nested/inner-functions-scope/index.html">предыдущих
+	уроков</a> вы знаете, что если задать какую-либо
+	переменную во внешней функции - она будет
+	доступна во внутренней:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function parent() {
+	let str = 'abcde';
+	
+	function child() {
+		console.log(str); // выведет 'abcde'
+	}
+	child(); // вызываем внутреннюю функцию
+}
+
+parent(); // вызываем внешнюю функцию</code>
+</div>
+<p>
+	Есть, однако, нюанс: внутренняя функция имеет
+	доступ ко всем переменным внешней, но не
+	имеет доступа <code data-gs="comd/c" data-x>this</code>. To есть: если
+	внешняя функция привязана к какому-то DOM
+	элементу, то <code data-gs="comd/c" data-x>this</code> в ней будет указывать
+	на этот элемент, но <code data-gs="comd/c" data-x>this</code> внутренней
+	функции - не будет!
+</p>
+<p>
+	На что же тогда будет указывать <code data-gs="comd/c" data-x>this</code>
+	внутренней функции? Ответ: он будет равен
+	<code data-gs="comd/c" data-x>undefined</code> (в строгом режиме), так
+	как функция ни к чему не привязана.
+</p>
+<p>
+	Давайте проверим на практике. Пусть у нас
+	дан инпут:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="elem" value="text"&gt;</code>
+</div>
+<p>
+	Привяжем к этому инпуту функцию <code data-gs="comd/c" data-x>parent</code>,
+	которая будет вызываться по потери фокуса инпутом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">"use strict";
+
+let elem = document.querySelector('#elem');
+elem.addEventListener('blur', parent);
+
+// Вызовется по потери фокуса:
+function parent() {
+	// тут будет какой-то код
+	
+	function child() {
+		// тут будет какой-то код
+	}
+	child(); // вызываем дочернюю функцию
+}</code>
+</div>
+<p>
+	Давайте выведем содержимое <code data-gs="comd/c" data-x>this</code> в
+	консоль в двух местах: внутри функции <code data-gs="comd/c" data-x>parent</code>
+	и внутри функции <code data-gs="comd/c" data-x>child</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">"use strict";
+
+let elem = document.querySelector('#elem');
+elem.addEventListener('blur', parent);
+
+function parent() {
+	console.log(this); // выведет ссылку на наш инпут
+	
+	function child() {
+		console.log(this); // выведет undefined
+	}
+	child();
+}</code>
+</div>
+<p>
+	Запустите этот код, потеряйте фокус инпуту
+	и посмотрите в консоль - вы увидите, что
+	первый <code data-gs="comd/c" data-x>console.log</code> выведет в консоль
+	ссылку на наш инпут, а второй - просто <code data-gs="comd/c" data-x>undefined</code>.
+	Такая ситуация, когда <code data-gs="comd/c" data-x>this</code> неожиданным
+	для нас образом указывает не на то, что нам
+	нужно, называется <dfn data-gs="comd/d" data-x>потеря контекста</dfn>.
+</p>
+<div data-w="cont/task">
+	<p>
+		Пусть теперь в одной и во второй функции
+		мы будем выводить <code data-gs="comd/c" data-x>value</code> инпута. Определите,
+		что выведется в строчках кода, отмеченных
+		комментариями:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">"use strict";
+
+let elem = document.querySelector('#elem');
+elem.addEventListener('blur', parent);
+
+function parent() {
+	console.log(this.value); // что выведет?
+	
+	function child() {
+		console.log(this.value); // что выведет?
+	}
+	child();
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

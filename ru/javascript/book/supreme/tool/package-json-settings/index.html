@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Настройки файла package.json в JavaScript — acteck.off</title>
+  <meta name="description" content="Настройки файла package.json в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Настройки файла package.json в JavaScript</h1>
+    <p>
+	Когда некоторый программист хочет сделать
+	свою библиотеку доступной всем желающим,
+	он должен разместить ее в <dfn data-gs="comd/d" data-x>реестре</dfn>
+	(т.е. в хранилище) npm. Для этого он должен
+	оформить файл <code data-gs="comd/p" data-x>package.json</code> этой библиотеки
+	специальным образом, добавив некоторые
+	важные настройки.
+</p>
+<p>
+	Эти настройки касаются именно публичных
+	библиотек, которые вы скачиваете с npm.
+	В своих проектах для частного использования
+	вы можете их не устанавливать.
+</p>
+<p>
+	Итак, вот список самых популярных настроек:
+</p>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>name</code></th>
+		<td>
+			имя проекта, должно быть написано строчными буквами
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>version</code></th>
+		<td>
+			номер версии, согласно семантическому версированию
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>description</code></th>
+		<td>
+			описание проекта
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>main</code></th>
+		<td>
+			входной файл проекта
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>keywords</code></th>
+		<td>
+			это массив, помогающий найти модуль в реестре npm
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>author</code></th>
+		<td>
+			это поле принимает объект с ключами <code data-gs="comd/s" data-x>name</code>, <code data-gs="comd/s" data-x>email</code> и <code data-gs="comd/s" data-x>url</code>,
+			что позволяет людям легко связаться с автором проекта.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>license</code></th>
+		<td>
+			принимает название лицензии с использованием идентификатора SPDX.
+			По умолчанию применяется лицензия ISC, еще один популярный выбор – это MIT.
+			Вы также можете использовать UNLICENSED для частных
+			проектов и проектов с закрытым кодом.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>private</code></th>
+		<td>
+			если для этого ключа установлено значение true,
+			проект не сможет быть публичным в реестре npm.
+			Это позволяет предотвратить случайную публикацию проекта.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>homepage</code></th>
+		<td>
+			URL адрес домашней страницы проекта
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>bugs</code></th>
+		<td>
+			URL адрес, по которому можно сообщить о проблемах и ошибках.
+			Часто это адрес страницы проекта на Github.
+		</td>
+	</tr>
+	
+</table>
+<div data-w="cont/task">
+	<p>
+		Установите библиотеку <a href="https://jquery.com/download/">jQuery</a>.
+		Найдите в <code data-gs="comd/p" data-x>node_modules</code> папку с библиотекой,
+		а в ней - файл <code data-gs="comd/p" data-x>package.json</code>. Изучите его.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Установите библиотеку <a href="http://underscorejs.ru/">underscorejs</a>.
+		Найдите в <code data-gs="comd/p" data-x>node_modules</code> папку с библиотекой,
+		а в ней - файл <code data-gs="comd/p" data-x>package.json</code>. Изучите его.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Изучите настройки файла <code data-gs="comd/p" data-x>package.json</code>
+		в <a href="https://docs.npmjs.com/cli/v8/configuring-npm/package-json">официальной документации</a>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

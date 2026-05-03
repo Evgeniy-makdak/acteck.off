@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод join — acteck.off</title>
+  <meta name="description" content="Метод join — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод join</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>join</code> объединяет элементы массива
+	в строку с указанным разделителем (он будет
+	вставлен между элементами массива).
+	Разделитель задается параметром метода и
+	не является обязательным. Если он не задан
+	- по умолчанию в качестве разделителя возьмется
+	запятая. Если вы хотите слить элементы массива
+	без разделителя - укажите его как пустую
+	строку <code data-gs="comd/s" data-x>''</code>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">массив.join([разделитель]);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть дан некоторый массив. Давайте объединим
+	элементы этого массива в строку с разделителем
+	<code data-gs="comd/s" data-x>'-'</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3];
+let str = arr.join('-');
+
+console.log(str);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'1-2-3'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте не укажем разделитель и
+	по умолчанию разделителем станет запятая:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3];
+let str = arr.join();
+
+console.log(str);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'1,2,3'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте сольем элементы массива без всякого
+	разделителя:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3];
+let str = arr.join('');
+
+console.log(str);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'123'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Применение</h2>
+<p>
+	Давайте перевернем символы строки в обратном
+	порядке. Для этого разобьем строку в массив
+	с помощью <a href="../../string/split/index.html"><code data-gs="comd/c" data-x>split</code></a>
+	по разделителю <code data-gs="comd/s" data-x>''</code> (этот разделитель положит
+	каждый символ строки в отдельный элемент
+	массива), перевернем этот массив с помощью
+	<a href="../reverse/index.html"><code data-gs="comd/c" data-x>reverse</code></a>
+	и затем сольем перевернутый массив обратно
+	с помощью <code data-gs="comd/c" data-x>join</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '123456789';
+let arr1 = str.split('');
+let arr2 = arr1.reverse();
+let res = arr2.join('');
+
+console.log(res);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'987654321'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Применение</h2>
+<p>
+	Упростим решение предыдущей задачи - сольем
+	все команды в цепочку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '123456789';
+let res = str.split('').reverse().join('');
+
+console.log(res);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'987654321'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Применение</h2>
+<p>
+	Дана дата в формате <code data-gs="comd/s" data-x>'2025-12-31'</code>.
+	Давайте сделаем из нее формат <code data-gs="comd/s" data-x>'31.12.2025'</code>.
+	Для этого разобьем строку в массив с помощью
+	<a href="../../string/split/index.html"><code data-gs="comd/c" data-x>split</code></a>,
+	перевернем этот массив с помощью <a href="../reverse/index.html"><code data-gs="comd/c" data-x>reverse</code></a>
+	и затем сольем перевернутый массив обратно
+	с помощью <code data-gs="comd/c" data-x>join</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let date = '2025-12-31';
+let res = date.split('-').reverse().join('.');
+
+console.log(res);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'31.12.2025'</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../../string/split/index.html"><code data-gs="comd/c" data-x>split</code></a>, <br>
+			который разбивает строку в массив по указанному разделителю
+		</li>
+		<li>
+			метод <a href="../reverse/index.html"><code data-gs="comd/c" data-x>reverse</code></a>, <br>
+			который изменяет порядок элементов в массиве на обратный
+		</li>
+		<li>
+			метод <a href="../../string/concat/index.html"><code data-gs="comd/c" data-x>concat</code></a>, <br>
+			который сливает строки в одну
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

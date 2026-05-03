@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Радио переключатель — acteck.off</title>
+  <meta name="description" content="Радио переключатель — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Радио переключатель</h1>
+    <p>
+	Радио переключатель представляет
+	собой элемент HTML <a href="index.html">формы</a>
+	в виде круглой кнопочки, которая может быть
+	отмечена и нет.
+</p>
+<p>
+	Радио кнопочка создается с помощью тега <a href="../index.html"><code data-gs="comd/c" data-x>input</code></a>
+	с атрибутом <code data-gs="comd/c" data-x>type</code> в значении <code data-gs="comd/c" data-x>radio</code>.
+	Внешний вид: <input type="radio">
+</p>
+<p>
+	Один радио переключатель практически никогда
+	не используется, их следует использовать
+	группой. При этом в группе может быть отмечен
+	только один из переключателей. Переключатели
+	будут формировать группу только если у них
+	одинаковое значение атрибута <a href="../../../attr/name/index.html"><code data-gs="comd/c" data-x>name</code></a>
+	(см. примеры ниже).
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте сделаем два радио переключателя:
+	первый отметим (зададим атрибут <a href="../../../attr/checked/index.html"><code data-gs="comd/c" data-x>checked</code></a>),
+	а второй - нет. При этом переключатели будут
+	представлять собой группу, в которой
+	может быть отмечен только один из них (так
+	как у них одинаковое значение атрибута <code data-gs="comd/c" data-x>name</code>).
+</p>
+<p>
+	Обратите внимание на то, что данным радио
+	кнопочкам даны разные значения атрибута <a href="../../../attr/value/index.html"><code data-gs="comd/c" data-x>value</code></a>.
+	Это нужно для того, чтобы после отправки
+	данных на сервер, PHP мог определить, какой
+	из переключателей был выбран:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="radio" name="test" checked value="1"&gt;
+&lt;input type="radio" name="test" value="2"&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type=&quot;radio&quot; name=&quot;test&quot; checked value=&quot;1&quot;>
+		<input type=&quot;radio&quot; name=&quot;test&quot; value=&quot;2&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте сделаем две группы радио
+	переключателей: первая группа будет иметь
+	одно значение атрибута <code data-gs="comd/c" data-x>name</code>,
+	а вторая - другое. Попробуем понажимать
+	по ним, и увидим, что группы переключаются
+	независимо друг от друга:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="radio" name="radio1" checked&gt;
+&lt;input type="radio" name="radio1"&gt;
+&lt;input type="radio" name="radio1"&gt;
+
+&lt;br&gt;
+
+&lt;input type="radio" name="radio2" checked&gt;
+&lt;input type="radio" name="radio2"&gt;
+&lt;input type="radio" name="radio2"&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type=&quot;radio&quot; name=&quot;radio1&quot; checked>
+		<input type=&quot;radio&quot; name=&quot;radio1&quot;>
+		<input type=&quot;radio&quot; name=&quot;radio1&quot;>
+		
+		<br>
+		
+		<input type=&quot;radio&quot; name=&quot;radio2&quot; checked>
+		<input type=&quot;radio&quot; name=&quot;radio2&quot;>
+		<input type=&quot;radio&quot; name=&quot;radio2&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			<a href="../checkbox/index.html">чекбокс</a>, <br>
+			с помощью которого можно реализовать флажок
+		</li>
+		<li>
+			атрибут <a href="../../../attr/checked/index.html"><code data-gs="comd/c" data-x>checked</code></a>, <br>
+			который делает радио переключатель отмеченным
+		</li>
+		<li>
+			псевдокласс <a href="../../../../css/pseudoclass/checked/index.html"><code data-gs="comd/c" data-x>checked</code></a>, <br>
+			который задает стили для отмеченных радио
+		</li>
+		<li>
+			атрибут <a href="../../../attr/disabled/index.html"><code data-gs="comd/c" data-x>disabled</code></a>, <br>
+			который блокирует элементы форм
+		</li>
+		<li>
+			тег <a href="../../label/index.html"><code data-gs="comd/c" data-x>label</code></a>, <br>
+			который задает подсказку для радио
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

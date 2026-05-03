@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заполнение объектов через цикл в JavaScript — acteck.off</title>
+  <meta name="description" content="Заполнение объектов через цикл в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Заполнение объектов через цикл в JavaScript</h1>
+    <p>
+	Объекты также можно заполнять данными
+	в циклах. Давайте посмотрим на примере.
+	Пусть у нас есть два массива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let keys = ['a', 'b', 'c', 'd', 'e'];
+let values = [1, 2, 3, 4, 5];</code>
+</div>
+<p>
+	Давайте с их помощью сделаем объект, взяв
+	ключи для этого объекта из первого массива,
+	а значения - из второго. Для этого запустим
+	цикл и в цикле будем формировать наш объект:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj = {};
+
+for (let i = 0; i &lt;= 4; i++) {
+	let key = keys[i];
+	let value = values[i];
+	
+	obj[key] = value;
+}
+
+console.log(obj);</code>
+</div>
+<p>
+	Не обязательно вводить переменные для ключа
+	и значения, можно просто поступить вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj = {};
+
+for (let i = 0; i &lt;= 4; i++) {
+	obj[keys[i]] = values[i];
+}
+
+console.log(obj);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны два массива: первый с названиями дней
+		недели, а второй - с их порядковыми номерами:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = ['a', 'b', 'c', 'd', 'e'];
+let arr2 = [1, 2, 3, 4, 5];</code>
+	</div>
+	<p>
+		С помощью цикла создайте объект, ключами
+		которого будут названия дней, а значениями
+		- их номера.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан объект:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj = {a: 1, b: 2, c: 3, d: 4, e: 5};</code>
+	</div>
+	<p>
+		Переберите этот объект циклом и запишите
+		в новый объект те элементы, которые
+		являются четными числами.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан объект:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj = {a: 1, b: 2, c: 3, d: 4, e: 5};</code>
+	</div>
+	<p>
+		Переберите этот объект циклом и создайте
+		новый объект так, чтобы его ключами
+		стали элементы старого объекта,
+		а значениями - ключи старого объекта.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

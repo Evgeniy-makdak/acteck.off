@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проблемы при заполнении многомерных массивов в JavaScript — acteck.off</title>
+  <meta name="description" content="Проблемы при заполнении многомерных массивов в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Проблемы при заполнении многомерных массивов в JavaScript</h1>
+    <p>
+	Давайте рассмотрим следующий код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0; i &lt; 3; i++) {
+	arr[i] = []; // обратите внимание на эту строчку
+	
+	for (let j = 0; j &lt; 3; j++) {
+		arr[i].push(j + 1);
+	}
+}
+
+console.log(arr);</code>
+</div>
+<p>
+	В этом коде важное место занимает создание
+	пустого подмассива. Мы не можем опустить
+	эту строчку, так как тогда во внутреннем
+	цикле попытка запушить данные в <code data-gs="comd/c" data-x>arr[i]</code>
+	выдаст ошибку.
+</p>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать двухмерный
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0; i &lt; 3; i++) {
+	for (let j = 1; j &lt;= 5; j++) {
+		arr[i].push(j);
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать двухмерный
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0; i &lt; 3; i++) {
+	arr[i] = '';
+	
+	for (let j = 1; j &lt;= 5; j++) {
+		arr[i].push(j);
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать двухмерный
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0; i &lt; 3; i++) {
+	arr[i];
+	
+	for (let j = 1; j &lt;= 5; j++) {
+		arr[i].push(j);
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать двухмерный
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0; i &lt; 3; i++) {
+	arr[j] = [];
+	
+	for (let j = 1; j &lt;= 5; j++) {
+		arr[i].push(j);
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать двухмерный
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0; i &lt; 3; i++) {
+	arr = [];
+	
+	for (let j = 1; j &lt;= 5; j++) {
+		arr[i].push(j);
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор следующего кода хотел сделать двухмерный
+		массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0; i &lt; 3; i++) {
+	arr[i] = [];
+	
+	for (let j = 1; j &lt;= 5; j++) {
+		arr.push(j);
+	}
+}
+
+console.log(arr);</code>
+	</div>
+	<p>
+		Написанный код, однако, не делает задуманного.
+		Найдите и исправьте ошибку автора.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

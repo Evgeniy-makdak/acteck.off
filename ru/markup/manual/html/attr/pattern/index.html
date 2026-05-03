@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Атрибут pattern — acteck.off</title>
+  <meta name="description" content="Атрибут pattern — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Атрибут pattern</h1>
+    <p>
+	Атрибут <code data-gs="comd/c" data-x>pattern</code> задает проверку поля
+	ввода HTML <a href="../../tag/form/index.html">формы</a>
+	по <dfn data-gs="comd/d" data-x>регулярному выражению</dfn>.
+</p>
+<p>
+	Регулярные выражения - это специальные
+	команды, которые позволяют создать практически
+	любые правила проверки. Подробнее с
+	ними вы можете познакомится в <a href="../../../../../php/book/prime/regular/intro/index.html">книге
+	по регулярным выражениям PHP</a> или в <a
+	href="../../../../../javascript/book/supreme/regular/intro/index.html">книге по
+	регулярным выражениям JavaScript</a>.
+</p>
+<p>
+	При попытке отправки формы в том случае,
+	если поле с этим атрибутом не заполнено -
+	браузер не даст отправить форму и выведет
+	ошибку в виде всплывающей подсказки. К сожалению,
+	текст ошибки и ее вид нельзя изменить с помощью
+	HTML или CSS.
+</p>
+<p>
+	Имейте ввиду, что наличие атрибута <code data-gs="comd/c" data-x>pattern</code>
+	не освобождает вас от проверки правильности
+	заполненности формы со стороны сервера на
+	PHP (так как защиту через атрибут легко обойти).
+</p>
+<p>
+	Атрибут <code data-gs="comd/c" data-x>pattern</code> следует применять
+	к тегам <a href="../../tag/input/index.html"><code data-gs="comd/c" data-x>input</code></a>
+	или <a href="../../tag/textarea/index.html"><code data-gs="comd/c" data-x>textarea</code></a>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте обратимся к тегу <a href="../../tag/input/index.html"><code data-gs="comd/c" data-x>input</code></a>
+	и добавим атрибут <code data-gs="comd/c" data-x>pattern</code>, в который
+	заложим регулярное выражение, проверяющее
+	то, что в инпут введено <i>число из двух
+	цифр</i> (например, <code data-gs="comd/n" data-x>25</code>).
+</p>
+<p>
+	Введите любое число и попробуйте нажать на
+	кнопку, чтобы отправить форму. Если введено
+	число не из двух цифр, то браузер не даст
+	отправить форму и выведет сообщение об ошибке,
+	в противном случае форма будет отправлена:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action=""&gt;
+	&lt;input type="text" pattern="\d{2}"&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<form action=&quot;&quot;>
+			<input type=&quot;text&quot; pattern=&quot;\d{2}&quot;>
+			<input type=&quot;submit&quot;>
+		</form>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Пустое поле</h2>
+<p>
+	В предыдущем примере браузер выдавал ошибку
+	только в том случае, если поле было не
+	пустым (хотя пустое поле не является
+	числом с двумя цифрами). Давайте попробуем
+	сделать так, чтобы ошибка выдавалась и на
+	пустое поле - вместе с атрибутом <code data-gs="comd/c" data-x>pattern</code>
+	напишем еще и атрибут <a href="../required/index.html"><code data-gs="comd/c" data-x>required</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action=""&gt;
+	&lt;input type="text" pattern="\d{2}" required&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<form action=&quot;&quot;>
+			<input type=&quot;text&quot; pattern=&quot;\d{2}&quot; required>
+			<input type=&quot;submit&quot;>
+		</form>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			атрибут <a href="../required/index.html"><code data-gs="comd/c" data-x>required</code></a>, <br>
+			с помощью которого можно сделать проверку на пустоту
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Много элементов с кнопками показа на JavaScript — acteck.off</title>
+  <meta name="description" content="Много элементов с кнопками показа на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Много элементов с кнопками показа на JavaScript</h1>
+    <p>
+	Пусть теперь у нас есть много абзацев и у
+	каждого своя кнопка для сокрытия:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;1&lt;/p&gt;&lt;button&gt;toggle&lt;/button&gt;
+&lt;p&gt;2&lt;/p&gt;&lt;button&gt;toggle&lt;/button&gt;
+&lt;p&gt;3&lt;/p&gt;&lt;button&gt;toggle&lt;/button&gt;</code>
+</div>
+<p>
+	Сделаем так, чтобы по клику на кнопку скрывался
+	или показывался соответствующий ей абзац.
+</p>
+<p>
+	Для этого нам каким-то образом нужно связать
+	кнопки с нашими абзацами. Для этого существует
+	несколько способов.
+</p>
+
+<h2>Первый способ</h2>
+<p>
+	Свяжем кнопки и абзацы следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="elem1"&gt;1&lt;/p&gt;&lt;button data-elem="elem1"&gt;toggle&lt;/button&gt;
+&lt;p id="elem2"&gt;2&lt;/p&gt;&lt;button data-elem="elem2"&gt;toggle&lt;/button&gt;
+&lt;p id="elem3"&gt;3&lt;/p&gt;&lt;button data-elem="elem3"&gt;toggle&lt;/button&gt;</code>
+</div>
+<p>
+	Теперь по клику на любую кнопку мы будем
+	читать содержимое ее атрибута data-elem и
+	искать абзац с таким id. Его и будем тоглить.
+	Реализуем описанное:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let buttons = document.querySelectorAll('button');
+
+for (let button of buttons) {
+	button.addEventListener('click', function() {
+		let elem = document.querySelector('#' + this.dataset.elem);
+		elem.classList.toggle('hidden');
+	});
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Изучите мое решение, а затем самостоятельно,
+		не подсматривая в мой код, решите эту задачу.
+	</p>
+</div>
+
+<h2>Второй способ</h2>
+<p>
+	Расставлять id и data-атрибуты не очень удобно.
+	Давайте сделаем так, чтобы связь была по
+	порядковому номеру: пусть первая кнопка скрывает
+	первый абзац, вторая кнопка - второй и так далее.
+</p>
+<p>
+	Реализуем описанное:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let buttons = document.querySelectorAll('button');
+let elems   = document.querySelectorAll('p');
+
+for (let i = 0; i &lt; buttons.length; i++) {
+	buttons[i].addEventListener('click', function() {
+		elems[i].classList.toggle('hidden');
+	});
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Изучите мое решение, а затем самостоятельно,
+		не подсматривая в мой код, решите эту задачу.
+	</p>
+</div>
+
+<h2>Третий способ</h2>
+<p>
+	Как можно увидеть, абзац, связанный с кнопкой,
+	является ее соседом слева. Можно это использовать
+	в качестве связи:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let buttons = document.querySelectorAll('button');
+
+for (let button of buttons) {
+	button.addEventListener('click', function() {
+		this.previousElementSibling.classList.toggle('hidden');
+	});
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Изучите мое решение, а затем самостоятельно,
+		не подсматривая в мой код, решите эту задачу.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

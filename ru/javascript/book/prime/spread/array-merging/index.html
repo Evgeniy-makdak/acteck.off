@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оператор spread и слияние массивов — acteck.off</title>
+  <meta name="description" content="Оператор spread и слияние массивов — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Оператор spread и слияние массивов</h1>
+    <p>
+	Пусть у нас есть два массива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = ['a', 'b', 'c'];
+let arr2 = [1, 2, 3];</code>
+</div>
+<p>
+	Давайте сделаем так, чтобы между первым и
+	вторым элементами массива <code data-gs="comd/c" data-x>arr2</code> вставились
+	элементы массива <code data-gs="comd/c" data-x>arr1</code>.
+</p>
+<p>
+	Говоря другими словами, мы хотим написать
+	код, который из текущего массива <code data-gs="comd/c" data-x>arr2</code>
+	сделает следующий массив:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[1, 'a', 'b', 'c', 2, 3]</code>
+</div>
+<p>
+	Задача, в общем-то, решаема через метод <code data-gs="comd/c" data-x>splice</code>.
+	Однако, гораздо проще эта задача решается
+	через spread:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = ['a', 'b', 'c'];
+let arr2 = [1, ...arr1, 2, 3];
+
+console.log(arr2); // выведет [1, 'a', 'b', 'c', 2, 3]</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+
+let arr  = ['a', ...arr1, 'b', 'c', ...arr2];
+console.log(arr);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+
+let arr  = ['a', ...arr1, ...arr1, 'b', 'c'];
+console.log(arr);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5, 6];
+
+let arr  = ['a', 'b', 'c', ...arr2];
+console.log(arr);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5, 6];
+let arr3 = [...arr2, 7, 8, 9];
+
+let arr  = [0, ...arr3];
+console.log(arr);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = [1, 2, 3];
+let arr2 = [...arr1];
+
+console.log(arr2);</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

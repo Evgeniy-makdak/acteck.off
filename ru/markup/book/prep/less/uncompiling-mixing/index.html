@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отмена компиляции примешивания в LESS — acteck.off</title>
+  <meta name="description" content="Отмена компиляции примешивания в LESS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Отмена компиляции примешивания в LESS</h1>
+    <p>
+	Класс, который мы используем в качестве примешивания,
+	также попадет в результат компиляции.
+</p>
+<p>
+	Бывают, однако, ситуации, когда мы хотим
+	создать какой то кусок кода, в качестве заготовки,
+	для использования в других местах кода, и
+	при этом сам сам по себе этот кусочек использоваться
+	не будет.
+</p>
+<p>
+	Для отмены компиляции миксина нужно поставить
+	после его имени круглые скобки, вот так:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix() {
+	width: 100px;
+	height: 100px;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.less">
+		<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix() {
+	color: white;
+	background: black;
+}
+
+p {
+	.mix;
+	width: 300px;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.less">
+		<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix1() {
+	color: white;
+	background: black;
+}
+.mix2() {
+	width: 300px;
+	height: 300px;
+}
+
+p {
+	.mix1;
+	.mix2;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте миксин <code data-gs="comd/c" data-x>.tnr</code>, который будет
+		задавать шрифт семейства <code data-gs="comd/v" data-x>Times New Roman</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте миксин <code data-gs="comd/c" data-x>.df</code>, который будет
+		задавать свойство <code data-gs="comd/c" data-x>display</code> в значении
+		<code data-gs="comd/v" data-x>flex</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте миксин <code data-gs="comd/c" data-x>.bold</code>, который будет
+		задавать свойство <code data-gs="comd/c" data-x>font-weight</code> в значении
+		<code data-gs="comd/v" data-x>bold</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте миксин <code data-gs="comd/c" data-x>.nowrap</code>, который будет
+		задавать свойство <code data-gs="comd/c" data-x>white-space</code> в значении
+		<code data-gs="comd/v" data-x>nowrap</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

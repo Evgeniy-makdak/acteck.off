@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регулирование наложения элементов по оси Z в CSS — acteck.off</title>
+  <meta name="description" content="Регулирование наложения элементов по оси Z в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Регулирование наложения элементов по оси Z в CSS</h1>
+    <p>
+	Порядок наложения элементов можно регулировать
+	с помощью свойства <code data-gs="comd/c" data-x>z-index</code>, принимающего
+	своим значением целые положительные или отрицательные
+	числа, либо ноль. Свойство работает только
+	для элементов, у которых значение <code data-gs="comd/c" data-x>position</code>
+	задано как <code data-gs="comd/v" data-x>absolute</code>, <code data-gs="comd/v" data-x>fixed</code>
+	или <code data-gs="comd/v" data-x>relative</code>.
+</p>
+<p>
+	При использовании данного свойства правило
+	наложения элементов следующее: выше будет
+	тот элемент, у которого значение <code data-gs="comd/c" data-x>z-index</code>
+	больше.
+</p>
+<p>
+	Давайте поменяем порядок наложения элементов
+	из предыдущего примера. Для этого первому
+	элементу поставим <code data-gs="comd/c" data-x>z-index</code> больше,
+	чем у второго, например, вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
+	z-index: 2;
+}
+#elem2 {
+	z-index: 1;
+}</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+			height: 220px;
+		}
+		</style>
+		<style>
+			#elem1 {
+			z-index: 2;
+			position: absolute;
+			top: 30px;
+			left: 30px;
+			
+			width: 100px;
+			height: 100px;
+			background: #ff8888;
+		}
+
+		#elem2 {
+			z-index: 1;
+			position: absolute;
+			top: 60px;
+			left: 60px;
+			
+			width: 100px;
+			height: 100px;
+			background: #7e89eb;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+		<div id=&quot;elem2&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<div data-w="cont/task">
+	<p>
+		Повторите страницу по данному образцу:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+				height: 150px;
+			}
+		</style>
+		<style>
+			#elem1, #elem2, #elem3 {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+			}
+			#elem1 {
+				background-color: #ff8888;
+				left: 30px;
+				top: 30px;
+			}
+			#elem2 {
+				background-color: #7e89eb;
+				left: 60px;
+				top: 60px;
+				z-index: 1;
+			}
+			#elem3 {
+				background-color: #4dee99;
+				left: 90px;
+				top: 90px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+			<div id=&quot;elem2&quot;></div>
+			<div id=&quot;elem3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Повторите страницу по данному образцу:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+				height: 150px;
+			}
+		</style>
+		<style>
+			#elem1, #elem2, #elem3 {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+			}
+			#elem1 {
+				background-color: #ff8888;
+				left: 30px;
+				top: 30px;
+				z-index: 2;
+			}
+			#elem2 {
+				background-color: #7e89eb;
+				left: 60px;
+				top: 60px;
+				z-index: 1;
+			}
+			#elem3 {
+				background-color: #4dee99;
+				left: 90px;
+				top: 90px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+			<div id=&quot;elem2&quot;></div>
+			<div id=&quot;elem3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

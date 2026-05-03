@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Работа с CSS стилями в атрибуте style в React — acteck.off</title>
+  <meta name="description" content="Работа с CSS стилями в атрибуте style в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Работа с CSS стилями в атрибуте style в React</h1>
+    <p>
+	В предыдущих уроках в атрибут <code data-gs="comd/c" data-x>style</code> 
+	мы передавали переменную, содержащую объект 
+	с CSS стилями. Можно не использовать 
+	промежуточную переменную, а расписать объект 
+	прямо в атрибуте - в этом случае нам нужны 
+	две пары фигурных скобок - первая от JSX 
+	вставки, а вторая - от объекта.
+</p>
+<p>
+	Итак, возьмем наш компонент
+	без CSS стилей:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	return (
+		&lt;div&gt;
+			&lt;p&gt;text&lt;/p&gt;
+			&lt;p&gt;text&lt;/p&gt;
+			&lt;p&gt;text&lt;/p&gt;
+		&lt;/div&gt;
+	);
+}</code>
+</div>
+<p>
+	К примеру, пропишем напрямую CSS свойства
+	для первого абзаца нашего React компонента
+	<code data-gs="comd/c" data-x>App</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p style = {{
+	color: 'orangered',
+	fontWeight: 'bold' }}&gt;
+	text
+&lt;/p&gt;</code>
+</div>
+<p>
+	Подобным образом добавим стили 
+	для остальных тегов.
+</p>
+<p>
+	В результате, код компонента будет
+	выглядеть следующим образом:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	return (
+		&lt;div style = {{
+			width: '200px',
+			border: '2px solid brown',
+			padding: '10px',
+			textAlign: 'center' }}&gt;
+			&lt;p style={{
+				color: 'orangered',
+				fontWeight: 'bold' }}&gt;
+				text
+			&lt;/p&gt;
+			&lt;p style = {{
+				fontStyle: 'brown',
+				color: 'brown' }}&gt;
+				text
+			&lt;/p&gt;
+			&lt;p style = {{
+				backgroundColor: 'orange',
+				fontWeight: 'bold',
+				color: 'white' }}&gt;
+				text
+			&lt;/p&gt;
+		&lt;/div&gt;
+	);
+}</code>
+</div> 
+<div data-w="cont/task">
+	<p>
+		Возьмите React компонент, который вы 
+		делали в задаче к прошлому уроку. Добавьте
+		стили каждому тегу прямо в атрибуте
+		<code data-gs="comd/c" data-x>style</code>, как показано в этом уроке.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

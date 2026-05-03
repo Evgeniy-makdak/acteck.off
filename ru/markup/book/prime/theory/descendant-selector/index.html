@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Селектор потомков в CSS — acteck.off</title>
+  <meta name="description" content="Селектор потомков в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Селектор потомков в CSS</h1>
+    <p>
+	Пусть у нас есть список <code data-gs="comd/c" data-x>ul</code> и список
+	<code data-gs="comd/c" data-x>ol</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+&lt;/ol&gt;</code>
+</div>
+<p>
+	Давайте покрасим теги <code data-gs="comd/c" data-x>li</code> в этих списках
+	в красный цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">li {
+	color: red;
+}</code>
+</div>
+<p>
+	Пусть теперь мы хотим покрасить теги <code data-gs="comd/c" data-x>li</code>
+	списка <code data-gs="comd/c" data-x>ul</code> в красный цвет, а теги <code data-gs="comd/c" data-x>li</code>
+	списка <code data-gs="comd/c" data-x>ol</code> - в зеленый.
+</p>
+<p>
+	В этом случае нам поможет селектор <dfn data-gs="comd/d" data-x>потомков</dfn>.
+	Он позволяет выбирать теги по их родителю.
+	Для этого нужно указать селектор родителя,
+	а через пробел - селектор потомка. В нашем
+	случае селектор <code data-gs="comd/z" data-x>ul li</code> выберет все
+	теги <code data-gs="comd/c" data-x>li</code> из списка <code data-gs="comd/c" data-x>ul</code>, а селектор
+	<code data-gs="comd/z" data-x>ol li</code> - выберет все теги <code data-gs="comd/c" data-x>li</code>
+	из списка <code data-gs="comd/c" data-x>ol</code>. Покрасим их
+	в нужные цвета:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ul li {
+	color: red;
+}
+ol li {
+	color: green;
+}</code>
+</div>
+<p>
+	Селектор потомков не обязательно должен состоять
+	из двух селекторов тегов - их может быть
+	любое количество, записанное через пробел.
+	В следующем коде, например, выбираются все
+	теги <code data-gs="comd/c" data-x>i</code>, находящиеся внутри тега <code data-gs="comd/c" data-x>li</code>,
+	которые в свою очередь находятся внутри тега
+	<code data-gs="comd/c" data-x>ul</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ul li i {
+	color: red;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;text &lt;i&gt;italic&lt;/i&gt;&lt;/li&gt;
+	&lt;li&gt;text &lt;i&gt;italic&lt;/i&gt;&lt;/li&gt;
+	&lt;li&gt;text &lt;i&gt;italic&lt;/i&gt;&lt;/li&gt;
+	&lt;li&gt;text &lt;i&gt;italic&lt;/i&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+	paragraph text &lt;i&gt;italic&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	paragraph text &lt;i&gt;italic&lt;/i&gt;
+&lt;/p&gt;</code>
+	</div>
+	<p>
+		Покрасьте в красный цвет курсив из тегов
+		<code data-gs="comd/c" data-x>ul</code>, а в зеленый цвет - курсив из тегов
+		<code data-gs="comd/c" data-x>p</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	paragraph text &lt;b&gt;&lt;i&gt;bold italic&lt;/i&gt;&lt;/b&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	paragraph text &lt;i&gt;italic&lt;/i&gt;
+&lt;/p&gt;</code>
+	</div>
+	<p>
+		Покрасьте в красный цвет курсив, находящийся
+		внутри тега <code data-gs="comd/c" data-x>b</code>, который в свою очередь
+		находится внутри тега <code data-gs="comd/c" data-x>p</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

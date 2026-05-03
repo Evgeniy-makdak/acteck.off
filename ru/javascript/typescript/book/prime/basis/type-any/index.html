@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тип any в TypeScript — acteck.off</title>
+  <meta name="description" content="Тип any в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/typescript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Тип any в TypeScript</h1>
+    <p>
+	Иногда нам может понадобиться описать тип
+	переменных, который может быть нам не
+	известен на момент, когда мы пишем приложение. 
+</p>
+<p>
+	Для этого используется тип <code data-gs="comd/c" data-x>any</code>,
+	позволяющий пройти проверку значений на
+	этапе компиляции. Давайте посмотрим на
+	примере. Зададим переменной значение типа
+	<code data-gs="comd/c" data-x>any</code>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test: any;</code>
+</div>
+<p>
+	Запишем в эту переменную число: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">test = 123;</code>
+</div>
+<p>
+	А теперь запишем в эту переменную строку: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">test = 'abc';</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test1: number = 123;
+let test2: string = 'abc';
+let test3: any;
+
+test3 = test1;
+console.log(test3);
+
+test3 = test2;
+console.log(test3);</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

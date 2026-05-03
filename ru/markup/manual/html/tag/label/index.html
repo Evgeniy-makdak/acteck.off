@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тег label — acteck.off</title>
+  <meta name="description" content="Тег label — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Тег label</h1>
+    <p>
+	Тег <code data-gs="comd/c" data-x>label</code> задает метку для поля ввода
+	типа <a href="../input/index.html"><code data-gs="comd/c" data-x>input</code></a>,
+	<a href="../textarea/index.html"><code data-gs="comd/c" data-x>textarea</code></a>,
+	<a href="../select/index.html"><code data-gs="comd/c" data-x>select</code></a>
+	и так далее.
+</p>
+<p>
+	Метка привязывается к определенному полю
+	ввода с помощью атрибута <code data-gs="comd/c" data-x>for</code>. В нем
+	следует указывать значение атрибута <a href="../../attr/id/index.html"><code data-gs="comd/c" data-x>id</code></a>
+	поля ввода, к которому привязана метка. Также
+	метка привязывается к элементу, если этот
+	элемент положить вовнутрь тега <code data-gs="comd/c" data-x>label</code>. В этом
+	случае атрибут <code data-gs="comd/c" data-x>for</code> указывать не надо. Смотрите
+	примеры для лучшего понимания.
+</p>
+<p>
+	По нажатию на метку привязанные к ней <a
+	href="../input/checkbox/index.html">чекбоксы</a>
+	или <a href="../input/radio/index.html">радио
+	кнопочки</a> будут менять свое состояние
+	с отмеченного на неотмеченное и наоборот.
+	Метка в данном случае нужна для удобства:
+	в мелкие элементы формы тяжело попасть курсором,
+	а в длинную метку с текстом - на порядок легче.
+</p>
+<p>
+	Привязанное к метке текстовое поле ввода
+	типа <a href="../input/index.html"><code data-gs="comd/c" data-x>input</code></a>
+	и <a href="../textarea/index.html"><code data-gs="comd/c" data-x>textarea</code></a>
+	будет получать фокус ввода. Фокус
+	- это когда курсор моргает в поле ввода,
+	в этом случае, если вы что-то будете писать
+	на клавиатуре - текст попадет в это поле
+	(см. псевдокласс <a href="../../../css/pseudoclass/focus/index.html"><code data-gs="comd/c" data-x>focus</code></a>
+	для продвинутого понимания фокуса).
+</p>
+<p>
+	Метку <code data-gs="comd/c" data-x>label</code> можно использовать для
+	имитации <a href="../input/checkbox/index.html">чекбокса</a>
+	или <a href="../input/radio/index.html">радио
+	кнопочки</a>. Это нужно для того, чтобы сделать
+	checkbox или radio со своим дизайном (что
+	на CSS запрещено, но с помощью хитрых приемов
+	возможно).
+</p>
+
+<h2>Атрибуты</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Атрибут</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>for</code></th>
+		<td>
+			В данном атрибуте следует указывать значение <a href="../../attr/id/index.html">атрибута id</a>
+			того поля ввода, к которому привязана метка <code data-gs="comd/c" data-x>label</code>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>accesskey</code></th>
+		<td>
+			Задает горячую клавишу, с помощью которой можно перейти к привязаному к метке
+			(через атрибут <code data-gs="comd/c" data-x>for</code>) элементу формы.
+			Подробнее см. атрибут <a href="../../attr/accesskey/index.html"><code data-gs="comd/c" data-x>accesskey</code></a>.
+		</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span>. Чекбокс</h2>
+<p>
+	Давайте к флажку <a href="../input/checkbox/index.html"><code data-gs="comd/c" data-x>checkbox</code></a>
+	привяжем метку с помощью атрибута <code data-gs="comd/c" data-x>for</code>.
+	Понажимайте на метку и вы увидите смену состояния
+	флажка с отмеченного на неотмеченное и наоборот:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="checkbox" id="checkbox"&gt;
+&lt;label for="checkbox"&gt;Я привязан к чекбоксу с id checkbox.&lt;/label&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type=&quot;checkbox&quot; id=&quot;checkbox&quot;>
+		<label for=&quot;checkbox&quot;>Я привязан к чекбоксу с id checkbox.</label>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Внутри label</h2>
+<p>
+	А теперь давайте не будем привязывать метку
+	через атрибут <code data-gs="comd/c" data-x>for</code>, а вложим элементы прямо
+	в тег <code data-gs="comd/c" data-x>label</code>, в этом случае нажимая на текст
+	<code data-gs="comd/c" data-x>label</code> также будем приводить к активации элемент:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;label&gt;&lt;input type="checkbox"&gt; метка&lt;/label&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<label><input type=&quot;checkbox&quot;> метка</label>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Текстовое поле ввода</h2>
+<p>
+	Давайте тегу <a href="../input/index.html"><code data-gs="comd/c" data-x>input</code></a>
+	привяжем метку с помощью атрибута <code data-gs="comd/c" data-x>for</code>.
+	Нажатие на метку будет приводить к получению
+	фокуса полем ввода. При этом содержащийся
+	в поле текст (добавим с помощью атрибута
+	<a href="../../attr/value/index.html"><code data-gs="comd/c" data-x>value</code></a>)
+	станет выделенным. Если начать писать что-либо
+	на клавиатуре - этот текст затрется. Избавится
+	от выделения, не удалив при этом текст, можно
+	кликнув мышкой по полю ввода: фокус
+	при этом не исчезнет, а выделение пропадет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="text" id="input1" value="какой-то текст"&gt;
+&lt;label for="input1"&gt;Я привязан к инпуту с id input1.&lt;/label&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type=&quot;text&quot; id=&quot;input1&quot; value=&quot;какой-то текст&quot;>
+		<label for=&quot;input1&quot;>Я привязан к инпуту с id input1.</label>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			тег <a href="../legend/index.html"><code data-gs="comd/c" data-x>legend</code></a>, <br>
+			который задает подпись над группировкой полей
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

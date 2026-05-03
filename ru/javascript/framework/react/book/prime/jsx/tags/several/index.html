@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Особенности хранения нескольких тегов в константах JSX — acteck.off</title>
+  <meta name="description" content="Особенности хранения нескольких тегов в константах JSX — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Особенности хранения нескольких тегов в константах JSX</h1>
+    <p>
+	Необходимо учитывать, что несколько тегов, хранящихся в
+	константе, обязательно нужно обернуть в какой-то
+	общий тег. To есть вот так код не будет работать:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const str = &lt;p&gt;text1&lt;/p&gt;&lt;p&gt;text2&lt;/p&gt;;
+	
+	return &lt;main&gt;
+		{str}
+	&lt;/main&gt;;
+}</code>
+</div>
+<p>
+	А вот так будет, так как абзацы обернуты
+	в один тег <code data-gs="comd/c" data-x>div</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const str = &lt;div&gt;&lt;p&gt;text1&lt;/p&gt;&lt;p&gt;text2&lt;/p&gt;&lt;/div&gt;;
+	
+	return &lt;main&gt;
+		{str}
+	&lt;/main&gt;;
+}</code>
+</div>
+<p>
+	Можно также использовать пустые теги:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const str = &lt;&gt;&lt;p&gt;text1&lt;/p&gt;&lt;p&gt;text2&lt;/p&gt;&lt;/&gt;;
+	
+	return &lt;main&gt;
+		{str}
+	&lt;/main&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const li1 = &lt;li&gt;text1&lt;/li&gt;;
+	const li2 = &lt;li&gt;text2&lt;/li&gt;;
+	const li3 = &lt;li&gt;text3&lt;/li&gt;;
+}</code>
+	</div>
+	<p>
+		Сделайте так, чтобы результатом рендеринга
+		было следующее:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;text1&lt;/li&gt;
+	&lt;li&gt;text2&lt;/li&gt;
+	&lt;li&gt;text3&lt;/li&gt;
+&lt;/ul&gt;</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Задание цвета через rgb в CSS — acteck.off</title>
+  <meta name="description" content="Задание цвета через rgb в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Задание цвета через rgb в CSS</h1>
+    <p>
+	В самом начале учебника, когда мы изучали
+	цвета, я рассказал вам, что цвет можно задавать
+	либо английским словом, либо через <code data-gs="comd/c" data-x>rgb</code>,
+	либо через <code data-gs="comd/c" data-x>#</code>. Последние два формата
+	позволяют получить цвет любого оттенка. Давайте
+	разберемся, как именно работают эти форматы.
+</p>
+<p>
+	Чтобы понять эти способы, для начала нам
+	необходимо разобраться с тем, как получается
+	нужный цвет на экране компьютера.
+</p>
+<p>
+	На самом деле отдельная точка экрана (<dfn data-gs="comd/d" data-x>пиксель</dfn>)
+	не может светиться всеми цветами, которые
+	нужны, так как это технически было бы очень
+	сложно. Каждая точка экрана может светиться
+	только тремя цветами: красным, зеленым и
+	голубым. Зато одновременно и в
+	разных пропорциях.
+</p>
+<p>
+	Комбинируя эти цвета мы можем получить любой
+	нужный нам цвет подобно тому, как это делают
+	художники с красками: смешивая несколько
+	цветов они получают еще один новый.
+</p>
+<p>
+	Для смешения цветов в CSS нужно значением
+	свойства указать ключевое слово <code data-gs="comd/c" data-x>rgb</code>,
+	после которого перечислить через запятую
+	задающее в каких пропорциях нужно брать эти
+	три базовых цвета. Сами цвета могут изменяться
+	от <code data-gs="comd/n" data-x>0</code> до <code data-gs="comd/n" data-x>255</code>. Причем ноль -
+	это отсутствие цвета, а <code data-gs="comd/n" data-x>255</code> - это
+	чистый цвет (к примеру,
+	чисто красный).
+</p>
+<p>
+	Сами буквы <code data-gs="comd/c" data-x>rgb</code> расшифровываются как
+	<code data-gs="comd/v" data-x>red</code>, <code data-gs="comd/v" data-x>green</code>, <code data-gs="comd/v" data-x>blue</code>.
+</p>
+<p>
+	Посмотрим на примерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте смешаем чисто красный и чисто голубой
+	цвет. Для этого первое значение ставим в
+	<code data-gs="comd/n" data-x>255</code>, второе в <code data-gs="comd/n" data-x>0</code>, а третье -
+	в <code data-gs="comd/n" data-x>255</code>. У нас получится
+	фиолетовый цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	текст
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: rgb(255, 0, 255);
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			color: rgb(255, 0, 255);
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			текст
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте теперь установим первое значение
+	в <code data-gs="comd/n" data-x>255</code>, а все остальные - в нули. В
+	результате получим чисто красный цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	текст
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: rgb(255, 0, 0);
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			color: rgb(255, 0, 0);
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			текст
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Вот так получим чисто зеленый цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	текст
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: rgb(0, 255, 0);
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			color: rgb(0, 255, 0);
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			текст
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А если для зеленого поставить не <code data-gs="comd/n" data-x>255</code>,
+	а <code data-gs="comd/n" data-x>100</code>, то получится
+	частично зеленый:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	текст
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: rgb(0, 100, 0);
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			color: rgb(0, 100, 0);
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			текст
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Смешаем все три цвета в произвольных пропорциях.
+	Смотрите, что получилось:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	текст
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: rgb(200, 100, 125);
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			color: rgb(200, 100, 125);
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p>
+			текст
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Если поставить все значения в <code data-gs="comd/n" data-x>255</code>,
+	то получится чистый белый цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: rgb(255, 255, 255);
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Если поставить все значения в <code data-gs="comd/n" data-x>0</code>, то
+	получится чистый черный цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: rgb(0, 0, 0);
+}</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Задав цвет через <code data-gs="comd/c" data-x>rgb</code> сделайте все
+		абзацы красного цвета.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Задав цвет через <code data-gs="comd/c" data-x>rgb</code> сделайте все
+		<code data-gs="comd/c" data-x>h2</code> зеленого цвета.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Задав цвет через <code data-gs="comd/c" data-x>rgb</code> сделайте все
+		<code data-gs="comd/c" data-x>h3</code> голубого цвета.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Смешайте чистый красный и чистый зеленый.
+		Какой цвет получится?
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Атрибут rowspan — acteck.off</title>
+  <meta name="description" content="Атрибут rowspan — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Атрибут rowspan</h1>
+    <p>
+	Атрибут <code data-gs="comd/c" data-x>rowspan</code> управляет объединением
+	<a href="../../tag/tr/index.html">рядов</a>
+	в HTML <a href="../../tag/table/index.html">таблице</a>.
+	Применяется к тегам <a href="../../tag/th/index.html"><code data-gs="comd/c" data-x>th</code></a>
+	и <a href="../../tag/td/index.html"><code data-gs="comd/c" data-x>td</code></a>.
+</p>
+<p>
+	Принимаемое значение: целое число начиная
+	с <code data-gs="comd/n" data-x>1</code>.
+</p>
+<p>
+	Как пользоваться: добавляем данный атрибут
+	к любой ячейке <code data-gs="comd/c" data-x>td</code> или <code data-gs="comd/c" data-x>th</code>. Если,
+	к примеру, задать <code data-gs="comd/c" data-x>rowspan</code> в значение
+	<code data-gs="comd/n" data-x>2</code> - то ячейка, которой это задали, займет
+	два ряда по высоте таблицы. При этом ячейки
+	из ряда ниже никуда не денутся, наша расширившаяся
+	ячейка их вытеснит и таблица развалится.
+	Чтобы этого не произошло, нужно удалить одну
+	из ячеек из ряда ниже. Смотрите примеры для
+	лучшего понимания.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Таблица без объединений</h2>
+<p>
+	Давайте посмотрим таблицу без объединений,
+	с которой мы будем работать дальше:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell1&lt;/td&gt;
+		&lt;td&gt;cell2&lt;/td&gt;
+		&lt;td&gt;cell3&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell4&lt;/td&gt;
+		&lt;td&gt;cell5&lt;/td&gt;
+		&lt;td&gt;cell6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell7&lt;/td&gt;
+		&lt;td&gt;cell8&lt;/td&gt;
+		&lt;td&gt;cell9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table, td, th {
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table, td, th {
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td>cell1</td>
+				<td>cell2</td>
+				<td>cell3</td>
+			</tr>
+			<tr>
+				<td>cell4</td>
+				<td>cell5</td>
+				<td>cell6</td>
+			</tr>
+			<tr>
+				<td>cell7</td>
+				<td>cell8</td>
+				<td>cell9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Расширим ячейку на два ряда</h2>
+<p>
+	А теперь давайте расширим ячейку <code data-gs="comd/n" data-x>1</code> на два
+	ряда, задав ей атрибут <code data-gs="comd/c" data-x>rowspan</code> в значении
+	<code data-gs="comd/n" data-x>2</code>. Мы увидим, что она вытесняет ячейки
+	из ряда под ней и таблица разваливается:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td rowspan="2"&gt;cell1&lt;/td&gt;
+		&lt;td&gt;cell2&lt;/td&gt;
+		&lt;td&gt;cell3&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell4&lt;/td&gt;
+		&lt;td&gt;cell5&lt;/td&gt;
+		&lt;td&gt;cell6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell7&lt;/td&gt;
+		&lt;td&gt;cell8&lt;/td&gt;
+		&lt;td&gt;cell9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table, td, th {
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table, td, th {
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td rowspan=&quot;2&quot;>cell1</td>
+				<td>cell2</td>
+				<td>cell3</td>
+			</tr>
+			<tr>
+				<td>cell4</td>
+				<td>cell5</td>
+				<td>cell6</td>
+			</tr>
+			<tr>
+				<td>cell7</td>
+				<td>cell8</td>
+				<td>cell9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Расширим ячейку без разваливания таблицы</h2>
+<p>
+	Чтобы поправить проблему с разваливанием
+	таблицы из предыдущего примера, давайте попробуем
+	удалить одну из ячеек из второго ряда (и
+	это не обязательно ячейку <code data-gs="comd/n" data-x>4</code>, которая
+	находится непосредственно под нашей ячейкой <code data-gs="comd/n" data-x>1</code>,
+	можно удалять любую, мы удалим ячейку с номером
+	<code data-gs="comd/n" data-x>5</code>):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td rowspan="2"&gt;cell1&lt;/td&gt;
+		&lt;td&gt;cell2&lt;/td&gt;
+		&lt;td&gt;cell3&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell4&lt;/td&gt;
+		&lt;td&gt;cell6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell7&lt;/td&gt;
+		&lt;td&gt;cell8&lt;/td&gt;
+		&lt;td&gt;cell9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table, td, th {
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table, td, th {
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td rowspan=&quot;2&quot;>cell1</td>
+				<td>cell2</td>
+				<td>cell3</td>
+			</tr>
+			<tr>
+				<td>cell4</td>
+				<td>cell6</td>
+			</tr>
+			<tr>
+				<td>cell7</td>
+				<td>cell8</td>
+				<td>cell9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Расширим ячейку на <code data-gs="comd/n" data-x>3</code> ряда</h2>
+<p>
+	А здесь давайте расширим нашу ячейку не на
+	два ряда, а на <code data-gs="comd/n" data-x>3</code>, зададим ей <code data-gs="comd/c" data-x>rowspan</code>
+	в значении <code data-gs="comd/n" data-x>3</code>. При этом удалим одну
+	из ячеек из третьего ряда (ячейку <code data-gs="comd/n" data-x>7</code>,
+	<code data-gs="comd/n" data-x>8</code> или <code data-gs="comd/n" data-x>9</code> - без разницы), чтобы таблица
+	не развалилась:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td rowspan="3"&gt;cell1&lt;/td&gt;
+		&lt;td&gt;cell2&lt;/td&gt;
+		&lt;td&gt;cell3&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell4&lt;/td&gt;
+		&lt;td&gt;cell6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell7&lt;/td&gt;
+		&lt;td&gt;cell9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;	 </code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table, td, th {
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table, td, th {
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td rowspan=&quot;3&quot;>cell1</td>
+				<td>cell2</td>
+				<td>cell3</td>
+			</tr>
+			<tr>
+				<td>cell4</td>
+				<td>cell6</td>
+			</tr>
+			<tr>
+				<td>cell7</td>
+				<td>cell9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Расширим еще на <code data-gs="comd/n" data-x>2</code> столбца</h2>
+<p>
+	Давайте расширим еще и ячейку <code data-gs="comd/n" data-x>2</code> на <code data-gs="comd/n" data-x>2</code>
+	столбца в дополнение к первой ячейке. Для
+	этого ячейке <code data-gs="comd/n" data-x>2</code> добавляем <code data-gs="comd/c" data-x>colspan</code> в
+	значении <code data-gs="comd/n" data-x>2</code>. При этом удалим ячейку <code data-gs="comd/n" data-x>3</code>,
+	чтобы таблица не развалилась:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td rowspan="3"&gt;cell1&lt;/td&gt;
+		&lt;td colspan="2"&gt;cell2&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell4&lt;/td&gt;
+		&lt;td&gt;cell6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell7&lt;/td&gt;
+		&lt;td&gt;cell9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table, td, th {
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table, td, th {
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td rowspan=&quot;3&quot;>cell1</td>
+				<td colspan=&quot;2&quot;>cell2</td>
+			</tr>
+			<tr>
+				<td>cell4</td>
+				<td>cell6</td>
+			</tr>
+			<tr>
+				<td>cell7</td>
+				<td>cell9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			атрибут <a href="../colspan/index.html"><code data-gs="comd/c" data-x>colspan</code></a>, <br>
+			который объединяет столбцы таблицы
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

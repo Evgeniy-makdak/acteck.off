@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Создание объекта с данными продавца в Redux — acteck.off</title>
+  <meta name="description" content="Создание объекта с данными продавца в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Создание объекта с данными продавца в Redux</h1>
+    <p>
+	В прошлом уроке мы создали модели данных
+	для нашей базы. На этом уроке мы напишем
+	эдакие функции-генераторы, с помощью которых
+	можно будет формировать объекты данных с уже
+	конкретными значениями.
+</p>
+<p>
+	Давайте откроем наше приложение с продуктами,
+	а в нем файл <code data-gs="comd/p" data-x>server.js</code>. Для начала займемся
+	созданием заготовки объекта для данных
+	продавца. Первое, что мы сделаем, это
+	соберем названия наших продавцов, а их
+	у нас было <code data-gs="comd/n" data-x>4</code> штуки, в массив сразу после
+	строчек с импортом:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const selNames = ['Super Power', 'Miracle Life', 'Dolls&Toys', 'Granny']</code>
+</div>
+<p>
+	И ниже после создания модели базы данных
+	<code data-gs="comd/c" data-x>db</code> напишем функцию, с помощью которой мы
+	будем создавать объекты с данными
+	продавцов <code data-gs="comd/c" data-x>createSellerData</code>:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const createSellerData = () =&gt; {}</code>
+</div>
+<p>
+	Наша функция в качестве параметра будет
+	принимать номер названия продавца в массиве
+	<code data-gs="comd/c" data-x>selNames</code>, по нему мы будем находить нужное
+	название и возвращать объект со свойством
+	<code data-gs="comd/c" data-x>name</code> и соответствующим названием в качестве
+	значения:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const createSellerData = (num) =&gt; {
+	const name = selNames[num]
+
+	return {
+		name: `${name}`,
+	}
+}</code>
+</div>
+<p>
+	Давайте ниже после этого напишем стандартную
+	функцию для получения случайного целого числа,
+	она нам еще пригодится:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function getRandInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Ознакомившись с материалом этого урока,
+		напишите функцию для создания объекта
+		с данными преподавателя. Помните, что
+		у вас есть для него еще одно свойство -
+		предмет. Подсказка: если хотите, то можете
+		значение для этого свойства выбирать
+		случайным образом, например из массива.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

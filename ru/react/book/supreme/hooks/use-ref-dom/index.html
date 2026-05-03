@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Применение хука useRef для DOM в React — acteck.off</title>
+  <meta name="description" content="Применение хука useRef для DOM в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Применение хука useRef для DOM в React</h1>
+    <p>
+	На одном из предыдущих занятий мы упоминали,
+	что наиболее часто рефы применяются для
+	доступа к DOM элементам.
+</p>
+<p>
+	Рефы придут на помощь тогда, когда вам,
+	например, нужно сфокусироваться на элементе,
+	сделать скрол или вычислить его размеры
+	и позицию, а возможно воспользоваться
+	какими-то его методами или свойствами,
+	ведь для таких вещей в React нет встроенных
+	методов.
+</p>
+<p>
+	Давайте посмотрим на примере с инпутом,
+	как это делается. Создадим компонент с
+	инпутом и кнопкой:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
+	&lt;div&gt;
+		&lt;input /&gt;
+		&lt;button&gt;focus&lt;/button&gt;
+	&lt;/div&gt;
+);</code>
+</div>
+<p>
+	Для начала, импортируем в компонент
+	<code data-gs="comd/c" data-x>useRef</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useRef } from 'react';</code>
+</div>
+<p>
+	И заведем реф <code data-gs="comd/c" data-x>ref</code> в компоненте.
+	Инициализируем его значением <code data-gs="comd/n" data-x>null</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const ref = useRef(null);</code>
+</div>
+<p>
+	Навесим на кнопочку обработчик
+	клика:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;button onClick={handleClick}&gt;focus&lt;/button&gt;</code>
+</div>
+<p>
+	Чтобы иметь доступ к инпуту, запишем наш
+	реф <code data-gs="comd/c" data-x>ref</code> в атрибут <code data-gs="comd/c" data-x>ref</code> инпута.
+	Таким образом, когда React будет создавать
+	DOM узел для этого инпута, он положит ссылку
+	на него в <code data-gs="comd/c" data-x>ref.current</code> и мы сможем
+	пользоваться методами инпута:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;input ref={ref} /&gt;</code>
+</div>
+<p>
+	И наконец, добавим функцию обработки клика,
+	чтобы при клике на кнопку, на инпут
+	наводился фокус. Теперь мы можем это
+	сделать через реф, в котором лежит
+	ссылка на наш инпут, обратившись к его
+	методу <code data-gs="comd/c" data-x>focus</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function handleClick() {
+	ref.current.focus();
+}</code>
+</div>
+<p>
+	Понажимайте кнопочку и убедитесь,
+	что на инпут наводится фокус.
+</p>
+<div data-w="cont/task">
+	<p>
+		Возьмите код компонента <code data-gs="comd/c" data-x>App</code>,
+		который мы написали на этом уроке и
+		сделайте так, чтобы по клику на кнопку
+		в инпуте кроме наведения фокуса
+		происходило еще и очищение поля ввода.
+		Воспользуйтесь для этого свойством
+		<code data-gs="comd/c" data-x>value</code> инпута.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

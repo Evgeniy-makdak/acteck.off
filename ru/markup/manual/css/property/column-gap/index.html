@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство column-gap — acteck.off</title>
+  <meta name="description" content="Свойство column-gap — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство column-gap</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>column-gap</code> задает расстояние
+	между колонками в многоколоночном тексте,
+	а также расстояние между столбцами в гриде.
+	Значением свойства служат любые <a href="../../reference/units/sizes/index.html">единицы
+	для размеров</a> либо ключевое слово <code data-gs="comd/v" data-x>normal</code>
+	(по умолчанию), при котором браузер
+	сам подбирает оптимальное расстояние между
+	колонками.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	column-gap: значение;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В данном примере указано количество колонок
+	<a href="../column-count/index.html"><code data-gs="comd/c" data-x>column-count</code></a>
+	(<code data-gs="comd/n" data-x>3</code> штуки) и промежуток между ними <code data-gs="comd/c" data-x>column-gap</code>
+	в <code data-gs="comd/u" data-x>50px</code>. А ширина колонок автоматически
+	подберется так, чтобы удовлетворить этим
+	условиям (количеству колонок и расстоянию
+	между ними):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	some long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	column-count: 3;
+	column-gap: 50px;
+	text-align: justify;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			column-count: 3;
+			column-gap: 50px;
+			text-align: justify;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение normal</h2>
+<p>
+	В данном примере указана ширина колонки <a href="../column-width/index.html"><code data-gs="comd/c" data-x>column-width</code></a>
+	в <code data-gs="comd/u" data-x>150px</code>, их количество <a href="../column-count/index.html"><code data-gs="comd/c" data-x>column-count</code></a>
+	стоит в значении <code data-gs="comd/v" data-x>auto</code>, а промежуток
+	<code data-gs="comd/c" data-x>column-gap</code> между ними - в значении
+	<code data-gs="comd/v" data-x>normal</code>. Таким образом, браузер сам
+	подберет необходимое количество колонок и
+	промежуток между ними (но их ширина будет
+	<code data-gs="comd/u" data-x>150px</code>):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	some long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	column-gap: normal;
+	column-count: auto;
+	column-width: 150px;
+	text-align: justify;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			column-gap: normal;
+			column-count: auto;
+			column-width: 150px;
+			text-align: justify;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте зададим расстояние между
+	столбцами в гриде:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	column-gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem1 {
+	grid-column: 1 / 2;
+}
+#elem2 {
+	grid-column: 2 / 3;
+}
+#elem3 {
+	grid-column: 3 / 4;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			column-gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			grid-column: 1 / 2;
+		}
+		#elem2 {
+			grid-column: 2 / 3;
+		}
+		#elem3 {
+			grid-column: 3 / 4;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте зададим расстояние между
+	столбцами в <code data-gs="comd/s" data-x>%</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	column-gap: 5%;
+	padding: 10px;
+	border: 2px solid #696989;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem1 {
+	grid-column: 1 / 2;
+}
+#elem2 {
+	grid-column: 2 / 3;
+}
+#elem3 {
+	grid-column: 3 / 4;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			column-gap: 5%;
+			padding: 10px;
+			border: 2px solid #696989;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			grid-column: 1 / 2;
+		}
+		#elem2 {
+			grid-column: 2 / 3;
+		}
+		#elem3 {
+			grid-column: 3 / 4;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../column-width/index.html"><code data-gs="comd/c" data-x>column-width</code></a>, <br>
+			которое задает ширину колонки
+		</li>
+		<li>
+			свойство <a href="../column-count/index.html"><code data-gs="comd/c" data-x>column-count</code></a>, <br>
+			которое задает количество колонок
+		</li>
+		<li>
+			свойство <a href="../gap/index.html"><code data-gs="comd/c" data-x>gap</code></a>, <br>
+			которое задает расстояние между элементами в гриде
+		</li>
+		<li>
+			свойство <a href="../row-gap/index.html"><code data-gs="comd/c" data-x>row-gap</code></a>, <br>
+			которое задает расстояние между рядами в гриде
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

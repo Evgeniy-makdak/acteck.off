@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство box-shadow — acteck.off</title>
+  <meta name="description" content="Свойство box-shadow — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство box-shadow</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>box-shadow</code> задает тень блоку.
+	В качестве значения свойство принимает <code data-gs="comd/n" data-x>6</code>
+	параметров, перечисляемые через пробел, либо
+	ключевое слово <code data-gs="comd/v" data-x>none</code>, отменяющее тень
+	совсем.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	box-shadow: inset сдвиг_по_x сдвиг_по_y размытие размер_тени цвет;
+}</code>
+</div>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	box-shadow: none;
+}</code>
+</div>
+
+<h2>Параметры</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Параметр</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>inset</code></th>
+		<td>
+			<b>Необязательный параметр</b>. <br>
+			Если он задан, то тень будет внутри контейнера, если не задан - то снаружи.
+		</td>
+	</tr>
+	<tr>
+		<th>сдвиг по x</th>
+		<td>
+			Задает смещение тени по оси X.
+			<br>
+			Положительное значение смещает вправо, отрицательное - влево.
+		</td>
+	</tr>
+	<tr>
+		<th>сдвиг по y</th>
+		<td>
+			Задает смещение тени по оси Y.
+			<br>
+			Положительное значение смещает вниз, отрицательное - вверх.
+		</td>
+	</tr>
+	<tr>
+		<th>размытие</th>
+		<td>
+			Задает размытие тени.
+			<br>
+			Чем больше значение - тем более размытой будет тень.
+			<hr>
+			<b>Необязательный параметр</b>. Если не задан - тень будет четкой.
+		</td>
+	</tr>
+	<tr>
+		<th>размер тени</th>
+		<td>
+			Задает размер тени. <br>
+			Положительное значение растягивает тень, отрицательное, 
+			наоборот, ее сжимает.
+			<hr>
+			<b>Необязательный параметр</b>. Если не задан - тень будет такого 
+			же размера, что и элемент.
+		</td>
+	</tr>
+	<tr>
+		<th>цвет</th>
+		<td>
+			Задает цвет тени в любых <a href="../../reference/units/colors/index.html">единицах для цвета</a>.
+			<hr>
+			<b>Необязательный параметр</b>. Если не задан - цвет тени совпадает с цветом текста.
+		</td>
+	</tr>
+</table>
+<p>
+	Смещения по осям, размытие и размер тени
+	задаются в любых <a href="../../reference/units/sizes/index.html">единицах
+	для размеров</a>, кроме процентов.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В данном примере тень сдвинута вниз и вправо
+	и добавлено небольшое размытие:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	box-shadow: 5px 5px 3px black;
+	border: 1px solid black;
+	width: 300px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			box-shadow: 5px 5px 3px black;
+			border: 1px solid black;
+			width: 300px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Четкая тень</h2>
+<p>
+	В данном примере тень сдвинута вниз и вправо,
+	но размытия нет (тень будет четкой):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	box-shadow: 2px 2px black;
+	border: 1px solid black;
+	width: 300px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			box-shadow: 2px 2px black;
+			border: 1px solid black;
+			width: 300px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Равномерная тень</h2>
+<p>
+	В данном примере тень не сдвинута, но к ней
+	добавлено размытие:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	box-shadow: 0px 0px 3px black;
+	border: 1px solid black;
+	width: 300px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			box-shadow: 0px 0px 3px black;
+			border: 1px solid black;
+			width: 300px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Размер тени</h2>
+<p>
+	В данном примере тень не сдвинута, размытие
+	равно нулю, но к ней добавлен размер (черное
+	- это граница, красное - это тень):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	box-shadow: 0 0 0 3px red;
+	border: 3px solid black;
+	width: 300px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			box-shadow: 0 0 0 3px red;
+			border: 3px solid black;
+			width: 300px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Размытие + размер тени</h2>
+<p>
+	В данном примере тень не сдвинута, но к ней
+	добавлены размытие и размер (черное - это
+	граница, красное - это тень):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	box-shadow: 0 0 3px 3px black;
+	border: 1px solid black;
+	width: 300px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			box-shadow: 0 0 3px 3px black;
+			border: 1px solid black;
+			width: 300px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Внутренняя тень</h2>
+<p>
+	В данном примере тень находится внутри контейнера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	box-shadow: inset 0 0 6px black;
+	border: 1px solid black;
+	width: 300px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			box-shadow: inset 0 0 6px black;
+			border: 1px solid black;
+			width: 300px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../text-shadow/index.html"><code data-gs="comd/c" data-x>text-shadow</code></a>, <br>
+			которое задает тень тексту
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

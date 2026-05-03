@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство background-blend-mode — acteck.off</title>
+  <meta name="description" content="Свойство background-blend-mode — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство background-blend-mode</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>background-blend-mode</code> задает
+	режим наложения фонового изображения на
+	фоновый цвет или другие изображения.
+	В данном свойстве можно также указать несколько
+	значений через запятую, которые будут
+	применяться в том же порядке.
+	Значения для свойства аналогичны основным режимам
+	графических редакторов.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	background-blend-mode: режимы;
+}</code>
+</div>
+<p>
+        В таблице представлены основные значения для
+	свойства <code data-gs="comd/c" data-x>background-blend-mode</code>:
+</p>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>normal</code></th>
+		<td>Обычный. Не используется смешивание цветов. Режим по умолчанию.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>multiply</code></th>
+		<td>
+                Умножение. В этом режиме значение основного цвета умножается
+			на значение совмещённого цвета. Результирующий
+			цвет всегда представляет собой более тёмный цвет.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>screen</code></th>
+		<td>
+                Осветление. В этом режиме перемножаются обратные
+			значения основного и совмещённого цвета.
+			В качестве результирующего цвета всегда
+			применяется более светлый цвет.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>overlay</code></th>
+		<td>
+                Перекрытие. В этом режиме цвета умножаются или осветляются
+			в зависимости от основного цвета.
+			Узоры или цвета перекрывают существующие
+			пиксели, оставляя неизменными светлые и
+			тёмные участки основного цвета.
+            </td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте посмотрим как будет выглядеть изображение
+	со значением по умолчанию свойства
+	<code data-gs="comd/c" data-x>background-blend-mode</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-blend-mode: normal;
+	background: url("bg.png") center / cover no-repeat,
+	linear-gradient(#00A8DE, #FFF) fixed;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-blend-mode: normal;
+			background: url(&quot;/cont/markup/manual/css/property/background-blend-mode/@/image/bg.png&quot;) center / cover no-repeat,
+			linear-gradient(#00A8DE, #FFF) fixed;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте поменяем значение
+	свойства <code data-gs="comd/c" data-x>background-blend-mode</code>
+	на умножение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-blend-mode: multiply;
+	background: url("bg.png") center / cover no-repeat,
+	linear-gradient(#00A8DE, #FFF) fixed;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-blend-mode: multiply;
+			background: url(&quot;/cont/markup/manual/css/property/background-blend-mode/@/image/bg.png&quot;) center / cover no-repeat,
+			linear-gradient(#00A8DE, #FFF) fixed;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте установим для нашего изображения
+	режим осветления:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-blend-mode: screen;
+	background: url("bg.png") center / cover no-repeat,
+	linear-gradient(#00A8DE, #FFF) fixed;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-blend-mode: screen;
+			background: url(&quot;/cont/markup/manual/css/property/background-blend-mode/@/image/bg.png&quot;) center / cover no-repeat,
+			linear-gradient(#00A8DE, #FFF) fixed;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../background/index.html"><code data-gs="comd/c" data-x>background</code></a>, <br>
+			представляющее собой свойство-сокращение для фона
+		</li>
+		<li>
+			свойство <a href="../background-image/index.html"><code data-gs="comd/c" data-x>background-image</code></a>, <br>
+			с помощью которого блоку можно задать фоновую картинку
+		</li>
+		<li>
+			свойство <a href="../mix-blend-mode/index.html"><code data-gs="comd/c" data-x>mix-blend-mode</code></a>, <br>
+			с помощью которого можно наложить исходные цвета на фоновое изображение
+		</li>
+		<li>
+			свойство <a href="../backdrop-filter/index.html"><code data-gs="comd/c" data-x>backdrop-filter</code></a>, <br>
+			которое позволяет накладывать фильтры
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

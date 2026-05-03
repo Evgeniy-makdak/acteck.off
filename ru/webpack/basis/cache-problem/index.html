@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проблема с кешем в браузерах — acteck.off</title>
+  <meta name="description" content="Проблема с кешем в браузерах — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../ru/webpack/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../ru/webpack/index.html">Webpack</a>
+    </div>
+
+    <h1>Проблема с кешем в браузерах</h1>
+    <p>
+	Браузер <dfn data-gs="comd/d" data-x>кеширует</dfn> подключенные
+	файлы стилей CSS, скриптов JavaScript
+	и картинок. Кеширование означает, что
+	подключенные файлы браузер скачивает только
+	при первом заходе пользователя на сайт.
+	При последующих заходах эти файлы
+	уже не будут скачиваться опять,
+	а возьмутся из <dfn data-gs="comd/d" data-x>кеша</dfn> браузера.
+</p>
+<p>
+	Кеширование полезно. Оно создано для
+	повышения скорости загрузки сайта.
+	Ведь браузеру быстрее взять файл
+	из своего хранилища, чем скачивать
+	его каждый раз из интернета.
+</p>
+<p>
+	Однако, за скорость приходится платить
+	неудобством при разработке. Дело в том,
+	что если вы поменяете что-то в вашем
+	коде и затем выложите изменения
+	на хостинг - все пользователи, которые
+	уже заходили на ваш сайт будут
+	иметь старую кешированную копию кода.
+</p>
+
+<h2>Первое решение проблемы</h2>
+<p>
+	Для борьбы с таким поведением нужно каждый
+	раз переименовывать измененные файлы.
+	На практике это не удобно, поэтому
+	используется хитрый прием.
+	Его суть заключается в том,
+	что при подключении файла после имени
+	файла ставим вопрос, знак равно и номер
+	версии вашего скрипта. Такая конструкция
+	называется <dfn data-gs="comd/d" data-x>GET параметром</dfn>.
+</p>
+<p>
+	Наличие GET параметра в имени файла "не портит"
+	путь с точки зрения сервера, по-прежнему
+	указывая на тот же файл. Но с точки зрения
+	браузера изменение GET параметра заставляет
+	браузер считать путь к файлу изменившимся
+	и скачивать файл заново.
+</p>
+<p>
+	Для борьбы с кешем, когда вы вносите изменения
+	в ваш файл с кодом, вам нужно будет увеличить
+	значение GET параметра на единицу.
+	Смотрите пример применения
+	подобного подхода:
+</p>
+<div data-p="bock/pane" data-p-file="index.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;link rel="stylesheet" href="styles.css?v=1"&gt;
+		&lt;script src="script.js?v=1"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+
+<h2>Второе решение проблемы</h2>
+<p>
+	Существует и более продвинутый подход.
+	Он заключается в том, что к именам файлов
+	добавляются случайные строки, например,
+	вот так:
+</p>
+<div data-p="bock/pane" data-p-file="index.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;link rel="stylesheet" href="styles.398db7afe3b52e94bb25.css"&gt;
+		&lt;script src="script.1d12c304c284a752cb9a.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<p>
+	Эти строки называются <dfn data-gs="comd/d" data-x>хешами</dfn>.
+	Хеш представляет собой уникальную строку.
+	Она вычисляется из содержимого файла
+	специальным образом. Это значит, что
+	каждому тексту соответствует свой уникальный
+	хеш. Если текст файла был изменен,
+	то и хеш у него будет другой
+	и нам нужно будет поменять его
+	в имени файла.
+</p>
+<p>
+	Конечно, руками вычислять хеши и 
+	переименовывать файлы так себе занятие.
+	Поэтому этот подход используется
+	только в том случае, если у нас есть
+	некоторый инструмент, позволяющий
+	автоматически рассчитывать хеши и
+	переименовывать файлы, а также
+	изменять имена файлов на новые
+	в HTML файлах.
+	Все это позволяет делать Webpack.
+	Этому мы будем учиться на протяжении
+	всего учебника.
+</p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

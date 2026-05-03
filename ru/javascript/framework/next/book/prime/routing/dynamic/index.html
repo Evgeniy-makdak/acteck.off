@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Динамические роуты в NextJS — acteck.off</title>
+  <meta name="description" content="Динамические роуты в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/next/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Динамические роуты в NextJS</h1>
+    <p>
+	В NextJS можно создавать <dfn data-gs="comd/d" data-x>динамические</dfn>
+	роуты. Такие роуты предполагают,
+	что часть URL может иметь произвольное
+	значение. Для примера возьмем адрес
+	<code data-gs="comd/p" data-x>/users/1</code>, в котором вместо
+	единицы может быть любое число,
+	технически соответствующее id юзера,
+	которого мы хотим вывести.
+</p>
+<p>
+	В этом случае нам не нужно создавать
+	множество папок для каждого возможного
+	числа. Достаточно объявить эту часть
+	адреса динамической. В этом случае
+	все запросы такого вида будет
+	обрабатывать общий файл <code data-gs="comd/p" data-x>page.jsx</code>.
+</p>
+<p>
+	Для того, чтобы сделать динамический
+	параметр, нужно имя соответствующей папки
+	взять в квадратные скобки.
+	В нашем случае это будет следующая
+	структура папок:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/app/<ul><li data-s-type="D">/users/<ul><li data-s-type="D">/[id]/</li></ul></li></ul></li></ul></div></div>
+<p>
+	Давайте сделаем соответствующий компонент:
+</p>
+<div data-p="bock/pane" data-p-file="app/users/[id]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function User() {
+	return &lt;p&gt;
+		user
+	&lt;/p&gt;;
+}</code>
+</div>
+<p>
+	При этом заданный нами параметр будет
+	храниться в специальном объекте <code data-gs="comd/c" data-x>params</code>.
+	Давайте выведем значение этого параметра:
+</p>
+<div data-p="bock/pane" data-p-file="app/users/[id]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function User({ params }) {
+	return &lt;p&gt;
+		user {params.id}
+	&lt;/p&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте роут, обрабатывающий адреса
+		вида <code data-gs="comd/p" data-x>/city/:name</code>, где вместо <code data-gs="comd/p" data-x>:name</code>
+		может быть любая строка.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте роут, обрабатывающий адреса
+		вида <code data-gs="comd/p" data-x>/show/:country/:city</code>,
+		где вместо <code data-gs="comd/p" data-x>:country</code> и <code data-gs="comd/p" data-x>:city</code>
+		могут быть любые строки.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте роут, обрабатывающий адреса
+		вида <code data-gs="comd/p" data-x>/post/:id</code>, где вместо <code data-gs="comd/p" data-x>:id</code>
+		может быть любое число.
+	</p>
+	<p>
+		Пусть дан следующий массив:
+	</p>
+	<div data-p="bock/pane" data-p-file="page.jsx">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let posts = [
+	'post1',
+	'post2',
+	'post3',
+	'post4',
+	'post5',
+];
+
+export default function Post() {
+	
+}</code>
+	</div>
+	<p>
+		Сделайте так, чтобы в зависимости от
+		значения параметра <code data-gs="comd/c" data-x>id</code> в верстке
+		компонента выводился соответствующий пост.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте роут, обрабатывающий адреса
+		вида <code data-gs="comd/p" data-x>/prod/:id</code>, где вместо <code data-gs="comd/p" data-x>:id</code>
+		может быть любое число.
+	</p>
+	<p>
+		Пусть дан следующий массив:
+	</p>
+	<div data-p="bock/pane" data-p-file="page.jsx">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let prods = [
+	{
+		id: 1,
+		name: 'prod1',
+		cost: 100,
+	},
+	{
+		id: 2,
+		name: 'prod2',
+		cost: 200,
+	},
+	{
+		id: 3,
+		name: 'prod3',
+		cost: 300,
+	},
+];
+
+export default function Prod() {
+	
+}</code>
+	</div>
+	<p>
+		Сделайте так, чтобы в зависимости от
+		значения параметра <code data-gs="comd/c" data-x>id</code> в верстке
+		компонента выводился соответствующий продукт.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

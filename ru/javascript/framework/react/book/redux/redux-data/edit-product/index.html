@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Изменение данных продукта в Redux store — acteck.off</title>
+  <meta name="description" content="Изменение данных продукта в Redux store — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Изменение данных продукта в Redux store</h1>
+    <p>
+	Мы научились добавлять продукты, а что
+	если мы захотим изменить информацию
+	о продукте? Давайте рассмотрим как это
+	сделать в этом и последующих уроках. 
+</p>
+<p>
+	Откроем наше приложение с продуктами
+	и зайдем в файл <code data-gs="comd/p" data-x>productsSlice.js</code>. Начнем
+	с того, что нам нужно для слайса <code data-gs="comd/c" data-x>products</code>
+	написать еще один reducer, который
+	будет запускаться при обновлении продукта.
+	Назовем его <code data-gs="comd/c" data-x>productUpdated</code> и добавим в поле
+	<code data-gs="comd/c" data-x>reducers</code> после редьюсера <code data-gs="comd/c" data-x>productAdded</code>. Также
+	передадим ему сразу параметрами <code data-gs="comd/c" data-x>state</code> и
+	<code data-gs="comd/c" data-x>action</code>, на основе которых, как мы помним,
+	работает редьюсер:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">reducers: {
+	productAdded(state, action) {
+		state.push(action.payload)
+	},
+	productUpdated(state, action) {},
+},</code>
+</div>
+<p>
+	Теперь давайте подумаем, какие данные нам
+	понадобятся для обновления продукта. Прежде
+	всего - это <code data-gs="comd/c" data-x>id</code>, по нему мы сможем найти
+	интересующий нас продукт в store. Остальные
+	данные - название, описание, цена и количество
+	будут у нас для изменения. Все эти значения
+	мы получим из свойства <code data-gs="comd/c" data-x>payload</code> объекта action,
+	который нам придет, и, если бы мы писали
+	его руками, то он бы выглядел так, как показано
+	ниже. Заметьте, что ожидаемое значение
+	свойства <code data-gs="comd/c" data-x>payload</code> - один аргумент, поэтому мы будем
+	передавать сюда объект (об этом мы поговорим в
+	дальнейшем):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{
+	type: 'products/productUpdated',
+	payload: {id, name, desc, price, amount}
+}</code>
+</div>
+<p>
+	Выяснив основные моменты, теперь мы можем
+	написать в фигурных скобках код для
+	<code data-gs="comd/c" data-x>productUpdated</code>. Сначала получим из
+	объекта <code data-gs="comd/c" data-x>action</code> измененные данные:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">productUpdated(state, action) {
+	const { id, name, desc, price, amount } = action.payload
+},</code>
+</div>
+<p>
+	Теперь мы найдем по полученному <code data-gs="comd/c" data-x>id</code> продукт,
+	который нужно изменить:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">productUpdated(state, action) {
+	const { id, name, desc, price, amount } = action.payload
+	const desiredProduct = state.find(product =&gt; product.id === id)
+},</code>
+</div>
+<p>
+	Если такой продукт нашелся в store, то
+	мы заменим его данные новыми значениями:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">productUpdated(state, action) {
+	const { id, name, desc, price, amount } = action.payload
+	const desiredProduct = state.find(product =&gt; product.id === id)
+	if (desiredProduct) {
+		desiredProduct.name = name
+		desiredProduct.desc = desc
+		desiredProduct.price = price
+		desiredProduct.amount = amount
+	}
+},</code>
+</div>
+<p>
+	Нам остается только экспортировать action
+	creator для использования в компоненте,
+	который любезно создаст за нас <code data-gs="comd/c" data-x>createSlice</code>.
+	Давайте добавим его к экспорту в конце файла,
+	наряду с существующим <code data-gs="comd/c" data-x>productAdded</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const { productAdded, productUpdated } = productsSlice.actions</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Изучив материал урока, в файле <code data-gs="comd/p" data-x>studentsSlice.js</code>
+		допишите еще один reducer для <code data-gs="comd/c" data-x>productsSlice</code>,
+		который будет обновлять данные студента в
+		store в случае их изменения пользователем.
+		Назовите его <code data-gs="comd/c" data-x>studentUpdated</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		А как бы выглядел в этом случае ваш
+		объект action? Пришлите его код в ответе.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В конце файла экспортируйте полученный
+		action creator <code data-gs="comd/c" data-x>studentUpdated</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Создание HTTP сервера на NodeJS — acteck.off</title>
+  <meta name="description" content="Создание HTTP сервера на NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/nodejs/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Создание HTTP сервера на NodeJS</h1>
+    <p>
+	Давайте теперь развернем HTTP сервер на NodeJS
+	. Этот сервер будет принимать запросы от
+	браузера и отдавать в ответ HTML код страниц.
+</p>
+<p>
+	Для начала нам нужно импортировать модуль
+	<code data-gs="comd/c" data-x>http</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import http from 'http';</code>
+</div>
+<p>
+	После этого мы можем стартовать наш сервер
+	с помощью метода <code data-gs="comd/c" data-x>createServer</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">http.createServer();</code>
+</div>
+<p>
+	Этот метод параметром принимает коллбэк.
+	Этот коллбэк будет выполнятся каждый раз,
+	когда кто-то через браузер обращается к нашему
+	сайту:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">http.createServer(() =&gt; {
+	
+});</code>
+</div>
+<p>
+	В нашем коллбэке мы должны определить два
+	параметра. В первый параметр попадет объект
+	с данными запроса пользователя, а во второй
+	параметр - объект, с помощью которого мы
+	сфомируем наш ответ, отправляемый в браузер:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">http.createServer((request, response) =&gt; {
+	
+});</code>
+</div>
+<p>
+	С помощью метода <code data-gs="comd/c" data-x>write</code> мы можем говорить,
+	какой текст отправить в браузер:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">http.createServer((request, response) =&gt; {
+	response.write('text1');
+	response.write('text2');
+	response.write('text3');
+	response.end();
+});</code>
+</div>
+<p>
+	С помощью метода <code data-gs="comd/c" data-x>end</code> мы командуем
+	завершить наш ответ и отправить его в браузер:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">http.createServer((request, response) =&gt; {
+	response.write('text1');
+	response.write('text2');
+	response.write('text3');
+	response.end();
+});</code>
+</div>
+<p>
+	После запуска сервера мы должны сказать,
+	на каком порте наш сервер будет ожидать запросы
+	от браузера. Это делается с помощью метода
+	<code data-gs="comd/c" data-x>listen</code>. Давайте укажем традиционный
+	порт <code data-gs="comd/n" data-x>3000</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">http.createServer((request, response) =&gt; {
+	response.write('text1');
+	response.write('text2');
+	response.write('text3');
+	response.end();
+}).listen(3000);</code>
+</div>
+<p>
+	Теперь мы можем обратиться к нашему серверу
+	через браузер, набрав <a href="http://localhost:3000">http://localhost:3000</a>,
+	где после двоеточия указан заданный нами порт.
+</p>
+<div data-w="cont/task">
+	<p>
+		Разверните сервер, отправляющий в браузер
+		какой-нибудь текст.
+	</p>
+</div>
+
+<h2>Остановка сервера</h2>
+<p>
+	В предыдущих уроках наши скрипты отрабатывали
+	сразу и после этого консоль была готова к
+	вводу новых команд. С сервером это будет
+	не так, так как он представляет собой некоторый
+	исполняемый процесс.
+</p>
+<p>
+	Чтобы завершить такой процесс, вам нужно
+	в терминале нажать клавиши <code data-gs="comd/k" data-x>Ctrl + C</code>.
+	В этом случае сервер остановится и затем
+	его можно будет запустить опять.
+</p>
+<div data-w="cont/task">
+	<p>
+		Остановите запущенный сервер.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

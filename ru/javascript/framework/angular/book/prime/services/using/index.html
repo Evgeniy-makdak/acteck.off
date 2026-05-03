@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Использование сервиса в Angular — acteck.off</title>
+  <meta name="description" content="Использование сервиса в Angular — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/javascript/index.html">javascript</a>
+    </div>
+
+    <h1>Использование сервиса в Angular</h1>
+    <p>
+	В предыдущем уроке мы создали свой собственный
+	сервис <code data-gs="comd/c" data-x>DataService</code>. Давайте теперь
+	импортируем его в компонент: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { DataService } from './data.service'; // тут</code>
+</div>
+<p>
+	В декораторе <code data-gs="comd/c" data-x>@Component</code> в свойстве
+	<code data-gs="comd/c" data-x>providers</code> нужно указать наш сервис: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">@Component({
+	.....
+	providers: [ DataService ] // тут
+})</code>
+</div>
+<p>
+	Теперь мы воспользуемся специальным подходом,
+	который называется <dfn data-gs="comd/d" data-x>внедрение зависимости</dfn>
+	(<span data-gs="lang/e" data-x>dependency injection</span>). Его суть
+	заключается в том, что в конструкторе
+	компонента мы можем передать наш сервис
+	параметром и он автоматически попадет в
+	приватное свойство нашего компонента.
+	Смотрите в коде: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
+	constructor(private dataService: DataService) { // внедряем зависимость
+		console.log(this.dataService); // сервис в приватном свойстве
+	}
+}</code>
+</div>
+<p>
+	Внедрение для нашего сервиса работает, так
+	как мы ранее применили к нему декоратор
+	<code data-gs="comd/c" data-x>Injectable</code>. 
+</p>
+<p>
+	Давайте теперь в конструкторе класса
+	компонента получим данные из нашего сервиса,
+	вызвав соответствующий метод: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
+	public data: string[] = [];
+	
+	constructor(private dataService: DataService) {
+		this.data = this.dataService.getData();
+	}
+}</code>
+</div>
+<p>
+	Давайте выведем полученные данные в темплейте
+	компонента: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ol&gt;
+	&lt;li *ngFor="elem of data"&gt;
+		{{ elem }}
+	&lt;/li&gt;
+&lt;/ol&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Получите товары из вашего сервиса в
+		компоненте и выведите их в темплейте
+		компонента. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте в вашем сервисе метод для добавления
+		нового товара. В компоненте сделайте кнопку,
+		по клику на которую будет добавляться новый
+		товар. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте форму с двумя инпутами и кнопкой,
+		по нажатию на которую будет добавляться
+		новый товар. 
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

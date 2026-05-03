@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Размер флекс элемента вдоль главной оси — acteck.off</title>
+  <meta name="description" content="Размер флекс элемента вдоль главной оси — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Размер флекс элемента вдоль главной оси</h1>
+    <p>
+	Свойства <code data-gs="comd/c" data-x>width</code> и <code data-gs="comd/c" data-x>height</code> задают
+	ширину и высоту флекс элемента независимо
+	от направления осей. To есть, если ось горизонтальна,
+	то <code data-gs="comd/c" data-x>width</code> будет задавать ширину, но
+	если ось вертикальна, то <code data-gs="comd/c" data-x>width</code> по-прежнему
+	будет задавать ширину. Иногда такое поведение
+	не удобно.
+</p>
+<p>
+	Во флекс модели существует специальное свойство
+	<code data-gs="comd/c" data-x>flex-basis</code>, которое задает размер
+	элемента вдоль главной оси. Это значит, что
+	если главная ось горизонтальна - это свойство
+	будет задавать ширину элементов, а если вертикальна
+	- то высоту. Данное свойство нужно задавать
+	самим flex элементам, а не их родителю. Давайте
+	посмотрим на примерах.
+</p>
+<p>
+	Пусть сейчас главная ось горизонтальна, а
+	<code data-gs="comd/c" data-x>flex-basis</code> имеет значение <code data-gs="comd/u" data-x>50px</code>.
+	В этом случае ширина элементов
+	будет <code data-gs="comd/u" data-x>50px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;1&lt;/div&gt;
+	&lt;div class="child"&gt;2&lt;/div&gt;
+	&lt;div class="child"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-direction: row; /* ось горизонтальна */
+	width: 300px;
+	height: 300px;
+	border: 1px solid red;
+}
+.child {
+	flex-basis: 50px;   /* размер элемента */
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-direction: row; /* ось горизонтальна */
+			width: 300px;
+			height: 300px;
+			border: 1px solid red;
+		}
+		.child {
+			flex-basis: 50px;   /* размер элемента */
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Давайте теперь перевернем ось, не меняя значение
+	свойства <code data-gs="comd/c" data-x>flex-basis</code>. В этом случае
+	уже высота элементов будет <code data-gs="comd/u" data-x>50px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;1&lt;/div&gt;
+	&lt;div class="child"&gt;2&lt;/div&gt;
+	&lt;div class="child"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-direction: column; /* ось вертикальна */
+	width: 300px;
+	height: 300px;
+	border: 1px solid red;
+}
+.child {
+	flex-basis: 50px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-direction: column; /* ось вертикальна */
+			width: 300px;
+			height: 300px;
+			border: 1px solid red;
+		}
+		.child {
+			flex-basis: 50px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте <code data-gs="comd/n" data-x>5</code> флекс-блоков. Задайте им
+		ширину вдоль главной оси в <code data-gs="comd/u" data-x>100px</code>.
+		Посмотрите на поведение блоков
+		вдоль разных осей.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Если ось горизонтальна и блоку задано свойство
+		<code data-gs="comd/c" data-x>flex-basis</code> и одновременно свойство
+		<code data-gs="comd/c" data-x>width</code>, то <code data-gs="comd/c" data-x>flex-basis</code> будет
+		иметь приоритет. Проверьте это.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Если ось вертикальна и блоку задано свойство
+		<code data-gs="comd/c" data-x>flex-basis</code> и одновременно свойство
+		<code data-gs="comd/c" data-x>height</code>, то <code data-gs="comd/c" data-x>flex-basis</code> будет
+		иметь приоритет. Проверьте это.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

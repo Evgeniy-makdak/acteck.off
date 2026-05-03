@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство border-image-width — acteck.off</title>
+  <meta name="description" content="Свойство border-image-width — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство border-image-width</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>border-image-width</code> управляет
+	шириной видимой части рамки, масштабирует
+	ее. Если это значение больше ширины <a href="../border-width/index.html"><code data-gs="comd/c" data-x>border-width</code></a>,
+	картинка рамки заползет под содержимое.
+</p>
+<p>
+	Для более подробной информации смотрите свойство
+	<a href="../border-image/index.html"><code data-gs="comd/c" data-x>border-image</code></a>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	border-image-width: CSS единицы | проценты | число | auto;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th>CSS единицы</th>
+		<td>Значение в заданных <a href="../../reference/units/sizes/index.html">CSS единицах</a>.</td>
+	</tr>
+	<tr>
+		<th>Проценты</th>
+		<td>Значения в процентах относительно размера <b>блока</b>, которому задана граница.</td>
+	</tr>
+	<tr>
+		<th>Число</th>
+		<td>
+			Числовое значение, на которое умножается
+			<a href="../border-width/index.html"><code data-gs="comd/c" data-x>border-width</code></a>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>auto</code></th>
+		<td>
+			Ключевое слово. Если оно задано, значение равно соответственному 
+			<a href="../border-image-slice/index.html"><code data-gs="comd/c" data-x>border-image-slice</code></a>. 
+			Если подходящего размера нет, используется значение <code data-gs="comd/c" data-x>border-width</code>, при этом картинка 
+			заполняет весь угол рамки, заползая под контент.
+			Смотрите примеры для лучшего понимания.
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/n" data-x>1</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Число </h2>
+<p>
+	Установим значение <code data-gs="comd/c" data-x>border-image-width</code> в <code data-gs="comd/n" data-x>2</code>
+	по наведению мышкой на элемент. При этом
+	граница станет размером <code data-gs="comd/u" data-x>26px*2</code> - в <code data-gs="comd/n" data-x>2</code>
+	раза больше, чем ее ширина, заданная в <code data-gs="comd/c" data-x>border-width</code>.
+	Граница при этом зайдет под текст (типа фона):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem:hover {
+	border-image-width: 2;
+}
+#elem {
+	border-image-repeat: repeat;
+	border-image-source: url("border-image.png");
+	border-image-slice: 26;
+	border-style: solid;
+	border-width: 26px;
+	width: 200px;
+	height: 200px;
+	background: green;
+	margin: 0 auto;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem:hover {
+			border-image-width: 2;
+		}
+		#elem {
+			border-image-repeat: repeat;
+			border-image-source: url(&quot;border-image.png&quot;);
+			border-image-slice: 26;
+			border-style: solid;
+			border-width: 26px;
+			width: 200px;
+			height: 200px;
+			background: green;
+			margin: 0 auto;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Изменим border-image-repeat на round  </h2>
+<p>
+	В предыдущем примере по наведению в границе
+	будет не целое количество ромбиков. Исправим
+	это, установив <a href="../border-image-repeat/index.html"><code data-gs="comd/c" data-x>border-image-repeat</code></a>
+	в значении <code data-gs="comd/v" data-x>round</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem:hover {
+	border-image-width: 2;
+}
+#elem {
+	border-image-repeat: round;
+	border-image-source: url("border-image.png");
+	border-image-slice: 26;
+	border-style: solid;
+	border-width: 26px;
+	width: 200px;
+	height: 200px;
+	background: green;
+	margin: 0 auto;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem:hover {
+			border-image-width: 2;
+		}
+		#elem {
+			border-image-repeat: round;
+			border-image-source: url(&quot;border-image.png&quot;);
+			border-image-slice: 26;
+			border-style: solid;
+			border-width: 26px;
+			width: 200px;
+			height: 200px;
+			background: green;
+			margin: 0 auto;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Проценты </h2>
+<p>
+	Установим значение border-image-width в <code data-gs="comd/u" data-x>50%</code>
+	по наведению мышкой на элемент. При этом
+	граница станет размером <code data-gs="comd/u" data-x>50%</code> от размера
+	блока (то есть две границы, правая
+	и левая, покроют собой весь блок):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem:hover {
+	border-image-width: 50%;
+}
+#elem {
+	border-image-repeat: repeat;
+	border-image-source: url("border-image.png");
+	border-image-slice: 26;
+	border-style: solid;
+	border-width: 26px;
+	width: 200px;
+	height: 200px;
+	background: green;
+	margin: 0 auto;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem:hover {
+			border-image-width: 50%;
+		}
+		#elem {
+			border-image-repeat: repeat;
+			border-image-source: url(&quot;border-image.png&quot;);
+			border-image-slice: 26;
+			border-style: solid;
+			border-width: 26px;
+			width: 200px;
+			height: 200px;
+			background: green;
+			margin: 0 auto;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Проценты </h2>
+<p>
+	Установим значение <code data-gs="comd/c" data-x>border-image-width</code> в <code data-gs="comd/u" data-x>30%</code>
+	по наведению мышкой на элемент. При этом
+	граница станет размером <code data-gs="comd/u" data-x>30%</code> от размера
+	блока:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem:hover {
+	border-image-width: 30%;
+}
+#elem {
+	border-image-repeat: repeat;
+	border-image-source: url("border-image.png");
+	border-image-slice: 26;
+	border-style: solid;
+	border-width: 26px;
+	width: 200px;
+	height: 200px;
+	background: green;
+	margin: 0 auto;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem:hover {
+			border-image-width: 30%;
+		}
+		#elem {
+			border-image-repeat: repeat;
+			border-image-source: url(&quot;border-image.png&quot;);
+			border-image-slice: 26;
+			border-style: solid;
+			border-width: 26px;
+			width: 200px;
+			height: 200px;
+			background: green;
+			margin: 0 auto;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Пиксели </h2>
+<p>
+	Установим значение <code data-gs="comd/c" data-x>border-image-width</code>
+	в <code data-gs="comd/u" data-x>50px</code> по наведению мышкой на элемент:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem:hover {
+	border-image-width: 50px;
+}
+#elem {
+	border-image-repeat: repeat;
+	border-image-source: url("border-image.png");
+	border-image-slice: 26;
+	border-style: solid;
+	border-width: 26px;
+	width: 200px;
+	height: 200px;
+	background: green;
+	margin: 0 auto;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem:hover {
+			border-image-width: 50px;
+		}
+		#elem {
+			border-image-repeat: repeat;
+			border-image-source: url(&quot;border-image.png&quot;);
+			border-image-slice: 26;
+			border-style: solid;
+			border-width: 26px;
+			width: 200px;
+			height: 200px;
+			background: green;
+			margin: 0 auto;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение auto </h2>
+<p>
+	Установим значение <code data-gs="comd/c" data-x>border-image-width</code>
+	в <code data-gs="comd/v" data-x>auto</code> по наведению мышкой на элемент.
+</p>
+<p>
+	До наведения <code data-gs="comd/c" data-x>border-image-width</code> имеет
+	значение <code data-gs="comd/n" data-x>1</code> (по умолчанию). В примере
+	специально <code data-gs="comd/c" data-x>border-width</code> задано в <code data-gs="comd/u" data-x>52px</code>,
+	а <code data-gs="comd/c" data-x>border-image-slice</code> - в значении <code data-gs="comd/n" data-x>26</code>
+	(эффект с <code data-gs="comd/v" data-x>auto</code> будет наблюдаться только если
+	<code data-gs="comd/c" data-x>border-width</code> не равно <code data-gs="comd/c" data-x>border-image-slice</code>).
+	Из-за того, что <code data-gs="comd/c" data-x>border-image-width</code>
+	имеет значение <code data-gs="comd/n" data-x>1</code>, картинка границы
+	будет занимать всю ширину <code data-gs="comd/c" data-x>border-width</code>, то
+	есть растянется на <code data-gs="comd/u" data-x>52px</code>. По наведению
+	значение <code data-gs="comd/c" data-x>border-image-width</code> установится
+	в <code data-gs="comd/v" data-x>auto</code> и ширина картинки станет равна значению
+	<code data-gs="comd/c" data-x>border-image-slice</code>, то есть <code data-gs="comd/u" data-x>26px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem:hover {
+	border-image-width: auto;
+}
+#elem {
+	border-image-repeat: repeat;
+	border-image-source: url("border-image.png");
+	border-image-slice: 26;
+	border-style: solid;
+	border-width: 52px;
+	width: 200px;
+	height: 200px;
+	background: green;
+	margin: 0 auto;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem:hover {
+			border-image-width: auto;
+		}
+		#elem {
+			border-image-repeat: repeat;
+			border-image-source: url(&quot;border-image.png&quot;);
+			border-image-slice: 26;
+			border-style: solid;
+			border-width: 52px;
+			width: 200px;
+			height: 200px;
+			background: green;
+			margin: 0 auto;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../border-image/index.html"><code data-gs="comd/c" data-x>border-image</code></a>, <br>
+			которое является сокращением для границы-картинки
+		</li>
+		<li>
+			свойство <a href="../border-image-source/index.html"><code data-gs="comd/c" data-x>border-image-source</code></a>, <br>
+			которое задает путь к картинке для границы
+		</li>
+		<li>
+			свойство <a href="../border-image-slice/index.html"><code data-gs="comd/c" data-x>border-image-slice</code></a>, <br>
+			которое разбиение картинки для границы
+		</li>
+		<li>
+			свойство <a href="../border-image-repeat/index.html"><code data-gs="comd/c" data-x>border-image-repeat</code></a>, <br>
+			которое повторение картинки для границы
+		</li>
+		<li>
+			свойство <a href="../border-image-outset/index.html"><code data-gs="comd/c" data-x>border-image-outset</code></a>, <br>
+			которое задает сдвиг картинки для границы
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

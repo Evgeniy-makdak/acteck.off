@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Объединение через пробел в LESS — acteck.off</title>
+  <meta name="description" content="Объединение через пробел в LESS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Объединение через пробел в LESS</h1>
+    <p>
+	Бывают свойства, значения которых нужно объединять
+	не через запятую, а через пробел. Для таких
+	объединений существует специальный оператор
+	<code data-gs="comd/c" data-x>+_</code>.
+</p>
+<p>
+	Давайте посмотрим на его работу на примере
+	свойства <code data-gs="comd/c" data-x>transform</code>. Сделаем функции
+	<code data-gs="comd/c" data-x>.rotate</code> и <code data-gs="comd/c" data-x>.skew</code>, задающие соответствующие
+	трансформации:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">.rotate(@r) {
+	transform+_: rotate(@r);
+}
+.skew(@s) {
+	transform+_: skew(@s);
+}</code>
+</div>
+<p>
+	Воспользуемся нашими функциями:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
+	.rotate(10deg);
+	.skew(10deg);
+}</code>
+</div>
+<p>
+	В результате компиляции наши трансформации
+	объединятся в одном свойстве <code data-gs="comd/c" data-x>transform</code>:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	transform: rotate(10deg) skew(10deg);
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Реализуйте аналогичную функцию <code data-gs="comd/c" data-x>scale</code>,
+		задающую соответствующую трансформацию.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Реализуйте аналогичную функцию <code data-gs="comd/c" data-x>translate</code>,
+		задающую соответствующую трансформацию.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

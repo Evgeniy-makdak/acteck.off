@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавление формы в Redux — acteck.off</title>
+  <meta name="description" content="Добавление формы в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Добавление формы в Redux</h1>
+    <p>
+	На прошлом уроке мы узнали, что для полей
+	ввода формы можно применить стейты, которые
+	будут работать только внутри одного компонента,
+	и создали пустую форму.
+</p>
+<p>
+	Давайте внутри тегов <code data-gs="comd/c" data-x>form</code> разместим верстку
+	для каждого поля, в которое будет вноситься
+	информация. Первый инпут у нас будет отвечать
+	за название продукта и его верстка
+	будет такой:
+</p>
+<div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;form&gt;
+	&lt;p&gt;
+		&lt;label htmlFor="productName"&gt;Name:&lt;/label&gt;
+		&lt;input
+			id="productName"
+			name="productName"
+			value={name}
+			onChange={onNameChanged}
+		/&gt;
+	&lt;/p&gt;
+&lt;/form&gt;</code>
+</div>
+<p>
+	Вторым у нас будет <code data-gs="comd/c" data-x>textarea</code> для описания
+	продукта:
+</p>
+<div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p&gt;
+	&lt;label htmlFor="productDesc"&gt;Description:&lt;/label&gt;
+	&lt;textarea
+		id="productDesc"
+		name="productDesc"
+		value={desc}
+		onChange={onDescChanged}
+	/&gt;
+&lt;/p&gt;</code>
+</div>
+<p>
+	Напишите сами код для двух оставшихся инпутов
+	для цены и количества с айди <code data-gs="comd/z" data-x>productPrice</code> и
+	<code data-gs="comd/z" data-x>productAmount</code> соответственно.
+</p>
+<p>
+	После всех четырех полей ввода перед
+	закрывающим тегом <code data-gs="comd/c" data-x>form</code> добавьте
+	кнопочку для сохранения:
+</p>
+<div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;button type="button"&gt;save&lt;/button&gt;</code>
+</div>
+<p>
+	Наш компонент с формой готов. Давайте отобразим
+	его на главной странице. Для этого откроем
+	файл <code data-gs="comd/p" data-x>root.jsx</code>, импортируем в него компонент:
+</p>
+<div data-p="bock/pane" data-p-file="app/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { NewProductForm } from '../parts/products/NewProductForm'</code>
+</div>
+<p>
+	И вставим его между тегом <code data-gs="comd/c" data-x>hr</code> и
+	компонентом <code data-gs="comd/c" data-x>ProductsList</code> вот так:
+</p>
+<div data-p="bock/pane" data-p-file="app/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;hr&gt;&lt;/hr&gt;
+&lt;NewProductForm /&gt;
+&lt;ProductsList /&gt;</code>
+</div>
+<p>
+	Запустим наше приложение и полюбуемся
+	на форму и список продуктов. Внесем
+	еще стили в <code data-gs="comd/p" data-x>index.css</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#main-page {
+	max-width: 600px;
+}
+
+select,
+textarea,
+input,
+button {
+	font-size: 18px;
+}
+
+form {
+	margin-bottom: 20px;
+	border-bottom: 2px solid lightgray;
+	padding-bottom: 10px;
+}
+
+form p {
+	margin: 5px;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Сделайте верстку для вашей формы, как
+		показано в уроке.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Добавьте законченный компонент <code data-gs="comd/c" data-x>NewStudentForm</code>
+		на главную страничку перед <code data-gs="comd/c" data-x>StudentsList</code>
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

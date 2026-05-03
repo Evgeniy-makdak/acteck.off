@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство mask-clip — acteck.off</title>
+  <meta name="description" content="Свойство mask-clip — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство mask-clip</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>mask-clip</code> устанавливает область элемента, в пределах которой будет отображаться маска. Оно определяет, какие части элемента будут затронуты маскированием, а какие останутся видимыми без изменений.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	mask-clip: значение | no-clip;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>border-box</code></th>
+		<td>Маска применяется к области, включая границы элемента.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>padding-box</code></th>
+		<td>Маска применяется к области, включая padding, но не границы.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>content-box</code></th>
+		<td>Маска применяется только к содержимому элемента.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>margin-box</code></th>
+		<td>Маска применяется к области, включая margin (экспериментальное).</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>fill-box</code></th>
+		<td>Маска применяется к bounding box объекта (для SVG).</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>stroke-box</code></th>
+		<td>Маска применяется к stroke bounding box (для SVG).</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>view-box</code></th>
+		<td>Маска применяется к viewbox (для SVG).</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>no-clip</code></th>
+		<td>Маска не ограничивается областью элемента.</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/u" data-x>border-box</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Применение mask-clip к разным областям</h2>
+<p>
+	Сравним различные значения mask-clip на элементе с границами и отступами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="box border-box"&gt;border-box&lt;/div&gt;
+&lt;div class="box padding-box"&gt;padding-box&lt;/div&gt;
+&lt;div class="box content-box"&gt;content-box&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.box {
+	width: 200px;
+	height: 100px;
+	margin: 20px;
+	padding: 20px;
+	border: 10px dashed black;
+	background: linear-gradient(45deg, red, blue);
+	mask-image: linear-gradient(to right, black, transparent);
+	mask-size: 100% 100%;
+	mask-repeat: no-repeat;
+	display: inline-block;
+}
+
+.border-box {
+	mask-clip: border-box;
+}
+
+.padding-box {
+	mask-clip: padding-box;
+}
+
+.content-box {
+	mask-clip: content-box;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.box {
+			width: 200px;
+			height: 100px;
+			margin: 20px;
+			padding: 20px;
+			border: 10px dashed black;
+			background: linear-gradient(45deg, red, blue);
+			mask-image: linear-gradient(to right, black, transparent);
+			mask-size: 100% 100%;
+			mask-repeat: no-repeat;
+			display: inline-block;
+		}
+		
+		.border-box {
+			mask-clip: border-box;
+		}
+		
+		.padding-box {
+			mask-clip: padding-box;
+		}
+		
+		.content-box {
+			mask-clip: content-box;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;box border-box&quot;>border-box</div>
+		<div class=&quot;box padding-box&quot;>padding-box</div>
+		<div class=&quot;box content-box&quot;>content-box</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Использование no-clip</h2>
+<p>
+	Демонстрация значения no-clip, когда маска выходит за пределы элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	height: 200px;
+	background: linear-gradient(45deg, red, blue);
+	mask-image: radial-gradient(circle, black 50%, transparent 70%);
+	mask-size: 300px 300px;
+	mask-position: center;
+	mask-clip: no-clip;
+	border: 2px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			height: 200px;
+			background: linear-gradient(45deg, red, blue);
+			mask-image: radial-gradient(circle, black 50%, transparent 70%);
+			mask-size: 300px 300px;
+			mask-position: center;
+			mask-clip: no-clip;
+			border: 2px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. SVG с разными значениями mask-clip</h2>
+<p>
+	Применение различных значений к SVG-элементу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;svg width="400" height="200"&gt;
+	&lt;defs&gt;
+		&lt;mask id="mask1" maskContentUnits="objectBoundingBox"&gt;
+			&lt;rect x="0.1" y="0.1" width="0.8" height="0.8" fill="white"/&gt;
+		&lt;/mask&gt;
+	&lt;/defs&gt;
+	
+	&lt;rect x="10" y="10" width="180" height="180" fill="blue" 
+		mask="url(#mask1)" mask-clip="fill-box"/&gt;
+		
+	&lt;rect x="210" y="10" width="180" height="180" fill="red" 
+		mask="url(#mask1)" mask-clip="view-box"/&gt;
+&lt;/svg&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<svg width=&quot;400&quot; height=&quot;200&quot;>
+			<defs>
+				<mask id=&quot;mask1&quot; maskContentUnits=&quot;objectBoundingBox&quot;>
+					<rect x=&quot;0.1&quot; y=&quot;0.1&quot; width=&quot;0.8&quot; height=&quot;0.8&quot; fill=&quot;white&quot;/>
+				</mask>
+			</defs>
+			
+			<rect x=&quot;10&quot; y=&quot;10&quot; width=&quot;180&quot; height=&quot;180&quot; fill=&quot;blue&quot; 
+				mask=&quot;url(#mask1)&quot; mask-clip=&quot;fill-box&quot;/>
+				
+			<rect x=&quot;210&quot; y=&quot;10&quot; width=&quot;180&quot; height=&quot;180&quot; fill=&quot;red&quot; 
+				mask=&quot;url(#mask1)&quot; mask-clip=&quot;view-box&quot;/>
+		</svg>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../mask-origin/index.html"><code data-gs="comd/c" data-x>mask-origin</code></a>, <br>
+			определяет исходную позицию маски
+		</li>
+		<li>
+			свойство <a href="../mask-image/index.html"><code data-gs="comd/c" data-x>mask-image</code></a>, <br>
+			задает изображение для маски
+		</li>
+		<li>
+			свойство <a href="../mask/index.html"><code data-gs="comd/c" data-x>mask</code></a>, <br>
+			сокращение для всех свойств маскирования
+		</li>
+		<li>
+			свойство <a href="../clip-path/index.html"><code data-gs="comd/c" data-x>clip-path</code></a>, <br>
+			создает обтравочную область для элемента
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

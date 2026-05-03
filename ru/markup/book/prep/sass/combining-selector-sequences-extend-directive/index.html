@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Объединение последовательностей селекторов в @extend в SASS — acteck.off</title>
+  <meta name="description" content="Объединение последовательностей селекторов в @extend в SASS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Объединение последовательностей селекторов в @extend в SASS</h1>
+    <p>
+	Если нам нужно объединить
+	последовательности селекторов,
+	то мы также используем директиву <code data-gs="comd/c" data-x>@extend</code>:
+</p>
+<p>
+	Рассмотрим следующий пример:
+</p>
+<div data-p="bock/pane" data-p-file="style.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">#main .list p {
+	font-weight: bold;
+}
+#sub .resume .link {
+	@extend p;
+}</code>
+</div>
+<p>
+	Обратите внимание на скомплированный код
+	в файле <code data-gs="comd/p" data-x>css</code>, при объединении двух
+	последовательностей, у которых нет общих
+	селекторов, то автоматически образуются
+	новые селекторы: один с первой последовательностью
+	перед вторым и один со второй последовательностью
+	перед первым:
+</p>
+<div data-p="bock/pane" data-p-file="style.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#main .list p,
+#main .list #sub .resume .link, #sub .resume #main .list .link {
+	font-weight: bold;
+}</code>
+</div>
+<p>
+	В случае, когда у последовательностей
+	есть общий селектор, то они будут объединены
+	вместе и чередоваться будут только различия
+	(если таковые существуют). В следующем примере
+	обе последовательности имеют идентификатор <code data-gs="comd/z" data-x>#main</code>:
+</p>
+<div data-p="bock/pane" data-p-file="style.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">#main .list p {
+	font-weight: semi-bold;
+}
+#main .resume .link {
+	@extend p;
+}</code>
+</div>
+<p>
+	В результате компиляции эти два идентификатора
+	будут объединены:
+</p>
+<div data-p="bock/pane" data-p-file="style.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#main .list p,
+#main .list #sub .resume .link, #sub .resume #main .list .link {
+	font-weight: bold;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">div p {
+	font-size: 12px;
+	padding-bottom: 4px;
+}
+link button #card-title {
+	@extend p;
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

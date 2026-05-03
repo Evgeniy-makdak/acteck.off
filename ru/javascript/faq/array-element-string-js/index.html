@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Элемент массива в строку JS — acteck.off</title>
+  <meta name="description" content="Элемент массива в строку JS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Элемент массива в строку JS</h1>
+    <p>
+	В данном уроке мы разберем различные
+	варианты как преобразовать элементы массива
+	в строку на JavaScript. Смотрите варианты,
+	которые могут быть. 
+</p>
+
+<h2>Вариант 1</h2>
+<p>
+	Можно слить элементы массива в строку с
+	помощью метода <a href="../../manual/array/join/index.html"><code data-gs="comd/c" data-x>join</code></a>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['a', 'b', 'c', 'd', 'e'];
+let res = arr.join('');
+console.log(res); // 'abcde'</code>
+</div>
+
+<h2>Вариант 2</h2>
+<p>
+	Бывют ситуации, когда у нас есть числовой
+	массив, а мы хотели бы его преобразовать
+	в строку. Давайте посмотрим на примере.
+	Пусть у нас есть следующий массив с числами: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3];</code>
+</div>
+<p>
+	Преобразуем его элементы к строкам с помощью
+	специального хитрого приема с методом <a href="../../manual/array/map/index.html"><code data-gs="comd/c" data-x>map</code></a>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = arr.map(String);</code>
+</div>
+<p>
+	В результате получим массив строк: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(res); // ['1', '2', '3']</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

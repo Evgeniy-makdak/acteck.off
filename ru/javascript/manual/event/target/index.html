@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство event.target — acteck.off</title>
+  <meta name="description" content="Свойство event.target — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Свойство event.target</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>event.target</code> содержит элемент,
+	на котором сработало событие. Это не тот
+	элемент, к которому был привязан обработчик
+	этого события, а именно самый глубокий тег,
+	на который непосредственно был, к примеру,
+	совершен клик.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">event.target;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть <code data-gs="comd/c" data-x>div</code>, а внутри него абзац.
+	Привяжем событие к диву, но кликнем по абзацу
+	- в этом случае <code data-gs="comd/c" data-x>event.target</code> будет
+	содержать конечный тег, в котором случилось
+	событие - то есть абзац, а не див. Убедимся
+	в этом с помощью <a href="../../dom/tagName/index.html"><code data-gs="comd/c" data-x>tagName</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="div"&gt;
+	&lt;p&gt;text&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div = document.querySelector('#div');
+
+div.addEventListener('click', function(event) {
+	console.log(event.target); // выведет ссылку на абзац
+});</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../currentTarget/index.html"><code data-gs="comd/c" data-x>event.currentTarget</code></a>, <br>
+			содержащее элемент, к которому привязано событие
+		</li>
+		<li>
+			свойство <a href="../code/index.html"><code data-gs="comd/c" data-x>code</code></a>, <br>
+			которое получает код нажатой клавиши
+		</li>
+		<li>
+			свойство <a href="../key/index.html"><code data-gs="comd/c" data-x>event.key</code></a>, <br>
+			которое получает введенный символ
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

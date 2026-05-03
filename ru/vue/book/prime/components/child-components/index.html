@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Создание дочерних компонентов в Vue — acteck.off</title>
+  <meta name="description" content="Создание дочерних компонентов в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/vue/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/vue/index.html">Vue</a>
+    </div>
+
+    <h1>Создание дочерних компонентов в Vue</h1>
+    <p>
+	Компоненты внутри имеют такую
+	же структуру, как и основной компонент,
+	с которым мы работали ранее. To есть
+	в файле каждого компонента будут
+	теги <code data-gs="comd/c" data-x>script</code> и <code data-gs="comd/c" data-x>template</code>.
+</p>
+<p>
+	Давайте для примера сделаем
+	компонент с названием <code data-gs="comd/c" data-x>User</code>.
+	Разместим его код в соответствующем
+	файле:
+</p>
+<div data-p="bock/pane" data-p-file="components/User.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;script&gt;
+	export default {
+		data() {
+			return {
+				
+			}
+		}
+	}
+&lt;/script&gt;</code>
+</div>
+<p>
+	В объекте <code data-gs="comd/c" data-x>data</code> компонента можно
+	разместить какие-то данные:
+</p>
+<div data-p="bock/pane" data-p-file="components/User.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;script&gt;
+	export default {
+		data() {
+			return {
+				name: 'john'
+			}
+		}
+	}
+&lt;/script&gt;</code>
+</div>
+<p>
+	Эти данные можно вывести в
+	представлении компонента:
+</p>
+<div data-p="bock/pane" data-p-file="components/User.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	{{ name }}
+&lt;/template&gt;</code>
+</div>
+<p>
+	Давайте теперь подключим созданный
+	нами компонент к основному компоненту.
+	Для этого для начала импортируем
+	его:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;script&gt;
+	import User from './components/User.vue'
+	
+	export default {
+		
+	}
+&lt;/script&gt;</code>
+</div>
+<p>
+	Пропишем его имя в настройке <code data-gs="comd/c" data-x>components</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;script&gt;
+	import User from './components/User.vue'
+	
+	export default {
+		components: {
+			User
+		}
+	}
+&lt;/script&gt;</code>
+</div>
+<p>
+	В представлении родительского компонента
+	можно вывести представление дочернего
+	компонента. Для этого нужно написать
+	тег, имя которого соответствует
+	имени компонента. Давайте сделаем
+	это:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;User /&gt;
+&lt;/template&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте компонент <code data-gs="comd/c" data-x>Employee</code>.
+		Подключите его к основному компоненту.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

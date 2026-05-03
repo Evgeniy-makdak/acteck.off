@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство animation-timing-function — acteck.off</title>
+  <meta name="description" content="Свойство animation-timing-function — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство animation-timing-function</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>animation-timing-function</code>
+	устанавливает скорость изменения (ускорение)
+	анимации. Например, сначала медленно, потом
+	быстро, потом медленно и т.д.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	animation-timing-function: значение;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>ease</code></th>
+		<td>Сначала медленно, потом быстро, в конце опять медленно.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>ease-in</code></th>
+		<td>Начинается медленно и постепенно ускоряется.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>ease-out</code></th>
+		<td>Начинается быстро и постепенно останавливается.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>ease-in-out</code></th>
+		<td>
+			Сначала медленно, потом быстро, в конце опять медленно.
+			От ease отличается скоростью.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>linear</code></th>
+		<td>Всегда одна и та же скорость.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>step-start</code></th>
+		<td>Анимации нет, свойство сразу принимает окончательное значение.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>step-end</code></th>
+		<td>
+			Анимации нет, свойство ждет время,
+			заданное в <a href="../animation-duration/index.html"><code data-gs="comd/c" data-x>animation-duraton</code></a>,
+			а затем мгновенно принимает окончательное значение.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>steps</code></th>
+		<td>
+			Значение свойства изменяется скачками.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>cubic-bezier</code></th>
+		<td>
+			Кривая Безье, которая может задавать произвольную анимацию.
+			См. <a href="http://cubic-bezier.com">генератор кривых Безье</a>.
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>ease</code>.
+</p>
+
+<h2>Сравнение различных значений</h2>
+<p>
+	Наведите мышкой на представленные ниже блоки,
+	чтобы увидеть работу всех видов временных функций:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			padding: 40px;
+			background: #fafafa;
+		}
+		#parent > div {
+			box-sizing: border-box;
+			width: 200px;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid black;
+			transition: width 6s;
+			font-weight: bold;
+			background: white;
+		}
+		#parent:hover > div {width: 100%;}
+		
+		#parent > div:nth-child(1) {
+			transition-timing-function: ease;
+		}
+		#parent > div:nth-child(2) {
+			transition-timing-function: ease-in;
+		}
+		#parent > div:nth-child(3) {
+			transition-timing-function: ease-out;
+		}
+		#parent > div:nth-child(4) {
+			transition-timing-function: ease-in-out;
+		}
+		#parent > div:nth-child(5) {
+			transition-timing-function: linear;
+		}
+		#parent > div:nth-child(6) {
+			transition-timing-function: step-start;
+		}
+		#parent > div:nth-child(7) {
+			transition-timing-function: step-end;
+		}
+		#parent > div:nth-child(8) {
+			transition-timing-function: steps(3, end);
+		}
+		#parent > div:nth-child(9) {
+			transition-timing-function: steps(3, start);
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div>ease</div>
+			<div>ease-in</div>
+			<div>ease-out</div>
+			<div>ease-in-out</div>
+			<div>linear</div>
+			<div>step-start</div>
+			<div>step-end</div>
+			<div>steps(3, end)</div>
+			<div>steps(3, start)</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../animation/index.html"><code data-gs="comd/c" data-x>animation</code></a>, <br>
+			представляющее собой свойство-сокращение для анимаций
+		</li>
+		<li>
+			команду <a href="../../command/keyframes/index.html"><code data-gs="comd/c" data-x>@keyframes</code></a>, <br>
+			задающую ключевые кадры анимации
+		</li>
+		<li>
+			плавные переходы <a href="../transition/index.html"><code data-gs="comd/c" data-x>transition</code></a>,
+			представляющие собой анимацию по наведению на элемент
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

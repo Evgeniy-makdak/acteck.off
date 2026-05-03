@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вложенные CSS гриды — acteck.off</title>
+  <meta name="description" content="Вложенные CSS гриды — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Вложенные CSS гриды</h1>
+    <p>
+	В системе грид есть возможность добавить в свою же созданную
+	сетку новый вложенный грид. Вложенные гриды широко используются при размещении
+	небольших элементов внутри блоков сайта.
+	Для того, чтобы воспользоваться этой возможностью, нужно
+	в самом дочернем элементе поставить свойство
+	<code data-gs="comd/c" data-x>display</code> со значением <code data-gs="comd/v" data-x>grid</code>.
+</p>
+<p>
+	Для примера давайте в одной из ячеек
+	грида создадим еще один грид:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+	&lt;div id="elem4"&gt;
+		&lt;div&gt;5&lt;/div&gt;
+		&lt;div&gt;6&lt;/div&gt;
+		&lt;div&gt;7&lt;/div&gt;
+		&lt;div&gt;8&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template: 1fr 1fr / 1fr 1fr;
+	grid-gap: 5px;
+	border: 2px solid #696989;
+	padding: 10px;
+	width: 600px;
+	height: 200px;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem4 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 5px;
+	border: 2px solid #696989;
+}
+#elem4 &gt; div {
+	grid-gap: 5px;
+	padding: 6px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template: 1fr 1fr / 1fr 1fr;
+			grid-gap: 5px;
+			border: 2px solid #696989;
+			padding: 10px;
+			width: 600px;
+			height: 200px;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem4 {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			grid-gap: 5px;
+			border: 2px solid #696989;
+		}
+		#elem4 > div {
+			grid-gap: 5px;
+			padding: 6px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+		<div id=&quot;elem1&quot;>1</div>
+		<div id=&quot;elem2&quot;>2</div>
+		<div id=&quot;elem3&quot;>3</div>
+		<div id=&quot;elem4&quot;>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+		</div>
+	</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<div data-w="cont/task">
+	<p>
+		Пусть у вас есть грид, состоящий из пяти
+		элементов, расположенных по трем
+		столбцам. Создайте во втором
+		элементе вложенный грид, в котором
+		в свою очередь будет три дочерних элемента.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Измените предыдущую задачу так,
+		чтобы во вложенном гриде находилось
+		пять дочерних элементов.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте в первом и третьем элементах
+		по вложенному гриду с тремя дочерними элементами.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

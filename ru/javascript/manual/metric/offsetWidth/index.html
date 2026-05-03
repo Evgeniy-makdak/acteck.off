@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство offsetWidth — acteck.off</title>
+  <meta name="description" content="Свойство offsetWidth — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Свойство offsetWidth</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>offsetWidth</code> содержит полную
+	ширину элемента (включает собственно ширину
+	элемента, ширину границ, внутренние отступы,
+	полосы прокрутки):
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+						text-align: center;
+					}
+					.-parent- {
+						position: relative;
+						display: inline-block;
+					}
+		</style>
+		<style>
+			#elem {
+			width: 300px;
+			height: 150px;
+			margin: 50px auto;
+			padding: 25px;
+			background: #CFF5BF;
+			border: 25px solid #F0D7A1;
+			overflow: auto;
+			text-align: justify;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+		</div>
+		
+		<script>
+			;(function() {
+							let elem = document.querySelector('#elem');
+							let parent = elem.parentElement;
+							
+							if (!parent.matches('.-parent-')) {
+								let div = document.createElement('div');
+								div.classList.add('-parent-');
+								parent.append(div);
+								div.append(elem);
+								
+								let cs = getComputedStyle(elem);
+								
+								div.style.marginTop = cs.marginTop;
+								div.style.marginLeft = cs.marginLeft;
+								div.style.marginBottom = cs.marginBottom;
+								div.style.marginRight = cs.marginRight;
+								
+								elem.style.margin = '0';
+							}
+							
+							let line = document.createElement('span');
+							line.textContent = 'offsetWidth';
+							elem.parentElement.append(line);
+					
+							line.style.cssText = `
+								position: absolute;
+								bottom: calc(100% + 20px);
+								left: 0px;
+								color: red;
+								border-bottom: 1px solid red;
+								text-align: center;
+							`;
+						line.style.width = elem.offsetWidth + 'px';
+						})();
+					
+						;(function() {
+							let elem = document.querySelector('#elem');
+							let parent = elem.parentElement;
+							
+							if (!parent.matches('.-parent-')) {
+								let div = document.createElement('div');
+								div.classList.add('-parent-');
+								parent.append(div);
+								div.append(elem);
+								
+								let cs = getComputedStyle(elem);
+								
+								div.style.marginTop = cs.marginTop;
+								div.style.marginLeft = cs.marginLeft;
+								div.style.marginBottom = cs.marginBottom;
+								div.style.marginRight = cs.marginRight;
+								
+								elem.style.margin = '0';
+							}
+							
+							let line = document.createElement('span');
+							line.textContent = 'offsetHeight';
+							elem.parentElement.append(line);
+					
+							line.style.cssText = `
+								position: absolute;
+								top: 0px;
+								left: calc(100% + 25px);
+								padding-left: 10px;
+								display: flex;
+								align-items: center;
+								color: red;
+								border-left: 1px solid red;
+							`;
+						line.style.height = elem.offsetHeight + 'px';
+						})();
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">элемент.offsetWidth;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте узнаем полный размер элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 100px;
+	height: 100px;
+	padding: 15px;
+	border: 10px solid black;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+console.log(elem.offsetWidth);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">150</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Если элемент скрытый, то <code data-gs="comd/c" data-x>offsetWidth</code> равно
+	<code data-gs="comd/n" data-x>0</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	display: none; /* скрытый элемент */
+	width: 100px;
+	height: 100px;
+	padding: 15px;
+	border: 10px solid black;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+console.log(elem.offsetWidth);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">0</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../clientWidth/index.html"><code data-gs="comd/c" data-x>clientWidth</code></a>, <br>
+			которое содержит ширину элемента внутри границ
+		</li>
+		<li>
+			свойство <a href="../offsetHeight/index.html"><code data-gs="comd/c" data-x>offsetHeight</code></a>, <br>
+			которое содержит полную высоту элемента
+		</li>
+		<li>
+			метод <a href="../../dom/getComputedStyle/index.html"><code data-gs="comd/c" data-x>getComputedStyle</code></a>, <br>
+			который получает значение CSS свойства элемента
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

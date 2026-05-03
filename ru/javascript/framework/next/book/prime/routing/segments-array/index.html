@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Массив сегментов в динамическом роуте в NextJS — acteck.off</title>
+  <meta name="description" content="Массив сегментов в динамическом роуте в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/next/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Массив сегментов в динамическом роуте в NextJS</h1>
+    <p>
+	При необходимости можно получить
+	массив всех сегментов в одну переменную.
+	Для этого параметр берется в квадратные
+	скобки, а перед именем параметра ставится
+	троеточие. Давайте посмотрим на примере.
+</p>
+<p>
+	Пусть у нас есть маршрут следующего вида:
+	<code data-gs="comd/p" data-x>/prod/:category/:name/:id/</code>,
+	где отмеченные двоеточием параметры
+	являются динамическими. Давайте
+	получим массив значений этих параметров
+	в какую-нибудь переменную. Название
+	этой переменной может быть любым.
+	К примеру, назовем ее <code data-gs="comd/c" data-x>slugs</code>.
+</p>
+<p>
+	Сделаем следующую файловую структуру:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/app/<ul><li data-s-type="D">/prod/<ul><li data-s-type="F">/[...slugs]/</li></ul></li></ul></li></ul></div></div>
+<p>
+	Сделаем соответствующий компонент:
+</p>
+<div data-p="bock/pane" data-p-file="app/prod/[...slugs]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Prod({ params }) {
+	console.log(params); // массив значений
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте роут, обрабатывающий адреса
+		вида <code data-gs="comd/p" data-x>/prod/:category/:name</code>.
+	</p>
+	<p>
+		Пусть дан следующий массив:
+	</p>
+	<div data-p="bock/pane" data-p-file="page.jsx">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let prods = [
+	{
+		category: 'catg1',
+		name: 'prod1',
+		cost: 100,
+	},
+	{
+		category: 'catg1',
+		name: 'prod2',
+		cost: 200,
+	},
+	{
+		category: 'catg2',
+		name: 'prod1',
+		cost: 300,
+	},
+	{
+		category: 'catg2',
+		name: 'prod3',
+		cost: 400,
+	},
+];</code>
+	</div>
+	<p>
+		Сделайте так, чтобы в зависимости от
+		значения параметров в верстке
+		компонента выводился соответствующий продукт.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

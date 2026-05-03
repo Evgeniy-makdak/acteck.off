@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Комбинации объединений по рядам и столбцам в CSS гридах — acteck.off</title>
+  <meta name="description" content="Комбинации объединений по рядам и столбцам в CSS гридах — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Комбинации объединений по рядам и столбцам в CSS гридах</h1>
+    <p>
+	Давайте рассмотрим различные типы
+	объединений по рядам и
+	столбцам.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте сделаем таблицу, скомбинировав
+	свойства <code data-gs="comd/c" data-x>grid-column</code>
+	и <code data-gs="comd/c" data-x>grid-row</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+	&lt;div id="elem4"&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr;
+	border: 2px solid #696989;
+	padding: 10px;
+	height: 300px;
+	width: 400px;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem1 {
+	grid-row: 1 / 3;
+}
+#elem2 {
+	grid-row: 1 / 2;
+}
+#elem3 {
+	grid-row: 1 / 2;
+}
+#elem4 {
+	grid-row: 2 / 3;
+	grid-column: 2 / 4;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: 2fr 1fr 1fr;
+			border: 2px solid #696989;
+			padding: 10px;
+			height: 300px;
+			width: 400px;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			grid-row: 1 / 3;
+		}
+		#elem2 {
+			grid-row: 1 / 2;
+		}
+		#elem3 {
+			grid-row: 1 / 2;
+		}
+		#elem4 {
+			grid-row: 2 / 3;
+			grid-column: 2 / 4;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+			<div id=&quot;elem4&quot;>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте сделаем так, чтобы
+	первый и четвертый блоки занимали весь ряд,
+	а второй блоки - два ряда и два столбца,
+	а третий и четвертый блоки - один ряд
+	и два столбца:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+	&lt;div id="elem4"&gt;4&lt;/div&gt;
+	&lt;div id="elem5"&gt;5&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr;
+	border: 2px solid #696989;
+	padding: 10px;
+	height: 300px;
+	width: 400px;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem1 {
+	grid-row: 1 / 2;
+	grid-column: 1 / 4;
+}
+#elem2 {
+	grid-row: 2 / 4;
+	grid-column: 1 / 2;
+}
+#elem3 {
+	grid-row: 2 / 3;
+	grid-column: 2 / 4;
+}
+#elem4 {
+	grid-row: 3 / 3;
+	grid-column: 2 / 4;
+}
+#elem5 {
+	grid-row: 4 / 5;
+	grid-column: 1 / 4;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: 2fr 1fr 1fr;
+			border: 2px solid #696989;
+			padding: 10px;
+			height: 300px;
+			width: 400px;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			grid-row: 1 / 2;
+			grid-column: 1 / 4;
+		}
+		#elem2 {
+			grid-row: 2 / 4;
+			grid-column: 1 / 2;
+		}
+		#elem3 {
+			grid-row: 2 / 3;
+			grid-column: 2 / 4;
+		}
+		#elem4 {
+			grid-row: 3 / 3;
+			grid-column: 2 / 4;
+		}
+		#elem5 {
+			grid-row: 4 / 5;
+			grid-column: 1 / 4;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+			<div id=&quot;elem4&quot;>4</div>
+			<div id=&quot;elem5&quot;>5</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте сделаем так, чтобы первый элемент
+	в таблице занял все столбцы на первом ряду,
+	а остальные элементы расположились на втором ряду,
+	заняв одинаковые по ширине столбцы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+	&lt;div id="elem4"&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	border: 2px solid #696989;
+	padding: 10px;
+	height: 300px;
+	width: 400px;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem1 {
+	grid-row: 1 / 2;
+	grid-column: 1 / 4;
+}
+#elem2 {
+	grid-row: 2 / 3;
+}
+#elem3 {
+	grid-row: 2 / 3;
+}
+#elem4 {
+	grid-row: 2 / 3;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			border: 2px solid #696989;
+			padding: 10px;
+			height: 300px;
+			width: 400px;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			grid-row: 1 / 2;
+			grid-column: 1 / 4;
+		}
+		#elem2 {
+			grid-row: 2 / 3;
+		}
+		#elem3 {
+			grid-row: 2 / 3;
+		}
+		#elem4 {
+			grid-row: 2 / 3;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+			<div id=&quot;elem4&quot;>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте изменим предыдущий пример так,
+	чтобы второй элемент занял столбец,
+	в три раза больший по ширине, чем столбцы
+	третьего и четвертого элементов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+	&lt;div id="elem4"&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	height: 300px;
+	width: 400px;
+	display: grid;
+	grid-template-columns: 3fr 1fr 1fr;
+	
+	border: 2px solid #696989;
+	padding: 10px;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+
+#elem1 {
+	grid-row: 1 / 2;
+	grid-column: 1 / 4;
+}
+#elem2 {
+	grid-row: 2 / 3;
+}
+#elem3 {
+	grid-row: 2 / 3;
+}
+#elem4 {
+	grid-row: 2 / 3;
+	
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			height: 300px;
+			width: 400px;
+			display: grid;
+			grid-template-columns: 3fr 1fr 1fr;
+			
+			border: 2px solid #696989;
+			padding: 10px;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		
+		#elem1 {
+			grid-row: 1 / 2;
+			grid-column: 1 / 4;
+		}
+		#elem2 {
+			grid-row: 2 / 3;
+		}
+		#elem3 {
+			grid-row: 2 / 3;
+		}
+		#elem4 {
+			grid-row: 2 / 3;
+			
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+			<div id=&quot;elem4&quot;>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь разместим на первом ряду два элемента,
+	задав для каждого разную ширину столбцов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+	&lt;div id="elem4"&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	border: 2px solid #696989;
+	padding: 10px;
+	height: 300px;
+	width: 400px;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem1 {
+	grid-row: 1 / 2;
+	grid-column: 1 / 4;
+}
+#elem2 {
+	grid-row: 1 / 2;
+	grid-column: 4 / 5;
+}
+#elem3 {
+	grid-row: 2 / 3;
+	grid-column: 1 / 3;
+}
+#elem4 {
+	grid-row: 2 / 3;
+	grid-column: 3 / 5;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			border: 2px solid #696989;
+			padding: 10px;
+			height: 300px;
+			width: 400px;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			grid-row: 1 / 2;
+			grid-column: 1 / 4;
+		}
+		#elem2 {
+			grid-row: 1 / 2;
+			grid-column: 4 / 5;
+		}
+		#elem3 {
+			grid-row: 2 / 3;
+			grid-column: 1 / 3;
+		}
+		#elem4 {
+			grid-row: 2 / 3;
+			grid-column: 3 / 5;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+			<div id=&quot;elem4&quot;>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть теперь у нас будет таблица, состоящая
+	из пяти элементов. Давайте расположим первый
+	элемент на верхнем ряду, а все остальные -
+	на втором ряду:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+	&lt;div id="elem4"&gt;4&lt;/div&gt;
+	&lt;div id="elem5"&gt;5&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	border: 2px solid #696989;
+	padding: 10px;
+	height: 300px;
+	width: 400px;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem1 {
+	grid-row: 1 / 2;
+	grid-column: 1 / 5;
+}
+#elem2 {
+	grid-row: 2 / 3;
+	grid-column: 1 / 2;
+}
+#elem3 {
+	grid-row: 2 / 3;
+	grid-column: 2 / 3;
+}
+#elem4 {
+	grid-row: 2 / 3;
+	grid-column: 3 / 4;
+}
+#elem5 {
+	grid-row: 2 / 3;
+	grid-column: 4 / 5;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			border: 2px solid #696989;
+			padding: 10px;
+			height: 300px;
+			width: 400px;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			grid-row: 1 / 2;
+			grid-column: 1 / 5;
+		}
+		#elem2 {
+			grid-row: 2 / 3;
+			grid-column: 1 / 2;
+		}
+		#elem3 {
+			grid-row: 2 / 3;
+			grid-column: 2 / 3;
+		}
+		#elem4 {
+			grid-row: 2 / 3;
+			grid-column: 3 / 4;
+		}
+		#elem5 {
+			grid-row: 2 / 3;
+			grid-column: 4 / 5;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+			<div id=&quot;elem4&quot;>4</div>
+			<div id=&quot;elem5&quot;>5</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Разместите все элементы в
+		соответствии со следующим
+		примером:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				border: 2px solid #696989;
+				padding: 10px;
+				height: 300px;
+				width: 400px;
+			}
+			#parent > div {
+				padding: 10px;
+				border: 1px solid #696989;
+			}
+			#elem1 {
+				grid-row: 1 / 2;
+				grid-column: 1 / 2;
+			}
+			#elem2 {
+				grid-row: 1 / 2;
+				grid-column: 2 / 3;
+			}
+			#elem3 {
+				grid-row: 1 / 2;
+				grid-column: 3 / 4;
+			}
+			#elem4 {
+				grid-row: 2 / 3;
+				grid-column: 1 / 3;
+			}
+			#elem5 {
+				grid-row: 2 / 3;
+				grid-column: 3 / 4;
+			}
+			#elem6 {
+				grid-row: 3 / 4;
+				grid-column: 1 / 4;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+			<div id=&quot;elem4&quot;>4</div>
+			<div id=&quot;elem5&quot;>5</div>
+			<div id=&quot;elem6&quot;>6</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Разместите все элементы в
+		соответствии со следующим
+		примером:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				border: 2px solid #696989;
+				padding: 10px;
+				height: 400px;
+				width: 400px;
+			}
+			#parent > div {
+				padding: 10px;
+				border: 1px solid #696989;
+			}
+			#elem1 {
+				grid-row: 1 / 3;
+				grid-column: 1 / 3;
+			}
+			#elem2 {
+				grid-row: 1 / 2;
+				grid-column: 3 / 4;
+			}
+			#elem3 {
+				grid-row: 2 / 3;
+				grid-column: 3 / 4;
+			}
+			#elem4 {
+				grid-row: 3 / 4;
+				grid-column: 2 / 4;
+			}
+			#elem5 {
+				grid-row: 3 / 4;
+				grid-column: 1 / 2;
+			}
+			#elem6 {
+				grid-row: 4 / 6;
+				grid-column: 1 / 4;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+			<div id=&quot;elem4&quot;>4</div>
+			<div id=&quot;elem5&quot;>5</div>
+			<div id=&quot;elem6&quot;>6</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

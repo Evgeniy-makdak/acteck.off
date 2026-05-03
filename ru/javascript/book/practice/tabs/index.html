@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вкладки на JavaScript — acteck.off</title>
+  <meta name="description" content="Вкладки на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Вкладки на JavaScript</h1>
+    <p>
+	Сейчас мы реализуем вкладки. Сразу
+	посмотрите на образец того, что от вас требуется:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			margin: 0 auto;
+			width: 400px;
+		}
+		
+		.menu a {
+			margin-right: 5px;
+			display: inline-block;
+			padding: 10px;
+			color: black;
+			text-decoration: none;
+			border: 1px solid gray;
+		}
+		.menu a:hover {
+			background: #f8f8f8;
+		}
+		.menu a.active {
+			border-color: transparent;
+			background: #f2f2f2;
+		}
+		
+		.content .tab:not(.active) {
+			display: none;
+		}
+		.content .tab {
+			padding: 10px;
+			background: #f2f2f2;
+			height: 300px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div class=&quot;menu&quot;>
+				<a href=&quot;&quot; class=&quot;active&quot;>вкладка 1</a>
+				<a href=&quot;&quot;>вкладка 2</a>
+				<a href=&quot;&quot;>вкладка 3</a>
+			</div>
+			<div data-p=&quot;cont/pane&quot;>
+				<div class=&quot;tab active&quot;>
+					текст вкладки 1
+				</div>
+				<div class=&quot;tab&quot;>
+					текст вкладки 2
+				</div>
+				<div class=&quot;tab&quot;>
+					текст вкладки 3
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			
+			let parent = document.querySelector('#parent');
+		let links  = parent.querySelectorAll('.menu a');
+		let tabs   = parent.querySelectorAll('.tab');
+		
+		for (let i = 0; i < links.length; i++) {
+			links[i].addEventListener('click', function(event) {
+				let activeLink = parent.querySelector('.menu a.active');
+				activeLink.classList.remove('active');
+				
+				let activeTab = parent.querySelector('.tab.active');
+				activeTab.classList.remove('active');
+				
+				tabs[i].classList.add('active');
+				this.classList.add('active');
+				
+				event.preventDefault();
+			});
+		}
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Изучите также верстку, на которой мы будем
+	решать задачу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div class="menu"&gt;
+		&lt;a href="" class="active"&gt;вкладка 1&lt;/a&gt;
+		&lt;a href=""&gt;вкладка 2&lt;/a&gt;
+		&lt;a href=""&gt;вкладка 3&lt;/a&gt;
+	&lt;/div&gt;
+	&lt;div class="tabs"&gt;
+		&lt;div class="tab active"&gt;
+			текст вкладки 1
+		&lt;/div&gt;
+		&lt;div class="tab"&gt;
+			текст вкладки 2
+		&lt;/div&gt;
+		&lt;div class="tab"&gt;
+			текст вкладки 3
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	margin: 0 auto;
+	width: 400px;
+}
+
+.menu a {
+	margin-right: 5px;
+	display: inline-block;
+	padding: 10px;
+	color: black;
+	text-decoration: none;
+	border: 1px solid gray;
+}
+.menu a:hover {
+	background: #f8f8f8;
+}
+.menu a.active {
+	border-color: transparent;
+	background: #f2f2f2;
+}
+
+.tabs .tab:not(.active) {
+	display: none;
+}
+.tabs .tab {
+	padding: 10px;
+	background: #f2f2f2;
+	height: 300px;
+}</code>
+</div>
+<p>
+	Обратите внимание на то, что активная ссылка
+	и активная вкладка имеют класс <code data-gs="comd/z" data-x>active</code>.
+</p>
+
+<h2>Обсуждение</h2>
+<p>
+	Давайте теперь обсудим то, как решать эту
+	задачу. Очевидно, что нужно как-то связать
+	ссылки с соответствующими им вкладками. В
+	данном <a href="../../prime/dom/practice/many-elements-with-showing-buttons/index.html">уроке</a>
+	из теоретического учебника мы уже разбирали
+	возможные варианты.
+</p>
+<p>
+	В данном случае я предлагаю связать ссылки
+	и вкладки просто по позиции: первая ссылка
+	будет открывать первую вкладку, вторая ссылка
+	- вторую вкладку и так далее.
+</p>
+<p>
+	Общий алгоритм будет выглядеть так: по нажатию
+	на кнопку мы должны найти ссылку с классом
+	и убрать ей этот класс. Аналогичным образом
+	мы должны найти вкладку с этим классом и
+	тоже убрать ей этот класс.
+</p>
+<p>
+	Затем мы должны взять ссылку, на которую
+	был клик и активировать ее. Затем мы должны
+	взять вкладку, которая имеет такой же номер,
+	как и наша ссылка - и тоже активировать ее.
+</p>
+<div data-w="cont/task">
+	<p>
+		Скопируйте себе приведенный HTML и CSS коды.
+		Реализуйте вкладки согласно описанному алгоритму.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

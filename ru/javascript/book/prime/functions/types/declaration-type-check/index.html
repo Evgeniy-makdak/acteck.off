@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Как проверить тип функции в JavaScript — acteck.off</title>
+  <meta name="description" content="Как проверить тип функции в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Как проверить тип функции в JavaScript</h1>
+    <p>
+	В задачах ниже вам нужно будет определить
+	функция определена как Function Declaration
+	или Function Expression.
+</p>
+<p>
+	В простых случаях это не составляет труда
+	сделать визуально. Но как проверить, что
+	вы сделали это правильно? Используйте разницу
+	между Function Declaration или Function Expression:
+	первые могут быть вызваны выше своего определения,
+	а вторые - нет.
+</p>
+<p>
+	Пусть у нас есть вот такая функция:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = function() {
+	console.log('!');
+}</code>
+</div>
+<p>
+	Обратимся к этой функции до ее определения:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">test(); // выведет ошибку в консоль, значит Function Expression
+
+let test = function() {
+	console.log('!');
+}</code>
+</div>
+<p>
+	Вот еще пример:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">func(); // выведет '!', значит Function Declaration
+
+function func() {
+	console.log('!');
+}</code>
+</div>
+<p>
+	Поставим перед нашей функцией плюсик:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">func(); // выведет ошибку в консоль, значит Function Expression
+
++function func() {
+	console.log('!');
+}</code>
+</div>
+<div data-w="cont/nott">
+	<p>
+		Так как функция выше - это Function Expression
+		и она не присвоена никакой переменной, то
+		ее никак не вызвать, ведь по имени func она
+		будет недоступна.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, является ли представленная функция
+		Function Declaration или Function Expression:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = function func() {
+	console.log('!');
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, является ли представленная функция
+		Function Declaration или Function Expression:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(
+	function func() {
+		console.log('!');
+	}
+);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, является ли представленная функция
+		Function Declaration или Function Expression:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">+function func() {
+	console.log('!');
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, является ли представленная функция
+		Function Declaration или Function Expression:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
+	console.log('!');
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

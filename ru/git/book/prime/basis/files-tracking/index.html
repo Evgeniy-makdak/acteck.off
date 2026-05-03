@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отслеживание файлов в Git — acteck.off</title>
+  <meta name="description" content="Отслеживание файлов в Git — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/git/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/git/index.html">Git</a>
+    </div>
+
+    <h1>Отслеживание файлов в Git</h1>
+    <p>
+	В предыдущем уроке мы инициализировали
+	Git в нашем проекте. И теперь мы можем
+	с помощью команд Git делать сохранки
+	проекта, или, по правильной
+	терминологии, делать <dfn data-gs="comd/d" data-x>коммиты</dfn>.
+</p>
+<p>
+	Однако, все не так просто. Дело в том,
+	что в каждом проекте есть файлы,
+	резервные копии которых не нужны.
+	Например, файлы с кэшем. Поэтому
+	в системе Git нужно явно указать,
+	какие именно файлы мы хотим сохранять.
+</p>
+<p>
+	В Git файлы бывают двух типов:
+	<dfn data-gs="comd/d" data-x>неотслеживаемые</dfn> (<span data-gs="lang/e" data-x>untracked</span>) и
+	<dfn data-gs="comd/d" data-x>отслеживаемые</dfn> (<span data-gs="lang/e" data-x>tracked</span>).
+</p>
+<p>
+	Отслеживаемые файлы - это файлы, за изменениями
+	которых Git следит. В случае изменения
+	этих файлов, Git сообщит нам об этом.
+</p>
+<p>
+	Неотслеживаемые файлы - это файлы, за изменениями
+	которых Git не следит. Изначально все
+	файлы будут именно такими. А чтобы Git
+	начал следить за файлами, нужно специально
+	попросить его об этом. Давайте разберемся,
+	как это сделать.
+</p>
+<p>
+	Для начала нам нужно научится смотреть
+	состояния файлов. Для этого в Git есть
+	специальная команда <code data-gs="comd/c" data-x>status</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git status</code>
+</div>
+<p>
+	Пусть в вашей папке с проектом есть
+	несколько файлов:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">index.html</li><li data-s-type="F">styles.css</li></ul></div></div>
+<p>
+	Эти файлы изначально
+	неотслеживаемые. В этом случае команда
+	<code data-gs="comd/c" data-x>status</code> выведет список этих
+	файлов в таком виде:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">Untracked files:
+	index.html
+	styles.css</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Проверьте статус файлов в вашем проекте.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте в папке с проектом еще один
+		файл. Проверьте статус. Убедитесь,
+		что новый файл появился в списке
+		неотслеживаемых.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

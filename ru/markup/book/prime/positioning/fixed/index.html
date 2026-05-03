@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фиксированное позиционирование в CSS — acteck.off</title>
+  <meta name="description" content="Фиксированное позиционирование в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Фиксированное позиционирование в CSS</h1>
+    <p>
+	Сейчас мы разберемся с фиксированным позиционированием.
+	Оно похоже на абсолютное, разница проявляется
+	в том, как ведут себя эти типы позиционирования
+	при наличии полосы прокрутки.
+</p>
+<p>
+	При прокручивании страницы абсолютно спозиционированные
+	элементы будут прокручиваться вместе со страницей.
+	Смотрите пример:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;
+&lt;div id="content"&gt;
+	some long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	width: 100px;
+	height: 100px;
+	border: 1px solid green;
+}
+
+#content {
+	margin: 0 auto;
+	width: 300px;
+	text-align: justify;
+	font: 16px Arial;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			position: absolute;
+			top: 30px;
+			right: 30px;
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		
+		#content {
+			margin: 0 auto;
+			width: 300px;
+			text-align: justify;
+			font: 16px Arial;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		<div id=&quot;content&quot;>
+			
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+<p>
+	Можно сделать так, чтобы при прокручивании
+	страницы спозиционированный элемент оставался
+	на месте. Для этого ему нужно задать фиксированное
+	позиционирование с помощью свойства <code data-gs="comd/c" data-x>position</code>
+	в значении fixed:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;
+&lt;div id="content"&gt;
+	some long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	position: fixed; /* задаем фиксированное позиционирование */
+	top: 30px;
+	right: 30px;
+	width: 100px;
+	height: 100px;
+	border: 1px solid green;
+}
+
+#content {
+	margin: 0 auto;
+	width: 300px;
+	text-align: justify;
+	font: 16px Arial;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			position: fixed; /* задаем фиксированное позиционирование */
+			top: 30px;
+			right: 30px;
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		
+		#content {
+			margin: 0 auto;
+			width: 300px;
+			text-align: justify;
+			font: 16px Arial;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		<div id=&quot;content&quot;>
+			
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#wrapper {
+				position: relative;
+				width: 400px;
+				padding: 20px;
+				margin: 0 auto;
+				border: 1px solid green;
+				text-align: justify;
+			}
+			
+			#elem1 {
+				position: fixed;
+				left: 200px;
+				top: 10px;
+				width: 30px;
+				height: 30px;
+				border: 1px solid red;
+			}
+			
+			#elem2 {
+				position: fixed;
+				right: 200px;
+				top: 10px;
+				width: 30px;
+				height: 30px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+				<div id=&quot;elem1&quot;></div>
+				<div id=&quot;elem2&quot;></div>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+					aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+					fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+					sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+					ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+					ante purus lacini dui, interdum fringilla massa eros ut duir.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+					aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+					fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+					sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+					ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+					ante purus lacini dui, interdum fringilla massa eros ut duir.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+					aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+					fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+					sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+					ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+					ante purus lacini dui, interdum fringilla massa eros ut duir.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+					aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+					fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+					sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+					ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+					ante purus lacini dui, interdum fringilla massa eros ut duir.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+					aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+					fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+					sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+					ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+					ante purus lacini dui, interdum fringilla massa eros ut duir.
+				</p>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

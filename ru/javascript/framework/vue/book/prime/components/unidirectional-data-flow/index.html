@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Однонаправленный поток данных в Vue — acteck.off</title>
+  <meta name="description" content="Однонаправленный поток данных в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/vue/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/vue/index.html">Vue</a>
+    </div>
+
+    <h1>Однонаправленный поток данных в Vue</h1>
+    <p>
+	Все входные параметры образуют одностороннюю
+	привязку между дочерним свойством и родительским:
+	когда родительское свойство обновляется - оно будет
+	передаваться дочернему, но не наоборот.
+	Это предотвращает случайное изменение
+	дочерними компонентами родительского
+	состояния, что может затруднить понимание
+	потока данных вашего приложения.
+</p>
+<p>
+	Кроме того, каждый раз, когда обновляется родительский
+	компонент, все входные параметры дочернего
+	компонента будут обновлены актуальными
+	значениями. Это означает, что <i>вы не должны
+	пытаться изменять входной параметр внутри
+	дочернего компонента</i>. Если вы это сделаете,
+	Vue отобразит предупреждение в консоли.
+</p>
+<p>
+	Обычно встречаются два случая, когда возникает
+	соблазн изменять входной параметр. Давайте
+	их рассмотрим.
+</p>
+
+<h2>Случай первый</h2>
+<p>
+	Входной параметр используется для передачи
+	начального значения; дочерний компонент хочет
+	использовать его как локальное свойство данных
+	в дальнейшем. В этом случае лучше всего определить
+	локальное свойство в данных, которое использует
+	значение входного параметра в качестве начального:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">props: ['initialCounter'],
+data() {
+	return {
+		counter: this.initialCounter
+	};
+}</code>
+</div>
+
+<h2>Случай второй</h2>
+<p>
+	Входной параметр передаётся как необработанное
+	значение, которое необходимо преобразовать.
+	В этом случае лучше всего определить вычисляемое
+	свойство с использованием входного параметра:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">props: ['size'],
+computed: {
+	normalizedSize: function() {
+		return this.size.trim().toLowerCase();
+	}
+}</code>
+</div>
+
+<h2>Замечание</h2>
+<div data-w="cont/nott">
+	<p>
+		Обратите внимание, что объекты и массивы в
+		JavaScript передаются по ссылке, поэтому если
+		входной параметр массив или объект, то изменения
+		внутри дочернего компонента этого объекта или
+		массива будет влиять на состояние родителя и Vue
+		не в состоянии предупредить об этом.
+		Следует избегать любых мутаций входных параметров,
+		в том числе объектов и массивов, так как игнорирование
+		одностороннего связывания данных может привести
+		к нежелательным результатам.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

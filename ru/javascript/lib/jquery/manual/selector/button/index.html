@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Селектор button — acteck.off</title>
+  <meta name="description" content="Селектор button — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Селектор button</h1>
+    <p>
+	Селектор <code data-gs="comd/z" data-x>:button</code> выбирает элементы-кнопки и
+	все элементы с типом <code data-gs="comd/v" data-x>button</code>. Смотрите
+	теги <a href="../../../../../../markup/manual/html/tag/button/index.html"><code data-gs="comd/c" data-x>button</code></a>,
+	<a href="../../../../../../markup/manual/html/tag/input/index.html"><code data-gs="comd/c" data-x>input</code></a>
+	с типом <code data-gs="comd/v" data-x>button</code>.
+	Эквивалентом <code data-gs="comd/c" data-x>$(':button')</code> является
+	<code data-gs="comd/c" data-x>$('button')</code>, <code data-gs="comd/c" data-x>$("input[type='button']")</code>.
+	Так как <code data-gs="comd/z" data-x>:button</code> не относится к CSS спецификации,
+	то для улучшения производительности в современных
+	браузерах лучше в начале отфильтровать элементы с
+	использованием чистого css-селектора, а затем
+	применить <code data-gs="comd/c" data-x>.filter(':button')</code>.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Так мы выбираем кнопки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(':button');</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте, согласно приведенной выше теории,
+	выберем все кнопки и сделаем им зеленый фон и
+	красную рамку, добавив им класс <code data-gs="comd/z" data-x>marked</code>
+	с помощью метода
+	<a href="../../addClass/index.html"><code data-gs="comd/c" data-x>addClass</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form&gt;
+	&lt;input type="button" value="button"&gt;
+	&lt;input type="file"&gt;
+	&lt;button&gt;button&lt;/button&gt;
+	&lt;input type="reset"&gt;
+	&lt;input type="radio"&gt;
+	&lt;input type="text"&gt;
+&lt;/form&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.marked {
+	background-color: green;
+	border: 2px red solid;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(':button').addClass('marked');
+
+$('form').submit(function(event) {
+	event.preventDefault(); // предотвращает отправку формы
+});</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			тег <a href="../../../../../../markup/manual/html/tag/button/index.html"><code data-gs="comd/c" data-x>button</code></a>
+		</li>
+		<li>
+			тег <a href="../../../../../../markup/manual/html/tag/input/index.html"><code data-gs="comd/c" data-x>input</code></a>
+		</li>
+		<li>
+			метод <a href="../../filter/index.html"><code data-gs="comd/c" data-x>filter</code></a>, <br>
+			который фильтрует элементы в наборе по заданному
+			селектору
+		</li>
+		<li>
+			метод <a href="../../addClass/index.html"><code data-gs="comd/c" data-x>addClass</code></a>, <br>
+			который добавляет заданный CSS класс элементу
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Одноименные параметры в JavaScript — acteck.off</title>
+  <meta name="description" content="Одноименные параметры в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Одноименные параметры в JavaScript</h1>
+    <p>
+	Пусть теперь внешняя и внутренняя функция
+	имеют одноименные параметры:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(num) {
+		console.log(num); // выведет 1
+	}
+	
+	func(num);
+};
+
+test(1);</code>
+</div>
+<p>
+	В этом случае во внутренней функции будет
+	локальная переменная <code data-gs="comd/c" data-x>num</code>. Ее изменение
+	во внутренней функции никак не будет влиять
+	на внешнюю переменную <code data-gs="comd/c" data-x>num</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(num) {
+		num = 2; // меняем локальную переменную num
+	}
+	
+	func(num);
+	console.log(num); // выведет 1 - ничего не поменялось
+}
+
+test(1);</code>
+</div>
+<p>
+	Получится, что внутренняя функция никак не
+	сможет обратиться к внешней переменной <code data-gs="comd/c" data-x>num</code>
+	для того, чтобы изменить ее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(num) {
+		// тут нельзя получить доступ в внешней переменной num
+	}
+	
+	func(num);
+}
+test(1);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(num) {
+		console.log(num);
+	}
+	
+	func(num);
+}
+
+test(1);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(num) {
+		num = 2;
+	}
+	
+	func(num);
+	console.log(num);
+}
+
+test(1);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(num) {
+		console.log(num);
+	}
+	
+	num = 2;
+	func(num);
+}
+
+test(1);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(num) {
+		console.log(num);
+	}
+	
+	func(num);
+	num = 2;
+}
+
+test(1);</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

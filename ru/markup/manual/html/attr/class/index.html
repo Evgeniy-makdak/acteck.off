@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Атрибут class — acteck.off</title>
+  <meta name="description" content="Атрибут class — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Атрибут class</h1>
+    <p>
+	Атрибут <code data-gs="comd/c" data-x>class</code> задает один или несколько
+	классов для элемента (под элементом имеется
+	ввиду тег).
+</p>
+<p>
+	Это делается для того, чтобы затем обратиться
+	через CSS к группе элементов, у которых задан
+	одинаковый класс, и применить для него определенные
+	свойства (к примеру, сменить <a href="../../../css/property/color/index.html">цвет
+	текста</a>, <a href="../../../css/property/font-size/index.html">размер
+	шрифта</a> и так далее).
+</p>
+<p>
+	Существует также <a href="../id/index.html">атрибут
+	id</a>, который подобно атрибуту <code data-gs="comd/c" data-x>class</code>
+	позволяет выбирать элементы на HTML странице.
+</p>
+<p>
+	Разница между атрибутом <code data-gs="comd/c" data-x>class</code> и <a
+	href="../id/index.html">атрибутом
+	id</a> в том, что class выбирает группу
+	элементов (даже если он дан одному элементу
+	- его в последствии можно дать и другому),
+	а <code data-gs="comd/c" data-x>id</code> выбирает уникальный элемент (больше
+	элемента с таким id не должно быть на странице
+	сайта, иначе будет конфликт).
+</p>
+<p>
+	Как понять, что давать элементу - класс или
+	id? Класс дается тем элементам, которые повторяются
+	на страницах сайта (чтобы по несколько раз
+	не писать один и тот же CSS код). Даже если
+	у вас сейчас данный элемент один, но вы чувствуете,
+	что похожие элементы могут появится в дальнейшем
+	- давайте этому элементу класс. Если же вы
+	уверены, что такой элемент уникальный
+	- то давайте ему id. Хотя в настоящее время
+	есть тенденция к тому, чтобы всем элементам
+	давать класс, а id оставить для JavaScript,
+	но она не является общепринятой.
+</p>
+<p>
+	Элементу можно задать несколько классов,
+	в этом случае их следует перечислять через пробел.
+</p>
+<p>
+	Названия классов должны быть набраны английскими
+	буквами, цифрами, без пробелов (пробел отделяет
+	классы друг от друга, вместо него можно использовать
+	подчеркивание или дефис). Классы не должны
+	начинаться с цифры (в HTML5 уже можно, но
+	не будет работать в старых браузерах).
+</p>
+<p>
+	Имена классам следует давать на английском
+	языке (а не на русском, просто английскими
+	буквами!). Имена должны быть осмысленными,
+	отражать суть класса.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте всем абзацам с классом <code data-gs="comd/c" data-x>test</code>
+	зададим красный цвет текста:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="test"&gt;Абзац с классом test.&lt;/p&gt;
+&lt;p&gt;Контрольный абзац без класса.&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.test {
+	color: red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.test {
+			color: red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p class=&quot;test&quot;>Абзац с классом test.</p>
+		<p>Контрольный абзац без класса.</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Несколько классов для элемента</h2>
+<p>
+	А здесь давайте первому абзацу зададим несколько
+	классов - <code data-gs="comd/c" data-x>test1</code> и <code data-gs="comd/c" data-x>test2</code> (запишем
+	их через пробел). Класс <code data-gs="comd/c" data-x>test1</code> задает
+	красный <a href="../../../css/property/color/index.html">цвет
+	тексту</a>, а класс <code data-gs="comd/c" data-x>test2</code> задает <a
+	href="../../../css/property/font-size/index.html">размер
+	шрифта</a> в <code data-gs="comd/u" data-x>20px</code>. Второму абзацу
+	дан только класс <code data-gs="comd/c" data-x>test1</code> (этот абзац
+	станет красным), а третьему абзацу - класс
+	<code data-gs="comd/c" data-x>test2</code> (этот абзац будет иметь размер
+	шрифта в 20px). Первый абзац, у которого
+	два класса, будет иметь одновременно и красный
+	цвет и размер шрифта в <code data-gs="comd/u" data-x>20px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="test1 test2"&gt;Абзац с двумя классами test1 и test2.&lt;/p&gt;
+&lt;p class="test1"&gt;Абзац с классом test1.&lt;/p&gt;
+&lt;p class="test2"&gt;Абзац с классом test2.&lt;/p&gt;
+&lt;p&gt;Контрольный абзац без классов.&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.test1 {
+	color: red;
+}
+.test2 {
+	font-size: 20px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.test1 {
+			color: red;
+		}
+		.test2 {
+			font-size: 20px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p class=&quot;test1 test2&quot;>Абзац с двумя классами test1 и test2.</p>
+		<p class=&quot;test1&quot;>Абзац с классом test1.</p>
+		<p class=&quot;test2&quot;>Абзац с классом test2.</p>
+		<p>Контрольный абзац без классов.</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			атрибут <a href="../id/index.html"><code data-gs="comd/c" data-x>id</code></a>, <br>
+			который задает уникальные идентификаторы элементам
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

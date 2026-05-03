@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Маршрут без пути в React Router — acteck.off</title>
+  <meta name="description" content="Маршрут без пути в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Маршрут без пути в React Router</h1>
+    <p>
+	На этом уроке мы рассмотрим еще
+	одно полезное свойство маршрута без
+	пути.
+</p>
+<p>
+	Вы знаете, что для каждого объекта
+	маршрута вы можете добавить свойство
+	<code data-gs="comd/c" data-x>errorElement</code> и в качестве значения
+	установить тот элемент, который
+	хотите отображать при возникновении
+	ошибки.
+</p>
+<p>
+	Но что если у нас <code data-gs="comd/c" data-x>errorElement</code>
+	будет одинаковым для всех маршрутов? Можно,
+	конечно наляпать одно и тоже для каждого,
+	а можно воспользоваться маршрутом без пути,
+	обернуть в него интересующие нас дочерние
+	маршруты. Toгда в случае возникновения
+	ошибки на одном из них, наш маршрут
+	без пути будет их отлавливать и
+	отображать свой <code data-gs="comd/c" data-x>errorElement</code>.
+</p>
+<p>
+	Зайдем в <code data-gs="comd/p" data-x>main.jsx</code> файл и обернем
+	в маршрут без пути все наши дочерние маршруты,
+	сделав их дочерними для него (в свою очередь
+	этот маршрут станет дочерним для
+	корневого), не забудем добавить ему также
+	свойство <code data-gs="comd/c" data-x>errorElement</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([
+	{
+		path: '/',
+		element: &lt;Root /&gt;,
+		errorElement: &lt;ErrorPage404 /&gt;,
+		loader: rootLoader,
+		action: rootAction,
+		children: [
+			{
+				errorElement: &lt;ErrorPage404 /&gt;,
+				children: [
+					{ index: true, element: &lt;Index /&gt; },
+					{
+						path: 'products/:productId',
+						element: &lt;Product /&gt;,
+						loader: productLoader,
+					},
+					{
+						path: 'products/:productId/edit',
+						element: &lt;EditProduct /&gt;,
+						loader: editProductLoader,
+						action: editAction,
+					},
+					{
+						path: 'products/:productId/delete',
+						action: deleteAction,
+					},
+				],
+			},
+		],
+	},
+]);</code>
+</div>
+<p>
+	Как проверить теперь работу этого кода?
+	Можно добавить строчку с выбрасыванием
+	ошибки (не забудьте потом ее убрать,
+	когда проверите). Давайте, к примеру,
+	добавим ее первой строчкой в функцию
+	<code data-gs="comd/c" data-x>action</code> для маршрута удаления
+	продукта, тогда при попытке удалить
+	продукт мы увидим ошибку:
+</p>
+<div data-p="bock/pane" data-p-file="delete.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function action({ params }) {
+	throw new Error('error');
+	await deleteProduct(params.productId);
+	return redirect('/');
+}</code>
+</div>
+<p>
+	Теперь попробуйте удалить какой-нибудь
+	продукт.		
+</p>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлым урокам. Пользуясь
+		материалами урока, оберните ваши
+		дочерние маршруты в маршрут без пути
+		со свойством <code data-gs="comd/c" data-x>errorElement</code> и проверьте,
+		что это работает.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

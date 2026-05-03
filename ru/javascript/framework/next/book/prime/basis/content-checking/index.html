@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проверка контента в фреймворке NextJS — acteck.off</title>
+  <meta name="description" content="Проверка контента в фреймворке NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/next/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Проверка контента в фреймворке NextJS</h1>
+    <p>
+	В предыдущих уроках мы попробовали
+	сделать два типа компонентов - серверные
+	и клиентские. Давайте убедимся в том,
+	что в серверных компонентах решена проблема
+	с SEO. To есть мы должны проверить,
+	что в браузер приходит верстка с текстом
+	нашего компонента. Сделаем это.
+</p>
+<p>
+	Пусть наш серверный компонент имеет
+	следующий вид:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Test() {
+	let name = 'user';
+	return &lt;h1&gt;hello, {name}!&lt;/h1&gt;;
+}</code>
+</div>
+<p>
+	Откройте страницу с этим компонентом в браузере.
+	Затем нажмите <code data-gs="comd/k" data-x>Ctrl + U</code>. Это комбинация
+	клавиш откроет исходный HTML код страницы.
+	Это тот код, который приходит с сервера.
+	To есть до применения к нему браузерного
+	JavaScript. Именно так и видят нашу страницу
+	поисковые системы. Итак, откройте исходный
+	код и изучите его. Там вы найдете текст
+	нашего компонента.
+</p>
+<p>
+	Давайте для примера теперь сделаем клиентский
+	компонент:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">'use client';
+
+import { useState } from 'react';
+
+export default function Test() {
+	let [name, setName] = useState('user');
+	return &lt;h1&gt;hello, {name}!&lt;/h1&gt;;
+}</code>
+</div>
+<p>
+	Опять нажмите <code data-gs="comd/k" data-x>Ctrl + U</code> и изучите
+	исходный код. Вы не найдете текста нашего
+	компонента, так его текст формируется
+	динамически в браузере.
+</p>
+<p>
+	В этом и проявляется основная разница
+	между серверными и клиентскими компонентами.
+</p>
+<div data-w="cont/task">
+	<p>
+		Проделайте описанные в уроки манипуляции.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите в чем разница между серверными
+		и клиентскими компонентами
+		с точки зрения SEO.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Помимо SEO, какие еще различия имеют
+		клиентские и серверные компоненты?
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

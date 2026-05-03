@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Игнорирование файлов в Git — acteck.off</title>
+  <meta name="description" content="Игнорирование файлов в Git — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/git/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/git/index.html">Git</a>
+    </div>
+
+    <h1>Игнорирование файлов в Git</h1>
+    <p>
+	В проектах часто встречаются файлы,
+	которые мы не хотели бы сохранять
+	в системе Git. Это могут быть временные
+	файлы, порождаемые вашим кодом,
+	файлы с кэшем, а также файлы с паролями.
+</p>
+<p>
+	Мы можем принудительно заставить
+	Git <dfn data-gs="comd/d" data-x>игнорировать</dfn> такие папки и файлы.
+	Это делается с помощью специального
+	файла <code data-gs="comd/p" data-x>.gitignore</code>, размещаемого
+	в папке с вашим проектом.
+</p>
+<p>
+	В этом файле на каждой строке нужно
+	писать путь к файлу или папке,
+	которые мы хотим игнорировать.
+	Давайте посмотрим на примерах,
+	какой здесь допустим синтаксис.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Косая черта перед именем файла
+	соответствует файлу в корне репозитория:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">/debug.log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug.log</li></ul></div></div>
+<p>
+	Но не:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">logs/debug.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Без косой черты в начале будут игнорироваться
+	файлы и в подпапках:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">debug.log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug.log</li><li data-s-type="F">logs/debug.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Без косой черты в конце будут игноророваться
+	и файлы без расширения, и папки с таким именем:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">logs</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">logs</li><li data-s-type="F">logs/debug.log</li><li data-s-type="F">logs/latest/foo.bar</li><li data-s-type="D">build/logs</li><li data-s-type="F">build/logs/debug.txt</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	С косой чертой в конце будут игнорироваться
+	только папки:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">logs/</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие папки:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">logs/</li><li data-s-type="F">logs/debug.log</li><li data-s-type="F">logs/latest/foo.bar</li><li data-s-type="D">build/logs</li><li data-s-type="F">build/logs/debug.txt</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Две звездочки в начале папки
+	заставят игнорировать все папки
+	содержащую такую подпапку в пути:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">**/logs</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">logs/debug.log</li><li data-s-type="F">logs/monday/foo.bar</li><li data-s-type="F">build/logs/debug.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Две звездочки можно также использовать
+	для сопоставления файлов на основе их
+	имени и имени родительской папки:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">**/logs/debug.log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">logs/debug.log</li><li data-s-type="F">build/logs/debug.log</li></ul></div></div>
+<p>
+	Но не:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">logs/build/debug.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Одна звездочка — это подстановочный знак,
+	который может соответствовать
+	как нескольким символам, так и ни одному:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">*.log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug.log</li><li data-s-type="F">foo.log</li><li data-s-type="F">.log</li><li data-s-type="F">logs/debug.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Добавление восклицательного знака в
+	начало шаблона отменяет действие шаблона.
+	Если файл соответствует некоему шаблону,
+	но при этом также соответствует отменяющему
+	шаблону, указанному после,
+	такой файл не будет игнорироваться:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">*.log
+!important.log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">important.log</li></ul></div></div>
+<p>
+	Но не:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">file.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Знак вопроса соответствует строго одному символу:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">debug?.log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug0.log</li><li data-s-type="F">debugg.log</li></ul></div></div>
+<p>
+	Но не:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug10.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Квадратные скобки соответствуют
+	одному символу из указанного набора:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">debug[01].log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug0.log</li><li data-s-type="F">debug1.log</li></ul></div></div>
+<p>
+	Но не:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug2.log</li><li data-s-type="F">debug01.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Квадратные скобки можно также использовать
+	для указания соответствия одному символу из заданного диапазона:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">debug[0-9].log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug0.log</li><li data-s-type="F">debug1.log</li></ul></div></div>
+<p>
+	Но не:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug10.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Восклицательный знак можно использовать
+	для указания соответствия любому символу,
+	кроме символов из указанного набора:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">debug[!01].log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug2.log</li></ul></div></div>
+<p>
+	Но не:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug0.log</li><li data-s-type="F">debug1.log</li><li data-s-type="F">debug01.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Диапазоны могут быть цифровыми или буквенными:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">debug[a-z].log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debuga.log</li><li data-s-type="F">debugb.log</li></ul></div></div>
+<p>
+	Но не:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">debug1.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Две звездочки соответствуют
+	множеству каталогов или ни одному:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">logs/**/debug.log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">logs/debug.log</li><li data-s-type="F">logs/monday/debug.log</li><li data-s-type="F">logs/monday/pm/debug.log</li></ul></div></div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Подстановочные символы можно
+	использовать и в именах каталогов:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">logs/*day/debug.log</code>
+</div>
+<p>
+	Для примера будут проигнорированы
+	следующие файлы:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">logs/monday/debug.log</li><li data-s-type="F">logs/tuesday/debug.log</li></ul></div></div>
+<p>
+	Но не:
+<p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">logs/latest/debug.log</li></ul></div></div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Сделайте так, чтобы игнорировались
+		файлы из папки <code data-gs="comd/p" data-x>cache</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте так, чтобы игнорировались
+		файлы из папок <code data-gs="comd/p" data-x>cache</code> и <code data-gs="comd/p" data-x>tmp</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте так, чтобы игнорировался
+		файл <code data-gs="comd/p" data-x>err.txt</code> и папка <code data-gs="comd/p" data-x>tmp</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

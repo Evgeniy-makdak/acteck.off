@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обновление записей через SQL запрос в NodeJS — acteck.off</title>
+  <meta name="description" content="Обновление записей через SQL запрос в NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/nodejs/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Обновление записей через SQL запрос в NodeJS</h1>
+    <p>
+	Давайте теперь научимся изменять записи.
+	Это делается с помощью команды <code data-gs="comd/q" data-x>UPDATE</code>.
+	Она имеет следующий синтаксис:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "UPDATE таблица SET полe = значение WHERE условие";</code>
+</div>
+<div data-w="cont/nott">
+	<p>
+		Будьте внимательны, если не указать
+		в запросе блок с <code data-gs="comd/q" data-x>WHERE</code>,
+		то при обновлении все исходные записи
+		заменятся новыми!
+	</p>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте поменяем возраст и зарплату юзера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "UPDATE users SET age=20, salary=800 WHERE id=1";</code>
+</div>
+<p>
+	Результат выполненного кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">ResultSetHeader {
+	fieldCount: 0,
+	affectedRows: 1,
+	insertId: 0,
+	info: 'Rows matched: 1 Changed: 1 Warnings: 0',
+	serverStatus: 2,
+	warningStatus: 0,
+	changedRows: 1
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Установим зарплату <code data-gs="comd/n" data-x>400</code> и возраст <code data-gs="comd/n" data-x>24</code>
+	всем юзерам в возрасте <code data-gs="comd/n" data-x>23</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "UPDATE users SET age=24, salary=300 WHERE age=23";</code>
+</div>
+<p>
+	Результат выполненного кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">ResultSetHeader {
+	fieldCount: 0,
+	affectedRows: 1,
+	insertId: 0,
+	info: 'Rows matched: 1 Changed: 1 Warnings: 0',
+	serverStatus: 34,
+	warningStatus: 0,
+	changedRows: 1
+}</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Используя созданный ранее вами дамп таблицы
+		<code data-gs="comd/s" data-x>users</code> приведите ее в исходное
+		состояние.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Юзеру с <code data-gs="comd/s" data-x>id</code> <code data-gs="comd/n" data-x>4</code> поставьте возраст
+		<code data-gs="comd/n" data-x>35</code> лет.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Всем, у кого зарплата <code data-gs="comd/n" data-x>500</code>, сделайте
+		ее <code data-gs="comd/n" data-x>700</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Работникам с <code data-gs="comd/s" data-x>id</code> больше <code data-gs="comd/n" data-x>2</code> и
+		меньше <code data-gs="comd/n" data-x>5</code> включительно поставьте возраст
+		<code data-gs="comd/n" data-x>23</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Геттеры свойств в ООП в JavaScript — acteck.off</title>
+  <meta name="description" content="Геттеры свойств в ООП в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Геттеры свойств в ООП в JavaScript</h1>
+    <p>
+	Пусть у нас есть следующий класс
+	с приватными свойствами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
+	#name;
+	#surn;
+	
+	constructor(name, surn) {
+		this.#name = name;
+		this.#surn = surn;
+	}
+}</code>
+</div>
+<p>
+	Как вы видите, эти свойства задаются один
+	раз при создании объекта. Сейчас, однако,
+	эти свойства невозможно прочитать,
+	ведь они приватные и нет соответствующих
+	методов для этого.
+</p>
+<p>
+	Давайте сделаем для наших свойств специальные
+	методы, позволяющие прочитать эти свойства.
+	Такие методы (их называют <dfn data-gs="comd/d" data-x>геттеры</dfn>) должны
+	начинаться со слова <code data-gs="comd/c" data-x>get</code>, а затем должно
+	идти название читаемого свойство.
+</p>
+<p>
+	Давайте сделаем геттеры наших свойств:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
+	#name;
+	#surn;
+	
+	constructor(name, surn) {
+		this.#name = name;
+		this.#surn = surn;
+	}
+	
+	getName() {
+		return this.#name;
+	}
+	
+	getSurn() {
+		return this.#surn;
+	}
+}</code>
+</div>
+<p>
+	Давайте проверим их работу.
+	Создадим объект, параметром
+	передав данные юзера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let user = new User('john', 'smit');</code>
+</div>
+<p>
+	Прочитаем эти данные, воспользовавшись
+	геттерами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(user.getName());
+console.log(user.getSurn());</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		В классе <code data-gs="comd/c" data-x>Employee</code> сделайте
+		три приватных свойства: имя, зарплату
+		и возраст.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Передайте параметром конструктора
+		значения этих свойств.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте геттеры, выводящие значения
+		каждого из наших свойств.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

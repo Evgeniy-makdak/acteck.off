@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Расширение интерфейсов в ООП в TypeScript — acteck.off</title>
+  <meta name="description" content="Расширение интерфейсов в ООП в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/typescript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Расширение интерфейсов в ООП в TypeScript</h1>
+    <p>
+	Интерфейсы в TypeScript могут наследовать
+	друг от друга. Такое взаимодействие
+	называется <dfn data-gs="comd/d" data-x>расширением</dfn> интерфейсов.
+	Давайте посмотрим на примере. Пусть у нас
+	есть интерфейс <code data-gs="comd/c" data-x>ISize</code>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">interface ISize {
+	height: number;
+	width: number;
+}</code>
+</div>
+<p>
+	Сделаем интерфейс <code data-gs="comd/c" data-x>IStyle</code>, который
+	будет расширять <code data-gs="comd/c" data-x>ISize</code>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">interface IStyle extends ISize {
+	color: string;
+}</code>
+</div>
+<p>
+	Теперь давайте создадим класс <code data-gs="comd/c" data-x>Figure</code>,
+	реализующий интерфейс <code data-gs="comd/c" data-x>IStyle</code>. Наш
+	класс должен будет реализовать как свойство
+	самого интерфейса, так и его родителя.
+	Сделаем это: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class Figure implements IStyle {
+	height: number;
+	width: number;
+	color: string;
+	
+	constructor(height: number, width: number, color: string) {
+		this.height = height;
+		this.width  = width;
+		this.color  = color;
+	}
+}</code>
+</div>
+<p>
+	Проверим работу: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let fig = new Figure(130, 200, 'green');
+console.log(fig);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте интерфейс <code data-gs="comd/c" data-x>IProgrammer</code> со
+		свойствами <code data-gs="comd/c" data-x>salary</code> и <code data-gs="comd/c" data-x>language</code>.
+		Пусть данный интерфейс наследует <code data-gs="comd/c" data-x>IUser</code>
+		со свойствами <code data-gs="comd/c" data-x>name</code>, <code data-gs="comd/c" data-x>birthday</code>. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте класс <code data-gs="comd/c" data-x>Employee</code>, который
+		реализует <code data-gs="comd/c" data-x>IProgrammer</code>. 
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

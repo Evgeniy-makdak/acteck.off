@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод html — acteck.off</title>
+  <meta name="description" content="Метод html — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод html</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>html</code> позволяет изменять текст 
+	элемента и получать его вместе с тегами.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Получение текста:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).html();</code>
+</div>
+<p>
+	Изменение текста:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).html(новый текст);</code>
+</div>
+
+<h2>Дополнительно</h2>
+<p>
+	Метод <code data-gs="comd/c" data-x>html</code> может применить заданную 
+	функцию к каждому элементу в наборе.
+	При этом первым параметром функция получит
+	номер элемента в наборе, а вторым параметром
+	- текущий текст элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).html(function(номер в наборе, текущий текст элемента));</code>
+</div>
+<p>
+	Имена переменных в функции могут быть любыми.
+	К примеру, если для первого параметра мы дадим имя 
+	<code data-gs="comd/c" data-x>index</code> - тогда внутри нашей функции будет доступна
+	переменная <code data-gs="comd/c" data-x>index</code>, в которой будет лежать номер в 
+	наборе для того элемента, который функция обрабатывает 
+	в данный момент времени.Аналогично, если для второго
+	параметра дать, к примеру, имя <code data-gs="comd/c" data-x>value</code> - тогда
+	внутри нашей функции будет доступна переменная <code data-gs="comd/c" data-x>value</code>,
+	в которой будет лежать текст того элемента, который функция
+	обрабатывает в данный момент времени:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).html(function(index, value) {
+
+	// тут доступны переменные index и value
+	
+});</code>
+</div>
+<p>
+	Текст каждого элемента поменяется на тот,
+	который вернет функция конкретно для этого
+	элемента.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте выведем на экран содержимое нашего абзаца:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let text = $('#test').html();
+alert(text);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте поменяем содержимое нашего абзаца:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text1&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').html('text2');</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text2&lt;/p&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте поменяем содержимое нашего абзаца
+	на текст с тегами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text1&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').html('&lt;span&gt;text2&lt;/span&gt;');</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;&lt;span&gt;text2&lt;/span&gt;&lt;/p&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте каждому абзацу добавим в конце его
+	порядковый номер в наборе:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text&lt;/p&gt;
+&lt;p&gt;text&lt;/p&gt;
+&lt;p&gt;text&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('p').html(function(index, value){
+	return value + ' ' + index;
+});</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text 1&lt;/p&gt;
+&lt;p&gt;text 2&lt;/p&gt;
+&lt;p&gt;text 3&lt;/p&gt;</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../text/index.html"><code data-gs="comd/c" data-x>text</code></a>, <br>
+			который позволяет получить текст элемента без тегов
+		</li>
+		<li>
+			JavaScript свойство 
+			<a href="../../../../manual/dom/innerHTML/index.html"><code data-gs="comd/c" data-x>innerHTML</code></a>, <br>
+			с помощью которого можно сменить текст элемента
+			на чистом JavaScript
+		</li>
+		<li>
+			JavaScript свойство 
+			<a href="../../../../manual/dom/outerHTML/index.html"><code data-gs="comd/c" data-x>outerHTML</code></a>, <br>
+			с помощью которого можно изменить текст элемента вместе 
+			с его тегом на чистом JavaScript
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

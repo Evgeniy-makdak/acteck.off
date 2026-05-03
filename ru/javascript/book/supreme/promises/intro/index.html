@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Введение в промисы в JavaScript — acteck.off</title>
+  <meta name="description" content="Введение в промисы в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Введение в промисы в JavaScript</h1>
+    <p>
+	Вы уже знаете, что использование коллбэк-модели
+	асинхронности легко приводит к ситуации callback
+	hell. Поэтому в JavaScript была введена новая
+	модель под названием <dfn data-gs="comd/d" data-x>промисы</dfn>
+	(<span data-gs="lang/e" data-x>promise</span>).
+	Давайте изучим эту модель.
+</p>
+<p>
+	Промис представляет собой объект, в который
+	параметром передается функция, внутри которой
+	нужно размещать наш асинхронный код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let promise = new Promise(function() {
+	// асинхронный код
+});</code>
+</div>
+<p>
+	Как вы видите, я записал объект с промисом
+	в переменную <code data-gs="comd/c" data-x>promise</code>. В каком-то другом
+	месте кода я могу применить к этой переменной
+	метод <code data-gs="comd/c" data-x>then</code>, передав в него функцию
+	с кодом, который должен быть выполнен по
+	завершении асинхронного кода, написанного
+	при создании данного промиса:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(function() {
+	// выполнится при завершении асинхронного кода
+});</code>
+</div>
+<p>
+	Звучит запутано, поэтому давайте посмотрим
+	на примере. Пусть у меня есть вот такой асинхронный
+	код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">setTimeout(function() {
+	let result = [1, 2, 3, 4, 5];
+}, 3000);</code>
+</div>
+<p>
+	Пусть я хочу решить для него нашу основную
+	задачу асинхронности: выполнить некоторый
+	код после срабатывания таймера. При этом
+	я не хочу размещать этот код в самом таймере
+	и хочу, чтобы в этот код как-то попал результат,
+	написанный мною в переменной <code data-gs="comd/c" data-x>result</code>.
+	В общем-то, мы решали эту задачу в предыдущих
+	уроках через коллбэки и подписки. Давайте
+	теперь посмотрим, как это сделать через промисы.
+</p>
+<p>
+	Для начала нужно обернуть наш асинхронный
+	код в промис:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let promise = new Promise(function() {
+	setTimeout(function() {
+		let result = [1, 2, 3, 4, 5];
+	}, 3000);
+});</code>
+</div>
+<p>
+	Этого, однако, не достаточно. Мы должны <i>в
+	явном виде указать, что наш асинхронный код
+	завершился</i>. В этом нам поможет специальная
+	функция завершения, автоматически попадающая
+	в первый параметр функции, если он указан:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let promise = new Promise(function(resolve) { // указываем параметр
+	setTimeout(function() {
+		let result = [1, 2, 3, 4, 5];
+	}, 3000);
+});</code>
+</div>
+<p>
+	С помощью функции завершения мы можем явно
+	указать промису, что асинхронный код завершился.
+	Для этого мы должны вызвать эту функцию в
+	нужном нам месте:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let promise = new Promise(function(resolve) {
+	setTimeout(function() {
+		let result = [1, 2, 3, 4, 5];
+		resolve(); // завершаем промис
+	}, 3000);
+});</code>
+</div>
+<p>
+	При этом, если мы хотим передать вовне какой-то
+	результат асинхронного кода, мы можем передать
+	его параметром нашей функции завершения:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let promise = new Promise(function(resolve) {
+	setTimeout(function() {
+		let result = [1, 2, 3, 4, 5];
+		resolve(result); // передаем результат
+	}, 3000);
+});</code>
+</div>
+<p>
+	Можно, конечно же, избавится от промежуточной
+	переменной:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let promise = new Promise(function(resolve) {
+	setTimeout(function() {
+		resolve([1, 2, 3, 4, 5]);
+	}, 3000);
+});</code>
+</div>
+<p>
+	Теперь в любом другом месте мы можем вызвать
+	метод <code data-gs="comd/c" data-x>then</code> нашего промиса:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(function() {
+	// сработает по завершению промиса
+});</code>
+</div>
+<p>
+	Результат работы промиса попадет в первый
+	параметр функции, если мы пожелаем его указать:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(function(result) {
+	console.log(result); // выведет массив с результатом
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте промис, внутри которого будет задержка
+		в <code data-gs="comd/n" data-x>5</code> секунд, после которой промис должен
+		выполнится, своим результатом вернув какой-нибудь
+		текст. Выведите этот текст на экран.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

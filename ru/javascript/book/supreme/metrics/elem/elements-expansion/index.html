@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Расширение элементов в CSS для JavaScript — acteck.off</title>
+  <meta name="description" content="Расширение элементов в CSS для JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Расширение элементов в CSS для JavaScript</h1>
+    <p>
+	Задание CSS свойств
+	<a href="../../../../../../markup/manual/css/property/width/index.html"><code data-gs="comd/c" data-x>width</code></a> и
+	<a href="../../../../../../markup/manual/css/property/height/index.html"><code data-gs="comd/c" data-x>height</code></a>
+	не гарантирует того, что элемент станет
+	заданного размера. Давайте посмотрим
+	на примерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Сейчас размеры элемента совпадают
+	с заданными:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	height: 200px;
+	margin: 50px auto;
+	background: #CFF5BF;
+}</code>
+	
+
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+						text-align: center;
+					}
+					.-parent- {
+						position: relative;
+						display: inline-block;
+					}
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+			background: #CFF5BF;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			text
+		</div>
+		
+		<script>
+			;(function() {
+							let elem = document.querySelector('#elem');
+							let parent = elem.parentElement;
+							
+							if (!parent.matches('.-parent-')) {
+								let div = document.createElement('div');
+								div.classList.add('-parent-');
+								parent.append(div);
+								div.append(elem);
+								
+								let cs = getComputedStyle(elem);
+								
+								div.style.marginTop = cs.marginTop;
+								div.style.marginLeft = cs.marginLeft;
+								div.style.marginBottom = cs.marginBottom;
+								div.style.marginRight = cs.marginRight;
+								
+								elem.style.margin = '0';
+							}
+							
+							let line = document.createElement('span');
+							line.textContent = '200px';
+							elem.parentElement.append(line);
+					
+							line.style.cssText = `
+								position: absolute;
+								bottom: calc(100% + 20px);
+								left: 0px;
+								color: red;
+								border-bottom: 1px solid red;
+								text-align: center;
+							`;
+						line.style.width = '200px';
+						})();
+					
+						;(function() {
+							let elem = document.querySelector('#elem');
+							let parent = elem.parentElement;
+							
+							if (!parent.matches('.-parent-')) {
+								let div = document.createElement('div');
+								div.classList.add('-parent-');
+								parent.append(div);
+								div.append(elem);
+								
+								let cs = getComputedStyle(elem);
+								
+								div.style.marginTop = cs.marginTop;
+								div.style.marginLeft = cs.marginLeft;
+								div.style.marginBottom = cs.marginBottom;
+								div.style.marginRight = cs.marginRight;
+								
+								elem.style.margin = '0';
+							}
+							
+							let line = document.createElement('span');
+							line.textContent = '200px';
+							elem.parentElement.append(line);
+					
+							line.style.cssText = `
+								position: absolute;
+								top: 0px;
+								left: calc(100% + 25px);
+								padding-left: 10px;
+								display: flex;
+								align-items: center;
+								color: red;
+								border-left: 1px solid red;
+							`;
+						line.style.height = '200px';
+						})();
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте зададим элементу свойство
+	<a href="../../../../../../markup/manual/css/property/padding/index.html"><code data-gs="comd/c" data-x>padding</code></a>.
+	В результате реальная ширина элемента станет
+	больше и расширится на заданное значение
+	внутреннего отступа:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	padding: 25px;
+	width: 200px;
+	height: 200px;
+	margin: 50px auto;
+	background: #CFF5BF;
+}</code>
+	
+
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+						text-align: center;
+					}
+					.-parent- {
+						position: relative;
+						display: inline-block;
+					}
+		</style>
+		<style>
+			#elem {
+			padding: 25px;
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+			background: #CFF5BF;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			text
+		</div>
+		
+		<script>
+			;(function() {
+							let elem = document.querySelector('#elem');
+							let parent = elem.parentElement;
+							
+							if (!parent.matches('.-parent-')) {
+								let div = document.createElement('div');
+								div.classList.add('-parent-');
+								parent.append(div);
+								div.append(elem);
+								
+								let cs = getComputedStyle(elem);
+								
+								div.style.marginTop = cs.marginTop;
+								div.style.marginLeft = cs.marginLeft;
+								div.style.marginBottom = cs.marginBottom;
+								div.style.marginRight = cs.marginRight;
+								
+								elem.style.margin = '0';
+							}
+							
+							let line = document.createElement('span');
+							line.textContent = '200px';
+							elem.parentElement.append(line);
+					
+							line.style.cssText = `
+								position: absolute;
+								bottom: calc(100% + 20px);
+								left: 0px;
+								color: red;
+								border-bottom: 1px solid red;
+								text-align: center;
+							`;
+						line.style.width = '200px';
+						})();
+					
+						;(function() {
+							let elem = document.querySelector('#elem');
+							let parent = elem.parentElement;
+							
+							if (!parent.matches('.-parent-')) {
+								let div = document.createElement('div');
+								div.classList.add('-parent-');
+								parent.append(div);
+								div.append(elem);
+								
+								let cs = getComputedStyle(elem);
+								
+								div.style.marginTop = cs.marginTop;
+								div.style.marginLeft = cs.marginLeft;
+								div.style.marginBottom = cs.marginBottom;
+								div.style.marginRight = cs.marginRight;
+								
+								elem.style.margin = '0';
+							}
+							
+							let line = document.createElement('span');
+							line.textContent = '200px';
+							elem.parentElement.append(line);
+					
+							line.style.cssText = `
+								position: absolute;
+								top: 0px;
+								left: calc(100% + 25px);
+								padding-left: 10px;
+								display: flex;
+								align-items: center;
+								color: red;
+								border-left: 1px solid red;
+							`;
+						line.style.height = '200px';
+						})();
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Наличие границы также расширяет элемент:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	height: 200px;
+	margin: 50px auto;
+	background: #CFF5BF;
+	border: 20px solid #F0D7A1;
+}</code>
+	
+
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+						text-align: center;
+					}
+					.-parent- {
+						position: relative;
+						display: inline-block;
+					}
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+			background: #CFF5BF;
+			border: 20px solid #F0D7A1;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			text
+		</div>
+		
+		<script>
+			;(function() {
+							let elem = document.querySelector('#elem');
+							let parent = elem.parentElement;
+							
+							if (!parent.matches('.-parent-')) {
+								let div = document.createElement('div');
+								div.classList.add('-parent-');
+								parent.append(div);
+								div.append(elem);
+								
+								let cs = getComputedStyle(elem);
+								
+								div.style.marginTop = cs.marginTop;
+								div.style.marginLeft = cs.marginLeft;
+								div.style.marginBottom = cs.marginBottom;
+								div.style.marginRight = cs.marginRight;
+								
+								elem.style.margin = '0';
+							}
+							
+							let line = document.createElement('span');
+							line.textContent = '200px';
+							elem.parentElement.append(line);
+					
+							line.style.cssText = `
+								position: absolute;
+								bottom: calc(100% + 40px);
+								left: -20px;
+								color: red;
+								border-bottom: 1px solid red;
+								text-align: center;
+							`;
+						line.style.width = '200px';
+						})();
+					
+						;(function() {
+							let elem = document.querySelector('#elem');
+							let parent = elem.parentElement;
+							
+							if (!parent.matches('.-parent-')) {
+								let div = document.createElement('div');
+								div.classList.add('-parent-');
+								parent.append(div);
+								div.append(elem);
+								
+								let cs = getComputedStyle(elem);
+								
+								div.style.marginTop = cs.marginTop;
+								div.style.marginLeft = cs.marginLeft;
+								div.style.marginBottom = cs.marginBottom;
+								div.style.marginRight = cs.marginRight;
+								
+								elem.style.margin = '0';
+							}
+							
+							let line = document.createElement('span');
+							line.textContent = '200px';
+							elem.parentElement.append(line);
+					
+							line.style.cssText = `
+								position: absolute;
+								top: -20px;
+								left: calc(100% + 45px);
+								padding-left: 10px;
+								display: flex;
+								align-items: center;
+								color: red;
+								border-left: 1px solid red;
+							`;
+						line.style.height = '200px';
+						})();
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Свойство <a href="../../../../../../markup/manual/css/property/box-sizing/index.html"><code data-gs="comd/c" data-x>box-sizing</code></a>
+	позволяет изменять описанное выше поведение.
+	Можно сделать так, чтобы ни внутренний отступ,
+	ни граница не расширяли элемент.
+	Для этого этому свойству нужно
+	задать значение <code data-gs="comd/v" data-x>border-box</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	box-sizing: border-box;
+	padding: 20px;
+	width: 200px;
+	height: 200px;
+	margin: 50px auto;
+	background: #CFF5BF;
+	border: 20px solid #F0D7A1;
+}</code>
+	
+
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+						text-align: center;
+					}
+					.-parent- {
+						position: relative;
+						display: inline-block;
+					}
+		</style>
+		<style>
+			#elem {
+			box-sizing: border-box;
+			padding: 20px;
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+			background: #CFF5BF;
+			border: 20px solid #F0D7A1;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			text
+		</div>
+		
+		<script>
+			;(function() {
+							let elem = document.querySelector('#elem');
+							let parent = elem.parentElement;
+							
+							if (!parent.matches('.-parent-')) {
+								let div = document.createElement('div');
+								div.classList.add('-parent-');
+								parent.append(div);
+								div.append(elem);
+								
+								let cs = getComputedStyle(elem);
+								
+								div.style.marginTop = cs.marginTop;
+								div.style.marginLeft = cs.marginLeft;
+								div.style.marginBottom = cs.marginBottom;
+								div.style.marginRight = cs.marginRight;
+								
+								elem.style.margin = '0';
+							}
+							
+							let line = document.createElement('span');
+							line.textContent = '200px';
+							elem.parentElement.append(line);
+					
+							line.style.cssText = `
+								position: absolute;
+								bottom: calc(100% + 40px);
+								left: -20px;
+								color: red;
+								border-bottom: 1px solid red;
+								text-align: center;
+							`;
+						line.style.width = '200px';
+						})();
+					
+						;(function() {
+							let elem = document.querySelector('#elem');
+							let parent = elem.parentElement;
+							
+							if (!parent.matches('.-parent-')) {
+								let div = document.createElement('div');
+								div.classList.add('-parent-');
+								parent.append(div);
+								div.append(elem);
+								
+								let cs = getComputedStyle(elem);
+								
+								div.style.marginTop = cs.marginTop;
+								div.style.marginLeft = cs.marginLeft;
+								div.style.marginBottom = cs.marginBottom;
+								div.style.marginRight = cs.marginRight;
+								
+								elem.style.margin = '0';
+							}
+							
+							let line = document.createElement('span');
+							line.textContent = '200px';
+							elem.parentElement.append(line);
+					
+							line.style.cssText = `
+								position: absolute;
+								top: -20px;
+								left: calc(100% + 45px);
+								padding-left: 10px;
+								display: flex;
+								align-items: center;
+								color: red;
+								border-left: 1px solid red;
+							`;
+						line.style.height = '200px';
+						})();
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Важность описанного</h2>
+<p>
+	С точки зрения JavaScript описанная ситуация
+	не очень удобна. Ведь получается, что прочитав
+	значение свойства <code data-gs="comd/c" data-x>width</code> мы совсем не можем
+	быть уверенными в том, что элемент будет
+	именно этой ширины.
+</p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

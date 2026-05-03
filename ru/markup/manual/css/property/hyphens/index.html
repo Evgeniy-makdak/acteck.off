@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство hyphens — acteck.off</title>
+  <meta name="description" content="Свойство hyphens — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство hyphens</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>hyphens</code> включает переносы
+	слов в браузере с помощью знака переноса "-".
+	Для поддержки русского языка необходимо добавить
+	атрибут <a href="../../../html/attr/lang/index.html"><code data-gs="comd/c" data-x>lang="ru"</code></a>
+	к тегу, к которому применяются
+	переносы (или к родителю этого тега). Можно
+	просто добавить этот атрибут к тегу <code data-gs="comd/c" data-x>html</code>.
+	Без этого переносы работать не будут.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	hyphens: auto | manual | none;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>auto</code></th>
+		<td>Расставляет знаки переноса там, где это необходимо.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>manual</code></th>
+		<td>
+			Добавляет переносы только в тех местах, где добавлен
+			<a href="../../../html/tag/wbr/index.html"><code data-gs="comd/c" data-x>wbr</code></a> тег
+			или спецсимвол <code data-gs="comd/c" data-x>&amp;shy;</code></a>
+			и только при необходимости. Такие переносы называются <dfn data-gs="comd/d" data-x>мягкими</dfn>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>none</code></th>
+		<td>
+			Отменяет расстановку переносов (слова не будут переносится,
+			даже если есть мягкие переносы).
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>manual</code>.
+</p>
+
+<h2>Значение auto</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p lang="en"&gt;
+	Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+	aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+	fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+	sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+	ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+	ante purus lacini dui, interdum fringilla massa eros ut duir
+	nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+	per dolor. Suspendisse tristique dolor risus, nec laoreet du
+	aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+	dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+	neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+	lectus non, molestie ullamcorper elit, orciro varius natoque.
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	width: 400px;
+	hyphens: auto;
+	border: 1px solid red;
+	text-align: justify;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			p {
+			width: 400px;
+			hyphens: auto;
+			border: 1px solid red;
+			text-align: justify;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p lang=&quot;en&quot;>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+			aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+			fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+			sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+			ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+			ante purus lacini dui, interdum fringilla massa eros ut duir
+			nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+			per dolor. Suspendisse tristique dolor risus, nec laoreet du
+			aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+			dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+			neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+			lectus non, molestie ullamcorper elit, orciro varius natoque.
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойства <a href="../word-break/index.html"><code data-gs="comd/c" data-x>word-break</code></a>
+			и <a href="../overflow-wrap/index.html"><code data-gs="comd/c" data-x>overflow-wrap</code></a>, <br>
+			которые позволяют перенести буквы длинного слова
+		</li>
+		<li>
+			свойство <a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>, <br>
+			которое обрезает вылезающие за границу блока части
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

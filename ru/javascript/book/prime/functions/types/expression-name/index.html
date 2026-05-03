@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Функция с именем, но Function Expression в JavaScript — acteck.off</title>
+  <meta name="description" content="Функция с именем, но Function Expression в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Функция с именем, но Function Expression в JavaScript</h1>
+    <p>
+	Давайте теперь сделаем функцию, которая будет
+	иметь имя, но при этом будет Function Expression,
+	потому что участвует в выражении:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">+function func() {
+	console.log('!');
+}</code>
+</div>
+<p>
+	Интересно, что по имени <code data-gs="comd/c" data-x>func</code> мы не
+	сможем обратиться к нашей функции, это будет
+	приводить к ошибке:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">+function func() {
+	console.log('!');
+}
+
+func(); //!! выдаст ошибку</code>
+</div>
+<p>
+	Чтобы иметь возможность вызвать нашу функцию,
+	ее нужно присвоить какой-нибудь переменной:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = function func() {
+	console.log('!');
+};
+
+test(); // выведет '!'</code>
+</div>
+<p>
+	Еще раз: функция, являющаяся функциональным
+	выражением не может быть вызвана по ее имени.
+	Такая функция может быть вызвана только с
+	использованием переменной, в которую была
+	записана эта функция.
+</p>
+<p>
+	Но тем не менее, функциональное выражение
+	может иметь имя функции, это будет синтаксически
+	корректно. Зачем такое нужно, мы будем разбираться
+	в следующих уроках.
+</p>
+<p>
+	Подведем итог: функции являются Function
+	Declaration или Function Expression не потому,
+	что имеют имя или не имеют, а потому, что
+	являются участниками выражений или не являются.
+</p>
+<p>
+	Как вы видели выше, функция без имени может
+	быть воспринята как Function Declaration,
+	а функции с именем может быть Function Expression.
+</p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Функция repeat в CSS гридах — acteck.off</title>
+  <meta name="description" content="Функция repeat в CSS гридах — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Функция repeat в CSS гридах</h1>
+    <p>
+	Если у вас несколько столбцов,
+	для которых задаются одинаковые размеры,
+	то можно упростить запись, использовав
+	функцию <code data-gs="comd/c" data-x>repeat</code>.
+	В первом параметре этой функции указывается
+	количество столбцов, а во втором - их ширина.
+	Давайте посмотрим на примерах,
+	как это работает.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть три колонки одинакового
+	размера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}</code>
+</div>
+<p>
+	Упростим запись с помощью <code data-gs="comd/c" data-x>repeat</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть три колонки одинакового
+	размера, а четвертая другого размера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 2fr;
+}</code>
+</div>
+<p>
+	Упростим запись с помощью <code data-gs="comd/c" data-x>repeat</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr) 2fr;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть первые три колонки одного
+	размера, а вторые три колонки другого размера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 2fr 2fr 2fr;
+}</code>
+</div>
+<p>
+	Упростим запись с помощью <code data-gs="comd/c" data-x>repeat</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr) repeat(3, 2fr);
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть первые три колонки одного
+	размера, потом еще колонка, а потом еще три
+	колонки другого размера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 3fr 2fr 2fr 2fr;
+}</code>
+</div>
+<p>
+	Упростим запись с помощью <code data-gs="comd/c" data-x>repeat</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr) 3fr repeat(3, 2fr);
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Упрощение работает для любых единиц
+	размеров. Пусть для примера у нас
+	есть три колонки в пикселях:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 200px 200px 200px;
+}</code>
+</div>
+<p>
+	Упростим запись с помощью <code data-gs="comd/c" data-x>repeat</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: repeat(3, 200px);
+}</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Сделайте <code data-gs="comd/n" data-x>4</code> столбца одинакового
+		размера при помощи <code data-gs="comd/c" data-x>repeat</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте <code data-gs="comd/n" data-x>4</code> столбца размером <code data-gs="comd/u" data-x>100px</code>,
+		а еще <code data-gs="comd/n" data-x>3</code> столбца размером <code data-gs="comd/u" data-x>2fr</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте <code data-gs="comd/n" data-x>2</code> столбца размером <code data-gs="comd/u" data-x>100px</code>,
+		еще <code data-gs="comd/n" data-x>3</code> столбца размером <code data-gs="comd/u" data-x>200px</code>,
+		потом столбец размером <code data-gs="comd/u" data-x>1fr</code>,
+		и потом <code data-gs="comd/n" data-x>2</code> столбца
+		размером <code data-gs="comd/u" data-x>10%</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

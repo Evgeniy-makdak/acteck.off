@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Внесение изменений в форму в Redux — acteck.off</title>
+  <meta name="description" content="Внесение изменений в форму в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Внесение изменений в форму в Redux</h1>
+    <p>
+	На этом занятии мы закончим работу
+	по выводу информации о продавце в форме
+	для добавления продукта. Для этого нам
+	осталось немного изменить верстку формы.
+</p>
+<p>
+	Откроем наше приложение с продуктами,
+	а в нем файл <code data-gs="comd/p" data-x>NewProductForm.jsx</code>. Давайте
+	перед командой <code data-gs="comd/c" data-x>return</code> добавим кусочек кода
+	для верстки выпадающего списка, в котором
+	мы будем выбирать продавца. Реализуем его через
+	стандартный способ с <code data-gs="comd/c" data-x>map</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const sellersList = sellers.map((seller) =&gt; (
+	&lt;option key={seller.id} value={seller.id}&gt;
+		{seller.name}
+	&lt;/option&gt;
+))</code>
+</div>
+<p>
+	И теперь внесем изменения в саму верстку.
+	Для этого в форме между первым и вторым
+	абзацами (между блоками верстки для названия
+	и описания продукта) вставим абзац со
+	следующей версткой:
+</p>
+<div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p&gt;
+	&lt;label htmlFor="prodSeller"&gt;Seller:&lt;/label&gt;
+	&lt;select id="prodSeller" value={sellerId} onChange={onSellerChanged}&gt;
+		&lt;option value=""&gt;&lt;/option&gt;
+		{sellersList}
+	&lt;/select&gt;
+&lt;/p&gt;</code>
+</div>
+<p>
+	Сейчас мы можем запустить наше приложение.
+	В форме для добавления у нас появился
+	список с продавцами. Попробуем заполнить
+	форму данными, выбрать одного из них и
+	кликнуть по кнопке сохранения. Теперь,
+	если мы заглянем в Redux DevTools, мы
+	увидим изменения - в новом добавленном
+	продукте у нас появилось свойство
+	<code data-gs="comd/c" data-x>seller</code> с id выбранного продавца в
+	качестве значения. Также во вкладке
+	State теперь отображается два слайса
+	<code data-gs="comd/c" data-x>products</code> и <code data-gs="comd/c" data-x>sellers</code>.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		В файле <code data-gs="comd/p" data-x>NewStudentForm.jsx</code> создайте
+		выпадающий список <code data-gs="comd/c" data-x>teachersList</code> с
+		помощью <code data-gs="comd/c" data-x>map</code>, в котором будут ФИО
+		преподавателей, как показано в уроке.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Внесите изменения в верстку, добавив
+		еще один блок для вывода выпадающего
+		списка с преподавателями.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Запустите ваше приложение. В форме
+		для добавления студента у вас должен
+		появиться выпадающий список с преподавателями,
+		который вы делали в предыдущих задачах.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

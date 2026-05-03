@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реактивное редактирование данных компонента в Vue — acteck.off</title>
+  <meta name="description" content="Реактивное редактирование данных компонента в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/vue/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/vue/index.html">Vue</a>
+    </div>
+
+    <h1>Реактивное редактирование данных компонента в Vue</h1>
+    <p>
+	Давайте теперь реализуем редактирование
+	данных наших дочерних компонентов.
+	Для начала в родительском компоненте
+	сделаем метод изменения юзера по его <code data-gs="comd/c" data-x>id</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
+	change(id, name, surn) {
+		this.users = this.users.map((user) =&gt; {
+			if (user.id === id) {
+				user.name = name;
+				user.surn = surn;
+			}
+			return user;
+		});
+	}
+}</code>
+</div>
+    <p>
+	Создадим компоненты в цикле, передав
+	им параметром имя, фамилию, <code data-gs="comd/c" data-x>id</code>
+	и метод для изменения:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;User
+		v-for   ="user in users"
+		
+		:id     ="user.id"
+		:name   ="user.name"
+		:surn   ="user.surn"
+		:key    ="user.id"
+		@change="change"
+	/&gt;
+&lt;/template&gt;</code>
+</div>
+    <p>
+	Пропишем испускаемое событие в настройке 
+	<code data-gs="comd/c" data-x>emits</code> дочернего компонента:
+</p>
+<div data-p="bock/pane" data-p-file="components/User.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">props: {
+	id:     Number,
+	name:   String,
+	surn:   String,
+},
+emits: ['change'],</code>
+</div>
+<p>
+	Теперь в дочернем компоненте сделаем
+	свойство, которое будет задавать режим
+	компонента, показ или редактирование:
+</p>
+<div data-p="bock/pane" data-p-file="components/User.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		isEdit: false,
+	}
+}</code>
+</div>
+<p>
+	Сделаем также свойства для поддержки
+	работы инпутов для редактирования:
+</p>
+<div data-p="bock/pane" data-p-file="components/User.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		isEdit: false,
+		newName: '',
+		newSurn: '',
+	}
+}</code>
+</div>
+<p>
+	Сделаем так, чтобы начальные значения
+	этих свойств брались из пропсов:
+</p>
+<div data-p="bock/pane" data-p-file="components/User.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		isEdit: false,
+		newName: this.name,
+		newSurn: this.surn,
+	}
+}</code>
+</div>
+<p>
+	Сделаем метод, который будет
+	запускать режим редактирования:
+</p>
+<div data-p="bock/pane" data-p-file="components/User.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
+	edit() {
+		this.isEdit = true;
+	}
+}</code>
+</div>
+<p>
+	Сделаем метод, который будет
+	сохранять отредактированные
+	данные, отключая при этом
+	режим редактирования:
+</p>
+<div data-p="bock/pane" data-p-file="components/User.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
+	save() {
+		this.isEdit = false;
+		this.$emit('change', this.id, this.newName, this.newSurn);
+	}
+}</code>
+</div>
+<p>
+	Сделаем представление дочернего
+	компонента:
+</p>
+<div data-p="bock/pane" data-p-file="components/User.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;template v-if="!isEdit"&gt;
+		{{ name }}
+		{{ surn }}
+		&lt;button @click="edit"&gt;
+			edit
+		&lt;/button&gt;
+	&lt;/template&gt;
+	&lt;template v-else&gt;
+		&lt;input v-model="newName"&gt;
+		&lt;input v-model="newSurn"&gt;
+		&lt;button @click="save"&gt;
+			save
+		&lt;/button&gt;
+	&lt;/template&gt;
+&lt;/template&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Реализуйте редактирование данных
+		компонента <code data-gs="comd/c" data-x>Employee</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

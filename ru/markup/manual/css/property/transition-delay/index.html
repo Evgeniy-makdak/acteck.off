@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство transition-delay — acteck.off</title>
+  <meta name="description" content="Свойство transition-delay — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство transition-delay</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>transition-delay</code> устанавливает
+	задержку перед запуском плавного перехода
+	<a href="../transition/index.html"><code data-gs="comd/c" data-x>transition</code></a>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	transition-delay: время в s или ms;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>s</code></th>
+		<td>
+			Задает время в секундах (например <code data-gs="comd/u" data-x>3s</code>).
+			Можно задавать дробные значения,
+			например, <code data-gs="comd/u" data-x>0.5s</code> - половина секунды.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>ms</code></th>
+		<td>
+			Задает время в миллисекундах (например <code data-gs="comd/u" data-x>3ms</code>).
+			Одна секунда - это <code data-gs="comd/n" data-x>1000</code> миллисекунд.
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/u" data-x>0s</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Наведите мышкой на блок - <code data-gs="comd/n" data-x>3</code> секунды
+	ничего не будет происходить (стоит задержка
+	<code data-gs="comd/u" data-x>3s</code>), а затем он плавно изменит свою ширину
+	за <code data-gs="comd/n" data-x>2</code> секунды. Если затем убрать мышь
+	- то снова <code data-gs="comd/n" data-x>3</code> секунды ничего не будет
+	происходить, а затем ширина плавно уменьшится
+	до исходного значения:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border: 1px solid black;
+	transition-duration: 2s;
+	transition-property: width;
+	transition-delay: 3s;
+	height: 50px;
+	width: 100px;
+}
+#elem:hover {
+	width: 400px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border: 1px solid black;
+			transition-duration: 2s;
+			transition-property: width;
+			transition-delay: 3s;
+			height: 50px;
+			width: 100px;
+		}
+		#elem:hover {
+			width: 400px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Наведите мышкой на блок - он сначала изменит
+	свою ширину за <code data-gs="comd/n" data-x>2</code> секунды, а потом
+	изменит свою высоту за <code data-gs="comd/n" data-x>4</code> секунды.
+	Свойства будут меняться последовательно,
+	так как для высоты установлена в <code data-gs="comd/n" data-x>3</code>
+	секунды (время изменения ширины). Если убрать
+	мышь - то изменения произойдут в обратном
+	порядке: сначала уменьшится ширина, а потом
+	уменьшится высота:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border: 1px solid black;
+	transition-duration: 2s, 4s;
+	transition-property: width, height;
+	transition-delay: 0s, 3s;
+	width: 100px;
+	height: 25px;
+}
+#elem:hover {
+	width: 400px;
+	height: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border: 1px solid black;
+			transition-duration: 2s, 4s;
+			transition-property: width, height;
+			transition-delay: 0s, 3s;
+			width: 100px;
+			height: 25px;
+		}
+		#elem:hover {
+			width: 400px;
+			height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../transition-property/index.html"><code data-gs="comd/c" data-x>transition-property</code></a>, <br>
+			которое задает имя свойства для плавного перехода
+		</li>
+		<li>
+			свойство <a href="../transition-duration/index.html"><code data-gs="comd/c" data-x>transition-duration</code></a>, <br>
+			которое задает длительность плавного перехода
+		</li>
+		<li>
+			свойство <a href="../transition-timing-function/index.html"><code data-gs="comd/c" data-x>transition-timing-function</code></a>, <br>
+			которое задает временную функцию для плавного перехода
+		</li>
+		<li>
+			свойство <a href="../transition/index.html"><code data-gs="comd/c" data-x>transition</code></a>, <br>
+			которое является сокращением для плавного перехода
+		</li>
+		<li>
+			свойство <a href="../animation/index.html"><code data-gs="comd/c" data-x>animation</code></a>, <br>
+			с помощью которого можно сделать анимацию
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ошибка недопустимого параметра в NextJS — acteck.off</title>
+  <meta name="description" content="Ошибка недопустимого параметра в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/next/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Ошибка недопустимого параметра в NextJS</h1>
+    <p>
+	В предыдущих уроках мы отдавали
+	<code data-gs="comd/n" data-x>404</code> ошибку в том случае,
+	когда роут для данного URL
+	не был найден. Однако, в случае
+	динамического роута может быть
+	такая ситуация, когда роут существует,
+	но значение параметра неправильное.
+</p>
+<p>
+	Давайте посмотрим на примере.
+	Пусть у нас есть маршрут следующего вида:
+	<code data-gs="comd/p" data-x>/user/:id</code>.
+</p>
+<p>
+	Пусть у нас также есть
+	объект с юзерами:
+</p>
+<div data-p="bock/pane" data-p-file="app/user/[id]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let users = {
+	1: 'user1',
+	2: 'user2',
+	3: 'user3',
+	4: 'user4',
+	5: 'user5',
+};</code>
+</div>
+<p>
+	Пусть мы хотим показывать юзера
+	по его айди:
+</p>
+<div data-p="bock/pane" data-p-file="app/user/[id]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function User({ params }) {
+	return &lt;p&gt;
+		{ users[params.id] }
+	&lt;/p&gt;;
+}</code>
+</div>
+<p>
+	Очевидно, что айди в URL может быть
+	не любым, а только одним из ключей
+	нашего объекта. Попытка обратиться
+	на несуществующий адрес
+	<code data-gs="comd/p" data-x>/user/6</code> должна приводить
+	к тому, что будет выдаваться
+	ошибка. Давайте исправим
+	код нашего компонента и выведем
+	текст с ошибкой:
+</p>
+<div data-p="bock/pane" data-p-file="app/user/[id]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function User({ params }) {
+	if (users[params.id]) {
+		return &lt;p&gt;
+			{ users[params.id] }
+		&lt;/p&gt;;
+	} else {
+		return &lt;p&gt;
+			user not found
+		&lt;/p&gt;;
+	}
+}</code>
+</div>
+<p>
+	Этого, однако, недостаточно.
+	Ведь в данном случае мы обращаемся
+	к несуществующей странице,
+	а зачит должны отдать HTTP статус <code data-gs="comd/n" data-x>404</code>.
+	Делается это с помощью
+	специальной функции <code data-gs="comd/c" data-x>notFound</code>,
+	встроенной в NextJS.
+</p>
+<p>
+	Давайте импортируем эту функцию:
+</p>
+<div data-p="bock/pane" data-p-file="app/user/[id]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { notFound } from 'next/navigation';</code>
+</div>
+<p>
+	А теперь будем вызывать ее в том
+	случае, когда значение параметра
+	некорректно:
+</p>
+<div data-p="bock/pane" data-p-file="app/user/[id]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function User({ params }) {
+	if (users[params.id]) {
+		return &lt;p&gt;
+			{ users[params.id] }
+		&lt;/p&gt;;
+	} else {
+		return notFound();
+	}
+}</code>
+</div>
+<p>
+	Полный код нашего компонента будет
+	выглядеть следующим образом:
+</p>
+<div data-p="bock/pane" data-p-file="app/user/[id]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { notFound } from 'next/navigation';
+
+let users = {
+	1: 'user1',
+	2: 'user2',
+	3: 'user3',
+	4: 'user4',
+	5: 'user5',
+};
+
+export default function User({ params }) {
+	if (users[params.id]) {
+		return &lt;p&gt;
+			{ users[params.id] }
+		&lt;/p&gt;;
+	} else {
+		return notFound();
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Решите описанную проблему
+		в ваших компонентах.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

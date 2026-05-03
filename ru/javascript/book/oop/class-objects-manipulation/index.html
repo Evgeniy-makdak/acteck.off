@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Манипуляция объектами в классах в ООП в JavaScript — acteck.off</title>
+  <meta name="description" content="Манипуляция объектами в классах в ООП в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Манипуляция объектами в классах в ООП в JavaScript</h1>
+    <p>
+	Классы параметрами методов могут
+	принимать объекты других классов
+	и манипулировать этими объектами.
+	Давайте посмотрим на примере.
+	Пусть у нас есть следующий класс:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
+	#name;
+	
+	constructor(name) {
+		this.#name = name;
+	}
+	getName() {
+		return this.#name;
+	}
+}</code>
+</div>
+<p>
+	Пусть мы решили сделать класс,
+	который будет манипулировать
+	набором объектов с юзерами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class UsersCollection {
+	
+}</code>
+</div>
+<p>
+	Будем хранить объекты с юзерами
+	в виде массива в приватном свойстве:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class UsersCollection {
+	#users;
+	
+	constructor() {
+		this.#users = [];
+	}
+}</code>
+</div>
+<p>
+	Сделаем метод для добавления
+	нового юзера в массив:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class UsersCollection {
+	#users;
+	
+	constructor() {
+		this.#users = [];
+	}
+	add(user) {
+		this.#users.push(user);
+	}
+}</code>
+</div>
+<p>
+	А теперь сделаем метод, который
+	выведет в консоль имена всех юзеров:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class UsersCollection {
+	#users;
+	
+	constructor() {
+		this.#users = [];
+	}
+	add(user) {
+		this.#users.push(user);
+	}
+	show() {
+		for (let user of this.#users) {
+			console.log(user.getName());
+		}
+	}
+}</code>
+</div>
+<p>
+	Давайте посмотрим на работу нашего
+	класса. Для начала создадим его объект:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let uc = new UsersCollection;</code>
+</div>
+<p>
+	Теперь добавим в нашу коллекцию
+	несколько юзеров:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">uc.add(new User('john'));
+uc.add(new User('eric'));
+uc.add(new User('kyle'));</code>
+</div>
+<p>
+	А теперь вызовем метод, который
+	выведет в консоль имена всех
+	юзеров:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">uc.show();</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте класс <code data-gs="comd/c" data-x>EmployeesCollection</code>,
+		который будет содержать массив работников.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте в этом классе метод
+		для добавления нового работника.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте в этом классе метод
+		для вывода всех работников.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте в этом классе метод
+		для расчета суммарной зарплаты
+		всех работников.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте в этом классе метод
+		для расчета средней зарплаты
+		всех работников.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

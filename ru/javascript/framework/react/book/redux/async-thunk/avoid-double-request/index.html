@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Устранение дублирования запроса в Redux — acteck.off</title>
+  <meta name="description" content="Устранение дублирования запроса в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Устранение дублирования запроса в Redux</h1>
+    <p>
+	Этот урок пригодится нам в том случае,
+	если при запуске приложения у нас дублируется
+	отправка запроса данных, а затем приходят
+	пары продуктов с одинаковыми id, и, как следствие
+	появляются страшные красные ворнинги в консоли
+	браузера.
+</p>
+<p>
+	Причина этого лежит в особенности монтирования
+	компонентов в React <code data-gs="comd/n" data-x>18</code> версии и выше в режиме
+	разработки (dev), при использовании
+	<code data-gs="comd/c" data-x>React.StrictMode</code> (говорят, в режиме production
+	все ок с этим). Сначала компонент подключается,
+	потом отключается и снова подключается. Поэтому
+	и запрос отправляется дважды.
+</p>
+<p>
+	Возможно, когда вы будете изучать этот
+	материал, это двойное монтирование в
+	React уже будет изменено каким-то образом.
+	Мы не будем углубляться в дебри, а просто
+	пока воспользуемся React хуком <code data-gs="comd/c" data-x>useRef</code>,
+	который нам поможет обойти это недоразумение.
+</p>
+<p>
+	Давайте откроем наше приложение с
+	продуктами, а в нем файл <code data-gs="comd/p" data-x>ProductsList.jsx</code>.
+	Импортируем в него хук <code data-gs="comd/c" data-x>useRef</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useEffect, useRef } from 'react'</code>
+</div>
+<p>
+   А теперь немного изменим следующий блок
+   кода с <code data-gs="comd/c" data-x>useEffect</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">useEffect(() =&gt; {
+	if (productStatus === 'idle') {
+		dispatch(fetchProducts())
+	}
+}, [productStatus, dispatch])</code>
+</div>
+<p>
+   Для начала введем новую переменную <code data-gs="comd/c" data-x>dataFetch</code>
+   для <code data-gs="comd/c" data-x>useRef</code>. Изначально установим ее свойство
+   <code data-gs="comd/c" data-x>current</code> в <code data-gs="comd/c" data-x>false</code>. Если приложение уже
+   запускалось и, соответственно, запрос был
+   отправлен, то свойство <code data-gs="comd/c" data-x>current</code> уже будет
+   <code data-gs="comd/c" data-x>true</code>, значит мы просто выйдем из функции и
+   повторного запроса данных не произойдет.
+   Итак, вышеупомянутый кусочек кода теперь
+   будет таким:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const dataFetch = useRef(false)
+
+useEffect(() =&gt; {
+	if (dataFetch.current) return
+	dataFetch.current = true
+	if (productStatus === 'idle') {
+		dispatch(fetchProducts())
+	}
+}, [productStatus, dispatch])</code>
+</div>
+<p>
+	Теперь снова запустим наше приложение
+	и с облегчением отметим исчезновение
+	красных ворнингов в консоли, и увидим
+	список продуктов без дублей, теперь
+	их <code data-gs="comd/n" data-x>8</code>, как мы и запланировали на
+	сервере. Теперь в Redux DevTools экшены,
+	генерируемые при запросе, больше не
+	повторяются.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами,
+		а в нем файл <code data-gs="comd/p" data-x>StudentsList.jsx</code>. Устраните
+		проблему с двойным запросом, согласно
+		материалам урока, если у вас таковая
+		имеется.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

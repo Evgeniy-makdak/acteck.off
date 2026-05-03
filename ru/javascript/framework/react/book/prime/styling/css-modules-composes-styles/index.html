@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Команда composes для классов в CSS modules в React — acteck.off</title>
+  <meta name="description" content="Команда composes для классов в CSS modules в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Команда composes для классов в CSS modules в React</h1>
+    <p>
+	В этом уроке мы рассмотрим очень полезный 
+	прием для переиспользования CSS стилей одного 
+	класса в другом в CSS modules.
+</p>
+<p>
+	Вернемся к приложению <code data-gs="comd/c" data-x>buttons</code>, которое 
+	мы делали на прошлых уроках. Заглянем в файл 
+	<code data-gs="comd/p" data-x>Buttons.module.css</code>:
+</p>
+<div data-p="bock/pane" data-p-file="Buttons.module.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.btn1 {
+	background-color: orange;
+	border: 2px solid brown;
+	color: white;
+}
+
+.btn2 {
+	background-color: red;
+	border: 2px solid green;
+	color: yellow;
+}
+
+.btn3 {
+	background-color: brown;
+	border: 2px solid yellowgreen;
+	color: orange;
+}</code>
+</div>
+<p>
+	Предполжим, мы хотим, чтобы у всех
+	кнопочек было одинаковое скругление
+	и размер шрифта. Можно было бы, конечно,
+	наплодить в каждом классе одинаковые
+	свойства. Но благодаря команде <code data-gs="comd/c" data-x>composes</code>
+	из CSS modules, мы будем действовать
+	по-другому.
+</p>
+<p>
+	Для начала создадим еще один класс, к примеру 
+	<code data-gs="comd/z" data-x>common-btn</code>, в который поместим 
+	эти одинаковые свойства. А чтобы применить
+	свойства из этого класса в других, нужно
+	использовать в них синтаксис:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	composes: название класса;
+}</code>
+</div>
+<p>
+	Теперь код нашего <code data-gs="comd/p" data-x>Buttons.module.css</code>
+	будет выглядеть так:
+</p>
+<div data-p="bock/pane" data-p-file="Buttons.module.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.common-btn {
+	font-size: 16px;
+	border-radius: 3px;
+}
+
+.btn1 {
+	composes: common-btn;
+	background-color: orange;
+	border: 2px solid brown;
+	color: white;
+}
+
+.btn2 {
+	composes: common-btn;
+	background-color: red;
+	border: 2px solid green;
+	color: yellow;
+}
+
+.btn3 {
+	composes: common-btn;
+	background-color: brown;
+	border: 2px solid yellowgreen;
+	color: orange;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Возьмите свое React приложение <code data-gs="comd/s" data-x>inputs</code>,
+		которое вы делали в задачах к прошлым
+		урокам. Добавьте для всех инпутов парочку
+		одинаковых CSS стилей с одинаковыми
+		значениями. Создайте дополнительный класс,
+		в котором будут написаны эти стили. С
+		помощью <code data-gs="comd/c" data-x>composes</code> растиражируйте
+		их по всем остальным классам для инпутов.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

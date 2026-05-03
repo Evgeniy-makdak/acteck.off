@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Одновременное редактирование и удаление элементов — acteck.off</title>
+  <meta name="description" content="Одновременное редактирование и удаление элементов — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Одновременное редактирование и удаление элементов</h1>
+    <p>
+	Пусть у нас есть некоторый набор абзацев:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;p&gt;text1&lt;/p&gt;
+	&lt;p&gt;text2&lt;/p&gt;
+	&lt;p&gt;text3&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Давайте для этих абзацев сделаем так, чтобы
+	можно было редактировать текст каждого абзаца
+	и при этом в конце каждого абзаца стояла
+	ссылка на удаление.
+</p>
+<p>
+	При реализации описанной задачи нас ждет
+	некоторая проблема.
+</p>
+<p>
+	Для того, чтобы понять суть проблемы, давайте
+	посмотрим на HTML код, который получится,
+	когда в конец каждого абзаца будут добавлены
+	ссылки на удаление:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;p&gt;text1&lt;a href=""&gt;remove&lt;/a&gt;&lt;/p&gt;
+	&lt;p&gt;text2&lt;a href=""&gt;remove&lt;/a&gt;&lt;/p&gt;
+	&lt;p&gt;text3&lt;a href=""&gt;remove&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Представим теперь, что по клику на любой
+	абзац в нем будет появляться инпут для редактирования
+	текста. В этом случае в инпут будет попадать
+	весь текст абзаца - вместе со ссылкой на удаление!
+</p>
+<p>
+	Это, конечно же, не правильно.
+</p>
+<p>
+	Более удачным решение будет обернуть тексты
+	абзацев в теги <code data-gs="comd/c" data-x>span</code>, вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;p&gt;&lt;span&gt;text1&lt;/span&gt;&lt;a href=""&gt;remove&lt;/a&gt;&lt;/p&gt;
+	&lt;p&gt;&lt;span&gt;text2&lt;/span&gt;&lt;a href=""&gt;remove&lt;/a&gt;&lt;/p&gt;
+	&lt;p&gt;&lt;span&gt;text3&lt;/span&gt;&lt;a href=""&gt;remove&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Для такого кода можно просто навесить событие
+	для редактирования не на сам абзац, а на
+	<code data-gs="comd/c" data-x>span</code> с текстом. В этом случае инпут
+	для редактирования будет появляться в теге
+	<code data-gs="comd/c" data-x>span</code>, и наша ссылка для удаления останется
+	нетронутой.
+</p>
+<div data-w="cont/task">
+	<p>
+		Дан следующий HTML код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;p&gt;&lt;span&gt;text1&lt;/span&gt;&lt;/p&gt;
+	&lt;p&gt;&lt;span&gt;text2&lt;/span&gt;&lt;/p&gt;
+	&lt;p&gt;&lt;span&gt;text3&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;</code>
+	</div>
+	<p>
+		Добавьте ссылку на удаление в конец каждого
+		абзаца.
+	</p>
+	<p>
+		Сделайте так, чтобы по клику на <code data-gs="comd/c" data-x>span</code>
+		в нем появлялся инпут для редактирования.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть теперь изначально тегов <code data-gs="comd/c" data-x>span</code> нет:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;p&gt;text1&lt;/p&gt;
+	&lt;p&gt;text2&lt;/p&gt;
+	&lt;p&gt;text3&lt;/p&gt;
+&lt;/div&gt;</code>
+	</div>
+	<p>
+		Оберните сначала текст абзаца в теги <code data-gs="comd/c" data-x>span</code>,
+		добавьте к этим тегам возможность редактирования,
+		а затем добавьте в конец каждого абзаца ссылку
+		на удаление.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

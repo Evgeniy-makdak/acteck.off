@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Схема двухколоночного макета сайта в CSS — acteck.off</title>
+  <meta name="description" content="Схема двухколоночного макета сайта в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Схема двухколоночного макета сайта в CSS</h1>
+    <p>
+	Давайте сделаем двухколоночный макет следующего
+	вида:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="P">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			* {
+			box-sizing: border-box;
+		}
+		
+		#wrapper {
+			width: 1000px;
+			margin: 30px auto;
+			border: 1px solid black;
+		}
+		#header {
+			height: 200px;
+			padding: 20px;
+			border: 1px solid black;
+		}
+		#container {
+			display: flex;
+		}
+		#content {
+			width: 780px;
+			height: 700px;
+			padding: 20px;
+			border: 1px solid black;
+		}
+		#sidebar {
+			width: 200px;
+			margin-right: 20px;
+			padding: 20px;
+			border: 1px solid black;
+		}
+		#footer {
+			height: 200px;
+			padding: 20px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+			<div id=&quot;header&quot;>
+				header
+			</div>
+			<div id=&quot;container&quot;>
+				<div id=&quot;sidebar&quot;>
+					sidebar
+				</div>
+				<div id=&quot;content&quot;>
+					content
+				</div>
+			</div>
+			<div id=&quot;footer&quot;>
+				footer
+			</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+<p>
+	Для начала создадим основную структуру страницы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="wrapper"&gt;
+	&lt;div id="header"&gt;
+		header
+	&lt;/div&gt;
+	&lt;div id="container"&gt;
+		&lt;div id="content"&gt;
+			content
+		&lt;/div&gt;
+		&lt;div id="sidebar"&gt;
+			sidebar
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div id="footer"&gt;
+		footer
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Теперь назначим стили врапперу, выровняв
+	его по центру экрана:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#wrapper {
+	width: 1000px;
+	margin: 30px auto;
+	border: 1px solid black;
+}</code>
+</div>
+<p>
+	Зададим теперь стили хедера и футера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#header {
+	height: 200px;
+	border: 1px solid black;
+}
+#footer {
+	height: 200px;
+	border: 1px solid black;
+}</code>
+</div>
+<p>
+	Как вы видите, мы задаем хедеру и футеру
+	высоту. Мы делаем это, как как в нашей схеме
+	у них нет содержимого. При наличии содержимого
+	высоту блокам задавать не стоит - она будет
+	формироваться их содержимым.
+</p>
+<p>
+	Обратите также внимание на то, что мы не
+	задаем им ширину. Дело в том, что хедер и
+	футер - блочные элементы и их ширина будет
+	автоматически равна ширине враппера.
+</p>
+<p>
+	Давайте теперь зададим им <code data-gs="comd/c" data-x>padding</code>, чтобы
+	текст не прилипал к границам:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#header {
+	height: 200px;
+	padding: 20px;
+	border: 1px solid black;
+}
+#footer {
+	height: 200px;
+	padding: 20px;
+	border: 1px solid black;
+}</code>
+</div>
+<p>
+	Наличие <code data-gs="comd/c" data-x>padding</code>а, однако, плохо повлияет
+	на размеры блоков - они станут больше, чем
+	указано. Давайте изменим поведение всех блоков
+	так, чтобы <code data-gs="comd/c" data-x>padding</code> и границы не расширяли
+	наши блоки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">* {
+	box-sizing: border-box;
+}</code>
+</div>
+<p>
+	Теперь нам нужно поставить контент и сайдбар
+	в один ряд. Сделаем это с помощью флексов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#container {
+	display: flex;
+}</code>
+</div>
+<p>
+	Укажем контенту и сайдбару их ширину. При
+	этом сумма их ширин должна быть равна ширине
+	враппера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#content {
+	width: 800px;
+}
+#sidebar {
+	width: 200px;
+}</code>
+</div>
+<p>
+	Пусть мы хотим сделать отступ между сайдбаром
+	и контентом. В этом случае сайдбару нужно
+	поставить <code data-gs="comd/c" data-x>margin</code>. При этом нам придется
+	от кого-то отщипнуть ширину для этого <code data-gs="comd/c" data-x>margin</code>.
+	Отщипнем от контента, соответственно уменьшив
+	его ширину:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#content {
+	width: 780px;
+}
+#sidebar {
+	width: 200px;
+	margin-right: 20px;
+}</code>
+</div>
+<p>
+	Давайте теперь добавим высоту, так как наши
+	элементы не содержат содержимого. Достаточно
+	добавить высоту только одному элементу, ведь
+	второй флекс элемент подстроится по высоте
+	(почему?). Давайте зададим высоту контенту:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#content {
+	width: 780px;
+	height: 700px;
+}
+#sidebar {
+	width: 200px;
+	margin-right: 20px;
+}</code>
+</div>
+<p>
+	Давайте добавим контенту и сайдбару остальные
+	стили:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#content {
+	width: 780px;
+	height: 700px;
+	padding: 20px;
+	border: 1px solid black;
+}
+#sidebar {
+	width: 200px;
+	margin-right: 20px;
+	padding: 20px;
+	border: 1px solid black;
+}</code>
+</div>
+<p>
+	Все, наш макет готов. Соберем весь код вместе:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="wrapper"&gt;
+	&lt;div id="header"&gt;
+		header
+	&lt;/div&gt;
+	&lt;div id="container"&gt;
+		&lt;div id="sidebar"&gt;
+			sidebar
+		&lt;/div&gt;
+		&lt;div id="content"&gt;
+			content
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div id="footer"&gt;
+		footer
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">* {
+	box-sizing: border-box;
+}
+
+#wrapper {
+	width: 1000px;
+	margin: 30px auto;
+	border: 1px solid black;
+}
+#header {
+	height: 200px;
+	padding: 20px;
+	border: 1px solid black;
+}
+#container {
+	display: flex;
+}
+#content {
+	width: 780px;
+	height: 700px;
+	padding: 20px;
+	border: 1px solid black;
+}
+#sidebar {
+	width: 200px;
+	margin-right: 20px;
+	padding: 20px;
+	border: 1px solid black;
+}
+#footer {
+	height: 200px;
+	padding: 20px;
+	border: 1px solid black;
+}</code>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="P">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			#wrapper {
+				width: 1200px;
+				margin: 30px auto;
+				border: 1px solid black;
+			}
+			#header {
+				height: 250px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#container {
+				display: flex;
+			}
+			#content {
+				width: 860px;
+				height: 900px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#sidebar {
+				width: 300px;
+				margin-right: 40px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#footer {
+				height: 100px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+				<div id=&quot;header&quot;>
+					header
+				</div>
+				<div id=&quot;container&quot;>
+					<div id=&quot;sidebar&quot;>
+						sidebar
+					</div>
+					<div id=&quot;content&quot;>
+						content
+					</div>
+				</div>
+				<div id=&quot;footer&quot;>
+					footer
+				</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="P">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			#wrapper {
+				width: 1200px;
+				margin: 30px auto;
+				border: 1px solid black;
+			}
+			#header {
+				height: 250px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#container {
+				display: flex;
+			}
+			#content {
+				width: 860px;
+				height: 900px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#sidebar {
+				width: 300px;
+				margin-left: 40px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+			#footer {
+				height: 100px;
+				padding: 20px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;wrapper&quot;>
+				<div id=&quot;header&quot;>
+					header
+				</div>
+				<div id=&quot;container&quot;>
+					<div id=&quot;content&quot;>
+						content
+					</div>
+					<div id=&quot;sidebar&quot;>
+						sidebar
+					</div>
+				</div>
+				<div id=&quot;footer&quot;>
+					footer
+				</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

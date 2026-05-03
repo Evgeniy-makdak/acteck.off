@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод prop — acteck.off</title>
+  <meta name="description" content="Метод prop — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод prop</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>prop</code> позволяет получить и 
+	изменить свойство элемента.
+	Важно не путать свойства и атрибуты элементов. 
+	При создании DOM дерева атрибуты переводятся 
+	в соответствующие им DOM свойства элементов. Их 
+	названия не всегда совпадают, как и их значения. 
+	Некоторые свойства также могут не иметь 
+	соответствующих им атрибутов, они могут быть 
+	получены и установлены только при использовании метода 
+	<code data-gs="comd/c" data-x>prop</code>, например свойство 
+	<a href="../../../../manual/dom/tagName/index.html"><code data-gs="comd/c" data-x>tagName</code></a>. Для
+	получение атрибутов элемента, используйте метод 
+	<a href="../attr/index.html"><code data-gs="comd/c" data-x>attr</code></a>.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Получение значения свойства:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).prop(имя свойства);</code>
+</div>
+<p>
+	Изменение значения свойства:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).prop(имя свойства, новое значение);</code>
+</div>
+<p>
+	Изменение значений нескольких свойств:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).prop({первое_свойство: новое_значение, второе_свойство: новое_значение, ...});</code>
+</div>
+<p>
+	Применение функции к каждому элементу в наборе:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).prop(имя свойства, function(номер в наборе, текущее значение свойства));</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В следующем примере мы получим абзац по его <code data-gs="comd/c" data-x>id</code> 
+	и выведем на экран значение его свойства <code data-gs="comd/c" data-x>className</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class="aaa"&gt;text&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let value = $('#test').prop('className');
+console.log(value);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте поменяем одновременно свойства для 
+	<code data-gs="comd/c" data-x>className</code> и <code data-gs="comd/c" data-x>disabled</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="checkbox" class="aaa" id="test" /&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$("#test").prop({ className: 'bbb', disabled: 'true' });</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../removeProp/index.html"><code data-gs="comd/c" data-x>removeProp</code></a>, <br>
+			который позволяет удалять свойства элементов
+		</li>
+		<li>
+			метод <a href="../attr/index.html"><code data-gs="comd/c" data-x>attr</code></a>, <br>
+			который позволяет работать с атрибутами элементов
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

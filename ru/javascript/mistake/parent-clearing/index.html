@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ошибка неправильной очистки родителя в JavaScript — acteck.off</title>
+  <meta name="description" content="Ошибка неправильной очистки родителя в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Ошибка неправильной очистки родителя в JavaScript</h1>
+    <p>
+	Пусть у нас есть некоторый список.
+	Пусть по нажатию на кнопку мы хотим
+	каждый раз заново сформировать этот
+	список, очистив его предыдущее содержимое.
+	Новички часто совершают ошибку, пытаясь
+	придумать какое-то сложное решение.
+	Давайте посмотрим простой вариант.
+</p>
+<p>
+	Пусть мы получаем список в переменную:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let ul = document.querySelector('ul');</code>
+</div>
+<p>
+	Пусть также мы получаем кнопку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let btn = document.querySelector('button');</code>
+</div>
+<p>
+	Пусть по нажатию на кнопку наш список
+	заполняется некоторыми значениями.
+	Для примера я взял случайное значение,
+	соответствующее текущей секунде:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">btn.addEventListener('click', function() {
+	let rand = new Date.getSeconds();
+	
+	for (let i = 0; i &lt;= rand; i++) {
+		let li = document.createElement('li');
+		li.textContent = i;
+		ul.append(li);
+	}
+});</code>
+</div>
+<p>
+	В приведенном выше коде, новые пункты списка
+	будут добавляться после уже существующих.
+	А мы бы хотели, чтобы предыдущие пункты
+	сначала удалялись. Решение простое -
+	нужно просто очистить текст нашего
+	тега <code data-gs="comd/c" data-x>ul</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">btn.addEventListener('click', function() {
+	ul.textContent = ''; // чистим список
+	let rand = new Date.getSeconds();
+	
+	for (let i = 0; i &lt;= rand; i++) {
+		let li = document.createElement('li');
+		li.textContent = i;
+		ul.append(li);
+	}
+});</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

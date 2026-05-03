@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство background-origin — acteck.off</title>
+  <meta name="description" content="Свойство background-origin — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство background-origin</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>background-origin</code> задает
+	то, как фоновая картинка (именно картинка,
+	не заливка) будет размещаться относительно
+	элемента: часть картинки фона будет залазить
+	под границу, фон не будет залазить под границу
+	или фон будет размещаться только над содержимым
+	элемента (то есть <a href="../padding/index.html"><code data-gs="comd/c" data-x>padding</code></a>
+	отодвинет фон).
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	background-origin: padding-box | border-box | content-box;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>border-box</code></th>
+		<td>Фоновая картинка залезет под границу.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>padding-box</code></th>
+		<td>Фоновая картинка не будет залезать под границу.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>content-box</code></th>
+		<td>Фоновая картинка будет только над содержимым.</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>padding-box</code>.
+</p>
+
+<h2>Замечания</h2>
+<p>
+	Свойство <code data-gs="comd/c" data-x>background-origin</code> не работает,
+	когда <a href="../background-attachment/index.html"><code data-gs="comd/c" data-x>background-attachment</code></a>
+	имеет значение <code data-gs="comd/v" data-x>fixed</code>. Также при <a href="../background-repeat/index.html"><code data-gs="comd/c" data-x>background-repeat</code></a>
+	в значении <code data-gs="comd/v" data-x>repeat</code> свойство <code data-gs="comd/c" data-x>background-origin</code>
+	всегда работает, как при значении <code data-gs="comd/v" data-x>border-box</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. По умолчанию</h2>
+<p>
+	По умолчанию фон не будет заходить под границу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	border: 10px dashed black;
+	padding: 30px;
+	width: 250px;
+	height: 150px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-image: url(&quot;/cont/markup/manual/css/property/background-origin/@/image/bg.png?v=5&quot;);
+			background-repeat: no-repeat;
+			border: 10px dashed black;
+			padding: 30px;
+			width: 250px;
+			height: 150px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение border-box</h2>
+<p>
+	Сейчас фон зайдет под границу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-origin: border-box;
+	background-image: url("bg.png");
+	border: 10px dashed black;
+	padding: 30px;
+	width: 250px;
+	height: 150px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-origin: border-box;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-origin/@/image/bg.png?v=5&quot;);
+			border: 10px dashed black;
+			padding: 30px;
+			width: 250px;
+			height: 150px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение content-box</h2>
+<p>
+	А теперь фон отодвинется через <a href="../padding/index.html"><code data-gs="comd/c" data-x>padding</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-origin: content-box;
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	border: 10px dashed black;
+	padding: 30px;
+	width: 250px;
+	height: 150px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-origin: content-box;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-origin/@/image/bg.png?v=5&quot;);
+			background-repeat: no-repeat;
+			border: 10px dashed black;
+			padding: 30px;
+			width: 250px;
+			height: 150px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. При background-repeat: repeat</h2>
+<p>
+	При <code data-gs="comd/c" data-x>background-repeat</code> в значении <code data-gs="comd/v" data-x>repeat</code> свойство
+	<code data-gs="comd/c" data-x>background-origin</code> всегда работает,
+	как при значении <code data-gs="comd/v" data-x>border-box</code>, то есть фон
+	всегда заходит под границу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-repeat: repeat;
+	background-image: url("bg.png");
+	border: 10px dashed black;
+	padding: 30px;
+	width: 350px;
+	height: 300px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-repeat: repeat;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-origin/@/image/bg.png?v=5&quot;);
+			border: 10px dashed black;
+			padding: 30px;
+			width: 350px;
+			height: 300px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../background-clip/index.html"><code data-gs="comd/c" data-x>background-clip</code></a>, <br>
+			которое задает позицию и фоновой картинки, и заливки
+		</li>
+		<li>
+			свойство <a href="../background/index.html"><code data-gs="comd/c" data-x>background</code></a>, <br>
+			представляющее собой свойство-сокращение для фона
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Передача текста в дочерний компонент в Angular — acteck.off</title>
+  <meta name="description" content="Передача текста в дочерний компонент в Angular — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../ru/javascript/index.html">javascript</a>
+    </div>
+
+    <h1>Передача текста в дочерний компонент в Angular</h1>
+    <p>
+	Можно передавать текст из родительского
+	компонента в дочерний. Для этого нужно
+	передаваемый текст написать между открывающим
+	и закрывающим тегом дочернего компонента.
+	Давайте сделаем это: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;user-data&gt;
+	 text from parent
+&lt;/user-data&gt;</code>
+</div>
+<p>
+	Теперь в темплейте дочернего компонента
+	мы должны указать место, в которое будет
+	осуществлена вставка переданного родительского
+	текста. Это делается с помощью специального
+	тега <code data-gs="comd/c" data-x>ng-content</code>. Давайте поставим
+	этот тег в темплейте дочернего компонента: 
+</p>
+<div data-p="bock/pane" data-p-file="app/user/user.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">child text &lt;br&gt;
+&lt;ng-content&gt;&lt;/ng-content&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть в родительском компоненте есть
+		некоторое свойство. Вставьте значение этого
+		свойства в текст. Передайте этот текст
+		описанным в уроке способом в дочерний
+		компонент. 
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

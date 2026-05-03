@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Поиск исторических событий на JavaScript — acteck.off</title>
+  <meta name="description" content="Поиск исторических событий на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Поиск исторических событий на JavaScript</h1>
+    <p>
+	Пусть мы хотим написать сайт, показывающий
+	таблицу исторических событий за определенный
+	год. Пусть год будет вводится в инпут. По
+	нажатию <code data-gs="comd/k" data-x>Enter</code> давайте выведем таблицу
+	событий, случившихся в этот год. Пусть в
+	качестве информации о событии мы хотим видеть
+	дату, название и описание события. Давайте
+	я покажу вам образец того, что должно получится
+	(для простоты я сделал события за <code data-gs="comd/n" data-x>2000</code>,
+	<code data-gs="comd/n" data-x>2001</code> и <code data-gs="comd/n" data-x>2002</code> годы):
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			body {
+			height: 300px;
+		}
+		</style>
+		<style>
+			* {
+			box-sizing: border-box;
+		}
+		#parent {
+			margin: 0 auto;
+			width: 600px;
+		}
+		#input {
+			width: 100%;
+			margin-bottom: 10px;
+			padding: 10px;
+		}
+		#table {
+			width: 100%;
+		}
+		#table td {
+			padding: 10px;
+			text-align: center;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<input id=&quot;input&quot; placeholder=&quot;введите год и нажмите Enter&quot;>
+			<table id=&quot;table&quot;></table>
+		</div>
+		
+		<script>
+			
+			let events = {
+			2000: [
+				{
+					date: '20.01.2000',
+					name: 'событие 1',
+					text: 'описание события 1'
+				},
+				{
+					date: '21.01.2000',
+					name: 'событие 2',
+					text: 'описание события 2'
+				},
+			],
+			2001: [
+				{
+					date: '10.02.2001',
+					name: 'событие 3',
+					text: 'описание события 3'
+				},
+				{
+					date: '11.02.2001',
+					name: 'событие 4',
+					text: 'описание события 4'
+				},
+				{
+					date: '12.02.2001',
+					name: 'событие 5',
+					text: 'описание события 5'
+				},
+			],
+			2002: [
+				{
+					date: '01.03.2002',
+					name: 'событие 6',
+					text: 'описание события 6'
+				},
+				{
+					date: '02.04.2002',
+					name: 'событие 7',
+					text: 'описание события 7'
+				},
+				{
+					date: '03.05.2002',
+					name: 'событие 8',
+					text: 'описание события 8'
+				},
+				{
+					date: '04.06.2002',
+					name: 'событие 9',
+					text: 'описание события 9'
+				},
+			],
+		};
+		
+		let input = document.querySelector('#input');
+		let table = document.querySelector('#table');
+		
+		input.addEventListener('keydown', function(event) {
+			if (event.key == 'Enter') {
+				let year = input.value;
+				
+				if (events[year]) {
+					table.textContent = '';
+					
+					for (let event of events[year]) {
+						let tr = document.createElement('tr');
+						
+						let td;
+						
+						td = document.createElement('td');
+						td.textContent = event.date;
+						tr.appendChild(td);
+						
+						td = document.createElement('td');
+						td.textContent = event.name;
+						tr.appendChild(td);
+						
+						td = document.createElement('td');
+						td.textContent = event.text;
+						tr.appendChild(td);
+						
+						table.appendChild(tr);
+					}
+				}
+			}
+		});
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Вот верстка, которую вы можете использовать
+	при решении задачи:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;input id="input" placeholder="введите год и нажмите Enter"&gt;
+	&lt;table id="table"&gt;&lt;/table&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">* {
+	box-sizing: border-box;
+}
+#parent {
+	margin: 0 auto;
+	width: 600px;
+}
+#input {
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+#table {
+	width: 100%;
+}
+#table td {
+	padding: 10px;
+	text-align: center;
+	border: 1px solid black;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Продумайте, как удобнее всего хранить исторические
+		события.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Реализуйте описанный сайт.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод off — acteck.off</title>
+  <meta name="description" content="Метод off — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод off</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>off</code> позволяет отвязать обработчик
+	событий от элемента. Чтобы привязать обработчик
+	можно воспользоваться методом
+	<a href="index.html"><code data-gs="comd/c" data-x>off</code></a>.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Так мы удаляем обработчик событий у элемента,
+	в качестве первого параметра в виде строки
+	передается одно или несколько событий разделенных
+	пробелами, вторым - передаем допольнительный
+	фильтрующий селектор потомков внутри элемента
+	(он должен совпадать с тем, что мы передавали в
+	в метод <code data-gs="comd/c" data-x>on</code>, когда прикрепляли
+	обработчик). Чтобы удалить все делегированные события,
+	передайте значение <code data-gs="comd/s" data-x>'**'</code>. Второй параметр
+	необязательный. Третьим передаем функцию-обработчик
+	(которую мы прикрепляли), в которую передается объект
+	события или передаем <code data-gs="comd/c" data-x>false</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).off(события, [селектор], функция-обработчик(объект события));</code>
+</div>
+<p>
+	Можно воспользоваться методом <code data-gs="comd/c" data-x>off</code> по-другому,
+	тогда в первый параметр передается
+	объект JavaScript, где ключи - тип события, а
+	значения - функции-обработчики, которые мы добавляли к
+	элементу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).off({'тип события': handler}, [селектор]);</code>
+</div>
+<p>
+	Можем просто передать один параметр в виде
+	объекта <code data-gs="comd/c" data-x>jQuery.Event</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).off(событие);</code>
+</div>
+<p>
+	Если не передавать методу параметры, то
+	мы отвяжем от элемента все прикрепленные
+	обработчики:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).off();</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте к абзацам добавим функцию-обработчик
+	<code data-gs="comd/c" data-x>testFunc</code>. Но сразу же удалим обработчик у
+	второго абзаца, т.о. клик по второму абзацу не будет
+	ни к чему приводить (если же мы закоментируем последнюю
+	строчку кода, то увидим как событие срабатывает и
+	по клику на второй абзац):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test1"&gt;click1&lt;/p&gt;
+&lt;p id="test2"&gt;click2&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function testFunc(event) {
+	alert(event.data.text);
+}
+
+$('#test1').on('click', {text: 'aaa'}, testFunc); // добавляем обработчик
+
+$('#test2').on('click', {text: 'bbb'}, testFunc); // добавляем обработчик
+$('#test2').off('click', testFunc); // удаляем обработчик</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>, <br>
+			который позволяет привязать обработчик событий
+			к элементу
+		</li>
+		<li>
+			метод <a href="../one/index.html"><code data-gs="comd/c" data-x>one</code></a>, <br>
+			который позволяет событию сработать один раз,
+			а затем автоматически удалить обработчик
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

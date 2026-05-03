@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Преобразование к логическому типу в JavaScript — acteck.off</title>
+  <meta name="description" content="Преобразование к логическому типу в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Преобразование к логическому типу в JavaScript</h1>
+    <p>
+	Давайте теперь изучим преобразование других
+	типов данных к логическому. Такое преобразование
+	осуществляется с помощью функции <code data-gs="comd/c" data-x>Boolean</code>.
+	Вот значения, которые при приведению к логическому
+	типу дают <code data-gs="comd/c" data-x>false</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(Boolean(0));          // false
+console.log(Boolean(-0));         // false
+console.log(Boolean(+0));         // false
+console.log(Boolean(null));       // false
+console.log(Boolean(false));      // false
+console.log(Boolean(NaN));        // false
+console.log(Boolean(undefined));  // false
+console.log(Boolean(''));         // false</code>
+</div>
+<p>
+	Все остальные значения в JavaScript (в других
+	языках бывает не так) дают <code data-gs="comd/c" data-x>true</code>. Вот
+	значения, приводящиеся к <code data-gs="comd/c" data-x>true</code>, но
+	могущие вызвать у вас сомнения:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(Boolean(-1));          // true
+console.log(Boolean(Infinity));    // true
+console.log(Boolean(-Infinity));   // true</code>
+</div>
+<p>
+	Следующие значения являются строками, так
+	как взяты в кавычки, и также приводятся к
+	<code data-gs="comd/c" data-x>true</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(Boolean('0'));         // true
+console.log(Boolean('false'));     // true
+console.log(Boolean('NaN'));       // true
+console.log(Boolean('null'));      // true
+console.log(Boolean('undefined')); // true</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(3);
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(0);
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(-1);
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(-0);
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(+0);
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean('abc');
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean('');
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean('0');
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(true);
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(false);
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean('true');
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean('false');
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(null);
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean('null');
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(undefined);
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean('undefined');
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(NaN);
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean('NaN');
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(3 * 'abc');
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(Infinity);
+alert(test);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код, определите, что выведется
+		на экран:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = Boolean(1 / 0);
+alert(test);</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

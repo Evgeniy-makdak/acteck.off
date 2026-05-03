@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство empty-cells — acteck.off</title>
+  <meta name="description" content="Свойство empty-cells — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Свойство empty-cells</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>empty-cells</code> указывает браузеру
+	как отображать фон и границу пустых <a href="../../../html/tag/td/index.html">ячеек
+	td</a> или <a href="../../../html/tag/th/index.html">ячеек
+	th</a> HTML <a href="../../../html/tag/table/index.html">таблицы</a>:
+	показывать или нет.
+</p>
+<p>
+	Ячейка считается пустой в следующих случаях:
+	нет вообще никаких символов, в ячейке содержится
+	только пробел (один или несколько), перевод
+	строки или символ табуляции, либо свойство
+	<a href="../visibility/index.html"><code data-gs="comd/c" data-x>visibility</code></a>
+	установлено как <code data-gs="comd/v" data-x>hidden</code>.
+</p>
+<p>
+	Чтобы сделать ячейку не пустой, но при этом
+	без видимого текста, используют следующий
+	прием: в ячейку записывают неразрывный пробел
+	<code data-gs="comd/c" data-x>&amp;nbsp;</code>.
+</p>
+<p>
+	Свойство не работает, если задан <a href="../border-collapse/index.html"><code data-gs="comd/c" data-x>border-collapse</code></a>
+	в значении <code data-gs="comd/v" data-x>collapse</code>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	empty-cells: show | hide;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>show</code></th>
+		<td>Фон и граница показываются у пустой ячейки.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>hide</code></th>
+		<td>Фон и граница не показываются у пустой ячейки.</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>show</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Значение show</h2>
+<p>
+	Сейчас в таблице некоторые ячейки пустые,
+	но они все равно имеют границу и фон:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;&lt;/td&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table {
+	width: 400px;
+	empty-cells: show;
+}
+td {
+	border: 1px solid black;
+	background-color: #f3f3f3;
+	text-align: center;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table {
+			width: 400px;
+			empty-cells: show;
+		}
+		td {
+			border: 1px solid black;
+			background-color: #f3f3f3;
+			text-align: center;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td>cell</td>
+				<td></td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>cell</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение hide</h2>
+<p>
+	А вот теперь пустые ячейки не будут иметь
+	фон и границу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;&lt;/td&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+		&lt;td&gt;cell&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table {
+	width: 400px;
+	empty-cells: hide;
+}
+td {
+	border: 1px solid black;
+	background-color: #f3f3f3;
+	text-align: center;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table {
+			width: 400px;
+			empty-cells: hide;
+		}
+		td {
+			border: 1px solid black;
+			background-color: #f3f3f3;
+			text-align: center;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td>cell</td>
+				<td></td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>cell</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			псевдокласс <a href="../../pseudoclass/empty/index.html"><code data-gs="comd/c" data-x>empty</code></a>, <br>
+			который задает то, как будет выглядеть пустой элемент
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

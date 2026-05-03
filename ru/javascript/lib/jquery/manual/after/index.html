@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод after — acteck.off</title>
+  <meta name="description" content="Метод after — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод after</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>after</code> добавляет текст после 
+	заданного элемента. Также существует метод 
+	<a href="../insertAfter/index.html"><code data-gs="comd/c" data-x>insertAfter</code></a>, 
+	который работает аналогичным образом.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Вставка текста после элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).after(текст);</code>
+</div>
+<p>
+	Вот так после выбранных элементов будет добавлен
+	текст, который будет возвращен пользовательской
+	функцией. Функция вызывается, отдельно для
+	каждого из выбранных элементов. В первый параметр 
+	этой функции попадает номер в наборе каждого 
+	из выбранных элементов (по очереди), во 
+	второй - текущее содержимое элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).after(function(номер в наборе, текущее содержимое элемента));</code>
+</div>
+<p>
+	Текст также может быть не только обычным
+	текстом, но и DOM элементом или объектом
+	jQuery. В этом случае эти элементы переместятся
+	со своей позиции в HTML коде.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте вставим текст после заданного абзаца:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').after('!!!');</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text&lt;/p&gt;!!!</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте вставим текст с тегами после заданного
+	абзаца:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').after('&lt;p&gt;!!!&lt;/p&gt;');</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text&lt;/p&gt;&lt;p&gt;!!!&lt;/p&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте переместим один абзац под другой
+	(то есть вырежем абзац со старого места и
+	поставим в новое):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="p1"&gt;text1&lt;/p&gt;
+&lt;p id="p2"&gt;text2&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#p1').after('#p2');</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="p2"&gt;text2&lt;/p&gt;
+&lt;p id="p1"&gt;text1&lt;/p&gt;</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../insertAfter/index.html"><code data-gs="comd/c" data-x>insertAfter</code></a>, <br>
+			который добавляет текст после заданного элемента
+		</li>
+		<li>
+			методы <a href="../before/index.html"><code data-gs="comd/c" data-x>before</code></a>,
+			<a href="../append/index.html"><code data-gs="comd/c" data-x>append</code></a>,
+			<a href="../prepend/index.html"><code data-gs="comd/c" data-x>prepend</code></a>, <br>
+			позволяющие добавлять содержимое в определенное 
+			место на странице
+		</li>
+		<li>
+			метод <a href="../clone/index.html"><code data-gs="comd/c" data-x>clone</code></a>, <br>
+			который создает копии выбранных элементов
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

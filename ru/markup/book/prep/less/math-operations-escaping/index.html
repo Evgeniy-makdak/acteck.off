@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отмена математических операций в LESS — acteck.off</title>
+  <meta name="description" content="Отмена математических операций в LESS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/markup/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/markup/index.html">Вёрстка</a>
+    </div>
+
+    <h1>Отмена математических операций в LESS</h1>
+    <p>
+	Иногда бывают ситуации, когда у нас есть
+	некая математическая операция, которая не
+	должна быть воспринята LESS как команда на
+	вычисление. Например, такая проблема возникает
+	в CSS функции <a href="../../../../manual/css/function/calc/index.html"><code data-gs="comd/c" data-x>calc</code></a>:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
+	width: calc(100% - 10px);
+}</code>
+</div>
+<p>
+	К счастью, LESS умеет корректно обрабатывать
+	такие места и не произведет вычисление при
+	компиляции.
+</p>
+<p>
+	Бывают, однако, ситуации, когда выражение,
+	не требующее вычисления, находится в другом
+	месте, например, в переменной, вот так:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">@exp: 100% - 10px;
+div {
+	width: calc(@exp);
+}</code>
+</div>
+<p>
+	В этом случае в переменную запишется результат
+	вычисления, и в <code data-gs="comd/c" data-x>calc</code> отправится переменная
+	с вычисленным значением. Чтобы такого не
+	произошло, мы можем явно указать, что выражение
+	должно остаться в неизменной виде.
+</p>
+<p>
+	Для этого выражение нужно взять в кавычки
+	и поставить перед ним знак тильды:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">@exp: ~'100% - 10px';
+div {
+	width: calc(@exp);
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Исправьте код, чтобы он заработал корректным
+		образом:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.less">
+		<code data-w="bock/code" data-lo="high" data-m-lang="less">@exp1: 80% + 10px;
+@exp2: 30vh - 10px;
+
+div {
+	width: calc(@exp1);
+	margin-top: calc(@exp2);
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

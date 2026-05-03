@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Введение в классы и объекты в JavaScript — acteck.off</title>
+  <meta name="description" content="Введение в классы и объекты в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../ru/javascript/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../ru/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Введение в классы и объекты в JavaScript</h1>
+    <p>
+	Сейчас мы займемся изучением ООП в
+	JavaScript. Давайте рассмотрим пример из жизни,
+	а потом перенесем его на JavaScript.
+</p>
+<p>
+	В качестве примера возьмем автомобиль. У
+	него есть колеса, цвет, вид кузова, объем
+	двигателя и так далее. Кроме того, водитель
+	может отдавать ему команды: ехать, остановится,
+	повернуть направо, налево и тп.
+</p>
+<p>
+	Можно говорить о том, что существует некоторый
+	<dfn data-gs="comd/d" data-x>класс</dfn> автомобилей, обладающий общими
+	свойствами (у всех есть колеса и всем им
+	можно отдавать команды).
+</p>
+<p>
+	Конкретный автомобиль, стоящий на улице -
+	это представитель этого класса, или, другими
+	словами, <dfn data-gs="comd/d" data-x>объект</dfn> этого класса. У всех
+	объектов этого класса есть <dfn data-gs="comd/d" data-x>свойства</dfn>:
+	количество колес, цвет, вид кузова и <dfn data-gs="comd/d" data-x>методы</dfn>:
+	ехать, остановится, повернуть направо, налево.
+</p>
+<p>
+	Другими словами сам класс - это чертеж, по
+	которым на заводе делаются автомобили. Объект
+	же - это сама машина, сделанная по этим чертежам.
+</p>
+<p>
+	В JavaScript класс создается с помощью ключевого
+	слова <code data-gs="comd/c" data-x>class</code>, за которым следует название
+	этого класса. Давайте сделаем класс <code data-gs="comd/c" data-x>Car</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class Car {
+	// тут код, то есть JavaScript-чертеж автомобиля
+}</code>
+</div>
+<p>
+	Укажем теперь в нашем чертеже, что любой
+	автомобиль, созданный по этому чертежу, будет
+	иметь свойство для цвета и свойство для количества
+	топлива.
+</p>
+<p>
+	Для этого внутри класса напишем свойство
+	<code data-gs="comd/c" data-x>color</code> и свойство <code data-gs="comd/c" data-x>fuel</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class Car {
+	color; // цвет автомобиля
+	fuel;  // количество топлива
+}</code>
+</div>
+<p>
+	Давайте теперь сделаем методы нашего класса.
+	В JavaScript методы похожи на обычные функции,
+	только объявляются без ключевого слова <code data-gs="comd/c" data-x>function</code>.
+</p>
+<p>
+	Как уже упоминалось выше, наш автомобиль
+	может ехать, может поворачивать, может останавливаться.
+	Сделаем соответствующие методы в нашем классе:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class Car {
+	color; // цвет автомобиля
+	fuel;  // количество топлива
+	
+	// Команда ехать:
+	go() {
+		// какой-то JavaScript код
+	}
+	
+	// Команда поворачивать:
+	turn() {
+		// какой-то JavaScript код
+	}
+	
+	// Команда остановиться:
+	stop() {
+		// какой-то JavaScript код
+	}
+}</code>
+</div>
+<p>
+	Мы с вами сделали чертеж нашего автомобиля.
+	Теперь нужно отправится на завод и сделать
+	объект этого класса (то есть конкретный автомобиль).
+</p>
+<p>
+	В JavaScript это делается с помощью ключевого слова
+	<code data-gs="comd/c" data-x>new</code>, после которого пишется имя класса:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">new Car; // командуем заводу сделать автомобиль</code>
+</div>
+<p>
+	Однако, если просто создать объект класса
+	- это ни к чему не приведет (это все равно,
+	что, к примеру, объявить массив и никуда
+	его не записать). Нам нужна переменная для
+	хранения этого объекта.
+</p>
+<p>
+	Пусть эта переменная будет называться <code data-gs="comd/c" data-x>myCar</code>
+	- запишем в нее созданный нами объект:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let myCar = new Car;</code>
+</div>
+<p>
+	После создания автомобиля можно обращаться
+	к его свойствам. Обращение к ним происходит
+	через точку. Давайте установим
+	свойства нашего объекта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let myCar = new Car; // командуем заводу сделать автомобиль
+
+myCar.color = 'red'; // красим в красный цвет
+myCar.fuel = 50;     // заливаем топливо</code>
+</div>
+<p>
+	Все, наш автомобиль создан, покрашен и заправлен.
+	Теперь мы можем отдавать ему команды через
+	методы этого автомобиля.
+</p>
+<p>
+	Обращение к методам также происходит через
+	точку, но, в отличие от свойства, после
+	имени метода следует писать круглые скобки.
+	Давайте покомандуем нашим объектом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">myCar.go();
+myCar.turn();
+myCar.stop();</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

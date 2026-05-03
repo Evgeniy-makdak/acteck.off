@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Использование стейтов в React — acteck.off</title>
+  <meta name="description" content="Использование стейтов в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../ru/react/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../ru/react/index.html">React</a>
+    </div>
+
+    <h1>Использование стейтов в React</h1>
+    <p>
+	Воспользуемся функцией <code data-gs="comd/c" data-x>useState</code> для
+	создания стейта, содержащего название продукта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const state = useState('prod');</code>
+</div>
+<p>
+	В результате константа <code data-gs="comd/c" data-x>state</code> будет
+	представлять собой массив, в первом элементе
+	которого будет хранится название продукта,
+	а во втором - функция для изменения названия:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const state   = useState('prod');
+const name    = state[0];
+const setName = state[1];</code>
+</div>
+<p>
+	Для краткости обычно не используют промежуточную
+	константу для массива, а используют <a href="../../../../../javascript/book/prime/destructuring/arrays/intro/index.html">деструктуризацию</a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [name, setName] = useState('prod');</code>
+</div>
+<p>
+	Давайте теперь выведем наш стейт с именем
+	продукта в какой-нибудь верстке:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return &lt;p&gt;
+	&lt;span&gt;{name}&lt;/span&gt;
+&lt;/p&gt;;</code>
+</div>
+<p>
+	Соберем все вместе и получим следующий код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import React, { useState } from 'react';
+
+function App() {
+	const [name, setName] = useState('prod');
+	
+	return &lt;div&gt;
+		&lt;span&gt;{name}&lt;/span&gt;
+	&lt;/div&gt;;
+}
+
+export default App;</code>
+</div>
+<p>
+	Если запустить этот код, то изначально в
+	диве выведется начальное значение стейта,
+	в нашем случае <code data-gs="comd/s" data-x>'prod'</code>. При изменение
+	стейта через функцию <code data-gs="comd/c" data-x>setName</code> и верстке
+	автоматически появится новое значение стейта.
+</p>
+<div data-w="cont/task">
+	<p>
+		Пусть вы хотите отображать на экране данные
+		юзера: его имя, фамилию, возраст. Сделайте
+		для этого соответствующие стейты с начальными
+		значениями.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

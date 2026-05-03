@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Удаление данных из БД — acteck.off</title>
+  <meta name="description" content="Удаление данных из БД — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../ru/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">обучение программированию</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../ru/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../ru/nodejs/index.html" class="back-link">← Назад</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../ru/index.html">Главная</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../ru/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Удаление данных из БД</h1>
+    <p>
+	Давайте теперь удалим запись из БД,
+	указав в параметре
+	маршрута ее
+	<code data-gs="comd/s" data-x>id</code>.
+</p>
+<p>
+	Пусть у нас есть маршрут, в котором переменная
+	<code data-gs="comd/c" data-x>del</code> передается как параметр:
+</p>
+<div data-p="bock/pane" data-p-file="app.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/remove/:del', async function(req, res) {
+	res.render('delete');
+});</code>
+</div>
+<p>
+	Пусть этот параметр будет содержать информацию
+	о <code data-gs="comd/s" data-x>id</code> юзера, которого нужно удалить.
+	После объявления переменной <code data-gs="comd/c" data-x>del</code>
+	передадим ее в SQL запрос
+	через интерполяцию как
+	<code data-gs="comd/c" data-x>${del}</code>:
+</p>
+<div data-p="bock/pane" data-p-file="app.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/remove/:del', async function(req, res) {
+	let del = req.params.del;
+	let query = `DELETE * FROM users WHERE id=${del}`;
+	
+	res.render('delete');
+});</code>
+</div>
+<p>
+	Было бы удобно вывести на страницу с представлением
+	сообщение об успешном удалении или появлении
+	ошибки. Для этого объявим переменную
+	<code data-gs="comd/c" data-x>message</code>, которая сначала будет пустой.
+	Далее пропишем конструкцию <code data-gs="comd/c" data-x>try-catch</code>.
+	В блоке <code data-gs="comd/c" data-x>try</code> будут объявлены переменные
+	<code data-gs="comd/c" data-x>results</code> и <code data-gs="comd/c" data-x>fields</code>. При успешном выполнении
+	операции в сообщение передастся информация
+	о том, с каким <code data-gs="comd/s" data-x>id</code> был удален юзер.
+	В случае возникновения ошибки, ее текст также
+	передастся в представление:
+</p>
+<div data-p="bock/pane" data-p-file="app.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/remove/:del', async function(req, res) {
+	let del = Number(req.params.del);
+	
+	let query = `DELETE FROM users WHERE id=${del}`;
+	let message = '';
+				
+	try {
+		let [results, fields] = await connection.query(query);
+		message = `user with id=${del} is deleted`;
+	} catch (error) {
+		message = error.message;
+	}
+	
+	res.render('delete', {message: message});
+});</code>
+</div>
+<p>
+	В файле представления <code data-gs="comd/p" data-x>delete.hbs</code>
+	пропишем код с переменной
+	<code data-gs="comd/c" data-x>message</code>:
+</p>
+<div data-p="bock/pane" data-p-file="views/delete.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;p&gt;{{ message }}&lt;/p&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте так, чтобы в адресной строке можно
+		было отправить <code data-gs="comd/q" data-x>GET</code> запрос с <code data-gs="comd/c" data-x>id</code>
+		юзера и этот юзер удалялся из БД.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу так, чтобы
+		на странице были ссылки для удаления каждого
+		юзера:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;a href="/remove/1"&gt;user1&lt;/a&gt;
+&lt;a href="/remove/2"&gt;user2&lt;/a&gt;
+&lt;a href="/remove/3"&gt;user3&lt;/a&gt;</code>
+	</div>
+	<p>
+		Ссылки, конечно же, должны формироваться
+		в цикле из полученных из БД данных.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу так, чтобы
+		у вас был следующий HTML код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;user1 &lt;a href="/remove/1"&gt;удалить&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;user2 &lt;a href="/remove/2"&gt;удалить&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;user3 &lt;a href="/remove/2"&gt;удалить&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу так, чтобы
+		у вас был следующий HTML код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;th&gt;id&lt;/th&gt;
+		&lt;th&gt;name&lt;/th&gt;
+		&lt;th&gt;age&lt;/th&gt;
+		&lt;th&gt;salary&lt;/th&gt;
+		&lt;th&gt;delete&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;user1&lt;/td&gt;
+		&lt;td&gt;23&lt;/td&gt;
+		&lt;td&gt;400&lt;/td&gt;
+		&lt;td&gt;&lt;a href="/remove/1"&gt;удалить&lt;/a&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;user2&lt;/td&gt;
+		&lt;td&gt;25&lt;/td&gt;
+		&lt;td&gt;500&lt;/td&gt;
+		&lt;td&gt;&lt;a href="/remove/2"&gt;удалить&lt;/a&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;user3&lt;/td&gt;
+		&lt;td&gt;23&lt;/td&gt;
+		&lt;td&gt;500&lt;/td&gt;
+		&lt;td&gt;&lt;a href="/remove/3"&gt;удалить&lt;/a&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Ацтек</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>
