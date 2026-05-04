@@ -66,19 +66,19 @@ LESSONS = [
 
 NAV_TEMPLATE = '''    <div class="lesson-nav">
       <a href="{prev_link}" class="lesson-nav-btn lesson-nav-prev" title="{prev_title}">← {prev_title}</a>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку уроков">☰</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="К списку уроков">☰</a>
       <a href="{next_link}" class="lesson-nav-btn lesson-nav-next" title="{next_title}">{next_title} →</a>
     </div>'''
 
 NAV_FIRST_TEMPLATE = '''    <div class="lesson-nav">
       <span class="lesson-nav-btn lesson-nav-prev disabled">← Начало</span>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку уроков">☰</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="К списку уроков">☰</a>
       <a href="{next_link}" class="lesson-nav-btn lesson-nav-next" title="{next_title}">{next_title} →</a>
     </div>'''
 
 NAV_LAST_TEMPLATE = '''    <div class="lesson-nav">
       <a href="{prev_link}" class="lesson-nav-btn lesson-nav-prev" title="{prev_title}">← {prev_title}</a>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку уроков">☰</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="К списку уроков">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">Конец →</span>
     </div>'''
 
