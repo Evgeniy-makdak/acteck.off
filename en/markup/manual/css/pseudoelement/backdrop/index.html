@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Псевдоэлемент backdrop — acteck.off</title>
+  <meta name="description" content="Псевдоэлемент backdrop — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Псевдоэлемент backdrop</h1>
+    <p>
+	Псевдоэлемент <code data-gs="comd/c" data-x>backdrop</code> задает расположение
+	указанному элементу ниже самого первого элемента по оси Z, но выше
+	остальных элементов. Часто данный псевдоэлемент
+	применяется для затемнения фона страницы, на
+	котором выводятся модальные окошки.
+	На сегодняшний день псевдоэлемент <code data-gs="comd/c" data-x>backdrop</code>
+	работает только с модальными окошками, которыми были созданы
+	с помощью элемента <code data-gs="comd/c" data-x>&lt;dialog&gt;</code>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор::backdrop {
+	background: цвет для фона страницы;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте сделаем так, чтобы при нажатии кнопки
+	открылось модальное окошко, а фон страницы при этом
+	был затемнен:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="open"&gt;Open&lt;/button&gt;
+&lt;dialog&gt;
+	&lt;form method="dialog"&gt;
+		&lt;p&gt;Text text text&lt;/p&gt;
+		&lt;button id="close"&gt;Close&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/dialog&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">body{
+	height: 200px;
+}
+dialog {
+	width: 200px;
+}
+dialog::backdrop {
+	background-color: grey;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('dialog');
+let openBtn = document.querySelector('#open');
+let closeBtn = document.querySelector('#close');
+openBtn.addEventListener('click', () =&gt; elem.showModal());</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			body{
+			height: 200px;
+		}
+		dialog {
+			width: 200px;
+		}
+		dialog::backdrop {
+			background-color: grey;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<button id=&quot;open&quot;>Open</button>
+		<dialog>
+			<form method=&quot;dialog&quot;>
+				<p>Text text text</p>
+				<button id=&quot;close&quot;>Close</button>
+			</form>
+		</dialog>
+		
+		<script>
+			
+			let elem = document.querySelector('dialog');
+		let openBtn = document.querySelector('#open');
+		let closeBtn = document.querySelector('#close');
+		openBtn.addEventListener('click', () => elem.showModal());
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../../property/bottom/index.html"><code data-gs="comd/c" data-x>bottom</code></a>, <br>
+			которое задает позицию нижнего края элемента
+		</li>
+		<li>
+			свойство <a href="../../property/top/index.html"><code data-gs="comd/c" data-x>top</code></a>, <br>
+			которое задает позицию верхнего края элемента
+		</li>
+		<li>
+			свойство <a href="../../property/left/index.html"><code data-gs="comd/c" data-x>left</code></a>, <br>
+			которое задает позицию левого края элемента
+		</li>
+		<li>
+			свойство <a href="../../property/right/index.html"><code data-gs="comd/c" data-x>right</code></a>, <br>
+			которое задает позицию правого края элемента
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../after/index.html" class="lesson-nav-btn lesson-nav-prev" title="after">← after</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../before/index.html" class="lesson-nav-btn lesson-nav-next" title="before">before →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

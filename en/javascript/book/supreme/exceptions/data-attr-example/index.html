@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пример исключения с data- атрибутами в JavaScript — acteck.off</title>
+  <meta name="description" content="Пример исключения с data- атрибутами в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Пример исключения с data- атрибутами в JavaScript</h1>
+    <p>
+	Пусть при загрузке страницы сервер создает
+	HTML код, в котором хранится название, цена
+	и количество купленного продукта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="product" data-product="яблоко" data-price="1000" data-amount="5"&gt;&lt;/div&gt;</code>
+</div>
+<p>
+	Давайте сделаем функцию, которая будет принимать
+	ссылку на элемент с продуктом и находить
+	полную стоимость товара (цену умножать на
+	количество):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getCost(elem) {
+	return elem.dataset.price * elem.dataset.amount;
+}</code>
+</div>
+<p>
+	Найдем стоимость нашего продукта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let product = document.querySelector('#product');
+let cost = getCost(product);
+
+alert(cost);</code>
+</div>
+<p>
+	Предположим теперь следующую ситуацию: из-за
+	какого-то сбоя на сервере он прислал нам
+	товар, в котором отсутствует цена или количество
+	(или оба сразу), например, вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="product" data-product="яблоко" data-price="1000"&gt;&lt;/div&gt;</code>
+</div>
+<p>
+	Если теперь попробовать посчитать стоимость
+	товара, то результате на экран выведется
+	NaN. Согласитесь, не очень информативно.
+</p>
+<p>
+	Получается, нам нужно как-то обезопасится
+	от того, что будут отсутствовать нужные нам
+	атрибуты. Это можно сделать двумя путями.
+	Первый путь - это сказать, что это нормальное
+	поведение и просто проверять ифами наличие
+	нужных нам атрибутов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getCost(elem) {
+	if (elem.dataset.price !== undefined && elem.dataset.amount !== undefined) {
+		return elem.dataset.price * elem.dataset.amount;
+	} else {
+		return 0; // вернем что-нибудь, например, 0 или null или false
+	}
+}</code>
+</div>
+<p>
+	Второй вариант - это сказать, что отсутствие
+	атрибута <code data-gs="comd/c" data-x>data-price</code> или <code data-gs="comd/c" data-x>data-amount</code>
+	- исключительная ситуация. В этом случае
+	мы будем выбрасывать исключение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getCost(elem) {
+	if (elem.dataset.price !== undefined && elem.dataset.amount !== undefined) {
+		return elem.dataset.price * elem.dataset.amount;
+	} else {
+		throw {
+			name: 'ProductCostError',
+			message: 'отсутствует цена или количество у продукта'
+		};
+	}
+}</code>
+</div>
+<p>
+	Какой из двух вариантов здесь уместнее применить
+	- это выбор программиста. Он может считать
+	проблему нормальной работой скрипта или исключительной
+	ситуацией.
+</p>
+<p>
+	Пусть мы решили, что ситуация исключительная.
+	Toгда код получения стоимости товара будет
+	выглядеть вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let product = document.querySelector('#product');
+
+try {
+	let cost = getCost(product);
+	alert(cost);
+} catch (error) {
+	// как-то реагируем на исключение
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте мой код так, чтобы функция <code data-gs="comd/c" data-x>getCost</code>
+		выбрасывала два типа исключений: если отсутствует
+		цена и если отсутствует количество. Хорошо
+		подумайте над названиями этих исключений.
+		В блоке <code data-gs="comd/c" data-x>catch</code> выведите разные сообщения об
+		ошибке для исключений разных типов.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../throwing-user-types/index.html" class="lesson-nav-btn lesson-nav-prev" title="Выбрасывание своих типов исключений">← Выбрасывание своих типов исключений</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../json-structure-example/index.html" class="lesson-nav-btn lesson-nav-next" title="Пример исключения с JSON">Пример исключения с JSON →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

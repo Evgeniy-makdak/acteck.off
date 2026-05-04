@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Режимы работы через стейты компонентов-потомков в React — acteck.off</title>
+  <meta name="description" content="Режимы работы через стейты компонентов-потомков в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Режимы работы через стейты компонентов-потомков в React</h1>
+    <p>
+	Пусть наш массив с продуктами теперь выглядит
+	следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initProds = [
+	{id: id(), name: 'prod1', cost: 'cost1', catg: 'catg1'},
+	{id: id(), name: 'prod2', cost: 'cost2', catg: 'catg2'},
+	{id: id(), name: 'prod3', cost: 'cost3', catg: 'catg3'},
+];</code>
+</div>
+<p>
+	Давайте выведем эти продукты в виде HTML
+	таблицы. При этом сделаем так, чтобы по нажатию
+	на любую ячейку таблицы в этой ячейке появлялся
+	инпут для редактирования. Для решения задачи
+	сделаем <code data-gs="comd/n" data-x>3</code> компонента.
+</p>
+<p>
+	Компонент <code data-gs="comd/c" data-x>Products</code> будет хранить стейт
+	с продуктами и использовать компоненты <code data-gs="comd/c" data-x>Product</code>
+	для вывода продуктов. Компонент <code data-gs="comd/c" data-x>Product</code>
+	в свою очередь также будет использовать компоненты
+	<code data-gs="comd/c" data-x>ProductField</code> для вывода определенного
+	поля продукта (названия, цены, категории).
+</p>
+<p>
+	Компонент <code data-gs="comd/c" data-x>ProductField</code> будет либо
+	показывать текст поля, либо инпут для его
+	редактирования. При этом режим редактирования
+	или показа пусть <i>регулируется стейтом
+	данного компонента</i>.
+</p>
+<p>
+	To есть мы не будем хранить режим в родительском
+	стейте. Там это было бы очень неудобно, так
+	как нам пришлось бы указывать режим для каждого
+	поля продукта, что превратило бы наш стейт
+	в нечто подобное:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initProds = [
+	[
+		{field: 'name', value: 'prod1', isEdit: false},
+		{field: 'cost', value: 'cost1', isEdit: false},
+		{field: 'catg', value: 'catg1', isEdit: false},
+	],
+	[
+		{field: 'name', value: 'prod2', isEdit: false},
+		{field: 'cost', value: 'cost2', isEdit: false},
+		{field: 'catg', value: 'catg2', isEdit: false},
+	],
+	[
+		{field: 'name', value: 'prod3', isEdit: false},
+		{field: 'cost', value: 'cost3', isEdit: false},
+		{field: 'catg', value: 'catg3', isEdit: false},
+	],
+]</code>
+</div>
+<p>
+	Мы, однако, не будем делать такой стейт,
+	а оставим тот, который был. Просто каждый
+	экземпляр компонента <code data-gs="comd/c" data-x>ProductField</code>
+	с помощью своего стейта будет регулировать
+	режим: либо редактирование, либо показ.
+</p>
+<p>
+	Таким образом получится, что родительский
+	компонент будет хранить стейт с данными,
+	а наш внучатый компонент будет получать эти
+	данные через пропсы и при этом будет иметь
+	свой стейт для изменения своего режима.
+</p>
+<p>
+	Итак, давайте реализуем описанное.
+</p>
+
+<h2>Компонент Products</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Products() {
+	const [prods, setProds] = useState(initProds);
+	
+	function changeField(id, field, event) {
+		setProds(prods.map(prod =&gt; {
+			if (prod.id === id) {
+				prod[field] = event.target.value;
+			}
+			
+			return prod;
+		}));
+	}
+	
+	const rows = prods.map(prod =&gt; {
+		return &lt;Product
+			key ={prod.id}
+			id  ={prod.id}
+			name={prod.name}
+			cost={prod.cost}
+			catg={prod.catg}
+			changeField={changeField}
+		/&gt;;
+	});
+	
+	return &lt;div&gt;
+		&lt;table&gt;
+			&lt;tbody&gt;
+				{rows}
+			&lt;/tbody&gt;
+		&lt;/table&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+
+<h2>Компонент Product</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, catg, changeField }) {
+	return &lt;tr&gt;
+		&lt;ProductField id={id} text={name} type="name" changeField={changeField} /&gt;
+		&lt;ProductField id={id} text={cost} type="cost" changeField={changeField} /&gt;
+		&lt;ProductField id={id} text={catg} type="catg" changeField={changeField} /&gt;
+	&lt;/tr&gt;;
+}</code>
+</div>
+
+<h2>Компонент ProductField</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function ProductField({ id, text, type, changeField }) {
+	const [isEdit, setIsEdit] = useState(false);
+	
+	return &lt;td&gt;
+		{
+			isEdit
+			? &lt;input
+				value={text}
+				onChange={event =&gt; changeField(id, type, event)}
+				onBlur={() =&gt; setIsEdit(false)}
+			/&gt;
+			: &lt;span onClick={() =&gt; setIsEdit(true)}&gt;{text}&lt;/span&gt;
+		}
+	&lt;/td&gt;;
+}</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Проделайте аналогичные операции с компонентами
+		<code data-gs="comd/c" data-x>Users</code> и <code data-gs="comd/c" data-x>User</code>, созданными вами
+		в предыдущих уроках.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Применение статуса запроса в Redux — acteck.off</title>
+  <meta name="description" content="Применение статуса запроса в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Применение статуса запроса в Redux</h1>
+    <p>
+	На прошлых занятиях мы с помощью дополнительных
+	редьюсеров описали, что делать нашему приложению,
+	если <code data-gs="comd/c" data-x>fetchProducts</code> отправляет при запросе
+	экшены <span data-gs="comd/y" data-x>pending</span>, <span data-gs="comd/y" data-x>fulfilled</span> и
+	<span data-gs="comd/y" data-x>rejected</span>. Теперь мы можем
+	показать пользователю на какой стадии
+	сейчас загрузка данных.
+</p>
+<p>
+	Давайте откроем наше приложение с
+	продуктами, а в нем файл <code data-gs="comd/p" data-x>ProductsList.jsx</code>.
+	Первое, что мы сделаем, это создадим отдельный
+	компонент для карточки продукта <code data-gs="comd/c" data-x>ProductCard</code>.
+	Сделаем это сразу после строчек импорта перед
+	функцией <code data-gs="comd/c" data-x>ProductsList</code>. В качестве пропса
+	передадим ему <code data-gs="comd/c" data-x>product</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const ProductCard = ({ product }) =&gt; {
+	return ()
+}</code>
+</div>
+<p>
+	А теперь в пустые круглые скобочки <code data-gs="comd/c" data-x>return</code>
+	перенесем весь код для отображения данных
+	продукта из <code data-gs="comd/c" data-x>dispProducts</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const ProductCard = ({ product }) =&gt; {
+	return (
+		&lt;div key={product.id} className="product-excerpt"&gt;
+			&lt;h3&gt;{product.name}&lt;/h3&gt;
+			&lt;SellerOfProd sellerId={product.seller} /&gt;
+			&lt;p&gt;{product.desc.substring(0, 100)}&lt;/p&gt;
+			&lt;UserReactions product={product} /&gt;
+			&lt;Link to={`/products/${product.id}`} className="link-btn"&gt;
+				view
+			&lt;/Link&gt;
+		&lt;/div&gt;
+	)
+}</code>
+</div>
+<p>
+	И уберем в <code data-gs="comd/c" data-x>ProductsList</code> оставшуюся строчку
+	кода. Она нам больше не нужна:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const dispProducts = products.map((product) =&gt; ())</code>
+</div>
+<p>
+	А теперь в начале кода функции <code data-gs="comd/c" data-x>ProductsList</code>
+	заведем еще пару переменных, <code data-gs="comd/c" data-x>error</code> и
+	<code data-gs="comd/c" data-x>content</code>. Первая у нас будет для ошибки,
+	во вторую мы будем записывать то или иное
+	содержимое в зависимости от статуса запроса.
+	Сделаем это перед <code data-gs="comd/c" data-x>const dataFetch = useRef(false)</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const error = useSelector((state) =&gt; state.products.error)
+let content</code>
+</div>
+<p>
+	Теперь перед командой <code data-gs="comd/c" data-x>return</code> компонента
+	<code data-gs="comd/c" data-x>ProductsList</code> напишем блок кода
+	с условиями, при которых в <code data-gs="comd/c" data-x>content</code> будет
+	заноситься то или иное содержимое в
+	зависимости от статуса. Первым мы опишем
+	статус <code data-gs="comd/s" data-x>'in progress'</code> - когда наш запрос
+	отправлен. В этом случаем мы сообщим
+	пользователю, что идет загрузка данных:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">if (productStatus === 'in progress') {
+	content = &lt;p&gt;Products list loading ...&lt;/p&gt;
+}</code>
+</div>
+<p>
+	Если наша загрузка прошла успешно (мы обозначали
+	это как <code data-gs="comd/s" data-x>'success'</code>), то нам нужно вывести
+	список полученных продуктов. Выведем его
+	в <code data-gs="comd/c" data-x>map</code> при помощи компонента <code data-gs="comd/c" data-x>ProductCard</code>,
+	которому пропсом передадим <code data-gs="comd/c" data-x>product</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">if (productStatus === 'in progress') {
+	content = &lt;p&gt;Products list loading ...&lt;/p&gt;
+} else if (productStatus === 'success') {
+	content = products.map((product) =&gt; (
+		&lt;ProductCard key={product.id} product={product} /&gt;
+	))
+}</code>
+</div>
+<p>
+	И последний статус, который у нас имеется - 
+	это <code data-gs="comd/s" data-x>'fail'</code>. Добавим и его. Используем здесь
+	переменную <code data-gs="comd/c" data-x>error</code>, в которую мы выше записали
+	ошибку из стейта:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">if (productStatus === 'in progress') {
+	content = &lt;p&gt;Products list loading ...&lt;/p&gt;
+} else if (productStatus === 'success') {
+	content = products.map((product) =&gt; (
+		&lt;ProductCard key={product.id} product={product} /&gt;
+	))
+} else if (productStatus === 'fail') {
+	content = &lt;div&gt;{error}&lt;/div&gt;
+}</code>
+</div>
+<p>
+	И последним шагом мы в блоке кода для <code data-gs="comd/c" data-x>return</code>
+	заменим старый <code data-gs="comd/c" data-x>{dispProducts}</code> на <code data-gs="comd/c" data-x>{content}</code>.
+</p>
+<p>
+	Запустим наше приложение, кликнем в меню
+	по <code data-gs="comd/s" data-x>'Products'</code>. Все работает. Видим,
+	что примерно <code data-gs="comd/n" data-x>2</code> секунды (как мы и
+	установили на сервере) у нас под формой
+	добавления продукта висит надпись
+	<code data-gs="comd/s" data-x>'Products list loading ...'</code>,
+	а потом появляется список продуктов.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Откройте в нем файл <code data-gs="comd/p" data-x>StudentsList.jsx</code>.
+		Создайте в нем новый компонент
+		<code data-gs="comd/c" data-x>StudentCard</code>. Перенесите в него код из
+		<code data-gs="comd/c" data-x>dispStudents</code>, как показано в уроке.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте в функции <code data-gs="comd/c" data-x>StudentsList</code>
+		переменные <code data-gs="comd/c" data-x>error</code> и <code data-gs="comd/c" data-x>content</code>. Присвойте
+		переменной <code data-gs="comd/c" data-x>content</code> содержимое в
+		зависимости от статуса запроса. Не
+		забудьте заменить в возвращаемой верстке
+		старый <code data-gs="comd/c" data-x>dispStudents</code> на <code data-gs="comd/c" data-x>content</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../avoid-double-request/index.html" class="lesson-nav-btn lesson-nav-prev" title="Устранение дублирования запроса.">← Устранение дублирования запроса.</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../getting-sellers/index.html" class="lesson-nav-btn lesson-nav-next" title="Получение данных продавцов">Получение данных продавцов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

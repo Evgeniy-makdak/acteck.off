@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Методы интерфейсов в TypeScript — acteck.off</title>
+  <meta name="description" content="Методы интерфейсов в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Методы интерфейсов в TypeScript</h1>
+    <p>
+	В интерфейсах объектов также можно добавлять
+	и методы объектов. Давайте добавим в наш
+	интерфейс метод, который должен приветствовать
+	пользователя. Для этого мы должны задать
+	имя метода, типы параметров и тип возвращаемого
+	значения: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">interface IUser {
+	name: string;
+	age: number;
+
+	greet(text: string): string;
+}</code>
+</div>
+<p>
+	Реализуем наш метод в объекте: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user: IUser = {
+	name: 'john',
+	age: 30,
+
+	greet(text: string): string {
+		return text + ', ' + this.name
+	}
+}</code>
+</div>
+<p>
+	Вызовем наш метод: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">console.log(user.greet('hello')); // 'hello, john'</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Для интерфейса <code data-gs="comd/c" data-x>IUser</code>, реализуйте
+		метод для проверки возраста. Если возраст
+		юзера меньше <code data-gs="comd/n" data-x>18</code>, пусть отобразится
+		сообщение о том, что доступ запрещен. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте интерфейс <code data-gs="comd/c" data-x>IMath</code> со свойствами
+		<code data-gs="comd/c" data-x>num1</code> и <code data-gs="comd/c" data-x>num2</code>, а также методом
+		<code data-gs="comd/c" data-x>getSum</code>, который будет суммировать
+		оба числа. 
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../properties/index.html" class="lesson-nav-btn lesson-nav-prev" title="Свойства интерфейса">← Свойства интерфейса</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../optional-properties/index.html" class="lesson-nav-btn lesson-nav-next" title="Опциональные свойства интерфейса">Опциональные свойства интерфейса →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

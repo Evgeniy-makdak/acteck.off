@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Создание сервиса в Angular — acteck.off</title>
+  <meta name="description" content="Создание сервиса в Angular — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">javascript</a>
+    </div>
+
+    <h1>Создание сервиса в Angular</h1>
+    <p>
+	Давайте начнем изучение сервисов с создания
+	своего собственного. Для этого в папке
+	<code data-gs="comd/p" data-x>test/src/app</code> сделаем файл
+	<code data-gs="comd/p" data-x>data.service.ts</code>. Пусть наш сервис
+	отвечает за вывод некоторых данных на
+	экран. 
+</p>
+<p>
+	Сделаем класс для нашего сервиса: 
+</p>
+<div data-p="bock/pane" data-p-file="data.service.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class DataService {
+	
+}</code>
+</div>
+<p>
+	Теперь нам нужен декоратор <code data-gs="comd/c" data-x>Injectable</code>.
+	Его применение позволит сделать так, что
+	класс сервиса можно будет <dfn data-gs="comd/d" data-x>внедрять</dfn>
+	в класс компонента. О внедрении мы поговорим
+	на следующем уроке. А сейча импортируем
+	нужный декоратор: 
+</p>
+<div data-p="bock/pane" data-p-file="data.service.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { Injectable } from '@angular/core';
+
+export class DataService {
+	
+}</code>
+</div>
+<p>
+	Применим его к нашему классу: 
+</p>
+<div data-p="bock/pane" data-p-file="data.service.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { Injectable } from '@angular/core';
+
+@Injectable()
+export class DataService {
+	
+}</code>
+</div>
+<p>
+	Теперь сделаем так, чтобы в нашем классе
+	были некоторые данные. Обычно в приложениях
+	Angular происходит загрузка данных с
+	сервера, но мы в учебных целях будем
+	использовать массив. Сделаем его в приватном
+	свойстве: 
+</p>
+<div data-p="bock/pane" data-p-file="data.service.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class DataService {
+	private data: string[] = ['a', 'b', 'c'];
+}</code>
+</div>
+<p>
+	Напишем теперь метод для получения данных: 
+</p>
+<div data-p="bock/pane" data-p-file="data.service.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class DataService {
+	private data: string[] = ['a', 'b', 'c'];
+
+	getData(): string[] {
+		return this.data;
+	}
+}</code>
+</div>
+<p>
+	Наш сервис готов. В следующем уроке мы
+	будем подключать его к классу компонента. 
+</p>
+<div data-w="cont/task">
+	<p>
+		Создайте свой сервис, который будет отдавать
+		массив объектов с товарами: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">[
+	{
+		name: 'prod1',
+		cost: 100,
+	},
+	{
+		name: 'prod2',
+		cost: 200,
+	},
+	{
+		name: 'prod3',
+		cost: 300,
+	},
+]</code>
+	</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../using/index.html" class="lesson-nav-btn lesson-nav-next" title="Использование сервиса">Использование сервиса →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

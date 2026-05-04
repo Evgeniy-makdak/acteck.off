@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Логические операторы в MongoDB — acteck.off</title>
+  <meta name="description" content="Логические операторы в MongoDB — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Логические операторы в MongoDB</h1>
+    <p>
+	В данном уроке мы рассмотрим логические операторы.
+	Как и условные операторы они делают наши
+	запросы более гибкими.
+</p>
+
+<h2>Оператор $and</h2>
+<p>
+	Оператор <code data-gs="comd/c" data-x>$and</code> принимает массив с условиями
+	и выбирает документы, которые удовлетворяют всем
+	условиям из массива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let cond = {$and: [
+	{age: {$gte: 25}},
+	{age: {$lte: 29}},
+]};
+
+let res = await coll.find(cond).toArray();
+console.log(res);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, что выбирает приведенное
+		в примере условие.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Придумайте и напишите три примера
+		использования изученного оператора.
+	</p>
+</div>
+
+<h2>Оператор $or</h2>
+<p>
+	Оператор <code data-gs="comd/c" data-x>$or</code> принимает массив с условиями
+	и выбирает документы, которые удовлетворяют
+	хотя бы одному условию из массива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let cond = { $or: [
+	{age: {$lte: 26}}, {salary: 300}
+]};
+
+let res = await coll.find(cond).toArray();
+console.log(res);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, что выбирает приведенное
+		в примере условие.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Придумайте и напишите три примера
+		использования изученного оператора.
+	</p>
+</div>
+
+<h2>Оператор $not</h2>
+<p>
+	Оператор <code data-gs="comd/c" data-x>$not</code> выполняет операцию отрицания.
+	Он выбирает все документы, которые не
+	удовлетворяют объекту с условиями.
+	Пример:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let cond = {age: {$not: {$gt: 26, $lt: 29}}};
+let res = await coll.find(cond).toArray();
+console.log(res);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, что выбирает приведенное
+		в примере условие.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Придумайте и напишите три примера
+		использования изученного оператора.
+	</p>
+</div>
+
+<!--
+<h2>Оператор $nor</h2>
+<p>
+	Оператор <code data-gs="comd/c" data-x>$nor</code> выполняет логическую операцию <code data-gs="comd/c" data-x>NOR</code>
+	над массивом с одни или более элементами.
+	Выбирает документы, которые не удовлетворяют
+	ни один из элементов массива. Оператор похож
+	на <code data-gs="comd/c" data-x>NOT</code>, но он может работать с одним
+	полем, в то время как <code data-gs="comd/c" data-x>NOR</code> принимает
+	массив. И истинным он будет только, когда
+	все выражения ложны.
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let cond = { $nor: [ { cost: 3000 }, { sale: true } ] };
+let res = await coll.find(cond).toArray();
+console.log(res);</code>
+</div>
+-->
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

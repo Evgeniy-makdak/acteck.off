@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction в компоненты React — acteck.off</title>
+  <meta name="description" content="Introduction в компоненты React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Introduction в компоненты React</h1>
+    <p>
+	Взглянем на любой сайт. Он состоит из набора
+	независимых блоков: хедер, сайдбары, футер,
+	контент. Можно сказать, что эти блоки и есть
+	компоненты в том смысле, в котором подразумевается
+	в React.
+</p>
+<p>
+	Если посмотреть на тот же хедер, что в нем
+	можно выделить блок с логотипом, блок контактов,
+	блок с меню и так далее. To есть компоненты
+	могут состоять из других подкомпонентов.
+</p>
+<p>
+	Аналогичным образом дело обстоит в React
+	- сайт строится из набора компонентов, которые
+	в свою очередь могут содержать другие компоненты.
+</p>
+<p>
+	В React каждый компонент представляет собой
+	отдельный модуль. Обычно разработка начинается
+	с главного компонента <code data-gs="comd/c" data-x>App</code>, который
+	содержит в себе остальные.
+</p>
+<p>
+	Давайте потренируемся создавать новые компоненты.
+</p>
+<p>
+	Пусть для примера нам нужен компонент, выводящий
+	данные продукта. Для этого нам нужно в рабочей
+	папке создать файл <code data-gs="comd/p" data-x>Product.js</code> и добавить
+	в него следующий код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import React from 'react';
+
+function Product() {
+	return &lt;p&gt;
+		product
+	&lt;/p&gt;;
+}
+
+export default Product;</code>
+</div>
+<p>
+	Как вы видите, сейчас наш компонент возвращает
+	абзац с текстом. В следующих уроках мы доработаем
+	этот код так, чтобы возвращались данные продукта.
+	Но пока для начала просто оставим абзац
+	с некоторым начальным текстом.
+</p>
+<p>
+	Давайте теперь выведем наш созданный компонент
+	в компоненте <code data-gs="comd/c" data-x>App</code>. Пусть сейчас наш
+	<code data-gs="comd/c" data-x>App</code> имеет следующий код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import React from 'react';
+
+function App() {
+	return &lt;div&gt;
+		text
+	&lt;/div&gt;;
+}
+
+export default App;</code>
+</div>
+<p>
+	Для начала нам нужно импортировать созданный
+	нами компонент с продуктом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import React from 'react';
+import Product from './Product'; // импортируем продукт
+
+function App() {
+	return &lt;div&gt;
+		text
+	&lt;/div&gt;;
+}
+
+export default App;</code>
+</div>
+<p>
+	После такого импорта внутри компонента <code data-gs="comd/c" data-x>App</code>
+	можно использовать компонент <code data-gs="comd/c" data-x>Product</code>.
+</p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сокращение fs.promises в NodeJS — acteck.off</title>
+  <meta name="description" content="Сокращение fs.promises в NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Сокращение fs.promises в NodeJS</h1>
+    <p>
+	Вспомним, как мы подключали модуль <code data-gs="comd/c" data-x>fs</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';</code>
+</div>
+<p>
+	После такого подключения нам будут доступны
+	промисные варианты методов этого модуля через
+	<code data-gs="comd/c" data-x>fs.promises</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.promises.readFile('readme.txt', 'utf8').then(data =&gt; {
+	console.log(data);
+});</code>
+</div>
+<p>
+	Однако, писать свойство <code data-gs="comd/c" data-x>promises</code> перед
+	каждым нужным методом не очень удобно. Давайте
+	поступим хитрее - запишем в переменную <code data-gs="comd/c" data-x>fs</code>
+	не сам модуль, а его часть с промисами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';</code>
+</div>
+<p>
+	И теперь мы можем опускать раздражающее нас
+	свойство:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.readFile('readme.txt', 'utf8').then(data =&gt; {
+	console.log(data);
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+async function func() {
+	let data = await fs.promises.readFile('readme.txt', 'utf8');
+	console.log(data);
+}
+
+func();</code>
+	</div>
+	<p>
+		Упростите его согласно изученной теории.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../async-await/index.html" class="lesson-nav-btn lesson-nav-prev" title="Асинхронная работа с fs через async-await">← Асинхронная работа с fs через async-await</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../relative-paths/index.html" class="lesson-nav-btn lesson-nav-next" title="Относительные пути">Относительные пути →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

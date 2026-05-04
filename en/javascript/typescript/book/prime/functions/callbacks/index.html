@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Функции-коллбэки в TypeScript — acteck.off</title>
+  <meta name="description" content="Функции-коллбэки в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Функции-коллбэки в TypeScript</h1>
+    <p>
+	Для функций <a href="../../../../../book/prime/functions/nested/callbacks/index.html">коллбэков</a>
+	также можно указывать тип параметров и тип
+	возвращаемого значения. Смотрите пример: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function make(num: number, func: (num: number) =&gt; number): number {
+	return func(num);
+}</code>
+</div>
+<p>
+	Давайте вызовем нашу функцию с одним
+	коллбэком: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">make(3, function(num: number): number {
+	return num ** 2;
+});</code>
+</div>
+<p>
+	А теперь с другим коллбэком: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">make(3, function(num: number): number {
+	return num ** 3;
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат выполнения
+		следующего кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">type Func = (num: number) =&gt; number;
+
+function make(arr: number[], func: Func): number[] {
+	return arr.map(function(elem: number) {
+		return func(elem);
+	});
+}
+
+let res: number[] = make([1, 2, 3], function(num: number): number {
+	return num ** 2;
+});
+
+console.log(res);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Найдите и исправьте ошибки, допущенные в
+		следующем коде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">type Func = (num: number) =&gt; number;
+
+function make(arr: number, func: Func): number {
+	let sum = 0;
+	
+	for (let elem of arr) {
+		sum += func(elem);
+	}
+	
+	return sum;
+}
+
+let res: number[] = make([1, 2, 3], function(num): string {
+	return num ** 2;
+});
+
+console.log(res);</code>
+	</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../custom-function-type/index.html" class="lesson-nav-btn lesson-nav-prev" title="Свой тип с функцией">← Свой тип с функцией</a>
+      <a href="../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../arrow-functions/index.html" class="lesson-nav-btn lesson-nav-next" title="Стрелочные функции">Стрелочные функции →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Применение стрелочных функций в JavaScript — acteck.off</title>
+  <meta name="description" content="Применение стрелочных функций в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Применение стрелочных функций в JavaScript</h1>
+    <p>
+	Особое преимущество стрелочные функции имеют
+	в качестве коллбэков. Давайте посмотрим на
+	примере, на сколько упрощается код в таком
+	случае. Пусть для примера у нас есть следущая
+	функция <code data-gs="comd/c" data-x>filter</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function filter(arr, callback) {
+	let res = [];
+
+	for (let elem of arr) {
+		if ( callback(elem) === true ) {
+			res.push(elem);
+		}
+	}
+	
+	return res;
+}</code>
+</div>
+<p>
+	Вызовем эту функцию, передав ей коллбэк:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = filter([1, 2, 3, 4, 5], function(elem) {
+	if (elem % 2 === 0) {
+		return true;
+	} else {
+		return false;
+	}
+});</code>
+</div>
+<p>
+	Давайте теперь упростим нашу функцию.
+	Для начала давайте избавимся от конструкции
+	<code data-gs="comd/c" data-x>if</code> и напишем условие просто через
+	оператор <code data-gs="comd/c" data-x>===</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = filter([1, 2, 3, 4, 5], function(elem) {
+	return elem % 2 == 0;
+});</code>
+</div>
+<p>
+	Заменим теперь обычную функцию на стрелочную:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = filter([1, 2, 3, 4, 5], elem =&gt; elem % 2 == 0);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана следующая функция с коллбэком:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = filter([1, 2, 3, 4, 5], function(elem) {
+	if (elem &gt; 0) {
+		return true;
+	} else {
+		return false;
+	}
+});</code>
+	</div>
+	<p>
+		Упростите коллбэк через стрелочную функцию.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../arrow-functions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Стрелочные функции">← Стрелочные функции</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../closures/outer-variables-access/index.html" class="lesson-nav-btn lesson-nav-next" title="Доступ к внешним переменным">Доступ к внешним переменным →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

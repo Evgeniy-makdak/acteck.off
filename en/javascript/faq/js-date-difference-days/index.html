@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS разница дат в днях — acteck.off</title>
+  <meta name="description" content="JS разница дат в днях — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>JS разница дат в днях</h1>
+    <p>
+	В этом уроке мы найдем разницу между двумя
+	датами в днях. Для начала нам нужно сначала
+	создать две даты. Мы можем сделать это с
+	помощью класса <code data-gs="comd/c" data-x>Date</code>. 
+</p>
+<p>
+	Давайте сделаем две даты: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let date1 = new Date(2021, 11, 15);
+let date2 = new Date(2021, 10, 10);</code>
+</div>
+<p>
+	Теперь, чтобы найти разницу в днях между
+	этими двумя датами, мы можем использовать
+	следующий код: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let diffInSecs = date2.getTime() - date1.getTime();
+let diffInDays = Math.round(diffInSecs / (1000 * 3600 * 24));
+
+console.log(`разница в днях: ${differenceInDays}`);</code>
+</div>
+<p>
+	Здесь мы сначала получаем время в миллисекундах
+	для каждой даты с помощью метода <a href="../../manual/time/getTime/index.html"><code data-gs="comd/c" data-x>getTime</code></a>.
+	Затем мы вычитаем время второй даты из
+	времени первой даты, чтобы получить разницу
+	во времени в миллисекундах. Затем мы делим
+	эту разницу на количество миллисекунд в
+	одном дне (1000 * 60 * 60 * 24), чтобы
+	получить количество дней между двумя датами.
+	Наконец, мы округляем результат с помощью
+	функции <a href="../../manual/math/Math.round/index.html"><code data-gs="comd/c" data-x>Math.round</code></a>. 
+</p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

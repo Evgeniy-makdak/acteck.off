@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реактивность массивов в Vue — acteck.off</title>
+  <meta name="description" content="Реактивность массивов в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/vue/book/prime/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
+    </div>
+
+    <h1>Реактивность массивов в Vue</h1>
+    <p>
+	Реактивность срабатывает даже при изменениях
+	массивов, выводимых через <code data-gs="comd/c" data-x>v-for</code>.
+	Давайте для примера сделаем так, чтобы
+	по нажатию на кнопку в массив реактивно
+	добавлялся новый элемент и изменения
+	мгновенно происходили и на экране.
+</p>
+<p>
+	Давайте реализуем описанное.
+	Пусть у нас в есть массив:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		arr: ['a', 'b', 'c'],
+	}
+}</code>
+</div>
+<p>
+	Выведем элементы этого
+	массива в цикле:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;p v-for="elem in arr"&gt;
+		{{ elem }}
+	&lt;/p&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	Сделаем кнопку, по нажатию на которую
+	в массив будет добавляться новый элемент:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;p v-for="elem in arr"&gt;
+		{{ elem }}
+	&lt;/p&gt;
+	&lt;button @click="add"&gt;add&lt;/button&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	Реализуем соответствующий метод:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
+	add: function() {
+		this.arr.push('xxx');
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана кнопка. Дан массив. Выведите элементы
+		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
+		так, чтобы по нажатию на кнопку в конец этого
+		списка добавился новый пункт.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана кнопка. Дан массив. Выведите элементы
+		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
+		так, чтобы каждый раз по нажатию на кнопку
+		списка удалялся первый пункт.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана кнопка. Дан массив. Выведите элементы
+		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
+		так, чтобы каждый раз по нажатию на кнопку
+		списка удалялся последний пункт.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана кнопка. Дан массив. Выведите элементы
+		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
+		так, чтобы каждый раз по нажатию на кнопку
+		списка удалялся предпоследний пункт.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана кнопка. Дан массив. Выведите элементы
+		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
+		так, чтобы по нажатию на кнопку
+		пункты списка отсортировались.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана кнопка. Дан массив. Выведите элементы
+		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
+		так, чтобы по нажатию на кнопку
+		пункты списка выстроились
+		в обратном порядке.
+	</p>
+</div>
+
+<h2>Исключения</h2>
+<div data-w="cont/nott">
+	<p>
+		Из-за ограничений JavaScript, Vue не способен
+		заметить следующие изменения в массиве: прямую
+		установку элемента по индексу: <code data-gs="comd/c" data-x>items[ключ]
+		= новоеЗначение</code> и явное изменение длины
+		массива, например: <code data-gs="comd/c" data-x>items.length = новаяДлина</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

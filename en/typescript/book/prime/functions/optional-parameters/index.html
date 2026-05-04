@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Необязательные параметры функций в TypeScript — acteck.off</title>
+  <meta name="description" content="Необязательные параметры функций в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Необязательные параметры функций в TypeScript</h1>
+    <p>
+	Можно сделать так, чтобы функция принимала
+	переменное число параметров. Для этого
+	нужно объявить часть параметров (или все)
+	необязательными. 
+</p>
+<p>
+	Чтобы указать, что параметр является
+	необязательным, после его имени нужно
+	поставить знак вопроса. 
+</p>
+<p>
+	Давайте в нашей функции объявим фамилию
+	необязательным параметром: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function func(first: string, last?: string) {
+	return first + ' ' + last;
+}</code>
+</div>
+<p>
+	Если при вызове функции необязательный
+	параметр не будет задан, он примет значение
+	<code data-gs="comd/c" data-x>undefined</code>. Давайте модифицируем
+	нашу функцию с учетом этого: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function func(first: string, last?: string) {
+	if (last !== undefined) {
+		return first + ' ' + last;
+	} else {
+		return first;
+	}
+}</code>
+</div>
+<p>
+	Можно упростить, используя короткую форму
+	проверки: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function func(first: string, last?: string) {
+	if (last) {
+		return first + ' ' + last;
+	} else {
+		return first;
+	}
+}</code>
+</div>
+<p>
+	Давайте теперь воспользуемся нашей функцией.
+	Вызовем ее с двумя параметрами: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">func('john', 'smit'); // вернет 'john smit'</code>
+</div>
+<p>
+	Вызовем ее с одним параметром: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">func('john'); // вернет 'john'</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте функцию, которая принимать
+		параметрами день, месяц и год, и возвращать
+		день недели, соответствующий этой дате.
+		Пусть все три параметра будут не обязательными.
+		Если какой-то параметр не передан, он
+		должен принять значение, соответствующее
+		текущей дате. 
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

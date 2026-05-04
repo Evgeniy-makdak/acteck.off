@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ошибка перебора массива циклом for-in в JavaScript — acteck.off</title>
+  <meta name="description" content="Ошибка перебора массива циклом for-in в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Ошибка перебора массива циклом for-in в JavaScript</h1>
+    <p>
+	Для перебора массива следует
+	использовать цикл <code data-gs="comd/c" data-x>for-of</code>.
+	Иногда, однако, начинающие ошибочно
+	пытаются применить цикл <code data-gs="comd/c" data-x>for-in</code>.
+	Давайте посмотрим на характерные признаки
+	этой ошибки.
+</p>
+<p>
+	Пусть у нас есть массив:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['a', 'b', 'c'];</code>
+</div>
+<p>
+	Давайте переберем элементы этого
+	массива и запишем их в одну строку.
+</p>
+<p>
+	Некий программист уже решил эту задачу,
+	но ошибочно воспользовался циклом
+	<code data-gs="comd/c" data-x>for-in</code>. Давайте посмотрим,
+	что у него получилось:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = '';
+
+for (let elem in arr) {
+	res += elem;
+}
+
+console.log(res); // выведет '012'</code>
+</div>
+<p>
+	Итак, в результате получается строка <code data-gs="comd/s" data-x>'012'</code>,
+	а не <code data-gs="comd/s" data-x>'abc'</code>. Давайте разбираться, почему
+	так произошло.
+</p>
+<p>
+	Почему вообще массив перебрался
+	через цикл <code data-gs="comd/c" data-x>for-in</code>? Дело в том, что
+	массив в JavaScript является частным
+	случаем объекта. Поэтому на самом деле
+	в этом плане это корректный код. Но так делать
+	не следует. 
+</p>
+<p>
+	Дело в том, что <code data-gs="comd/c" data-x>for-in</code>
+	при некоторых условиях может зацепить
+	лишнее, и вы кроме элементов массива
+	получите при переборе еще что-нибудь паразитное.
+	Перебирайте массивы только через <code data-gs="comd/c" data-x>for-of</code>.
+</p>
+<p>
+	Давайте теперь разберемся, почему мы видим
+	такой странный результат. Дело в том,
+	что при переборе через <code data-gs="comd/c" data-x>for-in</code>
+	в переменную <code data-gs="comd/c" data-x>elem</code> на самом
+	деле будут попадать ключи, не смотря
+	на сбивающее с толку название этой
+	переменной.
+</p>
+<p>
+	Давайте исправим допущенную ошибку
+	и напишем корректный код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['a', 'b', 'c'];
+let res = '';
+
+for (let elem of arr) {
+	res += elem;
+}
+
+console.log(res); // выведет 'abc'</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

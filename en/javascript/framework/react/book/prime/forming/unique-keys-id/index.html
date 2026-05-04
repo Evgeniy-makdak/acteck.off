@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Уникальные ключи через id в React — acteck.off</title>
+  <meta name="description" content="Уникальные ключи через id в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Уникальные ключи через id в React</h1>
+    <p>
+	В приведенном выше коде в атрибут <code data-gs="comd/c" data-x>key</code>
+	мы добавляли порядковый номер элемента в
+	массиве. На самом деле такая практика является
+	плохой и ей следует пользоваться лишь в крайнем
+	случае.
+</p>
+<p>
+	Дело в том, что при сортировке массива у
+	элементов станут другие ключи и React не
+	сможет правильно отслеживать связь между
+	элементами массива и соответствующими тегами.
+</p>
+<p>
+	Более хорошей практикой будет добавить каждому
+	продукту уникальный идентификатор, который
+	и будет использоваться в качестве ключа.
+</p>
+<p>
+	Давайте в нашем массиве каждому продукту
+	добавим свойство <code data-gs="comd/c" data-x>id</code> с номером нашего
+	продукта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const prods = [
+	{id: 1, name: 'product1', cost: 100},
+	{id: 2, name: 'product2', cost: 200},
+	{id: 3, name: 'product3', cost: 300},
+];</code>
+</div>
+<p>
+	Теперь в качестве ключа используем этот <code data-gs="comd/c" data-x>id</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const res = prods.map(function(item) {
+		return &lt;p key={item.id}&gt;
+			&lt;span&gt;{item.name}&lt;/span&gt;:
+			&lt;span&gt;{item.cost}&lt;/span&gt;
+		&lt;/p&gt;;
+	});
+	
+	return &lt;div&gt;
+		{res}
+	&lt;/div&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу, добавив
+		в массив <code data-gs="comd/c" data-x>id</code> и использовав их в качестве
+		значений атрибута <code data-gs="comd/c" data-x>key</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../array-of-objects/index.html" class="lesson-nav-btn lesson-nav-prev" title="Массив объектов">← Массив объектов</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../table/index.html" class="lesson-nav-btn lesson-nav-next" title="Таблица из массива объектов">Таблица из массива объектов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

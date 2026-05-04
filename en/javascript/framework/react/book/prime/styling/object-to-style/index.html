@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вставка данных в атрибут style из объекта в React — acteck.off</title>
+  <meta name="description" content="Вставка данных в атрибут style из объекта в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Вставка данных в атрибут style из объекта в React</h1>
+    <p>
+	CSS стили элементам можно также добавлять 
+	и с помощью атрибута <code data-gs="comd/c" data-x>style</code>.
+	В этом и нескольких последующих уроках мы 
+	рассмотрим способы <dfn data-gs="comd/d" data-x>инлайновой стилизации</dfn>. 
+</p>
+<p>
+	Теперь мы не будем подключать файл
+	<code data-gs="comd/p" data-x>styles.css</code>, а передадим соответствующие 
+	значения в атрибут <code data-gs="comd/c" data-x>style</code> в виде объекта 
+	со стилями для каждого тега, которые мы
+	будем писать прямо в файле компонента.  
+</p>
+<p>
+	Итак, возьмем наш компонент без CSS стилей,
+	который мы делали на прошлом уроке:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	return (
+		&lt;div&gt;
+			&lt;p&gt;text&lt;/p&gt;
+			&lt;p&gt;text&lt;/p&gt;
+			&lt;p&gt;text&lt;/p&gt;
+		&lt;/div&gt;
+	);
+}</code>
+</div>
+<p>
+	Давайте в файле <code data-gs="comd/p" data-x>App.js</code> перед
+	командой <code data-gs="comd/c" data-x>return</code> создадим объект
+	с CSS стилями для дива в переменной
+	<code data-gs="comd/c" data-x>class1</code>. Помните, что названия
+	свойств здесь пишутся в
+	<a href="../../../../../../../theory/glossary/camel-case/index.html">camelCase</a>
+	нотации, а значения свойств нужно
+	взять в кавычки:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const class1 = {
+	width: '200px',
+	border: '2px solid brown',
+	padding: '10px',
+	textAlign: 'center'
+};</code>
+</div>
+<p>
+	Теперь добавим объект <code data-gs="comd/c" data-x>class2</code> со 
+	стилями для первого абзаца:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">const class2 = {
+	color: 'orangered',
+	fontWeight: 'bold'
+}</code>
+</div>
+<p>
+	Объект <code data-gs="comd/c" data-x>class3</code> со 
+	стилями для второго абзаца:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">const class3 = {
+	fontStyle: 'italic',
+	color: 'brown',
+}</code>
+</div>
+<p>
+	И, наконец <code data-gs="comd/c" data-x>class4</code> для 
+	последнего:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">const class4 = {
+	backgroundColor: 'orange',
+	fontWeight: 'bold',
+	color: 'white',
+}		 </code>
+</div>
+<p>
+	Теперь, чтобы применить в компоненте  
+	CSS классы, воспользуемся атрибутом
+	<code data-gs="comd/c" data-x>style</code>. Для первого абзаца 
+	у нас была переменная <code data-gs="comd/c" data-x>class2</code>,
+	передадим ее в качестве значения:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p style={class2}&gt;text&lt;/p&gt;</code>
+</div>
+<p>
+	Подобным образом добавим стили из 
+	объектов для остальных тегов.
+</p>
+<p>
+	В результате, код компонента будет
+	выглядеть следующим образом:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const class1 = {
+		width: '200px',
+		border: '2px solid brown',
+		padding: '10px',
+		textAlign: 'center',
+	};
+
+	const class2 = {
+		color: 'orangered',
+		fontWeight: 'bold',
+	};
+
+	const class3 = {
+		fontStyle: 'italic',
+		color: 'brown',
+	};
+
+	const class4 = {
+		backgroundColor: 'orange',
+		fontWeight: 'bold',
+		color: 'white',
+	};
+
+	return (
+		&lt;div style={class1}&gt;
+			&lt;p style={class2}&gt;text&lt;/p&gt;
+			&lt;p style={class3}&gt;text&lt;/p&gt;
+			&lt;p style={class4}&gt;text&lt;/p&gt;
+		&lt;/div&gt;
+	);
+} </code>
+</div>	
+<div data-w="cont/task">
+	<p>
+		Возьмите React компонент, который вы 
+		делали в задаче к прошлому уроку, 
+		создайте объекты с CSS стилями к
+		вашим тегам, проставьте их в
+		соответствующих атрибутах <code data-gs="comd/c" data-x>style</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../global-css/index.html" class="lesson-nav-btn lesson-nav-prev" title="Глобальный CSS">← Глобальный CSS</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../common-file-to-style/index.html" class="lesson-nav-btn lesson-nav-next" title="Вставка данных в атрибут style из отдельного файла">Вставка данных в атрибут style из отдельного файла →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

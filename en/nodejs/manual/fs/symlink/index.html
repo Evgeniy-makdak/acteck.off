@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод symlink — acteck.off</title>
+  <meta name="description" content="Метод symlink — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Метод symlink</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>symlink</code> создает символическую
+	ссылку. В первом параметре
+	метода указывается путь, с которого
+	мы хотим создать символическую ссылку.
+	Во втором параметре задаем новый путь
+	для нашей символической ссылки.
+	В третьем необязательном параметре указываем
+	тип, который может иметь следующие значения:
+	<code data-gs="comd/s" data-x>'dir'</code>, <code data-gs="comd/s" data-x>'file'</code> или <code data-gs="comd/s" data-x>'junction'</code>.
+	В четвертом необязательном параметре
+	задаем коллбэк. Для того, чтобы метод
+	<code data-gs="comd/c" data-x>symlink</code> работал корректно, необходимо
+	запустить терминал в роли
+	администратора.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.symlink(исходный путь, конечный путь, [тип], [коллбэк]);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть следующая
+	файловая структура:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/dir/<ul><li data-s-type="F">file.txt</li></ul></li></ul></div></div>
+<p>
+	Давайте асинхронно создадим
+	символическую ссылку через
+	<code data-gs="comd/c" data-x>await</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+
+try {
+	await fs.symlink('./dir/file.txt', './dir/symlink', 'file');
+	console.log('symlink created');
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь давайте асинхронно создадим
+	символическую ссылку
+	через <code data-gs="comd/c" data-x>then</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+
+fs.symlink('./dir/file.txt', './dir/symlink', 'file').then(() =&gt; {
+	console.log('symlink created');
+}).catch((err) =&gt; {
+	console.log(err);
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте асинхронно создадим
+	символическую ссылку
+	через коллбэк:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+fs.symlink('./dir/file.txt', './dir/symlink', 'file', err =&gt; {
+	if (!err) {
+		console.log('symlink created');
+	} else {
+		console.log(err);
+	}
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь давайте синхронно создадим
+	символическую ссылку через
+	<code data-gs="comd/c" data-x>symlinkSync</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+try {
+	fs.symlinkSync('./dir/file.txt', './dir/symlink', 'file');
+	console.log('symlink created');
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../../../../javascript/nodejs/manual/fs/readlink/index.html"><code data-gs="comd/c" data-x>readlink</code></a>, <br>
+			который читает символическую ссылку
+		</li>
+		<li>
+			метод <a href="../../../../javascript/nodejs/manual/fs/unlink/index.html"><code data-gs="comd/c" data-x>unlink</code></a>, <br>
+			который удаляет символическую ссылку или файл
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../stat/index.html" class="lesson-nav-btn lesson-nav-prev" title="stat">← stat</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../truncate/index.html" class="lesson-nav-btn lesson-nav-next" title="truncate">truncate →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интерфейс для функции в TypeScript — acteck.off</title>
+  <meta name="description" content="Интерфейс для функции в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Интерфейс для функции в TypeScript</h1>
+    <p>
+	Интерфейс можно сделать не только для
+	объекта, но и для функции. Для этого в
+	теле интерфейса указывается <dfn data-gs="comd/d" data-x>сигнатура
+	вызова</dfn> функции: параметры для функции
+	и их типы, а также тип результата функции. 
+</p>
+<p>
+	Рассмотрим следующий пример. Давайте сделаем
+	тип с помощью интерфейса <code data-gs="comd/c" data-x>IMathFunc</code>.
+	В круглых скобках укажем два числовых
+	параметра. Возвращаемому значению укажем
+	булевый тип: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">interface IMathFunc {
+	(num1: number, num2: number): boolean;
+}</code>
+</div>
+<p>
+	Теперь сделаем функцию <code data-gs="comd/c" data-x>myFunc</code> на
+	основе нашего интерфейса: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let myFunc: IMathFunc = function(num1: number, num2: number): boolean {
+	if(num1 == num2) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+console.log(myFunc(2, 2));</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте интерфейс для функции, параметром
+		принимающей две строки и возвращающей эти
+		строки, сложенные через пробел. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте интерфейс для функции, параметром
+		принимающей число и возвращающей массив
+		делителей этого числа. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте интерфейс для функции, параметром
+		принимающей строку и возвращающей массив
+		слов из этой строки. 
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../readonly-properties/index.html" class="lesson-nav-btn lesson-nav-prev" title="Свойства только для чтения">← Свойства только для чтения</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../index-type-array/index.html" class="lesson-nav-btn lesson-nav-next" title="Индексируемый тип для массива">Индексируемый тип для массива →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

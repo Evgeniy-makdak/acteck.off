@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство min-height — acteck.off</title>
+  <meta name="description" content="Свойство min-height — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство min-height</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>min-height</code> устанавливает
+	минимальную высоту элемента. Значением свойства
+	служат любые <a href="../../reference/units/sizes/index.html">единицы
+	для размеров</a> либо ключевое слово <code data-gs="comd/v" data-x>none</code>,
+	означающее отсутствие значения.
+</p>
+<p>
+	Обычно задается для элемента с плавающей
+	шириной (высота задана в процентах или не
+	задана вообще, а элемент по высоте раздвигается
+	своим содержимым).
+</p>
+<p>
+	Если задана минимальная высота - то меньше
+	этой высоты элемент не сможет стать. Если
+	текста меньше, чем нужно для <code data-gs="comd/c" data-x>min-height</code>,
+	элемент будет иметь высоту <code data-gs="comd/c" data-x>min-height</code>.
+</p>
+<p>
+	Если же текста больше - высота элемента вычислится
+	в зависимости от количества текста.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	min-height: значение;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В данном примере высота не установлена вообще
+	и будет рассчитана браузером самостоятельно
+	в зависимости от количества текста. Однако,
+	так как установлено свойство <code data-gs="comd/c" data-x>min-height</code>,
+	то высота меньше этого значения не уменьшится,
+	даже если текста в нем совсем не будет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	min-height: 100px;
+	width: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			min-height: 100px;
+			width: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте добавим элементу больше текста -
+	так, чтобы произошло переполнение блока по
+	высоте. В этом случае наш блок просто увеличит
+	свою высоту:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	some long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	min-height: 100px;
+	width: 300px;
+	border: 1px solid black;
+	text-align: justify;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			min-height: 100px;
+			width: 300px;
+			border: 1px solid black;
+			text-align: justify;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Для сравнения давайте посмотрим, что будет
+	с блоком, если убрать ему минимальную высоту,
+	а вместо нее задать свойство <a href="../height/index.html"><code data-gs="comd/c" data-x>height</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	some long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	height: 100px;
+	width: 300px;
+	border: 1px solid black;
+	text-align: justify;
+	margin-bottom: 50px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			height: 100px;
+			width: 300px;
+			border: 1px solid black;
+			text-align: justify;
+			margin-bottom: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../max-height/index.html"><code data-gs="comd/c" data-x>max-height</code></a>, <br>
+			которое задает максимальную высоту элемента
+		</li>
+		<li>
+			свойство <a href="../max-width/index.html"><code data-gs="comd/c" data-x>max-width</code></a>, <br>
+			которое задает максимальную ширину элемента
+		</li>
+		<li>
+			свойство <a href="../min-width/index.html"><code data-gs="comd/c" data-x>min-width</code></a>, <br>
+			которое задает минимальную ширину элемента
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../max-width/index.html" class="lesson-nav-btn lesson-nav-prev" title="max-width">← max-width</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../min-width/index.html" class="lesson-nav-btn lesson-nav-next" title="min-width">min-width →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

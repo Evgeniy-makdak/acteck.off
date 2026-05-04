@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Использование пропсов в условном рендеринге с Styled Components в React — acteck.off</title>
+  <meta name="description" content="Использование пропсов в условном рендеринге с Styled Components в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Использование пропсов в условном рендеринге с Styled Components в React</h1>
+    <p>
+	Пропсы можно использовать и для условного 
+	рендеринга. Возьмем React компонент
+	<code data-gs="comd/c" data-x>Block</code>, с которым мы работали на
+	прошлом уроке.
+</p>
+<p>
+	Сделаем так, чтобы у нас фон для первого
+	инпута был желтым, а для других инпутов
+	зеленым. Для этого, в стили для компонента
+	<code data-gs="comd/c" data-x>Input</code> добавим еще строчку и получится:
+</p>
+<div data-p="bock/pane" data-p-file="Block.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const Input = styled.input`
+	background: ${(props) =&gt; (props.first ? 'yellow' : 'green')};
+
+	margin: 5px;
+	font-size: 18px;
+`;</code>
+</div>
+<p>
+	Добавим пропс <code data-gs="comd/c" data-x>first</code>
+	первому инпуту:
+</p>
+<div data-p="bock/pane" data-p-file="Block.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;Container&gt;
+	&lt;Input first /&gt;
+	&lt;Input placeholder="name" type="text" /&gt;
+	&lt;Input type="password" /&gt;
+&lt;/Container&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Используя условный рендеринг, приведенный 
+		в теории урока, модифицируйте код решения
+		задачи к предыдущему уроку так, чтобы при
+		наличии пропса <code data-gs="comd/c" data-x>warn</code> текст кнопки был
+		красным и ее фон был желтым, а без
+		него - зеленый фон и белый текст. 
+		Передайте <code data-gs="comd/c" data-x>warn</code> второй кнопке.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../styled-components-props/index.html" class="lesson-nav-btn lesson-nav-prev" title="Пропсы в Styled Components">← Пропсы в Styled Components</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../styled-components-extending/index.html" class="lesson-nav-btn lesson-nav-next" title="Компоненты с расширенной стилизацией">Компоненты с расширенной стилизацией →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

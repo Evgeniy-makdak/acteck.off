@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Логи проекта через PM2 на VPS сервере — acteck.off</title>
+  <meta name="description" content="Логи проекта через PM2 на VPS сервере — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Логи проекта через PM2 на VPS сервере</h1>
+    <p>
+	Скрипты, запущенные через PM2, не
+	выводят <code data-gs="comd/c" data-x>console.log</code> в консоль
+	сервера. Также такие скрипты не выводят
+	случившиеся ошибки. Однако, PM2 позволяет
+	настроить вывод всего этого в файлы.
+</p>
+<p>
+	Вот так мы заставим выводится в файл
+	результаты выполнения <code data-gs="comd/c" data-x>console.log</code>:
+</p>
+<div data-p="bock/pane" data-p-file="/var/www/test.com">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">pm2 start app.js -o output.txt --time</code>
+</div>
+<p>
+	А вот так мы заставим выводится в файл
+	случившиеся ошибки:
+</p>
+<div data-p="bock/pane" data-p-file="/var/www/test.com">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">pm2 start app.js -e error.txt --time</code>
+</div>
+<p>
+	А вот так мы будем выводить и то,
+	и другое:
+</p>
+<div data-p="bock/pane" data-p-file="/var/www/test.com">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">pm2 start app.js -o output.txt -e error.txt --time</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Запустите ваш тестовый скрипт
+		с выводом сообщений и ошибок
+		в файлы.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство event.clientY — acteck.off</title>
+  <meta name="description" content="Свойство event.clientY — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Свойство event.clientY</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>event.clientY</code> содержит в
+	себе координаты курсора мыши по оси Y.
+	Для определения координат есть также свойства
+	<a href="../clientX/index.html"><code data-gs="comd/c" data-x>event.clientX</code></a>,
+	<a href="../pageX/index.html"><code data-gs="comd/c" data-x>event.pageX</code></a>,
+	<a href="../pageY/index.html"><code data-gs="comd/c" data-x>event.pageY</code></a>.
+	Давайте посмотрим разницу между <code data-gs="comd/c" data-x>clientX/clientY</code>
+	и <a href="../pageX/index.html"><code data-gs="comd/c" data-x>pageX</code></a>/<a href="../pageY/index.html"><code data-gs="comd/c" data-x>pageY</code></a>.
+</p>
+<p>
+	Как работают <code data-gs="comd/c" data-x>clientX</code> и <code data-gs="comd/c" data-x>clientY</code>:
+	если у вас есть окно <code data-gs="comd/n" data-x>1000</code> на <code data-gs="comd/n" data-x>1000</code>
+	пикселей, и мышь находится в центре, то <code data-gs="comd/c" data-x>clientX</code>
+	и <code data-gs="comd/c" data-x>clientY</code> будут оба равны <code data-gs="comd/n" data-x>500</code>. Если
+	вы затем прокрутите страницу по горизонтали
+	или вертикали, не двигая курсор, то значения
+	<code data-gs="comd/c" data-x>clientX</code> и <code data-gs="comd/c" data-x>clientY</code> не изменятся, так как отсчитываются
+	относительно окна, а не документа.
+</p>
+<p>
+	Как работают <code data-gs="comd/c" data-x>pageX</code> и <code data-gs="comd/c" data-x>pageY</code>:
+	если у вас есть окно <code data-gs="comd/n" data-x>1000</code> на <code data-gs="comd/n" data-x>1000</code>
+	пикселей, и курсор находится в центре, то
+	<code data-gs="comd/c" data-x>pageX</code> и <code data-gs="comd/c" data-x>pageY</code> будут равны <code data-gs="comd/n" data-x>500</code>. Если
+	вы затем прокрутите страницу на <code data-gs="comd/n" data-x>250</code>
+	пикселей вниз, то <code data-gs="comd/c" data-x>pageY</code> станет равным <code data-gs="comd/n" data-x>750</code>.
+	Таким образом <code data-gs="comd/c" data-x>pageX</code> и <code data-gs="comd/c" data-x>pageY</code> содержат координаты
+	события с учетом прокрутки.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">event.clientY;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	При движении мыши по странице будем выводить
+	ее координаты относительно окна браузера
+	(<code data-gs="comd/c" data-x>clientX</code> и <code data-gs="comd/c" data-x>clientY</code>):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;0 : 0&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.getElementById('elem');
+
+document.addEventListener('mousemove', function(event) {
+	elem.innerHTML = event.clientX + ' : ' + event.clientY;
+});</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>0 : 0</div>
+		
+		<script>
+			
+			let elem = document.getElementById('elem');
+		
+		document.addEventListener('mousemove', function(event) {
+			elem.innerHTML = event.clientX + ' : ' + event.clientY;
+		});
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../clientX/index.html"><code data-gs="comd/c" data-x>clientX</code></a>, <br>
+			которое определяет координаты мыши по оси X
+		</li>
+		<li>
+			свойство <a href="../pageX/index.html"><code data-gs="comd/c" data-x>pageX</code></a>, <br>
+			которое определяет координаты мыши по оси X
+		</li>
+		<li>
+			свойство <a href="../pageY/index.html"><code data-gs="comd/c" data-x>pageY</code></a>, <br>
+			которое определяет координаты мыши по оси Y
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

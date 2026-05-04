@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Деструктуризация параметров функций в JavaScript — acteck.off</title>
+  <meta name="description" content="Деструктуризация параметров функций в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Деструктуризация параметров функций в JavaScript</h1>
+    <p>
+	Деструктуризация имеет еще одну очень важную
+	область применения - передача параметров
+	функций. Суть в следующем: если функция принимает
+	в качестве параметра массив, мы можем задать
+	прямо в объявлении функции то, как деструктуризировать
+	этот массив.
+</p>
+<p>
+	Давайте посмотрим на примере. Пусть у нас
+	есть функция, параметром принимающая массив
+	с годом, месяцем и днем:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">func([2025, 12, 31]);</code>
+</div>
+<p>
+	Давайте прямо в параметре функции укажем,
+	на какие переменные следует разбивать этот массив:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func([year, month, day]) {
+	console.log(year);  // выведет 2025
+	console.log(month); // выведет 12
+	console.log(day);   // выведет 31
+}</code>
+</div>
+<p>
+	Приведенную выше конструкцию следует рассматривать
+	как один параметр функции. Можно при желании
+	добавить еще параметры:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">func('str1', [2025, 12, 31], 'str2');
+
+function func(param1, [year, month, day], param2) {
+	console.log(param1); // выведет 'str1'
+	
+	console.log(year);   // выведет 2025
+	console.log(month);  // выведет 12
+	console.log(day);    // выведет 31
+	
+	console.log(param2); // выведет 'str2'
+}</code>
+</div>
+<p>
+	А в следующем примере первым и вторым параметром
+	функции передаются массивы и мы деструктуризируем
+	оба из них:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">func([2025, 12, 31], [2026, 11, 30]);
+
+function func([year1, month1, day1], [year2, month2, day2]) {
+	console.log(year1);  // выведет 2025
+	console.log(month1); // выведет 12
+	console.log(day1);   // выведет 31
+	
+	console.log(year2);  // выведет 2026
+	console.log(month2); // выведет 11
+	console.log(day2);   // выведет 30
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте следующий код через деструктуризацию
+		согласно изученной теории:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(employee) {
+	let name       = employee[0];
+	let surname    = employee[1];
+	let department = employee[2];
+	let position   = employee[3];
+	let salary     = employee[4];
+}
+
+func( ['John', 'Smit', 'development', 'programmer', 2000] );</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте следующий код через деструктуризацию
+		согласно изученной теории:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(employee) {
+	let name     = employee[0];
+	let surname  = employee[1];
+	let info     = employee[2];
+}
+
+func( ['John', 'Smit', 'development', 'programmer', 2000] );</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте следующий код через деструктуризацию
+		согласно изученной теории:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(employee) {
+	let name       = employee[0];
+	let surname    = employee[1];
+	let department = employee[2];
+	
+	let position;
+	if (arr[3] !== undefined) {
+		position = arr[3];
+	} else {
+		position = 'junior';
+	}
+}
+
+func( ['John', 'Smit', 'development'] );</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте следующий код через деструктуризацию
+		согласно изученной теории:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(department, employee, hired) {
+	let name     = employee[0];
+	let surname  = employee[1];
+	
+	let year  = hired[0];
+	let month = hired[1];
+	let day   = hired[2];
+}
+
+func( 'development', ['John', 'Smit'], [2018, 12, 31] );</code>
+	</div>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../objects/variables-declaration/index.html" class="lesson-nav-btn lesson-nav-prev" title="Объявление переменных для объектов">← Объявление переменных для объектов</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../function-parameters-objects/index.html" class="lesson-nav-btn lesson-nav-next" title="Деструктуризация oбъектов параметров функций">Деструктуризация oбъектов параметров функций →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

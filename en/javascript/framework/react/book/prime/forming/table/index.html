@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вывод массива объектов в виде HTML таблицы в React — acteck.off</title>
+  <meta name="description" content="Вывод массива объектов в виде HTML таблицы в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Вывод массива объектов в виде HTML таблицы в React</h1>
+    <p>
+	Пусть у нас опять дан наш массив с продуктами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const prods = [
+	{id: 1, name: 'product1', cost: 100},
+	{id: 2, name: 'product2', cost: 200},
+	{id: 3, name: 'product3', cost: 300},
+];</code>
+</div>
+<p>
+	Давайте выведем элементы нашего массива в
+	виде HTML таблицы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const rows = prods.map(function(item) {
+		return &lt;tr key={item.id}&gt;
+			&lt;td&gt;{item.name}&lt;/td&gt;
+			&lt;td&gt;{item.cost}&lt;/td&gt;
+		&lt;/tr&gt;;
+	});
+	
+	return &lt;table&gt;
+		&lt;tbody&gt;
+			{rows}
+		&lt;/tbody&gt;
+	&lt;/table&gt;;
+}</code>
+</div>
+<p>
+	Добавим заголовки колонок нашей таблице:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const rows = prods.map(function(item) {
+		return &lt;tr key={item.id}&gt;
+			&lt;td&gt;{item.name}&lt;/td&gt;
+			&lt;td&gt;{item.cost}&lt;/td&gt;
+		&lt;/tr&gt;;
+	});
+	
+	return &lt;table&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;td&gt;название&lt;/td&gt;
+				&lt;td&gt;стоимость&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			{rows}
+		&lt;/tbody&gt;
+	&lt;/table&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		В компоненте <code data-gs="comd/c" data-x>App</code> дан следующий массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const users = [
+	{id: 1, name: 'user1', surn: 'surn1', age: 30},
+	{id: 2, name: 'user2', surn: 'surn2', age: 31},
+	{id: 3, name: 'user3', surn: 'surn3', age: 32},
+];</code>
+	</div>
+	<p>
+		Выведите элементы этого массива в виде таблицы
+		<code data-gs="comd/c" data-x>table</code> так, чтобы каждое поле объекта
+		попало в свой тег <code data-gs="comd/c" data-x>td</code>. Сделайте заголовки
+		колонок вашей таблицы.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../unique-keys-id/index.html" class="lesson-nav-btn lesson-nav-prev" title="Ключи через id">← Ключи через id</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../id/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Обсуждение">Обсуждение →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

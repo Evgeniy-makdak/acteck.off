@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Импорт данных в NextJS — acteck.off</title>
+  <meta name="description" content="Импорт данных в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Импорт данных в NextJS</h1>
+    <p>
+	В NextJS мы можем выполнять импорт
+	и экспорт произвольных файлов. Это
+	вы уже должны уметь, если вы работали с
+	с <a href="../../../../../../book/supreme/modules/intro/index.html">ES6 модулями</a>.
+	Логично, что это будет работать и в NextJS,
+	но новичкам это не всегда очевидно.
+	Поэтому давайте поговорим про импорты.
+</p>
+<p>
+	Для примера пусть у нас есть некоторая
+	страница. На этой странице мы хотим вывести
+	некоторые данные. Пусть, к примеру, у нас
+	есть некоторый массив с данными.
+	Пусть эти данные настолько большие,
+	что нам кажется удобным вынести их
+	в отдельный файл.
+</p>
+<p>
+	Название этого файла может быть любым.
+	Пусть будет <code data-gs="comd/p" data-x>data.js</code>. В этом файле
+	мы разместим массив с данными.
+	А в файле <code data-gs="comd/p" data-x>page.jsx</code> у нас будет
+	страница, которая будет обрабатываться
+	самим NextJS и отдаваться в браузер.
+</p>
+<p>
+	To есть у нас будет следующая файловая
+	структура:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/src/<ul><li data-s-type="D">/app/<ul><li data-s-type="D">/test/<ul><li data-s-type="F">page.jsx</li><li data-s-type="F">data.js</li></ul></li></ul></li></ul></li></ul></div></div>
+<p>
+	Разместим в нашем файле <code data-gs="comd/p" data-x>data.js</code>
+	некоторый массив с данными:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/data.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default [
+	1, 2, 3, 4, 5,
+];</code>
+</div>
+<p>
+	Сделаем страницу <code data-gs="comd/p" data-x>page.jsx</code>:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Test() {
+	return &lt;h1&gt;Test&lt;/h1&gt;;
+}</code>
+</div>
+<p>
+	Подключим к нашей странице
+	массив с данными:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import data from './data.js';
+
+export default function Test() {
+	return &lt;h1&gt;Test&lt;/h1&gt;;
+}</code>
+</div>
+<p>
+	Выведем эти данные в цикле:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import data from './data.js';
+
+export default function Test() {
+	let list = data.map(function(item) {
+		return &lt;li&gt;{item}&lt;/li&gt;
+	});
+	
+	return &lt;&gt;
+		&lt;h1&gt;Test&lt;/h1&gt;
+		&lt;ul&gt;
+			{list}
+		&lt;/ul&gt;
+	&lt;/&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть дан следующий массив постов:
+	</p>
+	<div data-p="bock/pane" data-p-file="posts.js">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let posts = [
+	'post1',
+	'post2',
+	'post3',
+	'post4',
+	'post5',
+];</code>
+	</div>
+	<p>
+		Выведите эти продукты
+		в виде списка <code data-gs="comd/c" data-x>ul</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть дан следующий массив
+		с продуктами:
+	</p>
+	<div data-p="bock/pane" data-p-file="prods.js">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let prods = [
+	{
+		id: 1,
+		name: 'prod1',
+		cost: 100,
+	},
+	{
+		id: 2,
+		name: 'prod2',
+		cost: 200,
+	},
+	{
+		id: 3,
+		name: 'prod3',
+		cost: 300,
+	},
+];</code>
+	</div>
+	<p>
+		Выведите эти продукты
+		в виде HTML таблицы.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../../routing/private-folders/index.html" class="lesson-nav-btn lesson-nav-prev" title="Приватные папки">← Приватные папки</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../common-data/index.html" class="lesson-nav-btn lesson-nav-next" title="Общие данные">Общие данные →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

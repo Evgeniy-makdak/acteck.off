@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page редактирования продукта в браузере в Redux — acteck.off</title>
+  <meta name="description" content="Page редактирования продукта в браузере в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Page редактирования продукта в браузере в Redux</h1>
+    <p>
+	На прошлом занятии мы сделали форму
+	для редактирования продукта. Давайте
+	прицепим для нее маршрут.
+</p>
+<p>
+	Откроем наше приложение с продуктами,
+	а в нем файл <code data-gs="comd/p" data-x>App.jsx</code> и добавим еще
+	один объект дочернего маршрута в
+	массив для свойства <code data-gs="comd/c" data-x>children</code> (не
+	забудьте импортировать <code data-gs="comd/c" data-x>EditProductForm</code>):
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{
+	path: '/editProduct/:productId',
+	element: &lt;EditProductForm /&gt;,
+},</code>
+</div>
+<p>
+	Также для перехода на форму редактирования
+	нам нужно сделать ссылку. Откроем для этого
+	<code data-gs="comd/p" data-x>ProductPage.jsx</code> и разместим эту ссылку в
+	возвращаемой верстке после последнего абзаца
+	с количеством продукта и перед закрывающим дивом:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;Link to={`/editProduct/${product.id}`} className="link-btn"&gt;
+	edit
+&lt;/Link&gt;</code>
+</div>
+<p>
+	Также импортируем <code data-gs="comd/c" data-x>Link</code> из библиотеки роутера:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { Link } from 'react-router-dom'</code>
+</div>
+<p>
+	Запустим наше приложение и кликнем по кнопке
+	просмотра какого-нибудь продукта. Попробуем
+	его отредактировать и вернемся обратно
+	к списку продуктов, кликнув на ссылку
+	<code data-gs="comd/s" data-x>'Products'</code> в меню слева. Также в Redux
+	DevTools вы можете видеть новый экшен
+	<code data-gs="comd/c" data-x>productUpdated</code> и посмотреть на изменения
+	объекта с продуктом в store.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		В файле <code data-gs="comd/p" data-x>App.jsx</code> добавьте еще один дочерний
+		маршрут для редактирования данных студента.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Добавьте элемент <code data-gs="comd/c" data-x>Link</code> в верстке на
+		страничке студента для перехода на
+		страничку редактирования его данных.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Запустите ваше приложение, попробуйте
+		отредактировать данные какого-нибудь
+		студента. Обратите внимание на адресную
+		строку браузера, когда вы находитесь
+		на страничке редактирования. Посмотрите
+		изменения в Redux DevTools браузера.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../edit-form/index.html" class="lesson-nav-btn lesson-nav-prev" title="Форма для редактирования данных">← Форма для редактирования данных</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../prepare-action-data/index.html" class="lesson-nav-btn lesson-nav-next" title="Подготовка данных для объекта action">Подготовка данных для объекта action →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

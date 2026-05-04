@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оптимизация потребления памяти в JavaScript — acteck.off</title>
+  <meta name="description" content="Оптимизация потребления памяти в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Оптимизация потребления памяти в JavaScript</h1>
+    <p>
+	Все созданные переменные хранятся
+	в оперативной памяти компьютера.
+	Иногда бездумное написание кода
+	может резко увеличить потребляемую
+	память.
+</p>
+<p>
+	Давайте посмотрим на примере.
+	Пусть перед нами стоит задача найти
+	сумму целых чисел от <code data-gs="comd/n" data-x>1</code>
+	до <code data-gs="comd/n" data-x>100000000</code>.
+	Пусть у нас есть функция,
+	которая заполняет массив
+	целыми числами из заданного
+	диапазона:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function fillArr(a, b) {
+	let res = [];
+	
+	for (let i = a; i &lt;= b; i++) {
+		res.push(i);
+	}
+	
+	return res;
+}</code>
+</div>
+<p>
+	Пусть у нас также есть функция,
+	которая находит сумму элементов
+	массива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getSum(arr) {
+	let sum = 0;
+	
+	for (let elem of arr) {
+		sum += elem
+	}
+	
+	return sum;
+}</code>
+</div>
+<p>
+	С помощью комбинации этих функций
+	можно легко решить поставленную задачу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let sum = getSum(fillArr(1, 100000000));</code>
+</div>
+<p>
+	Получилось изящное решение. В нем, однако,
+	есть проблема: оно потребляет громадное
+	количество оперативной памяти.
+</p>
+<p>
+	Давайте посчитаем. Функция <code data-gs="comd/c" data-x>fillArr</code>
+	создает массив с <code data-gs="comd/n" data-x>100000000</code> числами.
+	Пусть JavaScript выделяет на число <code data-gs="comd/n" data-x>2</code> байта
+	- тогда для хранения нашего массива понадобится
+	<code data-gs="comd/n" data-x>200000000</code> байт, то есть что-то около
+	<code data-gs="comd/n" data-x>200</code> мегабайт оперативной памяти.
+</p>
+<p>
+	Но на самом деле оперативной памяти понадобится
+	гораздо больше из-за того, что в JavaScript очень
+	большие накладные расходы при хранении массива.
+</p>
+<p>
+	Понимая проблему, легко сделать функцию,
+	решающую задачу и практически не потребляющий
+	оперативной памяти:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getNumsSum(max) {
+	let sum = 0;
+	
+	for (let i = 1; i &lt;= max; i++) {
+		sum += i;
+	}
+	
+	return sum;
+}</code>
+</div>
+<p>
+	Решим задачу с помощью нашей функции:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let sum = getNumsSum(100000000);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Перед неким программистом стояла задача найти
+		количество чисел, делящихся без остатка на
+		<code data-gs="comd/n" data-x>7</code>, находящихся в заданном
+		промежутке. Он решил ее следующим образом:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
+
+for (let i = 0; i &lt;= 1000; i++) {
+	if (i % 7 == 0) {
+		arr.push(i);
+	}
+}
+
+console.log(arr.length);</code>
+	</div>
+	<p>
+		Объясните, что не так с этим кодом. Переделайте
+		код на более оптимальный.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Перед неким программистом стояла задача найти
+		сумму делителей числа. Он решил ее следующим образом:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getDivisors(num) {
+	let res = [];
+	
+	for (let i = 1; i &lt;= num; i++) {
+		if (num % i === 0) {
+			res.push(i);
+		}
+	}
+	
+	return res;
+}
+
+function getSum(arr) {
+	let sum = 0;
+	
+	for (let elem of arr) {
+		sum += elem
+	}
+	
+	return sum;
+}
+
+let sum = getSum(getDivisors(320));
+console.log(sum);</code>
+	</div>
+	<p>
+		Объясните, что не так с этим кодом. Переделайте
+		код на более оптимальный.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../dom/index.html" class="lesson-nav-btn lesson-nav-prev" title="Оптимизация работы с DOM">← Оптимизация работы с DOM</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../array-convertion/index.html" class="lesson-nav-btn lesson-nav-next" title="Оптимизация преобразования в массив">Оптимизация преобразования в массив →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

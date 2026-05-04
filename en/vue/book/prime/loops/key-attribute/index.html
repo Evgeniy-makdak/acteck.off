@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Атрибут key в Vue — acteck.off</title>
+  <meta name="description" content="Атрибут key в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/vue/book/prime/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
+    </div>
+
+    <h1>Атрибут key в Vue</h1>
+    <p>
+	При обновлении Vue списка элементов,
+	отрисованного директивой <code data-gs="comd/c" data-x>v-for</code>, по
+	умолчанию используется стратегия обновления
+	"на месте". Если порядок элементов массива
+	или объекта изменился, Vue не станет
+	перемещать элементы DOM, а просто обновит
+	каждый элемент "на месте", чтобы он отображал
+	новые данные по соответствующему индексу. 
+</p>
+<p>
+	Чтобы подсказать Vue, как определять
+	идентичность каждого элемента, и, таким
+	образом, переиспользовать и упорядочивать
+	существующие элементы, необходимо указать
+	уникальный атрибут <code data-gs="comd/c" data-x>key</code> для каждого
+	элемента. 
+</p>
+<p>
+	Без ключей Vue использует алгоритм, который
+	минимизирует перемещения элементов и
+	по-максимуму будет стараться
+	изменять/переиспользовать элементы одного
+	типа. При использовании ключей элементы
+	будут переупорядочиваться в соответствии
+	с изменением порядка следования ключей, а
+	элементы, чьи ключи уже отсутствуют, будут
+	всегда удаляться/уничтожаться. 
+</p>
+<p>
+	Рекомендуется всегда указывать атрибут <code data-gs="comd/c" data-x>key</code>
+	с <code data-gs="comd/c" data-x>v-for</code>, кроме случаев когда
+	итерируемое содержимое DOM простое, или
+	когда сознательно полагаетесь на стратегию
+	обновления по умолчанию для улучшения
+	производительности. 
+</p>
+<p>
+	Как правило вопрос добавления ключей встает
+	при переборе массива объектов. В этом
+	случае одним из ключей объекта является
+	уникальное поле, например, <code data-gs="comd/c" data-x>id</code>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		users: [
+			{
+				id: 1,
+				name: 'name1',
+				surn: 'surn1',
+			},
+			{
+				id: 2,
+				name: 'name2',
+				surn: 'surn2',
+			},
+			{
+				id: 3,
+				name: 'name3',
+				surn: 'surn3',
+			},
+		]
+	}
+}</code>
+</div>
+<p>
+	Давайте переберем приведенный массив циклом,
+	указав соответствующие ключи: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;p v-for="user in users" :key="user.id"&gt;
+		{{ user.name }}
+		{{ user.surn }}
+	&lt;/p&gt;
+&lt;/template&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переберите циклом следующий массив и
+		выведите названия продуктов в виде списка
+		<code data-gs="comd/c" data-x>ul</code>: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		products: [
+			{
+				id: 1,
+				name: 'product1',
+			},
+			{
+				id: 2,
+				name: 'product2',
+			},
+			{
+				id: 3,
+				name: 'product3',
+			},
+		]
+	}
+}</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

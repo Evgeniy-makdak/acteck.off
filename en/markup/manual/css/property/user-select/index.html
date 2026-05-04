@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство user-select - запрет выделения текста — acteck.off</title>
+  <meta name="description" content="Свойство user-select - запрет выделения текста — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство user-select - запрет выделения текста</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>user-select</code> управляет поведением
+	выделения текста и других элементов на странице.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	user-select: none | contain | all | auto | text;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>none</code></th>
+		<td>Текст не выделяется.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>contain</code></th>
+		<td>
+			Выделение, начатое внутри элемента не выйдет
+			за пределы этого элемента.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>all</code></th>
+		<td>
+			Если двойной клик произошел во вложенном
+			элементе, будет выбрано все содержимое родителя с этим
+			значением свойства.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>auto</code></th>
+		<td>
+			Вычисляемое значение, автоматически определяется следующим образом:
+			для псевдоэлементов <a href="../../pseudoelement/after/index.html"><code data-gs="comd/c" data-x>after</code></a> и
+			<a href="../../pseudoelement/before/index.html"><code data-gs="comd/c" data-x>before</code></a>
+			значение равно <code data-gs="comd/v" data-x>none</code>, для редактируемого элемента
+			значение равно <code data-gs="comd/v" data-x>contain</code>, если у родителя элемента значение
+			<code data-gs="comd/v" data-x>all</code> или <code data-gs="comd/v" data-x>none</code> - такое же будет и у самого элемента,
+			иначе значение будет <code data-gs="comd/v" data-x>text</code>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>text</code></th>
+		<td>Пользователь может выделить текст в элементе.</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>text</code>.
+</p>
+
+<h2>Примечание</h2>
+<p>
+	Некоторые значения могут работать не во всех
+	браузерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Значение none</h2>
+<p>
+	Следующий текст невозможно выделить:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	Lorem ipsum dolor sit amet.
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	user-select: none;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			user-select: none;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			Lorem ipsum dolor sit amet.
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			псевдоэлемент <a href="../../pseudoelement/selection/index.html"><code data-gs="comd/c" data-x>selection</code></a>, <br>
+			который управляет стилями выделенного текста
+		</li>
+		<li>
+			свойство <a href="../pointer-events/index.html"><code data-gs="comd/c" data-x>pointer-events</code></a>, <br>
+			которое убирает реакцию на мышь
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../unicode-bidi/index.html" class="lesson-nav-btn lesson-nav-prev" title="unicode-bidi">← unicode-bidi</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../vertical-align/index.html" class="lesson-nav-btn lesson-nav-next" title="vertical-align">vertical-align →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

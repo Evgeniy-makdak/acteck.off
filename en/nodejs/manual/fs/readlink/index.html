@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод readlink — acteck.off</title>
+  <meta name="description" content="Метод readlink — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Метод readlink</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>readlink</code> читает содержимое
+	символической ссылки. В первом параметре
+	метода указывается путь символической ссылки.
+	Во втором необязательном параметре задаем
+	кодировку (по умолчанию она равна <code data-gs="comd/s" data-x>'utf8'</code>),
+	в третьем необязательном параметре
+	указываем коллбэк.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.readlink(путь символической ссылки, [кодировка], [коллбэк]);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть следующая
+	файловая структура:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/dir/<ul><li data-s-type="F">file.txt</li></ul></li></ul></div></div>
+<p>
+	Давайте сначала асинхронно создадим
+	символическую ссылку, а затем прочитаем
+	ее через <code data-gs="comd/c" data-x>await</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+
+try {
+	await fs.symlink('./dir/file.txt', './dir/symlink', 'file');
+	console.log('symlink created');
+} catch (err) {
+	console.log(err);
+}
+
+try {
+	let data = await fs.readlink('./dir/symlink');
+	console.log(data);
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'.\dir\file.txt'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь давайте асинхронно через <code data-gs="comd/c" data-x>then</code>
+	прочитаем символическую ссылку,
+	созданную в предыдущем
+	примере:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+
+fs.readlink('./dir/symlink').then((data) =&gt; {
+	console.log(data);
+}).catch((err) =&gt; {
+	console.log(err);
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь давайте асинхронно
+	прочитаем символическую
+	ссылку через коллбэк:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+fs.readlink('./dir/symlink', function(err, data) {
+	if (!err) {
+		console.log(data);
+	} else {
+		console.log(err);
+	}
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь давайте синхронно
+	прочитаем символическую ссылку
+	через <code data-gs="comd/c" data-x>readlinkSync</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+try {
+	let data = fs.readlinkSync('./dir/symlink');
+	console.log(data);
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../../../../javascript/nodejs/manual/fs/symlink/index.html"><code data-gs="comd/c" data-x>symlink</code></a>, <br>
+			который создает символическую ссылку
+		</li>
+		<li>
+			метод <a href="../../../../javascript/nodejs/manual/fs/unlink/index.html"><code data-gs="comd/c" data-x>unlink</code></a>, <br>
+			который удаляет символическую ссылку или файл
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../readdir/index.html" class="lesson-nav-btn lesson-nav-prev" title="readdir">← readdir</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../realpath.native/index.html" class="lesson-nav-btn lesson-nav-next" title="realpath.native">realpath.native →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

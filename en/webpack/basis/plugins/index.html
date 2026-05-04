@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Плагины в Webpack — acteck.off</title>
+  <meta name="description" content="Плагины в Webpack — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/webpack/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/webpack/index.html">Webpack</a>
+    </div>
+
+    <h1>Плагины в Webpack</h1>
+    <p>
+	Webpack выполняет узкий спектр задач.
+	Для расширения возможностей
+	нужно устанавливать и подключать
+	дополнительные <dfn data-gs="comd/d" data-x>плагины</dfn>.
+</p>
+<p>
+	Давайте рассмотрим общий алгоритм
+	установки и подключения плагинов.
+	Пусть для этого у нас есть некий
+	воображаемый плагин test-webpack-plugin.
+	Давайте рассмотрим работу с плагинами
+	на его примере (код ниже - просто схема,
+	так как реально такого плагина нет).
+</p>
+<p>
+	Итак, для начала плагин необходимо
+	установить через npm:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install test-webpack-plugin --save-dev</code>
+</div>
+<p>
+	После этого плагин нужно импортировать
+	к файлу конфигурации:
+</p>
+<div data-p="bock/pane" data-p-file="webpack.config.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import TestWebpackPlugin from 'test-webpack-plugin';</code>
+</div>
+<p>
+	Затем этот плагин нужно вызвать
+	в настройке <code data-gs="comd/s" data-x>plugins</code>:
+</p>
+<div data-p="bock/pane" data-p-file="webpack.config.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	entry: './src/index.js',
+	plugins: [new TestWebpackPlugin()],
+};</code>
+</div>
+<p>
+	В настройке <code data-gs="comd/s" data-x>plugins</code> может быть
+	не один плагин, а несколько:
+</p>
+<div data-p="bock/pane" data-p-file="webpack.config.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	entry: './src/index.js',
+	plugins: [
+		new TestWebpackPlugin1(),
+		new TestWebpackPlugin2()
+	],
+};</code>
+</div>
+    <div class="lesson-nav">
+      <a href="../../basis/absolute-paths/index.html" class="lesson-nav-btn lesson-nav-prev" title="Абсолютные пути">← Абсолютные пути</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../basis/loaders/index.html" class="lesson-nav-btn lesson-nav-next" title="Лоадеры">Лоадеры →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

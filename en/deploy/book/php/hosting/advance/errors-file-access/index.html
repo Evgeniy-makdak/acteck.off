@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Закрытие доступа к файлу с логами на хостинге — acteck.off</title>
+  <meta name="description" content="Закрытие доступа к файлу с логами на хостинге — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/deploy/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/deploy/index.html">Деплой</a>
+    </div>
+
+    <h1>Закрытие доступа к файлу с логами на хостинге</h1>
+    <p>
+	Наш файл с логами имеет некоторую
+	проблему. Дело в том, что он
+	доступен напрямую через браузер,
+	если обратиться к нему по правильному пути.
+	В нашем случае таком: <code data-gs="comd/p" data-x>/logs/errors.log</code>.
+</p>
+<p>
+	Таким образом, угадав путь к файлу,
+	хакер сможет прочитать лог с нашими
+	ошибками. Этого допускать не следует.
+</p>
+<p>
+	Для решения проблемы в папку <code data-gs="comd/p" data-x>logs</code>
+	следует положить <code data-gs="comd/p" data-x>.htaccess</code>
+	со следующим содержимым:
+</p>
+<div data-p="bock/pane" data-p-file="/logs/.htaccess">
+	<code data-w="bock/code" data-lo="high" data-m-lang="htaccess">Deny from all</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Проверьте, что файл с логами
+		доступен через браузер.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Закройте доступ к файлу с логами.
+		Убедитесь, что он закрыт.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

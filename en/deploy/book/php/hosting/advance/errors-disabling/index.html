@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отключение ошибок PHP на VS — acteck.off</title>
+  <meta name="description" content="Отключение ошибок PHP на VS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/deploy/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/deploy/index.html">Деплой</a>
+    </div>
+
+    <h1>Отключение ошибок PHP на VS</h1>
+    <p>
+	На хостинге нужно отключать вывод
+	PHP ошибок в браузер. Во-первых,
+	это пугает пользователей и свидетельствует
+	о плохом качестве сайта, во-вторых,
+	ошибки могут давать подсказки хакерам
+	в процессе взлома сайта.
+</p>
+<p>
+	Давайте отключим вывод ошибок.
+	Для начала создадим ошибку,
+	к примеру, выведя несуществующую переменную:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="php">&lt;?php
+	echo $test;
+?&gt;</code>
+</div>
+<p>
+	Теперь через <code data-gs="comd/c" data-x>ini_set</code> включим вывод
+	ошибок и убедимся, что она выводится
+	в браузер:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="php">&lt;?php
+	ini_set('display_errors', 'on');
+	echo $test;
+?&gt;</code>
+</div>
+<p>
+	А теперь отключим вывод ошибок и убедимся,
+	что она больше не выводится:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="php">&lt;?php
+	ini_set('display_errors', 'off');
+	echo $test;
+?&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Отключите вывод ошибок в браузер.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

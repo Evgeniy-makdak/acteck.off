@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Работа с данными в Redux — acteck.off</title>
+  <meta name="description" content="Работа с данными в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Работа с данными в Redux</h1>
+    <p>
+	В предыдущем разделе мы реализовали базовую
+	схему работы Redux и теперь вы знаете основные
+	принципы работы Redux приложения. В следующих
+	уроках мы начнем дополнять функционал нашего
+	приложения с продуктами и поработаем
+	с данными.
+</p>
+<p>
+	Поскольку приложение будет обрастать новыми
+	компонентами и маршрутами, давайте сделаем
+	с маршрутизацией одну вещь. Откройте приложение с
+	продуктами, затем файл <code data-gs="comd/p" data-x>root.jsx</code>. Импортируйте
+	в него компонент <code data-gs="comd/c" data-x>Outlet</code>, при этом удалите
+	строчки с импортом <code data-gs="comd/c" data-x>ProductsList</code>
+	и <code data-gs="comd/c" data-x>NewProductForm</code>:
+</p>
+<div data-p="bock/pane" data-p-file="app/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { Outlet } from 'react-router-dom'</code>
+</div>
+<p>
+	Теперь копмонент <code data-gs="comd/c" data-x>Root</code> у нас будет отображаться
+	по корневому пути <code data-gs="comd/s" data-x>'/'</code>, а все другие компоненты
+	по дочерним в <code data-gs="comd/c" data-x>Outlet</code>. Для этого немного исправим
+	верстку дива <code data-gs="comd/z" data-x>#main-page</code> для компонента <code data-gs="comd/c" data-x>Root</code>:
+</p>
+<div data-p="bock/pane" data-p-file="app/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;div id="main-page"&gt;
+	&lt;h2&gt;My Products App&lt;/h2&gt;
+	&lt;hr&gt;&lt;/hr&gt;
+	&lt;NewProductForm /&gt;
+	&lt;ProductsList /&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Здесь мы поставим <code data-gs="comd/c" data-x>Outlet</code> вместо
+	компонентов <code data-gs="comd/c" data-x>NewProductForm</code> и
+	<code data-gs="comd/c" data-x>ProductsList</code>:
+</p>
+<div data-p="bock/pane" data-p-file="app/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;div id="main-page"&gt;
+	&lt;h2&gt;My Products App&lt;/h2&gt;
+	&lt;hr&gt;&lt;/hr&gt;
+	&lt;Outlet /&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Форму для добавления продуктов мы теперь будем
+	выводить в <code data-gs="comd/c" data-x>ProductsList</code>. Давайте откроем
+	файл с этим компонентом и добавим импорт формы:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { NewProductForm } from './NewProductForm'</code>
+</div>
+<p>
+	А теперь добавим компонент с формой прямо перед
+	списком продуктов. Теперь наша верстка
+	будет выглядеть так:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
+	&lt;div&gt;
+		&lt;NewProductForm /&gt;
+		&lt;div&gt;
+			&lt;h2&gt;Products&lt;/h2&gt;
+			{dispProducts}
+		&lt;/div&gt;
+	&lt;/div&gt;
+)</code>
+</div>
+<p>
+	Допишем стиль для класса <code data-gs="comd/z" data-x>products-list</code>
+	в <code data-gs="comd/p" data-x>index.css</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.products-list {
+	display: flex;
+	flex-direction: column;
+}</code>
+</div>
+<p>
+	Нам остается только внести изменения
+	в главный компонент <code data-gs="comd/c" data-x>App</code>. Откроем
+	<code data-gs="comd/p" data-x>App.jsx</code> и импортируем в него компонент
+	<code data-gs="comd/c" data-x>ProductsList</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { ProductsList } from './parts/products/ProductsList'</code>
+</div>
+<p>
+	Затем для нашего пока единственного
+	маршрута, являющегося корневым, добавим
+	свойство <code data-gs="comd/c" data-x>children</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([
+	{ path: '/', element: &lt;Root /&gt;, children: [] },
+])</code>
+</div>
+<p>
+	И пропишем в качестве значения этого свойства
+	первый дочерний маршрут. В качестве пути
+	установим ему <code data-gs="comd/s" data-x>'products'</code>. Теперь по этому
+	адресу у нас будет отображаться
+	наш список с продуктами <code data-gs="comd/c" data-x>ProductsList</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">children: [
+	{
+		path: '/products',
+		element: &lt;ProductsList /&gt;,
+	},
+],</code>
+</div>
+<p>
+	Запустим наше приложение и убедимся, что
+	мы ничего не поломали. В корне <code data-gs="comd/s" data-x>'/'</code> мы видим
+	только заголовок. А формочка и список продуктов
+	у нас спрятались по адресу <code data-gs="comd/s" data-x>'/products'</code>.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		В файле <code data-gs="comd/p" data-x>root.jsx</code> замените компоненты
+		<code data-gs="comd/c" data-x>StudentsList</code> и <code data-gs="comd/c" data-x>NewStudentForm</code>
+		на <code data-gs="comd/c" data-x>Outlet</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть теперь форма для добавления студента
+		отображается у вас в <code data-gs="comd/c" data-x>StudentsList</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Внесите изменения в ваш главный компонент
+		<code data-gs="comd/c" data-x>App</code>. Добавьте к корневому маршруту дочерний,
+		с путем <code data-gs="comd/s" data-x>'/students'</code>, по которому будет
+		отображаться ваш <code data-gs="comd/c" data-x>StudentsList</code>. Запустите
+		приложение и убедитесь, что у вас все
+		работает.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../../workflow/discussion/index.html" class="lesson-nav-btn lesson-nav-prev" title="Обсуждение работы схемы">← Обсуждение работы схемы</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../product-page/index.html" class="lesson-nav-btn lesson-nav-next" title="Отдельная страница для продукта">Отдельная страница для продукта →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

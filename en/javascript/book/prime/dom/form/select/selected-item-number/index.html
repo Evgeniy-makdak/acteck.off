@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Номер выбранного пункта выпадающего списка — acteck.off</title>
+  <meta name="description" content="Номер выбранного пункта выпадающего списка — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Номер выбранного пункта выпадающего списка</h1>
+    <p>
+	В селектах существует специальное свойство
+	<code data-gs="comd/c" data-x>selectedIndex</code>, хранящее в себе номер
+	того пункта списка, который сейчас выбран.
+	Нумерация при этом начинается с нуля. При
+	этом данное свойство можно как прочитывать,
+	так и записывать, меняя выбранный пункт списка.
+</p>
+<p>
+	Посмотрим работу с данным свойством на примере.
+	Пусть у нас дан следующий выпадающий список:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;select id="select"&gt;
+	&lt;option value="one"&gt;один&lt;/option&gt;
+	&lt;option value="two" selected&gt;два&lt;/option&gt;
+	&lt;option value="three"&gt;три&lt;/option&gt;
+&lt;/select&gt;</code>
+</div>
+<p>
+	Давайте выведем номер выбранного пункта списка:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let select = document.querySelector('#select');
+console.log(select.selectedIndex); // выведет 1</code>
+</div>
+<p>
+	А теперь выберем какой-нибудь другой пункт:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let select = document.querySelector('#select');
+select.selectedIndex = 2; // выберет 'три'</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан инпут и селект. В инпут вводится какое-то
+		число. По потери фокуса сделайте выделенным
+		пункт списка, номер которого равен значению
+		из инпута.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте выпадающий список с названиями дней
+		недели. Сделайте так, чтобы по JavaScript
+		по умолчанию выбирал в этом списке текущий день.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../selected-item-changing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Изменение выбранного пункта списка">← Изменение выбранного пункта списка</a>
+      <a href="../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../items-getting/index.html" class="lesson-nav-btn lesson-nav-next" title="Получение пунктов выпадающего списка">Получение пунктов выпадающего списка →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

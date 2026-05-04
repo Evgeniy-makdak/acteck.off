@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сессия в HTTP — acteck.off</title>
+  <meta name="description" content="Сессия в HTTP — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/internet/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/internet/index.html">Интернет</a>
+    </div>
+
+    <h1>Сессия в HTTP</h1>
+    <p>
+	На основе кук работают <dfn data-gs="comd/d" data-x>сессии</dfn>.
+	Sessions позволяют серверу запоминать
+	клиента и хранить для него информацию.
+</p>
+<p>
+	Например, посетитель сайта может
+	складывать товары в корзину магазина.
+	И после перезагрузки страницы сервер
+	идентифицирует клиента и покажет ему
+	товары, которые были отложены в этом
+	браузере.
+</p>
+<p>
+	Давайте разберемся, как это работает.
+	Как вы уже знаете, протокол HTTP не
+	хранит состояние в том смысле, что сервер
+	не может отличить от какого клиента
+	поступил запрос. Поэтому в данном
+	случае используется обходной путь.
+</p>
+<p>
+	Его суть заключается в следующем.
+	При первом обращении клиента сервер
+	устанавливает ему куку со случайной
+	уникальной строкой. Эта кука называется
+	<dfn data-gs="comd/d" data-x>сессионной</dfn> и обычно имеет
+	имя <code data-gs="comd/c" data-x>sessid</code>.
+</p>
+<p>
+	Сервер также хранит у себя список всех
+	сессионных кук и привязывает к ним
+	нужные данные. Например, список выбранных
+	товаров в магазине.
+</p>
+<p>
+	При следующем обращении клиента он будет
+	отсылать на сервер сессионную куку и
+	сервер идентифицирует его по этой куке
+	и сможет получить данные, которые
+	сохранены на сервере для данного клиента.
+</p>
+<div data-w="cont/task">
+	<p>
+		Протокол HTTP не хранит данные между запросами.
+		Тем не менее, сервер может различить
+		пользователей. Как это реализовано?
+	</p>
+</div>
+        <div class="lesson-nav">
+      <a href="../cookie/index.html" class="lesson-nav-btn lesson-nav-prev" title="Cookie">← Cookie</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../api/index.html" class="lesson-nav-btn lesson-nav-next" title="API">API →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

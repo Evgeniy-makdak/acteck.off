@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Возврат таблицы из функции на JavaScript — acteck.off</title>
+  <meta name="description" content="Возврат таблицы из функции на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Возврат таблицы из функции на JavaScript</h1>
+    <p>
+	В предыдущем уроке мы сделали функцию
+	<code data-gs="comd/c" data-x>createTable</code>. Давайте модифицируем
+	эту функцию так, чтобы она не добавляла таблицу
+	в какой-то элемент, а просто возвращала ее
+	через <code data-gs="comd/c" data-x>return</code>.
+</p>
+<p>
+	To есть приведенный код предыдущего урока
+	преобразуется вот в такой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div = document.querySelector('#elem');
+let table = createTable(3, 4);
+div.appendChild(table);</code>
+</div>
+<p>
+	Можно переписать короче:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div = document.querySelector('#elem');
+div.appendChild(createTable(3, 4));</code>
+</div>
+<p>
+	Получение ссылки на таблицу может понадобится
+	для того, чтобы что-то сделать с созданной
+	таблицей. К примеру, давайте покрасим ее
+	цвет текста в красный:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div = document.querySelector('#elem');
+
+let table = createTable(3, 4);
+table.style.color = 'red';
+
+div.appendChild(table);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте вашу функцию <code data-gs="comd/c" data-x>createTable</code>
+		в соответствии с описанным в теории.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть у нас есть вот такой див с абзацами:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	&lt;p&gt;1&lt;/p&gt;
+	&lt;p&gt;2&lt;/p&gt;
+	&lt;p&gt;3&lt;/p&gt;
+&lt;/div&gt;</code>
+	</div>
+	<p>
+		С помощью функции <code data-gs="comd/c" data-x>createTable</code> создайте
+		новую таблицу, а затем вставьте ее в конец
+		дива.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../tables-creating-function/index.html" class="lesson-nav-btn lesson-nav-prev" title="Функция для создания HTML таблиц">← Функция для создания HTML таблиц</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../tables-creating-function-array/index.html" class="lesson-nav-btn lesson-nav-next" title="Функция для создания таблицы из массива">Функция для создания таблицы из массива →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

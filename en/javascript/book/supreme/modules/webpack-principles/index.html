@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Принцип работы сборщика Webpack в JavaScript — acteck.off</title>
+  <meta name="description" content="Принцип работы сборщика Webpack в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Принцип работы сборщика Webpack в JavaScript</h1>
+    <p>
+	Как правило, при разработке у нас
+	получается много JavaScript файлов,
+	содержащих различные кусочки кода.
+	Это могут быть части нашего кода,
+	либо сторонние библиотеки.
+	Получается, что каждый такой файл
+	мы должны подключить к HTML файлу
+	через тег <code data-gs="comd/c" data-x>script</code>.
+</p>
+<p>
+	Это не очень хорошо, так как много
+	подключенных файлов замедляют скорость
+	загрузки сайта. Поэтому для ускорения
+	загрузки необходимо весь код сложить
+	в один файл.
+</p>
+<p>
+	Однако, разрабатывать код в одном общем
+	файле тоже не очень удобно. Поэтому
+	в настоящее время практикуется следующий
+	подход: код разрабатывается в отдельных
+	файлах, а затем с помощью сборщика
+	собирается в один общий файл,
+	который и подключается к HTML файлу.
+</p>
+<p>
+	Отдельные файлы представляют собой ES модули.
+	Эти модули подключаются к другим файлам через
+	команду <code data-gs="comd/c" data-x>import</code>.
+</p>
+<p>
+	Обычно создают некий основной файл,
+	к которому подключаются остальные
+	файлы. Этот файл называется
+	<dfn data-gs="comd/d" data-x>точка входа</dfn>.
+</p>
+<p>
+	Сборщик заходит в точку входа,
+	смотрит какие модули подключены
+	к ней. К этим модулям также могут
+	быть подключены другие модули.
+	Сборщик следует по всем подключениям
+	и собирает весь код в один файл.
+	Этот файл называется <dfn data-gs="comd/d" data-x>бандл</dfn>.
+</p>
+<p>
+	Как правило, код, который пишет
+	программист, располагается в папке
+	<code data-gs="comd/p" data-x>src</code>, а собранный код помещается
+	в папку <code data-gs="comd/p" data-x>dist</code>.
+</p>
+<p>
+	Сборщик также позволяет регулировать
+	режим сборки. Режим <code data-gs="comd/s" data-x>'development'</code>
+	предназначен для процесса разработки.
+	Он собирает код удобным для разработки
+	образом. Режим <code data-gs="comd/s" data-x>'production'</code> предназначен
+	для итогового кода, который будет
+	выложен в работу. В этом режиме
+	код будет минифицирован, чтобы
+	уменьшить его размер и увеличить
+	скорость загрузки.
+</p>
+<div data-w="cont/task">
+	<p>
+		Расскажите, что такое бандл.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, что такое точка входа.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, какие есть режимы сборки.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../install-webpack/index.html" class="lesson-nav-btn lesson-nav-prev" title="Установка Webpack">← Установка Webpack</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../webpack-settings/index.html" class="lesson-nav-btn lesson-nav-next" title="Настройка Webpack">Настройка Webpack →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

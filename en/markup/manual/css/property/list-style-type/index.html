@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство list-style-type — acteck.off</title>
+  <meta name="description" content="Свойство list-style-type — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство list-style-type</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>list-style-type</code> позволяет
+	для списка <a href="../../../html/tag/ul/index.html"><code data-gs="comd/c" data-x>ul</code></a>
+	вместо маркеров-точек сделать квадраты или
+	окружности. Для списка <a href="../../../html/tag/ol/index.html"><code data-gs="comd/c" data-x>ol</code></a>
+	вместо обычных цифр можно сделать римские,
+	нумерацию в виде букв: латинских или греческих.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	list-style-type: значение;
+}</code>
+</div>
+
+<h2>Значения для ul</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>circle</code></th>
+		<td>Создает маркеры в виде кружков.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>disc</code></th>
+		<td>Создает маркеры в виде закрашенных кружков.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>square</code></th>
+		<td>Создает маркеры в виде квадратиков.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>none</code></th>
+		<td>Убирает маркеры.</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>disc</code>.
+</p>
+
+<h2>Значения для ol</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>armenian</code></th>
+		<td>Традиционная армянская нумерация.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>decimal</code></th>
+		<td>Арабские числа.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>decimal-leading-zero</code></th>
+		<td>Арабские числа с нулем впереди для цифр меньше десяти.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>georgian</code></th>
+		<td>Традиционная грузинская нумерация.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>lower-alpha</code></th>
+		<td>Строчные латинские буквы.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>lower-greek</code></th>
+		<td>Строчные греческие буквы.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>lower-latin</code></th>
+		<td>Это значение аналогично lower-alpha.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>lower-roman</code></th>
+		<td>Римские числа в нижнем регистре.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>upper-alpha</code></th>
+		<td>Заглавные латинские буквы.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>upper-latin</code></th>
+		<td>Это значение аналогично upper-alpha.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>upper-roman</code></th>
+		<td>Римские числа в верхнем регистре.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>none</code></th>
+		<td>Убирает маркеры.</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>decimal</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ul&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ul {
+	list-style-type: disc;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ul {
+			list-style-type: disc;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ul>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ul>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ul&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ul {
+	list-style-type: circle;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ul {
+			list-style-type: circle;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ul>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ul>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ul&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ul {
+	list-style-type: square;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ul {
+			list-style-type: square;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ul>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ul>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ul&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ul {
+	list-style-type: none;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ul {
+			list-style-type: none;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ul>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ul>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ol&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ol&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ol {
+	list-style-type: decimal;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ol {
+			list-style-type: decimal;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ol>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ol>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ol&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ol&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ol {
+	list-style-type: armenian;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ol {
+			list-style-type: armenian;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ol>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ol>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ol&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ol&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ol {
+	list-style-type: decimal-leading-zero;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ol {
+			list-style-type: decimal-leading-zero;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ol>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ol>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ol&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ol&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ol {
+	list-style-type: georgian;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ol {
+			list-style-type: georgian;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ol>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ol>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ol&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ol&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ol {
+	list-style-type: lower-alpha;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ol {
+			list-style-type: lower-alpha;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ol>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ol>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ol&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ol&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ol {
+	list-style-type: lower-greek;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ol {
+			list-style-type: lower-greek;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ol>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ol>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ol&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ol&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ol {
+	list-style-type: lower-latin;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ol {
+			list-style-type: lower-latin;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ol>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ol>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ol&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ol&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ol {
+	list-style-type: lower-roman;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ol {
+			list-style-type: lower-roman;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ol>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ol>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ol&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ol&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ol {
+	list-style-type: upper-alpha;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ol {
+			list-style-type: upper-alpha;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ol>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ol>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ol&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ol&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ol {
+	list-style-type: upper-roman;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ol {
+			list-style-type: upper-roman;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ol>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ol>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Данный пример показывает, что свойство <a href="../color/index.html"><code data-gs="comd/c" data-x>color</code></a>
+	влияет не только на цвет текста, но и на
+	цвет маркеров:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+	&lt;li&gt;list item&lt;/li&gt;
+&lt;/ul&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">ul {
+	list-style-type: disc;
+	color: red;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			ul {
+			list-style-type: disc;
+			color: red;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<ul>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+			<li>list item</li>
+		</ul>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../list-style-image/index.html"><code data-gs="comd/c" data-x>list-style-image</code></a>, <br>
+			которое задает маркеры в виде заданных картинок
+		</li>
+		<li>
+			свойство <a href="../list-style-position/index.html"><code data-gs="comd/c" data-x>list-style-position</code></a>, <br>
+			которое задает позицию маркеров
+		</li>
+		<li>
+			свойство <a href="../list-style/index.html"><code data-gs="comd/c" data-x>list-style</code></a>, <br>
+			которое является сокращением для маркеров
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../list-style-position/index.html" class="lesson-nav-btn lesson-nav-prev" title="list-style-position">← list-style-position</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../margin/index.html" class="lesson-nav-btn lesson-nav-next" title="margin">margin →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

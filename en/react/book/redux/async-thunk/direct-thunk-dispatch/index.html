@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прямая отправка thunk в Redux — acteck.off</title>
+  <meta name="description" content="Прямая отправка thunk в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Прямая отправка thunk в Redux</h1>
+    <p>
+	Когда мы отправляли экшены из компонентов, то
+	пользовались хуком <code data-gs="comd/c" data-x>useDispatch</code>, который
+	возвращает метод store <code data-gs="comd/c" data-x>dispatch</code>, поскольку
+	в компонентах нет прямого доступа к store.
+</p>
+<p>
+	На этот раз нам нужно получить объекты
+	с продавцами и сделать это один раз при
+	запуске нашего приложения. Мы можем это
+	сделать прямо из главного файла
+	<code data-gs="comd/p" data-x>main.jsx</code> приложения, после того как
+	worker начнет работу.  
+</p>
+<p>
+	Давайте откроем наше приложение с
+	продуктами, а в нем файл <code data-gs="comd/p" data-x>main.jsx</code> и
+	импортируем в него thunk <code data-gs="comd/c" data-x>fetchSellers</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { fetchSellers } from './parts/sellers/sellersSlice'</code>
+</div>
+<p>
+	В этом файле у нас доступен store,
+	поэтому никаких хуков здесь не нужно и
+	мы можем напрямую воспользоваться
+	его методом <code data-gs="comd/c" data-x>dispatch</code>. Давайте после
+	строчки:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">await worker.start({ onUnhandledRequest: 'bypass' })</code>
+</div>
+<p>
+	Добавим следующую:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">store.dispatch(fetchSellers())</code>
+</div>
+<p>
+	Запустим наше приложение. Теперь в
+	карточках с продуктами указаны и продавцы:
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Откройте в нем файл <code data-gs="comd/p" data-x>main.jsx</code>. Импортируйте
+		в него ваш thunk <code data-gs="comd/c" data-x>fetchTeachers</code> и отправьте
+		его неспосредственно методом <code data-gs="comd/c" data-x>store.dispatch</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../getting-sellers/index.html" class="lesson-nav-btn lesson-nav-prev" title="Получение данных продавцов">← Получение данных продавцов</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../send-data-server/index.html" class="lesson-nav-btn lesson-nav-next" title="Обработка запроса, отправленного с помощью thunk">Обработка запроса, отправленного с помощью thunk →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

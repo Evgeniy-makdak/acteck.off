@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Продолжение изучения стилизации с CSS modules React — acteck.off</title>
+  <meta name="description" content="Продолжение изучения стилизации с CSS modules React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Продолжение изучения стилизации с CSS modules React</h1>
+    <p>
+	Продолжим работу над нашим приложением
+	<code data-gs="comd/s" data-x>buttons</code>. Теперь займемся главным
+	компонентом <code data-gs="comd/c" data-x>App</code>, который уже был
+	сгенерирован в папке <code data-gs="comd/p" data-x>src</code> изначально.
+	В нем у нас будет два дива, заголовок
+	и кнопка.
+</p>
+<p> 
+	Заменим название файла <code data-gs="comd/p" data-x>App.css</code> 
+	на <code data-gs="comd/p" data-x>App.module.css</code> по соглашению, 
+	очистим его и создадим в нем несколько
+	классов с CSS стилями к тегам:
+</p>
+<div data-p="bock/pane" data-p-file="App.module.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.app {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	border: 1px solid brown;
+	padding: 10px;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: space-around;
+}
+
+.title {
+	text-align: center;
+	margin-top: 10px;
+}</code>
+</div>
+<p>
+	А теперь очистим содержимое файла
+	<code data-gs="comd/p" data-x>App.js</code>. Затем импортируем React
+	компонент <code data-gs="comd/p" data-x>Buttons</code> и стили из
+	<code data-gs="comd/p" data-x>App.module.css</code>. Напишем наши теги
+	и применим к ним стили, а также разместим
+	React компонент <code data-gs="comd/c" data-x>Buttons</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import classes from "./App.module.css"; 
+import Buttons from "./components/Buttons"; 
+
+function App() {
+	return (
+		&lt;div class={classes.app}&gt;
+			&lt;h2 class={classes.title}&gt;CSS Module Buttons&lt;/h2&gt;
+			&lt;div class={classes.wrapper}&gt;
+				&lt;Buttons /&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	);
+}
+export default App;</code>
+</div>
+<p>
+	Мы использовали слово <code data-gs="comd/s" data-x>classes</code> 
+	для имени объекта, содержащего стили, который 
+	мы импортируем из <code data-gs="comd/p" data-x>App.module.css</code>. Как 
+	и в предыдущем случае, вы можете назвать этот 
+	объект как вам удобно.
+</p>
+<p>
+	Осталась пара маленьких шагов. Изменим название 
+	файла <code data-gs="comd/p" data-x>index.css</code> по соглашению на 
+	<code data-gs="comd/p" data-x>index.module.css</code> и в файле <code data-gs="comd/p" data-x>index.js</code> 
+	не забудем заменить строку импорта:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import "./index.css";</code>
+</div>
+<p>
+	На строку:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import "./index.module.css";</code>
+</div>
+<p>
+	Теперь мы можем видеть в браузере 
+	результат работы нашего приложения.
+</p>
+<p>
+	Если вы откроете сгенерированную верстку
+	в панели разработчика в браузере, вы
+	увидите, что у каждого компонента
+	сгенерированы свои уникальные классы. Таким
+	образом, нам не нужно больше беспокоиться
+	о конфликтах между классами отдельных
+	компонентов.
+</p>
+<p>
+	Важно еще то, что CSS modules не запрещает 
+	импортировать и обычные внешние CSS файлы.
+</p>
+<div data-w="cont/task">
+	<p>			
+		Следуя теории из урока, очистите React
+		компонент <code data-gs="comd/c" data-x>App</code> вашего приложении
+		<code data-gs="comd/s" data-x>inputs</code>, которое вы создавали в
+		задачах к прошлому уроку, а также разместите
+		в нем, созданный вами, <code data-gs="comd/c" data-x>Inputs</code> в
+		каком-нибудь стилизованном диве. Добавьте
+		в <code data-gs="comd/c" data-x>App</code> стилизованный заголовок. Все
+		это поместите еще в какой-нибудь див. Стили
+		для тегов React компонента <code data-gs="comd/c" data-x>App</code>
+		напишите в <code data-gs="comd/p" data-x>App.modules.css</code>.  
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Соберите все вместе, правильно
+		подключите оставшиеся файлы и
+		запустите свое приложение
+		<code data-gs="comd/s" data-x>inputs</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

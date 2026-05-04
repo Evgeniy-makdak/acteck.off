@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Изменение выбранного пункта списка на JavaScript — acteck.off</title>
+  <meta name="description" content="Изменение выбранного пункта списка на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Изменение выбранного пункта списка на JavaScript</h1>
+    <p>
+	В предыдущем уроке мы научились получать
+	выбранный пункт списка. Давайте теперь будем
+	изменять выбранный пункт с помощью JavaScript.
+</p>
+<p>
+	Для этого в свойство <code data-gs="comd/c" data-x>value</code> селекта
+	запишем значение атрибута <code data-gs="comd/c" data-x>value</code> того
+	<code data-gs="comd/c" data-x>option</code>, который мы хотим выбрать.
+</p>
+<p>
+	Пусть у нас есть следующий селект:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;select id="select"&gt;
+	&lt;option value="one"&gt;один&lt;/option&gt;
+	&lt;option value="two" selected&gt;два&lt;/option&gt;
+	&lt;option value="three"&gt;три&lt;/option&gt;
+&lt;/select&gt;</code>
+</div>
+<p>
+	Пусть также есть кнопка:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="submit" id="button"&gt;</code>
+</div>
+<p>
+	Получим ссылки на селект и кнопку в переменные:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let select = document.querySelector('#select');
+let button = document.querySelector('#button');</code>
+</div>
+<p>
+	А теперь давайте сделаем так, что бы при
+	нажатии на кнопку наш селект сменил выбор:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	select.value = 'one';
+});</code>
+</div>
+<div data-w="cont/nott">
+	<p>
+		Если у нашего списка нет атрибутов <code data-gs="comd/c" data-x>value</code>,
+		то в свойство <code data-gs="comd/c" data-x>value</code> селекта нужно
+		записывать текст тега <code data-gs="comd/c" data-x>option</code>, который
+		мы хотим выбрать.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте выпадающий список с названиями месяцев.
+		Сделайте так, чтобы JavaScript по умолчанию
+		выбирал в этом списке текущий месяц.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../value-attribute/index.html" class="lesson-nav-btn lesson-nav-prev" title="Атрибут value в выпадающих списках">← Атрибут value в выпадающих списках</a>
+      <a href="../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../selected-item-number/index.html" class="lesson-nav-btn lesson-nav-next" title="Номер выбранного пункта списка">Номер выбранного пункта списка →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

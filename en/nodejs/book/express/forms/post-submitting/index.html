@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отправка формы методом POST в Express — acteck.off</title>
+  <meta name="description" content="Отправка формы методом POST в Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Отправка формы методом POST в Express</h1>
+    <p>
+	Давайте теперь научимся отправлять формы
+	методом POST. Для этого изменим тип отправки
+	в атрибуте <code data-gs="comd/c" data-x>method</code>:
+</p>
+<div data-p="bock/pane" data-p-file="form.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;form action="/target/" method="POST"&gt;
+	&lt;input name="test1"&gt;
+	&lt;input name="test2"&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;</code>
+</div>
+<p>
+	Будем отдавать нашу форму при запросе главной
+	страницы:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	res.render('form');
+});</code>
+</div>
+<p>
+	Сама форма в нашем случае будет отправляться
+	на другой адрес. Давайте напишем обработчик
+	этого адреса. При этом, так как наша форма
+	отправляется методом POST, то нам нужно написать
+	обработчик не <code data-gs="comd/c" data-x>app.get</code>, а <code data-gs="comd/c" data-x>app.post</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.post('/target/', function(req, res) {
+	res.send('result');
+});</code>
+</div>
+<p>
+	Данные формы, отправленной методом POST,
+	будут содержаться в теле запроса. To есть
+	нам нужно прочитать <code data-gs="comd/c" data-x>req.body</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.post('/target/', function(req, res) {
+	console.log(req.body); // так просто не будет работать
+	res.send('result');
+});</code>
+</div>
+<p>
+	Данные формы, однако, так просто не попадут
+	в <code data-gs="comd/c" data-x>req.body</code> - там тупо будет пусто.
+	Для поддержки работы нам нужно установить
+	промежуточное ПО <code data-gs="comd/c" data-x>body-parser</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install body-parser</code>
+</div>
+<p>
+	Подключим установленное ПО:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import bodyParser from 'body-parser';</code>
+</div>
+<p>
+	Используем его для обработки всех форм:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.use(bodyParser.urlencoded({extended: true}));</code>
+</div>
+<p>
+	И вот теперь после отправки в <code data-gs="comd/c" data-x>req.body</code>
+	будет содержаться объект с данными:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.post('/target/', function(req, res) {
+	console.log(req.body); // объект с данными
+	res.send('result');
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Спросите у пользователя его имя, город и
+		страну. Выведите полученные данные на странице.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

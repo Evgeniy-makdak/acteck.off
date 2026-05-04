@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Использовании глобального CSS при стилизации в React — acteck.off</title>
+  <meta name="description" content="Использовании глобального CSS при стилизации в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Использовании глобального CSS при стилизации в React</h1>
+    <p>
+	Предположим, у нас есть React компонент
+	<code data-gs="comd/c" data-x>App</code>, в котором есть див, а внутри
+	дива - три абзаца:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	return (
+		&lt;div&gt;
+			&lt;p&gt;text&lt;/p&gt;
+			&lt;p&gt;text&lt;/p&gt;
+			&lt;p&gt;text&lt;/p&gt;
+		&lt;/div&gt;
+	);
+}</code>
+</div>
+<p>
+	Давайте стилизуем этот компонент. Для
+	этого, в той же папке <code data-gs="comd/p" data-x>src</code> с нашим 
+	компонентом создадим обычный CSS файл
+	со стилями <code data-gs="comd/p" data-x>styles.css</code> для наших
+	тегов.
+</p>
+<p>
+	В этом файле для дива создадим класс 
+	<code data-gs="comd/z" data-x>class1</code> со стилями:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.class1 {
+	width: 200px;
+	border: 2px solid brown;
+	padding: 10px;
+	text-align: center;
+}</code>
+</div>
+<p>
+	Теперь добавим класс <code data-gs="comd/z" data-x>class2</code> со 
+	стилями для первого абзаца:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.class2 {
+	color: orangered;
+	font-weight: bold;
+}</code>
+</div>
+<p>
+	Класс <code data-gs="comd/z" data-x>class3</code> со 
+	стилями для второго абзаца:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.class3 {
+	font-style: italic;
+	color: brown;
+}</code>
+</div>
+<p>
+	И, наконец создадим класс <code data-gs="comd/z" data-x>class4</code> для 
+	последнего абзаца:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.class4 {
+	background-color: orange;
+	font-weight: bold;
+	color: white;
+}		 </code>
+</div>
+<p>
+	С CSS файлом мы закончили. Осталось 
+	применить наши CSS стили, которые 
+	мы написали для тегов. Вернемся к 
+	нашему файлу <code data-gs="comd/p" data-x>App.js</code> с компонентом.
+</p>
+<p>
+	Первое, что мы должны обязательно сделать -
+	добавить в начало файла строку импорта 
+	нашего файла стилей <code data-gs="comd/p" data-x>styles.css</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import './styles.css';</code>
+</div>
+<p>
+	Теперь, чтобы применить в компоненте  
+	CSS классы из файла, воспользуемся 
+	атрибутом <code data-gs="comd/c" data-x>class</code>. Для первого
+	абзаца у нас был класс <code data-gs="comd/z" data-x>class2</code>,
+	применим его:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p class="class2"&gt;text&lt;/p&gt;</code>
+</div>
+<p>
+	Подобным образом добавим классы для 
+	остальных тегов. В результате получим 
+	следующий код:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;div class="class1"&gt;
+	&lt;p class="class2"&gt;text&lt;/p&gt;
+	&lt;p class="class3"&gt;text&lt;/p&gt;
+	&lt;p class="class4"&gt;text&lt;/p&gt;
+&lt;/div&gt;			 </code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте React компонент, который будет
+		содержать див, а в диве будет две
+		кнопки. Создайте файл <code data-gs="comd/p" data-x>styles.css</code>
+		с CSS стилями к вашим тегам. Примените
+		к тегам компонента написанные стили.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Способы стилизации в React">← Способы стилизации в React</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../object-to-style/index.html" class="lesson-nav-btn lesson-nav-next" title="Вставка данных в атрибут style из объекта">Вставка данных в атрибут style из объекта →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

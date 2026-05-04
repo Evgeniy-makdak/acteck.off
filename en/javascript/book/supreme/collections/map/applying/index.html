@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Применение коллекций Map — acteck.off</title>
+  <meta name="description" content="Применение коллекций Map — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Применение коллекций Map</h1>
+    <p>
+	Пусть у нас есть абзацы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;aaa&lt;/p&gt;
+&lt;p&gt;bbb&lt;/p&gt;
+&lt;p&gt;ccc&lt;/p&gt;
+&lt;p&gt;ddd&lt;/p&gt;
+&lt;p&gt;eee&lt;/p&gt;</code>
+</div>
+<p>
+	Давайте сделаем так, чтобы по клику на каждый
+	абзац ему в конец записывался его порядковый
+	номер в списке абзацев. Решим задачу через
+	<code data-gs="comd/c" data-x>Map</code>.
+</p>
+<p>
+	Приступим. Для начала получим наши абзацы
+	в переменную:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');</code>
+</div>
+<p>
+	Создадим новую коллекцию <code data-gs="comd/c" data-x>Map</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let map = new Map;</code>
+</div>
+<p>
+	Заполним нашу коллекцию так, чтобы ключами
+	были наши абзацы, а их значениями - порядковые
+	номера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let i = 1;
+for (let elem of elems) {
+	map.set(elem, i++);
+}</code>
+</div>
+<p>
+	Переберем абзацы циклом и повесим на них
+	обработчик клика:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of elems) {
+	elem.addEventListener('click', function() {
+		
+	});
+}</code>
+</div>
+<p>
+	Давайте теперь по клику будем добавлять порядковый
+	номер в конец текста абзаца. При этом будем
+	получать этот номер из нашей коллекции:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of elems) {
+	elem.addEventListener('click', function() {
+		this.textContent += map.get(this);
+	});
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны инпуты. Переберите эти инпуты циклом
+		и создайте коллекцию <code data-gs="comd/c" data-x>Map</code>, ключами
+		в которой будут инпуты, а значением - их
+		порядковый номер на странице. Сделайте так,
+		чтобы по клику на любой инпут ему в <code data-gs="comd/c" data-x>value</code>
+		записывался его порядковый номер.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны инпуты. В каждый инпут можно ввести
+		число. Пусть по нажатию на <code data-gs="comd/k" data-x>Enter</code> инпут
+		запоминает введенное число. Сделайте так,
+		чтобы по потери фокуса в инпуте в консоль
+		выводился массив всех введенных ранее в инпут
+		чисел.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../keys-values/index.html" class="lesson-nav-btn lesson-nav-prev" title="Ключи и значения">← Ключи и значения</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../set/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

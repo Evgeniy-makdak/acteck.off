@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page продавца в Redux — acteck.off</title>
+  <meta name="description" content="Page продавца в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Page продавца в Redux</h1>
+    <p>
+	Дело осталось за малым. Давайте на данном
+	занятии сделаем последнюю вещь - добавим
+	в наше приложение отдельную страничку для
+	каждого продавца. Здесь будут только уже
+	знакомые вам действия. Приступим.
+</p>
+<p>
+	Откроем наше приложение с продуктами, а в
+	нем папку <code data-gs="comd/p" data-x>sellers</code>. Создадим в этой папке
+	файл <code data-gs="comd/p" data-x>SellerPage.jsx</code>. Теперь начнем
+	писать код <code data-gs="comd/c" data-x>SellerPage</code> для нашего
+	компонента:
+</p>
+<div data-p="bock/pane" data-p-file="sellers/SellersPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const SellerPage = () =&gt; {}</code>
+</div>
+<p>
+	Для начала получим id продавца и по нему
+	найдем объект нужного продавца в слайсе:
+</p>
+<div data-p="bock/pane" data-p-file="sellers/SellersPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const SellerPage = () =&gt; {
+	let params = useParams()
+	const { sellerId } = params
+
+	const seller = useSelector((state) =&gt; selectSellerById(state, sellerId))
+}</code>
+</div>
+<p>
+	Далее ниже в коде для <code data-gs="comd/c" data-x>SellerPage</code> после
+	получения продавца мы получим все продукты, а затем
+	выберем из них только те, которые выложены
+	данным продавцом:
+</p>
+<div data-p="bock/pane" data-p-file="sellers/SellersPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const productsOfSeller = useSelector((state) =&gt; {
+	const allProducts = selectAllProducts(state)
+	return allProducts.filter((product) =&gt; product.seller === sellerId)
+})</code>
+</div>
+<p>
+	А далее из названий выбранных продуктов
+	сформируем список при помощи <code data-gs="comd/c" data-x>map</code>. Причем
+	каждое название продукта в этом списке
+	будет ссылкой на страничку этого продукта:
+</p>
+<div data-p="bock/pane" data-p-file="sellers/SellersPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const productNames = productsOfSeller.map((product) =&gt; (
+	&lt;li key={product.id}&gt;
+		&lt;Link to={`/products/${product.id}`}&gt;{product.name}&lt;/Link&gt;
+	&lt;/li&gt;
+))</code>
+</div>
+<p>
+	И в конце кода для <code data-gs="comd/c" data-x>SellerPage</code> вернем
+	верстку: заголовок с названием продавца
+	и список продуктов, которые выложил этот
+	продавец:
+</p>
+<div data-p="bock/pane" data-p-file="sellers/SellersPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
+	&lt;div&gt;
+	&lt;h2&gt;Seller: {seller.name}&lt;/h2&gt;
+
+	&lt;ul&gt;{productNames}&lt;/ul&gt;
+	&lt;/div&gt;
+)</code>
+</div>
+<p>
+	Конечно же нам еще нужен маршрут
+	для странички продавца. Откроем
+	файл <code data-gs="comd/p" data-x>App.jsx</code> и добавим его
+	последним к дочерним маршрутам:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{
+	path: '/sellers/:sellerId',
+	element: &lt;SellerPage /&gt;,
+},</code>
+</div>
+<p>
+	Не забудьте импортировать необходимые
+	хуки и компоненты в <code data-gs="comd/p" data-x>SellersPage.jsx</code> и
+	<code data-gs="comd/p" data-x>App.jsx</code>.
+</p>
+<p>
+	Запустим наше приложение, подгрузим продукты,
+	а затем в менюшке слева кликнем по ссылке
+	<code data-gs="comd/s" data-x>'Sellers'</code>. Теперь мы можем
+	зайти на страничку любого продавца, кликнув
+	по его названию, а затем на его страничке
+	увидеть все его продукты. А, кликнув по любому
+	из его продуктов, зайдем на страничку с этим
+	продуктом.
+</p>
+<p>
+	На этом пока все. Мы изучили основы Redux
+	для создания приложения и даже немного
+	глубже. Познакомились с различными полезными
+	инструментами. Желаю вам удачи в создании
+	ваших Redux-приложений!
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Изучив материалы урока, в папке <code data-gs="comd/p" data-x>teachers</code>
+		создайте файл <code data-gs="comd/p" data-x>TeacherPage.jsx</code>. В коде
+		компонента <code data-gs="comd/c" data-x>TeacherPage</code> получите объект
+		с нужным учителем и всех студентов данного
+		преподавателя. При помощи <code data-gs="comd/c" data-x>map</code> создайте из
+		них список, пусть ФИО каждого студента будет
+		ссылкой на страничку этого студента.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть в возвращаемой верстке у вас будет
+		заголовок с ФИО преподавателя,
+		ниже будет заголовок поменьше - с предметом,
+		который он ведет, а еще ниже список его
+		студентов.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В <code data-gs="comd/p" data-x>App.jsx</code> подключите еще один дочерний
+		маршрут для странички с преподавателем.
+	</p>
+</div>
+	<div data-w="cont/task">
+	<p>
+		Запустите ваше приложение и убедитесь,
+		что все работает.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../sellers-list/index.html" class="lesson-nav-btn lesson-nav-prev" title="Вывод списка продавцов">← Вывод списка продавцов</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

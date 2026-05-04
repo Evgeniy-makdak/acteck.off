@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приватные свойства в ООП в JavaScript — acteck.off</title>
+  <meta name="description" content="Приватные свойства в ООП в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Приватные свойства в ООП в JavaScript</h1>
+    <p>
+	Свойства объекта, которые можно прочитывать
+	и записывать извне, называются <dfn data-gs="comd/d" data-x>публичными</dfn>.
+	Существуют также <dfn data-gs="comd/d" data-x>приватные</dfn> свойства,
+	которые будут доступны только внутри
+	класса.
+</p>
+<p>
+	Имена приватных свойств нужно
+	начинать с символа <code data-gs="comd/c" data-x>#</code>.
+	Кроме того, такие свойства обязательно нужно
+	объявить в начале кода класса.
+	Давайте сделаем это:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
+	#name;
+}</code>
+</div>
+<p>
+	Теперь запишем данные в наше свойство.
+	Это можно сделать, например, в конструкторе
+	класса:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
+	#name;
+	
+	constructor(name) {
+		this.#name = name;
+	}
+}</code>
+</div>
+<p>
+	Сделаем теперь метод, который будет
+	возвращать значение нашего свойства:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
+	#name;
+	
+	constructor(name) {
+		this.#name = name;
+	}
+	
+	show() {
+		return this.#name;
+	}
+}</code>
+</div>
+<p>
+	Создадим объект класса,
+	передав параметром имя
+	юзера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let user = new User('john');</code>
+</div>
+<p>
+	Попытка обратиться напрямую
+	к нашему свойству вне класса
+	приведет к ошибке:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(user.#name); // ошибка</code>
+</div>
+<p>
+	А вызов нашего метода позволит
+	прочитать это свойство:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(user.show()); // выведет 'john'</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		В классе <code data-gs="comd/c" data-x>Employee</code> сделайте
+		три приватных свойства: имя, зарплату
+		и возраст.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Передайте параметром конструктора
+		значения этих свойств.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте метод, который выведет
+		данные работника.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../constructor-parameters-properties/index.html" class="lesson-nav-btn lesson-nav-prev" title="Свойства через параметры конструктора">← Свойства через параметры конструктора</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../private-methods/index.html" class="lesson-nav-btn lesson-nav-next" title="Приватные методы">Приватные методы →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

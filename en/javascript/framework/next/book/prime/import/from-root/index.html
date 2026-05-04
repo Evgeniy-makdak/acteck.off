@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Импорт от корня сайта в NextJS — acteck.off</title>
+  <meta name="description" content="Импорт от корня сайта в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Импорт от корня сайта в NextJS</h1>
+    <p>
+	В данном уроке мы продолжим изучать импорты
+	в NextJS. Но теперь мы изучим фичу, которая
+	есть в NextJS, но отсутствует в NodeJS.
+</p>
+<p>
+	Дело в том, что в NodeJS при импорте мы
+	можем использовать либо относительные пути
+	(без начального слеша), либо абсолютные пути
+	от корня операционной системы (создает проблемы
+	с переносом проекта на другой компоьютер).
+</p>
+<p>
+	В реальной жизни, однако, нам нужен еще
+	один тип импорта - от корня проекта.
+	В NodeJS не встроен такой импорт, зато
+	он есть в NextJS.
+</p>
+<p>
+	Этот импорт включается при установке NextJS.
+	Помните, там был вопрос <i>Would you like to customize
+	the default import alias</i>? Если на него ответить Yes,
+	то у нас появится возможность задавать импорты
+	от корня проекта.
+</p>
+<p>
+	Давайте посмотрим, как это делается.
+	Пусть для примера у нас есть следующая
+	структура файлов:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/src/<ul><li data-s-type="F">data.js</li><li data-s-type="D">/app/<ul><li data-s-type="D">/test/<ul><li data-s-type="F">page.jsx</li></ul></li></ul></li></ul></li></ul></div></div>
+<p>
+	Как вы видите, файл <code data-gs="comd/p" data-x>data.js</code> лежит
+	далеко от файла <code data-gs="comd/p" data-x>page.jsx</code>.
+	Давайте импортируем наш файл с данными
+	к файлу со страницей. Используем для
+	этого относительный путь:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import data from '../../data.js';
+
+export default function Test() {
+	return &lt;h1&gt;Test&lt;/h1&gt;;
+}</code>
+</div>
+<p>
+	Как вы видите, импорт через относительный путь
+	не очень удобен, так как нам приходится начинать
+	путь с <code data-gs="comd/p" data-x>../</code>. При этом, если мы переместим
+	наш компонент в другое место, то путь
+	к файлу с данными сломается.
+</p>
+<p>
+	Более удобно будет указать путь к файлу
+	с данными от корня проекта (им считается папка <code data-gs="comd/p" data-x>src</code>).
+	Для этого в начале пути нужно написать
+	символ <code data-gs="comd/p" data-x>@</code>. Сделаем это:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import data from '@/data.js';
+
+export default function Test() {
+	return &lt;h1&gt;Test&lt;/h1&gt;;
+}</code>
+</div>
+<p>
+	Еще раз подчеркну, что такой импорт возможен
+	именно в NextJS и только, если при установке
+	вы правильно ответили на нужный вопрос.
+	Просто в NodeJS или в чистом JavaScript это
+	работать не будет.
+</p>
+<div data-w="cont/task">
+	<p>
+		Дана следующая файловая структура:
+	</p>
+	<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/src/<ul><li data-s-type="D">/app/<ul><li data-s-type="F">data.js</li><li data-s-type="D">/test/<ul><li data-s-type="F">page.jsx</li></ul></li></ul></li></ul></li></ul></div></div>
+	<p>
+		Импортируйте файл с данными
+		в компонент <code data-gs="comd/c" data-x>Test</code>.
+		При импорте укажите путь
+		от корня проекта.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Поменяйте вашу файловую структуру
+		на следующую:
+	</p>
+	<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/src/<ul><li data-s-type="D">/app/<ul><li data-s-type="F">data.js</li><li data-s-type="D">/test/<ul><li data-s-type="D">/sub/<ul><li data-s-type="F">page.jsx</li></ul></li></ul></li></ul></li></ul></li></ul></div></div>
+	<p>
+		Убедитесь, что импорт от корня проекта
+		по прежнему будет работать без проблем.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../common-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Общие данные">← Общие данные</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../components/index.html" class="lesson-nav-btn lesson-nav-next" title="Импорт компонентов">Импорт компонентов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

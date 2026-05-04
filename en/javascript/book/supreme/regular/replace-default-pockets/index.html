@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карманы по умолчанию в методе replace в регулярках JavaScript — acteck.off</title>
+  <meta name="description" content="Карманы по умолчанию в методе replace в регулярках JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Карманы по умолчанию в методе replace в регулярках JavaScript</h1>
+    <p>
+	В методе replace, помимо карманов с вашими
+	номерами, всегда доступны также стандартные
+	карманы: <code data-gs="comd/c" data-x>$&</code> - всё найденное совпадение,
+	<code data-gs="comd/c" data-x>$`</code> и <code data-gs="comd/c" data-x>$'</code> - часть строки до и
+	после совпадения. Давайте посмотрим работу
+	с ними на примерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем все числа и обернем их в круглые
+	скобки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '1 23 456';
+let res = str.replace(/\d+/g, '($&)');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'(1) (23) (456)'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем символ @ и заменим его на
+	то, что стоит перед ним, собаку, и то, что
+	стоит после него. Все это запишем в круглых
+	скобках:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '123@456';
+let res = str.replace(/@/g, "($`@$')");</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'123(123@456)456'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть мы хотим найти доллар и обернуть его
+	в кавычки <code data-gs="comd/c" data-x>``</code>. В этом случае, чтобы
+	<code data-gs="comd/c" data-x>$`</code> не было воспринято как команда,
+	доллар нужно удвоить:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aaa $ bbb';
+let res = str.replace(/\$/g, '`$$`');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'aaa `$` bbb'</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'a1b2c3';</code>
+	</div>
+	<p>
+		Напишите регулярку, которая рядом с каждой
+		цифрой напишет такую же.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'sss site.ru zzz site.com kkk';</code>
+	</div>
+	<p>
+		Замените домены на ссылки вида:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;a href="http://site.ru"&gt;site.ru&lt;/a&gt;</code>
+	</div>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../replace-method-callback/index.html" class="lesson-nav-btn lesson-nav-prev" title="Коллбэк в методе replace">← Коллбэк в методе replace</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../expression-pockets/index.html" class="lesson-nav-btn lesson-nav-next" title="Карманы в самой регулярке">Карманы в самой регулярке →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

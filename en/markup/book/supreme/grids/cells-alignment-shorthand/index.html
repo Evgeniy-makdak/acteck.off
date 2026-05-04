@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сокращение для выравнивания внутри ячеек по обеим осям в CSS гриде — acteck.off</title>
+  <meta name="description" content="Сокращение для выравнивания внутри ячеек по обеим осям в CSS гриде — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Сокращение для выравнивания внутри ячеек по обеим осям в CSS гриде</h1>
+    <p>
+	С помощью свойства-сокращения <code data-gs="comd/c" data-x>place-items</code>
+	можно одновременно выровнять элементы
+	внутри ячеек грида по обеим осям.
+	Свойство принимает два значения,
+	разделенных пробелом.
+	Первым значением мы задаем расположение
+	элемента по вертикальной, а вторым - по горизонтальной осям.
+	Свойство задается в элементе-родителе.
+</p>
+<p>
+	Давайте посмотрим на работу этого
+	свойства на примерах.
+</p>
+
+<h2>По центру вертикальной и началу горизонтальной</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+	&lt;div&gt;5&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	place-items: center start;
+	grid-template-columns: 100px 100px;
+	grid-gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+	height: 200px;
+	width: 400px;
+}
+#parent &gt; div {
+	grid-gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			place-items: center start;
+			grid-template-columns: 100px 100px;
+			grid-gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+			height: 200px;
+			width: 400px;
+		}
+		#parent > div {
+			grid-gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Посмотрим на наш грид
+	в отладчике:
+</p>
+<div data-w="cont/shot">
+	<img src="../../../../../cont/markup/book/supreme/grids/cells-alignment-shorthand/@/screenshot/center-start.png" max-width="1301" data-knCr="10:410" data-nC="440">
+</div>
+
+<h2>По концу вертикальной и центру горизонтальной</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	place-items: end center;
+	grid-template-columns: 100px 100px;
+	grid-gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+	height: 200px;
+	width: 400px;
+}
+#parent &gt; div {
+	grid-gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			place-items: end center;
+			grid-template-columns: 100px 100px;
+			grid-gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+			height: 200px;
+			width: 400px;
+		}
+		#parent > div {
+			grid-gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Посмотрим на наш грид
+	в отладчике:
+</p>
+<div data-w="cont/shot">
+	<img src="../../../../../cont/markup/book/supreme/grids/cells-alignment-shorthand/@/screenshot/end-center.png" max-width="1301" data-knCr="10:410" data-nC="440">
+</div>
+
+<h2>По началу вертикальной и концу горизонтальной</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	place-items: start end;
+	grid-template-columns: 100px 100px;
+	grid-gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+	height: 200px;
+	width: 400px;
+}
+#parent &gt; div {
+	grid-gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			place-items: start end;
+			grid-template-columns: 100px 100px;
+			grid-gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+			height: 200px;
+			width: 400px;
+		}
+		#parent > div {
+			grid-gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Посмотрим на наш грид
+	в отладчике:
+</p>
+<div data-w="cont/shot">
+	<img src="../../../../../cont/markup/book/supreme/grids/cells-alignment-shorthand/@/screenshot/start-end.png" max-width="1301" data-knCr="10:410" data-nC="440">
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Создайте грид, состоящий из шести
+		элементов и расположите их по двум
+		столбцам. Выполните выравнивание элементов
+		по началу горизонтальной и центру вертикальной осей грида.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Теперь расположите элементы грида
+		по трем столбцам и задайте выравнивание элементов
+		по центру горизонтальной и центру вертикальной осей грида.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Измените предыдущую задачу так,
+		чтобы выравнивание элементов
+		происходило по концу горизонтальной
+		и началу вертикальной осей грида.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../cells-both-alignment/index.html" class="lesson-nav-btn lesson-nav-prev" title="Ячейки по обеим осям">← Ячейки по обеим осям</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../element-horizontal-alignment/index.html" class="lesson-nav-btn lesson-nav-next" title="Элемент по горизонтали">Элемент по горизонтали →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

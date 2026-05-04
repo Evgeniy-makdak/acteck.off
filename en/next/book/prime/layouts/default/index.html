@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Макет по умолчанию в NextJS — acteck.off</title>
+  <meta name="description" content="Макет по умолчанию в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Макет по умолчанию в NextJS</h1>
+    <p>
+	В предыдущем уроке мы выяснили,
+	что у нас должен быть общий макет
+	сайта, в который вставляется контент,
+	тайтл и мета-описание страницы.
+	В NextJS по умолчанию уже есть
+	файл с общим макетом сайта.
+	Он находится в файле <code data-gs="comd/p" data-x>app/layout.jsx</code>.
+</p>
+<p>
+	После установки в файле с макетом уже есть некоторый код.
+	Этот код, однако, содежит много лишнего.
+	Давайте сделаем минимальный макет сайта,
+	в котором легко будет разобраться.
+	Для этого откройте файл с макетом, удалите из
+	него все и вставьте следующее:
+</p>
+<div data-p="bock/pane" data-p-file="app/layout.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const metadata = {
+	title: 'Test site',
+	description: 'This is my page description.',
+};
+
+export default function RootLayout({children}) {
+	return (
+		&lt;html lang="en"&gt;
+			&lt;body&gt;
+				{children}
+			&lt;/body&gt;
+		&lt;/html&gt;
+	);
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Исправьте содержимое по умолчанию
+		в основном макете сайта.
+	</p>
+</div>
+        <div class="lesson-nav">
+      <a href="../driver/index.html" class="lesson-nav-btn lesson-nav-prev" title="Движок сайта">← Движок сайта</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../content/index.html" class="lesson-nav-btn lesson-nav-next" title="Контент сайта">Контент сайта →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

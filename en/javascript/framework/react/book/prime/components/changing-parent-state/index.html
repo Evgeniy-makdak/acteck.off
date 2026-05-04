@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Изменение стейта родителя в дочернем компоненте в React — acteck.off</title>
+  <meta name="description" content="Изменение стейта родителя в дочернем компоненте в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Изменение стейта родителя в дочернем компоненте в React</h1>
+    <p>
+	В предыдущем уроке у нас стейт с данными
+	хранился в родительском компоненте, а дочерние
+	компоненты получали эти данные в виде пропсов.
+</p>
+<p>
+	Пусть теперь мы хотим изменять наши продукты.
+	Сделаем, к примеру, кнопку, которая будет
+	помещать наш продукт в корзину. Для начала
+	давайте добавим в наш массив с продуктами
+	поле <code data-gs="comd/c" data-x>inCart</code>, показывающее, в корзине
+	продукт или нет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initProds = [
+	{id: id(), name: 'product1', cost: 100, inCart: false},
+	{id: id(), name: 'product2', cost: 200, inCart: false},
+	{id: id(), name: 'product3', cost: 300, inCart: false},
+];</code>
+</div>
+<p>
+	В компоненте <code data-gs="comd/c" data-x>Products</code> в тег с продуктом
+	добавим еще один атрибут <code data-gs="comd/c" data-x>inCart</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Products() {
+	const [prods, setProds] = useState(initProds);
+	
+	const items = prods.map(prod =&gt; {
+		return &lt;Product
+			key   ={prod.id}
+			name  ={prod.name}
+			cost  ={prod.cost}
+			inCart={prod.inCart}
+		/&gt;;
+	});
+	
+	return &lt;div&gt;
+		{items}
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Давайте в дочернем компоненте <code data-gs="comd/c" data-x>Product</code>
+	сделаем вывод информации о корзине и кнопку
+	для добавления в корзину:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, inCart }) {
+	return &lt;div&gt;
+		name: &lt;span&gt;{name}&lt;/span&gt;,
+		cost: &lt;span&gt;{cost}&lt;/span&gt;,
+		&lt;span&gt;{inCart ? 'in cart' : 'not in cart'}&lt;/span&gt;
+		&lt;button&gt;to cart&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+
+<h2>Реализуем добавление</h2>
+<p>
+	По правилам React <i>компонент не должен
+	изменять свои пропсы</i>. Это значит, что
+	дочерний компонент не может положить сам
+	себя в корзину, изменив пропс <code data-gs="comd/c" data-x>inCart</code>.
+	Это не правильно.
+</p>
+<p>
+	Правильно будет попросить родительский компонент
+	изменить свой стейт <code data-gs="comd/c" data-x>prods</code>, положив
+	определенный продукт в корзину.
+</p>
+<p>
+	Давайте посмотрим, как это делается.
+</p>
+<p>
+	В компоненте-родителе сделаем функцию <code data-gs="comd/c" data-x>addToCart</code>,
+	которая параметром принимает <code data-gs="comd/c" data-x>id</code> продукта
+	и для этого продукта меняет свойство <code data-gs="comd/c" data-x>inCart</code>
+	на <code data-gs="comd/c" data-x>true</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function addToCart(id) {
+	setProds(prods.map(prod =&gt; {
+		if (prod.id === id) {
+			prod.inCart = true;
+		}
+		
+		return prod;
+	}));
+}</code>
+</div>
+<p>
+	В тег с продуктом добавим атрибут, в который
+	передадим созданную нами функцию, а также
+	атрибут, в который передадим <code data-gs="comd/c" data-x>id</code> продукта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const items = prods.map(prod =&gt; {
+	return &lt;Product
+		key      ={prod.id}
+		id       ={prod.id}
+		name     ={prod.name}
+		cost     ={prod.cost}
+		inCart   ={prod.inCart}
+		addToCart={addToCart}
+	/&gt;;
+});</code>
+</div>
+<p>
+	Как вы видите, в пропсы компонентов можно
+	передавать не только какие-то данные, но
+	и функции.
+</p>
+<p>
+	Итоговый код класса <code data-gs="comd/c" data-x>Products</code> получится
+	следующим:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Products() {
+	const [prods, setProds] = useState(initProds);
+	
+	function addToCart(id) {
+		setProds(prods.map(prod =&gt; {
+			if (prod.id === id) {
+				prod.inCart = true;
+			}
+			
+			return prod;
+		}));
+	}
+	
+	const items = prods.map(prod =&gt; {
+		return &lt;Product
+			key      ={prod.id}
+			id       ={prod.id}
+			name     ={prod.name}
+			cost     ={prod.cost}
+			inCart   ={prod.inCart}
+			addToCart={addToCart}
+		/&gt;;
+	});
+	
+	return &lt;div&gt;
+		{items}
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Теперь в дочернем классе у нас будет доступна
+	функция <code data-gs="comd/c" data-x>addToCart</code>. Вызовем эту функцию
+	по клику на кнопку, передав ей параметром
+	<code data-gs="comd/c" data-x>id</code> продукта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, inCart, addToCart }) {
+	return &lt;div&gt;
+		name: &lt;span&gt;{name}&lt;/span&gt;,
+		cost: &lt;span&gt;{cost}&lt;/span&gt;,
+		&lt;span&gt;{inCart ? 'in cart' : 'not in cart'}&lt;/span&gt;
+		&lt;button onClick={() =&gt; addToCart(id)}&gt;to cart&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Получится, что по клику на кнопку в потомке
+	вызовется функция родителя, которая и поменяет
+	родительский стейт. Изменение родительского
+	стейта вызовет перерендеринг и перересует
+	наш продукт, передав ему измененный пропс.
+</p>
+<div data-w="cont/task">
+	<p>
+		Возьмите компонент <code data-gs="comd/c" data-x>User</code> из предыдущего
+		урока. Сделайте так, чтобы в нем появилась
+		кнопка для бана юзера.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../passing-id/index.html" class="lesson-nav-btn lesson-nav-prev" title="Передача id в компонент">← Передача id в компонент</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../editing-parent-state/index.html" class="lesson-nav-btn lesson-nav-next" title="Редактирование стейта родителя">Редактирование стейта родителя →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

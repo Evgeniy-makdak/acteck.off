@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод animate — acteck.off</title>
+  <meta name="description" content="Метод animate — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод animate</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>animate</code> позволяет создавать
+	анимационные эффекты для различных
+	CSS-свойств. Единственный обязательный параметр
+	- объект с CSS-свойствами, подобный тому, что
+	мы передаем в метод
+	<a href="../css/index.html"><code data-gs="comd/c" data-x>css</code></a>.
+	Многие свойства, имеющие нечисловые значения или несколько
+	значений не могут быть анимированы базовым функционалом
+	jQuery (например <code data-gs="comd/c" data-x>background-color</code>). Также не всегда
+	поддерживаются сокращенные названия CSS-свойств, например
+	<code data-gs="comd/c" data-x>font</code> - вместо этого нужно использовать <code data-gs="comd/c" data-x>fontSize</code> или
+	<code data-gs="comd/c" data-x>font-size</code>. Перед значениями можно поставить <code data-gs="comd/s" data-x>'+='</code> или <code data-gs="comd/s" data-x>'-='</code>,
+	в таком случае значение указанное далее будет прибавлено или
+	вычтено из текущего значения свойства. Также вместо числовых
+	значений можно поставить <code data-gs="comd/v" data-x>show</code>, <code data-gs="comd/v" data-x>hide</code> или
+	<code data-gs="comd/v" data-x>toggle</code>. Все jQuery эффекты, включая <code data-gs="comd/c" data-x>animate</code>, можно
+	отключить глобально, используя настройку
+	<a href="../jQuery.fx.off/index.html"><code data-gs="comd/c" data-x>jQuery.fx.off</code></a> = <code data-gs="comd/c" data-x>true</code>,
+	которая устанавливает значение длительности в 0.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Первым параметром анимации передается объект с
+	CSS-свойствами и их значениями в формате
+	<span data-gs="comd/f" data-x>ключ: значение</span>, которые мы собираемся
+	анимировать. Остальные параметры считаются
+	необязательными. Второй параметр - определяет
+	длительность анимации в миллисекундах, <code data-gs="comd/u" data-x>400мс</code>
+	по умолчанию. Третьим параметром функцию плавности
+	для перехода (по умолчанию это <code data-gs="comd/v" data-x>swing</code>),
+	а также четвертым - callback-функция, которая
+	запустится после выполнения анимации:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.animate(свойства, [длительность ], [функция плавности ], [callback-функция ]);</code>
+</div>
+<p>
+	Время можно задавать не только в миллисекундах,
+	но и ключевыми словами <code data-gs="comd/v" data-x>slow</code> (<code data-gs="comd/u" data-x>600мс</code>)
+	и <code data-gs="comd/v" data-x>fast</code> (<code data-gs="comd/u" data-x>200мс</code>), чем больше значение,
+	тем медленней анимация.
+	Можно вторым параметром передать методу различные
+	опции, в виде объекта JavaScript, содержащего
+	пары <span data-gs="comd/f" data-x>ключ: значение</span>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.animate(свойства, options);</code>
+</div>
+<p>
+	Например, установим для CSS-свойств <code data-gs="comd/c" data-x>width</code>
+	и <code data-gs="comd/c" data-x>height</code> значение <code data-gs="comd/v" data-x>toggle</code>. Длительность
+	на <code data-gs="comd/u" data-x>5000мс</code>, функции плавности передадим в виде объекта,
+	для ширины это будет линейная функция, а для
+	высоты - <code data-gs="comd/v" data-x>easeOutBounce</code>, также по
+	завершению анимации у нас один раз выполнится функция
+	(см. ключ <code data-gs="comd/c" data-x>complete</code>), которая после элемента с
+	<code data-gs="comd/z" data-x>#test</code> разместит див с надписью <code data-gs="comd/s" data-x>'Animation
+	complete.'</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').animate({
+	width: 'toggle',
+	height: 'toggle'
+}, {
+	duration: 5000,
+	specialEasing: {
+		width: 'linear',
+		height: 'easeOutBounce'
+	},
+	complete: function() {
+		$(this).after('&lt;div&gt;Animation complete.&lt;/div&gt;');
+	}
+});</code>
+</div>
+<p>
+	Ниже в таблице приведены свойства и методы
+	объекта <code data-gs="comd/c" data-x>options</code> и их описание:
+</p>
+<table data-w="cont/desc">
+	<tr>
+		<th>Название</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>duration</code></th>
+		<td>
+			Длительность анимации в миллисекундах - строка или
+			число. <code data-gs="comd/u" data-x>400мс</code> по умолчанию.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>easing</code></th>
+		<td>
+			Определяет какую функцию плавности
+			использовать. <code data-gs="comd/v" data-x>swing</code> по умолчанию.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>queue</code></th>
+		<td>
+			Булево значение или строка. <code data-gs="comd/c" data-x>true</code> по
+			умолчанию. Указывает - поставить
+			ли анимацию в очередь. При значении <code data-gs="comd/c" data-x>false</code>
+			анимация начнется незамедлительно. Если параметр
+			передать строкой, то анимация будет поставлена в
+			очередь, представленной этим параметром. При
+			использовании очереди с пользовательским названием,
+			анимация не запустится автоматически, чтобы ее
+			запустить - используйте <code data-gs="comd/c" data-x>dequeue('queuename')</code>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>specialEasing</code></th>
+		<td>
+			Здесь вы можете передать объект, в котором ключами
+			будут CSS-свойства, а значениями - соответствующие
+			им функции плавности.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>step</code></th>
+		<td>
+			Функция, которая вызывается для каждого анимированного
+			свойства каждого анимированного элемента. Она позволяет
+			модифицировать <code data-gs="comd/c" data-x>Tween</code> объект, чтобы изменить значение
+			свойства до того, как оно устанавливается. В качестве
+			параметров принимает текущее значение <code data-gs="comd/c" data-x>tween</code>
+			и <code data-gs="comd/c" data-x>Tween</code> объект.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>progress</code></th>
+		<td>
+			Функция, вызываемая после каждого шага анимации,
+			только по одному разу на каждый элемент независимо
+			от числа анимированных свойств. Функция принимает
+			три параметра <code data-gs="comd/c" data-x>animation</code> (в виде промиса),
+			<code data-gs="comd/c" data-x>progress</code> (число от <code data-gs="comd/n" data-x>0</code> до <code data-gs="comd/n" data-x>1</code>)
+			и <code data-gs="comd/c" data-x>remainingMs</code> (число оставшихся миллисекунд).
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>complete</code></th>
+		<td>
+			Функция, вызываемая один раз после окончания
+			анимации элемента. Функция принимает
+			<code data-gs="comd/c" data-x>animation</code> (в виде промиса).
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>start</code></th>
+		<td>
+			Функция, которая вызывается, когда анимация
+			элемента начинается. Функция принимает
+			<code data-gs="comd/c" data-x>animation</code> (в виде промиса) и
+			<code data-gs="comd/c" data-x>jumpedToEnd</code> (Булево значение. Если
+			<code data-gs="comd/c" data-x>true</code>, то анимация автоматически
+			завершается).
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>done</code></th>
+		<td>
+			Функция, которая вызывается, когда анимация
+			элемента заканчивается (ее промис выполнен
+			успешно). Функция принимает
+			<code data-gs="comd/c" data-x>animation</code> (в виде промиса) и
+			<code data-gs="comd/c" data-x>jumpedToEnd</code> (Булево значение. Если
+			<code data-gs="comd/c" data-x>true</code>, то анимация автоматически
+			завершается).
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>fail</code></th>
+		<td>
+			Функция, которая вызывается, когда анимация
+			элемента заканчивается с ошибкой (ее промис
+			выполнен с ошибкой). Функция принимает
+			<code data-gs="comd/c" data-x>animation</code> (в виде промиса) и
+			<code data-gs="comd/c" data-x>jumpedToEnd</code> (Булево значение. Если
+			<code data-gs="comd/c" data-x>true</code>, то анимация автоматически
+			завершается).
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>always</code></th>
+		<td>
+			Функция, которая вызывается, когда анимация
+			элемента завершается или останавливается без
+			завершения (ее промис выполнен успешно или с
+			ошибкой). Функция принимает
+			<code data-gs="comd/c" data-x>animation</code> (в виде промиса) и
+			<code data-gs="comd/c" data-x>jumpedToEnd</code> (Булево значение. Если
+			<code data-gs="comd/c" data-x>true</code>, то анимация автоматически
+			завершается).
+		</td>
+	</tr> 
+</table>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте при нажатии на кнопку <code data-gs="comd/z" data-x>#left</code>, будем
+	сдвигать зеленый квадрат влево, а на кнопку <code data-gs="comd/z" data-x>#right</code>
+	вправо на <code data-gs="comd/u" data-x>50px</code>, также установим длительность
+	на <code data-gs="comd/u" data-x>600мс</code> - командой <code data-gs="comd/v" data-x>slow</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="left"&gt;left&lt;/button&gt;
+&lt;button id="right"&gt;right&lt;/button&gt;
+&lt;div class="block"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	position: absolute;
+	background-color: green;
+	left: 50px;
+	width: 100px;
+	height: 100px;
+	margin: 5px;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#right').click(function() {
+	$('.block').animate({'left': '+=50px'}, 'slow');
+});
+	
+$('#left').click(function() {
+	$('.block').animate({'left': '-=50px'}, 'slow');
+});</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../show/index.html"><code data-gs="comd/c" data-x>show</code></a>, <br>
+			который плавно показывает элементы
+		</li>
+		<li>
+			метод <a href="../stop/index.html"><code data-gs="comd/c" data-x>stop</code></a>, <br>
+			который позволяет остановить запущенную анимацию
+		</li>
+		<li>
+			метод <a href="../delay/index.html"><code data-gs="comd/c" data-x>delay</code></a>, <br>
+			который устанавливает задержку выполнения событий
+		</li>
+		<li>
+			свойство <a href="../jQuery.fx.off/index.html"><code data-gs="comd/c" data-x>jQuery.fx.off</code></a>, <br>
+			которое позволяет глобально отключить анимацию
+		</li>
+		<li>
+			селектор <a href="../selector/animated/index.html"><code data-gs="comd/z" data-x>animated</code></a>, <br>
+			который выбирает элементы, которые в данный
+			момент задействованы в анимации
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

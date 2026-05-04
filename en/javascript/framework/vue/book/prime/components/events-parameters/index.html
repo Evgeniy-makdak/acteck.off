@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Параметры событий в Vue — acteck.off</title>
+  <meta name="description" content="Параметры событий в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../index.html">Vue</a>
+    </div>
+
+    <h1>Параметры событий в Vue</h1>
+    <p>
+	Можно передавать параметры в
+	испускаемые события. Посмотрим
+	на примере. Пусть функция родительского
+	компонента принимает параметры:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
+	func(arg1, arg2) {
+		console.log(arg1, arg2);
+	}
+}</code>
+</div>
+<p>
+	Эти параметры нужно указывать параметрами
+	функции <code data-gs="comd/c" data-x>$emit</code>, после имени события:
+</p>
+<div data-p="bock/pane" data-p-file="components/User.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
+	handle() {
+		this.$emit('show', 'xxx', 'yyy');
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Передайте из родительского компонента
+		в дочерний следующий метод:
+	</p>
+	<div data-p="bock/pane" data-p-file="App.vue">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
+	func(name) {
+		console.log(name);
+	}
+}</code>
+	</div>
+	<p>
+		Сделайте в компоненте с работником
+		кнопку, по нажатию на которую в
+		родительский компонент будет
+		передаваться имя работника.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Передайте из родительского компонента
+		в дочерний следующий метод:
+	</p>
+	<div data-p="bock/pane" data-p-file="App.vue">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
+	func(name, salary) {
+		console.log(name, salary);
+	}
+}</code>
+	</div>
+	<p>
+		Сделайте в компоненте с работником
+		кнопку, по нажатию на которую в
+		родительский компонент будет
+		передаваться имя и зарплата работника.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../event-emitting/index.html" class="lesson-nav-btn lesson-nav-prev" title="Испускание событий">← Испускание событий</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../attribute-emitting/index.html" class="lesson-nav-btn lesson-nav-next" title="Испускание события в атрибуте">Испускание события в атрибуте →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

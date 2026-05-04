@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство float для блоков в CSS — acteck.off</title>
+  <meta name="description" content="Свойство float для блоков в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство float для блоков в CSS</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>float</code> применимо не только
+	к картинкам, но и к любым другим блокам.
+</p>
+<p>
+	Давайте проверим это.
+</p>
+<p>
+	Пусть у нас есть блок-родитель с классом <code data-gs="comd/z" data-x>parent</code>,
+	а внутри него находится текст и блок-потомок
+	с классом <code data-gs="comd/z" data-x>child</code>. Обоим блокам задана
+	граница, а потомку еще и ширина с высотой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;&lt;/div&gt;
+	some long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	border: 1px solid red;
+	text-align: justify;
+}
+.child {
+	width: 200px;
+	height: 100px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			border: 1px solid red;
+			text-align: justify;
+		}
+		.child {
+			width: 200px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;></div>
+			
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Давайте теперь потомку установим <code data-gs="comd/c" data-x>float</code>
+	в значение <code data-gs="comd/v" data-x>left</code> - текст начнет обтекать
+	наш блок:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;&lt;/div&gt;
+	some long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	border: 1px solid red;
+	text-align: justify;
+}
+.child {
+	float: left;
+	width: 200px;
+	height: 100px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			border: 1px solid red;
+			text-align: justify;
+		}
+		.child {
+			float: left;
+			width: 200px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;></div>
+			
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<div data-w="cont/task">
+	<p>
+		Повторите страницу по данному образцу:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				width: 600px;
+				padding: 20px;
+				margin: 0 auto;
+				border: 1px solid black;
+				text-align: justify;
+			}
+			
+			.child {
+				float: right;
+				width: 100px;
+				height: 70px;
+				margin-top: 20px;
+				margin-left: 20px;
+				margin-bottom: 10px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+				Aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir.
+				<div class=&quot;child&quot;></div>
+				Nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit, orciro varius natoque.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+				Aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir.
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../parent-height-and-clearfix/index.html" class="lesson-nav-btn lesson-nav-prev" title="Высота родителя и клиарфикс">← Высота родителя и клиарфикс</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../several-blocks/index.html" class="lesson-nav-btn lesson-nav-next" title="Свойство float и несколько блоков">Свойство float и несколько блоков →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

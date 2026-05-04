@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод stat — acteck.off</title>
+  <meta name="description" content="Метод stat — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Метод stat</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>stat</code> возвращает статистическую информацию
+	о файле или папки в формате объекта.
+	В первом параметре метода указывается путь к нужному
+	нам файлу или папке, во втором и третьем
+	необязательных параметрах - объект с
+	опциями и коллбэк.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.stat(путь к файлу или папке, [опции], [коллбэк]);</code>
+</div>
+
+<h2>Объект с опциями</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Опция</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>bigint</code></th>
+		<td>
+			Если <code data-gs="comd/c" data-x>true</code>, задает отображение числовых
+			значений в формате <code data-gs="comd/s" data-x>bigint</code>. Значение по умолчанию
+			<code data-gs="comd/c" data-x>false</code>.
+		</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть следующая
+	файловая структура:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/dir/<ul><li data-s-type="F">file1.txt</li><li data-s-type="F">file2.txt</li></ul></li></ul></div></div>
+<p>
+	Давайте асинхронно прочитаем
+	статистическую информацию о папке <code data-gs="comd/p" data-x>dir</code>
+	через <code data-gs="comd/c" data-x>await</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+
+try {
+	let data = await fs.stat('./dir/');
+	console.log(data);
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте асинхронно
+	узнаем статистическую информацию
+	о файле <code data-gs="comd/p" data-x>file1.txt</code> через
+	<code data-gs="comd/c" data-x>then</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+
+fs.stat('./dir/file1.txt').then(data =&gt; {
+	console.log(data);
+}).catch(err =&gt; {
+	console.log(err);
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте асинхронно
+	узнаем статистическую информацию
+	о файле <code data-gs="comd/p" data-x>file2.txt</code>
+	через коллбэк:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+fs.stat('./dir/file2.txt', function(err, data) {
+	if (!err) {
+		console.log(data);
+	} else {
+		console.log(err);
+	}
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте синхронно прочитаем
+	статистическую информацию о папке <code data-gs="comd/p" data-x>dir</code>
+	через <code data-gs="comd/c" data-x>statSync</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+try {
+	let data = fs.statSync('./dir/');
+	console.log(data);
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../../../../javascript/nodejs/manual/fs/readdir/index.html"><code data-gs="comd/c" data-x>readdir</code></a>, <br>
+			который читает папки
+		</li>
+		<li>
+			метод <a href="../../../../javascript/nodejs/manual/fs/fstat/index.html"><code data-gs="comd/c" data-x>fstat</code></a>, <br>
+			который возвращает статистику о файловом дескрипторе
+		</li>
+		<li>
+			метод <a href="../../../../javascript/nodejs/manual/fs/lstat/index.html"><code data-gs="comd/c" data-x>lstat</code></a>, <br>
+			который возвращает статистическую информацию о файлах, папки, символической ссылке
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../rmdir/index.html" class="lesson-nav-btn lesson-nav-prev" title="rmdir">← rmdir</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../symlink/index.html" class="lesson-nav-btn lesson-nav-next" title="symlink">symlink →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

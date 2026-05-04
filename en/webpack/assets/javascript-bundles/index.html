@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ассеты в JavaScript бандлах в Webpack — acteck.off</title>
+  <meta name="description" content="Ассеты в JavaScript бандлах в Webpack — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/webpack/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/webpack/index.html">Webpack</a>
+    </div>
+
+    <h1>Ассеты в JavaScript бандлах в Webpack</h1>
+    <p>
+	Давайте настроим ассеты для <code data-gs="comd/p" data-x>.png</code>
+	файлов:
+</p>
+<div data-p="bock/pane" data-p-file="webpack.config.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	entry: './src/index.js',
+	output: {
+		filename: 'bundle.js',
+		path: path.resolve('dist')
+	},
+	module: {
+		rules: [
+			{
+				test: /\.png$/,
+				type: 'asset/resource'
+			}
+		]
+	},
+	plugins: [
+		new HtmlWebpackPlugin(),
+	],
+};</code>
+</div>
+<p>
+	Подключим <code data-gs="comd/p" data-x>.png</code> файл к точке входа:
+</p>
+<div data-p="bock/pane" data-p-file="src/index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import img from './images/main.png';</code>
+</div>
+<p>
+	В переменную <code data-gs="comd/c" data-x>img</code> попадет
+	новый путь к файлу картинки:
+</p>
+<div data-p="bock/pane" data-p-file="src/index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(img);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Настройте ассеты для <code data-gs="comd/p" data-x>.jpg</code>
+		файлов.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Подключите к точке входа несколько
+		картинок.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Выведите в файле точки входа
+		новые пути к картинкам.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../../assets/intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../assets/css-bundles/index.html" class="lesson-nav-btn lesson-nav-next" title="Ассеты в CSS бандлах">Ассеты в CSS бандлах →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

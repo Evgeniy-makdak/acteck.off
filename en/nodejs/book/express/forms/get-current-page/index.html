@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отправка формы методом GET на текущую страницу в Express — acteck.off</title>
+  <meta name="description" content="Отправка формы методом GET на текущую страницу в Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Отправка формы методом GET на текущую страницу в Express</h1>
+    <p>
+	Давайте теперь сделаем так, чтобы форма отправлялась
+	на текущую страницу. Для этого сделаем пустой
+	<code data-gs="comd/c" data-x>action</code> или уберем его совсем:
+</p>
+<div data-p="bock/pane" data-p-file="form.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;form action="" method="GET"&gt;
+	&lt;input name="test1"&gt;
+	&lt;input name="test2"&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;</code>
+</div>
+<p>
+	Пусть наша форма и показывается, и отправляется
+	на следующий обработчик:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	res.render('form');
+});</code>
+</div>
+<p>
+	Давайте выведем в консоль данные отправленной
+	формы:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	console.log(req.query);
+	res.render('form');
+});</code>
+</div>
+<p>
+	Наш обработчик выполнится два раза. Первый
+	раз мы зайдем на страницу и увидим форму.
+	В этом случае в консоль выведется пустой
+	объект с данными формы. Во второй раз мы
+	попадем на обработчик после отправки формы
+	и увидим в консоли введенные данные.
+</p>
+
+<h2>Выводим результат около формы</h2>
+<p>
+	Давайте для примера при первом заходе покажем
+	форму, а при втором заходе форму, а под ней
+	- сумму введенных чисел.
+</p>
+<p>
+	Сделаем обработчик:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	res.render('form', {
+		sum: +req.query.test1 + +req.query.test2,
+	});
+});</code>
+</div>
+<p>
+	Доработаем код файла с формой:
+</p>
+<div data-p="bock/pane" data-p-file="form.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;form action="" method="GET"&gt;
+	&lt;input name="test1"&gt;
+	&lt;input name="test2"&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+
+{{#if sum}}
+	{{ sum }}
+{{/if}}</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

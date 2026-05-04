@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Более сложное перебазирование коммитов в Git — acteck.off</title>
+  <meta name="description" content="Более сложное перебазирование коммитов в Git — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/git/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/git/index.html">Git</a>
+    </div>
+
+    <h1>Более сложное перебазирование коммитов в Git</h1>
+    <p>
+	В системе Git можно выполнить перебазирование
+	для трех веток. Пусть у нас есть две ветки
+	<code data-gs="comd/s" data-x>member1</code> и <code data-gs="comd/s" data-x>member2</code>, у которых есть разные
+	коммиты.
+</p>
+<p>
+	В процессе работы над проектом нам понадобилось
+	вставить коммиты <code data-gs="comd/s" data-x>commit3</code>, <code data-gs="comd/s" data-x>commit4</code>
+	из ветки <code data-gs="comd/s" data-x>member2</code> в ветку <code data-gs="comd/s" data-x>member1</code>
+	и применить их на ветке <code data-gs="comd/s" data-x>master</code>.
+	Для этого выполняем следующую
+	команду:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git rebase --onto master member1 member2</code>
+</div>
+<p>
+	Данная команда приказывает системе Git
+	переключиться на ветку <code data-gs="comd/s" data-x>member2</code>,
+	найти в ней коммиты, которых нет в ветке <code data-gs="comd/s" data-x>member1</code>
+	и слить только эти недостающие коммиты с
+	веткой <code data-gs="comd/s" data-x>master</code>.
+</p>
+<p>
+	Теперь выполним слияние обратной перемоткой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git switch master
+git merge member2</code>
+</div>
+<p>
+	Следует помнить, что нельзя перебазировать
+	коммиты, находящиеся во внешнем репозитории.
+	Все участники команды берут из него коммиты
+	для выполнения своей задачи, но если произошло
+	перебазирование веток, всем участникам придется
+	снова сливать коммиты со своими ветками,
+	что может вызвать дополнительную
+	путаницу.
+</p>
+    <div class="lesson-nav">
+      <a href="../commits-simple-rebase/index.html" class="lesson-nav-btn lesson-nav-prev" title="Простое перебазирование коммитов">← Простое перебазирование коммитов</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../remote/repository/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

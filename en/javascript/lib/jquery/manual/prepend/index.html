@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод prepend — acteck.off</title>
+  <meta name="description" content="Метод prepend — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод prepend</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>prepend</code> добавляет текст в начало 
+	элемента. Также существует метод 
+	<a href="../prependTo/index.html"><code data-gs="comd/c" data-x>prependTo</code></a>, 
+	который работает аналогичным образом.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Вставка текста в начало элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).prepend(текст);</code>
+</div>
+<p>
+	To start выбранных элементов можно добавить
+	текст, который будет возвращен пользовательской
+	функцией. Функция вызывается, отдельно для
+	каждого из выбранных элементов. При вызове
+	ей передаются следующие параметры: позиция
+	элемента в наборе, текущее содержимое элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).prepend(function(номер в наборе, текущее содержимое элемента));</code>
+</div>
+<p>
+	Содержимое также может быть не только обычным
+	текстом, но и DOM элементом или объектом
+	jQuery. В этом случае эти элементы переместятся
+	со своей позиции в HTML коде.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте вставим текст в начало заданного абзаца:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').prepend('!!!');</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;!!!text&lt;/p&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте вставим текст с тегами в начало заданного
+	абзаца:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').prepend('&lt;b&gt;!!!&lt;/b&gt;');</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;&lt;b&gt;!!!&lt;/b&gt;text&lt;/p&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем все абзацы и в начало каждому
+	из них поставим его порядковый номер в наборе:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text&lt;/p&gt;
+&lt;p&gt;text&lt;/p&gt;
+&lt;p&gt;text&lt;/p&gt;
+&lt;p&gt;text&lt;/p&gt;
+&lt;p&gt;text&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('p').prepend(function(index, text) {
+	return index;
+});</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;0text&lt;/p&gt;
+&lt;p&gt;1text&lt;/p&gt;
+&lt;p&gt;2text&lt;/p&gt;
+&lt;p&gt;3text&lt;/p&gt;
+&lt;p&gt;4text&lt;/p&gt;</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../prependTo/index.html"><code data-gs="comd/c" data-x>prependTo</code></a>, <br>
+			который добавляет текст в начало элемента 
+		</li>	
+		<li>
+			методы <a href="../append/index.html"><code data-gs="comd/c" data-x>append</code></a>,
+			<a href="../before/index.html"><code data-gs="comd/c" data-x>before</code></a>,
+			<a href="../after/index.html"><code data-gs="comd/c" data-x>after</code></a>, <br>
+			позволяющие добавлять содержимое в определенное место
+		</li>
+		<li>
+			псевдоэлемент <a href="../../../../../markup/manual/css/pseudoelement/before/index.html"><code data-gs="comd/c" data-x>before</code></a>, <br>
+			который добавляет текст в конец элемента на CSS
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

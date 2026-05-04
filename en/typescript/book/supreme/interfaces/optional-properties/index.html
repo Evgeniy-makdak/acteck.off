@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Опциональные свойства интерфейса в TypeScript — acteck.off</title>
+  <meta name="description" content="Опциональные свойства интерфейса в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Опциональные свойства интерфейса в TypeScript</h1>
+    <p>
+	В интерфейсе также можно задавать особые
+	опциональные (необязательные) свойства.
+	Они нужны для того, чтобы не ограничивать
+	объект определенным набором свойств. При
+	этом запрещается использование свойств,
+	которые не входят в интерфейс. Опциональные
+	свойства задаются с помощью оператора <code data-gs="comd/c" data-x>?</code>,
+	указанного после имени свойства. 
+</p>
+<p>
+	Давайте создадим интерфейс <code data-gs="comd/c" data-x>IFigure</code>,
+	задающий свойства все объектам-фигурам.
+	Пусть <code data-gs="comd/c" data-x>color</code> будет опциональным
+	свойством: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">interface IFigure {
+	height: number;
+	width: number;
+	color?: string;
+}</code>
+</div>
+<p>
+	Теперь создадим объект <code data-gs="comd/c" data-x>rectangle</code> и
+	выведем значение его цвета в консоль: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let rectangle: IFigure = {
+	height: 200,
+	width: 300,
+	color: 'red'
+}
+
+console.log(rectangle.color); // 'red'</code>
+</div>
+<p>
+	А теперь проверим будет ли ошибка, если
+	не задать цвет в объекте: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let rectangle: IFigure = {
+	height: 200,
+	width: 300
+}
+
+console.log(rectangle.color);</code>
+</div>
+<p>
+	Ошибки не будет и в консоль выведется
+	сообщение о том, что цвет просто не
+	определен: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">undefined</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте интерфейс <code data-gs="comd/c" data-x>IDate</code> для объекта,
+		хранящего дату: год, месяц и день. Пусть
+		все свойства объекта будут необязательными. 
+	</p>
+</div>
+    <div class="lesson-nav">
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

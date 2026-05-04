@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Получение изменений из внешних репозиториев в Git — acteck.off</title>
+  <meta name="description" content="Получение изменений из внешних репозиториев в Git — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/git/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/git/index.html">Git</a>
+    </div>
+
+    <h1>Получение изменений из внешних репозиториев в Git</h1>
+    <p>
+	Итак, в предыдущих уроках мы научились
+	отправлять данные во внешний репозиторий.
+	Представим теперь ситуацию, что
+	данные в нем поменялись. Такая
+	ситуация возникает, когда над проектом
+	работают несколько человек и каждый
+	из них отправляет данные в этот
+	общий репозиторий. Либо может быть
+	ситуация, когда вы работаете
+	на разных компьютерах, например,
+	дома и на работе. На работе вы отправляете
+	изменения, а дома хотите их получить
+	на свой домашний компьютер.
+</p>
+<p>
+	Давайте сымитируем такую ситуацию.
+	Для этого, на сайте GitHub зайдите
+	в файлы проекта и отредатируйте
+	какой-нибудь файл, внеся в него
+	изменения. Давайте получим эти
+	изменения на наш локальный компьютер.
+</p>
+<p>
+	Это делается с помощью команды
+	<code data-gs="comd/c" data-x>fetch</code>, после которой указывается
+	имя внешнего репозитория:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git fetch origin</code>
+</div>
+<p>
+	Данная команда скопирует все изменения,
+	сделанные во внешнем репозитории с момента
+	вашего последнего обращения к нему.
+	При этом изменения не появятся сразу
+	в наших файлах, а попадут в специальную
+	ветку.
+	Имя этой ветки будет строится по следующему
+	принципу: имя внешнего репозитория,
+	а потом через слеш имя ветки.
+	В нашем случае это будет <code data-gs="comd/s" data-x>origin/master</code>.
+</p>
+<p>
+	Чтобы изменения появились в файлах
+	нашего проекта, нужно влить изменения
+	в нашу ветку. Для этого, находясь
+	в ветке <code data-gs="comd/s" data-x>master</code>, выполним
+	команду на слияние:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git merge origin/master</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		На сайте GitHub вручную внесите изменения
+		в ваш проект. Получите эти изменения
+		в свой локальный репозиторий.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../different-branch-sending/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отправка в другую ветку">← Отправка в другую ветку</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../pulling-data/index.html" class="lesson-nav-btn lesson-nav-next" title="Стягивание данных">Стягивание данных →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

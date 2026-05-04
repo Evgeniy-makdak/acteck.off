@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Функция repeating-linear-gradient — acteck.off</title>
+  <meta name="description" content="Функция repeating-linear-gradient — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Функция repeating-linear-gradient</h1>
+    <p>
+	Функция <code data-gs="comd/c" data-x>repeating-linear-gradient</code>
+	задает повторяющийся линейный градиент. Это
+	значит, что мы задаем определенный узор градиента,
+	например, от <code data-gs="comd/u" data-x>0px</code> до <code data-gs="comd/u" data-x>10px</code> - градиент
+	от красного к голубому и этот градиент будет
+	повторяться на весь блок: <code data-gs="comd/u" data-x>0px</code> до <code data-gs="comd/u" data-x>10px</code>,
+	от <code data-gs="comd/u" data-x>10px</code> до <code data-gs="comd/u" data-x>20px</code>, от <code data-gs="comd/u" data-x>20px</code>
+	до <code data-gs="comd/u" data-x>30px</code> и так далее.
+</p>
+<p>
+	Данная функция применяется к свойствам, которые
+	задают картинку фона: <a href="../../property/background/index.html"><code data-gs="comd/c" data-x>background</code></a>,
+	<a href="../../property/background-image/index.html"><code data-gs="comd/c" data-x>background-image</code></a>
+	или картинку границы: <a href="../../property/border-image/index.html"><code data-gs="comd/c" data-x>border-image</code></a>,
+	<a href="../../property/border-image-source/index.html"><code data-gs="comd/c" data-x>background-image-source</code></a>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	background: repeating-linear-gradient([направление], цвет1 размер1, цвет2 размер2...);
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th>направление</th>
+		<td>
+			Задает определенное направление градиента в любых <a href="../../reference/units/angles/index.html">единицах для углов</a>
+			либо ключевыми словами
+			<code data-gs="comd/v" data-x>top</code>, <code data-gs="comd/v" data-x>left</code>, <code data-gs="comd/v" data-x>right</code>, <code data-gs="comd/v" data-x>bottom</code>
+			или их комбинацией.
+			Порядок слов не важен. Параметр необязательный:
+			если его не написать, градиент будет идти сверху вниз.
+			Перед направлением ставится слово <code data-gs="comd/v" data-x>to</code>.
+		</td>
+	</tr>
+	<tr>
+		<th>угол</th>
+		<td>
+			Угол в любых <a href="../../reference/units/angles/index.html">единицах для углов</a>.
+			Может быть положительным или отрицательным.
+			Параметр необязательный. Одновременно может
+			быть задан или угол, или направление (или вообще ничего).
+		</td>
+	</tr>
+	<tr>
+		<th>цвет1</th>
+		<td>Начальный цвет градиента в любых <a href="../../reference/units/colors/index.html">единицах для цвета</a>.</td>
+	</tr>
+	<tr>
+		<th>цвет2</th>
+		<td>Конечный цвет градиента в любых <a href="../../reference/units/colors/index.html">единицах для цвета</a>.</td>
+	</tr>
+	<tr>
+		<th>размер</th>
+		<td>
+			Задает протяженность определенного цвета градиента
+			в любых <a href="../../reference/units/sizes/index.html">единицах для размера</a>.
+		</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span>. Самый простой вариант</h2>
+<p>
+	Градиент будет выглядеть так: от <code data-gs="comd/u" data-x>0px</code>
+	до <code data-gs="comd/u" data-x>20px</code> чистый красный цвет, от <code data-gs="comd/u" data-x>20px</code>
+	до <code data-gs="comd/u" data-x>40px</code> - градиент от красного к голубому.
+	И так будет повторяться сверху вниз (на то
+	он и повторяющийся градиент):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: repeating-linear-gradient(red 20px, blue 40px);
+	width: 400px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: repeating-linear-gradient(red 20px, blue 40px);
+			width: 400px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Четкие цвета</h2>
+<p>
+	Градиент будет выглядеть так: от <code data-gs="comd/u" data-x>0px</code>
+	до <code data-gs="comd/u" data-x>20px</code> чистый красный цвет, от <code data-gs="comd/u" data-x>20px</code>
+	до <code data-gs="comd/u" data-x>40px</code> - чистый голубой (фишка в том, что
+	второй цвет начинается там, где заканчивается
+	первый). И так будет повторяться сверху вниз:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: repeating-linear-gradient(red 0px, red 20px, blue 20px, blue 40px);
+	width: 400px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: repeating-linear-gradient(red 0px, red 20px, blue 20px, blue 40px);
+			width: 400px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Сменим направление</h2>
+<p>
+	Сейчас направление градиента будет справа налево:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: repeating-linear-gradient(to left, red 0px, red 20px, blue 20px, blue 40px);
+	width: 400px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: repeating-linear-gradient(to left, red 0px, red 20px, blue 20px, blue 40px);
+			width: 400px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Направление в градусах</h2>
+<p>
+	В качестве направления зададим угол в градусах:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: repeating-linear-gradient(45deg, red 0px, red 2px, white 2px, white 10px);
+	width: 400px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: repeating-linear-gradient(45deg, red 0px, red 2px, white 2px, white 10px);
+			width: 400px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Отрицательное значение</h2>
+<p>
+	Сделаем направление отрицательным значением:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background: repeating-linear-gradient(-45deg, red 0px, red 2px, white 2px, white 10px);
+	width: 400px;
+	height: 200px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background: repeating-linear-gradient(-45deg, red 0px, red 2px, white 2px, white 10px);
+			width: 400px;
+			height: 200px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			функцию <a href="../repeating-radial-gradient/index.html"><code data-gs="comd/c" data-x>repeating-radial-gradient</code></a>, <br>
+			которая создает повторяющийся радиальный градиент
+		</li>
+		<li>
+			функцию <a href="../linear-gradient/index.html"><code data-gs="comd/c" data-x>linear-gradient</code></a>, <br>
+			которая создает линейный градиент
+		</li>
+		<li>
+			функцию <a href="../radial-gradient/index.html"><code data-gs="comd/c" data-x>radial-gradient</code></a>, <br>
+			которая создает радиальный градиент
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../radial-gradient/index.html" class="lesson-nav-btn lesson-nav-prev" title="radial-gradient">← radial-gradient</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../repeating-radial-gradient/index.html" class="lesson-nav-btn lesson-nav-next" title="repeating-radial-gradient">repeating-radial-gradient →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

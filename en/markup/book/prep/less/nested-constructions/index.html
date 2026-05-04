@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вложенные конструкции в LESS — acteck.off</title>
+  <meta name="description" content="Вложенные конструкции в LESS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Вложенные конструкции в LESS</h1>
+    <p>
+	В LESS можно вкладывать блоки кода друг в
+	друга, вот таким образом:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">#header {
+	.menu {
+		color: red;
+	}
+	.logo {
+		width: 100px;
+	}
+}</code>
+</div>
+<p>
+	В результате после компиляции вложенность
+	блоков преобразуется во вложенность соответствующих
+	селекторов:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#header .menu {
+	color: red;
+}
+#header .logo {
+	width: 100px;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.less">
+		<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
+	p {
+		color: red;
+	}
+	ul {
+		color: blue;
+	}
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.less">
+		<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
+	color: red;
+	p {
+		color: blue;
+	}
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.less">
+		<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
+	color: red;
+	
+	ul {
+		color: blue;
+		
+		li {
+			font-size: 20px;
+		}
+	}
+}</code>
+	</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../comments/index.html" class="lesson-nav-btn lesson-nav-prev" title="Комментарии">← Комментарии</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../selectors-grouping/index.html" class="lesson-nav-btn lesson-nav-next" title="Группировка селекторов">Группировка селекторов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

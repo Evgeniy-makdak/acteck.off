@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Использование компонентов в React — acteck.off</title>
+  <meta name="description" content="Использование компонентов в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Использование компонентов в React</h1>
+    <p>
+	Каждому подключенному компоненту соответствует
+	свой JSX тег. К примеру, у нас есть компонент
+	<code data-gs="comd/c" data-x>Product</code>, а значит ему соответствует
+	следующий тег:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;Product /&gt;</code>
+</div>
+<p>
+	Название тега компонента обязательно следует
+	писать с большой буквы, чтобы React мог отличить
+	вызов компонента от использования тега HTML.
+</p>
+<p>
+	Итак, давайте внутри компонента <code data-gs="comd/c" data-x>App</code>
+	используем компонент <code data-gs="comd/c" data-x>Product</code>, написав
+	соответствующий ему тег:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import React from 'react';
+import Product from './Product';
+
+function App() {
+	return &lt;div&gt;
+		&lt;Product /&gt;
+	&lt;/div&gt;;
+}
+
+export default App;</code>
+</div>
+<p>
+	В результате после рендиренга получится следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;p&gt;
+		product
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте компонент <code data-gs="comd/c" data-x>User</code>, который будет
+		выводить данные юзеров. Пусть сейчас этот
+		компонент просто выводит какой-нибудь текст.
+		Используйте этот компонент в компоненте <code data-gs="comd/c" data-x>App</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction в компоненты">← Introduction в компоненты</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../multiple-instances/index.html" class="lesson-nav-btn lesson-nav-next" title="Несколько экземляров компонента">Несколько экземляров компонента →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

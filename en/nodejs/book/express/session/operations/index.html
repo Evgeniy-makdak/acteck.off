@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Операции над сессиями в Express — acteck.off</title>
+  <meta name="description" content="Операции над сессиями в Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Операции над сессиями в Express</h1>
+    <p>
+	После установки и подключения библиотеки
+	<code data-gs="comd/c" data-x>express-session</code> вы сможете совершать
+	над сессиями различные операции. Это делается
+	с помощью объекта <code data-gs="comd/c" data-x>req.session</code>. Вы
+	можете записывать в него данные и прочитывать
+	их из него.
+</p>
+
+<h2>Запись сессий</h2>
+<p>
+	Давайте запишем что-нибудь в сессию:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	req.session.test = 'abcde';
+	res.send('hello world');
+});</code>
+</div>
+
+<h2>Чтение сессий</h2>
+<p>
+	Давайте прочитаем из сессии:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	let test = req.session.test;
+	console.log(test);
+	
+	res.send('hello world');
+});</code>
+</div>
+
+<h2>Удаление переменных сессий</h2>
+<p>
+	Для удаления переменной сессии используйте
+	команду <code data-gs="comd/c" data-x>delete</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	delete req.session.test;
+	res.send('hello world');
+});</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Сделайте три маршрута. По заходу на первый
+		маршрут запишите данные в сессию. По заходу
+		на второй - выведите их. А по заходу на третий
+		- удалите данные.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте один маршрут. По первому заходу
+		на этот маршрут установите запишите данные
+		в сессию, а по второму заходу - выведите
+		эти данные на экран.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

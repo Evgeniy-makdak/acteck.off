@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Опции при установке куки в Express — acteck.off</title>
+  <meta name="description" content="Опции при установке куки в Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Опции при установке куки в Express</h1>
+    <p>
+	При установке кук третьим параметром можно
+	передать объект с опциями:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">res.cookie('test', 'abcde', {});</code>
+</div>
+<p>
+	Давайте посмотрим, какие опции можно в нем
+	указать.
+</p>
+
+<h2>Опция domain</h2>
+<p>
+	Опция <code data-gs="comd/c" data-x>domain</code> управляет доменами, с
+	которыми связана кука. Это позволяет привязать
+	куку к конкретному поддомену.
+</p>
+<p>
+	Пример:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">res.cookie('test', 'abcde', {
+	domain: 'site.com',
+});</code>
+</div>
+
+<h2>Опция path</h2>
+<p>
+	Опция <code data-gs="comd/c" data-x>path</code> управляет урлами сайта,
+	для которых будет установлена кука.
+</p>
+<p>
+	К примеру, установим куку для страниц, урл
+	которых начинается с <code data-gs="comd/p" data-x>/test/</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">res.cookie('test', 'abcde', {
+	path: '/test/',
+});</code>
+</div>
+<p>
+	А теперь установим куку для всех страниц сайта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">res.cookie('test', 'abcde', {
+	path: '/',
+});</code>
+</div>
+
+<h2>Опция maxAge</h2>
+<p>
+	Опция <code data-gs="comd/c" data-x>maxAge</code> определяет сколько времени
+	(в миллисекундах) браузер должен хранить
+	куку до ее автоматического удаления. К примеру,
+	установим куку на один час:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">res.cookie('test', 'abcde', {
+	maxAge: 1000 * 60 * 60,
+});</code>
+</div>
+
+<h2>Опция secure</h2>
+<p>
+	Опция <code data-gs="comd/c" data-x>secure</code> указывает, что данная
+	кука будет отправляться только через защищенное
+	<code data-gs="comd/c" data-x>https</code> соединение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">res.cookie('test', 'abcde', {
+	secure: true,
+});</code>
+</div>
+
+<h2>Опция httpOnly</h2>
+<p>
+	Опция <code data-gs="comd/c" data-x>httpOnly</code> в значении <code data-gs="comd/c" data-x>true</code>
+	запрещает клиентскому JavaScript изменять
+	эту куку. Изменения могут быть инициированы
+	только сервером. Пример:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">res.cookie('test', 'abcde', {
+	httpOnly: true,
+});</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Установите куку для определенной папки сайта.
+		Проверьте, что на других адресах сайта эта
+		кука читаться не будет.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Установите какую-нибудь куку на месяц.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Установите какую-нибудь куку на год.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Установите какую-нибудь куку на <code data-gs="comd/n" data-x>10</code> лет.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

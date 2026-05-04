@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вставка записей через SQL запрос в NodeJS — acteck.off</title>
+  <meta name="description" content="Вставка записей через SQL запрос в NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Вставка записей через SQL запрос в NodeJS</h1>
+    <p>
+	Давайте теперь научимся добавлять новые записи
+	в таблицу. Это делается с помощью команды
+	<code data-gs="comd/q" data-x>INSERT INTO</code>. Она имеет следующий
+	синтаксис:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "INSERT INTO таблица (поле1, поле2...) VALUES (значение1, значение2...)";</code>
+</div>
+<p>
+	Давайте в нашу таблицу <code data-gs="comd/s" data-x>users</code> добавим
+	нового юзера. Обратите также внимание на то, что при вставке
+	не указывается столбец <code data-gs="comd/s" data-x>id</code> и его значение.
+	И это правильно, так как значение этого столбца
+	проставится базой автоматически:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "INSERT INTO users (name, age, salary) VALUES ('user', 30, 1000)";</code>
+</div>
+<p>
+	После успешного выполнения кода
+	выведется следующая
+	информация:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">ResultSetHeader {
+	fieldCount: 0,
+	affectedRows: 1,
+	insertId: 7,
+	info: '',
+	serverStatus: 2,
+	warningStatus: 0,
+	changedRows: 0
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Добавьте нового юзера <code data-gs="comd/s" data-x>'user7'</code>, <code data-gs="comd/n" data-x>26</code>
+		лет, зарплата <code data-gs="comd/n" data-x>300</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Добавьте нового юзера <code data-gs="comd/s" data-x>'user8'</code>, <code data-gs="comd/n" data-x>32</code>
+		лет, зарплата <code data-gs="comd/n" data-x>1100</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Добавьте нового юзера <code data-gs="comd/s" data-x>'user9'</code>, <code data-gs="comd/n" data-x>22</code>
+		лет, зарплата <code data-gs="comd/n" data-x>350</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

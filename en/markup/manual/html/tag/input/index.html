@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тег input — acteck.off</title>
+  <meta name="description" content="Тег input — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Тег input</h1>
+    <p>
+	Тег <code data-gs="comd/c" data-x>input</code> создает различные элементы
+	HTML формы: обычное поле ввода, поле для
+	ввода пароля, флажок checkbox (чекбокс),
+	радио кнопочки (radio), кнопку.
+</p>
+<p>
+	Тег <code data-gs="comd/c" data-x>input</code> должен лежать внутри тега
+	<a href="../form/index.html"><code data-gs="comd/c" data-x>form</code></a>.
+	Это не обязательно, необходимо для отправки
+	данных на сервер и последующей их обработки
+	через PHP.
+</p>
+<p>
+	Не требует закрывающего тега.
+</p>
+
+<h2>Атрибуты</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Атрибут</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>type</code></th>
+		<td>Задает тип поля ввода. Варианты см. ниже.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>value</code></th>
+		<td>
+			Значение по умолчанию в поле ввода. В случае с кнопкой задает ее текст.
+			Подробнее см. атрибут <a href="../../attr/value/index.html"><code data-gs="comd/c" data-x>value</code></a>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>placeholder</code></th>
+		<td>
+			Подсказка в поле ввода, подробнее см.
+			атрибут <a href="../../attr/placeholder/index.html"><code data-gs="comd/c" data-x>placeholder</code></a>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>name</code></th>
+		<td>
+			Имя поля ввода. Нужно для того, чтобы достать данные поля ввода в PHP.
+			Для корректной работы формы имена полей ввода не должны совпадать друг
+			с другом (в одной форме). Если они совпадают - в PHP придут данные
+			того поля ввода, которое ниже в HTML коде.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>disabled</code></th>
+		<td>
+			Блокирует элемент формы (не только input, а практически любой),
+			подробнее см. атрибут <a href="../../attr/disabled/index.html"><code data-gs="comd/c" data-x>disabled</code></a>.
+		</td>
+	</tr>
+</table>
+
+<h2>Значения атрибута type</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>text</code></th>
+		<td><input type="text"> Создает обычное текстовое поле ввода.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>password</code></th>
+		<td>
+			<input type="password"> Создает текстовое поле ввода для пароля.
+			Попробуйте вбить в него текст - он отобразится звездочками.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>checkbox</code></th>
+		<td>
+			<input type="checkbox"> Создает флажок чекбокс.
+			Подробнее см. <a href="checkbox/index.html"><code data-gs="comd/c" data-x>checkbox</code></a>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>radio</code></th>
+		<td>
+			<input type="radio"> Создает радио переключатель.
+			Подробнее см. <a href="radio/index.html"><code data-gs="comd/c" data-x>radio</code></a>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>hidden</code></th>
+		<td>
+			Создает скрытый инпут, который не будет виден на экране, но будет отправлять содержащиеся
+			в атрибуте <a href="../../attr/value/index.html"><code data-gs="comd/c" data-x>value</code></a> данные на сервер.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>button</code></th>
+		<td>
+			<input type="button" value="Текст кнопки"> Создает кнопку. Нажатие на эту кнопку
+			не будет отправлять форму на сервер. Она может быть использована внутри
+			<a href="../a/index.html">ссылки</a> или через <code data-gs="comd/c" data-x>JavaScript</code>.
+			По умолчанию кнопка не имеет текста (пример кнопки без текста: <input type="button">),
+			он задается с помощью <a href="../../attr/value/index.html"><code data-gs="comd/c" data-x>value</code></a>.
+			См. также тег <a href="../button/index.html"><code data-gs="comd/c" data-x>button</code></a>,
+			который также делает кнопку.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>submit</code></th>
+		<td>
+			<input type="submit"> Создает кнопку, которая будет отправлять данные на сервер.
+			Текст кнопки зависит от браузера, его можно сменить
+			с помощью <a href="../../attr/value/index.html"><code data-gs="comd/c" data-x>value</code></a>.
+			См. также тег <a href="../button/index.html"> button</a>,
+			который также делает кнопку.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>reset</code></th>
+		<td>
+			<input type="reset"> Создает кнопку, которая очищает заполненную форму.
+			Текст кнопки зависит от браузера, его можно сменить
+			с помощью <a href="../../attr/value/index.html"><code data-gs="comd/c" data-x>value</code></a>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>file</code></th>
+		<td>
+			<input type="file"> Создает кнопку выбора файла. Дизайн этой кнопки запрещено менять
+			через CSS (однако есть хитрые способы). Если вам требуется такое поле в форме, то
+			тег <a href="../form/index.html"><code data-gs="comd/c" data-x>form</code></a> должен иметь атрибут
+			<a href="../../attr/enctype/index.html"><code data-gs="comd/c" data-x>enctype</code></a> в значении <b>multipart/form-data</b>.
+		</td>
+	</tr>
+</table>
+
+<h2>Новые в HTML5 значения атрибута type</h2>
+<p>
+	Данные значения атрибута новые, появились
+	только в HTML5, поэтому в некоторых браузерах
+	они могут не работать или работать по-разному
+	в разных браузерах.
+</p>
+<p>
+	В случае, если браузер не может понять содержимое
+	атрибута <code data-gs="comd/c" data-x>type</code> (например, если оно
+	не поддерживается или ошибочно введено),
+	он будет считать элемент обычным текстовым
+	инпутом, как будто в в type стоит значение
+	<code data-gs="comd/v" data-x>text</code>.
+</p>
+<p>
+	<i>Посмотрите приведенные ниже примеры в
+	разных браузерах</i>. Попробуйте вводить
+	в инпуты текст и нажать на кнопку отправки.
+	Если текст некорректный или поле пустое -
+	браузер выдаст ошибку. К примеру, если в
+	поле с типом <code data-gs="comd/c" data-x>email</code> вбить некорректный
+	email - браузер не даст отправить форму и
+	выдаст сообщение об ошибке (текст ошибки
+	и ее внешний вид на html css менять нельзя).
+	Если поле пустое - браузер тоже выдаст ошибку,
+	это достигается с помощью атрибута <a href="../../attr/required/index.html"><code data-gs="comd/c" data-x>required</code></a>:
+</p>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>email</code></th>
+		<td><form><input type="email" name="test" required> <input type="submit"></form></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>number</code></th>
+		<td><form><input type="number" name="test" required> <input type="submit"></form></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>url</code></th>
+		<td><form><input type="url" name="test" required> <input type="submit"></form></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>tel</code></th>
+		<td><form><input type="tel" name="test" required> <input type="submit"></form></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>search</code></th>
+		<td><form><input type="search" name="test" required> <input type="submit"></form></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>color</code></th>
+		<td><form><input type="color" name="test" required> <input type="submit"></form></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>date</code></th>
+		<td><form><input type="date" name="test" required> <input type="submit"></form></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>month</code></th>
+		<td><form><input type="month" name="test" required> <input type="submit"></form></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>week</code></th>
+		<td><form><input type="week" name="test" required> <input type="submit"></form></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>datetime</code></th>
+		<td><form><input type="datetime" name="test" required> <input type="submit"></form></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>datetime-local</code></th>
+		<td><form><input type="datetime-local" name="test" required> <input type="submit"></form></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>range</code></th>
+		<td><form name="test"><input type="range" required> <input type="submit"></form></td>
+	</tr>
+</table>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			тег <a href="../textarea/index.html"><code data-gs="comd/c" data-x>textarea</code></a>, <br>
+			который создает многострочное поле ввода
+		</li>
+		<li>
+			атрибут <a href="../../attr/pattern/index.html"><code data-gs="comd/c" data-x>pattern</code></a>, <br>
+			который осуществляет валидацию полей
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../img/index.html" class="lesson-nav-btn lesson-nav-prev" title="img">← img</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../kbd/index.html" class="lesson-nav-btn lesson-nav-next" title="kbd">kbd →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

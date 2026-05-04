@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод split — acteck.off</title>
+  <meta name="description" content="Метод split — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод split</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>split</code> разбивает
+	строки в массив по указанному
+	в первом параметре разделителю.
+	Если он не задан - вернется вся
+	строка. Если он задан как пустые кавычки,
+	то каждый символ строки попадет в отдельный
+	элемент массива. Вторым необязательным
+	параметром можно указать максимальное
+	количество элементов в получившемся массиве.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">строка.split([разделитель], [максимальное количество элементов]);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть дана некоторая строка с дефисами. Давайте
+	разобьем эту строку в массив по разделителю
+	<code data-gs="comd/s" data-x>'-'</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'ab-cd-ef';
+let arr = str.split('-');
+
+console.log(arr);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['ab', 'cd', 'ef']</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте опять разобьем строку по разделителю
+	<code data-gs="comd/s" data-x>'-'</code>, однако вторым параметром укажем
+	максимальное количество элементов в получившемся
+	массиве, например, <code data-gs="comd/n" data-x>2</code>. В этом случае в
+	массив запишется только <code data-gs="comd/n" data-x>2</code> элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'ab-cd-ef';
+let arr = str.split('-', 2);
+
+console.log(arr);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['ab', 'cd']</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте каждый символ строки запишем в отдельный
+	элемент массива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'abcde';
+let arr = str.split('');
+
+console.log(arr);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['a', 'b', 'c', 'd', 'e']</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте первые <code data-gs="comd/n" data-x>3</code> символа строки запишем
+	в отдельные элементы массива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'abcde';
+let arr = str.split('', 3);
+
+console.log(arr);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['a', 'b', 'c']</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте с помощью <code data-gs="comd/c" data-x>split</code> разобьем
+	строку с числами. Обратите внимание на то,
+	что в результате получится массив строк,
+	а не массив чисел:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '12345';
+let arr = str.split('');
+
+console.log(arr);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['1', '2', '3', '4', '5']</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Применение</h2>
+<p>
+	Давайте перевернем символы строки в обратном
+	порядке. Для этого разобьем строку в массив
+	с помощью <code data-gs="comd/c" data-x>split</code> по разделителю <code data-gs="comd/s" data-x>''</code>
+	(это разместит каждый символ строки в отдельный
+	элемент массива), перевернем этот массив
+	с помощью <a href="../../array/reverse/index.html"><code data-gs="comd/c" data-x>reverse</code></a>
+	и затем сольем перевернутый массив обратно
+	с помощью <a href="../../array/join/index.html"><code data-gs="comd/c" data-x>join</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '123456789';
+let arr1 = str.split('');
+let arr2 = arr1.reverse();
+let res = arr2.join('');
+
+console.log(res);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'987654321'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Применение</h2>
+<p>
+	Упростим решение предыдущей задачи - сольем
+	все команды в цепочку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '123456789';
+let res = str.split('').reverse().join('');
+
+console.log(res);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'987654321'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Применение</h2>
+<p>
+	Дана строка с цифрами. Найдем сумму цифр
+	из этой строки. Для этого разобьем строку
+	в массив, а затем переберем этот массив и
+	найдем его сумму. Нас ждет подвох: <code data-gs="comd/c" data-x>split</code>
+	возвращает строки, поэтому при суммировании
+	преобразуем эти цифры-строки в настоящие
+	числа с помощью <code data-gs="comd/c" data-x>Number</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '12345';
+let arr = str.split('');
+let sum = 0;
+
+for (let i = 0; i &lt; arr.length; i++) {
+	sum += Number(arr[i]);
+}
+
+console.log(sum);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">15</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Применение</h2>
+<p>
+	Дано число. Давайте запишем каждую цифру
+	этого числа в отдельный элемент массива.
+	Тут есть подвох - <code data-gs="comd/c" data-x>split</code> применяется
+	только к строкам, а у нас число. Преобразуем
+	вначале число к строке с помощью <code data-gs="comd/c" data-x>String</code>,
+	а затем применим <code data-gs="comd/c" data-x>split</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 12345;
+let str = String(num);
+let arr = str.split('');
+
+console.log(arr);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['1', '2', '3', '4', '5']</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../../array/join/index.html"><code data-gs="comd/c" data-x>join</code></a>, <br>
+			который сливает элементы массива в строку
+		</li>
+		<li>
+			метод <a href="../../regular/split/index.html"><code data-gs="comd/c" data-x>split</code></a>, <br>
+			который разбивает строку по регулярке
+		</li>
+		<li>
+			метод <a href="../../array/reverse/index.html"><code data-gs="comd/c" data-x>reverse</code></a>, <br>
+			который изменяет порядок элементов в массиве на обратный
+		</li>
+		<li>
+			свойство <a href="../length/index.html"><code data-gs="comd/c" data-x>length</code></a>, <br>
+			которое позволяет узнать длину строки
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

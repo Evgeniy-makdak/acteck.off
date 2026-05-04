@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чекбоксы и условный рендеринг в React — acteck.off</title>
+  <meta name="description" content="Чекбоксы и условный рендеринг в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Чекбоксы и условный рендеринг в React</h1>
+    <p>
+	Давайте сделаем так, чтобы в зависимости
+	от отметки чекбокса, на экран выводился либо
+	один кусочек кода, либо другой. Используем
+	для этого условный рендеринг:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [checked, setChecked] = useState(true);
+	
+	let message;
+	if (checked) {
+		message = &lt;p&gt;сообщение 1&lt;/p&gt;;
+	} else {
+		message = &lt;p&gt;сообщение 2&lt;/p&gt;;
+	}
+	
+	return &lt;div&gt;
+		&lt;input type="checkbox" checked={checked} onChange={() =&gt; setChecked(!checked)} /&gt;
+		&lt;div&gt;{message}&lt;/div&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан чекбокс. С помощью чекбокса спросите
+		у пользователя, если ли ему уже <code data-gs="comd/n" data-x>18</code>
+		лет. Если чекбокс отмечен, покажите пользователю
+		следующий блок кода:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;div&gt;
+	&lt;h2&gt;Ура, вам уже есть 18&lt;/h2&gt;
+	&lt;p&gt;
+		здесь расположен контент только для взрослых
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+	</div>
+	<p>
+		А если чекбокс не отмечен - то следующий:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;div&gt;
+	&lt;p&gt;
+		увы, вам еще нет 18 лет:(
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан чекбокс и абзац. Если чекбокс отмечен,
+		пусть абзац будет видимым на экране, а если
+		не отмечен - спрячьте его.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

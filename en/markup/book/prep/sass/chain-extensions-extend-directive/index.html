@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Цепные расширения в @extend в SASS — acteck.off</title>
+  <meta name="description" content="Цепные расширения в @extend в SASS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Цепные расширения в @extend в SASS</h1>
+    <p>
+	Директива <code data-gs="comd/c" data-x>@extend</code> поддерживает также
+	цепное (последовательное) расширение, т. е.
+	селектор может расширяться другим селектором,
+	который, в свою очередь, расширяется третьим
+	селектором. Например:
+</p>
+<p>
+	Рассмотрим пример:
+</p>
+<div data-p="bock/pane" data-p-file="style.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">.warning {
+	border: 1px solid;
+	background-color: #ffd900;
+}
+.personalWarning {
+	@extend .warning;
+	border-width: 3px;
+}
+.systemWarning {
+	@extend .personalWarning;
+	position: center;
+}</code>
+</div>
+<p>
+	Как мы видим из результата компиляции
+	все элементы с классом <code data-gs="comd/z" data-x>.systemWarning</code>
+	имеют также стили классов <code data-gs="comd/z" data-x>.warning</code> и
+	<code data-gs="comd/z" data-x>.personalWarning</code>:
+</p>
+<div data-p="bock/pane" data-p-file="style.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.warning, .personalWarning, .systemWarning {
+	border: 1px solid;
+	background-color: #ffd900;
+}
+.personalWarning, .systemWarning {
+	border-width: 3px;
+}
+.systemWarning {
+	position: center;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">div {
+	font-size: 10px;
+	color: #181402;
+}
+
+.main-block {
+	@extend div;
+	border: 2px solid orange;
+}
+
+#warning-text {
+	@extend .main-block;
+	margin-top: 10px;
+}	 </code>
+	</div>
+</div>	
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">p {
+	padding: 10px;
+}
+
+.main-text {
+	font-weight: 800px;
+}
+
+.card {
+	@extend p;
+	color: #021338;
+}
+
+.product-card {
+	@extend .card, .main-text;
+	font-size: 12px;
+}</code>
+	</div>
+</div>	
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">p {
+	padding: 5px;
+}
+
+.main-text {
+	@extend p;
+	font-size: 14px;
+}
+
+.card {
+	@extend .main-text;
+	border: 1px solid black;
+}
+
+.product-card {
+	@extend .card;
+	background-color: #e1f1f1;
+}</code>
+	</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../multiple-extensions-extend-directive/index.html" class="lesson-nav-btn lesson-nav-prev" title="Множественные расширения при применении @extend">← Множественные расширения при применении @extend</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../selector-sequence-extend-directive/index.html" class="lesson-nav-btn lesson-nav-next" title="Последовательность селекторов в @extend">Последовательность селекторов в @extend →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

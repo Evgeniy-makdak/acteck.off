@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Установка Redux и RTK в React-приложение — acteck.off</title>
+  <meta name="description" content="Установка Redux и RTK в React-приложение — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Установка Redux и RTK в React-приложение</h1>
+    <p>
+	На этом занятии мы установим в наше
+	приложение пакет React-Redux, позволяющий
+	работать React компонентам в связке с Redux
+	и инструмент Redux Toolkit (сокращенно RTK).
+</p>
+<p>
+	Откроем наш проект и наберем в терминале
+	следующую команду:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install @reduxjs/toolkit react-redux</code>
+</div>
+<p>
+	Теперь нам необходимо создать хранилище
+	store, в котором будет хранится глобальное
+	состояние нашего приложения. Для начала в
+	папке <code data-gs="comd/p" data-x>src</code> мы создадим папку <code data-gs="comd/p" data-x>app</code>,
+	а в ней файл <code data-gs="comd/p" data-x>store.js</code>. Затем в этот
+	файл нам нужно импортировать <code data-gs="comd/c" data-x>configureStore</code>
+	из RTK:
+</p>
+<div data-p="bock/pane" data-p-file="app/store.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { configureStore } from '@reduxjs/toolkit'</code>
+</div>
+<p>
+	Далее создадим пустой store и передадим
+	хотя бы один reducer:
+</p>
+<div data-p="bock/pane" data-p-file="app/store.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default configureStore({
+	reducer: {}
+});</code>
+</div>
+<p>
+	Для того, чтобы наши React компоненты могли
+	работать со store, мы проделаем следующее.
+	Зайдем в наш файл <code data-gs="comd/p" data-x>main.jsx</code>, в котором
+	у нас уже содержится код:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+	&lt;React.StrictMode&gt;
+		&lt;App /&gt;
+	&lt;/React.StrictMode&gt;,
+)</code>
+</div>
+<p>
+	В импорт добавим строчки с созданным на
+	предыдущим шаге <code data-gs="comd/c" data-x>store</code> и компонентом
+	<code data-gs="comd/c" data-x>Provider</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import store from './app/store'
+import { Provider } from 'react-redux'</code>
+</div>
+<p>
+	Затем обернем наш главный компонент <code data-gs="comd/c" data-x>App</code> в
+	<code data-gs="comd/c" data-x>Provider</code>, а в качестве пропса передадим ему
+	<code data-gs="comd/c" data-x>store</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;React.StrictMode&gt;
+	&lt;Provider store={store}&gt;
+		&lt;App /&gt;
+	&lt;/Provider&gt;
+&lt;/React.StrictMode&gt;</code>
+</div>
+<p>
+	И, наконец, в главном React компоненте
+	<code data-gs="comd/c" data-x>App</code> разместим следующий код:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	return &lt;h2&gt;This is my first Redux app!&lt;/h2&gt;
+}
+
+export default App</code>
+</div>
+<p>
+	Запускаем снова наш проект и видим
+	в окне браузера: <code data-gs="comd/s" data-x>'This is my first Redux app!'</code>.
+	На предупреждение об отсутствии
+	валидного редьюсера пока не обращаем
+	внимание. У вас все получилось, поздравляю :).
+</p>
+<div data-w="cont/task">
+	<p>
+		Установите в вашем приложении Redux и RTK,
+		как описано в уроке. Убедитесь, что
+		ваше приложение работает.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../install-react/index.html" class="lesson-nav-btn lesson-nav-prev" title="Установка и подготовка React-приложения">← Установка и подготовка React-приложения</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../install-devtools/index.html" class="lesson-nav-btn lesson-nav-next" title="Установка Redux DevTools Extension">Установка Redux DevTools Extension →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

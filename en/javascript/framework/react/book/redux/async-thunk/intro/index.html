@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction в thunks в Redux — acteck.off</title>
+  <meta name="description" content="Introduction в thunks в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Introduction в thunks в Redux</h1>
+    <p>
+	В предыдущей главе мы организовали работу
+	сервера, базы данных и клиента для
+	обмена данными. Теперь нам необходимо
+	навести последний мостик, который поможет
+	нашему <code data-gs="comd/s" data-x>'синхронно'</code> организованному Redux
+	приложению взаимодействовать с асинхронным
+	клиентом, которого мы создали на последнем
+	уроке предыдущей главы, чтобы отправлять
+	запросы и получать необходимые данные в ответе.
+</p>
+<p>
+	Как мы помним из первых уроков предыдущего
+	раздела, Redux ничего не знает о работе с
+	асинхронной логикой и для этого мы будем
+	использовать thunk middleware. Этот middleware
+	позволяет работать с отправленными actions,
+	использовать в коде нашего thunk <code data-gs="comd/c" data-x>dispatch</code> и
+	<code data-gs="comd/c" data-x>getState</code> методы store, а также помогать
+	методу <code data-gs="comd/c" data-x>dispatch</code> работать не только с
+	обычными JS объектами, но и с такими сущностями,
+	как функции и промисы.
+</p>
+<p>
+	Обычно thunk-функция вызывается с двумя
+	аргументами <code data-gs="comd/c" data-x>dispatch</code> и <code data-gs="comd/c" data-x>getState</code>
+	(при необходимости), которыми можно пользоваться
+	в теле этой функции. С помощью нее можно
+	отправлять обычные экшены. Также
+	ее можно отправлять через <code data-gs="comd/c" data-x>store.dispatch</code>.
+	Пример такой функции приведен ниже:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const changeColorThunk = (dispatch, getState) =&gt; {
+	const colorBefore = getState()
+	console.log(`Old Color: ${colorBefore.color}`)
+	
+	dispatch(changeColor())
+	
+	const colorAfter = getState()
+	console.log(`New Color: ${colorAfter.color}`)
+}
+
+store.dispatch(changeColorThunk)</code>
+</div>
+<p>
+	Давайте теперь откроем наше приложение с
+	продуктами. Первое, что мы должны получить
+	от сервера при запуске приложения - это
+	список продуктов. Так как обычно thunks
+	пишутся в слайс-файлах, то мы откроем файл
+	<code data-gs="comd/p" data-x>productsSlice.js</code>.
+</p>
+<p>
+	Радостная новость заключается в том, что
+	нам не надо возиться с установкой Redux Thunk,
+	так как функция <code data-gs="comd/c" data-x>configureStore</code> из RTK
+	уже сделает это за нас. Поэтому просто добавим
+	<code data-gs="comd/c" data-x>createAsyncThunk</code> в импорт в файле:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { createSlice, nanoid, createAsyncThunk } from '@reduxjs/toolkit'</code>
+</div>
+<p>
+	Добавим также в импорт и наш клиент:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { client } from '../../api/client'</code>
+</div>
+<p>
+	А теперь при помощи <code data-gs="comd/c" data-x>createAsyncThunk</code>
+	создадим наш первый thunk для получения
+	продуктов, сделаем это сразу после
+	объявления объекта <code data-gs="comd/c" data-x>initialState</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const fetchProducts = createAsyncThunk()</code>
+</div>
+<p>
+	Первым параметром <code data-gs="comd/c" data-x>createAsyncThunk</code> будет
+	принимать строку для типа генерируемого
+	action, а вторым - колбэк-функцию для
+	<code data-gs="comd/c" data-x>payload</code>, которая в результате вернет
+	либо данные, либо промис с ошибкой (смотрите
+	файл <code data-gs="comd/p" data-x>client.js</code>). В коде функции мы
+	вызываем <code data-gs="comd/c" data-x>client.get</code> и передаем ему путь,
+	который мы указали на сервере (посмотрите
+	принимаемые параметры <code data-gs="comd/c" data-x>http.get</code> в
+	<code data-gs="comd/p" data-x>server.js</code>):
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const fetchProducts = createAsyncThunk(
+	'products/fetchProducts',
+	async () =&gt; {
+		const response = await client.get('/fakeServer/products')
+		return response.data
+	}
+)</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Откройте в нем файл <code data-gs="comd/p" data-x>studentsSlice.js</code>.
+		Импортируйте в него функцию <code data-gs="comd/c" data-x>createAsyncThunk</code>
+		для создания thunk, а также <code data-gs="comd/c" data-x>client</code> для
+		отправки API запросов на сервер.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сразу после объявления объекта <code data-gs="comd/c" data-x>initialState</code>
+		с помощью <code data-gs="comd/c" data-x>createAsyncThunk</code> создайте thunk
+		<code data-gs="comd/c" data-x>fetchStudents</code> для получения списка студентов,
+		который будет отправлять GET-запрос по
+		адресу <code data-gs="comd/p" data-x>/fakeServer/students</code>, указанный
+		у вас в файле <code data-gs="comd/p" data-x>server.js</code>, и возвращать
+		<code data-gs="comd/c" data-x>response.data</code>, как показано в материалах
+		урока. В качестве первого параметра для
+		<code data-gs="comd/c" data-x>createAsyncThunk</code> укажите строку
+		<code data-gs="comd/p" data-x>students/fetchStudents</code> для типа action.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../../server/client/index.html" class="lesson-nav-btn lesson-nav-prev" title="Клиент для приложения">← Клиент для приложения</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../create-async-thunk-advantage/index.html" class="lesson-nav-btn lesson-nav-next" title="Польза применения createAsyncThunk">Польза применения createAsyncThunk →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ссылка на удаление элемента на JavaScript — acteck.off</title>
+  <meta name="description" content="Ссылка на удаление элемента на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Ссылка на удаление элемента на JavaScript</h1>
+    <p>
+	Пусть у нас абзац. Давайте рядом с ним сделаем
+	ссылку, с помощью которой этот абзац можно
+	будет удалить.
+</p>
+<p>
+	Реализуем:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;p id="elem"&gt;text&lt;/p&gt;
+	&lt;a href="#" id="remove"&gt;remove&lt;/a&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem   = document.querySelector('#elem');
+let remove = document.querySelector('#remove');
+
+remove.addEventListener('click', function() {
+	elem.remove();
+});</code>
+</div>
+<p>
+	Обратите внимание на то, что в атрибуте href
+	ссылки стоит #. Если эту решетку убрать -
+	мы получим переход по ссылке и, как следствие,
+	обновление страницы.
+</p>
+<p>
+	На самом деле удаление абзаца тоже будет
+	происходить, но мы это не заметим, так как
+	страница обновится и все вернется в изначальное
+	положение.
+</p>
+<p>
+	Для решения проблемы нужно предотвратить
+	переход по ссылке с помощью <code data-gs="comd/c" data-x>preventDefault</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;p id="elem"&gt;text&lt;/p&gt;
+	&lt;a href="" id="remove"&gt;remove&lt;/a&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem   = document.querySelector('#elem');
+let remove = document.querySelector('#remove');
+
+remove.addEventListener('click', function(event) {
+	elem.remove();
+	event.preventDefault(); // отменяем переход по ссылке
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Самостоятельно, не подсматривая в мой код,
+		решите описанную задачу.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../new-elements-removing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Удаление новых элементов">← Удаление новых элементов</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../creating-removing-links/index.html" class="lesson-nav-btn lesson-nav-next" title="Создание ссылок на удаление">Создание ссылок на удаление →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Типы React компонентов в NextJS — acteck.off</title>
+  <meta name="description" content="Типы React компонентов в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Типы React компонентов в NextJS</h1>
+    <p>
+	В классическом React рендеринг происходит
+	на стороне клиента, что создает проблему с SEO.
+	Поэтому разработчики React решили сделать
+	так, чтобы React поддерживал не только
+	клиентский рендеринг, но и серверный.
+</p>
+<p>
+	Для этого в React ввели два типа компонентов:
+	клиентские (RCC) и серверные (RSC).
+</p>
+<p>
+	Серверные компоненты рендерятся на сервере
+	и результат рендеринга отправляется в браузер
+	в виде HTML кода. Клиентские компоненты рендерятся
+	прямо в браузере.
+</p>
+<p>
+	В серверных компонентах мы можем использовать JSX,
+	но не можем использовать хуки для работы с DOM (типа <code data-gs="comd/c" data-x>useState</code>),
+	а также обращение к тем командам JavaScript, которые
+	доступны только в браузере.
+	Взамен мы можем использовать NodeJS, например, чтобы читать
+	содержимое файлов, либо обращаться к базе данных.
+</p>
+<p>
+	Клиентские компоненты фактически это те компоненты,
+	к которым мы привыкли при изучении React.
+	В них мы можем использовать и JSX,
+	и хуки для работы с DOM.
+</p>
+<p>
+	Чтобы объявить компонент клиентским,
+	в начале файла компонента нужно написать
+	специальную директиву <code data-gs="comd/c" data-x>'use client'</code>.
+	Вот пример кода клиентского компонента:
+</p>
+<div data-p="bock/pane" data-p-file="test.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">'use client';
+
+import { useState } from 'react';
+
+export default function Test() {
+	let [name, setName] = useState('user');
+	
+	return (
+		&lt;div&gt;
+			&lt;p&gt;hello, {name}!&lt;/p&gt;
+		&lt;/div&gt;
+	);
+}</code>
+</div>
+<p>
+	Чтобы объявить компонент серверным,
+	в начале файла компонента нужно написать
+	специальную директиву <code data-gs="comd/c" data-x>'use server'</code>.
+	Вот пример кода серверного компонента:
+</p>
+<div data-p="bock/pane" data-p-file="test.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">'use server';
+
+export default function Test() {
+	let name = 'user';
+	
+	return (
+		&lt;div&gt;
+			&lt;p&gt;hello, {name}!&lt;/p&gt;
+		&lt;/div&gt;
+	);
+}</code>
+</div>
+<p>
+	NextJS поддерживает оба типа компонентов.
+	По умолчанию все компоненты серверные
+	и директиву <code data-gs="comd/c" data-x>'use server'</code> в них
+	можно не писать.
+</p>
+<p>
+	Изучение NextJS мы начнем с серверных
+	компонентов. А затем добавим клиентские.
+</p>
+<div data-w="cont/task">
+	<p>
+		Что такое RCC в React?
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Что такое RSC в React?
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Как в React объявить клиентский компонент?
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Как в React объявить серверный компонент?
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Будет ли в серверном компоненте работать
+		хук <code data-gs="comd/c" data-x>useState</code>?
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Будет ли в серверном компоненте работать
+		JavaScript метод <code data-gs="comd/c" data-x>querySelector</code>?
+	</p>
+</div>
+        <div class="lesson-nav">
+      <a href="../rendering-types/index.html" class="lesson-nav-btn lesson-nav-prev" title="Типы рендеринга">← Типы рендеринга</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../javascript-dialect/index.html" class="lesson-nav-btn lesson-nav-next" title="Диалект JavaScript">Диалект JavaScript →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

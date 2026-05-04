@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Работа с checkbox в React — acteck.off</title>
+  <meta name="description" content="Работа с checkbox в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Работа с checkbox в React</h1>
+    <p>
+	Работа с <a href="../../../../../../markup/manual/html/tag/input/checkbox/index.html"><code data-gs="comd/c" data-x>checkbox</code></a>
+	также осуществляется по схожему принципу,
+	только вместо атрибута <code data-gs="comd/c" data-x>value</code> мы указываем
+	атрибут <code data-gs="comd/c" data-x>checked</code>. Если в этот атрибут передать
+	<code data-gs="comd/c" data-x>true</code> - то чекбокс будет отмечен, а если <code data-gs="comd/c" data-x>false</code>
+	- не будет отмечен:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	return &lt;div&gt;
+		&lt;input type="checkbox" checked={true}  /&gt; отмечен
+		&lt;input type="checkbox" checked={false} /&gt; не отмечен
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Обычно в атрибут <code data-gs="comd/c" data-x>checked</code> передается стейт,
+	содержащий логическое значение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [checked, setChecked] = useState(true);
+	
+	return &lt;div&gt;
+		&lt;input type="checkbox" checked={checked} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Так же, как и при работе с инпутами, если
+	жестко задать значение атрибута <code data-gs="comd/c" data-x>checked</code>
+	- состояние чекбокса нельзя будет сменить.
+	Для корректной работы будем по изменению
+	чекбокса менять его стейт на противоположное
+	ему значение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [checked, setChecked] = useState(true);
+	
+	function handleChange() {
+		setChecked(!checked); // инвертируем стейт
+	}
+	
+	return &lt;div&gt;
+		&lt;input type="checkbox" checked={checked} onChange={handleChange} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Можем упростить:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [checked, setChecked] = useState(true);
+	
+	return &lt;div&gt;
+		&lt;input type="checkbox" checked={checked} onChange={() =&gt; setChecked(!checked)} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Давайте выведем состояние чекбокса в абзац,
+	используя тернарный оператор:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [checked, setChecked] = useState(true);
+	
+	return &lt;div&gt;
+		&lt;input type="checkbox" checked={checked} onChange={() =&gt; setChecked(!checked)} /&gt;
+		&lt;p&gt;состояние: {checked ? 'отмечен' : 'не отмечен'}&lt;/p&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан чекбокс, кнопка и абзац. По клику на
+		кнопку, если чекбокс отмечен, выведите в
+		абзац текст приветствия с пользователем,
+		а если не отмечен - текст прощания.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		С помощью трех чекбоксов попросите пользователя
+		выбрать языки, которые он знает: html, css
+		и js. Результат выбора по каждому языку выводите
+		в отдельные абзацы.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

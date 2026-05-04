@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карманы в методе replace в регулярках JavaScript — acteck.off</title>
+  <meta name="description" content="Карманы в методе replace в регулярках JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Карманы в методе replace в регулярках JavaScript</h1>
+    <p>
+	При работе с методом <code data-gs="comd/c" data-x>replace</code>, если
+	мы что-то положим в карман в регулярке, то
+	в строке замены мы можем вставить содержимое
+	этого кармана написав знак доллара <code data-gs="comd/c" data-x>$</code>
+	и номер кармана. Например, <code data-gs="comd/c" data-x></code> - первый
+	карман, <code data-gs="comd/c" data-x></code> - второй карман и так далее.
+</p>
+<p>
+	Зачем это нужно и как этим пользоваться давайте
+	посмотрим на примерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем все числа и вместо них вставим
+	эти же числа, но в круглых скобках. Для этого
+	все найденные числа мы будем заменять на
+	них самих же, но в скобках:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '1 23 456 xax';
+let res = str.replace(/(\d+)/g, '($1)');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'(1) (23) (456) xax'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем все строки, представляющие
+	собой числа с иксами вокруг и заменим эти
+	числа на них же, но с <code data-gs="comd/s" data-x>'!'</code> знаками вокруг:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'x1x x23x x456x xax';
+let res = str.replace(/x(\d+)x/g, '!$1!');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'!1! !23! !456! xax'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте решим следующую задачу: даны строки
+	вида <code data-gs="comd/s" data-x>'aaa@bbb'</code> - буквы, потом собака,
+	потом буквы. Нужно поменять местами буквы
+	до @ и после.
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aaa@bbb ccc@ddd';
+let res = str.replace(/([a-z]+)@([a-z]+)/g, '$2@$1');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'bbb@aaa ddd@ccc'</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '12 34 56 78';</code>
+	</div>
+	<p>
+		Поменяйте местами цифры во всех двухзначных
+		числах.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана строка с датой:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '31.12.2025';</code>
+	</div>
+	<p>
+		Преобразуйте эту дату в <code data-gs="comd/s" data-x>'2025.12.31'</code>.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../lastIndex-property/index.html" class="lesson-nav-btn lesson-nav-prev" title="Свойство lastIndex">← Свойство lastIndex</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../replace-method-callback/index.html" class="lesson-nav-btn lesson-nav-next" title="Коллбэк в методе replace">Коллбэк в методе replace →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

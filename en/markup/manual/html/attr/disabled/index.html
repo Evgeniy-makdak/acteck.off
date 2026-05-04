@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Атрибут disabled — acteck.off</title>
+  <meta name="description" content="Атрибут disabled — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Атрибут disabled</h1>
+    <p>
+	Атрибут <code data-gs="comd/c" data-x>disabled</code> блокирует элемент
+	HTML <a href="../../tag/form/index.html">формы</a>,
+	то есть делает его неактивным. Является атрибутом
+	без значения.
+</p>
+<p>
+	Блокировка элементов обычно нужна для того,
+	чтобы запретить пользователю менять некоторые
+	значения (которые, тем не менее, должны быть
+	показаны пользователю в виде элементов формы).
+	Иногда элементы блокируют (и снимают блокировку)
+	с помощью JavaSctipt.
+</p>
+
+<h2>Поведение</h2>
+<p>
+	В случае кнопки (<a href="../../tag/button/index.html"><code data-gs="comd/c" data-x>button</code></a>
+	или <a href="../../tag/input/index.html"><code data-gs="comd/c" data-x>input</code></a>
+	с атрибутом <code data-gs="comd/c" data-x>type</code> в значениях <code data-gs="comd/c" data-x>button</code>,
+	<code data-gs="comd/c" data-x>reset</code> или <code data-gs="comd/c" data-x>submit</code>) блокировка
+	означает, что на кнопку нельзя будет нажать.
+	В случае с текстовым полем ввода (<a href="../../tag/input/index.html"><code data-gs="comd/c" data-x>input</code></a>
+	или <a href="../../tag/textarea/index.html"><code data-gs="comd/c" data-x>textarea</code></a>)
+	в нем нельзя будет поменять или скопировать
+	текст. В случае с <a href="../../tag/input/checkbox/index.html">чекбоксами</a>
+	и <a href="../../tag/input/radio/index.html">радио</a>
+	их состояние (отмечено или нет) нельзя будет
+	сменить. В случае с выпадающими списками
+	<a href="../../tag/select/index.html"><code data-gs="comd/c" data-x>select</code></a>
+	нельзя будет сменить выбранный пункт списка.
+</p>
+<p>
+	Заблокированный элемент по умолчанию имеет
+	серый фон. Он также не будет участвовать
+	в <a href="../tabindex/index.html">переходах
+	клавишей Tab</a>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Заблокированная кнопка</h2>
+<p>
+	Давайте заблокируем кнопку с помощью атрибута
+	<code data-gs="comd/c" data-x>disabled</code>. Для сравнения рядом пример
+	незаблокированной кнопки (попробуем на нее
+	нажать):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button disabled&gt;text&lt;/button&gt;
+&lt;button&gt;text&lt;/button&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<button disabled>text</button>
+		<button>text</button>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Заблокированный чекбокс</h2>
+<p>
+	А теперь давайте посмотрим на заблокированный
+	<a href="../../tag/input/checkbox/index.html">флажок
+	чекбокса</a>. Для сравнения рядом смотрим
+	пример не заблокированного флажка:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="checkbox" disabled&gt;
+&lt;input type="checkbox"&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type=&quot;checkbox&quot; disabled>
+		<input type=&quot;checkbox&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Заблокированный и отмеченный чекбокс</h2>
+<p>
+	Давайте посмотрим, как выглядит заблокированный
+	и отмеченный с помощью атрибута <a href="../checked/index.html"><code data-gs="comd/c" data-x>checked</code></a>
+	флажок чекбокс. Для сравнения рядом
+	обратимся к примеру не заблокированного
+	отмеченного флажка:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="checkbox" disabled checked&gt;
+&lt;input type="checkbox" checked&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type=&quot;checkbox&quot; disabled checked>
+		<input type=&quot;checkbox&quot; checked>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Заблокированный текстовый инпут</h2>
+<p>
+	А теперь давайте заблокируем <a href="../../tag/input/index.html">инпут</a>.
+	Для сравнения рядом посмотрим пример не заблокированного
+	инпута:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="text" value="text" disabled&gt;
+&lt;input type="text" value="text"&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type=&quot;text&quot; value=&quot;text&quot; disabled>
+		<input type=&quot;text&quot; value=&quot;text&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Заблокированный текстареа</h2>
+<p>
+	А здесь мы увидим заблокированный <a href="../../tag/textarea/index.html">текстареа</a>
+	(обратите внимание на то, что размер заблокированного
+	textarea можно менять). Для сравнения рядом
+	обратимся к примеру не заблокированного текстареа:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;textarea disabled&gt;text&lt;/textarea&gt;
+&lt;textarea&gt;text&lt;/textarea&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<textarea disabled>text</textarea>
+		<textarea>text</textarea>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Заблокированный выпадающий список</h2>
+<p>
+	Давайте посмотрим как работает заблокированный
+	<a href="../../tag/select/index.html"><code data-gs="comd/c" data-x>select</code></a>.
+	Для сравнения рядом посмотрим пример не заблокированного
+	выпадающего списка:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;select disabled&gt;
+	&lt;option&gt;city1&lt;/option&gt;
+	&lt;option selected&gt;city2&lt;/option&gt;
+	&lt;option&gt;city3&lt;/option&gt;
+	&lt;option&gt;city4&lt;/option&gt;
+&lt;/select&gt;
+&lt;select&gt;
+	&lt;option&gt;city1&lt;/option&gt;
+	&lt;option selected&gt;city2&lt;/option&gt;
+	&lt;option&gt;city3&lt;/option&gt;
+	&lt;option&gt;city4&lt;/option&gt;
+&lt;/select&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<select disabled>
+			<option>city1</option>
+			<option selected>city2</option>
+			<option>city3</option>
+			<option>city4</option>
+		</select>
+		<select>
+			<option>city1</option>
+			<option selected>city2</option>
+			<option>city3</option>
+			<option>city4</option>
+		</select>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			псевдокласс <a href="../../../css/pseudoclass/disabled/index.html"><code data-gs="comd/c" data-x>disabled</code></a>, <br>
+			который задает стили заблокированному элементу
+		</li>
+		<li>
+			псевдокласс <a href="../../../css/pseudoclass/enabled/index.html"><code data-gs="comd/c" data-x>enabled</code></a>, <br>
+			который задает стили незаблокированному элементу
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../dir/index.html" class="lesson-nav-btn lesson-nav-prev" title="dir">← dir</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../enctype/index.html" class="lesson-nav-btn lesson-nav-next" title="enctype">enctype →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

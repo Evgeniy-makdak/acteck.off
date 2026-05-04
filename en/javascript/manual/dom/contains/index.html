@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод contains — acteck.off</title>
+  <meta name="description" content="Метод contains — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод contains</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>contains</code> позволяет проверить,
+	содержит ли один элемент внутри себя другой.
+	Параметром метода передается элемент, который
+	будет проверяться на то, что он находится
+	внутри элемента, к которому применился метод.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">родитель.contains(элемент);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Проверим, находится ли абзац <code data-gs="comd/c" data-x>#child</code>
+	в блоке <code data-gs="comd/z" data-x>#parent</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;p id="child"&gt;&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let parent = document.querySelector('#parent');
+let child = document.querySelector('#child');
+
+let contains = parent.contains(child);
+console.log(contains);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">true</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь в родителе нет переданного элемента
+	и поэтому метод возвращает <code data-gs="comd/c" data-x>false</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;&lt;/div&gt;
+&lt;p id="child"&gt;&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let parent = document.querySelector('#parent');
+let child = document.querySelector('#child');
+
+let contains = parent.contains(child);
+console.log(contains);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">false</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Можно передать тот же элемент, на котором
+	метод был вызван, в этом случае метод также
+	вернет <code data-gs="comd/c" data-x>true</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let parent = document.querySelector('#parent');
+let contains = parent.contains(parent);
+
+console.log(contains);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">true</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../matches/index.html"><code data-gs="comd/c" data-x>matches</code></a>, <br>
+			который проверяет элемент по селектору
+		</li>
+		<li>
+			метод <a href="../closest/index.html"><code data-gs="comd/c" data-x>closest</code></a>, <br>
+			который находит родителя по селектору
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

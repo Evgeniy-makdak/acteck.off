@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Перебор группы тегов в Vue — acteck.off</title>
+  <meta name="description" content="Перебор группы тегов в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/vue/book/prime/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
+    </div>
+
+    <h1>Перебор группы тегов в Vue</h1>
+    <p>
+	 Иногда нам нужно формировать в цикле
+	 сразу на группу тегов. В этом
+	 случае мы можем объединить их
+	 общим родителем и применить
+	 цикл к нему:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;div v-for="elem in arr"&gt;
+		&lt;p&gt;{{ elem }}&lt;/p&gt;
+		&lt;hr&gt;
+	&lt;/div&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	 Иногда нам не хотелось бы объединять теги
+	 общим родителем. В этом случае
+	 их можно объединить тегом
+	 <code data-gs="comd/c" data-x>template</code>, применив цикл
+	 к этому тегу. Этот тег объединяет
+	 другие теги, но не попадает
+	 в итоговую верстку.
+	 Давайте попробуем:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;template v-for="elem in arr"&gt;
+		&lt;p&gt;{{ elem }}&lt;/p&gt;
+		&lt;hr&gt;
+	&lt;/template&gt;
+&lt;/template&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		items: [1, 2, 3],
+	}
+}</code>
+	</div>
+	<p>
+		Сформируйте с помощью этого
+		массива следующую верстку:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;p&gt;1&lt;/p&gt;
+	&lt;p class="divider"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+	&lt;p&gt;2&lt;/p&gt;
+	&lt;p class="divider"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+	&lt;p&gt;3&lt;/p&gt;
+	&lt;p class="divider"&gt;&lt;/p&gt;
+&lt;/div&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		items: [1, 2, 3],
+	}
+}</code>
+	</div>
+	<p>
+		Сформируйте с помощью этого
+		массива следующую верстку:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;1&lt;/li&gt;
+	&lt;li class="divider"&gt;&lt;/li&gt;
+	&lt;li&gt;2&lt;/li&gt;
+	&lt;li class="divider"&gt;&lt;/li&gt;
+	&lt;li&gt;3&lt;/li&gt;
+	&lt;li class="divider"&gt;&lt;/li&gt;
+&lt;/ul&gt;</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

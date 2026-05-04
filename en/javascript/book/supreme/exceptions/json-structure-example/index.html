@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пример исключения с JSON в JavaScript — acteck.off</title>
+  <meta name="description" content="Пример исключения с JSON в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Пример исключения с JSON в JavaScript</h1>
+    <p>
+	Пусть к нам откуда-то из внешнего мира приходит
+	JSON с продуктом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = '{"product": "apple", "price": 1000, "amount": 5}';
+let product = JSON.parse(json);
+alert(product.price * product.amount);</code>
+</div>
+<p>
+	Вы уже знаете, что метод <code data-gs="comd/c" data-x>JSON.parse</code> будет
+	выбрасывать исключение, если JSON некорректный.
+	Давайте поймаем это исключение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
+	let json = '{"product": "apple", "price": 1000, "amount": 5}';
+	let product = JSON.parse(json);
+	alert(product.price * product.amount);
+} catch (error) {
+	// как-то реагируем на исключение
+}</code>
+</div>
+<p>
+	Однако, может быть такое, что сам по себе
+	JSON корректный, но не содержит нужных нам
+	полей, например, нет поля с ценой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = '{"product": "apple", "amount": 5}'; // нет цены</code>
+</div>
+<p>
+	Давайте скажем, что это тоже исключительная
+	ситуация и будем в таком случае выбрасывать
+	свое пользовательское исключение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
+	let json = '{"product": "apple", "amount": 5}';
+	let product = JSON.parse(json);
+	
+	if (product.price !== undefined && product.amount !== undefined) {
+		alert(product.price * product.amount);
+	} else {
+		throw {
+			name: 'ProductCostError',
+			message: 'отсутствует цена или количество у продукта'
+		};
+	}
+} catch (error) {
+	// как-то реагируем на исключение
+}</code>
+</div>
+<p>
+	Теперь блок <code data-gs="comd/c" data-x>catch</code> будет получать два типа
+	исключений: либо JSON вообще некорректен,
+	и тогда будет исключение типа <code data-gs="comd/c" data-x>SyntaxError</code>,
+	либо JSON корректен, но не содержит нужных
+	нам полей, и тогда будет исключение типа
+	<code data-gs="comd/c" data-x>ProductCostError</code>.
+</p>
+<p>
+	Давайте в блоке <code data-gs="comd/c" data-x>catch</code> будем отлавливать эти
+	типы исключений:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
+	let json = '{"product": "apple", "amount": 5}';
+	let product = JSON.parse(json);
+	
+	if (product.price !== undefined && product.amount !== undefined) {
+		alert(product.price * product.amount);
+	} else {
+		throw {
+			name: 'ProductCostError',
+			message: 'отсутствует цена или количество у продукта'
+		};
+	}
+} catch (error) {
+	if (error.name == 'SyntaxError') {
+		alert('Некорректный JSON продукта');
+	} else if (error.name == 'ProductCostError') {
+		alert('У продукта отсутствует цена или количество');
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть к вам приходит JSON вот такого вида:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = `[
+	{
+		"name": "user1",
+		"age": 25,
+		"salary": 1000
+	},
+	{
+		"name": "user2",
+		"age": 26,
+		"salary": 2000
+	},
+	{
+		"name": "user3",
+		"age": 27,
+		"salary": 3000
+	}
+]`;</code>
+	</div>
+	<p>
+		Проверьте этот JSON на общую корректность
+		при разборе, а после разбора проверьте, что
+		в результате получается массив, а не что-то
+		другое. Если в результате получается не массив
+		- выбросите исключение.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../data-attr-example/index.html" class="lesson-nav-btn lesson-nav-prev" title="Пример исключения с data- атрибутами">← Пример исключения с data- атрибутами</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../probing/index.html" class="lesson-nav-btn lesson-nav-next" title="Проброс исключений">Проброс исключений →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

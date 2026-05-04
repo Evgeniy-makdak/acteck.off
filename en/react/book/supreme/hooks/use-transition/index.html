@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Хук оптимизации производительности useTransition в React — acteck.off</title>
+  <meta name="description" content="Хук оптимизации производительности useTransition в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Хук оптимизации производительности useTransition в React</h1>
+    <p>
+	Хук оптимизации производительности
+	<code data-gs="comd/c" data-x>useTransition</code> позволяет нам
+	обновлять стейты без блокировки
+	графического интерфейса.
+</p>
+<p>
+	С помощью данного хука мы можем 
+	задать обновлению какого-нибудь стейта
+	низкий приоритет, что позволит обновлению
+	других стейтов иметь высокий приоритет
+	и выполняться без задержек.
+</p>
+<p>
+	В качестве примера можно привести фильтрацию
+	выпадающего списка товаров при
+	введении пользователем символов в поле
+	поиска. Конечно, сам список может отображаться
+	с какой-то задержкой, но нам бы не хотелось,
+	чтобы символы вводились в поле поиска с
+	задержкой.
+</p>
+<p>
+	Давайте посмотрим, как в таких случаях
+	нам может помочь хук <code data-gs="comd/c" data-x>useTransition</code>.
+	Предположим, у нас есть кусок кода основного
+	комопонента. Давайте его проанализируем:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useTransition } from 'react';
+import { useState } from 'react';
+
+function App() {
+	const [isPending, startTransition] = useTransition();
+	const [filterTerm, setFilterTerm] = useState('');
+  
+	const filteredProducts = filterProducts(filterTerm);
+  
+	function updateFilterHandler(event) {
+		startTransition(() =&gt; {
+			setFilterTerm(event.target.value);
+		});
+	}
+ 
+	return (
+		&lt;div&gt;
+			&lt;input type="text" onChange={updateFilterHandler} /&gt;
+			&lt;ProductList products={filteredProducts} /&gt;
+		&lt;/div&gt;
+	);
+}</code>
+</div>
+<p>
+	Здесь мы видим две переменные для
+	<code data-gs="comd/c" data-x>useTransition</code>. Переменная <code data-gs="comd/c" data-x>isPending</code>
+	содержит булево значение и показывает
+	закончен ли процесс обновления, а
+	<code data-gs="comd/c" data-x>startTransition</code> функцию, которая 
+	и позволяет снизить приоритет обновления:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [isPending, startTransition] = useTransition();</code>
+</div>
+<p>
+	Также у нас есть стейт <code data-gs="comd/c" data-x>filterTerm</code>,
+	в котором хранится вводимое в
+	поле ввода выражение и функция
+	<code data-gs="comd/c" data-x>setFilterTerm</code> для его установки:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [filterTerm, setFilterTerm] = useState('');</code>
+</div>
+<p>
+	При вводе символов в инпут у нас каждый
+	раз вызывается функция <code data-gs="comd/c" data-x>updateFilterHandler</code>,
+	в которой происходит обновление
+	<code data-gs="comd/c" data-x>filterTerm</code>. Именно здесь мы применяем
+	наш хук <code data-gs="comd/c" data-x>useTransition</code>, оборачивая функцию
+	установки <code data-gs="comd/c" data-x>setFilterTerm</code>
+	в <code data-gs="comd/c" data-x>startTransition</code> следующим образом:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function updateFilterHandler(event) {
+	startTransition(() =&gt; {
+		setFilterTerm(event.target.value);
+	});
+}</code>
+</div>
+<p>
+	Таким образом, мы установили для
+	обновления стейта <code data-gs="comd/c" data-x>filterTerm</code> низкий
+	приоритет и наше поле ввода останется
+	отзывчивым.
+</p>
+<p>
+	При помощи переменной <code data-gs="comd/c" data-x>isPending</code> мы
+	можем показать пользователю, что обновление
+	списка еще в процессе. Выведем эту информацию
+	под полем ввода, пока список обновляется:
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
+	&lt;div&gt;
+		&lt;input type="text" onChange={updateFilterHandler} /&gt;
+		{isPending && &lt;p&gt;updating ...&lt;/p&gt;}
+		&lt;ProductList products={filteredProducts} /&gt;
+	&lt;/div&gt;
+);</code>
+</div>
+    <div class="lesson-nav">
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приоритет селекторов потомков в CSS — acteck.off</title>
+  <meta name="description" content="Приоритет селекторов потомков в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Приоритет селекторов потомков в CSS</h1>
+    <p>
+	Во всех предыдущих уроках все селекторы
+	должны были ловить сам элемент. Может быть такое,
+	что один селектор ловит элемент, а второй
+	селектор ловит родителя этого элемента.
+</p>
+<p>
+	Вы уже знаете, что если родителю задан, например,
+	цвет, то этот цвет будет наследоваться потомком.
+	Но, если потомку также задан цвет, то селектор
+	потомка будет иметь больший приоритет, чем
+	селектор родителя.
+</p>
+<p>
+	Это значит, что селектор тега потомка побеждает
+	класс родителя:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="block"&gt;
+	&lt;p&gt;text&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.block {
+	color: red;
+}
+p {
+	color: green; /* применится этот цвет */
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.block {
+			color: red;
+		}
+		p {
+			color: green; /* применится этот цвет */
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;block&quot;>
+			<p>text</p>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Селектор тега потомка также побеждает идентификатор
+	родителя:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;p class="text"&gt;text&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block {
+	color: red;
+}
+.text {
+	color: green; /* применится этот цвет */
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#block {
+			color: red;
+		}
+		.text {
+			color: green; /* применится этот цвет */
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;block&quot;>
+			<p class=&quot;text&quot;>text</p>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+    <div class="lesson-nav">
+      <a href="../specificity-rules/index.html" class="lesson-nav-btn lesson-nav-prev" title="Правила специфичности">← Правила специфичности</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../adjacent-sibling-selector/index.html" class="lesson-nav-btn lesson-nav-next" title="Соседний селектор">Соседний селектор →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

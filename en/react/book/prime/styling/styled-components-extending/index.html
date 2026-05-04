@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Расширенная стилизация компонентов в React — acteck.off</title>
+  <meta name="description" content="Расширенная стилизация компонентов в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Расширенная стилизация компонентов в React</h1>
+    <p>
+	Предположим у нас есть React компонент
+	<code data-gs="comd/c" data-x>Block</code> и мы создали в нем стилизованные
+	при помощи Styled Components компоненты 
+	<code data-gs="comd/c" data-x>Button</code> и <code data-gs="comd/c" data-x>Container</code>:
+</p>
+<div data-p="bock/pane" data-p-file="Block.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 150px;
+`;
+
+const Button = styled.input`
+	background-color: orange;
+	font-size: 18px;
+	margin: 5px;
+`;</code>
+</div>
+<p>
+	А теперь представим, что нам нужен еще один
+	компонент <code data-gs="comd/c" data-x>Button</code>, только с 
+	белым текстом кнопки и зеленым фоном.
+</p>
+<p>
+	Для этого нам достаточно на базе нашего
+	компонента <code data-gs="comd/c" data-x>Button</code> создать новый 
+	компонент <code data-gs="comd/c" data-x>MdButton</code> и прописать в нем
+	только те свойства, которые мы хотим изменить:
+</p>
+<div data-p="bock/pane" data-p-file="Block.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const MdButton = styled(Button)`
+	color: white;
+	background-color: green;
+`;</code>
+</div>
+<p>
+	Расположим в <code data-gs="comd/c" data-x>Block</code> все наши
+	стилизованные компоненты:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Block() {
+	return (
+		&lt;Container&gt;
+			&lt;Button&gt;btn0&lt;/Button&gt;
+			&lt;MdButton&gt;btn1&lt;/MdButton&gt;
+		&lt;/Container&gt;
+	);
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте пустой React компонент <code data-gs="comd/c" data-x>Block1</code>.
+		С помощью Styled Components создайте
+		в нем стилизованный див шириной и высотой
+		в <code data-gs="comd/u" data-x>150px</code>, желтым фоном,
+		и шириной границы <code data-gs="comd/u" data-x>2px</code>,
+		назовите его <code data-gs="comd/c" data-x>DIVA</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		На базе дива из предыдущей задачи создайте
+		такой же див <code data-gs="comd/c" data-x>DIVB</code>, только с зеленым
+		фоном и шириной границы в <code data-gs="comd/u" data-x>3px</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В <code data-gs="comd/c" data-x>Block1</code> создайте див <code data-gs="comd/c" data-x>Container</code>. 
+		Разместите в нем два компонента <code data-gs="comd/c" data-x>DIVA</code>
+		и между ними один <code data-gs="comd/c" data-x>DIVB</code>, созданные вами
+		в предыдущих задачах к этому уроку.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

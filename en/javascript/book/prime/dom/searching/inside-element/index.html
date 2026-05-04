@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Поиск элементов внутри другого элемента в JavaScript — acteck.off</title>
+  <meta name="description" content="Поиск элементов внутри другого элемента в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Поиск элементов внутри другого элемента в JavaScript</h1>
+    <p>
+	Пусть у нас есть некоторый элемент родитель,
+	а внутри него другие элементы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div class="child"&gt;text&lt;/div&gt;
+	&lt;div class="child"&gt;text&lt;/div&gt;
+	&lt;div class="child"&gt;text&lt;/div&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Пусть ссылка на родитель уже получена в переменную:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let parent = document.querySelector('#parent');</code>
+</div>
+<p>
+	В таком случае, при необходимости мы можем
+	выполнить поиск по селектору внутри этого
+	родителя, а не по всему документу. Для этого
+	метод для поиска нужно применить не к <code data-gs="comd/c" data-x>document</code>,
+	а к переменной, содержащей нашего родителя.
+</p>
+<p>
+	Давайте для примера найдем внутри нашего
+	родителя элементы с классом <code data-gs="comd/z" data-x>child</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = parent.querySelectorAll('.child');</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан элемент <code data-gs="comd/z" data-x>#parent</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;p class="www"&gt;text&lt;/p&gt;
+	&lt;p class="www"&gt;text&lt;/p&gt;
+	&lt;p class="www"&gt;text&lt;/p&gt;
+	&lt;p class="ggg"&gt;text&lt;/p&gt;
+	&lt;p class="ggg"&gt;text&lt;/p&gt;
+	&lt;p class="ggg"&gt;text&lt;/p&gt;
+&lt;/div&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let parent = document.querySelector('#parent');</code>
+	</div>
+	<p>
+		Найдите внутри родителя элементы с классом
+		<code data-gs="comd/z" data-x>www</code> и запишите их в переменную <code data-gs="comd/c" data-x>elems1</code>.
+		Затем найдите внутри родителя элементы с
+		классом <code data-gs="comd/z" data-x>ggg</code> и запишите их в переменную
+		<code data-gs="comd/c" data-x>elems2</code>.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../by-class/index.html" class="lesson-nav-btn lesson-nav-prev" title="Поиск элемента по имени класса">← Поиск элемента по имени класса</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../nodes/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

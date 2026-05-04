@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Исключения при работе с атрибутами в JavaScript — acteck.off</title>
+  <meta name="description" content="Исключения при работе с атрибутами в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Исключения при работе с атрибутами в JavaScript</h1>
+    <p>
+	При работе с атрибутами существует исключение
+	- это атрибут <a href="../../../../../../markup/manual/html/attr/class/index.html"><code data-gs="comd/c" data-x>class</code></a>.
+	Это слово является специальным в JavaScript
+	и поэтому мы не можем просто написать <code data-gs="comd/c" data-x>elem.class</code>,
+	чтобы считать значение атрибута <code data-gs="comd/c" data-x>class</code>.
+	Вместо этого следует писать <code data-gs="comd/c" data-x>elem.className</code>.
+</p>
+<p>
+	Давайте посмотрим на примере. Пусть у нас
+	дан вот такой инпут:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="elem" class="aaa bbb"&gt;</code>
+</div>
+<p>
+	Давайте выведем значение атрибута <code data-gs="comd/c" data-x>class</code>
+	для нашего инпута:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+console.log(elem.className); // выведет 'aaa bbb'</code>
+</div>
+<div data-w="cont/nott">
+	<p>
+		Существуют и другие исключения, например,
+		атрибут <code data-gs="comd/c" data-x>for</code>. К нему следует обращаться
+		через <code data-gs="comd/c" data-x>htmlFor</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан див:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem" class="content no-gap"&gt;&lt;/div&gt;</code>
+	</div>
+	<p>
+		Дана также кнопка. По нажатию на кнопку прочитайте
+		и выведите на экран значение атрибута <code data-gs="comd/c" data-x>class</code>
+		нашего дива.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан див:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	</div>
+	<p>
+		Дана также кнопка. По нажатию на кнопку запишите
+		в атрибут <code data-gs="comd/c" data-x>class</code> нашего дива какой-нибудь
+		класс.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан див с несколькими CSS классами, записанными
+		через пробел:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem" class="aaa bbb ccc"&gt;&lt;/div&gt;</code>
+	</div>
+	<p>
+		Дана также кнопка. По нажатию на кнопку получите
+		массив CSS классов нашего дива.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../text-fields-focus/index.html" class="lesson-nav-btn lesson-nav-prev" title="Фокус текстовых полей">← Фокус текстовых полей</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../chaining/index.html" class="lesson-nav-btn lesson-nav-next" title="Цепочки методов и свойств">Цепочки методов и свойств →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

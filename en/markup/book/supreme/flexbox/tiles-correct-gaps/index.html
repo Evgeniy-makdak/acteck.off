@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Плиточка с корректными отступами в CSS — acteck.off</title>
+  <meta name="description" content="Плиточка с корректными отступами в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Плиточка с корректными отступами в CSS</h1>
+    <p>
+	Давайте сделаем действительно работающую
+	без проблем плиточку с отступами на марджинах.
+	Пусть у нас изначально есть такая плиточка
+	без отступов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;1&lt;/div&gt;
+	&lt;div class="child"&gt;2&lt;/div&gt;
+	&lt;div class="child"&gt;3&lt;/div&gt;
+	&lt;div class="child"&gt;4&lt;/div&gt;
+	&lt;div class="child"&gt;5&lt;/div&gt;
+	&lt;div class="child"&gt;6&lt;/div&gt;
+	&lt;div class="child"&gt;7&lt;/div&gt;
+	&lt;div class="child"&gt;8&lt;/div&gt;
+	&lt;div class="child"&gt;9&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-wrap: wrap;
+	width: 300px;
+	border: 1px solid red;
+}
+.child {
+	box-sizing: border-box;
+	width: 100px;
+	height: 100px;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-wrap: wrap;
+			width: 300px;
+			border: 1px solid red;
+		}
+		.child {
+			box-sizing: border-box;
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+			<div class=&quot;child&quot;>4</div>
+			<div class=&quot;child&quot;>5</div>
+			<div class=&quot;child&quot;>6</div>
+			<div class=&quot;child&quot;>7</div>
+			<div class=&quot;child&quot;>8</div>
+			<div class=&quot;child&quot;>9</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Давайте сделаем горизонтальные отступы между
+	элементами с помощью <code data-gs="comd/c" data-x>margin</code>.
+</p>
+<p>
+	Поставим для этого всем элементам-потомкам
+	<code data-gs="comd/c" data-x>margin-right</code> в значение <code data-gs="comd/u" data-x>10px</code>,
+	а каждому третьему потомку занулим этот <code data-gs="comd/c" data-x>margin</code>.
+	Используем для этого псевдокласс <code data-gs="comd/c" data-x>nth-child</code>,
+	задав в нем параметр так, чтобы получать
+	каждый третий элемент.
+</p>
+<p>
+	Увеличим также ширину родителя до <code data-gs="comd/u" data-x>320px</code>,
+	чтобы дать место под отступы, и посмотрим,
+	что у нас получается:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;1&lt;/div&gt;
+	&lt;div class="child"&gt;2&lt;/div&gt;
+	&lt;div class="child"&gt;3&lt;/div&gt;
+	&lt;div class="child"&gt;4&lt;/div&gt;
+	&lt;div class="child"&gt;5&lt;/div&gt;
+	&lt;div class="child"&gt;6&lt;/div&gt;
+	&lt;div class="child"&gt;7&lt;/div&gt;
+	&lt;div class="child"&gt;8&lt;/div&gt;
+	&lt;div class="child"&gt;9&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-wrap: wrap;
+	width: 320px;
+	border: 1px solid red;
+}
+.child {
+	box-sizing: border-box;
+	width: 100px;
+	height: 100px;
+	margin-right: 10px;
+	border: 1px solid green;
+}
+.child:nth-child(3n) {
+	margin-right: 0;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-wrap: wrap;
+			width: 320px;
+			border: 1px solid red;
+		}
+		.child {
+			box-sizing: border-box;
+			width: 100px;
+			height: 100px;
+			margin-right: 10px;
+			border: 1px solid green;
+		}
+		.child:nth-child(3n) {
+			margin-right: 0;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+			<div class=&quot;child&quot;>4</div>
+			<div class=&quot;child&quot;>5</div>
+			<div class=&quot;child&quot;>6</div>
+			<div class=&quot;child&quot;>7</div>
+			<div class=&quot;child&quot;>8</div>
+			<div class=&quot;child&quot;>9</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Итак, все работает. Давайте уберем последний
+	элемент, чтобы в последнем ряду было меньше
+	элементов и убедимся, что при этом у нас
+	не будет проблем с этим последним рядом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;1&lt;/div&gt;
+	&lt;div class="child"&gt;2&lt;/div&gt;
+	&lt;div class="child"&gt;3&lt;/div&gt;
+	&lt;div class="child"&gt;4&lt;/div&gt;
+	&lt;div class="child"&gt;5&lt;/div&gt;
+	&lt;div class="child"&gt;6&lt;/div&gt;
+	&lt;div class="child"&gt;7&lt;/div&gt;
+	&lt;div class="child"&gt;8&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-wrap: wrap;
+	width: 320px;
+	border: 1px solid red;
+}
+.child {
+	box-sizing: border-box;
+	width: 100px;
+	height: 100px;
+	margin-right: 10px;
+	border: 1px solid green;
+}
+.child:nth-child(3n) {
+	margin-right: 0;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-wrap: wrap;
+			width: 320px;
+			border: 1px solid red;
+		}
+		.child {
+			box-sizing: border-box;
+			width: 100px;
+			height: 100px;
+			margin-right: 10px;
+			border: 1px solid green;
+		}
+		.child:nth-child(3n) {
+			margin-right: 0;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+			<div class=&quot;child&quot;>4</div>
+			<div class=&quot;child&quot;>5</div>
+			<div class=&quot;child&quot;>6</div>
+			<div class=&quot;child&quot;>7</div>
+			<div class=&quot;child&quot;>8</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте плиточку по два элемента в ряд с
+		расстоянием между элементами в <code data-gs="comd/u" data-x>20px</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../flex-tiles-problems/index.html" class="lesson-nav-btn lesson-nav-prev" title="Проблемы плиточки на флексах">← Проблемы плиточки на флексах</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../tiles-vertical-gaps/index.html" class="lesson-nav-btn lesson-nav-next" title="Вертикальные отступы для плиточки">Вертикальные отступы для плиточки →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

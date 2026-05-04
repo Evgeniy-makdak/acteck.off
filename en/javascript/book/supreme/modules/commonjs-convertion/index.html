@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Преобразование CommonJS модулей в ES в JavaScript — acteck.off</title>
+  <meta name="description" content="Преобразование CommonJS модулей в ES в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Преобразование CommonJS модулей в ES в JavaScript</h1>
+    <p>
+	До сих пор в различных документациях
+	можно встретить импорты в стиле CommonJS модулей.
+	Вам нужно научиться преобразовывать
+	эти импорты в стандартные ES модули.
+</p>
+<p>
+	В CommonJS импорты выполняются с помощью команды
+	<code data-gs="comd/c" data-x>require</code>, параметром которой указывается
+	путь к модулю. Результат команды записывается
+	в переменную:
+</p>
+<div data-p="bock/pane" data-p-file="src/index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let math = require('./math');</code>
+</div>
+<p>
+	Давайте перепишем этот код в стиле ES.
+	Для начала обратите внимание на то,
+	что в CommonJS не ставится расширение <code data-gs="comd/p" data-x>.js</code>
+	для файлов, а в ES - ставится.
+</p>
+<p>
+	Далее все зависит от того идет
+	ли из модуля экспорт по умолчанию
+	или обычный. В CommonJS нет разницы,
+	а в ES модулях - есть. Как правило,
+	разница видна по примерам кода,
+	либо можно просто попробовать оба
+	варианта импорта.
+</p>
+<p>
+	В нашем случае приведенный импорт
+	перепишется либо в таком виде:
+</p>
+<div data-p="bock/pane" data-p-file="src/index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import math from './math.js';</code>
+</div>
+<p>
+	Либо вот в таком виде:
+</p>
+<div data-p="bock/pane" data-p-file="src/index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import * as math from './math.js';</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Перепишите следующий код
+		в стиле ES модулей:
+	</p>
+	<div data-p="bock/pane" data-p-file="src/index.js">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let {square, cube} = require('./math');</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Перепишите следующий код
+		в стиле ES модулей:
+	</p>
+	<div data-p="bock/pane" data-p-file="src/index.js">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let math = require('./math');
+let res  = math.square(2) + math.cube(3);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Перепишите следующий код
+		в стиле ES модулей:
+	</p>
+	<div data-p="bock/pane" data-p-file="src/index.js">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let sum = require('./sum');
+let res = sum([1, 2, 3]);</code>
+	</div>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../dynamical-multiple-import/index.html" class="lesson-nav-btn lesson-nav-prev" title="Динамический множественный импорт">← Динамический множественный импорт</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../http/book/index.html" class="lesson-nav-btn lesson-nav-next" title="Изучение учебника HTTP">Изучение учебника HTTP →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

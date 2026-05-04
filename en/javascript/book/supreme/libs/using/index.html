@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Использование библиотек в JavaScript — acteck.off</title>
+  <meta name="description" content="Использование библиотек в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Использование библиотек в JavaScript</h1>
+    <p>
+	Давайте посмотрим на общий принцип использования
+	библиотек. Пусть нам понадобилась библиотека
+	с удобными функциями для работы с массивами.
+	Пусть мы погуглили и нагуглили библиотеку
+	<a href="https://lodash.com/">lodash</a>.
+</p>
+<p>
+	Заходим на сайт библиотеки и ищем ссылки
+	на скачивание библиотеки. Как правило,
+	библиотеки предоставляются в двух вариантах:
+	в обычном и минимизированном. Обычный вид
+	удобен, если вы хотите изучить исходный
+	код библиотеки. Минимизированный вид
+	удобен тем, что он занимает меньше места.
+</p>
+<p>
+	Итак, ищем ссылку на скачивание. Скачиваем
+	библиотеку. Иногда бывает так, что в документации
+	дается ссылка на JavaScript файл. В этом случае
+	этот файл вместо того, чтобы скачаться,
+	просто откроется в браузере. В этом случае
+	в меню браузера нужно выбрать сохранение
+	или нажать <code data-gs="comd/k" data-x>Ctrl + S</code> и сохранить
+	себе библиотеку в виде файла.
+</p>
+<p>
+	Скаченную библиотеку нужно подключить
+	к своему HTML файлу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;script src="lodash.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<p>
+	Подключенная библиотека создает одну
+	или несколько переменных в общей области
+	видимости. В случае с lodash эта переменная
+	называется <code data-gs="comd/c" data-x>_</code>. Давайте теперь ниже
+	подключения библиотеки подключим наш
+	файл, в котором мы будем писать код
+	нашего сайта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;script src="lodash.js"&gt;&lt;/script&gt;
+		&lt;script src="test.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<p>
+	В этом файле будет доступна глобальная
+	переменная, которую создает ранее подключенная
+	библиотека lodash:
+</p>
+<div data-p="bock/pane" data-p-file="test.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(_); // в этой переменной библиотека lodash</code>
+</div>
+<p>
+	Воспользуемся одним из методов
+	подключенной библиотеки:
+</p>
+<div data-p="bock/pane" data-p-file="test.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = _.chunk(['a', 'b', 'c', 'd'], 2);
+console.log([['a', 'b'], ['c', 'd']]);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Скачайте себе библиотеку <a href="https://underscorejs.org/">underscorejs</a>.
+		Подключите ее к своему HTML файлу. Опробуйте несколько
+		функций из этой библиотеки.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../cdn/index.html" class="lesson-nav-btn lesson-nav-next" title="CDN">CDN →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

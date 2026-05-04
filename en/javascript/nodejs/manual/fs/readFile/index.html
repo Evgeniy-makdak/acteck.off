@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод readFile — acteck.off</title>
+  <meta name="description" content="Метод readFile — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Метод readFile</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>readFile</code> читает содержимое файла.
+	В первом параметре метода указывается имя файла,
+	во втором и третьем необязательных параметрах -
+	кодировка и коллбэк. Как правило, для чтения задаем
+	кодировку <code data-gs="comd/v" data-x>utf8</code>, если же опускаем второй параметр,
+	то метод вернет значение буфера в виде бинарных данных.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.readFile(имя файла, [кодировка], [коллбэк]);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте асинхронно прочитаем файл
+	через <code data-gs="comd/c" data-x>await</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+
+try {
+	let data = await fs.readFile('file.txt', 'utf8');
+	console.log(data);
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте асинхронно прочитаем файл
+	без указания кодировки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+
+try {
+	let data = await fs.readFile('file.txt');
+	console.log(data);
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте асинхронно прочитаем файл
+	через <code data-gs="comd/c" data-x>then</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+
+fs.readFile('file.txt', 'utf8').then(data =&gt; {
+	console.log(data);
+}).catch(err =&gt; {
+	console.log(err);
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте асинхронно прочитаем файл
+	через коллбэк:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+fs.readFile('file.txt', 'utf8', function(err, data) {
+	if (!err) {
+		console.log(data);
+	} else {
+		console.log(err);
+	}
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте синхронно прочитаем файл
+	через <code data-gs="comd/c" data-x>readFileSync</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+try {
+	let text = fs.readFileSync('file.txt', 'utf8');
+	console.log(text);
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../readdir/index.html"><code data-gs="comd/c" data-x>readdir</code></a>, <br>
+			который читает папки
+		</li>
+		<li>
+			метод <a href="../read/index.html"><code data-gs="comd/c" data-x>read</code></a>, <br>
+			который читает данные из файла через файловый дескриптор
+		</li>
+		<li>
+			метод <a href="../createReadStream/index.html"><code data-gs="comd/c" data-x>createReadStream</code></a>, <br>
+			открывает поток для чтения данных
+		</li>
+		<li>
+			метод <a href="../readlink/index.html"><code data-gs="comd/c" data-x>readlink</code></a>, <br>
+			который читает символическую ссылку
+		</li>
+		<li>
+			метод <a href="../write/index.html"><code data-gs="comd/c" data-x>write</code></a>, <br>
+			который записывает данные в файл через буфер или строку
+		</li>
+		<li>
+			метод <a href="../writeFile/index.html"><code data-gs="comd/c" data-x>writeFile</code></a>, <br>
+			который записывает данные в файл
+		</li>
+	</ul>
+</div>
+        <div class="lesson-nav">
+      <a href="../read/index.html" class="lesson-nav-btn lesson-nav-prev" title="read">← read</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../readdir/index.html" class="lesson-nav-btn lesson-nav-next" title="readdir">readdir →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

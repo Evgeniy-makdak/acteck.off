@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приватные свойства при наследовании в ООП в JavaScript — acteck.off</title>
+  <meta name="description" content="Приватные свойства при наследовании в ООП в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Приватные свойства при наследовании в ООП в JavaScript</h1>
+    <p>
+	Приватные свойства не наследуются.
+	Но потомок может манипулировать ими
+	через публичные методы родителя.
+	Давайте посмотрим на практике.
+	Пусть у нас есть следующий класс-родитель
+	с приватным свойством и его геттером
+	и сеттом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
+	#name;
+	
+	setName(name) {
+		this.#name = name;
+	}
+	getName() {
+		return this.#name;
+	}
+}</code>
+</div>
+<p>
+	Пусть от родителя наследует
+	следующий потомок:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class Student extends User {
+	
+}</code>
+</div>
+<p>
+	Создадим объект потомка:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let student = new Student;</code>
+</div>
+<p>
+	Воспользуемся методом родителя,
+	чтобы записать его приватное
+	свойство:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">student.setName('john');</code>
+</div>
+<p>
+	Воспользуемся методом родителя,
+	чтобы прочитать его приватное
+	свойство:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let name = student.getName();
+console.log(name);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий класс-родитель:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
+	#name;
+	#surn;
+	
+	setName(name) {
+		this.#name = name;
+	}
+	getName() {
+		return this.#name;
+	}
+	
+	setSurn(surn) {
+		this.#surn = surn;
+	}
+	getSurn() {
+		return this.#surn;
+	}
+}</code>
+	</div>
+	<p>
+		Сделайте класс <code data-gs="comd/c" data-x>Employee</code>,
+		который будет наследовать
+		от этого родителя.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте объект класса <code data-gs="comd/c" data-x>Employee</code>
+		и вызовите унаследованные
+		сеттеры и геттеры.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В классе <code data-gs="comd/c" data-x>Employee</code> сделайте
+		следующий метод:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">getFull() {
+	return this.#name + ' ' + this.#surn;
+}</code>
+	</div>
+	<p>
+		Убедитесь, что код метода приведет
+		к ошибке.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../private-methods/index.html" class="lesson-nav-btn lesson-nav-prev" title="Приватные методы при наследовании">← Приватные методы при наследовании</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../private-properties-problem/index.html" class="lesson-nav-btn lesson-nav-next" title="Проблема приватных свойств при наследовании">Проблема приватных свойств при наследовании →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

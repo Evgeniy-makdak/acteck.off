@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Индексный маршрут в React Router — acteck.off</title>
+  <meta name="description" content="Индексный маршрут в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Индексный маршрут в React Router</h1>
+    <p>
+	На этом уроке мы узнаем, что такое
+	индексные маршруты.
+</p>
+<p>
+	Для начала давайте обратим внимание
+	на одну вещь. Когда мы находимся на
+	главной странице, то справа мы
+	видим просто просто пустой экран.
+	Все потому что ни один из дочерних
+	маршрутов не подходит по адресу <code data-gs="comd/p" data-x>/</code>,
+	а что выводить в этом случае мы не
+	сказали. В таком случае, чтобы не
+	отображать пустую страницу можно
+	применить <dfn data-gs="comd/d" data-x>индексный маршрут</dfn> - такой
+	дочерний маршрут, который не имеет
+	пути, и его элемент отображается в
+	родительском <code data-gs="comd/c" data-x>Outlet</code> тогда,
+	когда не подходит ни один
+	из набора дочерних. С помощью таких
+	маршрутов можно размещать какую-либо
+	информацию, или статистику, или еще
+	что-нибудь подобное. Как и в случае
+	с обычными их можно использовать для
+	загрузки данных.
+</p>
+<p>
+	Давайте создадим файл <code data-gs="comd/p" data-x>index.jsx</code>
+	в папке <code data-gs="comd/p" data-x>routes</code>, а в нем компонент
+	<code data-gs="comd/c" data-x>Index</code>:
+</p>
+<div data-p="bock/pane" data-p-file="routes/index.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Index() {
+	return (
+		&lt;div&gt;
+			&lt;p&gt;Hi, React Router!&lt;/p&gt;
+			&lt;p&gt;This is an application for my products :)&lt;/p&gt;
+		&lt;/div&gt;
+	);
+}</code>
+</div>
+<p>
+	Теперь перейдем в <code data-gs="comd/p" data-x>main.jsx</code> и
+	импортируем туда наш компонент
+	<code data-gs="comd/c" data-x>Index</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Index from './routes/index';</code>
+</div>
+<p>
+	А первым элементом в массив <code data-gs="comd/c" data-x>children</code>
+	добавим объект, где свойство <code data-gs="comd/c" data-x>index</code>
+	установлено в <code data-gs="comd/c" data-x>true</code>, а в качестве элемента
+	для отображения будет наш компонент
+	<code data-gs="comd/c" data-x>Index</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{ index: true, element: &lt;Index /&gt; },</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлому уроку. Пользуясь
+		материалами урока, добавьте индексный
+		маршрут с адресом главной страницы с
+		каким-нибудь текстом.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

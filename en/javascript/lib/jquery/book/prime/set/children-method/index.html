@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод children для работы с потомками в jQuery — acteck.off</title>
+  <meta name="description" content="Метод children для работы с потомками в jQuery — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод children для работы с потомками в jQuery</h1>
+    <p>
+	Для работы с потомками элемента, мы вначале рассмотрим
+	метод <a href="../../../../manual/children/index.html"><code data-gs="comd/c" data-x>children</code></a>,
+	с помощью которого можно получить только непосредственных
+	потомков элемента.
+</p>
+<p>
+	Рассмотрим следующий HTML код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text1 &lt;b&gt;bold&lt;/b&gt; text2&lt;/p&gt;</code>
+</div>
+<p>
+	Для получения потомков пропишем в методе следующую функцию:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').children().each(
+	function() {
+		console.log($(this).text()); // выведет 'bold'
+	}
+);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		У нас есть див с тегами:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="text"&gt;&lt;i&gt;text1&lt;/i&gt; &lt;b&gt;text2&lt;/b&gt; text3 text4&lt;/div&gt;</code>
+	</div>
+	<p>
+		Выведите в консоль всех непосредственных
+		потомков этого дива с помощью метода
+		<code data-gs="comd/c" data-x>children</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../closest-parentsuntil-methods/index.html" class="lesson-nav-btn lesson-nav-prev" title="Методы closest и parentsUntil">← Методы closest и parentsUntil</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../contents-method-using/index.html" class="lesson-nav-btn lesson-nav-next" title="Применение метода contents">Применение метода contents →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

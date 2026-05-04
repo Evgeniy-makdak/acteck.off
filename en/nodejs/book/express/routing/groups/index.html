@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Группы маршрутов с помощью Router в Express — acteck.off</title>
+  <meta name="description" content="Группы маршрутов с помощью Router в Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Группы маршрутов с помощью Router в Express</h1>
+    <p>
+	Маршруты, имеющие частично совпадающие адреса,
+	удобно объединять в группы. Давайте посмотрим,
+	как это делается. Пусть у нас есть следующий
+	набор маршрутов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/user/show/:id', function(req, res) {
+	
+});
+app.get('/user/edit/:id', function(req, res) {
+	
+});</code>
+</div>
+<p>
+	Как вы видите, эти маршруты имеют общую часть
+	<code data-gs="comd/p" data-x>/user</code>. Давайте вынесем ее отдельно.
+	Для этого для нашей группы маршрутов мы должны
+	создать отдельный роутер с помощью метода
+	<code data-gs="comd/c" data-x>Router</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let userRouter = express.Router();</code>
+</div>
+<p>
+	Прицепим теперь наши маршруты к созданному
+	роутеру, убрав совпадающую часть адреса:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">userRouter.get('/show/:id', function(req, res) {
+	
+});
+userRouter.get('/edit/:id', function(req, res) {
+	
+});</code>
+</div>
+<p>
+	Теперь привяжем наш роутер к <code data-gs="comd/c" data-x>app</code> в
+	качестве маршрута, указав при этом совпадающую
+	часть адреса:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.use('/user/', userRouter);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Разбейте следующие маршруты по группам:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/city/show/:id', function(req, res) {
+	
+});
+app.get('/city/edit/:id', function(req, res) {
+	
+});
+app.get('/country/list', function(req, res) {
+	
+});
+app.get('/country/show/:id', function(req, res) {
+	
+});
+app.get('/country/edit/:id', function(req, res) {
+	
+});</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

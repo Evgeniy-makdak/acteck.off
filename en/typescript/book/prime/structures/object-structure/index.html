@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Структура объекта в TypeScript — acteck.off</title>
+  <meta name="description" content="Структура объекта в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Структура объекта в TypeScript</h1>
+    <p>
+	Можно не полагаться на TypeScript в плане
+	определения структуры объекта, а указать
+	ее в качестве типа при объявлении переменной. 
+</p>
+<p>
+	Давайте, например, при объявлении переменной
+	<code data-gs="comd/c" data-x>user</code> скажем, что она объект, в поле
+	<code data-gs="comd/s" data-x>'name'</code> которого хранится - строка,
+	а в поле <code data-gs="comd/s" data-x>'age'</code> - число: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user: {name: string, age: number};</code>
+</div>
+<p>
+	Запишем теперь в нашу переменную соответствующий
+	объект: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">user = {name: 'john', age: 30};</code>
+</div>
+<p>
+	Можно слить обе операции в одну строку:
+	объявить объект и сразу записать в него
+	значение: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user: {name: string, age: number} = {name: 'john', age: 30};</code>
+</div>
+<p>
+	После этого TypeScript займется контролем
+	структуры и типов данных объекта и будет
+	выдавать ошибку при попытке что-то изменить
+	неправильным образом. Пример: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">user.name = 123; // ошибка</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let date: {year: number, month: number, day: number};
+date = {year: 2025, month: 12, day: '01'};</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

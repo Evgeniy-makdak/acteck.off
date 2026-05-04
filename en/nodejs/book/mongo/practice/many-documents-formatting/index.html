@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оформление всех документов из БД — acteck.off</title>
+  <meta name="description" content="Оформление всех документов из БД — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Оформление всех документов из БД</h1>
+    <p>
+	Давайте теперь сделаем маршрут, который
+	выведет всех юзеров из коллекции:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/users', function(req, res) {
+	
+});</code>
+</div>
+<p>
+	Получим юзеров из базы и отправим
+	их в представление:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/users', function(req, res) {
+	let users = await coll.find().toArray();
+	res.render('users', {users: users});
+});</code>
+</div>
+<p>
+	В представлении выведем наших
+	юзеров, например, в виде таблицы:
+</p>
+<div data-p="bock/pane" data-p-file="views/users.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;table&gt;
+	{{#each users}}
+		&lt;tr&gt;
+			&lt;td&gt;{{name}}&lt;/td&gt;
+			&lt;td&gt;{{age}}&lt;/td&gt;
+			&lt;td&gt;{{salary}}&lt;/td&gt;
+		&lt;/tr&gt;
+	{{/each}}
+&lt;/table&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана следующая верстка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;h2&gt;prod1&lt;/h2&gt;
+	&lt;p&gt;
+		&lt;b&gt;100$&lt;/b&gt;, rest: 10
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+	&lt;h2&gt;prod2&lt;/h2&gt;
+	&lt;p&gt;
+		&lt;b&gt;100$&lt;/b&gt;, rest: 20
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+	&lt;h2&gt;prod3&lt;/h2&gt;
+	&lt;p&gt;
+		&lt;b&gt;300$&lt;/b&gt;, rest: 30
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+	</div>
+	<p>
+		Выведите записи из коллекции с продуктами,
+		оформив их в приведенную верстку.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

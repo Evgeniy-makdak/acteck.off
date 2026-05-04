@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ошибка изменения элемента массива в JavaScript — acteck.off</title>
+  <meta name="description" content="Ошибка изменения элемента массива в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Ошибка изменения элемента массива в JavaScript</h1>
+    <p>
+	Давайте рассмотрим ошибку, возникающую
+	при неправильном изменении элемента
+	массива. Пусть у нас дан вот такой
+	массив:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3, 4, 5];</code>
+</div>
+<p>
+	Пусть у нас также есть функция,
+	которая параметром принимает число
+	и возвращает квадрат этого числа:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(num) {
+	return num ** 2;
+}</code>
+</div>
+<p>
+	Давайте с помощью цикла <code data-gs="comd/c" data-x>for-of</code>
+	переберем наш массив и к каждому
+	из его элементов применим нашу функцию:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of arr) {
+	elem = func(elem);
+}</code>
+</div>
+<p>
+	В этом месте начинающие часто допускают
+	ошибку. Дело в том, что изменение переменной
+	<code data-gs="comd/c" data-x>elem</code> не приводит к изменению элемента
+	в самом массиве. Убедимся в этом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(arr); // массив не изменился</code>
+</div>
+<p>
+	Массив не изменяется из-за того,
+	что в переменной <code data-gs="comd/c" data-x>elem</code> хранится
+	копия элемента, а не ссылка на него.
+	Изменение <code data-gs="comd/c" data-x>elem</code> влияет на копию,
+	но не на сам массив.
+</p>
+<p>
+	Для решения проблемы нужно изменять
+	именно элементы массива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let i = 0; i &lt; arr.length; i++) {
+	arr[i] = func(arr[i]);
+}
+
+console.log(arr); // теперь массив изменился</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

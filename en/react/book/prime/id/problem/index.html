@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проблемы с новыми id в React — acteck.off</title>
+  <meta name="description" content="Проблемы с новыми id в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Проблемы с новыми id в React</h1>
+    <p>
+	Пусть из базы данных нам пришел следующий
+	массив объектов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const prods = [
+	{id: 1, name: 'product1', cost: 100},
+	{id: 2, name: 'product2', cost: 200},
+	{id: 3, name: 'product3', cost: 300},
+];</code>
+</div>
+<p>
+	Как вы видите, <code data-gs="comd/c" data-x>id</code> нумеруются по порядку.
+	Однако, нам следует учитывать, что числа
+	могут иметь пропуски, к примеру, после <code data-gs="comd/n" data-x>3</code>-го
+	может сразу идти <code data-gs="comd/n" data-x>5</code>-тый или <code data-gs="comd/n" data-x>6</code>-той.
+	Из-за этого наш клиентский скрипт не может
+	знать, какой будет следующий <code data-gs="comd/c" data-x>id</code> (в
+	нашем случае это не обязательно <code data-gs="comd/n" data-x>4</code>).
+</p>
+<p>
+	Новые <code data-gs="comd/c" data-x>id</code> создаются базой данных сервера.
+	Это может вызвать некоторые проблемы при
+	работе на клиенте. Суть в следующем: представим,
+	что с помощью формы мы добавили новый элемент
+	в наш массив. Однако, мы не можем просто
+	взять и добавить данные из формы - ведь мы
+	не знаем какой <code data-gs="comd/c" data-x>id</code> будет у нового элемента!
+</p>
+<p>
+	Нам нужно будет отправить запрос на сервер,
+	чтобы он дал нам следующий по порядку <code data-gs="comd/c" data-x>id</code>,
+	и только затем добавить элемент в наш массив
+	объектов. Это вызовет задержку с отображением
+	данных на экране: пока данные придут на сервер,
+	пока сервер пришлет нам их обратно - пройдет
+	некоторое время.
+</p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

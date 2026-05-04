@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отправка POST запросов через AJAX в JavaScript — acteck.off</title>
+  <meta name="description" content="Отправка POST запросов через AJAX в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Отправка POST запросов через AJAX в JavaScript</h1>
+    <p>
+	Давайте теперь отправим на сервер
+	POST запрос. Для этого у функции
+	<code data-gs="comd/c" data-x>fetch</code> есть второй параметр
+	с настройками. В настройке <code data-gs="comd/s" data-x>method</code>
+	указывается метод HTTP запроса.
+	Укажем метод POST:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	let promise = fetch('/handler/', {
+		method: 'post',
+	});
+});</code>
+</div>
+<p>
+	Давайте также зададим данные, которые
+	мы хотим отправить на сервер.
+	В POST запросах данные передаются
+	в теле HTTP запроса. Для этого
+	данные нужно указать в настройке <code data-gs="comd/s" data-x>body</code>.
+	Укажем их в виде Query String,
+	задав их тип соответствующим
+	MIME:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	let promise = fetch('/handler/', {
+		method: 'post',
+		body: 'num1=1&num2=2',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded',
+		},
+	});
+});</code>
+</div>
+<p>
+	Получим эти данные на сервере,
+	сделаем с ними что-нибудь и отправим
+	их обратно:
+</p>
+<div data-p="bock/pane" data-p-file="server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	'/handler/': function({ post }) {
+		return Number(post.num1) + Number(post.num2);
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		На клиенте дан див и кнопка. По нажатию на
+		кнопку отправьте на сервер три числа методом POST.
+		Пусть сервер найдет сумму переданных чисел.
+		Результат запишите в див.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../get-queries/index.html" class="lesson-nav-btn lesson-nav-prev" title="GET запросы">← GET запросы</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../query-URLSearchParams/index.html" class="lesson-nav-btn lesson-nav-next" title="Данные через URLSearchParams">Данные через URLSearchParams →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

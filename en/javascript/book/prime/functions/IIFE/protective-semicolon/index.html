@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toчка с запятой для безопасности в IIFE — acteck.off</title>
+  <meta name="description" content="Toчка с запятой для безопасности в IIFE — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Toчка с запятой для безопасности в IIFE</h1>
+    <p>
+	Пусть теперь наша вызывающаяся на месте функция
+	будет не с плюсом в начале, а обернута круглыми
+	скобками, вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">(function() {
+	console.log(1); // выведет 1
+})();</code>
+</div>
+<p>
+	Пусть переменная <code data-gs="comd/c" data-x>num</code> задается снаружи
+	функции:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1; // точка с запятой стоит
+
+(function() {
+	console.log(num); // выведет 1
+})();</code>
+</div>
+<p>
+	Пусть теперь мы забыли поставить точку с запятой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1
+
+(function() {
+	console.log(num); //!! выдаст ошибку
+})();</code>
+</div>
+<p>
+	Получается, что такой код выдаст ошибку,
+	так как JavaScript воспринимает нашу функцию
+	как продолжение команды первой строки.
+</p>
+<p>
+	Чтобы избежать таких проблем, перед вызовом
+	функции на месте всегда необходимо ставить
+	точку с запятой, вот так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1
+
+;(function() {
+	console.log(num); // выведет 1
+})();</code>
+</div>
+<p>
+	Кажется, что проблема несколько надуманна.
+	На самом деле, это не так. Может быть такая
+	ситуация, что у вас на странице подключаются
+	несколько скриптов из отдельных файлов. В
+	этом случае в конце одного файла может быть
+	опущена точка с запятой и это автоматически
+	приведет к проблеме, если второй файл начинается
+	с вызова функции на месте.
+</p>
+<p>
+	Поэтому, всегда-всегда ставьте точку с запятой
+	перед вызовом функции на месте, даже если
+	вы на данный момент уверены, что проблем
+	не будет. Они могут возникнуть потом.
+</p>
+<p>
+	Применим сказанное выше и вызовем функцию
+	на месте, поставив в начале точку с запятой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function() {
+	console.log(1); // выведет 1
+})();</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'str';
+
+(function() {
+	console.log(1);
+})();</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'str'
+
+(function() {
+	console.log(1);
+})();</code>
+	</div>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../pitfalls/index.html" class="lesson-nav-btn lesson-nav-prev" title="Подводные камни">← Подводные камни</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../closures/index.html" class="lesson-nav-btn lesson-nav-next" title="Замыкания и IIFE">Замыкания и IIFE →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

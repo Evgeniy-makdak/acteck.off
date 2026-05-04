@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Продвинутое меню в NextJS — acteck.off</title>
+  <meta name="description" content="Продвинутое меню в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Продвинутое меню в NextJS</h1>
+    <p>
+	В предыдущем уроке мы обсудили
+	проблему меню из обычных ссылок.
+	NextJS может решить эту проблему
+	и сделать так, чтобы переход
+	по ссылке не приводил к перезагрузке
+	страницы целиком. Для оптимизации
+	производительности через Ajax будет
+	загружаться только изменившаяся часть.
+</p>
+<p>
+	Для этого вместо ссылок мы
+	будем использовать специальный
+	компонент <code data-gs="comd/c" data-x>Link</code>.
+	Импортируем его:
+</p>
+<div data-p="bock/pane" data-p-file="/src/comps/menu/menu.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Link from 'next/link';</code>
+</div>
+<p>
+	Переделаем наше меню через
+	этот компонент:
+</p>
+<div data-p="bock/pane" data-p-file="/src/comps/menu/menu.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Menu() {
+	return &lt;&gt;
+		&lt;Link href="/"&gt;home&lt;/Link&gt;
+		&lt;Link href="/about"&gt;about&lt;/Link&gt;
+		&lt;Link href="/price"&gt;price&lt;/Link&gt;
+		&lt;Link href="/contacts"&gt;contacts&lt;/Link&gt;
+	&lt;/&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте ваше меню через
+		компонент <code data-gs="comd/c" data-x>Link</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Убедитесь, что переход по ссылкам
+		меню теперь не приводит к
+		перезагрузке страницы.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../plain-menu-problem/index.html" class="lesson-nav-btn lesson-nav-prev" title="Проблема обычного меню">← Проблема обычного меню</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../dynamic-links/index.html" class="lesson-nav-btn lesson-nav-next" title="Динамическая генерация ссылок">Динамическая генерация ссылок →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редактирование стейта родителя в дочернем компоненте в React — acteck.off</title>
+  <meta name="description" content="Редактирование стейта родителя в дочернем компоненте в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Редактирование стейта родителя в дочернем компоненте в React</h1>
+    <p>
+	Давайте теперь будем редактировать наши продукты
+	с помощью инпутов. Для этого в дочернем компоненте
+	сделаем кнопку.
+</p>
+<p>
+	По первому нажатию на эту кнопку пусть вместо
+	названия и цены с продуктом появятся инпуты
+	для их редактирования, а по второму нажатию
+	вместо инпутов опять появятся тексты.
+</p>
+<p>
+	Внесем изменение в массив с продуктами, добавив
+	свойство <code data-gs="comd/c" data-x>isEdit</code> (а работу с корзиной
+	для простоты уберем):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initProds = [
+	{id: id(), name: 'product1', cost: 100, isEdit: false},
+	{id: id(), name: 'product2', cost: 200, isEdit: false},
+	{id: id(), name: 'product3', cost: 300, isEdit: false},
+];</code>
+</div>
+
+<h2>Компонент Product</h2>
+<p>
+	Сделаем в продукте кнопку для редактирования:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, isEdit }) {
+	return &lt;div&gt;
+		name: &lt;span&gt;{name}&lt;/span&gt;
+		cost: &lt;span&gt;{cost}&lt;/span&gt;
+		&lt;button&gt;edit&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Сделаем так, чтобы по клику на эту кнопку
+	вызвалась некоторая функция <code data-gs="comd/c" data-x>toggleMode</code>,
+	переданная из родительского компонента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, isEdit, toggleMode }) {
+	return &lt;div&gt;
+		name: &lt;span&gt;{name}&lt;/span&gt;
+		cost: &lt;span&gt;{cost}&lt;/span&gt;
+		
+		&lt;button onClick={() =&gt; toggleMode(id)}&gt;
+			edit
+		&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Пока у нас нет реализации <code data-gs="comd/c" data-x>toggleMode</code>,
+	но мы знаем, что она будет располагаться
+	в компоненте-родителе, параметром принимать
+	<code data-gs="comd/c" data-x>id</code> продукта и изменять свойство <code data-gs="comd/c" data-x>isEdit</code>
+	продукта на противоположное.
+</p>
+<p>
+	Сделаем также так, чтобы текст кнопки менялся
+	каждое нажатие:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, isEdit, toggleMode }) {
+	return &lt;div&gt;
+		name: &lt;span&gt;{name}&lt;/span&gt;
+		cost: &lt;span&gt;{cost}&lt;/span&gt;
+		
+		&lt;button onClick={() =&gt; toggleMode(id)}&gt;
+			{isEdit ? 'save': 'edit'}
+		&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Давайте теперь сделаем так, чтобы в режиме
+	редактирования у нас были инпуты с данными,
+	а в обычном режиме - спены:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, isEdit, toggleMode }) {
+	return &lt;div&gt;
+		name: {isEdit ? &lt;input value={name} /&gt; : &lt;span&gt;{name}&lt;/span&gt;}
+		cost: {isEdit ? &lt;input value={cost} /&gt; : &lt;span&gt;{cost}&lt;/span&gt;}
+		
+		&lt;button onClick={() =&gt; toggleMode(id)}&gt;
+			{isEdit ? 'save': 'edit'}
+		&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Привяжем к нашим инпутам событие <code data-gs="comd/c" data-x>onChange</code>,
+	в котором будем вызывать некоторую родительскую
+	функцию <code data-gs="comd/c" data-x>editProd</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, isEdit, toggleMode, editProd }) {
+	return &lt;div&gt;
+		name: {
+			isEdit
+			? &lt;input value={name} onChange={event =&gt; editProd(id, 'name', event)} /&gt;
+			: &lt;span&gt;{ name }&lt;/span&gt;
+		}
+		cost: {
+			isEdit
+			? &lt;input value={cost} onChange={event =&gt; editProd(id, 'cost', event)} /&gt;
+			: &lt;span&gt;{ cost }&lt;/span&gt;
+		}
+		
+		&lt;button onClick={() =&gt; toggleMode(id)}&gt;
+			{isEdit ? 'save': 'edit'}
+		&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+
+<h2>Компонент Products</h2>
+<p>
+	Давайте теперь перейдем в компонент <code data-gs="comd/c" data-x>Products</code>.
+	Реализуем в нем функцию <code data-gs="comd/c" data-x>toggleMode</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function toggleMode(id) {
+	setProds(prods.map(prod =&gt; {
+		if (prod.id === id) {
+			prod.isEdit = !prod.isEdit;
+		}
+		
+		return prod;
+	}));
+}</code>
+</div>
+<p>
+	Также реализуем в нем функцию <code data-gs="comd/c" data-x>editProd</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function editProd(id, field, event) {
+	setProds(prods.map(prod =&gt; {
+		if (prod.id === id) {
+			prod[field] = event.target.value;
+		}
+		
+		return prod;
+	}));
+}</code>
+</div>
+<p>
+	В тег с продуктом атрибутами передадим наши
+	функции <code data-gs="comd/c" data-x>toggleMode</code> и <code data-gs="comd/c" data-x>editProd</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const items = prods.map(prod =&gt; {
+	return &lt;Product
+		key ={prod.id}
+		id  ={prod.id}
+		name={prod.name}
+		cost={prod.cost}
+		isEdit={prod.isEdit}
+		toggleMode={toggleMode}
+		editProd={editProd}
+	/&gt;;
+});</code>
+</div>
+<p>
+	Окончательный код компонента <code data-gs="comd/c" data-x>Products</code>
+	получится следующим:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Products() {
+	const [prods, setProds] = useState(initProds);
+	
+	function toggleMode(id) {
+		setProds(prods.map(prod =&gt; {
+			if (prod.id === id) {
+				prod.isEdit = !prod.isEdit;
+			}
+			
+			return prod;
+		}));
+	}
+	
+	function editProd(id, field, event) {
+		setProds(prods.map(prod =&gt; {
+			if (prod.id === id) {
+				prod[field] = event.target.value;
+			}
+			
+			return prod;
+		}));
+	}
+	
+	const result = prods.map(prod =&gt; {
+		return &lt;Product
+			key ={prod.id}
+			id  ={prod.id}
+			name={prod.name}
+			cost={prod.cost}
+			isEdit={prod.isEdit}
+			toggleMode={toggleMode}
+			editProd={editProd}
+		/&gt;;
+	});
+	
+	return &lt;div&gt;
+		{result}
+	&lt;/div&gt;;
+}</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Проделайте аналогичные операции с компонентами
+		<code data-gs="comd/c" data-x>Users</code> и <code data-gs="comd/c" data-x>User</code>, созданными вами
+		в предыдущих уроках.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

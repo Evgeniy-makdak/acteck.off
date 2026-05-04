@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод closest — acteck.off</title>
+  <meta name="description" content="Метод closest — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод closest</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>closest</code> ищет ближайший родительский
+	элемент, подходящий под указанный CSS селектор,
+	при этом сам элемент тоже включается в поиск.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">элемент.closest('селектор');</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем среди родителей элемента элемент
+	с классом <code data-gs="comd/z" data-x>www</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="www" id="parent2"&gt;
+	&lt;div class="ggg" id="parent1"&gt;
+		&lt;p class="zzz" id="child"&gt;&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#child');
+let parent = elem.closest('.www');
+
+console.log(parent.id);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'parent2'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем среди родителей элемента элемент
+	с классом <code data-gs="comd/z" data-x>www</code>. В результате мы получим
+	ссылку на сам элемент, так как он сам имеет
+	этот класс:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="www" id="parent2"&gt;
+	&lt;div class="www" id="parent1"&gt;
+		&lt;p class="www" id="child"&gt;&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#child');
+let parent = elem.closest('.www');
+console.log(parent.id);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'child'</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../matches/index.html"><code data-gs="comd/c" data-x>matches</code></a>, <br>
+			который проверяет элемент по селектору
+		</li>
+		<li>
+			метод <a href="../contains/index.html"><code data-gs="comd/c" data-x>contains</code></a>, <br>
+			который проверяет потомка по селектору
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

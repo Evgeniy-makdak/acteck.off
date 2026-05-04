@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Имена файлов сборки в Webpack — acteck.off</title>
+  <meta name="description" content="Имена файлов сборки в Webpack — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/webpack/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/webpack/index.html">Webpack</a>
+    </div>
+
+    <h1>Имена файлов сборки в Webpack</h1>
+    <p>
+	С помощью команды <code data-gs="comd/s" data-x>[name]</code> можно
+	указать место, куда вставится имя
+	точки входа. Такая возможность
+	позволяет конфигурировать имена
+	файлов сборки.
+	Для примера давайте сделаем так,
+	чтобы файлы сборки имели имена
+	<code data-gs="comd/p" data-x>f1.build.js</code> и <code data-gs="comd/p" data-x>f2.build.js</code>:
+</p>
+<div data-p="bock/pane" data-p-file="webpack.config.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	entry: {
+		f1: './src/test1.js',
+		f2: './src/test2.js'
+	},
+	output: {
+		filename: '[name].build.js',
+	}
+};</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны следующие настройки:
+	</p>
+	<div data-p="bock/pane" data-p-file="webpack.config.js">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	entry: {
+		test1: './src/test1.js',
+		test2: './src/test2.js',
+		test3: './src/test3.js'
+	},
+};</code>
+	</div>
+	<p>
+		Модифицируйте настройки так, чтобы
+		итоговые файлы имели имена
+		<code data-gs="comd/p" data-x>test1.bund.js</code>, <code data-gs="comd/p" data-x>test2.bund.js</code>
+		и <code data-gs="comd/p" data-x>test3.bund.js</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../../points/entry-array-names/index.html" class="lesson-nav-btn lesson-nav-prev" title="Именованные точки-массивы">← Именованные точки-массивы</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../points/bundles-hash-names/index.html" class="lesson-nav-btn lesson-nav-next" title="Имена и хеш бандлов">Имена и хеш бандлов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

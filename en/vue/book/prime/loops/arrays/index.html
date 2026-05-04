@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Перебор массивов в Vue — acteck.off</title>
+  <meta name="description" content="Перебор массивов в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/vue/book/prime/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
+    </div>
+
+    <h1>Перебор массивов в Vue</h1>
+    <p>
+	Vue позволяет формировать теги в цикле.
+	Это делается с помощью специальной
+	директивы <code data-gs="comd/c" data-x>v-for</code>. Давайте посмотрим,
+	как она работает для массивов.
+	Для этого сделаем следующий массив:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		arr: ['a', 'b', 'c'],
+	}
+}</code>
+</div>
+<p>
+	Давайте выведем каждый элемент
+	этого массива в отдельном абзаце.
+	Для этого в представлении
+	для начала сделаем абзац:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;p&gt;&lt;/p&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	Теперь напишем нашему абзацу
+	директиву <code data-gs="comd/c" data-x>v-for</code>. Значением
+	этой директивы следует указать
+	имя перебираемого массива и
+	переменную, в которую последовательно
+	будут попадать элементы этого
+	массива. В нашем случае имя
+	массива будет <code data-gs="comd/c" data-x>arr</code>,
+	а для переменной мы придумаем
+	имя <code data-gs="comd/c" data-x>elem</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;p v-for="elem in arr"&gt;&lt;/p&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	В результате наш абзац повторится
+	столько раз, сколько элементов
+	в нашем массиве. Давайте будем выводить
+	перебираемые элементы в тексте
+	наших абзацев:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;p v-for="elem in arr"&gt;{{ elem }}&lt;/p&gt;
+&lt;/template&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть в <code data-gs="comd/c" data-x>data</code> хранится следующий массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		items: [1, 2, 3, 4, 5],
+	}
+}</code>
+	</div>
+	<p>
+		Выведите каждый элемент этого
+		массива в своем теге <code data-gs="comd/c" data-x>div</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		items: [1, 2, 3, 4, 5],
+	}
+}</code>
+	</div>
+	<p>
+		Выведите квадрат каждого элемента
+		этого массива в своем теге <code data-gs="comd/c" data-x>div</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		items: [1, 2, 3, 4, 5],
+	}
+}</code>
+	</div>
+	<p>
+		Выведите элементы этого
+		массива в виде списка <code data-gs="comd/c" data-x>ul</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

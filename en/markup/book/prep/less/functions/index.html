@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Функции в LESS — acteck.off</title>
+  <meta name="description" content="Функции в LESS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Функции в LESS</h1>
+    <p>
+	В этом уроке мы рассмотрим, как использовать
+	функции. Функции, чем-то похожи на примешивание,
+	но при этом позволяют добавлять параметры,
+	которые могут менять свои значения.
+</p>
+<p>
+	Эти параметры передаются в круглых скобках
+	функции. Посмотрим на примере.
+</p>
+<p>
+	Давайте сделаем функцию <code data-gs="comd/c" data-x>fs</code>, которая
+	будет задавать размер шрифта. Пусть размер
+	передается параметром. В качестве параметра
+	будет выступать переменная, имя которой мы
+	придумываем при объявлении функции:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">.fs(@size) {
+	// тут будет код функции
+}</code>
+</div>
+<p>
+	Давайте укажем внутри функции, куда должно
+	вставится значение нашего параметра:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">.fs(@size) {
+	font-size: @size;
+}</code>
+</div>
+<p>
+	Вызовем нашу функцию, передав ей в качестве
+	параметра желаемый размер элемента:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">p {
+	.fs(20px);
+}</code>
+</div>
+<p>
+	В результате после компиляции размер шрифта
+	абзаца станет равен указанному значению:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 20px;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте функцию <code data-gs="comd/c" data-x>w()</code>, которая будет
+		задавать ширину элементу.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте функцию <code data-gs="comd/c" data-x>h()</code>, которая будет
+		задавать высоту элементу.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../namespaces/index.html" class="lesson-nav-btn lesson-nav-prev" title="Пространства имен">← Пространства имен</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../functions-several-parameters/index.html" class="lesson-nav-btn lesson-nav-next" title="Несколько параметров в функциях">Несколько параметров в функциях →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

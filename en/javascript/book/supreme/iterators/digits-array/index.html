@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Массив цифр числа в JavaScript — acteck.off</title>
+  <meta name="description" content="Массив цифр числа в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Массив цифр числа в JavaScript</h1>
+    <p>
+	Давайте получим массив цифр числа.
+	Пусть дано следующее число:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 12345;</code>
+</div>
+<p>
+	Попытка разложить число через <code data-gs="comd/c" data-x>spread</code>
+	приведет к ошибке, так как числа
+	не итерируемы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 12345;
+let arr = [...num]; // ошибка
+console.log(arr);</code>
+</div>
+<p>
+	Для решения проблемы преобразуем
+	число в строку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 12345;
+let arr = [...String(num)];
+console.log(arr); // ['1', '2', '3', '4', '5']</code>
+</div>
+<p>
+	У нас, однако, получился массив строк,
+	а не чисел. Исправим проблему с помощью
+	хитрого приема, используя метод
+	<a href="../../../../manual/array/map/index.html"><code data-gs="comd/c" data-x>map</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 12345;
+let arr = [...String(num)].map(Number);
+console.log(arr); // [1, 2, 3, 4, 5]</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дано число. Найдите сумму его цифр.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../string/index.html" class="lesson-nav-btn lesson-nav-prev" title="Встроенные итераторы строк">← Встроенные итераторы строк</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../dom-elems-numbers/index.html" class="lesson-nav-btn lesson-nav-next" title="Нумерация DOM элементов">Нумерация DOM элементов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модификатор protected в TypeScript — acteck.off</title>
+  <meta name="description" content="Модификатор protected в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Модификатор protected в TypeScript</h1>
+    <p>
+	Приватные свойства и методы не наследуются
+	потомками. Иногда, однако, нам нужно, чтобы
+	свойство или метод не были доступны извне,
+	но были унаследованы потомками. В этом
+	случае следует использовать модификатор
+	<code data-gs="comd/c" data-x>protected</code>. 
+</p>
+<p>
+	Давайте попробуем на практике. Объявим в
+	нашем классе <code data-gs="comd/c" data-x>User</code> метод <code data-gs="comd/c" data-x>cape</code>
+	как защищенный с помощью модификатора <code data-gs="comd/c" data-x>protected</code>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class User {
+	protected cape(str: string) {
+		return str[0].toUpperCase() + str.slice(1);
+	}
+}</code>
+</div>
+<p>
+	Сделаем класс <code data-gs="comd/c" data-x>Student</code>, наследующий
+	от класса <code data-gs="comd/c" data-x>User</code>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class Student extends User {
+	private name: string;
+	
+	constructor(name: string) {
+		super();
+		this.name = name;
+	}
+}</code>
+</div>
+<p>
+	Добавим метод, выводящий имя: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class Student extends User {
+	private name: string;
+	
+	constructor(name: string) {
+		super();
+		this.name = name;
+	}
+	
+	public showName(): string {
+		return this.name;
+	}
+}</code>
+</div>
+<p>
+	А теперь используем защищенный метод
+	родителя внутри метода потомка: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class Student extends User {
+	private name: string;
+	
+	constructor(name: string) {
+		super();
+		this.name = name;
+	}
+	
+	public showName(): string {
+		return this.cape(this.name); // используем метод родителя
+	}
+}</code>
+</div>
+<p>
+	Создадим объект нашего класса: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let student: Student = new Student('john');</code>
+</div>
+<p>
+	Воспользуемся методом для вывода студента: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">console.log(student.showName());</code>
+</div>
+<p>
+	А вот попытка вызвать метод <code data-gs="comd/c" data-x>cape</code>
+	снаружи класса приведет к ошибке: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">console.log(student.cape('test')); // ошибка</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий класс: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class User {
+	protected name: string;
+	protected surn: string;
+	
+	constructor(name: string, surn: string) {
+		this.name = name;
+		this.surn = surn;
+	}
+}</code>
+	</div>
+	<p>
+		Унаследуйте от этого класса класс <code data-gs="comd/c" data-x>Employee</code>,
+		который добавит защищенное свойство <code data-gs="comd/c" data-x>salary</code>,
+		а также геттеры всех свойств, как своих,
+		так и унаследованных. 
+	</p>
+</div>
+    <div class="lesson-nav">
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

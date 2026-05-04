@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство mask — acteck.off</title>
+  <meta name="description" content="Свойство mask — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство mask</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>mask</code> является сокращением для всех свойств маскирования и позволяет задать:
+	изображение-маску, её положение, размер, режим наложения и другие параметры.
+</p>
+<p>
+	Является свойством-сокращением для следующих свойств:
+	<a href="../mask-image/index.html"><code data-gs="comd/c" data-x>mask-image</code></a>,
+	<a href="../mask-position/index.html"><code data-gs="comd/c" data-x>mask-position</code></a>,
+	<a href="../mask-size/index.html"><code data-gs="comd/c" data-x>mask-size</code></a>,
+	<a href="../mask-repeat/index.html"><code data-gs="comd/c" data-x>mask-repeat</code></a>,
+	<a href="../mask-origin/index.html"><code data-gs="comd/c" data-x>mask-origin</code></a>,
+	<a href="../mask-clip/index.html"><code data-gs="comd/c" data-x>mask-clip</code></a>,
+	<a href="../mask-mode/index.html"><code data-gs="comd/c" data-x>mask-mode</code></a>,
+	<a href="../mask-composite/index.html"><code data-gs="comd/c" data-x>mask-composite</code></a>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	mask: [mask-image] [mask-position] / [mask-size]
+	      [mask-repeat] [mask-origin] [mask-clip]
+	      [mask-mode] [mask-composite];
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>none</code></th>
+		<td>Отключает маскирование (значение по умолчанию)</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>url()</code></th>
+		<td>Путь к изображению-маске (SVG, PNG)</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>linear-gradient()</code></th>
+		<td>Линейный градиент в качестве маски</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>radial-gradient()</code></th>
+		<td>Радиальный градиент в качестве маски</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>position</code></th>
+		<td>Положение маски (top, center, 50% 50% и др.)</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>size</code></th>
+		<td>Размер маски (cover, contain, 100px 50px)</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>repeat</code></th>
+		<td>Повторение маски (no-repeat, repeat-x, space)</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>mode</code></th>
+		<td>Режим наложения (alpha, luminance, match-source)</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>composite</code></th>
+		<td>Композиция масок (add, subtract, intersect, exclude)</td>
+	</tr>
+</table>
+
+<h2>Подготовка картинок</h2>
+<p>
+	Пусть у нас есть картинка природы, которую
+	мы будем образать, и SVG картинки сердечка
+	и стрелки, по которым мы будем вырезать:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img src="image.jpg" width="500"&gt;
+&lt;br&gt;
+&lt;img src="heart.svg" width="300"&gt;
+&lt;br&gt;
+&lt;img src="arrow.svg" width="300"&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<img src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot; width=&quot;500&quot;>
+		<br>
+		<img src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot; width=&quot;300&quot;>
+		<br>
+		<img src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/arrow.svg?v=1&quot; width=&quot;300&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Маска-картинка</h2>
+<p>
+	Давайте наложим маску-сердечко на нашу
+	картинку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	background: red;
+	mask: url("heart.svg") center/300px no-repeat;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			background: red;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) center/300px no-repeat;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Позиция маски</h2>
+<p>
+	Маска-сердечко в левом верхнем углу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") left top/150px no-repeat;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) left top/150px no-repeat;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Позиция маски</h2>
+<p>
+	Маска-сердечко в правом нижнем углу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") right bottom/150px no-repeat;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) right bottom/150px no-repeat;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Позиция маски</h2>
+<p>
+	Маска-сердечко в по центру слева:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") left center/150px no-repeat;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) left center/150px no-repeat;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Позиция маски</h2>
+<p>
+	Маска-сердечко в по центру:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") center/150px no-repeat;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) center/150px no-repeat;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Позиция маски</h2>
+<p>
+	Маска-сердечко <code data-gs="comd/u" data-x>100px</code> слева и <code data-gs="comd/u" data-x>200px</code> сверху:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") 100px 200px /150px no-repeat;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) 100px 200px /150px no-repeat;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Размер маски cover</h2>
+<p>
+	Значение <code data-gs="comd/c" data-x>cover</code> масштабирует маску, чтобы она полностью покрыла элемент, сохраняя пропорции. 
+	Может обрезать края маски, если пропорции не совпадают:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") center/cover;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) center/cover;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Размер маски contain</h2>
+<p>
+	Значение <code data-gs="comd/c" data-x>contain</code> масштабирует маску, чтобы она целиком поместилась в элемент, 
+	сохраняя пропорции. Может оставлять пустые области:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") center/contain no-repeat;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) center/contain no-repeat;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Размер маски</h2>
+<p>
+	Фиксированный размер устанавливает точные размеры маски. 
+	К примеру сделаем маску размером <code data-gs="comd/u" data-x>50px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") center/50px no-repeat;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) center/50px no-repeat;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Повторение no-repeat</h2>
+<p>
+	Значение <code data-gs="comd/c" data-x>no-repeat</code> отключает повторение маски. 
+	Маска отображается только один раз в указанной позиции:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") top left / 150px no-repeat;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) top left / 150px no-repeat;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Повторение repeat-x</h2>
+<p>
+	Значение <code data-gs="comd/c" data-x>repeat-x</code> повторяет маску только по горизонтальной оси:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") left center / 50px repeat-x;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) left center / 50px repeat-x;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Композиция add</h2>
+<p>
+	Значение <code data-gs="comd/c" data-x>add</code> складывает несколько масок (результат - объединение всех масок):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: 
+		url("heart.svg") 100px 50px / 150px no-repeat,
+		url("arrow.svg") 200px 30px / 150px no-repeat;
+	mask-composite: add;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: 
+				url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) 100px 50px / 150px no-repeat,
+				url(&quot;/cont/markup/manual/css/property/mask/@/image/arrow.svg?v=1&quot;) 200px 30px / 150px no-repeat;
+			mask-composite: add;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Композиция intersect</h2>
+<p>
+	Значение <code data-gs="comd/c" data-x>intersect</code> показывает только область пересечения масок:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: 
+		url("heart.svg") 100px 50px / 150px no-repeat,
+		url("arrow.svg") 50px 30px / 150px no-repeat;
+	mask-composite: intersect;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: 
+				url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) 100px 50px / 150px no-repeat,
+				url(&quot;/cont/markup/manual/css/property/mask/@/image/arrow.svg?v=1&quot;) 50px 30px / 150px no-repeat;
+			mask-composite: intersect;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Композиция exclude</h2>
+<p>
+	Значение <code data-gs="comd/c" data-x>exclude</code> показывает области масок, которые не пересекаются:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: 
+		url("heart.svg") 100px 50px / 150px no-repeat,
+		url("arrow.svg") 50px 30px / 150px no-repeat;
+	mask-composite: exclude;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: 
+				url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) 100px 50px / 150px no-repeat,
+				url(&quot;/cont/markup/manual/css/property/mask/@/image/arrow.svg?v=1&quot;) 50px 30px / 150px no-repeat;
+			mask-composite: exclude;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Композиция subtract</h2>
+<p>
+	Значение <code data-gs="comd/c" data-x>subtract</code> вычитает вторую маску из первой.
+	Для примера сделаем одно сердечко и вычтем из
+	него стрелку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: 
+		url("heart.svg") 100px 50px / 250px no-repeat,
+		url("arrow.svg") 170px 80px / 120px no-repeat;
+		
+		
+	mask-composite: subtract;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: 
+				url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) 100px 50px / 250px no-repeat,
+				url(&quot;/cont/markup/manual/css/property/mask/@/image/arrow.svg?v=1&quot;) 170px 80px / 120px no-repeat;
+				
+				
+			mask-composite: subtract;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Развернутая запись mask</h2>
+<p>
+	Свойство mask, записанное отдельными составляющими:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask-image: url("heart.svg");
+	mask-position: center;
+	mask-size: contain;
+	mask-repeat: no-repeat;
+	mask-origin: content-box;
+	mask-clip: content-box;
+	mask-mode: alpha;
+	mask-composite: add;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask-image: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;);
+			mask-position: center;
+			mask-size: contain;
+			mask-repeat: no-repeat;
+			mask-origin: content-box;
+			mask-clip: content-box;
+			mask-mode: alpha;
+			mask-composite: add;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. SVG для картинки</h2>
+<p>
+	Использование SVG-элемента в качестве маски
+	для картинки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;
+&lt;svg width="0" height="0"&gt;
+	&lt;mask id="mask"&gt;
+		&lt;path d="M150 15L183 111L285 111L204 171L237 267L150 216L63 267L96 171L15 111L117 111Z" fill="white"/&gt;
+	&lt;/mask&gt;
+&lt;/svg&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	background: red;
+	mask: url(#mask);
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			background: red;
+			mask: url(#mask);
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		<svg width=&quot;0&quot; height=&quot;0&quot;>
+			<mask id=&quot;mask&quot;>
+				<path d=&quot;M150 15L183 111L285 111L204 171L237 267L150 216L63 267L96 171L15 111L117 111Z&quot; fill=&quot;white&quot;/>
+			</mask>
+		</svg>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. SVG для градиента</h2>
+<p>
+	Использование SVG-элемента в качестве маски
+	для градиента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;
+&lt;svg width="0" height="0"&gt;
+	&lt;mask id="star-mask"&gt;
+		&lt;path d="M150 15L183 111L285 111L204 171L237 267L150 216L63 267L96 171L15 111L117 111Z" fill="white"/&gt;
+	&lt;/mask&gt;
+&lt;/svg&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 500px;
+	height: 300px;
+	background: linear-gradient(45deg, red, blue);
+	mask: url(#star-mask);
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 500px;
+			height: 300px;
+			background: linear-gradient(45deg, red, blue);
+			mask: url(#star-mask);
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		<svg width=&quot;0&quot; height=&quot;0&quot;>
+			<mask id=&quot;star-mask&quot;>
+				<path d=&quot;M150 15L183 111L285 111L204 171L237 267L150 216L63 267L96 171L15 111L117 111Z&quot; fill=&quot;white&quot;/>
+			</mask>
+		</svg>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<!--
+<h2>Пример <span data-gn="sect"></span>. Режим наложения alpha</h2>
+<p>
+	Использование режима наложения alpha:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") center/150px no-repeat alpha;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) center/150px no-repeat alpha;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Режим наложения luminance</h2>
+<p>
+	Использование режима наложения luminance:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") center/150px no-repeat luminance;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask/@/image/heart.svg?v=1&quot;) center/150px no-repeat luminance;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+-->
+
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../mask-position/index.html"><code data-gs="comd/c" data-x>mask-position</code></a>, <br>
+			определяет положение маски относительно элемента
+		</li>
+		<li>
+			свойство <a href="../mask-image/index.html"><code data-gs="comd/c" data-x>mask-image</code></a>, <br>
+			задает изображение для маски
+		</li>
+		<li>
+			свойство <a href="../mask-mode/index.html"><code data-gs="comd/c" data-x>mask-mode</code></a>, <br>
+			определяет как маска взаимодействует с фоном
+		</li>
+		<li>
+			свойство <a href="../mask-size/index.html"><code data-gs="comd/c" data-x>mask-size</code></a>, <br>
+			определяет размер маски
+		</li>
+		<li>
+			свойство <a href="../mask-repeat/index.html"><code data-gs="comd/c" data-x>mask-repeat</code></a>, <br>
+			определяет повторение маски
+		</li>
+		<li>
+			свойство <a href="../mask-origin/index.html"><code data-gs="comd/c" data-x>mask-origin</code></a>, <br>
+			определяет область позиционирования маски
+		</li>
+		<li>
+			свойство <a href="../mask-clip/index.html"><code data-gs="comd/c" data-x>mask-clip</code></a>, <br>
+			определяет область отсечения маски
+		</li>
+		<li>
+			свойство <a href="../mask-composite/index.html"><code data-gs="comd/c" data-x>mask-composite</code></a>, <br>
+			определяет как несколько масок комбинируются
+		</li>
+		
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../margin-top/index.html" class="lesson-nav-btn lesson-nav-prev" title="margin-top">← margin-top</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../mask-clip/index.html" class="lesson-nav-btn lesson-nav-next" title="mask-clip">mask-clip →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

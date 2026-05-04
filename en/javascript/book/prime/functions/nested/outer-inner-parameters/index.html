@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Параметры внешней и внутренней функций в JavaScript — acteck.off</title>
+  <meta name="description" content="Параметры внешней и внутренней функций в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Параметры внешней и внутренней функций в JavaScript</h1>
+    <p>
+	Давайте сделаем так, чтобы и внешняя функция
+	и внутренняя принимали параметры:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(localNum) {
+		console.log(localNum);
+	}
+}</code>
+</div>
+<p>
+	Передадим параметр внешней функции в вызов
+	внутренней функции:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(localNum) {
+		console.log(localNum); // выведет 1
+	}
+	
+	func(num); //!! передаем параметр
+}
+
+test(1); // передаем параметром число</code>
+</div>
+<p>
+	Получается, что во внутренней функции будет
+	доступна переменная <code data-gs="comd/c" data-x>num</code> как внешняя
+	переменная из родительской функции и переменная
+	<code data-gs="comd/c" data-x>localNum</code>, являющаяся локальной переменной
+	внутренней функции.
+</p>
+<p>
+	Обе эти переменные будут иметь одинаковые
+	значения:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(localNum) {
+		console.log(num); // выведет 1
+		console.log(localNum); // выведет 1
+	}
+	
+	func(num);
+}
+
+test(1);</code>
+</div>
+<p>
+	Разница между ними будет в следующем: если
+	во внутренней функции изменить переменную
+	<code data-gs="comd/c" data-x>num</code> - она поменяется и во внешней функции:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(localNum) {
+		num = 2; // меняем переменную num
+	}
+	
+	func(num);   // передаем параметр
+	console.log(num);  // выведет 2
+}
+
+test(1); // передаем параметром число</code>
+</div>
+<p>
+	А переменная <code data-gs="comd/c" data-x>localNum</code> будет локальной.
+	Ее изменения не будут приводить ни к каким
+	изменениям во внешней функции. Да и сама
+	переменная <code data-gs="comd/c" data-x>localNum</code> не будет видна
+	снаружи внутренней функции:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(localNum) {
+		localNum = 2; // меняем переменную num
+	}
+	
+	func(num); // передаем параметр
+}
+
+test(1); // передаем параметром число</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(localNum) {
+		console.log(localNum);
+	}
+	
+	func(num);
+}
+
+test(1);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(localNum) {
+		console.log(localNum);
+	}
+	
+	func(num + 1);
+}
+
+test(1);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(localNum) {
+		console.log(num);
+	}
+	
+	func(num + 1);
+}
+
+test(1);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(localNum) {
+		localNum = 2;
+	}
+	
+	func(num);
+	console.log(num);
+}
+
+test(1);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(localNum) {
+		localNum = 2;
+	}
+	
+	func(num);
+	console.log(localNum);
+}
+
+test(1);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test(num) {
+	function func(localNum) {
+		num = 2;
+	}
+	
+	func(num);
+	console.log(num);
+}
+
+test(1);</code>
+	</div>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../outer-function-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Параметры внешней функции">← Параметры внешней функции</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../same-name-parameters/index.html" class="lesson-nav-btn lesson-nav-next" title="Одноименные параметры">Одноименные параметры →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

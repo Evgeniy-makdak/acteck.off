@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сочетание float и margin в CSS — acteck.off</title>
+  <meta name="description" content="Сочетание float и margin в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Сочетание float и margin в CSS</h1>
+    <p>
+	Сейчас наш текст прижат к картинке с левой
+	стороны. Давайте попробуем немного отодвинуть
+	этот текст. Для этого зададим нашим абзацам
+	левый <code data-gs="comd/c" data-x>margin</code> в <code data-gs="comd/u" data-x>30px</code>, а диву-родителю
+	- красную границу.
+</p>
+<p>
+	Неожиданно вправо отступит только тот текст,
+	который прилегает в диву-родителю, а текст,
+	прилегающий к картинке - не отодвинется:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;img src="img.png" alt=""&gt;
+	&lt;p&gt;
+		Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+	&lt;/p&gt;
+	&lt;p&gt;
+		some long text
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	width: 400px;
+	border: 1px solid red;
+	text-align: justify;
+}
+p {
+	margin-left: 30px;
+}
+img {
+	float: left;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			div {
+			width: 400px;
+			border: 1px solid red;
+			text-align: justify;
+		}
+		p {
+			margin-left: 30px;
+		}
+		img {
+			float: left;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<img src=&quot;../../../../../cont/markup/book/prime/float/margin-conjunction/@/image/img.png&quot; alt=&quot;&quot;>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+			</p>
+			<p>
+				
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+			</p>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Чтобы понять, почему это так, добавим абзацам
+	зеленую границу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;img src="img.png" alt=""&gt;
+	&lt;p&gt;
+		Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+	&lt;/p&gt;
+	&lt;p&gt;
+		some long text
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	width: 400px;
+	border: 1px solid red;
+	text-align: justify;
+}
+p {
+	margin-left: 30px;
+	border: 1px solid green;
+}
+img {
+	float: left;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			div {
+			width: 400px;
+			border: 1px solid red;
+			text-align: justify;
+		}
+		p {
+			margin-left: 30px;
+			border: 1px solid green;
+		}
+		img {
+			float: left;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<img src=&quot;../../../../../cont/markup/book/prime/float/margin-conjunction/@/image/img.png&quot; alt=&quot;&quot;>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+			</p>
+			<p>
+				
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+			</p>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Как мы видим, на самом деле абзацы отодвигаются
+	от левого края, но не от картинки, а от дива-родителя.
+	Чтобы рассмотреть подробнее, давайте добавим
+	еще и полупрозначность картинке через свойство
+	<code data-gs="comd/c" data-x>opacity</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;img src="img.png" alt=""&gt;
+	&lt;p&gt;
+		Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+	&lt;/p&gt;
+	&lt;p&gt;
+		some long text
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	width: 400px;
+	border: 1px solid red;
+	text-align: justify;
+}
+p {
+	margin-left: 30px;
+	border: 1px solid green;
+}
+img {
+	float: left;
+	opacity: 0.5;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			div {
+			width: 400px;
+			border: 1px solid red;
+			text-align: justify;
+		}
+		p {
+			margin-left: 30px;
+			border: 1px solid green;
+		}
+		img {
+			float: left;
+			opacity: 0.5;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<img src=&quot;../../../../../cont/markup/book/prime/float/margin-conjunction/@/image/img.png&quot; alt=&quot;&quot;>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+			</p>
+			<p>
+				
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+			</p>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Вот теперь точно видно, что реакция на <code data-gs="comd/c" data-x>margin-left</code>
+	есть, только абзацы на самом деле размещены
+	под картинкой. Давайте уберем отступ, оставив
+	при этом полупрозрачность картинке:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;img src="img.png" alt=""&gt;
+	&lt;p&gt;
+		Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+	&lt;/p&gt;
+	&lt;p&gt;
+		some long text
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	width: 400px;
+	border: 1px solid red;
+	text-align: justify;
+}
+p {
+	border: 1px solid green;
+}
+img {
+	float: left;
+	opacity: 0.5;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			div {
+			width: 400px;
+			border: 1px solid red;
+			text-align: justify;
+		}
+		p {
+			border: 1px solid green;
+		}
+		img {
+			float: left;
+			opacity: 0.5;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<img src=&quot;../../../../../cont/markup/book/prime/float/margin-conjunction/@/image/img.png&quot; alt=&quot;&quot;>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+			</p>
+			<p>
+				
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+			</p>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Вот так на самом деле выглядят наши абзацы
+	- их текст отодвинут картинкой, но физически
+	абзацы лежат под картинкой, это видно по
+	границе, которая начинается от левого края
+	дива-родителя.
+</p>
+<p>
+	Давайте вернем <code data-gs="comd/c" data-x>margin</code> и засунем картинку
+	в первый абзац:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;p&gt;
+		&lt;img src="img.png" alt=""&gt;
+		Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+	&lt;/p&gt;
+	&lt;p&gt;
+		some long text
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	width: 400px;
+	border: 1px solid red;
+	text-align: justify;
+}
+p {
+	margin-left: 30px;
+	border: 1px solid green;
+}
+img {
+	float: left;
+	opacity: 0.5;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			div {
+			width: 400px;
+			border: 1px solid red;
+			text-align: justify;
+		}
+		p {
+			margin-left: 30px;
+			border: 1px solid green;
+		}
+		img {
+			float: left;
+			opacity: 0.5;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<p>
+				<img src=&quot;../../../../../cont/markup/book/prime/float/margin-conjunction/@/image/img.png&quot; alt=&quot;&quot;>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.
+			</p>
+			<p>
+				
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+			</p>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Теперь картинка двигается вместе с абзацами!
+</p>
+    <div class="lesson-nav">
+      <a href="../penetration/index.html" class="lesson-nav-btn lesson-nav-prev" title="Свойство float и теги">← Свойство float и теги</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../padding-conjunction/index.html" class="lesson-nav-btn lesson-nav-next" title="Сочетание float и padding">Сочетание float и padding →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

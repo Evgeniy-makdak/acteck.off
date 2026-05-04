@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Submission via POST в JavaScript — acteck.off</title>
+  <meta name="description" content="Form Submission via POST в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Form Submission via POST в JavaScript</h1>
+    <p>
+	Давайте теперь научимся отправлять формы
+	методом POST. Для этого атрибут <code data-gs="comd/c" data-x>method</code>
+	формы установим в соответствующее значение:
+</p>
+<div data-p="bock/pane" data-p-file="public/form.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="/handler/" method="POST"&gt;
+	&lt;input name="test1"&gt;
+	&lt;input name="test2"&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;</code>
+</div>
+<p>
+	Отличие отправки методом POST в том, что
+	отправленные данные не будут видны в адресной
+	строке браузера. Это удобно, когда данные
+	слишком длинные, либо мы не хотим показывать
+	их пользователю в адресной строке.
+</p>
+<p>
+	Данные, отправленные методом POST попадут
+	на нашем сервере в свойство <code data-gs="comd/c" data-x>post</code> объекта
+	с данными:
+</p>
+<div data-p="bock/pane" data-p-file="server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	'/handler/': function(data) {
+		console.log(data.post);
+		return 'test';
+	}
+}</code>
+</div>
+<p>
+	Для краткости можно выполнить деструктуризацию,
+	чтобы получить наши данные в отдельную переменную:
+</p>
+<div data-p="bock/pane" data-p-file="server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	'/handler/': function({post}) {
+		console.log(post);
+		return 'test';
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Спросите у пользователя логин и пароль. После
+		отправки сравните их с логином и паролем,
+		хранящимся в переменных на сервере. Если
+		данные совпадают, выведите сообщение об успехе,
+		в противном случае - о неудаче.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../method-get/index.html" class="lesson-nav-btn lesson-nav-prev" title="Form Submission via GET">← Form Submission via GET</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../get-queries/index.html" class="lesson-nav-btn lesson-nav-next" title="GET запросы">GET запросы →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

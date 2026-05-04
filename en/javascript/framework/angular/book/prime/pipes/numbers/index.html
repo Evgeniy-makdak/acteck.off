@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форматирование чисел с помощью каналов в Angular — acteck.off</title>
+  <meta name="description" content="Форматирование чисел с помощью каналов в Angular — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">javascript</a>
+    </div>
+
+    <h1>Форматирование чисел с помощью каналов в Angular</h1>
+    <p>
+	С помощью канала <code data-gs="comd/c" data-x>DecimalPipe</code> можно
+	форматировать числа. В первом параметре
+	канала мы передаем минимальное количество
+	цифр в целой части. Во втором параметре
+	указываем минимальное количество цифр в
+	дробной части. В третьем необязательным
+	параметре задаем максимальное количество
+	цифр в дробной части. 
+</p>
+<p>
+	Несмотря на то, что наш канал называется
+	<code data-gs="comd/c" data-x>DecimalPipe</code>, для его вызова мы пишем
+	так: <code data-gs="comd/c" data-x>number</code>. 
+</p>
+<p>
+	Давайте попробуем на практике. В классе
+	компонента зададим следующее число: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
+	num: number = 18;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте выведем наше число так, чтобы в
+	его целой части были две цифры. При этом
+	минимальное количество цифр в дробной части
+	будет составлять <code data-gs="comd/n" data-x>1</code>: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;{{ num | number:'2.1' }}&lt;/div&gt;</code>
+</div>
+<p>
+	Результат выполнения кода: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;18.0&lt;/div&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь давайте зададим, чтобы в дробной
+	части нашего числа отображались две цифры: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;{{ num | number:'2.2' }}&lt;/div&gt;</code>
+</div>
+<p>
+	Результат выполнения кода: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;18.00&lt;/div&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте зададим новое число: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
+	num: number = 18.67899;
+}</code>
+</div>
+<p>
+	И выведем его в HTML-шаблоне так, чтобы в
+	дробной части отображались максимально две
+	цифры: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;{{ num | number:'2.1-2' }}&lt;/div&gt;</code>
+</div>
+<p>
+	Результат выполнения кода: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;18.68&lt;/div&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь отформатируем нашего число так,
+	чтобы в его целой части были три цифры. А
+	в дробной части отобразилось пять цифр: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;{{ num | number:'3.5-6' }}&lt;/div&gt;</code>
+</div>
+<p>
+	Результат выполнения кода: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;018.67899&lt;/div&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте попробуем вывести минимальное
+	количество цифр в дробной части, превышающее
+	заданное количество в числе. В нашем случае
+	выведем шесть цифр: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;{{ num | number:'3.6-8' }}&lt;/div&gt;</code>
+</div>
+<p>
+	В результате выполнения кода мы увидим,
+	что канал <code data-gs="comd/c" data-x>DecimalPipe</code> добавил ноль
+	к дробной части: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;018.678990&lt;/div&gt;</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Дано число: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 15;</code>
+	</div>
+	<p>
+		Отформатируйте его в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'015.000'</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дано число: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 12.345;</code>
+	</div>
+	<p>
+		Отформатируйте его в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'0012.345'</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дано число: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 12.345;</code>
+	</div>
+	<p>
+		Отформатируйте его в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'12.3'</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дано число: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 12.345;</code>
+	</div>
+	<p>
+		Отформатируйте его в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'012.34500'</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дано число: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = -7.261;</code>
+	</div>
+	<p>
+		Отформатируйте его в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'-007.3'</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дано число: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 100.261923;</code>
+	</div>
+	<p>
+		Отформатируйте его в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'100.9226130'</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дано число: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 100.926613;</code>
+	</div>
+	<p>
+		Отформатируйте его в следующем виде: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'0100.93'</code>
+	</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../dates/index.html" class="lesson-nav-btn lesson-nav-prev" title="Форматирование дат">← Форматирование дат</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../currencies/index.html" class="lesson-nav-btn lesson-nav-next" title="Форматирование валюты">Форматирование валюты →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тип события в объекте Event в JavaScript — acteck.off</title>
+  <meta name="description" content="Тип события в объекте Event в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Тип события в объекте Event в JavaScript</h1>
+    <p>
+	Объект <code data-gs="comd/c" data-x>Event</code> также содержит в себе
+	тип произошедшего события. Под типом понимается
+	название <code data-gs="comd/c" data-x>click</code>, <code data-gs="comd/c" data-x>mouseover</code> и
+	так далее. Тип события содержит свойство
+	<code data-gs="comd/c" data-x>type</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">elem.addEventListener('click', function(event) {
+	console.log(event.type); // выведет 'click'
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		В следующем коде к двум событиям привязан
+		один и тот же обработчик:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="elem"&gt;text&lt;/button&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', func);
+elem.addEventListener('dblclick', func);
+
+function func() {
+	
+}</code>
+	</div>
+	<p>
+		Допишите код функции <code data-gs="comd/c" data-x>func</code> так, чтобы
+		при клике на элемент этот элемент красился
+		в зеленый цвет, а при двойном клике - в красный.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../event-coordinates/index.html" class="lesson-nav-btn lesson-nav-prev" title="Координаты события">← Координаты события</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../event-element/index.html" class="lesson-nav-btn lesson-nav-next" title="Элемент события">Элемент события →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

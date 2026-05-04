@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обработка POST запроса, отправленного с помощью thunk в Redux — acteck.off</title>
+  <meta name="description" content="Обработка POST запроса, отправленного с помощью thunk в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Обработка POST запроса, отправленного с помощью thunk в Redux</h1>
+    <p>
+	Мы с вами получили данные продуктов и
+	продавцов с сервера и вывели их в
+	приложение. Но с помощью thunk можно
+	не только получать, но и отправлять
+	данные. Давайте узнаем, как это делать.
+</p>
+<p>
+	После того, как мы добавляем новый продукт,
+	он остается у нас в store, то есть внутри
+	нашего приложения. Давайте сделаем так,
+	чтобы новый продукт сохранялся на сервере.
+</p>
+<p>
+	Давайте начнем с сервера. Здесь нам уже
+	придется обработать не GET, а
+	POST-запрос, поскольку на сервер
+	теперь будут поступать данные продукта,
+	которые мы и будем там сохранять. 
+</p>
+<p>
+	Откроем наше приложение с продуктами, а в
+	нем файл <code data-gs="comd/p" data-x>server.js</code>. Найдем в нем массив
+	<code data-gs="comd/c" data-x>handlers</code> и добавим в него еще один
+	обработчик для POST-запроса. Здесь мы
+	будем принимать еще и тело запроса, поэтому
+	в callback мы должны передать <code data-gs="comd/c" data-x>request</code>:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">http.post('/fakeServer/products', async ({ request }) =&gt; {})</code>
+</div>
+<p>
+	Теперь в фигурных скобочках напишем код
+	нашего колбэка. Для начала извлечем данные
+	запроса и в случае ошибки отправим с сервера
+	ответ, что мы не смогли сохранить данные и
+	статус <code data-gs="comd/n" data-x>500</code>:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">http.post('/fakeServer/products', async ({ request }) =&gt; {
+	const data = await request.json()
+
+	if (data.content === 'error') {
+		await delay(ARTIFICIAL_DELAY_MS)
+		
+		return new HttpResponse('server save error', {
+			status: 500,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+	}
+})</code>
+</div>
+<p>
+	Если с данными все в порядке, то мы в базе
+	данных найдем продавца по id, который нам
+	пришел в запросе и впишем этого продавца
+	в <code data-gs="comd/c" data-x>data</code> (данные продавца ведь у нас тоже
+	хранятся на сервере ;) ):
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const seller = db.seller.findFirst({
+	where: { id: { equals: data.seller } },
+})
+data.seller = seller</code>
+</div>
+<p>
+	Далее в базе данных создадим для этого
+	продукта объект с реакциями. И теперь,
+	имея все необходимые поля для продукта,
+	создадим в базе и сам продукт:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">data.reactions = db.reaction.create()
+const product = db.product.create(data)</code>
+</div>
+<p>
+	Поставим задержку и в последней строчке кода
+	для нашего колбэка вернем ответ с продуктом:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">await delay(ARTIFICIAL_DELAY_MS)
+return HttpResponse.json(serializeProduct(product))</code>
+</div>
+<p>
+	На этом мы полностью закончили с сервером
+	и больше к нему не вернемся.
+</p>
+<p>
+	Кстати, еще одна полезная вещь. После строчки
+	<code data-gs="comd/c" data-x>export const worker = setupWorker(...handlers)</code>
+	вы можете добавить следующий код:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">worker.listHandlers().forEach((handler) =&gt; {
+	console.log(handler.info.header)
+})</code>
+</div>
+<p>
+	И теперь вы сможете видеть результат
+	срабатывания каждого обработчика в
+	консоли браузера.
+</p>
+<p>
+	Конечно же наш сервер ненастоящий и если мы
+	будем принудительно обновлять страницу в браузере,
+	то все наши новые объекты с продуктами исчезнут.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Откройте в нем файл <code data-gs="comd/p" data-x>server.js</code>. Добавьте
+		в массив <code data-gs="comd/c" data-x>handlers</code> бработку POST-запроса.
+		В теле этого запроса вы будете принимать
+		данные нового добавленного студента.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В теле callback для вашего <code data-gs="comd/c" data-x>http.post</code>
+		распакуйте данные и в случае ошибки отправьте
+		соответствующий ответ.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Если же все ок, то найдите в базе данных
+		преподавателя по полученному id и впишите
+		его в данные. Впишите также в данные,
+		созданный на основе базы данных объект
+		<code data-gs="comd/c" data-x>votes</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		По собранным данным создайте объект
+		<code data-gs="comd/c" data-x>student</code> с новым студентом и
+		отошлите его в ответе сервера.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../direct-thunk-dispatch/index.html" class="lesson-nav-btn lesson-nav-prev" title="Прямая отправка thunk">← Прямая отправка thunk</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../send-data-thunk/index.html" class="lesson-nav-btn lesson-nav-next" title="Отправка данных с помощью thunk">Отправка данных с помощью thunk →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

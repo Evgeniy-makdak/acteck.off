@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Передача коллбэка для работы с DOM на JavaScript — acteck.off</title>
+  <meta name="description" content="Передача коллбэка для работы с DOM на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Передача коллбэка для работы с DOM на JavaScript</h1>
+    <p>
+	Пусть у нас есть некоторая группа DOM элементов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="elem"&gt;1&lt;/p&gt;
+&lt;p class="elem"&gt;2&lt;/p&gt;
+&lt;p class="elem"&gt;3&lt;/p&gt;
+&lt;p class="elem"&gt;4&lt;/p&gt;
+&lt;p class="elem"&gt;5&lt;/p&gt;</code>
+</div>
+<p>
+	Давайте сделаем функцию <code data-gs="comd/c" data-x>forEach</code>, которая
+	первым параметром будет принимать селектор
+	группы элементов, а вторым параметром - <a
+	href="../../../functions/nested/callbacks/index.html">функцию-коллбэк</a>,
+	которая применится по очереди к каждому из
+	найденных элементов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">forEach('.elem', function() {
+	// функция применится к каждому элементу
+});</code>
+</div>
+<p>
+	Пусть элементы, попавшие под селектор, по
+	очереди попадают в первый параметр коллбэка:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">forEach('.elem', function(elem) {
+	console.log(elem); // выведет по очереди найденные элементы
+});</code>
+</div>
+<p>
+	Давайте с помощью нашей функции найдем все
+	элементы с классом <code data-gs="comd/z" data-x>elem</code> и для каждого
+	найденного элемента применим коллбэк, который
+	возведет в квадрат текст каждого элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">forEach('.elem', function(elem) {
+	elem.textContent = elem.textContent ** 2;
+});</code>
+</div>
+<p>
+	Давайте теперь напишем реализацию задуманной
+	нами функции <code data-gs="comd/c" data-x>forEach</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function forEach(selector, func) {
+	let elems = document.querySelectorAll(selector);
+	
+	for (let elem of elems) {
+		func(elem);
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны абзацы. С помощью созданной нами функции
+		forEach для каждого абзаца добавьте в конец
+		его текста восклицательный знак.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../elements-group-functions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Функции для работы с группой элементов">← Функции для работы с группой элементов</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../callback-sequence-number-passing/index.html" class="lesson-nav-btn lesson-nav-next" title="Передача порядкового номера в коллбэк">Передача порядкового номера в коллбэк →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство flex-flow — acteck.off</title>
+  <meta name="description" content="Свойство flex-flow — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство flex-flow</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>flex-flow</code> - это сокращение
+	для <a href="../flex-direction/index.html"><code data-gs="comd/c" data-x>flex-direction</code></a>
+	и <a href="../flex-wrap/index.html"><code data-gs="comd/c" data-x>flex-wrap</code></a>.
+	Значение по умолчанию: <code data-gs="comd/v" data-x>row nowrap</code>.
+	Применяется к родительскому элементу для
+	flex блоков.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	flex-flow: направление_главной_оси многострочность;
+}</code>
+</div>
+<p>
+	Порядок значения не имеет.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В данном примере блоки не помещаются в свой
+	контейнер и выстроятся в несколько строк:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+	&lt;div&gt;5&lt;/div&gt;
+	&lt;div&gt;6&lt;/div&gt;
+	&lt;div&gt;7&lt;/div&gt;
+	&lt;div&gt;8&lt;/div&gt;
+	&lt;div&gt;9&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	border: 1px solid #696989;
+	height: 200px;
+	width: 330px;
+	margin: auto;
+}
+#parent &gt; div {
+	width: 100px;
+	height: 50px;
+	border: 1px solid #696989;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-between;
+			border: 1px solid #696989;
+			height: 200px;
+			width: 330px;
+			margin: auto;
+		}
+		#parent > div {
+			width: 100px;
+			height: 50px;
+			border: 1px solid #696989;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Поменяем направление главной оси (column
+	вместо row):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+	&lt;div&gt;5&lt;/div&gt;
+	&lt;div&gt;6&lt;/div&gt;
+	&lt;div&gt;7&lt;/div&gt;
+	&lt;div&gt;8&lt;/div&gt;
+	&lt;div&gt;9&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	flex-flow: column wrap;
+	justify-content: space-between;
+	display: flex;
+	height: 200px;
+	width: 330px;
+	margin: auto;
+	border: 1px solid #696989;
+}
+#parent &gt; div {
+	width: 100px;
+	height: 50px;
+	border: 1px solid #696989;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			flex-flow: column wrap;
+			justify-content: space-between;
+			display: flex;
+			height: 200px;
+			width: 330px;
+			margin: auto;
+			border: 1px solid #696989;
+		}
+		#parent > div {
+			width: 100px;
+			height: 50px;
+			border: 1px solid #696989;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../flex-direction/index.html"><code data-gs="comd/c" data-x>flex-direction</code></a>, <br>
+			которое задает направление осей flex блоков
+		</li>
+		<li>
+			свойство <a href="../justify-content/index.html"><code data-gs="comd/c" data-x>justify-content</code></a>, <br>
+			которое задает выравнивание по главной оси
+		</li>
+		<li>
+			свойство <a href="../align-items/index.html"><code data-gs="comd/c" data-x>align-items</code></a>, <br>
+			которое задает выравнивание по поперечной оси
+		</li>
+		<li>
+			свойство <a href="../flex-wrap/index.html"><code data-gs="comd/c" data-x>flex-wrap</code></a>, <br>
+			которое многострочность flex блоков
+		</li>
+		<li>
+			свойство <a href="../order/index.html"><code data-gs="comd/c" data-x>order</code></a>, <br>
+			которое задает порядок flex блоков
+		</li>
+		<li>
+			свойство <a href="../align-self/index.html"><code data-gs="comd/c" data-x>align-self</code></a>, <br>
+			которое задает выравнивание одного блока
+		</li>
+		<li>
+			свойство <a href="../flex-basis/index.html"><code data-gs="comd/c" data-x>flex-basis</code></a>, <br>
+			которое задает размер конкретного flex блока
+		</li>
+		<li>
+			свойство <a href="../flex-grow/index.html"><code data-gs="comd/c" data-x>flex-grow</code></a>, <br>
+			которое задает жадность flex блоков
+		</li>
+		<li>
+			свойство <a href="../flex-shrink/index.html"><code data-gs="comd/c" data-x>flex-shrink</code></a>, <br>
+			которое задает сжимаемость flex блоков
+		</li>
+		<li>
+			свойство <a href="../flex/index.html"><code data-gs="comd/c" data-x>flex</code></a>, <br>
+			сокращение для  flex-grow, flex-shrink и flex-basis
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../flex-direction/index.html" class="lesson-nav-btn lesson-nav-prev" title="flex-direction">← flex-direction</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../flex-grow/index.html" class="lesson-nav-btn lesson-nav-next" title="flex-grow">flex-grow →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

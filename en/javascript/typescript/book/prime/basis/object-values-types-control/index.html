@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контроль типов значений объекта в TypeScript — acteck.off</title>
+  <meta name="description" content="Контроль типов значений объекта в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Контроль типов значений объекта в TypeScript</h1>
+    <p>
+	В момент объявления объекта TypeScript
+	запоминает тип данных всех его элементов,
+	а затем контролирует, чтобы эти типы не
+	изменялись. 
+</p>
+<p>
+	Посмотрим на примере нашего объекта с
+	юзером. Объявим его: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user = {name: 'john', age: 30};</code>
+</div>
+<p>
+	После объявления TypeScript проанализировал
+	тип данных каждого значения и запомнил,
+	что в поле <code data-gs="comd/s" data-x>'name'</code> - строка, а в
+	поле <code data-gs="comd/s" data-x>'age'</code> - число. 
+</p>
+<p>
+	Теперь попытка записать в поле значение
+	другого типа закончится ошибкой. 
+</p>
+<p>
+	Пример: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">user.name = 123; // ошибка</code>
+</div>
+<p>
+	Пример: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">user.age = 'eee'; // ошибка</code>
+</div>
+<p>
+	Пример: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">user.age = '30'; // ошибка</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let date = {year: 2025, month: 12, day: 31};
+date.month = '12';
+
+console.log(date);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let product = {code: '123', name: 'apple', price: 12};
+product.code = 123;
+
+console.log(product);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let product = {code: '123', name: 'apple', price: 12 };
+product.price = 123;
+
+console.log(product);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user = {name: 'john', admin: true};
+user.admin = 'false';
+
+console.log(user);</code>
+	</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../object-structure-control/index.html" class="lesson-nav-btn lesson-nav-prev" title="Контроль структуры объекта">← Контроль структуры объекта</a>
+      <a href="../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../loop-for/index.html" class="lesson-nav-btn lesson-nav-next" title="Цикл for">Цикл for →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

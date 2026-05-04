@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод для прокрутки окна к элементу в JavaScript — acteck.off</title>
+  <meta name="description" content="Метод для прокрутки окна к элементу в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод для прокрутки окна к элементу в JavaScript</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>scrollIntoView</code> прокручивает окно
+	к заданному элементу. Метод применяется
+	к элементу, к которому следует прокрутить
+	окно.
+	Параметром метода регулируют, где должен
+	оказаться элемент: сверху окна или снизу.
+</p>
+<p>
+	Давайте посмотрим на примерах.
+	Прокрутим окно так, чтобы элемент
+	был сверху окна:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">elem.scrollIntoView(true);</code>
+</div>
+<p>
+	А теперь прокрутим окно так, чтобы элемент
+	был снизу окна:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">elem.scrollIntoView(false);</code>
+</div>
+<p>
+	Можно также параметром передать объект
+	с настройками. Давайте плавно прокрутим
+	окно к элементу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">elem.scrollIntoView({
+	behavior: 'smooth',
+});</code>
+</div>
+<p>
+	Объект с настройками имеет также настройки
+	выравнивания страницы по отношению к элементу.
+	Настройка <code data-gs="comd/s" data-x>block</code> задает вертикальное выравнивание,
+	а настройка <code data-gs="comd/s" data-x>inline</code> - горизонтальное.
+	Они могут принимать следующие значения:
+	<code data-gs="comd/s" data-x>'start'</code>, <code data-gs="comd/s" data-x>'center'</code>, <code data-gs="comd/s" data-x>'end'</code>, <code data-gs="comd/s" data-x>'nearest'</code>.
+</p>
+<p>
+	Давайте попробуем:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">elem.scrollIntoView({
+	behavior: 'smooth',
+	block: 'start',
+	inline: 'end',
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан элемент и кнопка. По нажатию
+		на кнопку прокрутите страницу
+		к данному элементу. Опробуйте
+		все описанные возможности.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../value-scrolling/index.html" class="lesson-nav-btn lesson-nav-prev" title="Метод для прокрутки окна на величину">← Метод для прокрутки окна на величину</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../scroll-event/index.html" class="lesson-nav-btn lesson-nav-next" title="Событие прокрутки">Событие прокрутки →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

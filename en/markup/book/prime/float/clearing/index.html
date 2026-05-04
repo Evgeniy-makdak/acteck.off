@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отмена обтекания с помощью свойства clear в CSS — acteck.off</title>
+  <meta name="description" content="Отмена обтекания с помощью свойства clear в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Отмена обтекания с помощью свойства clear в CSS</h1>
+    <p>
+	Для решения такой проблемы существует специальное
+	свойство <code data-gs="comd/c" data-x>clear</code>, которое отменяет обтекание.
+	Значение <code data-gs="comd/v" data-x>left</code> отменяет обтекание слева,
+	значение <code data-gs="comd/v" data-x>right</code> - справа, а значение
+	<code data-gs="comd/v" data-x>both</code> - с обоих сторон. Это значение
+	и используется чаще всего.
+</p>
+<p>
+	Итак, свойство <code data-gs="comd/c" data-x>clear</code> отменяет обтекание.
+	В нашем случае это позволит нам сделать так,
+	чтобы плавающая картинка из первого дива
+	не налазила на второй див.
+</p>
+<p>
+	При этом <code data-gs="comd/c" data-x>clear</code> следует давать тому
+	элементу, на который не должны налазить плавающие
+	элементы, то есть в нашем случае его стоит
+	дать второму диву.
+</p>
+<p>
+	Давайте сделаем это - дадим второму диву
+	кроме класса <code data-gs="comd/z" data-x>parent</code> еще и класс <code data-gs="comd/z" data-x>clearfix</code>
+	и для этого нового класса зададим свойство
+	<code data-gs="comd/c" data-x>clear</code> в значении <code data-gs="comd/v" data-x>both</code> - налезание
+	картинки исчезнет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;img src="img.png" alt=""&gt;
+	text
+&lt;/div&gt;
+&lt;div class="parent clearfix"&gt;
+	text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	border: 1px solid red;
+}
+.parent img {
+	float: left;
+}
+
+.clearfix {
+	clear: both;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			border: 1px solid red;
+		}
+		.parent img {
+			float: left;
+		}
+		
+		.clearfix {
+			clear: both;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<img src=&quot;../../../../../cont/markup/book/prime/float/clearing/@/image/img.png&quot; alt=&quot;&quot;>
+			text
+		</div>
+		<div class=&quot;parent clearfix&quot;>
+			text
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Название <code data-gs="comd/z" data-x>clearfix</code> является общепринятым,
+	поэтому в дальнейшем используйте именно его.
+</p>
+    <div class="lesson-nav">
+      <a href="../picture-wrapping/index.html" class="lesson-nav-btn lesson-nav-prev" title="Обтекание">← Обтекание</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../div-clearfix/index.html" class="lesson-nav-btn lesson-nav-next" title="Отдельный див с клиарфиксом">Отдельный див с клиарфиксом →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

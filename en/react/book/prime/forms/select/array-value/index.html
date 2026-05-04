@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Атрибуты value селекта из массива в React — acteck.off</title>
+  <meta name="description" content="Атрибуты value селекта из массива в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Атрибуты value селекта из массива в React</h1>
+    <p>
+	Пусть у нас опять пункты списка хранятся
+	в массиве:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const texts = ['text1', 'text2', 'text3', 'text4'];
+	const [value, setValue] = useState('');
+	
+	...
+}</code>
+</div>
+<p>
+	Давайте сформируем с помощью этого массива
+	теги <code data-gs="comd/c" data-x>option</code>, добавив им в качестве атрибутов
+	<code data-gs="comd/c" data-x>value</code> значения элементов массива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const texts = ['text1', 'text2', 'text3', 'text4'];
+	const [value, setValue] = useState('');
+	
+	const options = texts.map((text, index) =&gt; {
+		return &lt;option key={index} value={index}&gt;{text}&lt;/option&gt;;
+	});
+	
+	...
+}</code>
+</div>
+<p>
+	Используя сформированные теги создадим выпадающий
+	список:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return &lt;div&gt;
+	&lt;select value={value} onChange={event =&gt; setValue(event.target.value)}&gt;
+		{options}
+	&lt;/select&gt;
+&lt;/div&gt;;</code>
+</div>
+<p>
+	Выведем в абзац номер выбранного пункта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return &lt;div&gt;
+	&lt;select value={value} onChange={event =&gt; setValue(event.target.value)}&gt;
+		{options}
+	&lt;/select&gt;
+	&lt;p&gt;
+		ваш выбор: {value}
+	&lt;/p&gt;
+&lt;/div&gt;;</code>
+</div>
+<p>
+	А теперь выведем текст выбранного пункта,
+	используя его номер и массив с текстами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return &lt;div&gt;
+	&lt;select value={value} onChange={event =&gt; setValue(event.target.value)}&gt;
+		{options}
+	&lt;/select&gt;
+	&lt;p&gt;
+		ваш выбор: {texts[value]}
+	&lt;/p&gt;
+&lt;/div&gt;;</code>
+</div>
+<p>
+	Соберем все вместе и получим следующий код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const texts = ['text1', 'text2', 'text3', 'text4'];
+	const [value, setValue] = useState('');
+	
+	const options = texts.map((text, index) =&gt; {
+		return &lt;option key={index} value={index}&gt;{text}&lt;/option&gt;;
+	});
+	
+	return &lt;div&gt;
+		&lt;select value={value} onChange={event =&gt; setValue(event.target.value)}&gt;
+			{options}
+		&lt;/select&gt;
+		&lt;p&gt;
+			ваш выбор: {texts[value]}
+		&lt;/p&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

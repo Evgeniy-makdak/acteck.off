@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конфигурирование Nginx для тестовых сайтов — acteck.off</title>
+  <meta name="description" content="Конфигурирование Nginx для тестовых сайтов — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Конфигурирование Nginx для тестовых сайтов</h1>
+    <p>
+	Давайте с помощью Nginx привяжем
+	домены к нашим тестовым сайтам.
+	Для этого откроем файл конфигурации,
+	удалим оттуда текущее содержимое и
+	разместим там настройки наших двух
+	сайтов по следующей схеме:
+</p>
+<div data-p="bock/pane" data-p-file="/etc/nginx/sites-available/default">
+	<code data-w="bock/code" data-lo="high" data-m-lang="conf">server {
+	настройки первого сайта
+}
+server {
+	настройки второго сайта
+}</code>
+</div>
+<p>
+	Сделаем настройки для первого сайта,
+	указав ваше доменное имя и
+	ваш порт, на котором запущен
+	скрипт первого сайта:
+</p>
+<div data-p="bock/pane" data-p-file="/etc/nginx/sites-available/default">
+	<code data-w="bock/code" data-lo="high" data-m-lang="conf">server {
+	listen 80;
+	server_name test1.com;
+	
+	location / {
+		proxy_pass http://localhost:3001;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection 'upgrade';
+		proxy_set_header Host $host;
+		proxy_cache_bypass $http_upgrade;
+	}
+}</code>
+</div>
+<p>
+	Ниже в этом же файле сделаем
+	настройки второго сайта,
+	также указав правильный
+	домен и порт:
+</p>
+<div data-p="bock/pane" data-p-file="/etc/nginx/sites-available/default">
+	<code data-w="bock/code" data-lo="high" data-m-lang="conf">server {
+	listen 80;
+	server_name test2.com;
+	
+	location / {
+		proxy_pass http://localhost:3002;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection 'upgrade';
+		proxy_set_header Host $host;
+		proxy_cache_bypass $http_upgrade;
+	}
+}</code>
+</div>
+<p>
+	После этого выполним команду, проверяющую
+	конфигурацию на ошибки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">nginx -t</code>
+</div>
+<p>
+	Перезагрузим Nginx:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">service nginx reload</code>
+</div>
+<p>
+	Рестартанем Nginx:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">service nginx restart</code>
+</div>
+<p>
+	Проверим статус Nginx (должен
+	быть активный, зеленый текст):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">service nginx status</code>
+</div>
+<p>
+	Все, теперь можно через браузер
+	зайти на домены и они будут попадать
+	на ваши тестовые сайты. Если этого
+	не происходит, убедитесь, что
+	A-записи доменов ведут на IP вашего
+	сервера, а также что вы не напутали
+	с портами развернутых на NodeJS сайтов.
+</p>
+<div data-w="cont/task">
+	<p>
+		Привяжите домены к вашим текстовым
+		сайтам, выполнив настройку Nginx.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Зайдите на ваши домены через
+		браузер.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

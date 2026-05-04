@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser Auto Requests — acteck.off</title>
+  <meta name="description" content="Browser Auto Requests — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/internet/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/internet/index.html">Интернет</a>
+    </div>
+
+    <h1>Browser Auto Requests</h1>
+    <p>
+	Пусть вы с помощью браузера заходите
+	на некоторую страницу некоторого сайта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="http">GET /test.html HTTP/1.1
+Host: example.com</code>
+</div>
+<p>
+	Пусть своим результатом запрос возвращает
+	следующий HTML код:
+</p>
+<div data-p="bock/pane" data-p-file="/test.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;link rel="stylesheet" href="styles.css"&gt;
+		&lt;script src="scripts.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;img src="images/img.png"&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<p>
+	На этом работа браузера не заканчивается,
+	ведь пока загружен только HTML код,
+	а этого мало для показа страницы.
+	После загрузки HTML браузер анализирует
+	его и видит, что в коде присутствуют
+	подключения стилей, скриптов, картинок.
+	В этот момент браузер сам, автоматически
+	отправляет запросы на сервер.
+</p>
+<p>
+	При этом для каждого ресурса формируется
+	отдельный HTTP запрос. To есть, к примеру,
+	для каждого подключенного файла CSS
+	будет отправлен отдельный запрос.
+</p>
+<div data-w="cont/task">
+	<p>
+		Сколько HTTP запросов сделает
+		браузер после загрузки следующей страницы:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;link rel="stylesheet" href="main.css"&gt;
+		&lt;link rel="stylesheet" href="styles.css"&gt;
+		&lt;script src="scripts.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;img src="images/img1.png"&gt;
+		&lt;img src="images/img2.png"&gt;
+		&lt;img src="images/img3.png"&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+	</div>
+</div>
+        <div class="lesson-nav">
+      <a href="../message-body/index.html" class="lesson-nav-btn lesson-nav-prev" title="HTTP Message Body">← HTTP Message Body</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../requests-cost/index.html" class="lesson-nav-btn lesson-nav-next" title="HTTP Request Costs">HTTP Request Costs →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

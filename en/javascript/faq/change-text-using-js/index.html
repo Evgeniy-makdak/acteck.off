@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Изменить текст с помощью JS — acteck.off</title>
+  <meta name="description" content="Изменить текст с помощью JS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Изменить текст с помощью JS</h1>
+    <p>
+	JavaScript предоставляет несколько способов
+	для изменения текста на HTML страницах.
+	Давайте рассмотрим разные примеры. 
+</p>
+
+<h2>Вариант 1</h2>
+<p>
+	Тег с текстом: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="elem"&gt;aaa&lt;/p&gt;</code>
+</div>
+<p>
+	Можно поменять текст с помощью свойства
+	<a href="../../manual/dom/textContent/index.html"><code data-gs="comd/c" data-x>textContent</code></a>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+elem.textContent = 'xxx';</code>
+</div>
+
+<h2>Вариант 2</h2>
+<p>
+	Тег с текстом: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="elem"&gt;aaa&lt;/p&gt;</code>
+</div>
+<p>
+	Чтобы применились теги, нужно использовать
+	свойство <a href="../../manual/dom/innerHTML/index.html"><code data-gs="comd/c" data-x>innerHTML</code></a>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+elem.innerHTML = '&lt;b&gt;xxx&lt;/b&gt;';</code>
+</div>
+
+<h2>Вариант 3</h2>
+<p>
+	Тег с текстом из атрибута: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="elem" value="aaa"&gt;</code>
+</div>
+<p>
+	Меняем текст инпута через изменение значения
+	атрибута: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+elem.value = 'xxx';</code>
+</div>
+
+<h2>Вариант 4</h2>
+<p>
+	Тег <a href="../../../markup/manual/html/tag/textarea/index.html"><code data-gs="comd/c" data-x>textarea</code></a>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;textarea&gt;aaa&lt;/textarea&gt;</code>
+</div>
+<p>
+	Это тег особенный - его текст пишется
+	внутри тегов, но чтобы изменить его текст,
+	нужно обращаться к свойству <code data-gs="comd/c" data-x>value</code>.
+	Сделаем это: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+elem.value = 'xxx';</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

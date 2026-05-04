@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Функция clamp — acteck.off</title>
+  <meta name="description" content="Функция clamp — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Функция clamp</h1>
+    <p>
+	Функция <code data-gs="comd/c" data-x>clamp</code> принимает три параметра: минимальное значение, предпочтительное значение и максимальное значение.
+	Она возвращает:
+</p>
+<ul>
+	<li>минимальное значение, если предпочтительное меньше минимального</li>
+	<li>максимальное значение, если предпочтительное больше максимального</li>
+	<li>предпочтительное значение, если оно находится между минимальным и максимальным</li>
+</ul>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	свойство: clamp(min, pref, max);
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Ограничение размера блока</h2>
+<p>
+	В следующем примере предпочтительный
+	размер блока будет <code data-gs="comd/u" data-x>30%</code> от ширины экрана.
+	Но меньше <code data-gs="comd/u" data-x>100px</code> и больше <code data-gs="comd/u" data-x>300px</code>
+	он стать не сможет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="con1"&gt;&lt;/div&gt;
+&lt;div id="targ"&gt;&lt;/div&gt;
+&lt;div id="con2"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#targ {
+	width: clamp(100px, 30%, 300px);
+	height: 100px;
+	border: 1px solid red;
+	margin: 30px auto;
+}
+#con1 {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	margin: 30px auto;
+}
+#con2 {
+	width: 300px;
+	height: 100px;
+	border: 1px solid black;
+	margin: 30px auto;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#targ {
+			width: clamp(100px, 30%, 300px);
+			height: 100px;
+			border: 1px solid red;
+			margin: 30px auto;
+		}
+		#con1 {
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+			margin: 30px auto;
+		}
+		#con2 {
+			width: 300px;
+			height: 100px;
+			border: 1px solid black;
+			margin: 30px auto;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;con1&quot;></div>
+		<div id=&quot;targ&quot;></div>
+		<div id=&quot;con2&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Адаптивный размер шрифта</h2>
+<p>
+	В следующем примере предпочтительный
+	размер шрифта будет <code data-gs="comd/u" data-x>4vw</code>.
+	Но меньше <code data-gs="comd/u" data-x>16px</code> и больше <code data-gs="comd/u" data-x>32px</code>
+	он стать не сможет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="con1"&gt;
+	responsive text example
+&lt;/p&gt;
+&lt;p id="elem"&gt;
+	responsive text example
+&lt;/p&gt;
+&lt;p id="con2"&gt;
+	responsive text example
+&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	font-size: clamp(16px, 4vw, 32px);
+	color: red;
+}
+#con1 {
+	font-size: 16px;
+}
+#con2 {
+	font-size: 32px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			font-size: clamp(16px, 4vw, 32px);
+			color: red;
+		}
+		#con1 {
+			font-size: 16px;
+		}
+		#con2 {
+			font-size: 32px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<p id=&quot;con1&quot;>
+			responsive text example
+		</p>
+		<p id=&quot;elem&quot;>
+			responsive text example
+		</p>
+		<p id=&quot;con2&quot;>
+			responsive text example
+		</p>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Адаптивный радиус скругления</h2>
+<p>
+	В следующем примере предпочтительный
+	радиус скругления будет <code data-gs="comd/u" data-x>3vw</code>.
+	Но меньше <code data-gs="comd/u" data-x>5px</code> и больше <code data-gs="comd/u" data-x>20px</code>
+	он стать не сможет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="con1"&gt;&lt;/div&gt;
+&lt;div id="elem"&gt;&lt;/div&gt;
+&lt;div id="con2"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	width: 100px;
+	height: 100px;
+	margin: 20px auto;
+	background: lightblue;
+}
+#elem {
+	border-radius: clamp(5px, 3vw, 20px);
+	background: #efafc6;
+}
+#con1 {
+	border-radius: 5px;
+}
+#con2 {
+	border-radius: 20px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			div {
+			width: 100px;
+			height: 100px;
+			margin: 20px auto;
+			background: lightblue;
+		}
+		#elem {
+			border-radius: clamp(5px, 3vw, 20px);
+			background: #efafc6;
+		}
+		#con1 {
+			border-radius: 5px;
+		}
+		#con2 {
+			border-radius: 20px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;con1&quot;></div>
+		<div id=&quot;elem&quot;></div>
+		<div id=&quot;con2&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			функцию <a href="../min/index.html"><code data-gs="comd/c" data-x>min</code></a>, <br>
+			которая выбирает минимальное значение
+		</li>
+		<li>
+			функцию <a href="../max/index.html"><code data-gs="comd/c" data-x>max</code></a>, <br>
+			которая выбирает максимальное значение
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../calc/index.html" class="lesson-nav-btn lesson-nav-prev" title="calc">← calc</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../contrast/index.html" class="lesson-nav-btn lesson-nav-next" title="contrast">contrast →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

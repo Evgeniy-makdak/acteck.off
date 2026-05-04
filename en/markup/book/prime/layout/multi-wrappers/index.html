@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Схема макетов с несколькими врапперами в CSS — acteck.off</title>
+  <meta name="description" content="Схема макетов с несколькими врапперами в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Схема макетов с несколькими врапперами в CSS</h1>
+    <p>
+	Часто при разработке встречаются макеты,
+	в которых блоки имеют фон на всю ширину страницы,
+	а содержимое этих блоков стоит по центру.
+	Вот пример такого макета:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="P">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			* {
+			box-sizing: border-box;
+		}
+		body {
+			margin: 0;
+		}
+		
+		.wrapper {
+			margin-bottom: 30px;
+		}
+		.wrapper.line {
+			background-color: #008040;
+			color: white;
+		}
+		.center {
+			width: 800px;
+			padding: 20px;
+			margin: 0 auto;
+		}
+		.wrapper h1 {
+			margin: 0;
+			font: 40px &quot;Times New Roman&quot;;
+		}
+		.wrapper h2 {
+			margin: 0;
+			font: 25px &quot;Times New Roman&quot;;
+		}
+		.wrapper p {
+			font: 16px/1.4 Arial;
+			text-align: justify;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;wrapper&quot;>
+			<div class=&quot;center&quot;>
+				<h1>Main site header</h1>
+			</div>
+		</div>
+		<div class=&quot;wrapper line&quot;>
+			<div class=&quot;center&quot;>
+				<h2>Our company</h2>
+				<p>
+					Pellentesque pellentesque sem ac justo tristique pellentesque. Vestibulum semper pulvinar rutrum. Maecenas odio urna, porta sed lectus eget, fringilla posuere odio. Maecenas pulvinar sed massa vitae tincidunt. Praesent ullamcorper est ac lorem aliquet, sed tempus lacus iaculis. Pellentesque a odio pharetra, sagittis enim sit amet, euismod leo. Nullam egestas, nisi eget blandit dignissim, augue dui accumsan est, at tincidunt ipsum metus quis justo. Aenean sed mauris ornare, faucibus tortor in, iaculis magna. Duis eros lectus, auctor eu mi sit amet, ornare scelerisque elit.
+				</p>
+				<p>
+					Integer a sollicitudin quam. Sed laoreet finibus velit ut rhoncus. Nunc euismod neque at ligula venenatis vestibulum. Nulla facilisi. Nunc aliquet, erat sed ullamcorper malesuada, sapien magna tempor augue, at malesuada felis enim at quam. Curabitur ornare tincidunt nisi id cursus. Nunc finibus non massa in vestibulum. Etiam euismod metus ut euismod sagittis. Donec tincidunt neque a dolor posuere egestas. Proin sed dolor dui. In urna tellus, pretium in eleifend eget, pellentesque et enim. Etiam pulvinar velit nec libero iaculis, vitae consectetur elit pellentesque.
+				</p>
+			</div>
+		</div>
+		<div class=&quot;wrapper&quot;>
+			<div class=&quot;center&quot;>
+				<h2>Our price</h2>
+				<p>
+					Pellentesque pellentesque sem ac justo tristique pellentesque. Vestibulum semper pulvinar rutrum. Maecenas odio urna, porta sed lectus eget, fringilla posuere odio. Maecenas pulvinar sed massa vitae tincidunt. Praesent ullamcorper est ac lorem aliquet, sed tempus lacus iaculis. Pellentesque a odio pharetra, sagittis enim sit amet, euismod leo. Nullam egestas, nisi eget blandit dignissim, augue dui accumsan est, at tincidunt ipsum metus quis justo. Aenean sed mauris ornare, faucibus tortor in, iaculis magna. Duis eros lectus, auctor eu mi sit amet, ornare scelerisque elit.
+				</p>
+				<p>
+					Integer a sollicitudin quam. Sed laoreet finibus velit ut rhoncus. Nunc euismod neque at ligula venenatis vestibulum. Nulla facilisi. Nunc aliquet, erat sed ullamcorper malesuada, sapien magna tempor augue, at malesuada felis enim at quam. Curabitur ornare tincidunt nisi id cursus. Nunc finibus non massa in vestibulum. Etiam euismod metus ut euismod sagittis. Donec tincidunt neque a dolor posuere egestas. Proin sed dolor dui. In urna tellus, pretium in eleifend eget, pellentesque et enim. Etiam pulvinar velit nec libero iaculis, vitae consectetur elit pellentesque.
+				</p>
+			</div>
+		</div>
+		<div class=&quot;wrapper line&quot;>
+			<div class=&quot;center&quot;>
+				<h2>Our contacts</h2>
+				<p>
+					Pellentesque pellentesque sem ac justo tristique pellentesque. Vestibulum semper pulvinar rutrum. Maecenas odio urna, porta sed lectus eget, fringilla posuere odio. Maecenas pulvinar sed massa vitae tincidunt. Praesent ullamcorper est ac lorem aliquet, sed tempus lacus iaculis. Pellentesque a odio pharetra, sagittis enim sit amet, euismod leo. Nullam egestas, nisi eget blandit dignissim, augue dui accumsan est, at tincidunt ipsum metus quis justo. Aenean sed mauris ornare, faucibus tortor in, iaculis magna. Duis eros lectus, auctor eu mi sit amet, ornare scelerisque elit.
+				</p>
+				<p>
+					Integer a sollicitudin quam. Sed laoreet finibus velit ut rhoncus. Nunc euismod neque at ligula venenatis vestibulum. Nulla facilisi. Nunc aliquet, erat sed ullamcorper malesuada, sapien magna tempor augue, at malesuada felis enim at quam. Curabitur ornare tincidunt nisi id cursus. Nunc finibus non massa in vestibulum. Etiam euismod metus ut euismod sagittis. Donec tincidunt neque a dolor posuere egestas. Proin sed dolor dui. In urna tellus, pretium in eleifend eget, pellentesque et enim. Etiam pulvinar velit nec libero iaculis, vitae consectetur elit pellentesque.
+				</p>
+			</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+<p>
+	В таком макете нам придется сделать не один
+	враппер, а несколько - для каждого блока.
+	При этом внутри враппера должен быть еще
+	один блок, выполняющий центрирование содержимого.
+	Также должен быть класс, отвечающий за покраску
+	содержимого фоном.
+</p>
+<p>
+	Общая схема нашего макета будет выглядеть
+	следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="wrapper"&gt;
+	&lt;div class="center"&gt;
+		
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="wrapper line"&gt;
+	&lt;div class="center"&gt;
+		
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="wrapper"&gt;
+	&lt;div class="center"&gt;
+		
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="wrapper line"&gt;
+	&lt;div class="center"&gt;
+		
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Класс <code data-gs="comd/z" data-x>center</code> будет использоваться
+	для центрирования блоков:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.center {
+	width: 800px;
+	padding: 20px;
+	margin: 0 auto;
+}</code>
+</div>
+<p>
+	Класс <code data-gs="comd/z" data-x>line</code> будет использоваться для
+	покраски блоков:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.wrapper.line {
+	background-color: #008040;
+	color: white;
+}</code>
+</div>
+<p>
+	А класс <code data-gs="comd/z" data-x>wrapper</code> будет родителем каждого
+	блока. Используем его для задания отступа
+	между блоками:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.wrapper {
+	margin-bottom: 30px;
+}</code>
+</div>
+<p>
+	Давайте теперь напишем полный код нашей задачи:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="wrapper"&gt;
+	&lt;div class="center"&gt;
+		&lt;h1&gt;Main site header&lt;/h1&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="wrapper line"&gt;
+	&lt;div class="center"&gt;
+		&lt;h2&gt;Our company&lt;/h2&gt;
+		&lt;p&gt;
+			...
+		&lt;/p&gt;
+		&lt;p&gt;
+			...
+		&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="wrapper"&gt;
+	&lt;div class="center"&gt;
+		&lt;h2&gt;Our price&lt;/h2&gt;
+		&lt;p&gt;
+			...
+		&lt;/p&gt;
+		&lt;p&gt;
+			...
+		&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="wrapper line"&gt;
+	&lt;div class="center"&gt;
+		&lt;h2&gt;Our contacts&lt;/h2&gt;
+		&lt;p&gt;
+			...
+		&lt;/p&gt;
+		&lt;p&gt;
+			...
+		&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+}
+
+.wrapper {
+	margin-bottom: 30px;
+}
+.wrapper.line {
+	background-color: #008040;
+	color: white;
+}
+.center {
+	width: 800px;
+	padding: 20px;
+	margin: 0 auto;
+}
+.wrapper h1 {
+	margin: 0;
+	font: 40px "Times New Roman";
+}
+.wrapper h2 {
+	margin: 0;
+	font: 25px "Times New Roman";
+}
+.wrapper p {
+	font: 16px/1.4 Arial;
+	text-align: justify;
+}</code>
+</div>
+<div data-w="cont/task">
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="P">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			body, p, h1, h2, ul, ol {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				font-family: Arial;
+			}
+			
+			.wrapper {
+				margin-bottom: 30px;
+			}
+			
+			.center {
+				width: 840px;
+				padding: 10px;
+				margin: 0 auto;
+			}
+			
+			.wrapper h2 {
+				margin-bottom: 10px;
+				text-align: center;
+				font-size: 27px;
+			}
+			.wrapper p, .wrapper li {
+				margin-bottom: 10px;
+				text-align: justify;
+				font-size: 16px;
+			}
+			.wrapper li {
+				list-style-position: inside;
+			}
+			
+			#header {
+				background: #008040;
+				color: white;
+			}
+			#header h1 {
+				font-size: 35px;
+				margin-bottom: 7px;
+				text-align: center;
+			}
+			#header p {
+				font-size: 21px;
+				margin-bottom: 5px;
+				text-align: center;
+			}
+
+			#services {
+				background-color: white;
+			}
+			
+			#contacts {
+				background-color: #C60304;
+				color: white;
+			}
+			#contacts p {
+				text-align: center;
+			}
+			
+			#company {
+				background-color: white;
+			}
+			
+			#footer {
+				padding-top: 100px;
+				background: #FF8040;
+				color: white;
+				text-align: center;
+				font-size: 13px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;header&quot; class=&quot;wrapper&quot;>
+				<div class=&quot;center&quot;>
+					<h1>Любые виды ремонтных работ</h1>
+					<p>
+						Выезд специалиста, замер и смета работ бесплатно
+					</p>
+					<p>
+						Бесплатный дизайн проект
+					</p>
+					<p>
+						Гарантия 3 года
+					</p>
+				</div>
+			</div>
+			<div id=&quot;services&quot; class=&quot;wrapper&quot;>
+				<div class=&quot;center&quot;>
+					<h2>Наши услуги</h2>
+					<ol>
+						<li>
+							Pellentesque pellentesque sem ac justo tristique pellentesque. Vestibulum semper pulvinar rutrum. Maecenas odio urna, porta sed lectus eget, fringilla posuere odio. Maecenas pulvinar sed massa vitae tincidunt.
+						</li>
+						<li>
+							Praesent ullamcorper est ac lorem aliquet, sed tempus lacus iaculis. Pellentesque a odio pharetra, sagittis enim sit amet, euismod leo. Nullam egestas, nisi eget blandit dignissim, augue dui accumsan est, at tincidunt ipsum metus quis justo. Aenean sed mauris ornare, faucibus tortor in, iaculis magna. Duis eros lectus, auctor eu mi sit amet, ornare scelerisque elit.
+						</li>
+						<li>
+							Integer a sollicitudin quam. Sed laoreet finibus velit ut rhoncus. Nunc euismod neque at ligula venenatis vestibulum. Nulla facilisi. Nunc aliquet, erat sed ullamcorper malesuada, sapien magna tempor augue, at malesuada felis enim at quam. Curabitur ornare tincidunt nisi id cursus.
+						</li>
+						<li>
+							Nunc finibus non massa in vestibulum. Etiam euismod metus ut euismod sagittis. Donec tincidunt neque a dolor posuere egestas. Proin sed dolor dui. In urna tellus, pretium in eleifend eget, pellentesque et enim. Etiam pulvinar velit nec libero iaculis, vitae consectetur elit pellentesque.
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div id=&quot;contacts&quot; class=&quot;wrapper&quot;>
+				<div class=&quot;center&quot;>
+					<h2>Наши контакты</h2>
+					<p>
+						Телефоны: +375 29 335 29 38 МТС, +375 31 335 29 38 Velcom
+					</p>
+				</div>
+			</div>
+			<div id=&quot;company&quot; class=&quot;wrapper&quot;>
+				<div class=&quot;center&quot;>
+					<h2>Наша компания</h2>
+					<p>
+						Pellentesque pellentesque sem ac justo tristique pellentesque. Vestibulum semper pulvinar rutrum. Maecenas odio urna, porta sed lectus eget, fringilla posuere odio. Maecenas pulvinar sed massa vitae tincidunt. Praesent ullamcorper est ac lorem aliquet, sed tempus lacus iaculis. Pellentesque a odio pharetra, sagittis enim sit amet, euismod leo. Nullam egestas, nisi eget blandit dignissim, augue dui accumsan est, at tincidunt ipsum metus quis justo. Aenean sed mauris ornare, faucibus tortor in, iaculis magna. Duis eros lectus, auctor eu mi sit amet, ornare scelerisque elit.
+					</p>
+					<p>
+						Integer a sollicitudin quam. Sed laoreet finibus velit ut rhoncus. Nunc euismod neque at ligula venenatis vestibulum. Nulla facilisi. Nunc aliquet, erat sed ullamcorper malesuada, sapien magna tempor augue, at malesuada felis enim at quam. Curabitur ornare tincidunt nisi id cursus. Nunc finibus non massa in vestibulum. Etiam euismod metus ut euismod sagittis. Donec tincidunt neque a dolor posuere egestas. Proin sed dolor dui. In urna tellus, pretium in eleifend eget, pellentesque et enim. Etiam pulvinar velit nec libero iaculis, vitae consectetur elit pellentesque.
+					</p>
+				</div>
+			</div>
+			<div id=&quot;footer&quot; class=&quot;wrapper&quot;>
+				<div class=&quot;center&quot;>
+					Строительная компания &quot;Рога и копыта&quot; &copy;
+					Все права более чем защищены.
+				</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../one-column-layout/index.html" class="lesson-nav-btn lesson-nav-prev" title="Простые одноколоночные макеты сайтов">← Простые одноколоночные макеты сайтов</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../page-structure/index.html" class="lesson-nav-btn lesson-nav-next" title="Структурные блоки сайта">Структурные блоки сайта →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

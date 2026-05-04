@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ошибка нахождения среднего от массива — acteck.off</title>
+  <meta name="description" content="Ошибка нахождения среднего от массива — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Ошибка нахождения среднего от массива</h1>
+    <p>
+	Расмотрим ошибку, связанную с нахождением
+	среднего арифметического от элементов
+	массива. Пусть для примера у нас
+	дан вот такой массив:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3, 4, 5];</code>
+</div>
+<p>
+	Чтобы найти среднее от элементов,
+	нужно найти их сумму и поделить
+	на количество. Некий программист
+	уже решил эту задачу следующим
+	образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let avg = 0;
+
+for (let elem of arr) {
+	avg += elem / arr.length;
+}
+
+console.log(avg);</code>
+</div>
+<p>
+	Давайте рассмотрим проблемы такого решения.
+	Технически код работает верно и дает верный
+	ответ. Дело в том, что математически корректно
+	как делить всю сумму на количество, так
+	и делить каждое из слагаемых на количество.
+</p>
+<p>
+	Однако, возникает другая проблема. Дело
+	в том, что мы будем выполнять деление
+	столько раз, сколько элементов в нашем
+	массиве. И получается, что мы делаем
+	большое количество лишних операций,
+	ведь деление можно было бы выполнить
+	в конце - один раз, поделив всю
+	найденную сумму.
+</p>
+<p>
+	Давайте оптимизируем наш код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let sum = 0;
+
+for (let elem of arr) {
+	sum += elem;
+}
+
+let avg = sum / arr.length;
+console.log(avg);</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

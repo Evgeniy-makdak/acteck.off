@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Получение целевого элемента при всплытии событий — acteck.off</title>
+  <meta name="description" content="Получение целевого элемента при всплытии событий — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Получение целевого элемента при всплытии событий</h1>
+    <p>
+	Пусть у нас есть два элемента: <code data-gs="comd/c" data-x>div</code>
+	и абзац <code data-gs="comd/c" data-x>p</code>, лежащий внутри этого дива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Получим ссылку на наш див в переменную:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div = document.querySelector('div');</code>
+</div>
+<p>
+	Добавим нашим тегам некоторые стили:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	padding: 20px;
+	border: 1px solid red;
+}
+
+p {
+	width: 200px;
+	height: 200px;
+	border: 1px solid green;
+}</code>
+</div>
+<p>
+	Пусть теперь на див навешен обработчик клика:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">div.addEventListener('click', function() {
+	console.log('click');
+});</code>
+</div>
+<p>
+	Из-за того, что наш див имеет <a href="../../../../../../markup/manual/css/property/padding/index.html"><code data-gs="comd/c" data-x>padding</code></a>,
+	то, когда мы кликаем на див, мы можем попасть
+	по абзацу, а можем попасть в место, где этого
+	абзаца нет, то есть непосредственно по диву.
+</p>
+<p>
+	При этом в обработчике клика <code data-gs="comd/c" data-x>this</code>
+	всегда будет указывать на тот элемент, на
+	который навешан обработчик. В нашем случае
+	это наш див:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">div.addEventListener('click', function() {
+	console.log(this); // див
+});</code>
+</div>
+<p>
+	Однако, мы можем получить именно тот тег,
+	в котором случилось событие. Для этого мы
+	можем посмотреть, что лежит в <code data-gs="comd/c" data-x>event.target</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">div.addEventListener('click', function(event) {
+	console.log(event.target); // или див, или абзац
+});</code>
+</div>
+<p>
+	Можно различить эти два варианта с помощью
+	условий:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div = document.querySelector('div');
+
+div.addEventListener('click', function(event) {
+	if (event.target.tagName === 'DIV') {
+		console.log('клик именно по диву');
+	}
+	if (event.target.tagName === 'P') {
+		console.log('клик именно по абзацу');
+	}
+});</code>
+</div>
+<p>
+	Можно вместо <code data-gs="comd/c" data-x>tagName</code> использовать
+	<a href="../../../../../manual/dom/matches/index.html"><code data-gs="comd/c" data-x>matches</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div = document.querySelector('div');
+
+div.addEventListener('click', function(event) {
+	if (event.target.matches('div')) {
+		console.log('клик именно по диву');
+	}
+	if (event.target.matches('p')) {
+		console.log('клик именно по абзацу');
+	}
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны следующие элементы:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;ul&gt;
+		&lt;li&gt;1&lt;/li&gt;
+		&lt;li&gt;2&lt;/li&gt;
+		&lt;li&gt;3&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</code>
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">div, ul, li {
+	padding: 20px;
+}
+
+div {
+	border: 1px solid red;
+}
+ul {
+	border: 1px solid orange;
+}
+li {
+	border: 1px solid green;
+}</code>
+	</div>
+	<p>
+		Навешайте на див обработчик клика. В этом
+		обработчике определите, в каком из тегов
+		сработало событие.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу. Сделайте
+		так, чтобы при клике на <code data-gs="comd/c" data-x>li</code>, ей в конец
+		добавлялся восклицательный знак, а при клике
+		на <code data-gs="comd/c" data-x>ul</code> в консоль выводилась информация
+		об этом.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../events-bubbling/index.html" class="lesson-nav-btn lesson-nav-prev" title="Всплытие событий">← Всплытие событий</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../bubbling/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Прекращение всплытия событий">Прекращение всплытия событий →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

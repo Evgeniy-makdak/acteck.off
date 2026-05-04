@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Понятие ветвления в Git — acteck.off</title>
+  <meta name="description" content="Понятие ветвления в Git — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/git/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/git/index.html">Git</a>
+    </div>
+
+    <h1>Понятие ветвления в Git</h1>
+    <p>
+	Самым полезным инструментом в Git
+	являются <dfn data-gs="comd/d" data-x>ветки</dfn> (<span data-gs="lang/e" data-x>branches</span>). Они позволяют
+	вести параллельную работу над проектом,
+	переключаясь по мере необходимости
+	между ветками, решая различные задачи.
+	Давайте рассмотрим на примере,
+	в чем суть веток и как их используют
+	на практике.
+</p>
+<p>
+	Итак, как вы уже знаете, по умолчанию у нас
+	есть одна ветка - <code data-gs="comd/s" data-x>master</code>.
+	Обычно эту ветку считают основной.
+	Можно, однако, создавать и дополнительные
+	ветки, как правило для решения частных
+	задач проекта.
+</p>
+<p>
+	При создании новой ветки в ней будут
+	копии файлов нашего проекта.
+	Мы будем писать в них код, а затем,
+	когда задача будет выполнена,
+	мы <dfn data-gs="comd/d" data-x>сольем</dfn> код новой ветки с нашей
+	основной веткой. Таким образом,
+	можно параллельно вести работу
+	над несколькими проблемами,
+	так, что они не будут мешать
+	другу другу. И, по мере готовности
+	отправлять решенные проблемы
+	на продакшн (то есть юзерам для использования).
+</p>
+<p>
+	При этом, при переключении между
+	ветками, Git будет сам менять
+	файлы в папке с вашим проектом.
+	To есть одни файлы будут
+	исчезать, а показываться другие.
+	Также будут меняться тексты
+	файлов, если они отличаются
+	от ветки к ветке. Это важное место,
+	но новички его не всегда
+	понимают. Поэтому еще раз: когда
+	вы в терминале будете менять ветку,
+	то ваши файлы и тексты в них
+	будут меняться в соответствии
+	с веткой. Физически! Сами! Прям в открытом
+	редакторе текст вашего файла
+	будет меняться на другой!
+	Это очень круто и удобно.
+</p>
+<p>
+	Посмотрим на примере, как это делается на практике.
+	Пусть у вас есть некоторый проект.
+	В ветке <code data-gs="comd/s" data-x>master</code> находится
+	его боевая текущая версия, которой
+	пользуются пользователи.
+	Пусть вы разрабатываете новую
+	фичу. Для этого вы создали новую
+	ветку <code data-gs="comd/s" data-x>feature</code>. В ней вы пишите
+	код, реализуя нужную вам задачу.
+	Вдруг звонит телефон и ваш начальник
+	говорит, что на проекте обнаружен
+	серьезный баг и его срочно нужно
+	исправить.
+</p>
+<p>
+	Для этого вы создаете ветку <code data-gs="comd/s" data-x>fix</code>,
+	копируя в нее весь код проекта
+	из ветки <code data-gs="comd/s" data-x>master</code>. Вы пишите
+	код, исправляющий баг, а затем
+	<dfn data-gs="comd/d" data-x>вливаете</dfn> этот код в основную
+	ветку <code data-gs="comd/s" data-x>master</code> и отправляете
+	этот код на продакшн.
+</p>
+<p>
+	Затем переключаетесь на ветку <code data-gs="comd/s" data-x>feature</code>
+	и спокойно продолжаете работу
+	над вашей фичей. Когда она будет
+	закончена, вы вливаете ее
+	в основую ветку <code data-gs="comd/s" data-x>master</code>.
+</p>
+<p>
+	В следующих уроках мы продолжим
+	знакомиться с ветками на практике.
+</p>
+    <div class="lesson-nav">
+      <a href="../../operations/command-aliases/index.html" class="lesson-nav-btn lesson-nav-prev" title="Псевдонимы команд">← Псевдонимы команд</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../master/index.html" class="lesson-nav-btn lesson-nav-next" title="Ветка master">Ветка master →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

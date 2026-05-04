@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жадность при указанной ширине flex блоков в CSS — acteck.off</title>
+  <meta name="description" content="Жадность при указанной ширине flex блоков в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Жадность при указанной ширине flex блоков в CSS</h1>
+    <p>
+	Пусть у нас есть несколько флекс блоков.
+	Давайте одному из этих блоков поставим <code data-gs="comd/c" data-x>flex-grow</code>
+	в значении <code data-gs="comd/n" data-x>1</code>, а всем остальным элементам
+	- некоторую ширину. В результате получится,
+	что все блоки будут иметь фиксированную ширину,
+	а наш избранный жадный блок будет занимать
+	все остальное доступное пространство:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
+	&lt;div class="child elem1"&gt;&lt;/div&gt;
+	&lt;div class="child elem2"&gt;&lt;/div&gt;
+	&lt;div class="child elem3"&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	width: 400px;
+	height: 200px;
+	border: 1px solid red;
+}
+.child {
+	height: 50px;
+	border: 1px solid green;
+}
+
+.elem1 {
+	width: 100px;
+}
+.elem2 {
+	flex-grow: 1;
+}
+.elem3 {
+	width: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			width: 400px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child {
+			height: 50px;
+			border: 1px solid green;
+		}
+		
+		.elem1 {
+			width: 100px;
+		}
+		.elem2 {
+			flex-grow: 1;
+		}
+		.elem3 {
+			width: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child elem1&quot;></div>
+			<div class=&quot;child elem2&quot;></div>
+			<div class=&quot;child elem3&quot;></div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Характерный эффект особенно заметен, когда
+	ширина родителя в процентах. В этом случае
+	при изменении ширины родителя наш жадный
+	блок будет иметь плавающую ширину, а все
+	остальные - фиксированную:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			width: 90%;
+			height: 200px;
+			margin: 0 auto;
+			border: 1px solid red;
+		}
+		.child {
+			height: 50px;
+			border: 1px solid green;
+		}
+		
+		.elem1 {
+			width: 100px;
+		}
+		.elem2 {
+			flex-grow: 1;
+		}
+		.elem3 {
+			width: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child elem1&quot;></div>
+			<div class=&quot;child elem2&quot;></div>
+			<div class=&quot;child elem3&quot;></div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+    <div class="lesson-nav">
+      <a href="../unspecified-width-greediness/index.html" class="lesson-nav-btn lesson-nav-prev" title="Жадность при незаданной ширине flex блоков">← Жадность при незаданной ширине flex блоков</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../shrinkage/index.html" class="lesson-nav-btn lesson-nav-next" title="Сжатие флекс элементов при недостатке места">Сжатие флекс элементов при недостатке места →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

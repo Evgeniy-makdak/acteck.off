@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод addBack — acteck.off</title>
+  <meta name="description" content="Метод addBack — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод addBack</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>addBack</code> добавляет
+	элементы из предыдущего набора к текущему
+	(речь идет об одной цепочке методов), в метод
+	можно также выборочно передать селектор. Под
+	предыдущим набором подразумевается набор элементов,
+	который можно получить с помощью метода
+	<a href="../end/index.html"><code data-gs="comd/c" data-x>end</code></a>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.addBack([селектор]);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем абзац с <code data-gs="comd/z" data-x>#test</code>, затем
+	найдем родителя этого абзаца с помощью
+	<a href="../parent/index.html"><code data-gs="comd/c" data-x>parent</code></a>,
+	добавим найденный абзац к его родителю с
+	помощью <code data-gs="comd/c" data-x>addBack</code> и поставим им в
+	начало текст <code data-gs="comd/s" data-x>'!'</code> с помощью
+	<a href="../prepend/index.html"><code data-gs="comd/c" data-x>prepend</code></a>. Получится,
+	что и абзац, и его родитель в начале будут
+	иметь текст <code data-gs="comd/s" data-x>'!'</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;p&gt;text&lt;/p&gt;
+	&lt;p id="test"&gt;text&lt;/p&gt;
+	&lt;p&gt;text&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('p').parent().addBack().prepend('!');</code>
+</div>
+<p>
+	HTML код станет выглядеть так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	!
+	&lt;p&gt;!text&lt;/p&gt;
+	&lt;p id="test"&gt;!text&lt;/p&gt;
+	&lt;p&gt;!text&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../add/index.html"><code data-gs="comd/c" data-x>add</code></a>, <br>
+			который добавляет заданные элементы в набор
+		</li>
+		<li>
+			метод <a href="../end/index.html"><code data-gs="comd/c" data-x>end</code></a>, <br>
+			который возвращает предыдущий набор элементов 
+			в текущей цепочке методов
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

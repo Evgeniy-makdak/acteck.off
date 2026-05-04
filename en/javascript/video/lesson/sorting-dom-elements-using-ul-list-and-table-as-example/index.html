@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сортировка DOM элементов на примере списка ul и таблицы — acteck.off</title>
+  <meta name="description" content="Сортировка DOM элементов на примере списка ul и таблицы — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Сортировка DOM элементов на примере списка ul и таблицы</h1>
+    <p>
+	В данном уроке я покажу вам, как выполнить
+	сортировку DOM элементов по их тексту. Решим
+	задачу сначала на примере списка ul, а затем
+	усложним ее и построим решение для сортировки
+	HTML таблицы по заданной колонке.
+</p>
+<div data-w="cont/video">
+	<iframe src="https://www.youtube.com/embed/D0g-dS8Bq6k" allowfullscreen></iframe>
+</div>
+
+<h2>Исходники кода</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul id="list"&gt;
+	&lt;li&gt;5&lt;/li&gt;
+	&lt;li&gt;2&lt;/li&gt;
+	&lt;li&gt;1&lt;/li&gt;
+	&lt;li&gt;3&lt;/li&gt;
+	&lt;li&gt;4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;input type="submit" id="button"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let list = document.querySelector('#list');
+let items = document.querySelectorAll('#list li');
+let button = document.querySelector('#button');
+
+button.addEventListener('click', function() {
+	let sorted = [...items].sort(function(a, b) {
+		return a.innerHTML - b.innerHTML;
+	});
+	
+	list.innerHTML = '';
+	
+	for (let li of sorted) {
+		list.appendChild(li);
+	}
+});</code>
+</div>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#table {
+	width: 300px;
+}
+
+#table td {
+	border: 1px solid black;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table id="table"&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;b&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;4&lt;/td&gt;
+		&lt;td&gt;a&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;e&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;d&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;c&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;input type="submit" id="button"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let table = document.querySelector('#table');
+let trs = document.querySelectorAll('#table tr');
+let button = document.querySelector('#button');
+
+button.addEventListener('click', function() {
+	let sorted = [...trs].sort(function(a, b) {
+		if (a.children[1].innerHTML &gt;= b.children[1].innerHTML) {
+			return 1;
+		} else {
+			return -1;
+		}
+	});
+	
+	table.innerHTML = '';
+	
+	for (let tr of sorted) {
+		table.appendChild(tr);
+	}
+});</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

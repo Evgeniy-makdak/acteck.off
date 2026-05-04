@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sectionяем получение и отправку формы в Express — acteck.off</title>
+  <meta name="description" content="Sectionяем получение и отправку формы в Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Sectionяем получение и отправку формы в Express</h1>
+    <p>
+	Пусть у нас есть форма, отправляющаяся на
+	текущую страницу:
+</p>
+<div data-p="bock/pane" data-p-file="form.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;form method="GET"&gt;
+	&lt;input name="test1"&gt;
+	&lt;input name="test2"&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;</code>
+</div>
+<p>
+	Напишем обработчик этой формы:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	res.render('result');
+});</code>
+</div>
+<p>
+	Как вы уже знаете, в нашем случае обработчик
+	выполнится два раза: при первом заходе на
+	страницу и при отправке формы. Давайте напишем
+	условие, разделяющее эти две ситуации внутри
+	нашего обработчика.
+</p>
+<p>
+	Очевидно, что для проверки нам нужно использовать
+	<code data-gs="comd/c" data-x>req.query</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	console.log(req.query); // выведет {} или объект с данными
+	res.render('result');
+});</code>
+</div>
+<p>
+	Есть, однако, проблема. В <code data-gs="comd/c" data-x>req.query</code>
+	всегда находится объект - или пустой, или
+	заполненный. А объекты всегда равны <code data-gs="comd/c" data-x>true</code>.
+	Поэтому следующая проверка не будет работать:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	if (req.query) {
+		res.render('form');
+	} else {
+		res.render('result');
+	}
+});</code>
+</div>
+<p>
+	Давайте сделаем работающую проверку.
+</p>
+
+<h2>Первый вариант</h2>
+<p>
+	Можно проверять наличие каждого поля в объекте
+	с результатом:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	if (req.query.test1 && req.query.test2) {
+		res.render('form');
+	} else {
+		res.render('result');
+	}
+});</code>
+</div>
+<p>
+	Этот вариант, однако, имеет недостатки. Написанная
+	нами проверка не пропустит пустое значение
+	инпута, так как оно приводится к <code data-gs="comd/c" data-x>false</code>.
+	Исправим проблему:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	if (req.query.test1 !== undefined && req.query.test2 !== undefined) {
+		res.render('form');
+	} else {
+		res.render('result');
+	}
+});</code>
+</div>
+<p>
+	Однако, способ все равно остается неудобным,
+	так как в проверке нужно перечислить все
+	инпуты формы. Получится, что если у нас пять
+	инпутов - то в условие нужно будет проверять
+	все эти пять инпутов. Неудобно.
+</p>
+
+<h2>Второй вариант</h2>
+<p>
+	Описанное неудобство имеет классическое решение
+	- нужно дать кнопке отправке имя:
+</p>
+<div data-p="bock/pane" data-p-file="form.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;form action="" method="GET"&gt;
+	&lt;input name="test1"&gt;
+	&lt;input name="test2"&gt;
+	&lt;input type="submit" name="submit"&gt;
+&lt;/form&gt;</code>
+</div>
+<p>
+	В этом случае нам нет нужды проверять каждое
+	поле, чтобы узнать, была ли форма отправлена.
+	Просто проверим наличие нашей кнопки:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	if (req.query.submit) {
+		res.render('result');
+	} else {
+		res.render('form');
+	}
+});</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		С помощью формы спросите у пользователя пять
+		чисел. После отправки формы выведите на экран
+		сумму этих чисел.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

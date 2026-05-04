@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Переход по папкам с помощью командной строки — acteck.off</title>
+  <meta name="description" content="Переход по папкам с помощью командной строки — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../en/terminal/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../en/terminal/index.html">Terminal</a>
+    </div>
+
+    <h1>Переход по папкам с помощью командной строки</h1>
+    <p>
+	Давайте для начала научимся выполнять переход
+	по папкам. Это делает команда <code data-gs="comd/c" data-x>cd</code>.
+</p>
+<p>
+	Пусть рабочей папкой нашего терминала является
+	папка <code data-gs="comd/p" data-x>xxx</code>. Давайте перейдем на папку
+	<code data-gs="comd/p" data-x>aaa</code>, находящуюся внутри нее:
+</p>
+<div data-p="bock/pane" data-p-file="/xxx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">cd aaa</code>
+</div>
+<p>
+	Теперь перейдем в папку <code data-gs="comd/p" data-x>zzz</code>, находящуюся
+	внутри <code data-gs="comd/p" data-x>aaa</code>:
+</p>
+<div data-p="bock/pane" data-p-file="/xxx/aaa">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">cd zzz</code>
+</div>
+<p>
+	Если в качестве имени папки указать две точки,
+	то осуществится переход на одну папку вверх:
+</p>
+<div data-p="bock/pane" data-p-file="/xxx/aaa/zzz">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">cd ..</code>
+</div>
+<p>
+	Давайте выйдем еще на один уровень:
+</p>
+<div data-p="bock/pane" data-p-file="/xxx/aaa">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">cd ..</code>
+</div>
+<p>
+	Toчка в качестве имени файла обозначает текущий
+	каталог. В следующем примере мы останемся
+	на месте:
+</p>
+<div data-p="bock/pane" data-p-file="/xxx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">cd .</code>
+</div>
+<p>
+	Следующая команда осуществит переход к предыдущему
+	каталогу:
+</p>
+<div data-p="bock/pane" data-p-file="/xxx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">cd-</code>
+</div>
+<p>
+	Можно в качестве пути указывать не только
+	имя каталога, но и путь к нему:
+</p>
+<div data-p="bock/pane" data-p-file="/xxx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">cd aaa/zzz</code>
+</div>
+<p>
+	Можно начинать поиск каталога, выйдя на уровень
+	вверх. К примеру, находясь в папке <code data-gs="comd/p" data-x>aaa</code>
+	мы хотим перейти к папке <code data-gs="comd/p" data-x>bbb/kkk</code>.
+	Очевидно, что для этого нам необходимо сначала
+	выйти на уровень вверх - в папку <code data-gs="comd/p" data-x>xxx</code>.
+	Это можно сделать следующим образом:
+</p>
+<div data-p="bock/pane" data-p-file="/xxx/aaa">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">cd ../bbb/kkk</code>
+</div>
+<p>
+	Можно выходить на сколько угодно уровней вверх:
+</p>
+<div data-p="bock/pane" data-p-file="/xxx/aaa/zzz">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">cd ../../bbb/kkk</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		С помощью соответствующей команды перейдите
+		в папку <code data-gs="comd/p" data-x>dir</code>, созданную в предыдущем задании.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		С помощью соответствующей команды выйдите
+		обратно в папку <code data-gs="comd/p" data-x>test</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../file-structure-preparing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Подготовка файловой структуры">← Подготовка файловой структуры</a>
+      <a href="../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../full-current-directories-path/index.html" class="lesson-nav-btn lesson-nav-next" title="Полный путь к текущей директории">Полный путь к текущей директории →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

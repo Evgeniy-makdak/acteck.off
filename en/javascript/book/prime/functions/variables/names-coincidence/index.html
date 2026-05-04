@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Одинаковые имена переменных в функциях в JavaScript — acteck.off</title>
+  <meta name="description" content="Одинаковые имена переменных в функциях в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Одинаковые имена переменных в функциях в JavaScript</h1>
+    <p>
+	Пусть и снаружи функции, и внутри есть переменная
+	<code data-gs="comd/c" data-x>num</code>. В этом случае любые изменения
+	с локальной переменной <code data-gs="comd/c" data-x>num</code> никак не
+	влияют на глобальную переменную <code data-gs="comd/c" data-x>num</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1; // глобальная переменная
+
+function func() {
+	let num = 2; // локальная переменная
+	console.log(num);
+}
+func(); // вызываем функцию, выведет 2
+
+console.log(num); // выведет 1 - глобальная переменная не поменялась</code>
+</div>
+<p>
+	Но, если мы забудем объявить локальную переменную
+	<code data-gs="comd/c" data-x>num</code> через <code data-gs="comd/c" data-x>let</code>, то внутри функции
+	не создастся локальная переменная <code data-gs="comd/c" data-x>num</code>,
+	а просто изменится глобальная переменная:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1;
+
+function func() {
+	num = 2; // забыли написать let - меняем внешнюю переменную
+	console.log(num);
+}
+func(); // вызываем функцию, выведет 2
+
+console.log(num); // выведет 2 - переменная поменялась</code>
+</div>
+<p>
+	Тут может быть две ситуации: или мы действительно
+	хотели поменять глобальную переменную (тогда
+	все ок), или мы забыли <code data-gs="comd/c" data-x>let</code> и случайно
+	поменяли глобальную переменную.
+</p>
+<p>
+	Второй случай является трудноуловимой ошибкой,
+	ведущей к непредсказуемому поведению скрипта.
+	Поэтому всегда, вводя новую переменную объявляйте
+	ее через <code data-gs="comd/c" data-x>let</code>.
+</p>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1;
+
+function func() {
+	num = 2;
+}
+func();
+
+console.log(num);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Определите, не запуская код, что выведется
+		в консоль:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1;
+
+function func() {
+	let num = 2;
+}
+func();
+
+console.log(num);</code>
+	</div>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../local/index.html" class="lesson-nav-btn lesson-nav-prev" title="Локальные переменные">← Локальные переменные</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../global-variables-changing/index.html" class="lesson-nav-btn lesson-nav-next" title="Изменение глобальных переменных">Изменение глобальных переменных →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

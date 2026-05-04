@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Параметры миксинов в SASS — acteck.off</title>
+  <meta name="description" content="Параметры миксинов в SASS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Параметры миксинов в SASS</h1>
+    <p>
+	Важной особенностью миксинов
+	в SASS является то, что они
+	принимают переменные в параметры,
+	которые записываются внутри круглых
+	скобок и, если переменных несколько,
+	то их разделяют запятыми.
+</p>
+<p>
+	Рассмотрим следующий пример: 
+</p>
+<div data-p="bock/pane" data-p-file="styles.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin active($color, $width) {
+	border: {
+		color: $color;
+		width: $width;
+		style: dotted;
+	}
+}
+p {
+	@include active(yellow, 2px);
+}</code>
+</div>
+<p>
+	Результат компиляции:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	border-color: yellow;
+	border-width: 2px;
+	border-style: dashed; 
+}</code>
+</div>
+<p>
+	Помимо того, в миксины можно передавать
+	значения параметров по умолчанию:
+</p>
+<div data-p="bock/pane" data-p-file="styles.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin active($color,  $width: 2px) {
+	border: {
+		color: $color;
+		width: $width;
+		style: dotted;
+	}
+}
+p {
+	@include active(yellow);
+}
+div {
+	@include active(yellow, 4px);
+}</code>
+</div>
+<p>
+	После компиляции мы увидим:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	border-color: yellow;
+	border-width: 2px;
+	border-style: dotted;
+}
+div {
+	border-color: yellow;
+	border-width: 4px;
+	border-style: dotted;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin simple-border($padding-top, $padding-bottom) {
+	border: {
+		padding-top: $padding-top;
+		padding-bottom: $padding-bottom;
+		color: green;
+	}
+}
+p {
+	@include simple-border(10px, 30px );
+}			  </code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin simple-border($padding-top, $padding-bottom: 20px) {
+	border: {
+	padding-top: $padding-top;
+	padding-bottom: $padding-bottom;
+	color: green;
+	}
+}
+p {
+	@include simple-border(10px);
+}				 </code>
+	</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../mixins-usage/index.html" class="lesson-nav-btn lesson-nav-prev" title="Использование миксинов">← Использование миксинов</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../mixins-named-parameters/index.html" class="lesson-nav-btn lesson-nav-next" title="Именованные параметры миксинов">Именованные параметры миксинов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

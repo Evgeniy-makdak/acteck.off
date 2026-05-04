@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модификатор private в TypeScript — acteck.off</title>
+  <meta name="description" content="Модификатор private в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Модификатор private в TypeScript</h1>
+    <p>
+	Модификатор <code data-gs="comd/c" data-x>private</code> применяется в
+	тех случаях, когда нужно закрыть доступ к
+	свойствам и методам снаружи класса. При
+	этом даже в классах-потомках нельзя будет
+	обратиться к данным свойствам. 
+</p>
+<p>
+	Давайте посмотрим на примере. Сделаем в
+	классе <code data-gs="comd/c" data-x>User</code> приватное свойство
+	<code data-gs="comd/c" data-x>name</code>: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class User {
+	private name: string;
+	
+	constructor(name: string) {
+		this.name = name;
+	}
+}</code>
+</div>
+<p>
+	Создадим объект класса, передав в конструктор
+	значение нашего свойства: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user: User = new User('john');</code>
+</div>
+<p>
+	Теперь попытка прочитать данное приватное
+	свойство вне класса приведет к ошибке: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">console.log(user.name); // ошибка</code>
+</div>
+<p>
+	Также к ошибке приведет и попытка записать
+	что-то в это свойство снаружи класса: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">user.name = 'eric'; // ошибка</code>
+</div>
+<p>
+	А вот внутри методов класса можно будет
+	как читать, так и изменять значение нашего
+	приватного свойства: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class User {
+	private name: string;
+	
+	constructor(name: string) {
+		this.name = name;
+	}
+	
+	public getName() {
+		return this.name; // прочитаем свойство
+	}
+	
+	public setName(name: string) {
+		this.name = name; // запишем новое значение свойства
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте класс <code data-gs="comd/c" data-x>User</code>, содержащий
+		приватные свойства с именем и возрастом.
+		Пусть их начальные значения задаются через
+		конструктор. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В вашем классе <code data-gs="comd/c" data-x>User</code> сделайте публичные
+		методы <code data-gs="comd/c" data-x>getName</code> и <code data-gs="comd/c" data-x>getAge</code>,
+		позволяющие получить значения соответствующих
+		приватных свойств. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В вашем классе <code data-gs="comd/c" data-x>User</code> сделайте публичные
+		методы <code data-gs="comd/c" data-x>setName</code> и <code data-gs="comd/c" data-x>setAge</code>,
+		позволяющие изменить значения соответствующих
+		приватных свойств. 
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../access-modifier-public/index.html" class="lesson-nav-btn lesson-nav-prev" title="Модификатор public">← Модификатор public</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../access-modifier-protected/index.html" class="lesson-nav-btn lesson-nav-next" title="Модификатор protected">Модификатор protected →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

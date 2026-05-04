@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод add — acteck.off</title>
+  <meta name="description" content="Метод add — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод add</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>add</code> добавляет заданные
+	элементы в уже существующий набор элементов.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Добавление по селектору:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.add(селектор);</code>
+</div>
+<p>
+	Добавляемые элементы задаются одним
+	или несколькими (массивом) DOM элементами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.add(DOM элемент);</code>
+</div>
+<p>
+	Добавляемые элементы задаются объектом jQuery:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.add(объект jQuery);</code>
+</div>
+<p>
+	Добавляемые элементы задаются html текстом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.add(html текст);</code>
+</div>
+<p>
+	Добавляемые элементы ищутся на странице с
+	помощью заданного селектора, внутри области,
+	заданной вторым параметром. Область поиска может
+	быть задана DOM элементом, объектом jQuery
+	или объектом документа:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.add(селектор, контекст);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем все абзацы, поставим им в конец
+	текст <code data-gs="comd/s" data-x>'!'</code>, затем добавим к найденным абзацам
+	заголовки <a href="../../../../../markup/manual/html/tag/h2/index.html"><code data-gs="comd/c" data-x>h2</code></a>
+	и одновременно для заголовков и абзацев
+	поставим красный цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;ddd&lt;/div&gt;
+&lt;h1&gt;hhh&lt;/h1&gt;
+&lt;p&gt;ppp&lt;/p&gt;
+&lt;div id="test"&gt;&lt;h2&gt;hhh&lt;/h2&gt;&lt;/div&gt;
+&lt;p&gt;ppp&lt;/p&gt;
+&lt;h2&gt;hhh&lt;/h2&gt;
+&lt;p&gt;ppp&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('p').append('!').add('h2').css('color', 'red');</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте введем контекст поиска - добавим
+	только те <code data-gs="comd/c" data-x>h2</code>, которые лежат внутри элемента
+	<code data-gs="comd/z" data-x>#test</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let $context = $('#test');
+$('p').append('!').add('h2', $context).css('color', 'red');</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Создадим контекст поиска в виде DOM элемента с
+	помощью JavaScript метода
+	<a href="../../../../manual/dom/querySelector/index.html"><code data-gs="comd/c" data-x>querySelector</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let context = document.querySelector('#test');
+$('p').append('!').add('h2', context).css('color', 'red');</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Чаще всего можно обойтись и без контекста,
+	просто сделав более сложный селектор:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('p').append('!').add('#test h2').css('color', 'red');</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../addBack/index.html"><code data-gs="comd/c" data-x>addBack</code></a>, <br>
+			который добавляет элементы из предыдущего 
+			набора к текущему
+		</li>
+		<li>
+			метод <a href="../end/index.html"><code data-gs="comd/c" data-x>end</code></a>, <br>
+			который возвращает предыдущий набор элементов 
+			в текущей цепочке методов
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

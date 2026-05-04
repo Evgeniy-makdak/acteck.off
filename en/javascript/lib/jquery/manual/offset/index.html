@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод offset — acteck.off</title>
+  <meta name="description" content="Метод offset — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод offset</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>offset</code> позволяет получать
+	позицию элемента относительно документа,
+	в отличие от метода
+	<a href="../position/index.html"><code data-gs="comd/c" data-x>position</code></a>,
+	которые получает координаты относительно
+	отступов родителя. Метод <code data-gs="comd/c" data-x>offset</code> более
+	полезен при позиционировании нового элемента
+	поверх существующего для глобальных манипуляций,
+	например, для реализации перетаскивания
+	(<span data-gs="lang/e" data-x>drag-and-drop</span>).
+	Своим результатом, метод возвращает объект,
+	содержащий свойства <code data-gs="comd/c" data-x>top</code> и <code data-gs="comd/c" data-x>left</code>.
+	Ошибки в вычислениях могут возникать, если пользователь
+	меняет размеры страницы. Также метод не получает
+	координаты скрытых элементов.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Получить текущие координаты. В некоторых случаях
+	полученные значения могут быть дробными:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).offset();</code>
+</div>
+<p>
+	Чтобы изменить координаты элемента, нужно
+	передать объект, содержащий свойства
+	<code data-gs="comd/c" data-x>top</code> и <code data-gs="comd/c" data-x>left</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).offset({top: 40, left: 40});</code>
+</div>
+<p>
+	Также мы можем применить заданную функцию к каждому
+	элементу в наборе. При этом первым параметром функция
+	получит номер элемента в наборе, а вторым параметром
+	- объект с координатами <code data-gs="comd/c" data-x>top</code> и
+	<code data-gs="comd/c" data-x>left</code>. <code data-gs="comd/c" data-x>this</code> внутри функции будет указывать
+	на текущий элемент.
+	Значения координат элемента поменяются на те,
+	которые вернет функция:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).width(function(номер в наборе, {текущие координаты}));</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте получим позицию дива (зеленого квадрата),
+	с помощью метода <code data-gs="comd/c" data-x>offset</code>, а затем, обратившись
+	к ключам полученного объекта, выведем эту
+	информацию:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="result"&gt;click a square ...&lt;/div&gt;
+&lt;div id="test"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#test {
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	width: 100px;
+	height: 100px;
+	background: green;
+	color: white;
+	margin-top: 10px;
+	cursor: pointer;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('*', document.body).click(function(event) {
+	let offset = $(this).offset();
+	
+	event.stopPropagation();
+	$('#result').text('Left: ' + offset.left + ', Top: ' + offset.top);
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте поменяем координаты второго абзаца:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p style="margin-left: 10px;"&gt;text1&lt;/p&gt;
+&lt;p style="margin-left: 10px;"&gt;text2&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('p').last().offset({top: 40, left: 60});</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../position/index.html"><code data-gs="comd/c" data-x>position</code></a>, <br>
+			который позволяет получать текущие 
+			координаты элемента
+		</li>
+		<li>
+			метод <a href="../offsetParent/index.html"><code data-gs="comd/c" data-x>offsetParent</code></a>, <br>
+			который позволяет получить ближайшего 
+			спозиционированного предка элемента
+		</li>
+		<li>
+			метод <a href="../css/index.html"><code data-gs="comd/c" data-x>css</code></a>, <br>
+			который позволяет получать и 
+			изменять CSS стили элемента
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

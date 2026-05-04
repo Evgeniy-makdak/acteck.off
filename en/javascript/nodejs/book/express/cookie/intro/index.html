@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Работа с куки в Express — acteck.off</title>
+  <meta name="description" content="Работа с куки в Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Работа с куки в Express</h1>
+    <p>
+	Express позволяет осуществлять работу с куками
+	в коде сервера. При этом сами куки будут
+	хранится в браузере.
+</p>
+<p>
+	Для работы с куками необходимо установить
+	библиотеку <code data-gs="comd/c" data-x>cookie-parser</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install cookie-parser</code>
+</div>
+<p>
+	Подключим ее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import cookieParser from 'cookie-parser';</code>
+</div>
+<p>
+	Для работы библиотеки для каждого сайта необходимо
+	придумать свой секретный ключ в виде случайной
+	строки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let secret = 'qwerty';</code>
+</div>
+<p>
+	Используем этот ключ:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.use(cookieParser(secret));</code>
+</div>
+<p>
+	Соберем весь код вместе и получим следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import express from 'express';
+import cookieParser from 'cookie-parser';
+
+let app = express();
+
+let secret = 'qwerty';
+app.use(cookieParser(secret));
+
+app.get('/', function(req, res) {
+	res.send('hello world');
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Установите и подключите библиотеку <code data-gs="comd/c" data-x>cookie-parser</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

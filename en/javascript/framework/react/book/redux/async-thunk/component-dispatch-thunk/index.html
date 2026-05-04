@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отправка thunk из компонента в Redux — acteck.off</title>
+  <meta name="description" content="Отправка thunk из компонента в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Отправка thunk из компонента в Redux</h1>
+    <p>
+	На этом уроке мы отправим thunk для получения
+	продуктов из из React-компонента <code data-gs="comd/c" data-x>ProductsList</code>.
+</p>
+<p>
+	Давайте теперь откроем наше приложение с
+	продуктами, а в нем файл <code data-gs="comd/p" data-x>ProductsList.jsx</code>.
+	Для начала добавим к импорту thunk <code data-gs="comd/c" data-x>fetchProducts</code>,
+	который мы создали:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { selectAllProducts, fetchProducts } from './productsSlice'</code>
+</div>
+<p>
+	Также нам понадобится хук <code data-gs="comd/c" data-x>useDispatch</code>
+	для отправки нашего action creator
+	и хук <code data-gs="comd/c" data-x>useEffect</code> потому что здесь у нас
+	<a href="../../../supreme/hooks/effects/index.html">побочный эффект</a>,
+	поскольку мы имеем дело с сеткой, а это
+	уже внешний API:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'</code>
+</div>
+<p>
+	Теперь первой строчкой в коде функции
+	<code data-gs="comd/c" data-x>ProductsList</code> перед объявлением
+	<code data-gs="comd/c" data-x>products</code> добавим:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const dispatch = useDispatch()</code>
+</div>
+<p>
+	Далее при получении продуктов из стейта
+	мы еще будем извлекать статус запроса:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const products = useSelector(selectAllProducts)
+const productStatus = useSelector((state) =&gt; state.products.status)</code>
+</div>
+<p>
+	И сразу после этого скажем React
+	при помощи хука <code data-gs="comd/c" data-x>useEffect</code>,
+	что нам после отрисовки компонента
+	необходимо получить продукты. Здесь
+	нам и понадобится статус запроса, ведь
+	нам важно, чтобы такой запрос отправлялся
+	только один раз:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">useEffect(() =&gt; {
+	if (productStatus === 'idle') {
+		dispatch(fetchProducts())
+	}
+}, [productStatus, dispatch])</code>
+</div>
+<p>
+	Сейчас мы можем запустить наше приложение,
+	кликнуть в нем по <code data-gs="comd/s" data-x>'Products'</code> в меню слева.
+	Список продуктов мы пока не увидим, но если
+	мы зайдем в наш Redux DevTools, то в левой
+	части окошечка у нас появятся сгенерированные
+	автоматически (как я и говорил в прошлом уроке)
+	экшены <code data-gs="comd/c" data-x>products/fetchProducts/pending</code> и
+	<span data-gs="comd/y" data-x>fulfilled</span>. Теперь давайте кликнем по action
+	<code data-gs="comd/c" data-x>products/fetchProducts/fulfilled</code> и по его полю
+	<code data-gs="comd/c" data-x>payload</code> - вот и наш списочек продуктов! Ура,
+	все наши звенья в цепочке - сервер, база, клиент
+	и Redux - приложение работают слаженно и сообща.
+	Кстати, как видите здесь еще есть свойство <code data-gs="comd/c" data-x>meta</code>,
+	в котором мы видим статус запроса.
+</p>
+<p>
+	Обратим внимание на еще одну вещь, у вас
+	может случиться так, что <span data-gs="comd/y" data-x>pending</span> и,
+	следовательно, <span data-gs="comd/y" data-x>fulfilled</span> будут
+	отображаться по два раза. Если это так,
+	то не огорчайтесь, мы поговорим об этом
+	позже.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Откройте в нем файл <code data-gs="comd/p" data-x>StudentsList.jsx</code>.
+		Импортируйте в него необходимые хуки и
+		thunk согласно материалу из урока.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Изучив материалы урока, получите
+		статус запроса <code data-gs="comd/c" data-x>studentStatus</code>, а затем,
+		используя <code data-gs="comd/c" data-x>useEffect</code>, отправьте
+		<code data-gs="comd/c" data-x>fetchStudents</code> только при условии, что
+		значение <code data-gs="comd/c" data-x>studentStatus</code> - <code data-gs="comd/v" data-x>'idle'</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Запустите ваше приложение, кликните
+		в меню приложения слева по <code data-gs="comd/s" data-x>'Students'</code>,
+		а затем запустите в браузере расширение
+		Redux DevTools, как и в данном уроке
+		вы должны увидеть экшены с <span data-gs="comd/y" data-x>pending</span>
+		и <span data-gs="comd/y" data-x>fulfilled</span> (а в нем <code data-gs="comd/c" data-x>payload</code> со
+		студентами). Полазьте по вкладкам расширения.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../create-async-thunk-advantage/index.html" class="lesson-nav-btn lesson-nav-prev" title="Польза применения createAsyncThunk">← Польза применения createAsyncThunk</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../extra-reducer/index.html" class="lesson-nav-btn lesson-nav-next" title="Дополнительные редьюсеры">Дополнительные редьюсеры →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

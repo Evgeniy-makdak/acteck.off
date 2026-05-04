@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма для редактирования массива объектов в Vue — acteck.off</title>
+  <meta name="description" content="Форма для редактирования массива объектов в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../index.html">Vue</a>
+    </div>
+
+    <h1>Форма для редактирования массива объектов в Vue</h1>
+    <p>
+	Давайте теперь реализуем редактирование
+	элементов массива объекта. Сделаем
+	для этого кнопку, по нажатию на которую
+	в пункте списка будет появляться форма
+	для редактирования. После заполнения
+	формы мы будем жать на кнопку
+	сохранения и изменения будут
+	сохраняться в массиве,
+	а форма будет убираться.
+</p>
+<p>
+	Приступим к реализации.
+	В массиве объектов каждому объекту
+	мы должны добавить еще одно
+	поле, содержащее состояние
+	юзера, показ или редактирование:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		users: [
+			{
+				id: 1,
+				name: 'name1',
+				surn: 'surn1',
+				isEdit: false,
+			},
+			{
+				id: 2,
+				name: 'name2',
+				surn: 'surn2',
+				isEdit: false,
+			},
+			{
+				id: 3,
+				name: 'name3',
+				surn: 'surn3',
+				isEdit: false,
+			},
+		]
+	}
+}</code>
+</div>
+<p>
+	Выведем содержимое массива
+	в виде списка:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;ul&gt;
+		&lt;li v-for="user in users" :key="user.id"&gt;
+			{{ user.name }}
+			{{ user.surn }}
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	Теперь разделим режим показа и
+	режим редактирования:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;ul&gt;
+		&lt;li v-for="user in users" :key="user.id"&gt;
+			&lt;template v-if="!user.isEdit"&gt;
+				{{ user.name }}
+				{{ user.surn }}
+				&lt;button @click="edit(user)"&gt;
+					edit
+				&lt;/button&gt;
+			&lt;/template&gt;
+			&lt;template v-else&gt;
+				&lt;input v-model="user.name"&gt;
+				&lt;input v-model="user.surn"&gt;
+				&lt;button @click="save(user)"&gt;
+					save
+				&lt;/button&gt;
+			&lt;/template&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	Реализуем методы:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
+	edit(user) {
+		user.isEdit = true;
+	},
+	save(user) {
+		user.isEdit = false;
+	},
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте задачу предыдущего урока
+		так, чтобы появилась колонка с ссылками
+		для редактирования каждого
+		работника.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../array-of-objects-removing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Кнопка для удаления из массива объектов">← Кнопка для удаления из массива объектов</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../components/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

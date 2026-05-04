@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редактирование в группе элементов на JavaScript — acteck.off</title>
+  <meta name="description" content="Редактирование в группе элементов на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Редактирование в группе элементов на JavaScript</h1>
+    <p>
+	Пусть теперь у нас есть не один абзац, а много:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text1&lt;/p&gt;
+&lt;p&gt;text2&lt;/p&gt;
+&lt;p&gt;text3&lt;/p&gt;</code>
+</div>
+<p>
+	Давайте сделаем так, чтобы по клику на любой
+	абзац в нем появлялся инпут для редактирование.
+</p>
+<p>
+	На самом деле такая задача для нас не представляет
+	сложности, так как почти весь код был получен
+	нами в предыдущем уроке.
+</p>
+<p>
+	Для решения нашей задачи просто запустим
+	цикл по абзацам и в цикле используем код
+	предыдущего урока (этот код даже не понадобится
+	изменять):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');
+
+for (let elem of elems) {
+	elem.addEventListener('click', function func() {
+		let input = document.createElement('input');
+		input.value = elem.textContent;
+		
+		elem.textContent = '';
+		elem.appendChild(input);
+		
+		input.addEventListener('blur', function() {
+			elem.textContent = this.value;
+			elem.addEventListener('click', func);
+		});
+		
+		elem.removeEventListener('click', func);
+	});
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан тег <code data-gs="comd/c" data-x>ul</code>. Сделайте так, чтобы по
+		клику на любую <code data-gs="comd/c" data-x>li</code> в ней появлялся
+		инпут, с помощью которого можно будет поредактировать
+		текст этой <code data-gs="comd/c" data-x>li</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана HTML таблица. Сделайте так, чтобы по
+		клику на любую ячейку в ней появлялся инпут
+		для редактирования текста этой ячейки.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../edit-hiding-text/index.html" class="lesson-nav-btn lesson-nav-prev" title="Прячем текст при редактировании">← Прячем текст при редактировании</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../removing-and-editing-together/index.html" class="lesson-nav-btn lesson-nav-next" title="Удаление и редактирование">Удаление и редактирование →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

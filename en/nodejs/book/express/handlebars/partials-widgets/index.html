@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Частичные шаблоны Handlebars Express — acteck.off</title>
+  <meta name="description" content="Частичные шаблоны Handlebars Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Частичные шаблоны Handlebars Express</h1>
+    <p>
+	Часто удобно разбить страницу на части, которые
+	будут вынесены в отдельные файлы. Такие блоки
+	называются <dfn data-gs="comd/d" data-x>виджеты</dfn> или в терминах
+	Handlebars <dfn data-gs="comd/d" data-x>частичные шаблоны</dfn> (<span data-gs="lang/e" data-x>partials</span>).
+</p>
+<p>
+	К примеру, можно вынести текст хедера, футера,
+	сайдбара. Это удобно, во-первых тем, что
+	текст этих блоков не будет захламлять макет
+	сайта, делая его структуру более прозрачной
+	и понятной для восприятия. Во-вторых, на
+	сайте могут быть несколько шаблонов. В этом
+	случае можно будет блок использовать сразу
+	в нескольких шаблонах.
+</p>
+<p>
+	Давайте попробуем на практике. Пусть у нас
+	есть следующий макет сайта:
+</p>
+<div data-p="bock/pane" data-p-file="views/layouts/main.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;{{titt}}&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;header&gt;
+			&lt;nav&gt;
+				&lt;a href="/"&gt;главная&lt;/a&gt;
+				&lt;a href="/about"&gt;о нас&lt;/a&gt;
+				&lt;a href="/contacts"&gt;контакты&lt;/a&gt;
+			&lt;/nav&gt;
+		&lt;/header&gt;
+		&lt;main&gt;
+			{{{body}}}
+		&lt;/main&gt;
+		&lt;footer&gt;
+			footer
+		&lt;/footer&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<p>
+	Вынесем содержимое хедера в отдельный файл
+	в папке <code data-gs="comd/p" data-x>partials</code>:
+</p>
+<div data-p="bock/pane" data-p-file="views/partials/header.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;nav&gt;
+	&lt;a href="/"&gt;главная&lt;/a&gt;
+	&lt;a href="/about"&gt;о нас&lt;/a&gt;
+	&lt;a href="/contacts"&gt;контакты&lt;/a&gt;
+&lt;/nav&gt;</code>
+</div>
+<p>
+	В файле с макетом подключим наш хедер с помощью
+	специальной команды <code data-gs="comd/c" data-x>{{></code>:
+</p>
+<div data-p="bock/pane" data-p-file="views/layouts/main.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;{{titt}}&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;header&gt;
+			{{&gt; header}}
+		&lt;/header&gt;
+		&lt;main&gt;
+			{{{body}}}
+		&lt;/main&gt;
+		&lt;footer&gt;
+			footer
+		&lt;/footer&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Возьмите макет сайта и вынесите в отдельные
+		виджеты хедер, футер, и сайдбар.
+	</p>
+</div>
+
+<h2>Подпапки</h2>
+<p>
+	В папке <code data-gs="comd/p" data-x>partials</code> можно размещать подпапки,
+	раскладывая <code data-gs="comd/p" data-x>hbs</code> файлы в них. В этом
+	случае в команде подключения виджета нужно
+	будет кроме имени файла указать и подпапку.
+</p>
+<p>
+	Давайте посмотрим на примере. Пусть у вас
+	есть вот такая структура:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">views/<ul><li data-s-type="D">partials/<ul><li data-s-type="D">header/<ul><li data-s-type="F">menu.hbs</li><li data-s-type="F">logo.hbs</li></ul></li><li data-s-type="D">footer<ul><li data-s-type="F">contacts.hbs</li><li data-s-type="F">form.hbs</li></ul></li></ul></li></ul></li></ul></div></div>
+<p>
+	Подключим наши виджеты в файле макета:
+</p>
+<div data-p="bock/pane" data-p-file="views/layouts/main.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;{{titt}}&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;header&gt;
+			{{&gt; header/logo}}
+			{{&gt; header/menu}}
+		&lt;/header&gt;
+		&lt;main&gt;
+			{{{body}}}
+		&lt;/main&gt;
+		&lt;footer&gt;
+			footer
+			{{&gt; header/contacts}}
+			{{&gt; header/form}}
+		&lt;/footer&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

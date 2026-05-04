@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Многократное использование данных из слайса в Redux — acteck.off</title>
+  <meta name="description" content="Многократное использование данных из слайса в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Многократное использование данных из слайса в Redux</h1>
+    <p>
+	На прошлом занятии мы добавили к форме
+	для добавления продукта еще одно поле
+	с выпадающим списком для выбора продавца,
+	который его выкладывает. Предположим,
+	теперь нам также надо вывести эту информацию
+	еще в нескольких местах приложения. Для
+	этого мы не будем каждый раз дублировать
+	код, а просто создадим отдельный компонент,
+	в котором будем извлекать данные из слайса и
+	выводить их в тех частях приложения, где нам нужно.
+</p>
+<p>
+	Откроем наше приложение с продуктами.
+	Давайте теперь в папке <code data-gs="comd/p" data-x>products</code> создадим
+	еще файл <code data-gs="comd/p" data-x>SellerOfProd.jsx</code>. Для начала
+	импортируем хук <code data-gs="comd/c" data-x>useSelector</code>, с помощью
+	которого мы будем получать слайс с нужным
+	продуктом:
+</p>
+<div data-p="bock/pane" data-p-file="products/SellerOfProd.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useSelector } from 'react-redux'</code>
+</div>
+<p>
+	Затем извлечем из store нужный продукт
+	по id продавца, который мы будем передавать
+	нашему новому компоненту в пропсах:
+</p>
+<div data-p="bock/pane" data-p-file="products/SellerOfProd.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const SellerOfProd = ({ sellerId }) =&gt; {
+	const seller = useSelector((state) =&gt;
+		state.sellers.find((seller) =&gt; seller.id === sellerId)
+	)
+}</code>
+</div>
+<p>
+	И в случае, если такой продавец есть,
+	мы будем возвращать его название,
+	а если нет, то вернем <code data-gs="comd/s" data-x>'unknown'</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/SellerOfProd.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return &lt;span&gt;by {seller ? seller.name : 'unknown'}&lt;/span&gt;</code>
+</div>
+<p>
+	Давайте теперь импортируем наш новый
+	компонент в <code data-gs="comd/p" data-x>ProductsList.jsx</code> и вставим
+	его в функции <code data-gs="comd/c" data-x>ProductsList</code> сразу после
+	заголовка с названием продукта. Как видите,
+	мы передали ему в пропсах id:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;SellerOfProd sellerId={product.seller} /&gt;</code>
+</div>
+<p>
+	Теперь, если мы запустим наше приложение,
+	добавим новый продукт и найдем его в списке,
+	то увидим, что у него появился продавец,
+	а у продуктов, автоматически добавленных при
+	запуске приложение, будет <code data-gs="comd/s" data-x>'unknown'</code>.
+</p>
+<p>
+	Небольшое отступление: если ваш eslint в
+	редакторе VS Code ругается на <code data-gs="comd/c" data-x>sellerId</code>,
+	а приложение работает, то можете
+	пока проигнорировать это или открыть файл
+	<code data-gs="comd/p" data-x>.eslintrc.cjs</code> вашего приложения и в
+	<code data-gs="comd/c" data-x>rules</code> добавить <span data-gs="comd/f" data-x>"react/prop-types": "off"</span>.
+</p>
+<p>
+	Само собой разумеется, что мы бы хотели
+	добавить информацию о продавце и на
+	страничке продукта. Для этого вставим		
+	в верстке <code data-gs="comd/c" data-x>ProductPage</code> после заголовка с
+	названием продукта снова эту строку и
+	проверим, что все работает:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;SellerOfProd sellerId={product.seller} /&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Изучив материал урока, в папке <code data-gs="comd/p" data-x>students</code>
+		создайте файл для компонента <code data-gs="comd/c" data-x>TeacherForStudent</code>.
+		В результате компонент должен возвращать
+		ФИО преподавателя, а рядом в скобочках
+		предмет, который он ведет. Нужного
+		преподавателя найдите с помощью хука
+		<code data-gs="comd/c" data-x>useSelector</code>. Если преподатель для данного
+		студента отсутствует, выведите <code data-gs="comd/s" data-x>'anonym'</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		С помощью полученного компонента из
+		предыдущей задачи выведите данные
+		преподавателя для каждого студента
+		на страничке со списком студентов.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте тоже самое, что и в предыдущей
+		задаче, но для отдельной странички
+		студента.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../add-seller-to-form/index.html" class="lesson-nav-btn lesson-nav-prev" title="Внесение изменений в форму">← Внесение изменений в форму</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../additional-logic/index.html" class="lesson-nav-btn lesson-nav-next" title="Добавление дополнительной логики">Добавление дополнительной логики →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

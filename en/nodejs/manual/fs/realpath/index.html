@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод realpath — acteck.off</title>
+  <meta name="description" content="Метод realpath — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Метод realpath</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>realpath</code> определяет фактическое
+	местоположение пути. В первом параметре
+	указываем исходный путь к файлу или папки,
+	во втором необязательном параметре - кодировку
+	(по умолчанию <code data-gs="comd/s" data-x>'utf-8'</code>). В третьем необязательном
+	параметре указываем коллбэк.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.realpath(путь к файлу, [кодировка], [коллбэк]);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Пусть у нас есть следующая
+	файловая структура:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/dir/<ul><li data-s-type="F">file.txt</li></ul></li></ul></div></div>
+<p>
+	Давайте асинхронно определим фактическое
+	местоположение пути к файлу <code data-gs="comd/p" data-x>file.txt</code>
+	через <code data-gs="comd/c" data-x>await</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+
+try {
+	let data = await fs.realpath('./dir/file.txt');
+	console.log(data);
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь давайте асинхронно узнаем
+	местоположение пути к файлу <code data-gs="comd/p" data-x>file.txt</code>
+	через <code data-gs="comd/c" data-x>then</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+
+fs.realpath('./dir/file.txt').then(data =&gt; {
+	console.log(data);
+}).catch((err) =&gt; {
+	console.log(err);
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте асинхронно узнаем
+	местоположение пути к файлу
+	из предыдущего примера
+	через коллбэк:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+fs.realpath('./dir/file.txt', (err, resolvedPath) =&gt; {
+	if (!err) {
+		console.log(resolvedPath);
+	}
+	else {
+		console.log(err);
+	}
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь давайте синхронно узнаем
+	местоположение пути к файлу
+	через <code data-gs="comd/c" data-x>realpathSync</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+try {
+	let data = fs.realpathSync('./dir/file.txt');
+	console.log(data);
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../../../../javascript/nodejs/manual/fs/realpath.native/index.html"><code data-gs="comd/c" data-x>realpath.native</code></a>, <br>
+			который определяет фактическое местоположение пути через коллбэк
+		</li>
+		<li>
+			метод <a href="../../../../javascript/nodejs/manual/fs/link/index.html"><code data-gs="comd/c" data-x>link</code></a>, <br>
+			который изменяет путь к файлу
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../realpath.native/index.html" class="lesson-nav-btn lesson-nav-prev" title="realpath.native">← realpath.native</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../rename/index.html" class="lesson-nav-btn lesson-nav-next" title="rename">rename →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

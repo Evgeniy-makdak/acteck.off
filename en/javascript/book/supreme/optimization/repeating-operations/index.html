@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оптимизация повторных операций в JavaScript — acteck.off</title>
+  <meta name="description" content="Оптимизация повторных операций в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Оптимизация повторных операций в JavaScript</h1>
+    <p>
+	Зачастую начинающие программисты бездумно
+	совершают вызов одной и той же функции
+	несколько раз, расходуя ресурсы.
+</p>
+<p>
+	Давайте посмотрим на примере. Пусть
+	у нас дана строка, содержащая некоторый
+	путь:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let path = 'img.png';</code>
+</div>
+<p>
+	Пусть перед нами стоит задача проверить,
+	заканчивается ли путь на расширение
+	<code data-gs="comd/p" data-x>.png</code> или <code data-gs="comd/p" data-x>.jpg</code>. Некоторый
+	начинающий программист написал
+	следующее решение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let path = 'img.png';
+
+if (path.slice(-4) === '.png' || path.slice(-4) === '.jpg') {
+	console.log('+++');
+} else {
+	console.log('---');
+}</code>
+</div>
+<p>
+	Что не так с этим решением? Проблема в том,
+	что метод <code data-gs="comd/c" data-x>slice</code> вызывается два раза,
+	делая одно и то же. Это, конечно же,
+	не оптимально.
+</p>
+<p>
+	Для оптимизации нужно выполнить отрезание
+	строки один раз, записать результат
+	в переменную, а затем использовать
+	эту переменную дальше:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let path = 'img.png';
+let ext  = path.slice(-4);
+
+if (ext === '.png' || ext === '.jpg') {
+	console.log('+++');
+} else {
+	console.log('---');
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Оптимизируйте приведенный ниже код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 123;
+
+if (String(num)[0] === '1' || String(num)[0] === '2') {
+	console.log('+++');
+} else {
+	console.log('---');
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Оптимизируйте приведенный ниже код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let date = new Date();
+
+if (date.getDay() === 0 || date.getDay() === 6) {
+	console.log('weekend');
+} else {
+	console.log('weekday');
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Оптимизируйте приведенный ниже код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let date = new Date();
+let res;
+
+if (date.getFullYear() &gt;= 2020 && date.getFullYear() &lt;= 2030) {
+	res = 'year ' + date.getFullYear() + ' fits';
+} else {
+	res = 'year ' + date.getFullYear() + ' doesn't fit';
+}
+
+console.log(res)</code>
+	</div>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../available-resources/index.html" class="lesson-nav-btn lesson-nav-prev" title="Доступные ресурсы">← Доступные ресурсы</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../repeating-heavy-operations/index.html" class="lesson-nav-btn lesson-nav-next" title="Оптимизация повторения тяжелых операций">Оптимизация повторения тяжелых операций →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

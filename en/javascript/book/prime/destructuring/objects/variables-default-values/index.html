@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Переменные и значения по умолчанию в JavaScript — acteck.off</title>
+  <meta name="description" content="Переменные и значения по умолчанию в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Переменные и значения по умолчанию в JavaScript</h1>
+    <p>
+	Можно также менять названия переменных на
+	свои при этом задавая значения по умолчанию:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj = {
+	month: 12,
+	day:   31,
+};
+
+let {year:y = 2025, month, day} = obj;
+
+console.log(y);     // выведет 2025
+console.log(month); // выведет 1
+console.log(day);   // выведет 31</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		В следующем коде части объекта записываются
+		в соответствующие переменные:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let options = {
+	width:  400,
+	height: 500,
+};
+
+let c;
+if (options.c !== undefined) {
+	c = options.color;
+} else {
+	c = 'black';
+}
+
+let w = options.width;
+let h = options.height;</code>
+	</div>
+	<p>
+		Переделайте этот код через деструктуризацию
+		согласно изученной теории.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../default-values/index.html" class="lesson-nav-btn lesson-nav-prev" title="Значения по умолчанию для объектов">← Значения по умолчанию для объектов</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../variables-declaration/index.html" class="lesson-nav-btn lesson-nav-next" title="Объявление переменных для объектов">Объявление переменных для объектов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

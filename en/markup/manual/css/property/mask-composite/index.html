@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство mask-composite — acteck.off</title>
+  <meta name="description" content="Свойство mask-composite — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство mask-composite</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>mask-composite</code> позволяет комбинировать несколько масок, применяемых к одному элементу. Оно определяет, как будут взаимодействовать между собой разные маски при их наложении.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	mask-composite: &lt;compositing-operator&gt;#;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>add</code></th>
+		<td>Результат - объединение всех масок (по умолчанию).</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>subtract</code></th>
+		<td>Вторая маска вычитается из первой.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>intersect</code></th>
+		<td>Отображается только область пересечения масок.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>exclude</code></th>
+		<td>Отображаются области, не являющиеся общими для масок.</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span>. Режим add</h2>
+<p>
+	Объединение двух масок (сердечко и стрелка):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask-image: 
+		url("heart.svg"),
+		url("arrow.svg");
+	mask-position: 
+		100px 50px,
+		200px 30px;
+	mask-size: 150px;
+	mask-repeat: no-repeat;
+	mask-composite: add;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask-image: 
+				url(&quot;/cont/markup/manual/css/property/mask-composite/@/image/heart.svg?v=1&quot;),
+				url(&quot;/cont/markup/manual/css/property/mask-composite/@/image/arrow.svg?v=1&quot;);
+			mask-position: 
+				100px 50px,
+				200px 30px;
+			mask-size: 150px;
+			mask-repeat: no-repeat;
+			mask-composite: add;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-composite/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Режим subtract</h2>
+<p>
+	Вычитание стрелки из сердечка:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask-image: 
+		url("heart.svg"),
+		url("arrow.svg");
+	mask-position: 
+		100px 50px,
+		170px 80px;
+	mask-size: 
+		250px,
+		120px;
+	mask-repeat: no-repeat;
+	mask-composite: subtract;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask-image: 
+				url(&quot;/cont/markup/manual/css/property/mask-composite/@/image/heart.svg?v=1&quot;),
+				url(&quot;/cont/markup/manual/css/property/mask-composite/@/image/arrow.svg?v=1&quot;);
+			mask-position: 
+				100px 50px,
+				170px 80px;
+			mask-size: 
+				250px,
+				120px;
+			mask-repeat: no-repeat;
+			mask-composite: subtract;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-composite/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Режим intersect</h2>
+<p>
+	Отображение только области пересечения масок:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask-image: 
+		url("heart.svg"),
+		url("arrow.svg");
+	mask-position: 
+		100px 50px,
+		50px 30px;
+	mask-size: 150px;
+	mask-repeat: no-repeat;
+	mask-composite: intersect;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask-image: 
+				url(&quot;/cont/markup/manual/css/property/mask-composite/@/image/heart.svg?v=1&quot;),
+				url(&quot;/cont/markup/manual/css/property/mask-composite/@/image/arrow.svg?v=1&quot;);
+			mask-position: 
+				100px 50px,
+				50px 30px;
+			mask-size: 150px;
+			mask-repeat: no-repeat;
+			mask-composite: intersect;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-composite/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Режим exclude</h2>
+<p>
+	Отображение областей, не являющихся общими:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask-image: 
+		url("heart.svg"),
+		url("arrow.svg");
+	mask-position: 
+		100px 50px,
+		50px 30px;
+	mask-size: 150px;
+	mask-repeat: no-repeat;
+	mask-composite: exclude;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask-image: 
+				url(&quot;/cont/markup/manual/css/property/mask-composite/@/image/heart.svg?v=1&quot;),
+				url(&quot;/cont/markup/manual/css/property/mask-composite/@/image/arrow.svg?v=1&quot;);
+			mask-position: 
+				100px 50px,
+				50px 30px;
+			mask-size: 150px;
+			mask-repeat: no-repeat;
+			mask-composite: exclude;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-composite/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Комбинация с градиентами</h2>
+<p>
+	Использование с градиентными масками:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="gradient-box"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#gradient-box {
+	width: 400px;
+	height: 400px;
+	background: linear-gradient(45deg, red, yellow, green, blue);
+	mask-image: 
+		radial-gradient(circle at 30% 30%, black 40%, transparent 70%),
+		radial-gradient(circle at 70% 70%, black 40%, transparent 70%);
+	mask-composite: exclude;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#gradient-box {
+			width: 400px;
+			height: 400px;
+			background: linear-gradient(45deg, red, yellow, green, blue);
+			mask-image: 
+				radial-gradient(circle at 30% 30%, black 40%, transparent 70%),
+				radial-gradient(circle at 70% 70%, black 40%, transparent 70%);
+			mask-composite: exclude;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;gradient-box&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../mask-image/index.html"><code data-gs="comd/c" data-x>mask-image</code></a>, <br>
+			задает изображения для масок
+		</li>
+		<li>
+			свойство <a href="../mask/index.html"><code data-gs="comd/c" data-x>mask</code></a>, <br>
+			сокращение для всех свойств маскирования
+		</li>
+		<li>
+			свойство <a href="../mask-mode/index.html"><code data-gs="comd/c" data-x>mask-mode</code></a>, <br>
+			определяет режим наложения маски
+		</li>
+		<li>
+			свойство <a href="../mix-blend-mode/index.html"><code data-gs="comd/c" data-x>mix-blend-mode</code></a>, <br>
+			определяет режим наложения элементов
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../mask-clip/index.html" class="lesson-nav-btn lesson-nav-prev" title="mask-clip">← mask-clip</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../mask-image/index.html" class="lesson-nav-btn lesson-nav-next" title="mask-image">mask-image →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

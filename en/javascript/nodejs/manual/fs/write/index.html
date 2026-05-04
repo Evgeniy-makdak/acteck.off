@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод write — acteck.off</title>
+  <meta name="description" content="Метод write — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Метод write</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>write</code> указывает позицию в файле,
+	с которой начинается запись в буфер,
+	а также для того, что обозначить какую часть буфера записывать в файл.
+	В первом параметре метода указываем файловый дескриптор.
+	Метод <code data-gs="comd/c" data-x>write</code> можно применять в двух вариантах: с
+	буфером и со строковой переменной. Различия между
+	этими вариантами начинаются со второго параметра.
+<p>
+	Если мы используем метод с буфером, то во
+	втором параметре указываем буфер, в третьем параметре -
+	часть буфера, предназначенную для записи. В четвертом
+	необязательном параметре задаем длину в байтах,
+	которая будет записана в файл. В пятом необязательном
+	параметре задаем позицию, с которой начнется запись файла,
+	в шестом необязательном параметре - коллбэк.
+</p>
+<p>
+	В случае, если нам нужно применить метод <code data-gs="comd/c" data-x>write</code>
+	со строковым значением, во втором параметре мы указываем
+	строку, в третьем необязательном параметре - позицию,
+	с которой начнется запись файла. В четвертом
+	необязательном параметре задаем кодировку, значение
+	по умолчанию которой равно <code data-gs="comd/s" data-x>'UTF-8'</code>. И в пятом
+	необязательном параметре указываем коллбэк.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	При использовании буфера:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.write(файловый дескриптор, буфер, часть буфера для записи, [длина], [позиция], [коллбэк]);</code>
+</div>
+<p>
+	При использовании строки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.write(файловый дескриптор, строка, [позиция], [кодировка], [коллбэк]);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте асинхронно запишем данные в файл
+	используя буфер. Вначале мы откроем файл
+	с помощью метода <a href="../open/index.html"><code data-gs="comd/c" data-x>open</code></a>,
+	во второй параметр которого добавим режим
+	<code data-gs="comd/s" data-x>'a'</code>, позволяющий каждый раз просто добавлять данные
+	к файлу, а не перезаписывать их новыми:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+let buffer = new Buffer.from('text');
+
+fs.open('/file.txt', 'a', function(err, fd) {
+	if (err) {
+		console.log(err);
+	} else {
+		fs.write(fd, buffer, 0, buffer.length,
+			null, function(err, writtenbytes) {
+				if (err) {
+					console.log(err);
+				} else {
+					console.log(writtenbytes + ' characters added to file');
+				}
+			})
+		}
+})</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь давайте асинхронно запишем данные в файл
+	используя строковую переменную:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+const str = 'text';
+
+fs.open('/file.txt', 'a', function(err, fd) {
+	if (err) {
+		console.log(err);
+	} else {
+		fs.write(fd, str, function(err, bytes) {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log(bytes + ' bytes written');
+			}
+		})
+	}
+})</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте синхронно запишем данные в файл
+	через <code data-gs="comd/c" data-x>writeSync</code> используя буфер:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+let buffer = new Buffer.from('text');
+
+try {
+	fs.open('/file.txt', 'a', function(err, fd) {
+		if (err) {
+			console.log(err);
+		} else {
+			fs.write(fd, buffer, 0, buffer.length,
+				null, function(err, writtenbytes) {
+					if (err) {
+						console.log(err);
+					} else {
+						console.log(writtenbytes + ' characters added to file');
+					}
+				})
+			}
+	})
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте синхронно запишем данные в файл
+	через <code data-gs="comd/c" data-x>writeSync</code> используя
+	строковую переменную:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+const str = 'text';
+
+try {
+	fs.open('/file.txt', 'a', function(err, fd) {
+		if (err) {
+			console.log(err);
+		} else {
+			fs.write(fd, str, function(err, bytes) {
+				if (err) {
+					console.log(err);
+				} else {
+					console.log(bytes + ' bytes written');
+					}
+				})
+			}
+		})
+	} catch (err) {
+		console.log(err);
+	}</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../writeFile/index.html"><code data-gs="comd/c" data-x>writeFile</code></a>, <br>
+			который записывает данные в файл
+		</li>
+	</ul>
+</div>
+        <div class="lesson-nav">
+      <a href="../watchFile/index.html" class="lesson-nav-btn lesson-nav-prev" title="watchFile">← watchFile</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../writeFile/index.html" class="lesson-nav-btn lesson-nav-next" title="writeFile">writeFile →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

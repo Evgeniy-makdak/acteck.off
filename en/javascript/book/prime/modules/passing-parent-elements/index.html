@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Передача родительского элемента в модуль через замыкания в JavaScript — acteck.off</title>
+  <meta name="description" content="Передача родительского элемента в модуль через замыкания в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Передача родительского элемента в модуль через замыкания в JavaScript</h1>
+    <p>
+	Пусть у нас есть следующие элементы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="div1"&gt;1&lt;/div&gt;
+&lt;div id="div2"&gt;2&lt;/div&gt;
+&lt;div id="div3"&gt;3&lt;/div&gt;
+&lt;div id="res"&gt;&lt;/div&gt;
+
+&lt;button id="btn"&gt;click me&lt;/button&gt;</code>
+</div>
+<p>
+	Пусть с этими элементами работает следующий
+	модуль:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function(selector1, selector2, selector3, selector4, selector5) {
+	let div1 = document.querySelector(selector1);
+	let div2 = document.querySelector(selector2);
+	let div3 = document.querySelector(selector3);
+	let res  = document.querySelector(selector4);
+	let btn  = document.querySelector(selector5);
+	
+	btn.addEventListener('click', function() {
+		let num1 = Number(div1.textContent);
+		let num2 = Number(div2.textContent);
+		let num3 = Number(div3.textContent);
+		
+		res.textContent = num1 + num2 + num3;
+	});
+})('#div1', '#div2', '#div3', '#res', '#btn');</code>
+</div>
+<p>
+	Как вы видите, количество передаваемых в
+	модуль параметров несколько великовато и
+	создает неудобства. Обычно в этом случае
+	поступают следующим образом: передают в модуль
+	общего родителя всех элементов, с которыми
+	работает наш модуль, а уже внутри модуля
+	получают из этого родителя различные элементы.
+</p>
+<p>
+	Давайте сделаем нашим тегам общего родителя:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="div1"&gt;1&lt;/div&gt;
+	&lt;div id="div2"&gt;2&lt;/div&gt;
+	&lt;div id="div3"&gt;3&lt;/div&gt;
+	&lt;div id="res"&gt;&lt;/div&gt;
+	
+	&lt;button id="btn"&gt;click me&lt;/button&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Переделаем теперь код модуля:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function(root) {
+	let parent = document.querySelector(root);
+	
+	let div1 = parent.querySelector('#div1');
+	let div2 = parent.querySelector('#div2');
+	let div3 = parent.querySelector('#div3');
+	
+	let res  = parent.querySelector('#res');
+	let btn  = parent.querySelector('#btn');
+	
+	btn.addEventListener('click', function() {
+		let num1 = Number(div1.textContent);
+		let num2 = Number(div2.textContent);
+		let num3 = Number(div3.textContent);
+		
+		res.textContent = num1 + num2 + num3;
+	});
+})('#parent');</code>
+</div>
+<p>
+	Таким образом получится, что родительский
+	элемент мы передаем в модуль снаружи и легко
+	можем его поменять. А дочерние элементы являются
+	внутренним делом модуля.
+</p>
+  
+    <div class="lesson-nav">
+      <a href="../passing-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Передача параметров">← Передача параметров</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../passing-settings/index.html" class="lesson-nav-btn lesson-nav-next" title="Передача настроек модуля">Передача настроек модуля →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

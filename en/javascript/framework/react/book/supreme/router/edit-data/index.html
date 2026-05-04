@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Запись и редактирование данных по URL параметрам в React Router — acteck.off</title>
+  <meta name="description" content="Запись и редактирование данных по URL параметрам в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Запись и редактирование данных по URL параметрам в React Router</h1>
+    <p>
+	Наше приложение теперь может загружать
+	данные для каждого отдельного продукта из
+	хранилища. На этом уроке мы начнем реализовать
+	добавление информации о продукте и ее
+	редактирование по URL параметрам.
+</p>
+<p>
+	Для того, чтобы заносить или изменять данные
+	мы будем снова использовать компонент
+	<code data-gs="comd/c" data-x>Form</code>. Для начала давайте откроем
+	<code data-gs="comd/p" data-x>product.jsx</code> и добавим в конце верстки
+	кнопочку для редактирования данных
+	продукта - после последнего абзаца (не
+	забудьте импортировать <code data-gs="comd/c" data-x>Form</code> в файл):
+</p>
+<div data-p="bock/pane" data-p-file="routes/product.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;Form action="edit"&gt;
+	&lt;button type="submit"&gt;edit&lt;/button&gt;
+&lt;/Form&gt;</code>
+</div>
+<p>
+	Теперь у нас на страничке продукта есть кнопка
+	редактирования. Далее мы сделаем так, чтобы
+	при нажатии на эту кнопку нас перебрасывало
+	на страничку с формой, где мы сможем вносить
+	данные. Для этого, мы создадим еще один маршрут
+	с <code data-gs="comd/p" data-x>products/:productId/edit</code>. Давайте
+	сделаем для этого макет. 
+</p>
+<p>
+	Итак, в папке routes мы создадим новый файл
+	<code data-gs="comd/p" data-x>edit.jsx</code>. Здесь у нас будет форма с
+	полями <code data-gs="comd/c" data-x>name</code>, <code data-gs="comd/c" data-x>cost</code> и <code data-gs="comd/c" data-x>amount</code>
+	для заполнения, а также кнопкой сохранения. Все
+	это у нас будет в компоненте <code data-gs="comd/c" data-x>EditProduct</code>.
+	Обязательно пропишем атрибуты <code data-gs="comd/c" data-x>name</code>, они
+	нам понадобятся в следующих уроках:
+</p>
+<div data-p="bock/pane" data-p-file="routes/edit.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { Form } from 'react-router-dom';
+
+function EditProduct() {
+	return (
+		&lt;Form method="post" id="product-form"&gt;
+			&lt;div&gt;
+				&lt;span&gt;Name:&lt;/span&gt;
+				&lt;input placeholder="name" type="text" name="name" /&gt;
+			&lt;/div&gt;
+			&lt;div&gt;
+				&lt;span&gt;Cost:&lt;/span&gt;
+				&lt;input placeholder="cost" type="text" name="cost" /&gt;
+			&lt;/div&gt;
+			&lt;div&gt;
+				&lt;span&gt;Amount:&lt;/span&gt;
+				&lt;input placeholder="amount" type="text" name="amount" /&gt;
+			&lt;/div&gt;
+			&lt;p&gt;
+				&lt;button type="submit"&gt;save&lt;/button&gt;
+			&lt;/p&gt;
+		&lt;/Form&gt;
+	);
+}
+
+export default EditProduct;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлым урокам. Пользуясь
+		материалами урока, добавьте кнопку
+		редактирования данных студента.
+		Создайте файл <code data-gs="comd/p" data-x>edit.jsx</code> для
+		редактирования с функцией
+		<code data-gs="comd/c" data-x>EditStudent</code>, в которой будет
+		форма для заполнения данных о студенте.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../get-loader-data-params/index.html" class="lesson-nav-btn lesson-nav-prev" title="Получение данных загрузчика по URL параметрам">← Получение данных загрузчика по URL параметрам</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../data-edit-route/index.html" class="lesson-nav-btn lesson-nav-next" title="Создание маршрута для редактирования данных">Создание маршрута для редактирования данных →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

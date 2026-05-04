@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство background-position — acteck.off</title>
+  <meta name="description" content="Свойство background-position — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство background-position</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>background-position</code> задает
+	местоположение фоновой картинки элемента.
+	Местоположение можно задавать с помощью любых
+	<a href="../../reference/units/sizes/index.html">единиц
+	для размеров</a>. Первое значение обозначает
+	отступ слева, второе - отступ сверху.
+</p>
+<p>
+	Можно также задавать положение ключевыми
+	словами. В этом случае порядок значений не
+	важен. Ключевые слова для вертикали: <code data-gs="comd/v" data-x>top</code>,
+	<code data-gs="comd/v" data-x>center</code>, <code data-gs="comd/v" data-x>bottom</code>. Ключевые слова по горизонтали:
+	<code data-gs="comd/v" data-x>left</code>, <code data-gs="comd/v" data-x>center</code>, <code data-gs="comd/v" data-x>right</code>.
+</p>
+
+<h2>Как пользоваться ключевыми словами</h2>
+<p>
+	Чтобы разместить картинку ключевым словом,
+	нужно указать одно значение для вертикали
+	и одно для горизонтали. К примеру, если указать
+	значение <code data-gs="comd/v" data-x>top right</code>, то картинка станет
+	сверху справа.
+</p>
+<p>
+	Порядок слов неважен: можно написать <code data-gs="comd/v" data-x>top right</code>,
+	а можно - <code data-gs="comd/v" data-x>right top</code>. Если
+	есть ключевое слово <code data-gs="comd/v" data-x>center</code> - его можно опускать.
+	Например, <code data-gs="comd/v" data-x>top center</code>, все равно что
+	просто <code data-gs="comd/v" data-x>top</code>. А <code data-gs="comd/v" data-x>center center</code>
+	все равно что просто <code data-gs="comd/v" data-x>center</code>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	background-position: два значения через пробел;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	По умолчанию фоновая картинка будет в верхнем
+	левом углу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-image: url(&quot;/cont/markup/manual/css/property/background-position/@/image/bg.png?v=2&quot;);
+			background-repeat: no-repeat;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте разместим фоновую картинку в верхний
+	правый угол:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-position: top right;
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-position: top right;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-position/@/image/bg.png?v=2&quot;);
+			background-repeat: no-repeat;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте разместим фоновую картинку в нижний
+	правый угол:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-position: bottom right;
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-position: bottom right;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-position/@/image/bg.png?v=2&quot;);
+			background-repeat: no-repeat;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте разместим фоновую картинку справа
+	и по центру по вертикали:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-position: right center;
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-position: right center;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-position/@/image/bg.png?v=2&quot;);
+			background-repeat: no-repeat;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте разместим фоновую картинку по центру
+	блока:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-position: center center;
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-position: center center;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-position/@/image/bg.png?v=2&quot;);
+			background-repeat: no-repeat;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте разместим фоновую картинку на расстоянии
+	<code data-gs="comd/u" data-x>20px</code> слева и <code data-gs="comd/u" data-x>40px</code> сверху:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-position: 20px 40px;
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-position: 20px 40px;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-position/@/image/bg.png?v=2&quot;);
+			background-repeat: no-repeat;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте разместим фоновую картинку на расстоянии
+	<code data-gs="comd/u" data-x>90%</code> слева и <code data-gs="comd/u" data-x>100%</code> сверху:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-position: 90% 100%;
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-position: 90% 100%;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-position/@/image/bg.png?v=2&quot;);
+			background-repeat: no-repeat;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте разместим фоновую картинку на расстоянии
+	<code data-gs="comd/u" data-x>30px</code> слева и по снизу по вертикали:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-position: 30px bottom;
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-position: 30px bottom;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-position/@/image/bg.png?v=2&quot;);
+			background-repeat: no-repeat;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте разместим фоновую картинку на расстоянии
+	<code data-gs="comd/u" data-x>30px</code> слева и по центру по вертикали:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-position: 30px center;
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-position: 30px center;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-position/@/image/bg.png?v=2&quot;);
+			background-repeat: no-repeat;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте разместим фоновую картинку на расстоянии
+	<code data-gs="comd/u" data-x>30px</code> сверху и по центру по горизонтали:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	background-position: center 30px;
+	background-image: url("bg.png");
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			background-position: center 30px;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-position/@/image/bg.png?v=2&quot;);
+			background-repeat: no-repeat;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../background/index.html"><code data-gs="comd/c" data-x>background</code></a>, <br>
+			представляющее собой свойство-сокращение для фона
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../background-origin/index.html" class="lesson-nav-btn lesson-nav-prev" title="background-origin">← background-origin</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../background-position-x/index.html" class="lesson-nav-btn lesson-nav-next" title="background-position-x">background-position-x →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

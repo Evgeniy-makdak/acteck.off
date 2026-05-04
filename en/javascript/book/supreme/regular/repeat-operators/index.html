@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Операторы повторения символов в регулярках — acteck.off</title>
+  <meta name="description" content="Операторы повторения символов в регулярках — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Операторы повторения символов в регулярках</h1>
+    <p>
+	Бывают ситуации, когда мы хотим указать,
+	что символ повторяется заданное количество
+	раз. Если мы знаем точное число повторений,
+	то можно просто написать его несколько раз
+	- <code data-gs="comd/c" data-x>/aaaa/</code>. Но что делать, если мы хотим
+	сказать такое: <span data-gs="comd/r" data-x>повторить один или более
+	раз</span>?
+</p>
+<p>
+	Для этого существуют операторы (квантификаторы)
+	повторения: плюс <code data-gs="comd/c" data-x>+</code> (один и более раз),
+	звездочка <code data-gs="comd/c" data-x>*</code> (ноль или более раз) и
+	вопрос <code data-gs="comd/c" data-x>?</code> (ноль или один раз). Эти
+	операторы действуют на тот символ, который
+	стоит перед ними.
+</p>
+<p>
+	Давайте посмотрим на работу этих операторов
+	на примерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Найдем все подстроки по шаблону <span data-gs="comd/r" data-x>буква
+	<code data-gs="comd/s" data-x>'x'</code>, буква <code data-gs="comd/s" data-x>'a'</code> один или более
+	раз, буква <code data-gs="comd/s" data-x>'x'</code></span>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'xx xax xaax xaaax xbx';
+let res = str.replace(/xa+x/g, '!');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'xx ! ! ! xbx'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Найдем все подстроки по шаблону <span data-gs="comd/r" data-x>буква
+	<code data-gs="comd/s" data-x>'x'</code>, буква <code data-gs="comd/s" data-x>'a'</code> ноль или более
+	раз, буква <code data-gs="comd/s" data-x>'x'</code></span>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'xx xax xaax xaaax xbx'
+let res = str.replace(/xa*x/g, '!');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! ! ! xbx'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Найдем все подстроки по шаблону <span data-gs="comd/r" data-x>буква
+	<code data-gs="comd/s" data-x>'x'</code>, буква <code data-gs="comd/s" data-x>'a'</code> ноль или один
+	раз, буква <code data-gs="comd/s" data-x>'x'</code></span>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'xx xax xaax xbx';
+let res = str.replace(/xa?x/g, '!');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! xaax xbx'</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aa aba abba abbba abca abea';</code>
+	</div>
+	<p>
+		Напишите регулярку, которая найдет строки
+		<code data-gs="comd/s" data-x>'aba'</code>, <code data-gs="comd/s" data-x>'abba'</code>, <code data-gs="comd/s" data-x>'abbba'</code>
+		по шаблону: <span data-gs="comd/r" data-x>буква <code data-gs="comd/s" data-x>'a'</code>, буква <code data-gs="comd/s" data-x>'b'</code>
+		любое количество раз, буква <code data-gs="comd/s" data-x>'a'</code></span>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aa aba abba abbba abca abea';</code>
+	</div>
+	<p>
+		Напишите регулярку, которая найдет строки
+		<code data-gs="comd/s" data-x>'aa'</code>, <code data-gs="comd/s" data-x>'aba'</code>, <code data-gs="comd/s" data-x>'abba'</code>,
+		<code data-gs="comd/s" data-x>'abbba'</code> по шаблону: <span data-gs="comd/r" data-x>буква <code data-gs="comd/s" data-x>'a'</code>,
+		буква <code data-gs="comd/s" data-x>'b'</code> любое количество раз (в
+		том числе ниодного раза), буква <code data-gs="comd/s" data-x>'a'</code></span>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aa aba abba abbba abca abea';</code>
+	</div>
+	<p>
+		Напишите регулярку, которая найдет строки
+		<code data-gs="comd/s" data-x>'aa'</code>, <code data-gs="comd/s" data-x>'aba'</code> по шаблону: <span data-gs="comd/r" data-x>буква
+		<code data-gs="comd/s" data-x>'a'</code>, буква <code data-gs="comd/s" data-x>'b'</code> один раз или
+		ниодного, буква <code data-gs="comd/s" data-x>'a'</code></span>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aa aba abba abbba abca abea';</code>
+	</div>
+	<p>
+		Напишите регулярку, которая найдет строки
+		<code data-gs="comd/s" data-x>'aa'</code>, <code data-gs="comd/s" data-x>'aba'</code>, <code data-gs="comd/s" data-x>'abba'</code>,
+		<code data-gs="comd/s" data-x>'abbba'</code>, не захватив <code data-gs="comd/s" data-x>'abca'</code>
+		и <code data-gs="comd/s" data-x>'abea'</code>.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../grouping-brackets/index.html" class="lesson-nav-btn lesson-nav-next" title="Группирующие скобки">Группирующие скобки →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Экранировка спецсимволов в регулярках JavaScript — acteck.off</title>
+  <meta name="description" content="Экранировка спецсимволов в регулярках JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Экранировка спецсимволов в регулярках JavaScript</h1>
+    <p>
+	Предположим, что мы хотим сделать так, чтобы
+	спецсимвол обозначал сам себя. Для этого
+	его нужно экранировать с помощью обратного
+	слеша. Давайте посмотрим на примерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В следующем примере автор регулярки хотел,
+	чтобы шаблон поиска выглядел так: <span data-gs="comd/r" data-x>буква
+	<code data-gs="comd/s" data-x>'a'</code>, затем плюс <code data-gs="comd/s" data-x>'+'</code>, затем
+	буква <code data-gs="comd/s" data-x>'x'</code></span>. Однако, автор кода
+	не заэкранировал символ <code data-gs="comd/s" data-x>'+'</code> и поэтому
+	шаблон поиска самом деле он выглядит так:
+	<span data-gs="comd/r" data-x>буква <code data-gs="comd/s" data-x>'a'</code> один или более раз, потом
+	буква <code data-gs="comd/s" data-x>'x'</code></span>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'a+x ax aax aaax';
+let res = str.replace(/a+x/g, '!');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'a+x ! ! !'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А сейчас автор заэкранировал плюс обратным
+	слешем. Теперь шаблон поиска выглядит так,
+	как надо: <span data-gs="comd/r" data-x>буква <code data-gs="comd/s" data-x>'a'</code>, затем плюс
+	<code data-gs="comd/s" data-x>'+'</code>, затем буква <code data-gs="comd/s" data-x>'x'</code></span>.
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'a+x ax aax aaax';
+let res = str.replace(/a\+x/g, '!');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ax aax aaax'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В данном примере шаблон выглядит так: <span data-gs="comd/r" data-x>буква
+	<code data-gs="comd/s" data-x>'a'</code>, затем точка <code data-gs="comd/s" data-x>'.'</code>, затем
+	буква <code data-gs="comd/s" data-x>'x'</code></span>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'a.x abx azx';
+let res = str.replace(/a\.x/g, '!');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! abx azx'</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А следующем примере автор забыл заэкранировать
+	слеш и под регулярку попали все подстроки,
+	так как незаэкранированная точка обозначает
+	любой символ:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'a.x abx azx';
+let res = str.replace(/a.x/g, '!');</code>
+</div>
+<p>
+	В результате в переменную запишется следующее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! !'</code>
+</div>
+
+<h2>Замечание</h2>
+<p>
+	Обратите внимание на то, что если вы забудете
+	обратный слеш для точки (когда она должна
+	обозначать сама себя) - этого можно даже
+	не заметить:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'a.x'.replace(/a.x/g, '!'); // вернет '!', как мы и хотели</code>
+</div>
+<p>
+	Визуально работает правильно (так как точка
+	обозначает любой символ, в том числе и обычную
+	точку <code data-gs="comd/s" data-x>'.'</code>). Но если поменять строку,
+	в которой происходят замены - мы увидим нашу
+	ошибку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'a.x abx azx'.replace(/a.x/g, '!'); // вернет '! ! !', а ожидалось '! abx azx'</code>
+</div>
+
+<h2>Список специальных символов и обычных</h2>
+<p>
+	Если экранировать обычный символ - ничего
+	страшного не случится - он все равно будет
+	обозначать сам себя. Исключение - цифры,
+	их нельзя экранировать.
+</p>
+<p>
+	Часто возникает сомнение, является ли данный
+	символ специальным. Некоторые доходят до
+	того, что экранируют все подозрительные символы
+	подряд. Однако, это плохая практика (захламляет
+	регулярку обратными слешами).
+</p>
+<p>
+	Являются спецсимволами: <code data-gs="comd/c" data-x>$ ^ . * + ? \
+	/ {} [] () |</code>
+</p>
+<p>
+	Не являются спецсимволами: <code data-gs="comd/c" data-x>@ : , ' " ;
+	- _ = < > % # ~ `& !</code>
+</p>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'a.a aba aea';</code>
+	</div>
+	<p>
+		Напишите регулярку, которая найдет строку
+		<code data-gs="comd/s" data-x>'a.a'</code>, не захватив остальные.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '2+3 223 2223';</code>
+	</div>
+	<p>
+		Напишите регулярку, которая найдет строку
+		<code data-gs="comd/s" data-x>'2+3'</code>, не захватив остальные.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '23 2+3 2++3 2+++3 345 567';</code>
+	</div>
+	<p>
+		Напишите регулярку, которая найдет строки
+		<code data-gs="comd/s" data-x>'2+3'</code>, <code data-gs="comd/s" data-x>'2++3'</code>, <code data-gs="comd/s" data-x>'2+++3'</code>,
+		не захватив остальные (+ может быть любое
+		количество).
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '23 2+3 2++3 2+++3 445 677';</code>
+	</div>
+	<p>
+		Напишите регулярку, которая найдет строки
+		<code data-gs="comd/s" data-x>'23'</code>, <code data-gs="comd/s" data-x>'2+3'</code>, <code data-gs="comd/s" data-x>'2++3'</code>,
+		<code data-gs="comd/s" data-x>'2+++3'</code>, не захватив остальные.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '*+ *q+ *qq+ *qqq+ *qqq qqq+';</code>
+	</div>
+	<p>
+		Напишите регулярку, которая найдет строки
+		<code data-gs="comd/s" data-x>'*q+'</code>, <code data-gs="comd/s" data-x>'*qq+'</code>, <code data-gs="comd/s" data-x>'*qqq+'</code>,
+		не захватив остальные.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана строка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '[abc] {abc} abc (abc) [abc]';</code>
+	</div>
+	<p>
+		Напишите регулярку, которая найдет строки
+		в квадратных скобках и заменит их на <code data-gs="comd/s" data-x>'!'</code>.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../grouping-brackets/index.html" class="lesson-nav-btn lesson-nav-prev" title="Группирующие скобки">← Группирующие скобки</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../curly-braces/index.html" class="lesson-nav-btn lesson-nav-next" title="Фигурные скобки">Фигурные скобки →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

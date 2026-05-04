@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Объект запроса в Express — acteck.off</title>
+  <meta name="description" content="Объект запроса в Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Объект запроса в Express</h1>
+    <p>
+	Сейчас мы разберемся с возможностями объекта
+	запроса. Для этого будем считать, что вбитый
+	в адресную строку URL выглядит следующим образом:
+</p>
+<p data-w="cont/repr">
+	http://localhost:3000/dir/page.html?get1=1&get2=2
+</p>
+<p>
+	Напишем обработчик этого урла:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/dir/page.html', function(req, res) {
+	
+});</code>
+</div>
+<p>
+	Как вы видите, в обработчике мы указываем
+	адрес без протокола, домена и порта, а также
+	без строки запроса. Давайте посмотрим, какую
+	информацию о запросе мы можем получить с
+	помощью объекта запроса.
+</p>
+
+<h2>Путь</h2>
+<p>
+	С помощью свойства <code data-gs="comd/c" data-x>path</code> мы можем получить
+	запрошенный адрес без протокола, хоста, порта
+	и строки запроса:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/dir/page.html', function(req, res) {
+	console.log(req.path); // выведет '/dir/page.html'
+});</code>
+</div>
+
+<h2>Урл</h2>
+<p>
+	С помощью свойства <code data-gs="comd/c" data-x>url</code> мы можем получить
+	запрошенный адрес с путем и строкой запроса:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/dir/page.html', function(req, res) {
+	console.log(req.url); // выведет '/dir/page.html?get1=1&get2=2'
+});</code>
+</div>
+<p>
+	При этом свойство <code data-gs="comd/c" data-x>url</code> может быть изменено
+	Express при работе маршрутизации. Поэтому
+	существует специальное свойство <code data-gs="comd/c" data-x>originalUrl</code>,
+	которое гарантированно будет содержать оригинальный
+	урл:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/dir/page.html', function(req, res) {
+	console.log(req.originalUrl); // выведет '/dir/page.html?get1=1&get2=2'
+});</code>
+</div>
+
+<h2>Строка запроса</h2>
+<p>
+	С помощью свойства <code data-gs="comd/c" data-x>query</code> мы можем
+	получить строку запроса в виде объекта с
+	ключами и значениями:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/dir/page.html', function(req, res) {
+	console.log(req.query); // содержит объект {get1: '1', get2: '2'}
+});</code>
+</div>
+<p>
+	Давайте для примера получим значение GET
+	параметра с именем <code data-gs="comd/c" data-x>get1</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/dir/page.html', function(req, res) {
+	console.log(req.query.get1); // выведет '1'
+});</code>
+</div>
+
+<h2>Протокол</h2>
+<p>
+	С помощью свойства <code data-gs="comd/c" data-x>protocol</code> мы можем
+	получить протокол:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/dir/page.html', function(req, res) {
+	console.log(req.protocol); // выведет 'http'
+});</code>
+</div>
+<p>
+	Есть также свойство <code data-gs="comd/c" data-x>secure</code>, которое
+	содержит <code data-gs="comd/c" data-x>true</code> для HTTPS протокола,
+	и <code data-gs="comd/c" data-x>false</code> - для обычного HTTP:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/dir/page.html', function(req, res) {
+	console.log(req.secure); // выведет false
+});</code>
+</div>
+
+<h2>Заголовки</h2>
+<p>
+	С помощью свойства <code data-gs="comd/c" data-x>headers</code> мы можем
+	получить заголовки запроса:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/dir/page.html', function(req, res) {
+	console.log(req.headers);
+});</code>
+</div>
+
+<h2>Языки</h2>
+<p>
+	С помощью метода <code data-gs="comd/c" data-x>acceptsLanguages</code>
+	мы можем получить предпочитаемые пользователем
+	языки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/dir/page.html', function(req, res) {
+	console.log(req.acceptsLanguages());
+});</code>
+</div>
+
+<h2>IP адрес</h2>
+<p>
+	С помощью свойства <code data-gs="comd/c" data-x>ip</code> мы можем получить
+	IP адрес пользователя:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/dir/page.html', function(req, res) {
+	console.log(req.ip);
+});</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Самостоятельно опробуйте работу описанный свойств.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

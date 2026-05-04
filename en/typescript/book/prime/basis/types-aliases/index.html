@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Псевдонимы типов в TypeScript — acteck.off</title>
+  <meta name="description" content="Псевдонимы типов в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Псевдонимы типов в TypeScript</h1>
+    <p>
+	В TypeScript можно создавать <dfn data-gs="comd/d" data-x>псевдонимы</dfn>
+	типов. Это делается с помощью оператора
+	<code data-gs="comd/c" data-x>type</code>. 
+</p>
+<p>
+	Для примера давайте зададим еще одно имя
+	для строкового типа данных: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">type str = string;</code>
+</div>
+<p>
+	Объявим переменную, используя наш новый
+	тип: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test: str = 'abc';</code>
+</div>
+<p>
+	В целом переименовывание стандартных типов
+	не несет никакой практической пользы.
+	Давайте посмотрим на более полезный пример
+	применения псевдонимов. 
+</p>
+
+<h2>Применение</h2>
+<p>
+	Сделаем новый тип данных, используя
+	объединение типов: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">type stumber = string | number;</code>
+</div>
+<p>
+	Объявим переменную с нашим новым типом: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test: stumber;</code>
+</div>
+<p>
+	Запишем в нее число: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">test = 123;</code>
+</div>
+<p>
+	Запишем в нее строку: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">test = 'abc';</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Создайте новый тип, объединяющий <code data-gs="comd/c" data-x>null</code>
+		и <code data-gs="comd/c" data-x>undefined</code>. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте новый тип, объединяющий логический
+		тип, <code data-gs="comd/c" data-x>null</code> и <code data-gs="comd/c" data-x>undefined</code>. 
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

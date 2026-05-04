@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Автоматическая сборка в Webpack — acteck.off</title>
+  <meta name="description" content="Автоматическая сборка в Webpack — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/webpack/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/webpack/index.html">Webpack</a>
+    </div>
+
+    <h1>Автоматическая сборка в Webpack</h1>
+    <p>
+	Можно сделать так, чтобы Webpack отслеживал
+	изменения файлов проекта и сам каждый
+	раз запускал сборку. Для этого в <code data-gs="comd/s" data-x>scripts</code>
+	нужно внести следующую настройку:
+</p>
+<div data-p="bock/pane" data-p-file="package.json">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">"watch": "webpack --mode development --watch"</code>
+</div>
+<p>
+	В итоге наш файл <code data-gs="comd/p" data-x>package.json</code> станет
+	выглядеть следующим образом:
+</p>
+<div data-p="bock/pane" data-p-file="package.json">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">"scripts": {
+	"build": "webpack",
+	"dev":   "webpack --mode development",
+	"prod":  "webpack --mode production",
+	"watch": "webpack --mode development --watch"
+},</code>
+</div>
+<p>
+	Запустить отслеживание файлов можно
+	следующей командой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm run watch</code>
+</div>
+<p>
+	После этого в терминал нельзя будет ввести
+	никакую команду, пока вы не прервете
+	отслеживание командой <code data-gs="comd/k" data-x>Ctrl + C</code>.
+</p>
+<div data-w="cont/task">
+	<p>
+		Внесите в ваш <code data-gs="comd/p" data-x>package.json</code>
+		соответствующие настройки.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Запустите Webpack в режиме отслеживания.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Внесите изменения в файлы проекта.
+		Проверьте, что произойдет автоматическая
+		сборка.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Прервите отслеживание соответствующей командой.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../../mode/scripts/index.html" class="lesson-nav-btn lesson-nav-prev" title="Режимы сборки через scripts">← Режимы сборки через scripts</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../points/entry-output/index.html" class="lesson-nav-btn lesson-nav-next" title="Точки входа и выхода">Точки входа и выхода →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

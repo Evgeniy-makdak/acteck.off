@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Получение селекторов в Redux — acteck.off</title>
+  <meta name="description" content="Получение селекторов в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Получение селекторов в Redux</h1>
+    <p>
+	Порой очень полезно избавится от лишнего кода
+	в приложении, а также инкапсулировать данные.
+</p>
+<p>
+	Давайте откроем наше приложение с продуктами.
+	Обратите внимание, что в нескольких местах
+	приложения мы, используя селекторы, вытягиваем
+	слайс с продуктами, чтобы совершить с ним какие-то
+	действия.
+</p>
+<p>
+	А сейчас мы откроем наш <code data-gs="comd/p" data-x>productsSlice.js</code>,
+	спустимся в самый конец файла и добавим пару
+	строчек кода, в котором напишем два
+	селектора и экспортируем их. Одна функция у
+	нас будет для получения всех продуктов:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const selectAllProducts = (state) =&gt; state.products.products</code>
+</div>
+<p>
+	А после него вторая - для получения одного
+	продукта по id:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const selectProductById = (state, productId) =&gt;
+	state.products.products.find((product) =&gt; product.id === productId)</code>
+</div>
+<p>
+	Конечно у вас может возникнуть справедливый
+	вопрос - откуда у нас такой вот наворот:
+	<code data-gs="comd/c" data-x>state.products.products</code>? Ответ прост,
+	мы ведь на прошлом занятии поменяли
+	структуру слайса и теперь наши продукты
+	будут находится в виде массива в
+	отдельном свойстве <code data-gs="comd/c" data-x>products</code> слайса
+	продуктов <code data-gs="comd/c" data-x>state.products</code> (помните, что
+	здесь <code data-gs="comd/c" data-x>state</code> - это корневой объект
+	состояния Redux, который содержит все
+	слайсы).  
+</p>
+<p>
+	Таким образом мы просто перенесли код
+	для функций-селекторов в одно
+	место в приложении и теперь нам нужно
+	внести соответствующие изменения там,
+	где мы их использовали. Начнем с файла
+	<code data-gs="comd/p" data-x>ProductsList.jsx</code>. Импортируем в него
+	<code data-gs="comd/c" data-x>selectAllProducts</code>, поскольку здесь нам
+	нужно будет получить все продукты:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { selectAllProducts } from './productsSlice'</code>
+</div>
+<p>
+	И в начале кода функции <code data-gs="comd/c" data-x>ProductsList</code>, заменим:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const products = useSelector((state) =&gt; state.products)</code>
+</div>
+<p>
+	На строчку:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const products = useSelector(selectAllProducts)</code>
+</div>
+<p>
+	А теперь перейдем к файлу <code data-gs="comd/p" data-x>ProductPage.jsx</code>. Здесь
+	нам нужен был продукт по id. Сделаем замену строки
+	(не забудьте про импорт):
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const product = useSelector((state) =&gt;
+	state.products.find((product) =&gt; product.id === productId)
+)</code>
+</div>
+<p>
+	На:
+</p>
+<div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const product = useSelector((state) =&gt; selectProductById(state, productId))</code>
+</div>
+<p>
+	Сделайте подобную замену сами в файле
+	<code data-gs="comd/p" data-x>EditProductForm.jsx</code>. Здесь нам
+	также нужен продукт по id.
+</p>
+<p>
+	Помните, что такая оптимизация только
+	для вашего удобства и вы можете сделать
+	ее тогда, когда посчитаете нужной и удобной.
+	А на нашем примере представьте, что мы бы
+	писали код функции-селектора каждый раз в
+	разных местах, а потом бы поменяли
+	структуру стейта, и пришлось бы его тогда
+	исправлять во всех компонентах.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Откройте в нем файл <code data-gs="comd/p" data-x>studentsSlice.js</code>.
+		В самом низу файла напишите и экспортируйте,
+		как показано в уроке, два селектора для
+		получения всех студентов <code data-gs="comd/c" data-x>selectAllStudents</code> и
+		для получения одного студента по id
+		<code data-gs="comd/c" data-x>selectStudentById</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Теперь импортируйте <code data-gs="comd/c" data-x>selectAllStudents</code> и
+		<code data-gs="comd/c" data-x>selectStudentById</code> в файлы <code data-gs="comd/p" data-x>StudentsList.jsx</code>,
+		<code data-gs="comd/p" data-x>StudentPage.jsx</code> и <code data-gs="comd/p" data-x>EditStudentForm.jsx</code>,
+		внесите в этих файлах соответствующие
+		изменения, как показано в уроке.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../state-structure-change/index.html" class="lesson-nav-btn lesson-nav-prev" title="Изменение структуры стейта">← Изменение структуры стейта</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../install-msw/index.html" class="lesson-nav-btn lesson-nav-next" title="Установка msw для работы с сервером">Установка msw для работы с сервером →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

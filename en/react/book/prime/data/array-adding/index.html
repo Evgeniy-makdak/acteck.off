@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реактивное добавление в массив в React — acteck.off</title>
+  <meta name="description" content="Реактивное добавление в массив в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Реактивное добавление в массив в React</h1>
+    <p>
+	Давайте поработаем с реактивным добавлением
+	элементов в массив. Пусть для примера у нас
+	есть массив, который выводится в виде
+	списка <code data-gs="comd/c" data-x>ul</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
+	
+	const result = notes.map((note, index) =&gt; {
+		return &lt;li key={index}&gt;{note}&lt;/li&gt;;
+	});
+	
+	return &lt;div&gt;
+		&lt;ul&gt;
+			{result}
+		&lt;/ul&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте кнопку, по нажатию на которую
+		будет добавляться новый элемент
+		в конец массива, тем самым добавляя новый
+		<code data-gs="comd/c" data-x>li</code> в конец тега <code data-gs="comd/c" data-x>ul</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте инпут и кнопку. По нажатию
+		на кнопку пусть текст инпута станет
+		новым тегом <code data-gs="comd/c" data-x>li</code> в конец тега <code data-gs="comd/c" data-x>ul</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавление роутера в React Router — acteck.off</title>
+  <meta name="description" content="Добавление роутера в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Добавление роутера в React Router</h1>
+    <p>
+	Немного ознакомившись с роутерами,
+	мы можем добавить один из них в приложение.
+</p>
+<p>
+	Но для начала нам нужно немного
+	почистить шаблон нашего приложения,
+	который мы создали на прошлых занятиях.
+	А конкретнее - займемся папочкой <code data-gs="comd/p" data-x>src</code>.
+	Выбросьте из нее папку <code data-gs="comd/p" data-x>assets</code>, файлы
+	<code data-gs="comd/p" data-x>App.css</code>, <code data-gs="comd/p" data-x>App.jsx</code>. В общем, у
+	вас останутся в ней только <code data-gs="comd/p" data-x>main.jsx</code>
+	и <code data-gs="comd/p" data-x>index.css</code>.
+</p>
+<p>
+	Окройте <code data-gs="comd/p" data-x>index.css</code> и полностью его
+	очистите. Пусть он будет пустым.
+</p>
+<p>
+	Теперь займемся нашим главным файлом
+	<code data-gs="comd/p" data-x>main.jsx</code>. В нем у нас будет
+	такой код:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+	&lt;React.StrictMode&gt;
+
+	&lt;/React.StrictMode&gt;
+);</code>
+</div>
+<p>
+	А теперь мы можем добавить роутер.
+	Мы используем <code data-gs="comd/c" data-x>BrowserRouter</code>,
+	поскольку он чаще всего используется в
+	веб-приложениях. Не забудем и про
+	современный синтаксис. Добавим строчку
+	импорта:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import {
+	createBrowserRouter,
+	RouterProvider,
+} from 'react-router-dom';</code>
+</div>
+<p>
+	Затем, заведем константу <code data-gs="comd/c" data-x>router</code> и 
+	создадим наш <code data-gs="comd/c" data-x>BrowserRouter</code> после
+	строчек с импортом. Сделаем это так, чтобы
+	на главной странице у нас отображался
+	див с надписью <code data-gs="comd/s" data-x>'Hello Router!'</code>.
+	Для этого пропишем путь к главной странице
+	и элемент, который будем отображать:		
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([
+	{
+		path: '/',
+		element: &lt;div&gt;Hello Router!&lt;/div&gt;,
+	},
+]);</code>
+</div>
+<p>
+	Нам еще нужно добавить компонент
+	<code data-gs="comd/c" data-x>RouterProvider</code> и вписать созданный
+	нами выше роутер. Он принимает
+	все объекты роутера, рендерит наше
+	приложение и подключает другие API:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">ReactDOM.createRoot(document.getElementById('root')).render(
+	&lt;React.StrictMode&gt;
+		&lt;RouterProvider router={router} /&gt;
+	&lt;/React.StrictMode&gt;
+);</code>
+</div>
+<p>
+	Полный код будет выглядеть так:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import {
+	createBrowserRouter,
+	RouterProvider,
+} from 'react-router-dom';
+
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: &lt;div&gt;Hello world!&lt;/div&gt;,
+	},
+]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+	&lt;React.StrictMode&gt;
+		&lt;RouterProvider router={router} /&gt;
+	&lt;/React.StrictMode&gt;
+);</code>
+</div>
+<p>
+	Сохраним изменения. Поздравляю! Наше
+	с вами приложение больше не ругается.
+	Теперь, если мы его запустим, то на
+	главной странице в браузере мы
+	увидим <code data-gs="comd/s" data-x>'Hello Router!'</code>.
+</p>
+<div data-w="cont/task">
+	<p>
+		Используя приведенный материал,
+		сделайте так, чтобы на главной странице
+		вашего приложения, которое вы создали
+		в домашних заданиях к прошлым урокам,
+		у вас отображался параграф с текстом
+		<code data-gs="comd/s" data-x>'I'm number one in React!'</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../router-types/index.html" class="lesson-nav-btn lesson-nav-prev" title="Роутер и его типы">← Роутер и его типы</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../route/index.html" class="lesson-nav-btn lesson-nav-next" title="Маршруты">Маршруты →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

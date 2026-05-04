@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отмена изменений в файле в Git — acteck.off</title>
+  <meta name="description" content="Отмена изменений в файле в Git — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/git/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/git/index.html">Git</a>
+    </div>
+
+    <h1>Отмена изменений в файле в Git</h1>
+    <p>
+	В случае, когда нам нужно отменить изменения
+	в файле, и вернуть его в исходный вид,
+	нужно использовать команду <code data-gs="comd/c" data-x>restore</code>.
+	Давайте сначала внесем изменения в файл
+	<code data-gs="comd/p" data-x>file.txt</code> и отследим его статус:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git status</code>
+</div>
+<p>
+	В сообщении мы увидим, что файл <code data-gs="comd/p" data-x>file.txt</code>
+	получил статус <span data-gs="comd/y" data-x>modified</span>.
+</p>
+<p>
+	Теперь вернем файл в исходное состояние
+	командой <code data-gs="comd/c" data-x>restore</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git restore file.txt</code>
+</div>
+<p>
+	После проверки статуса мы увидим сообщение
+	о том, что коммитить нечего.
+	Если вы проверите содержимое файла,
+	то оно действительно вернется к версии до изменений.
+	Необходимо быть острожными с этой командой,
+	потому что Git заменяет файл его предыдущей версией
+	и все промежуточные изменения стираются.
+</p>
+<div data-w="cont/task">
+	<p>
+		Внесите изменения в файл в вашем Git
+		репозитории, а затем верните его
+		в исходное состояние.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../file-unindexing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отмена индексации файла">← Отмена индексации файла</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../command-aliases/index.html" class="lesson-nav-btn lesson-nav-next" title="Псевдонимы команд">Псевдонимы команд →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

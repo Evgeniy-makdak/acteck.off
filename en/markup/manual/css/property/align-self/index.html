@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство align-self — acteck.off</title>
+  <meta name="description" content="Свойство align-self — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство align-self</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>align-self</code> задает выравнивание
+	вдоль поперечной оси для отдельно взятого
+	flex-блока и по вертикальной оси для отдельного
+	элемента в гриде.
+	По сути данное свойство представляет
+	собой свойство
+	<a href="../align-items/index.html"><code data-gs="comd/c" data-x>align-items</code></a>,
+	но для конкретного блока.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>flex-start</code></th>
+		<td>Блок прижат к началу поперечной оси.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>flex-end</code></th>
+		<td>Блок прижат к концу поперечной оси.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>center</code></th>
+		<td>Блок стоит по центру поперечной оси.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>baseline</code></th>
+		<td>
+			Блок выравнивается по своей базовой линии.
+			Базовая линия - это воображаемая линия, 
+			проходящая по нижнему краю символов без учета свисаний,
+			например, как у букв <code data-gs="comd/s" data-x>'p'</code>, <code data-gs="comd/s" data-x>'q'</code>, <code data-gs="comd/s" data-x>'y'</code>,
+			<code data-gs="comd/s" data-x>'g'</code>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>stretch</code></th>
+		<td>
+			Блок растянут, занимая все доступное место по поперечной оси,
+			при этом все же учитываются <code data-gs="comd/c" data-x>min-width</code> и <code data-gs="comd/c" data-x>max-width</code>,
+			если они заданы. Если же задана ширина и высота для элемента -
+			<code data-gs="comd/v" data-x>stretch</code> будет проигнорирован.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>auto</code></th>
+		<td>
+			Блок будет выровнен так, как задано в свойстве
+			<a href="../align-items/index.html"><code data-gs="comd/c" data-x>align-items</code></a>.
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>auto</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Значение stretch</h2>
+<p>
+	В данном примере всем блокам задано значение
+	flex-start (свойство <a href="../align-items/index.html"><code data-gs="comd/c" data-x>align-items</code></a>),
+	а третьему блоку - <code data-gs="comd/c" data-x>align-self</code> в значении
+	<code data-gs="comd/v" data-x>stretch</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div id="elem"&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+	&lt;div&gt;5&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: row;
+	border: 1px solid #696989;
+	height: 100px;
+}
+#parent &gt; div {
+	min-width: 100px;
+	border: 1px solid #696989;
+}
+#elem {
+	align-self: stretch;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: flex;
+			align-items: flex-start;
+			flex-direction: row;
+			border: 1px solid #696989;
+			height: 100px;
+		}
+		#parent > div {
+			min-width: 100px;
+			border: 1px solid #696989;
+		}
+		#elem {
+			align-self: stretch;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div>1</div>
+			<div>2</div>
+			<div id=&quot;elem&quot;>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение flex-end</h2>
+<p>
+	В данном примере всем блокам для свойства
+	<code data-gs="comd/c" data-x>align-items</code> задано значение <code data-gs="comd/v" data-x>flex-start</code>,
+	а третьему блоку - <code data-gs="comd/c" data-x>align-self</code> в значении
+	<code data-gs="comd/v" data-x>flex-end</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div id="elem"&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+	&lt;div&gt;5&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: row;
+	border: 1px solid #696989;
+	height: 100px;
+}
+#parent &gt; div {
+	min-width: 100px;
+	border: 1px solid #696989;
+}
+#elem {
+	align-self: flex-end;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: flex;
+			align-items: flex-start;
+			flex-direction: row;
+			border: 1px solid #696989;
+			height: 100px;
+		}
+		#parent > div {
+			min-width: 100px;
+			border: 1px solid #696989;
+		}
+		#elem {
+			align-self: flex-end;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div>1</div>
+			<div>2</div>
+			<div id=&quot;elem&quot;>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Выравнивание по началу вертикальной оси в гриде</h2>
+<p>
+	Давайте установим выравнивание для первого
+	элемента по началу вертикальной оси:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+	&lt;div id="elem4"&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 100px 100px;
+	grid-template-rows: repeat(3, 1fr);
+	gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+	height: 200px;
+	width: 400px;
+}
+#parent &gt; div {
+	gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}
+#elem1 {
+	align-self: start;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: 100px 100px;
+			grid-template-rows: repeat(3, 1fr);
+			gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+			height: 200px;
+			width: 400px;
+		}
+		#parent > div {
+			gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			align-self: start;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+			<div id=&quot;elem4&quot;>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Выравнивание по центру вертикальной оси в гриде</h2>
+<p>
+	Давайте установим выравнивание первого
+	элемента по центру вертикальной оси:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 100px 100px;
+	grid-template-rows: repeat(3, 1fr);
+	gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+	height: 200px;
+	width: 400px;
+}
+#parent &gt; div {
+	gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}
+#elem1 {
+	align-self: center;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: 100px 100px;
+			grid-template-rows: repeat(3, 1fr);
+			gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+			height: 200px;
+			width: 400px;
+		}
+		#parent > div {
+			gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			align-self: center;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Выравнивание по концу вертикальной оси в гриде</h2>
+<p>
+	Давайте установим выравнивание для нашего
+	первого элемента в гриде по концу вертикальной оси:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 100px 100px;
+	grid-template-rows: repeat(3, 1fr);
+	gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+	height: 200px;
+	width: 400px;
+}
+#parent &gt; div {
+	gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}
+#elem1 {
+	align-self: end;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: 100px 100px;
+			grid-template-rows: repeat(3, 1fr);
+			gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+			height: 200px;
+			width: 400px;
+		}
+		#parent > div {
+			gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			align-self: end;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../flex-direction/index.html"><code data-gs="comd/c" data-x>flex-direction</code></a>, <br>
+			которое задает направление осей flex блоков
+		</li>
+		<li>
+			свойство <a href="../justify-content/index.html"><code data-gs="comd/c" data-x>justify-content</code></a>, <br>
+			которое задает выравнивание по главной оси
+		</li>
+		<li>
+			свойство <a href="../align-items/index.html"><code data-gs="comd/c" data-x>align-items</code></a>, <br>
+			которое задает выравнивание по поперечной оси
+		</li>
+		<li>
+			свойство <a href="../flex-wrap/index.html"><code data-gs="comd/c" data-x>flex-wrap</code></a>, <br>
+			которое многострочность flex блоков
+		</li>
+		<li>
+			свойство <a href="../flex-flow/index.html"><code data-gs="comd/c" data-x>flex-flow</code></a>, <br>
+			сокращение для flex-direction и flex-wrap
+		</li>
+		<li>
+			свойство <a href="../order/index.html"><code data-gs="comd/c" data-x>order</code></a>, <br>
+			которое задает порядок flex блоков
+		</li>
+		<li>
+			свойство <a href="../flex-basis/index.html"><code data-gs="comd/c" data-x>flex-basis</code></a>, <br>
+			которое задает размер конкретного flex блока
+		</li>
+		<li>
+			свойство <a href="../flex-grow/index.html"><code data-gs="comd/c" data-x>flex-grow</code></a>, <br>
+			которое задает жадность flex блоков
+		</li>
+		<li>
+			свойство <a href="../flex-shrink/index.html"><code data-gs="comd/c" data-x>flex-shrink</code></a>, <br>
+			которое задает сжимаемость flex блоков
+		</li>
+		<li>
+			свойство <a href="../flex/index.html"><code data-gs="comd/c" data-x>flex</code></a>, <br>
+			сокращение для <code data-gs="comd/c" data-x>flex-grow</code>, <code data-gs="comd/c" data-x>flex-shrink</code> и <code data-gs="comd/c" data-x>flex-basis</code>
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../align-items/index.html" class="lesson-nav-btn lesson-nav-prev" title="align-items">← align-items</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../animation/index.html" class="lesson-nav-btn lesson-nav-next" title="animation">animation →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

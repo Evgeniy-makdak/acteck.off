@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Роутинг и файлы в Express — acteck.off</title>
+  <meta name="description" content="Роутинг и файлы в Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Роутинг и файлы в Express</h1>
+    <p>
+	Пусть у нас есть папка <code data-gs="comd/p" data-x>pages</code>, а в
+	ней три файла: <code data-gs="comd/p" data-x>1.html</code>, <code data-gs="comd/p" data-x>2.html</code>,
+	<code data-gs="comd/p" data-x>3.html</code>. Давайте сделаем маршруты,
+	отдающие по запросу соответствующие файлы
+	в браузер:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/1/', function(req, res) {
+	res.sendFile(__dirname + '/pages/1.html');
+});
+app.get('/page/2/', function(req, res) {
+	res.sendFile(__dirname + '/pages/2.html');
+});
+app.get('/page/3/', function(req, res) {
+	res.sendFile(__dirname + '/pages/3.html');
+});</code>
+</div>
+<p>
+	Сольем три маршрута в один, воспользовавшись
+	параметром:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/:num/', function(req, res) {
+	res.sendFile(__dirname + '/pages/' + req.params.num + '.html');
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть у вас есть несколько папок, а в этих
+		папках хранятся файлы. Сделайте маршрут,
+		отдающий заданный файл из заданной папки.
+	</p>
+</div>
+
+<h2>Ошибка 404</h2>
+<p>
+	Давайте теперь сделаем так, чтобы при запросе
+	несуществующего файла отдавалась 404
+	ошибка. Для этого нам понадобится 
+	выполнить <a href="../../../../../javascript/nodejs/book/prime/file-system/existance-checking/index.html">проверку файла на существование</a>.
+	Импортируем для этого модуль <code data-gs="comd/c" data-x>fs</code> и константы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
+import { constants } from 'fs';</code>
+</div>
+<p>
+	Решим задачу с их помощью:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/:num/', function(req, res) {
+	let path = __dirname + '/pages/' + req.params.num + '.html';
+	
+	fs.access(path, constants.F_OK).then(() =&gt; {
+		res.sendFile(path);
+	}).catch(() =&gt; {
+		res.status(404).send('not found');
+	});
+});</code>
+</div>
+<p>
+	Можно переписать код в синхронном стиле:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/:num/', async function(req, res) {
+	let path = __dirname + '/pages/' + req.params.num + '.html';
+	
+	try {
+		await fs.access(path, constants.F_OK);
+		res.sendFile(path);
+	} catch(err) {
+		res.status(404).send('not found');
+	}
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу так, чтобы
+		для несуществующего файла отдавалась 404
+		ошибка.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

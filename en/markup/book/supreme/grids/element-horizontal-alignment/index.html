@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выравнивание отдельного элемента по горизонтальной оси CSS грида — acteck.off</title>
+  <meta name="description" content="Выравнивание отдельного элемента по горизонтальной оси CSS грида — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Выравнивание отдельного элемента по горизонтальной оси CSS грида</h1>
+    <p>
+	Выравнивание по горизонтальной оси
+	можно задавать не только в родительском
+	элементе, но и для каждого потомка в отдельности.
+	Для этой цели используется
+	свойство <code data-gs="comd/c" data-x>justify-self</code>.
+</p>
+
+<h2>По началу горизонтальной оси</h2>
+<p>
+	Давайте установим выравнивание для нашего
+	первого элемента по началу горизонтальной оси:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 100px 100px;
+	grid-template-rows: repeat(3, 1fr);
+	grid-gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+	height: 200px;
+	width: 400px;
+}
+#parent &gt; div {
+	grid-gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}
+#elem1 {
+	justify-self: start;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: 100px 100px;
+			grid-template-rows: repeat(3, 1fr);
+			grid-gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+			height: 200px;
+			width: 400px;
+		}
+		#parent > div {
+			grid-gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			justify-self: start;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>По центру горизонтальной оси</h2>
+<p>
+	Давайте установим выравнивание
+	первого элемента по центру горизонтальной оси:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 100px 100px;
+	grid-template-rows: repeat(3, 1fr);
+	grid-gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+	height: 200px;
+	width: 400px;
+}
+#parent &gt; div {
+	grid-gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}
+#elem1 {
+	justify-self: center;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: 100px 100px;
+			grid-template-rows: repeat(3, 1fr);
+			grid-gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+			height: 200px;
+			width: 400px;
+		}
+		#parent > div {
+			grid-gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			justify-self: center;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>По концу горизонтальной оси</h2>
+<p>
+	Давайте установим выравнивание для первого
+	элемента по концу горизонтальной оси:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div&gt;2&lt;/div&gt;
+	&lt;div&gt;3&lt;/div&gt;
+	&lt;div&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 100px 100px;
+	grid-template-rows: repeat(3, 1fr);
+	grid-gap: 10px;
+	padding: 10px;
+	border: 2px solid #696989;
+	height: 200px;
+	width: 400px;
+}
+#parent &gt; div {
+	grid-gap: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #696989;
+}
+#elem1 {
+	justify-self: end;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: 100px 100px;
+			grid-template-rows: repeat(3, 1fr);
+			grid-gap: 10px;
+			padding: 10px;
+			border: 2px solid #696989;
+			height: 200px;
+			width: 400px;
+		}
+		#parent > div {
+			grid-gap: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			justify-self: end;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Создайте грид, состоящий из пяти
+		элементов, расположенных по двум
+		рядам. Выполните выравнивание второго элемента
+		по началу горизонтальной оси.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Теперь расположите элементы грида
+		по трем рядам и задайте выравнивание третьего элемента
+		по центру горизонтальной оси грида.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Измените предыдущую задачу,
+		чтобы выравнивание пятого элемента
+		происходило по концу горизонтальной оси.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../cells-alignment-shorthand/index.html" class="lesson-nav-btn lesson-nav-prev" title="Ячейки сокращение">← Ячейки сокращение</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../element-vertical-alignment/index.html" class="lesson-nav-btn lesson-nav-next" title="Элемент по вертикали">Элемент по вертикали →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

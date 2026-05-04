@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод forEach — acteck.off</title>
+  <meta name="description" content="Метод forEach — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод forEach</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>forEach</code> позволяет последовательно
+	перебрать все элементы массива.
+	Метод в параметре получает функцию, которая
+	выполнится для каждого элемента массива.
+</p>
+<p>
+	В эту функцию можно передавать три параметра.
+	Если эти параметры есть (они не обязательны),
+	то в первый автоматически попадет элемент
+	массива, во второй попадет его номер в массиве
+	(индекс), а в третий - сам массив.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">массив.forEach(function(элемент, индекс, массив) {
+	код, который выполнится для всех элементов
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте выведем элементы массива в консоль:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3, 4, 5];
+
+arr.forEach(function(elem) {
+	console.log(elem);
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте выведем элементы и их номера в консоль:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['a', 'b', 'c', 'd', 'e'];
+
+arr.forEach(function(elem, ind) {
+	console.log(elem, ind);
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте найдем сумму элементов
+	массива:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3, 4, 5];
+let sum = 0;
+
+arr.forEach(function(elem) {
+	sum += elem;
+});
+
+console.log(sum);</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">15</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../map/index.html"><code data-gs="comd/c" data-x>map</code></a>, <br>
+			который также позволяет применить функцию к каждому элементу массива
+		</li>
+		<li>
+			метод <a href="../filter/index.html"><code data-gs="comd/c" data-x>filter</code></a>, <br>
+			который позволяет фильтровать элементы массива
+		</li>
+		<li>
+			методы <a href="../some/index.html"><code data-gs="comd/c" data-x>some</code></a>
+			и <a href="../every/index.html"><code data-gs="comd/c" data-x>every</code></a>, <br>
+			выполняющие проверку массива
+		</li>
+		<li>
+			методы <a href="../reduce/index.html"><code data-gs="comd/c" data-x>reduce</code></a> и
+			<a href="../reduceRight/index.html"><code data-gs="comd/c" data-x>reduceRight</code></a>, <br>
+			сворачивающие массив к одному значению
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

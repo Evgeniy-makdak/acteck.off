@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Параллельный роутинг в NextJS — acteck.off</title>
+  <meta name="description" content="Параллельный роутинг в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Параллельный роутинг в NextJS</h1>
+    <p>
+	В NextJS можно сделать так, чтобы
+	часть сайта показывала различное содержимое
+	в зависимости от запрошенного URL.
+	Это называется <dfn data-gs="comd/d" data-x>параллельный</dfn> роутинг.
+</p>
+<p>
+	Давайте посмотрим на примере.
+	Пусть у нас есть следующий макет сайта:
+</p>
+<div data-p="bock/pane" data-p-file="app/layout.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function RootLayout({children}) {
+	return (
+		&lt;html lang="en"&gt;
+			&lt;body&gt;
+				&lt;header&gt;
+					header
+				&lt;/header&gt;
+				&lt;main&gt;
+					{children}
+				&lt;/main&gt;
+				&lt;footer&gt;
+					footer
+				&lt;/footer&gt;
+			&lt;/body&gt;
+		&lt;/html&gt;
+	);
+}</code>
+</div>
+<p>
+	Пусть мы хотим, чтобы в хедере
+	выводилась динамическая информация.
+	Пусть по URL <code data-gs="comd/p" data-x>/users</code> будет выводиться
+	компонент с юзерами, а по URL
+	<code data-gs="comd/p" data-x>/posts</code> компонент с постами.
+</p>
+<p>
+	Для такого параллельного роутинга
+	нужно сделать специальную папку,
+	начав ее имя с символа <code data-gs="comd/p" data-x>@</code>.
+	Для примера назовем нашу папку <code data-gs="comd/p" data-x>@info</code>.
+</p>
+<p>
+	В этой папке разместим два компонента.
+	Первый для показа юзеров в папке <code data-gs="comd/p" data-x>/users/</code>,
+	а второй для показа постов в папке <code data-gs="comd/p" data-x>/posts/</code>.
+	У нас получится следующая файловая структура:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/app/<ul><li data-s-type="D">/@info/<ul><li data-s-type="D">/users/<ul><li data-s-type="F">page.jsx</li></ul></li><li data-s-type="D">/posts/<ul><li data-s-type="F">page.jsx</li></ul></li></ul></li></ul></li></ul></div></div>
+<p>
+	Теперь нам нужно в макете сайта
+	написать специальную команду
+	на вставку. Для этого нужно
+	использовать специальный
+	<dfn data-gs="comd/d" data-x>динамический слот</dfn>.
+</p>
+<p>
+	Чтобы понять, что это, для начала посмотрите
+	на параметр функции нашего макета сайта:
+</p>
+<div data-p="bock/pane" data-p-file="app/layout.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function RootLayout({children}) {
+	return (
+		
+	);
+}</code>
+</div>
+<p>
+	Обратите внимание на то, что параметром
+	у нас передается объект, из которого
+	мы извлекаем контент сайта в переменную
+	<code data-gs="comd/c" data-x>children</code>.
+</p>
+<p>
+	В этом объекте могут быть и другие ключи.
+	Они соответствуют тем папкам, имя
+	которых мы начали с <code data-gs="comd/p" data-x>@</code>.
+</p>
+<p>
+	В нашем случае у нас есть папка <code data-gs="comd/p" data-x>@info</code>,
+	а это значит, что у нас будет доступна
+	переменная <code data-gs="comd/c" data-x>info</code>, в зависимости
+	от URL содержащая текст одного из
+	компонентов - юзеров или посты.
+	Получим эту переменную:
+</p>
+<div data-p="bock/pane" data-p-file="app/layout.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function RootLayout({children, info}) {
+	return (
+		
+	);
+}</code>
+</div>
+<p>
+	Теперь внутри верстки макета мы можем
+	вывести переменную <code data-gs="comd/c" data-x>info</code>.
+	В это место в зависимости от URL
+	и будет вставляться
+	текст одного из наших компонентов:
+</p>
+<div data-p="bock/pane" data-p-file="app/layout.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function RootLayout({children, info}) {
+	return (
+		&lt;html lang="en"&gt;
+			&lt;body&gt;
+				&lt;header&gt;
+					&lt;div&gt;
+						{info}
+					&lt;/div&gt;
+				&lt;/header&gt;
+				&lt;main&gt;
+					{children}
+				&lt;/main&gt;
+				&lt;footer&gt;
+					footer
+				&lt;/footer&gt;
+			&lt;/body&gt;
+		&lt;/html&gt;
+	);
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте динамический слот
+		для правого сайдбара.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте динамический слот
+		для левого сайдбара.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../parts-components/index.html" class="lesson-nav-btn lesson-nav-prev" title="Части в компонентах">← Части в компонентах</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../default-slot-file/index.html" class="lesson-nav-btn lesson-nav-next" title="Дефолтный файл слота">Дефолтный файл слота →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

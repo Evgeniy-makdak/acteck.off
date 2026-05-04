@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Виды возникающих ситуаций в JavaScript — acteck.off</title>
+  <meta name="description" content="Виды возникающих ситуаций в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Виды возникающих ситуаций в JavaScript</h1>
+    <p>
+	В JavaScript очень мало ситуаций, в которых
+	возникают исключения. Во-первых, просто потому,
+	что очень мало мест для их возникновения.
+</p>
+<p>
+	Во-вторых, потому, что сам язык "всепрощающий":
+	он на многое смотрит сквозь пальцы, например,
+	на деление на ноль или на некорректный HTML
+	код. Даже если вы укажете неверный путь к
+	картинке, которую собираетесь загрузить,
+	JavaScript вам простит и это и не посчитает
+	исключением.
+</p>
+<p>
+	Однако, исключительные ситуации есть. Мы
+	разберем две самые простые и на их примере
+	изучим работу с исключениями в JavaScript.
+</p>
+<p>
+	Первое исключение возникает, когда мы хотим
+	разобрать некорректный JSON:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let data = JSON.parse('{1,2,3,4,5}'); // данный json некорректен</code>
+</div>
+<p>
+	А второе исключение возникает, когда локальное
+	хранилище, выделенное под наш сайт переполняется
+	(больше <code data-gs="comd/n" data-x>5</code> мегабайт). Давайте искусственно
+	вызовем такое исключение:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '';
+for (let i = 1; i &lt;= 6 * 10 ** 6; i++) { // формируем строку более 5 мб
+	str += '+';
+}
+
+localStorage.setItem('key', str); // пытаемся записать в хранилище</code>
+</div>
+<p>
+	Как JavaScript реагирует на такие исключительные
+	ситуации? Он просто вываливает ошибку в консоль
+	и прекращает дальнейшее выполнение скрипта.
+</p>
+<p>
+	Наша задача, как программистов, состоит в
+	том, чтобы отловить такую ситуацию и как-то
+	справится с ней, <i>не давая программе совсем
+	прекратить свое выполнение</i>. Для этого
+	существуют специальные конструкция <code data-gs="comd/c" data-x>try-catch</code>,
+	которую мы разберем в следующих уроках.
+</p>
+<div data-w="cont/task">
+	<p>
+		Создайте строку достаточно большего
+		размера и попытайтесь записать ее
+		в локальное хранилище. Убедитесь в том,
+		что в консоли будет ошибка.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Попытайтесь распарсить некорректный JSON.
+		Убедитесь в том, что в консоли будет ошибка.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../catching/index.html" class="lesson-nav-btn lesson-nav-next" title="Перехват исключений">Перехват исключений →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тег img — acteck.off</title>
+  <meta name="description" content="Тег img — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Тег img</h1>
+    <p>
+	Тег <code data-gs="comd/c" data-x>img</code> создает картинку. Путь к картинке
+	прописывается в атрибуте <code data-gs="comd/c" data-x>src</code>. Не требует
+	закрывающего тега.
+</p>
+
+<h2>Атрибуты</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Атрибут</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>src</code></th>
+		<td>
+			Задает путь к картинке.
+			<hr>
+			Обязательный атрибут.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>alt</code></th>
+		<td>
+			Альтернативный текст, который будет показан вместо картинки,
+			если она не найдена (к примеру, неправильно прописан путь к ней).
+			<hr>
+			Обязательный атрибут.
+			При его отсутствии будет ругаться валидатор (программа, которая проверяет
+			корректность HTML или CSS).
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>width</code></th>
+		<td>
+			Ширина картинки, в пикселях (в этом случае единицы измерения не указываются)
+			или процентах от родителя картинки.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/c" data-x>height</code></th>
+		<td>
+			Высота картинки, в пикселях (в этом случае единицы измерения не указываются)
+			или процентах от родителя картинки.
+		</td>
+	</tr>
+</table>
+
+<h2>Нюансы</h2>
+<p>
+	Если для картинки не задана ни ширина, ни
+	высота - картинка будет иметь свой реальный
+	размер. Если задана высота - картинка станет
+	заданной высоты, а по ширине подстроится
+	так, чтобы ее пропорции не были искажены.
+</p>
+<p>
+	Если задана только ширина - аналогично, картинка
+	подстроится по высоте так, чтобы сохранить
+	пропорции.
+</p>
+<p>
+	Если задана и ширина, и высота - пропорции
+	картинки могут быть искажены (а может и нет,
+	как угадаете). Если ширина или высота (или
+	оба вместе) больше реальной - картинка увеличится,
+	но потеряет в качестве.
+</p>
+<p>
+	Рекомендуется задавать ширину и высоту
+	картинкам в атрибутах (а не через CSS) -
+	в этом случае браузер быстрее будет загружать
+	изображения - ему нет нужды вычислять размер
+	каждой картинки после ее получения.
+</p>
+<p>
+	Не рекомендуется уменьшать реальные
+	размеры картинки без необходимости. К примеру,
+	реальный размер картинки <code data-gs="comd/n" data-x>1000</code> на <code data-gs="comd/n" data-x>1000</code>
+	пикселей, а вы ей зададите ширину в <code data-gs="comd/u" data-x>100px</code>.
+	В этом случае картинка на экране будет выглядеть
+	на <code data-gs="comd/n" data-x>100</code> пикселей, однако иметь размер
+	на всю тысячу и, соответственно, загружаться
+	намного дольше.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте на сайт добавим картинку и не будем
+	задавать атрибуты <code data-gs="comd/c" data-x>height</code> и <code data-gs="comd/c" data-x>width</code>.
+	Картинка будет иметь свой реальный размер:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img src="monkey.png" alt="обезьянка"&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<img src=&quot;../../../../../cont/markup/manual/html/tag/img/@/image/monkey.png&quot; alt=&quot;обезьянка&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте попробуем картинке добавить ширина
+	с помощью атрибута <code data-gs="comd/c" data-x>width</code>, высота при
+	этом должна подстроиться так, чтобы сохранить
+	пропорции картинки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img src="monkey.png" width="200" alt="обезьянка"&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<img src=&quot;../../../../../cont/markup/manual/html/tag/img/@/image/monkey.png&quot; width=&quot;200&quot; alt=&quot;обезьянка&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте картинке добавим высоту
+	с помощью атрибута <code data-gs="comd/c" data-x>height</code>, ширина
+	при этом подстроится так, чтобы сохранить
+	пропорции картинки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img src="monkey.png" height="100" alt="обезьянка"&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<img src=&quot;../../../../../cont/markup/manual/html/tag/img/@/image/monkey.png&quot; height=&quot;100&quot; alt=&quot;обезьянка&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте одновременно картинке добавим и высоту,
+	и ширину. Пропорции картинки при этом должны
+	стать искаженными (не обязательно, но в данном
+	случае высота и ширина подобраны так, чтобы
+	пропорции исказились):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img src="monkey.png" height="100" width="300" alt="обезьянка"&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<img src=&quot;../../../../../cont/markup/manual/html/tag/img/@/image/monkey.png&quot; height=&quot;100&quot; width=&quot;300&quot; alt=&quot;обезьянка&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте поставим неправильный путь к картинке
+	(для простоты оставим его пустым). Вместо
+	картинки мы увидим содержимое атрибута <code data-gs="comd/c" data-x>alt</code>
+	(кажется, что это обычный текст - но попробуйте
+	его скопировать - у вас ничего не получится,
+	он будет тянутся как картинка):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img src="" alt="обезьянка"&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<img src=&quot;&quot; alt=&quot;обезьянка&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../../../css/property/width/index.html"><code data-gs="comd/c" data-x>width</code></a>, <br>
+			которое задает ширину элемента
+		</li>
+		<li>
+			свойство <a href="../../../css/property/height/index.html"><code data-gs="comd/c" data-x>height</code></a>, <br>
+			которое задает ширину элемента
+		</li>
+		<li>
+			тег <a href="../figure/index.html"><code data-gs="comd/c" data-x>figure</code></a>, <br>
+			который группирует картинки и их подписи
+		</li>
+		<li>
+			тег <a href="../figcaption/index.html"><code data-gs="comd/c" data-x>figcaption</code></a>, <br>
+			который задает подпись к картинке
+		</li>
+		<li>
+			свойство <a href="../../../css/property/background-image/index.html"><code data-gs="comd/c" data-x>background-image</code></a>, <br>
+			которое задает фоновую картинку
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../iframe/index.html" class="lesson-nav-btn lesson-nav-prev" title="iframe">← iframe</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../input/index.html" class="lesson-nav-btn lesson-nav-next" title="input">input →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

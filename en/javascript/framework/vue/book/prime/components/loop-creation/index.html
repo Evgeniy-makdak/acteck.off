@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Создание компонентов в цикле в Vue — acteck.off</title>
+  <meta name="description" content="Создание компонентов в цикле в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../index.html">Vue</a>
+    </div>
+
+    <h1>Создание компонентов в цикле в Vue</h1>
+    <p>
+	Компоненты можно создавать в цикле,
+	передавая им соответствующие данные.
+	Давайте посмотрим, как это делается.
+	Пусть в родительском компоненте
+	дан следующий массив объектов:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		users: [
+			{
+				id: 1,
+				name: 'name1',
+				surn: 'surn1'
+			},
+			{
+				id: 2,
+				name: 'name2',
+				surn: 'surn2'
+			},
+			{
+				id: 3,
+				name: 'name3',
+				surn: 'surn3'
+			},
+		],
+	}
+}</code>
+</div>
+<p>
+	Давайте переберем этот массив объектов
+	циклом и в цикле будем создавать
+	компоненты с юзерами:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;User v-for="user in users" /&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	Укажем значения атрибута <code data-gs="comd/c" data-x>key</code>
+	для правильной работы цикла:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;User v-for="user in users" :key="user.id" /&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	Передадим также в компоненты их данные,
+	имя и фамилию каждого юзера:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;User
+		v-for="user in users"
+		:name="user.name"
+		:surn="user.surn"
+		:key="user.id"
+	/&gt;
+&lt;/template&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий массив с данными работников:
+	</p>
+	<div data-p="bock/pane" data-p-file="App.vue">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		users: [
+			{
+				id: 1,
+				name: 'name1',
+				salary: 100,
+				age: 30,
+			},
+			{
+				id: 2,
+				name: 'name2',
+				salary: 200,
+				age: 40,
+			},
+			{
+				id: 3,
+				name: 'name3',
+				salary: 300,
+				age: 50,
+			},
+		],
+	}
+}</code>
+	</div>
+	<p>
+		 С помощью цикла создайте на основе
+		 этого массива компоненты <code data-gs="comd/c" data-x>Employee</code>,
+		 передав им соответствующие данные.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../props-types/index.html" class="lesson-nav-btn lesson-nav-prev" title="Указание типа пропсов">← Указание типа пропсов</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../unidirectional-data-flow/index.html" class="lesson-nav-btn lesson-nav-next" title="Однонаправленный поток данных">Однонаправленный поток данных →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

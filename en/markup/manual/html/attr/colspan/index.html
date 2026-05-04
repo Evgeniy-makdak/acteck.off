@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Атрибут colspan — acteck.off</title>
+  <meta name="description" content="Атрибут colspan — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Атрибут colspan</h1>
+    <p>
+	Атрибут <code data-gs="comd/c" data-x>colspan</code> управляет объединением
+	столбцов HTML <a href="../../tag/table/index.html">таблицы</a>.
+	Применяется к тегам <a href="../../tag/th/index.html"><code data-gs="comd/c" data-x>th</code></a>
+	и <a href="../../tag/td/index.html"><code data-gs="comd/c" data-x>td</code></a>.
+</p>
+<p>
+	Принимаемое значение: целое число начиная
+	с <code data-gs="comd/n" data-x>1</code>.
+</p>
+<p>
+	Как пользоваться: добавляем данный атрибут
+	к любой ячейке <code data-gs="comd/c" data-x>td</code> или <code data-gs="comd/c" data-x>th</code>. Если,
+	к примеру, задать <code data-gs="comd/c" data-x>colspan</code> в значение
+	<code data-gs="comd/n" data-x>2</code> - то ячейка, которой это задали, займет
+	два столбца таблицы. При этом соседние ячейки
+	справа никуда не денутся, наша расширившаяся
+	ячейка их вытеснит и таблица развалится.
+	Чтобы этого не произошло, нужно удалить одну
+	из ячеек справа. Смотрите примеры
+	для лучшего понимания.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Таблица без объединений</h2>
+<p>
+	Давайте посмотрим на таблицу без объединений,
+	с которой мы будем работать дальше:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell1&lt;/td&gt;
+		&lt;td&gt;cell2&lt;/td&gt;
+		&lt;td&gt;cell3&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell4&lt;/td&gt;
+		&lt;td&gt;cell5&lt;/td&gt;
+		&lt;td&gt;cell6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell7&lt;/td&gt;
+		&lt;td&gt;cell8&lt;/td&gt;
+		&lt;td&gt;cell9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table, td, th {
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table, td, th {
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td>cell1</td>
+				<td>cell2</td>
+				<td>cell3</td>
+			</tr>
+			<tr>
+				<td>cell4</td>
+				<td>cell5</td>
+				<td>cell6</td>
+			</tr>
+			<tr>
+				<td>cell7</td>
+				<td>cell8</td>
+				<td>cell9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Расширим ячейку на два столбца</h2>
+<p>
+	Давайте попробуем расширить ячейку <code data-gs="comd/n" data-x>1</code> на два
+	столбца, задав ей атрибут <code data-gs="comd/c" data-x>colspan</code>
+	в значении <code data-gs="comd/n" data-x>2</code>. При этом она вытеснит
+	ячейки справа и таблица развалится:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="2"&gt;cell1&lt;/td&gt;
+		&lt;td&gt;cell2&lt;/td&gt;
+		&lt;td&gt;cell3&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell4&lt;/td&gt;
+		&lt;td&gt;cell5&lt;/td&gt;
+		&lt;td&gt;cell6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell7&lt;/td&gt;
+		&lt;td&gt;cell8&lt;/td&gt;
+		&lt;td&gt;cell9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table, td, th {
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table, td, th {
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td colspan=&quot;2&quot;>cell1</td>
+				<td>cell2</td>
+				<td>cell3</td>
+			</tr>
+			<tr>
+				<td>cell4</td>
+				<td>cell5</td>
+				<td>cell6</td>
+			</tr>
+			<tr>
+				<td>cell7</td>
+				<td>cell8</td>
+				<td>cell9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Расширим ячейку без разваливания таблицы</h2>
+<p>
+	А теперь попробуем поправить проблему с разваливанием
+	таблицы из предыдущего примера, удалим одну
+	из ячеек справа от нашей (это ячейка <code data-gs="comd/n" data-x>2</code> или
+	<code data-gs="comd/n" data-x>3</code> - без разницы):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="2"&gt;cell1&lt;/td&gt;
+		&lt;td&gt;cell2&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell4&lt;/td&gt;
+		&lt;td&gt;cell5&lt;/td&gt;
+		&lt;td&gt;cell6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell7&lt;/td&gt;
+		&lt;td&gt;cell8&lt;/td&gt;
+		&lt;td&gt;cell9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table, td, th {
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table, td, th {
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td colspan=&quot;2&quot;>cell1</td>
+				<td>cell2</td>
+			</tr>
+			<tr>
+				<td>cell4</td>
+				<td>cell5</td>
+				<td>cell6</td>
+			</tr>
+			<tr>
+				<td>cell7</td>
+				<td>cell8</td>
+				<td>cell9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Расширим ячейку на три столбца</h2>
+<p>
+	Давайте расширим ячейку <code data-gs="comd/n" data-x>1</code> на <code data-gs="comd/n" data-x>3</code> столбца
+	и зададим ей атрибут <code data-gs="comd/c" data-x>colspan</code> в значении
+	<code data-gs="comd/n" data-x>3</code>. При этом удалим еще одну ячейку
+	справа, чтобы таблица не развалилась:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="3"&gt;cell1&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell4&lt;/td&gt;
+		&lt;td&gt;cell5&lt;/td&gt;
+		&lt;td&gt;cell6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell7&lt;/td&gt;
+		&lt;td&gt;cell8&lt;/td&gt;
+		&lt;td&gt;cell9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table, td, th {
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table, td, th {
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td colspan=&quot;3&quot;>cell1</td>
+			</tr>
+			<tr>
+				<td>cell4</td>
+				<td>cell5</td>
+				<td>cell6</td>
+			</tr>
+			<tr>
+				<td>cell7</td>
+				<td>cell8</td>
+				<td>cell9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Одновременно colspan и rowspan</h2>
+<p>
+	Давайте попробуем объединить ячейки с номером
+	<code data-gs="comd/n" data-x>4</code>, <code data-gs="comd/n" data-x>5</code>, <code data-gs="comd/n" data-x>7</code> и <code data-gs="comd/n" data-x>8</code>,
+	воспользовавшись атрибутами <code data-gs="comd/c" data-x>colspan</code>
+	и <a href="../rowspan/index.html"><code data-gs="comd/c" data-x>rowspan</code></a>
+	(предыдущие объединения уберем из таблицы):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="3"&gt;cell1&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td colspan="2" rowspan="2"&gt;cell4&lt;/td&gt;
+		&lt;td&gt;cell6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;cell9&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">table, td, th {
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			table, td, th {
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td colspan=&quot;3&quot;>cell1</td>
+			</tr>
+			<tr>
+				<td colspan=&quot;2&quot; rowspan=&quot;2&quot;>cell4</td>
+				<td>cell6</td>
+			</tr>
+			<tr>
+				<td>cell9</td>
+			</tr>
+		</table>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			атрибут <a href="../rowspan/index.html"><code data-gs="comd/c" data-x>rowspan</code></a>, <br>
+			который объединяет ряды таблицы
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../class/index.html" class="lesson-nav-btn lesson-nav-prev" title="class">← class</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../contenteditable/index.html" class="lesson-nav-btn lesson-nav-next" title="contenteditable">contenteditable →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

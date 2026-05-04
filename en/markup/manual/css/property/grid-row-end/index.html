@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство grid-row-end — acteck.off</title>
+  <meta name="description" content="Свойство grid-row-end — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство grid-row-end</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>grid-row-end</code> задает
+	конечную позицию элемента в гриде или сетке
+	по рядам. Значением свойства может
+	быть положительное или отрицательное число.
+	Если задаем положительное число,
+	то начальная позиция элемента отсчитывается сверху
+	вниз. При указании отрицательного числа элемент
+	будет располагаться в обратном порядке,
+	т.е. снизу вверх.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	grid-row-end: положительное или отрицательное число;
+}</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте зададим элементам в гриде
+	конечные позиции:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	padding: 10px;
+	width: 400px;
+	border: 2px solid #696989;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem1 {
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+#elem2 {
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+#elem3 {
+	grid-row-start: 3;
+	grid-row-end: 4;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			padding: 10px;
+			width: 400px;
+			border: 2px solid #696989;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			grid-row-start: 1;
+			grid-row-end: 2;
+		}
+		#elem2 {
+			grid-row-start: 2;
+			grid-row-end: 3;
+		}
+		#elem3 {
+			grid-row-start: 3;
+			grid-row-end: 4;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Сделаем так, чтобы первый блок занимал два ряда:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	height: 300px;
+	width: 400px;
+	padding: 10px;
+	border: 2px solid #696989;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem1 {
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+#elem2 {
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+#elem3 {
+	grid-row-start: 2;
+	grid-row-end: 3;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			height: 300px;
+			width: 400px;
+			padding: 10px;
+			border: 2px solid #696989;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			grid-row-start: 1;
+			grid-row-end: 3;
+		}
+		#elem2 {
+			grid-row-start: 1;
+			grid-row-end: 2;
+		}
+		#elem3 {
+			grid-row-start: 2;
+			grid-row-end: 3;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь давайте назначим четвертому
+	блоку три ряда:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+	&lt;div id="elem4"&gt;4&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	height: 300px;
+	width: 400px;
+	padding: 10px;
+	border: 2px solid #696989;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem1 {
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+#elem2 {
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+#elem3 {
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+#elem4 {
+	grid-row-start: 1;
+	grid-row-end: 4;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			height: 300px;
+			width: 400px;
+			padding: 10px;
+			border: 2px solid #696989;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			grid-row-start: 1;
+			grid-row-end: 2;
+		}
+		#elem2 {
+			grid-row-start: 2;
+			grid-row-end: 3;
+		}
+		#elem3 {
+			grid-row-start: 3;
+			grid-row-end: 4;
+		}
+		#elem4 {
+			grid-row-start: 1;
+			grid-row-end: 4;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+			<div id=&quot;elem4&quot;>4</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте в свойствах <code data-gs="comd/c" data-x>grid-row-start</code>
+	и <code data-gs="comd/c" data-x>grid-row-end</code> укажем отрицательные числа.
+	Теперь <code data-gs="comd/s" data-x>elem3</code> будет занимать самый верхний
+	ряд, а <code data-gs="comd/s" data-x>elem1</code> - самый нижний:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div id="elem1"&gt;1&lt;/div&gt;
+	&lt;div id="elem2"&gt;2&lt;/div&gt;
+	&lt;div id="elem3"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	display: grid;
+	padding: 10px;
+	width: 400px;
+	border: 2px solid #696989;
+}
+#parent &gt; div {
+	padding: 10px;
+	border: 1px solid #696989;
+}
+#elem1 {
+	grid-row-start: -1;
+	grid-row-end: -2;
+}
+#elem2 {
+	grid-row-start: -2;
+	grid-row-end: -3;
+}
+#elem3 {
+	grid-row-start: -3;
+	grid-row-end: -4;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			display: grid;
+			padding: 10px;
+			width: 400px;
+			border: 2px solid #696989;
+		}
+		#parent > div {
+			padding: 10px;
+			border: 1px solid #696989;
+		}
+		#elem1 {
+			grid-row-start: -1;
+			grid-row-end: -2;
+		}
+		#elem2 {
+			grid-row-start: -2;
+			grid-row-end: -3;
+		}
+		#elem3 {
+			grid-row-start: -3;
+			grid-row-end: -4;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div id=&quot;elem1&quot;>1</div>
+			<div id=&quot;elem2&quot;>2</div>
+			<div id=&quot;elem3&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../grid-row-start/index.html"><code data-gs="comd/c" data-x>grid-row-start</code></a>, <br>
+			которое задает начальную позицию элемента в гриде по рядам
+		</li>
+		<li>
+			свойство <a href="../grid-row/index.html"><code data-gs="comd/c" data-x>grid-row</code></a>, <br>
+			которое задает начальную и конечную позиции элемента в гриде по рядам
+		</li>
+		<li>
+			свойство <a href="../grid-template-rows/index.html"><code data-gs="comd/c" data-x>grid-template-rows</code></a>, <br>
+			которое задает количество и ширину рядов в гриде
+		</li>
+		<li>
+			свойство <a href="../grid-auto-rows/index.html"><code data-gs="comd/c" data-x>grid-auto-rows</code></a>, <br>
+			которое задает количество и ширину рядов в неявном гриде
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../grid-row/index.html" class="lesson-nav-btn lesson-nav-prev" title="grid-row">← grid-row</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../grid-row-start/index.html" class="lesson-nav-btn lesson-nav-next" title="grid-row-start">grid-row-start →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

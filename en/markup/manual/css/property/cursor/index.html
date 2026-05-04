@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство cursor — acteck.off</title>
+  <meta name="description" content="Свойство cursor — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство cursor</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>cursor</code> устанавливает внешний
+	вид курсора при наведении на элемент.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	cursor: значение;
+}</code>
+</div>
+
+<h2>Примечание</h2>
+<p>
+	Свойство имеет очень много значений. Ниже
+	я сгруппировал эти значения, чтобы было проще
+	ориентироваться. Внешний вид курсора отличается
+	в разных браузерах, поэтому я не делал фото
+	курсоров, а просто в таблицах со значениями
+	сделал специальную колонку, наведя мышкой
+	на ячейку которой, вы сможете увидеть внешний
+	вид описываемого курсора.
+</p>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+		<th>Внешний вид</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>default</code></th>
+		<td>
+			Стандартный внешний вид в виде указателя-стрелки.
+		</td>
+		<td style="cursor: default;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>pointer</code></th>
+		<td>
+			Используется, чтобы показать, что элемент
+			является активным и на него можно нажимать
+			(такой по умолчанию для ссылок).
+		</td>
+		<td style="cursor: pointer;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>help</code></th>
+		<td>
+			Используется, чтобы показать, что с элементом
+			связана какая-то помощь или вопрос.
+		</td>
+		<td style="cursor: help;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>not-allowed</code></th>
+		<td>
+			Используется, чтобы показать недопустимость операции.
+		</td>
+		<td style="cursor: not-allowed;"></td>
+	</tr>
+</table>
+
+<h2>Текст</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+		<th>Внешний вид</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>text</code></th>
+		<td>
+			Стандартный текстовый курсор в виде вертикальной палочки.
+		</td>
+		<td style="cursor: text;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>vertical-text</code></th>
+		<td>
+			Текстовый курсор для вертикального текста.
+		</td>
+		<td style="cursor: vertical-text;"></td>
+	</tr>
+</table>
+
+<h2>Ожидание</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+		<th>Внешний вид</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>progress</code></th>
+		<td>
+			Используется, чтобы показать, что происходит
+			какая-то операция и пользователю нужно подождать.
+		</td>
+		<td style="cursor: progress;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>wait</code></th>
+		<td>
+			Используется, чтобы показать, что пользователю
+			нужно подождать.
+		</td>
+		<td style="cursor: wait;"></td>
+	</tr>
+</table>
+
+<h2>Курсор при изменениях размеров</h2>
+<p>
+	При изменении размеров элемента значение
+	свойства формируется так: слово <code data-gs="comd/v" data-x>resize</code>,
+	а перед ним через дефис какая-то буква или
+	несколько букв, например: <code data-gs="comd/v" data-x>n-resize</code> или <code data-gs="comd/v" data-x>ne-resize</code>.
+</p>
+<p>
+	Эти буквы являются первыми буквами сторон
+	света: north - север, south - юг, east - восток,
+	west - запад. В данном случае используются
+	соглашения, принятые для карт местности:
+	вверху север, снизу юг, слева запад, справа
+	восток. Конечно же, это запутывает, но придется
+	пользоваться, как придумано:)
+</p>
+<p>
+	Итак, вот значения:
+</p>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Направление</th>
+		<th>Часть света</th>
+		<th>Внешний вид</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>n-resize</code></th>
+		<td>вверх</td>
+		<td>north</td>
+		<td style="cursor: n-resize;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>ne-resize</code></th>
+		<td>вправо вверх</td>
+		<td>nord east</td>
+		<td style="cursor: ne-resize;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>e-resize</code></th>
+		<td>вправо</td>
+		<td>east</td>
+		<td style="cursor: e-resize;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>se-resize</code></th>
+		<td>вправо вниз</td>
+		<td>south east</td>
+		<td style="cursor: se-resize;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>s-resize</code></th>
+		<td>вниз</td>
+		<td>south</td>
+		<td style="cursor: s-resize;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>sw-resize</code></th>
+		<td>влево вниз</td>
+		<td>south west</td>
+		<td style="cursor: sw-resize;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>w-resize</code></th>
+		<td>влево</td>
+		<td>west</td>
+		<td style="cursor: w-resize;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>nw-resize</code></th>
+		<td>влево вверх</td>
+		<td>nord west</td>
+		<td style="cursor: nw-resize;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>nesw-resize</code></th>
+		<td>вправо вверх и влево вниз</td>
+		<td>nord east - south west</td>
+		<td style="cursor: nesw-resize;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>nwse-resize</code></th>
+		<td>влево вверх и вправо вниз</td>
+		<td>nord west - south east</td>
+		<td style="cursor: nwse-resize;"></td>
+	</tr>
+</table>
+
+<h2>Изменение размеров двух элементов</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+		<th>Внешний вид</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>col-resize</code></th>
+		<td>Изменение по горизонтали.</td>
+		<td style="cursor: col-resize;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>row-resize</code></th>
+		<td>Изменение по вертикали.</td>
+		<td style="cursor: row-resize;"></td>
+	</tr>
+</table>
+
+<h2>Изменение масштаба</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+		<th>Внешний вид</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>zoom-in</code></th>
+		<td>Увеличение масштаба.</td>
+		<td style="cursor: zoom-in;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>zoom-out</code></th>
+		<td>Уменьшение масштаба.</td>
+		<td style="cursor: zoom-out;"></td>
+	</tr>
+</table>
+
+<h2>Движение</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+		<th>Внешний вид</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>move</code></th>
+		<td>
+			Используется, чтобы показать, что элемент
+			можно перемещать, или в момент перемещения.
+		</td>
+		<td style="cursor: move;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>all-scroll</code></th>
+		<td>
+			Используется, чтобы показать, что элемент
+			прокручивается мышкой во всех направлениях.
+		</td>
+		<td style="cursor: all-scroll;"></td>
+	</tr>
+</table>
+
+<h2>Разное</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+		<th>Внешний вид</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>crosshair</code></th>
+		<td>
+			Внешний вид в виде прицела.
+		</td>
+		<td style="cursor: crosshair;"></td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>cell</code></th>
+		<td>
+			Внешний вид в виде прицела.
+		</td>
+		<td style="cursor: cell;"></td>
+	</tr>
+</table>
+    <div class="lesson-nav">
+      <a href="../counter-reset/index.html" class="lesson-nav-btn lesson-nav-prev" title="counter-reset">← counter-reset</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../direction/index.html" class="lesson-nav-btn lesson-nav-next" title="direction">direction →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

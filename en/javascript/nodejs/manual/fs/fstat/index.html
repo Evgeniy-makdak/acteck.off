@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод fstat — acteck.off</title>
+  <meta name="description" content="Метод fstat — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Метод fstat</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>fstat</code> возвращает статистику
+	о файловом дескрипторе в виде объекта.
+	В первом параметре метода указывается нужный
+	нам файловый дескриптор, во втором и третьем
+	необязательных параметрах -
+	объект с опциями и коллбэк.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.fstat(файловый дескриптор, [опции], [коллбэк]);</code>
+</div>
+
+<h2>Объект с опциями</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Опция</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/s" data-x>bigint</code></th>
+		<td>
+			Если <code data-gs="comd/c" data-x>true</code>, задает отображение числовых
+			значений в формате <code data-gs="comd/s" data-x>bigint</code>. Значение по умолчанию
+			<code data-gs="comd/c" data-x>false</code>.
+		</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте асинхронно
+	узнаем статистическую информацию
+	о файловом дескрипторе
+	через коллбэк:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+let fileDescriptor = fs.openSync('file.txt');
+
+fs.fstat(fileDescriptor, function(err, data) {
+	if (!err) {
+		console.log(data);
+	} else {
+		console.log(err);
+	}
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте синхронно прочитаем
+	статистическую информацию о
+	файловом дескрипторе через
+	<code data-gs="comd/c" data-x>fstatSync</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
+
+let fileDescriptor = fs.openSync('file.txt');
+
+try {
+	let data = fs.fstatSync(fileDescriptor);
+	console.log(data);
+} catch (err) {
+	console.log(err);
+}</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../stat/index.html"><code data-gs="comd/c" data-x>stat</code></a>, <br>
+			который возвращает статистику о файле или папки
+		</li>
+		<li>
+			метод <a href="../lstat/index.html"><code data-gs="comd/c" data-x>lstat</code></a>, <br>
+			который возвращает статистическую информацию о файлах, папки, символической ссылке
+		</li>
+	</ul>
+</div>
+        <div class="lesson-nav">
+      <a href="../fchown/index.html" class="lesson-nav-btn lesson-nav-prev" title="fchown">← fchown</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../ftruncate/index.html" class="lesson-nav-btn lesson-nav-next" title="ftruncate">ftruncate →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

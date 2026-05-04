@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Методы width и height в jQuery — acteck.off</title>
+  <meta name="description" content="Методы width и height в jQuery — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Методы width и height в jQuery</h1>
+    <p>
+	Методы <code data-gs="comd/c" data-x>width</code> и <code data-gs="comd/c" data-x>height</code> получают,
+	соответсвенно, ширину и высоту контента элемента без
+	учета <a href="../../../../../../../markup/manual/css/property/padding/index.html"><code data-gs="comd/c" data-x>padding</code></a>,
+	<a href="../../../../../../../markup/manual/css/property/border/index.html"><code data-gs="comd/c" data-x>border</code></a> и
+	<a href="../../../../../../../markup/manual/css/property/margin/index.html"><code data-gs="comd/c" data-x>margin</code></a>.
+</p>
+<p>
+	Давайте получим значения ширины и высоты абзаца
+	<code data-gs="comd/z" data-x>#test</code> и выведем их в другой абзац. Возьмем, для примера
+	следующий HTML код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text&lt;/p&gt;
+&lt;p id="out"&gt;&lt;/p&gt;</code>
+</div>
+<p>
+	CSS стиль абзаца выглядит так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	margin: 10px;
+	padding: 5px;
+}</code>
+</div>
+<p>
+	Теперь прописываем Javascript код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let w = $('#test').width();
+let h = $('#test').height();
+$('#out').text('Width: ' + w + ' Height: ' + h);</code>
+</div>
+<p>
+	Также просто с помощью этих методов мы можем
+	изменить значения ширины и высоты элементов.
+	Например, давайте поставим ширину дива <code data-gs="comd/z" data-x>#test1</code>
+	равной <code data-gs="comd/u" data-x>250px</code>, а высоту <code data-gs="comd/z" data-x>#test2</code>
+	- <code data-gs="comd/u" data-x>200px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test1').width(250);
+$('#test2').height(200);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		У нас есть такая верстка:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="wrapper"&gt;
+&lt;div id="test"&gt;text&lt;/div&gt;
+&lt;/div&gt;
+&lt;p id="one"&gt;&lt;/p&gt;
+&lt;p id="two"&gt;&lt;/p&gt;
+&lt;p id="three"&gt;&lt;/p&gt;
+&lt;p id="four"&gt;&lt;/p&gt;</code>
+	</div>
+		<p>
+			Следующие стили CSS:
+		</p>
+		<div data-p="bock/pane">
+			<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+margin: 10px;
+padding: 5px;
+border: 2px solid green;
+}
+#wrapper {
+border-color: blueviolet;
+}</code>
+		</div>
+	<p>
+		Получите и выведите значения ширины
+		и высоты дива <code data-gs="comd/z" data-x>#wrapper</code> без учета отступов
+		и границ. Значения выведите в первый абзац под
+		этим дивом.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../element-sizes/index.html" class="lesson-nav-btn lesson-nav-prev" title="Размеры элементов">← Размеры элементов</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../innerWidth-innerHeight-methods/index.html" class="lesson-nav-btn lesson-nav-next" title="Методы innerWidth и innerHeight">Методы innerWidth и innerHeight →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

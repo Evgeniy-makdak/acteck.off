@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прием работы с return в JavaScript — acteck.off</title>
+  <meta name="description" content="Прием работы с return в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Прием работы с return в JavaScript</h1>
+    <p>
+	Существуют некоторые приемы работы с <code data-gs="comd/c" data-x>return</code>,
+	упрощающие код. Рассмотрим, к примеру, следующий
+	код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(num) {
+	let res;
+	
+	if (num &gt;= 0) {
+		res = Math.sqrt(num);
+	} else {
+		res = 0;
+	}
+	
+	return res;
+}
+
+console.log(func(3));</code>
+</div>
+<p>
+	Как вы видите, в данном коде в зависимости
+	от условия в переменную <code data-gs="comd/c" data-x>res</code> будет
+	попадать либо одно, либо другое значение.
+	А последней строкой функции содержимое переменной
+	<code data-gs="comd/c" data-x>res</code> возвращается через <code data-gs="comd/c" data-x>return</code>.
+</p>
+<p>
+	Давайте перепишем этот код в более сокращенной
+	форме, избавившись от ненужной здесь переменной
+	<code data-gs="comd/c" data-x>res</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(num) {
+	if (num &gt;= 0) {
+		return Math.sqrt(num);
+	} else {
+		return 0;
+	}
+}
+
+console.log(func(3));</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана следующая функция:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(num1, num2) {
+	let res;
+	
+	if (num1 &gt; 0 && num2 &gt; 0) {
+		res = num1 * num2;
+	} else {
+		res = num1 - num2;
+	}
+	
+	return res;
+}
+
+console.log(func(3, 4));</code>
+	</div>
+	<p>
+		Перепишите ее в сокращенной форме согласно
+		изученной теории.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../return-loop-applying/index.html" class="lesson-nav-btn lesson-nav-prev" title="Применение return в циклах">← Применение return в циклах</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../flags/index.html" class="lesson-nav-btn lesson-nav-next" title="Флаги в функциях">Флаги в функциях →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

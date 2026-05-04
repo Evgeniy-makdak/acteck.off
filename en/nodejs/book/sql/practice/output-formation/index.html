@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оформление вывода записей из базы данных в NodeJs — acteck.off</title>
+  <meta name="description" content="Оформление вывода записей из базы данных в NodeJs — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Оформление вывода записей из базы данных в NodeJs</h1>
+    <p>
+	Для работы с данными важно не только
+	уметь их получать из БД, но и
+	выводить в HTML-разметку.
+	Как правило, это делается
+	с помощью шаблонизатора.
+	Для примера возьмем
+	Handlebars.
+</p>
+<p>
+	Итак, давайте выведем записи нашей
+	тестовой таблицы <code data-gs="comd/s" data-x>users</code>
+	в следующем виде:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	&lt;b&gt;user1&lt;/b&gt;
+	&lt;b&gt;23&lt;/b&gt;
+	&lt;b&gt;400&lt;/b&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;b&gt;user2&lt;/b&gt;
+	&lt;b&gt;24&lt;/b&gt;
+	&lt;b&gt;500&lt;/b&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;b&gt;user3&lt;/b&gt;
+	&lt;b&gt;25&lt;/b&gt;
+	&lt;b&gt;600&lt;/b&gt;
+&lt;/p&gt;</code>
+</div>
+<p>
+	Для начала в файле <code data-gs="comd/p" data-x>app.js</code> пропишем маршрут,
+	который будет рендерить файл шаблонизатора Handlebars.
+	В нем будет представлена информация обо всех юзерами,
+	поэтому назовем его <code data-gs="comd/p" data-x>users.hbs</code>. Далее в маршруте объявим переменную
+	<code data-gs="comd/c" data-x>query</code>, в которой будет храниться SQL запрос
+	для вывода всех юзеров из таблицы.
+	Затем распакуем результат запроса в две переменные:
+	<code data-gs="comd/c" data-x>results</code> и <code data-gs="comd/c" data-x>fields</code>. А в файл представления <code data-gs="comd/p" data-x>users.hbs</code>
+	передадим переменную <code data-gs="comd/c" data-x>results</code>:
+</p>
+<div data-p="bock/pane" data-p-file="app.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', async function(req, res) {
+	let query = "SELECT * FROM users";
+	let [results, fields] = await connection.query(query);
+	
+	res.render('users', {results: results});
+});</code>
+</div>
+<p>
+	В переменной <code data-gs="comd/c" data-x>results</code> хранится массив из
+	объектов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[
+	{id: 1, name: 'user1', age: 23, salary: 400},
+	{id: 2, name: 'user2', age: 24, salary: 500},
+	{id: 3, name: 'user3', age: 25, salary: 600}
+]</code>
+</div>
+<p>
+	Поскольку <code data-gs="comd/c" data-x>results</code> является массивом,
+	все его объекты можно вывести в представление
+	с помощью цикла. Для этого в двойных фигурных скобках
+	прописывается специальная
+	команда <code data-gs="comd/c" data-x>#each</code>. Чтобы получить
+	значения каждого объекта, в теле
+	цикла нужно указать соответствующие
+	ключи:
+</p>
+<div data-p="bock/pane" data-p-file="views/users.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;p&gt;
+	{{#each results}}
+		&lt;br&gt;name: &lt;b&gt;{{ name }}&lt;/b&gt;
+		&lt;br&gt;age: &lt;b&gt;{{ age }}&lt;/b&gt;
+		&lt;br&gt;salary: &lt;b&gt;{{ salary }}&lt;/b&gt;
+	{{/each}}
+&lt;/p&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Выведите записи нашей таблицы в следующем виде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;h2&gt;user1&lt;/h2&gt;
+	&lt;p&gt;
+		23 years, &lt;b&gt;400$&lt;/b&gt;
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+	&lt;h2&gt;user2&lt;/h2&gt;
+	&lt;p&gt;
+		24 years, &lt;b&gt;500$&lt;/b&gt;
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+	&lt;h2&gt;user3&lt;/h2&gt;
+	&lt;p&gt;
+		25 years, &lt;b&gt;600$&lt;/b&gt;
+	&lt;/p&gt;
+&lt;/div&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Выведите записи нашей таблицы в следующем виде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
+	&lt;tr&gt;
+		&lt;th&gt;id&lt;/th&gt;
+		&lt;th&gt;name&lt;/th&gt;
+		&lt;th&gt;age&lt;/th&gt;
+		&lt;th&gt;salary&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;user1&lt;/td&gt;
+		&lt;td&gt;23&lt;/td&gt;
+		&lt;td&gt;400&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;user2&lt;/td&gt;
+		&lt;td&gt;25&lt;/td&gt;
+		&lt;td&gt;500&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;user3&lt;/td&gt;
+		&lt;td&gt;23&lt;/td&gt;
+		&lt;td&gt;500&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Выведите записи нашей таблицы в следующем виде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;user1&lt;/li&gt;
+	&lt;li&gt;user2&lt;/li&gt;
+	&lt;li&gt;user3&lt;/li&gt;
+&lt;/ul&gt;</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

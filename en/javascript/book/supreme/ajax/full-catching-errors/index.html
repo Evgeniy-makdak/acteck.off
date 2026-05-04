@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Полный перехват AJAX ошибок в JavaScript — acteck.off</title>
+  <meta name="description" content="Полный перехват AJAX ошибок в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Полный перехват AJAX ошибок в JavaScript</h1>
+    <p>
+	Промис, который возвращает <code data-gs="comd/c" data-x>fetch</code>,
+	завершается с ошибкой, только если произошла
+	ошибка сети. Если же сервер вернул ответ
+	со статусом <code data-gs="comd/n" data-x>404</code> или <code data-gs="comd/n" data-x>500</code>,
+	то промис будет завершен успешно,
+	но при этом статус <code data-gs="comd/s" data-x>ok</code> будет
+	установлен в <code data-gs="comd/c" data-x>false</code>.
+</p>
+<p>
+	Давайте перехватим оба типа ошибок:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	let promise = fetch('/ajax.html')
+	.then(
+		response =&gt; {
+			if (response.ok) {
+				return response.text();
+			} else {
+				console.log('плохой статус ответа');
+				return '';
+			}
+		},
+	).then(
+		text =&gt; {
+			console.log(text);
+		}
+	).catch(
+		error =&gt; {
+			console.log(error);
+		}
+	);
+});</code>
+</div>
+<p>
+	Сделаем так, чтобы ошибка, связанная
+	с плохим статусом HTTP ответа, также
+	ловилась блоком <code data-gs="comd/c" data-x>catch</code>.
+	Для этого прокинем ее дальше
+	через <code data-gs="comd/c" data-x>throw</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	let promise = fetch('/ajax.html')
+	.then(
+		response =&gt; {
+			if (response.ok) {
+				return response.text();
+			} else {
+				throw new Error('плохой статус ответа');
+			}
+		},
+	).then(
+		text =&gt; {
+			console.log(text);
+		}
+	).catch(
+		error =&gt; {
+			console.log(error);
+		}
+	);
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Выведите текст страницы, если запрос
+		был успешным, и ошибку, если
+		что-то пошло не так.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../exceptions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Исключительные ситуации">← Исключительные ситуации</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../response-headers/index.html" class="lesson-nav-btn lesson-nav-next" title="Заголовки HTTP ответа">Заголовки HTTP ответа →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

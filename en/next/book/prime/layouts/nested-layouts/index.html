@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вложенные макеты в NextJS — acteck.off</title>
+  <meta name="description" content="Вложенные макеты в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Вложенные макеты в NextJS</h1>
+    <p>
+	Как вы знаете, в папке <code data-gs="comd/p" data-x>/app</code>
+	в файле <code data-gs="comd/p" data-x>/layout.jsx</code>
+	располагается основной макет сайта.
+</p>
+<p>
+	При желании, однако, во вложенных
+	папках можно создавать свои макеты.
+	В этом случае контент страницы будет
+	сначала вставляться во вложенный
+	макет, а затем получившийся результат
+	будет вставляться в основной макет.
+</p>
+<p>
+	Давайте попробуем на практике.
+	Пусть наш основной макет имеет
+	следующий вид:
+</p>
+<div data-p="bock/pane" data-p-file="app/layout.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function RootLayout({children}) {
+	return (
+		&lt;html lang="en"&gt;
+			&lt;body&gt;
+				&lt;header&gt;
+					header
+				&lt;/header&gt;
+				&lt;main&gt;
+					{children}
+				&lt;/main&gt;
+				&lt;footer&gt;
+					footer
+				&lt;/footer&gt;
+			&lt;/body&gt;
+		&lt;/html&gt;
+	);
+}</code>
+</div>
+<p>
+	Давайте сделаем еще один,
+	вложенный макет для всех
+	конентов из папки <code data-gs="comd/p" data-x>/users</code>:
+</p>
+<div data-p="bock/pane" data-p-file="app/users/layout.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function UsersLayout({children}) {
+	return (
+		&lt;div className="info"&gt;
+			message for all users
+		&lt;/div&gt;
+		&lt;div className="content"&gt;
+			{children}
+		&lt;/div&gt;
+	);
+}</code>
+</div>
+<p>
+	Как вы видите, в этом макете мы не указываем
+	<a href="../../../../../markup/book/prime/html/page-structure/index.html">основные теги страницы</a>,
+	так как они уже есть в нашем основном макете сайта.
+</p>
+<p>
+	Давайте сделаем также
+	файл с контентом для показа юзера:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/users/show/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function User() {
+	return &lt;&gt;
+		&lt;h1&gt;User&lt;/h1&gt;
+		&lt;p&gt;
+			user description
+		&lt;/p&gt;
+	&lt;/&gt;;
+}</code>
+</div>
+<p>
+	После этих манипуляций наша файловая
+	структура станет выглядеть так:
+</p>
+<div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/app/<ul><li data-s-type="F">layout.jsx</li><li data-s-type="D">/users/<ul><li data-s-type="F">layout.jsx</li><li data-s-type="D">/show/<ul><li data-s-type="F">page.jsx</li></ul></li></ul></li></ul></li></ul></div></div>
+<p>
+	Теперь, если обратиться по соответствующему URL,
+	NextJS соберет все вместе и в браузере
+	мы получим следующий итоговый код HTML код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;html lang="en"&gt;
+	&lt;body&gt;
+		&lt;header&gt;
+			header
+		&lt;/header&gt;
+		&lt;main&gt;
+			&lt;div class="info"&gt;
+				message for all users
+			&lt;/div&gt;
+			
+			&lt;h1&gt;User&lt;/h1&gt;
+			&lt;p&gt;
+				user description
+			&lt;/p&gt;
+		&lt;/main&gt;
+		&lt;footer&gt;
+			footer
+		&lt;/footer&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте на сайте раздел с юзерами
+		и раздел с постами. Сделайте в каждом разделе
+		свой макет, который будет наследовать
+		от основного макета сайта.
+	</p>
+</div>
+        <div class="lesson-nav">
+      <a href="../default-slot-file/index.html" class="lesson-nav-btn lesson-nav-prev" title="Дефолтный файл слота">← Дефолтный файл слота</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../navigation/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

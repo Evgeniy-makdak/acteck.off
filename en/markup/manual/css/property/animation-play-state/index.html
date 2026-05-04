@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство animation-play-state — acteck.off</title>
+  <meta name="description" content="Свойство animation-play-state — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство animation-play-state</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>animation-play-state</code> позволяет
+	задать состояние анимации: она проигрывается
+	или стоит на паузе.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	animation-play-state: paused | running;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>paused</code></th>
+		<td>Анимация стоит на паузе.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>running</code></th>
+		<td>Анимация проигрывается.</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>running</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В данном примере анимация будет запускаться
+	по наведению мышкой на элемент, а прекращаться,
+	когда мышь будет убираться с элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
+	from {
+		width: 200px;
+	}
+	to {
+		width: 400px;
+	}
+}
+
+#elem {
+	animation-play-state: paused;
+	animation-duration: 1s;
+	animation-name: move;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	border: 1px solid black;
+	height: 50px;
+}
+#elem:hover {
+	animation-play-state: running;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			@keyframes move {
+			from {
+				width: 200px;
+			}
+			to {
+				width: 400px;
+			}
+		}
+		
+		#elem {
+			animation-play-state: paused;
+			animation-duration: 1s;
+			animation-name: move;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			border: 1px solid black;
+			height: 50px;
+		}
+		#elem:hover {
+			animation-play-state: running;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Наведение на другой элемент</h2>
+<p>
+	А сейчас анимация будет запускаться наведением
+	мыши на другой элемент, а при убирании
+	с него мыши - прекращаться:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="target"&gt;&lt;/div&gt;
+&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
+	from {
+		margin-left: 0;
+	}
+	to {
+		margin-left: 400px;
+	}
+}
+
+#target {
+	border: 1px solid red;
+	margin-bottom: 10px;
+	width: 50px;
+	height: 50px;
+}
+
+#elem {
+	animation-play-state: paused;
+	animation-duration: 3s;
+	animation-name: move;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+}
+
+#target:hover + #elem {
+	animation-play-state: running;
+	border: 1px solid green;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			@keyframes move {
+			from {
+				margin-left: 0;
+			}
+			to {
+				margin-left: 400px;
+			}
+		}
+		
+		#target {
+			border: 1px solid red;
+			margin-bottom: 10px;
+			width: 50px;
+			height: 50px;
+		}
+		
+		#elem {
+			animation-play-state: paused;
+			animation-duration: 3s;
+			animation-name: move;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			border: 1px solid black;
+			width: 50px;
+			height: 50px;
+		}
+		
+		#target:hover + #elem {
+			animation-play-state: running;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;target&quot;></div>
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../animation-name/index.html"><code data-gs="comd/c" data-x>animation-name</code></a>, <br>
+			которое задает имя анимации
+		</li>
+		<li>
+			свойство <a href="../animation-duration/index.html"><code data-gs="comd/c" data-x>animation-duration</code></a>, <br>
+			которое задает продолжительность анимации
+		</li>
+		<li>
+			свойство <a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>, <br>
+			которое задает задержку перед выполнением анимации
+		</li>
+		<li>
+			свойство <a href="../animation-timing-function/index.html"><code data-gs="comd/c" data-x>animation-timing-function</code></a>, <br>
+			которое задает скорость выполнения анимации
+		</li>
+		<li>
+			свойство <a href="../animation-iteration-count/index.html"><code data-gs="comd/c" data-x>animation-iteration-count</code></a>, <br>
+			которое задает количество итераций анимации
+		</li>
+		<li>
+			свойство <a href="../animation-direction/index.html"><code data-gs="comd/c" data-x>animation-direction</code></a>, <br>
+			которое задает направление анимации
+		</li>
+		<li>
+			свойство <a href="../animation-fill-mode/index.html"><code data-gs="comd/c" data-x>animation-fill-mode</code></a>, <br>
+			которое задает состояние анимации
+		</li>
+		<li>
+			свойство <a href="../animation/index.html"><code data-gs="comd/c" data-x>animation</code></a>, <br>
+			представляющее собой сокращение для анимаций
+		</li>
+		<li>
+			команду <a href="../../command/keyframes/index.html"><code data-gs="comd/c" data-x>@keyframes</code></a>, <br>
+			задающую ключевые кадры анимации
+		</li>
+		<li>
+			плавные переходы <a href="../transition/index.html"><code data-gs="comd/c" data-x>transition</code></a>,
+			представляющие собой анимацию по наведению на элемент
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../animation-name/index.html" class="lesson-nav-btn lesson-nav-prev" title="animation-name">← animation-name</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../animation-timing-function/index.html" class="lesson-nav-btn lesson-nav-next" title="animation-timing-function">animation-timing-function →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

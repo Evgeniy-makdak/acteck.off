@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство border-style — acteck.off</title>
+  <meta name="description" content="Свойство border-style — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство border-style</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>border-style</code> задает стиль
+	границы для всех сторон одновременно или
+	отдельно для каждой стороны. Является свойством-сокращением
+	для следующих свойств: <a href="../border-left-style/index.html"><code data-gs="comd/c" data-x>border-left-style</code></a>,
+	<a href="../border-right-style/index.html"><code data-gs="comd/c" data-x>border-right-style</code></a>,
+	<a href="../border-top-style/index.html"><code data-gs="comd/c" data-x>border-top-style</code></a>,
+	<a href="../border-bottom-style/index.html"><code data-gs="comd/c" data-x>border-bottom-style</code></a>.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	border-style: значение;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>solid</code></th>
+		<td>Сплошная линия.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>dotted</code></th>
+		<td>Граница в виде точек.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>dashed</code></th>
+		<td>Граница в виде тире.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>ridge</code></th>
+		<td>Граница в виде выпуклой линии.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>double</code></th>
+		<td>
+			Граница в виде двойной линии.
+			Чтобы увидеть эффект толщина границы должна быть минимум <code data-gs="comd/u" data-x>3px</code>.
+		</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>groove</code></th>
+		<td>Вогнутая граница.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>inset</code></th>
+		<td>Вдавленная граница.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>outset</code></th>
+		<td>Выпуклая граница.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>none</code></th>
+		<td>Отсутствие границы.</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>none</code>.
+</p>
+
+<h2>Количество значений</h2>
+<p>
+	Свойство может принимать <code data-gs="comd/n" data-x>1</code>, <code data-gs="comd/n" data-x>2</code>,
+	<code data-gs="comd/n" data-x>3</code> или <code data-gs="comd/n" data-x>4</code> значений, указываемых
+	через пробел:
+</p>
+<table data-w="cont/desc">
+	<tr>
+		<th>Количество</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/n" data-x>1</code></th>
+		<td>Тип для всех сторон одновременно.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/n" data-x>2</code></th>
+		<td>Первое значение для верха и низа, второе - для левой и правой границ.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/n" data-x>3</code></th>
+		<td>Первое значение для верха, второе - для левой и правой границ, третье - для нижней.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/n" data-x>4</code></th>
+		<td>
+			Первое значение для верхней границы, второе - для правой,
+			третье - для нижней, четвертое - для левой границы.
+		</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span>. Значение solid</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-width: 1px;
+			border-style: solid;
+			border-color: black;
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение dotted</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-width: 1px;
+	border-style: dotted;
+	border-color: black;
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-width: 1px;
+			border-style: dotted;
+			border-color: black;
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение dashed</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-width: 1px;
+	border-style: dashed;
+	border-color: black;
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-width: 1px;
+			border-style: dashed;
+			border-color: black;
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение ridge</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-width: 3px;
+	border-style: ridge;
+	border-color: black;
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-width: 3px;
+			border-style: ridge;
+			border-color: black;
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение double</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-width: 3px;
+	border-style: double;
+	border-color: black;
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-width: 3px;
+			border-style: double;
+			border-color: black;
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение groove</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-width: 3px;
+	border-style: groove;
+	border-color: black;
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-width: 3px;
+			border-style: groove;
+			border-color: black;
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение inset</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-width: 3px;
+	border-style: inset;
+	border-color: black;
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-width: 3px;
+			border-style: inset;
+			border-color: black;
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение outset</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-width: 3px;
+	border-style: outset;
+	border-color: black;
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-width: 3px;
+			border-style: outset;
+			border-color: black;
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	В данном примере заданы различные типы границы
+	для разных сторон элементов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-width: 1px;
+	border-style: solid dotted dashed dotted;
+	border-color: black;
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-width: 1px;
+			border-style: solid dotted dashed dotted;
+			border-color: black;
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А сейчас для разных сторон элемента также
+	задана различная толщина границы и ее цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-width: 1px 2px 3px 4px;
+	border-style: dashed dotted solid double;
+	border-color: red blue green black;
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-width: 1px 2px 3px 4px;
+			border-style: dashed dotted solid double;
+			border-color: red blue green black;
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Сейчас для верхней и нижней границы задан
+	тип <code data-gs="comd/v" data-x>solid</code>, а для правой и левой -
+	<code data-gs="comd/v" data-x>dotted</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	border-width: 1px;
+	border-style: solid dotted;
+	border-color: black;
+	width: 300px;
+	height: 100px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			border-width: 1px;
+			border-style: solid dotted;
+			border-color: black;
+			width: 300px;
+			height: 100px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../border-color/index.html"><code data-gs="comd/c" data-x>border-color</code></a>, <br>
+			которое задает цвет границы
+		</li>
+		<li>
+			свойство <a href="../border-width/index.html"><code data-gs="comd/c" data-x>border-width</code></a>, <br>
+			которое задает толщину границы
+		</li>
+		<li>
+			свойство <a href="../border/index.html"><code data-gs="comd/c" data-x>border</code></a>, <br>
+			которое является свойством-сокращением для границы
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../border-spacing/index.html" class="lesson-nav-btn lesson-nav-prev" title="border-spacing">← border-spacing</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../border-top/index.html" class="lesson-nav-btn lesson-nav-next" title="border-top">border-top →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

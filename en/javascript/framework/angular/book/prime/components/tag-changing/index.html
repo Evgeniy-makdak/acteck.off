@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Смена тега дочернего компонента в Angular — acteck.off</title>
+  <meta name="description" content="Смена тега дочернего компонента в Angular — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">javascript</a>
+    </div>
+
+    <h1>Смена тега дочернего компонента в Angular</h1>
+    <p>
+	При желании можно сменить имя тега для
+	вызова дочернего компонента внутри темплейта
+	родителя. Это имя задано в свойстве
+	<code data-gs="comd/s" data-x>selector</code> декоратора <code data-gs="comd/c" data-x>@Component</code>
+	потомка. В нашем случае это тег <code data-gs="comd/c" data-x>app-user</code>: 
+</p>
+<div data-p="bock/pane" data-p-file="app/user/user.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">@Component({
+	selector: 'app-user', // вот оно
+	templateUrl: './user.component.html',
+	styleUrls: ['./user.component.css']
+})</code>
+</div>
+<p>
+	Давайте поменяем его на другое: 
+</p>
+<div data-p="bock/pane" data-p-file="app/user/user.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">@Component({
+	selector: 'user-data', // меняем
+	templateUrl: './user.component.html',
+	styleUrls: ['./user.component.css']
+})</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Смените тег для вызова вашего дочернего
+		компонента. 
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../events-double-binding/index.html" class="lesson-nav-btn lesson-nav-prev" title="Двусторонняя привязка событий">← Двусторонняя привязка событий</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../life-cycle/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

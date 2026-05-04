@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство mask-image — acteck.off</title>
+  <meta name="description" content="Свойство mask-image — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство mask-image</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>mask-image</code> позволяет задать изображение, которое будет использоваться в качестве маски для элемента. Маска определяет, какие части элемента будут видны, а какие - скрыты. В качестве маски можно использовать SVG, PNG изображения или градиенты.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	mask-image: none | &lt;image&gt; | &lt;url&gt;;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>none</code></th>
+		<td>Отключает маскирование (значение по умолчанию).</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>url()</code></th>
+		<td>Путь к изображению-маске (SVG, PNG).</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>linear-gradient()</code></th>
+		<td>Линейный градиент в качестве маски.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>radial-gradient()</code></th>
+		<td>Радиальный градиент в качестве маски.</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span>. Использование SVG в качестве маски</h2>
+<p>
+	Наложим SVG-изображение сердечка в качестве маски на картинку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask-image: url("heart.svg");
+	mask-position: center;
+	mask-size: 300px;
+	mask-repeat: no-repeat;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask-image: url(&quot;/cont/markup/manual/css/property/mask-image/@/image/heart.svg?v=1&quot;);
+			mask-position: center;
+			mask-size: 300px;
+			mask-repeat: no-repeat;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-image/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Использование градиента в качестве маски</h2>
+<p>
+	Применим линейный градиент в качестве маски для элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 500px;
+	height: 300px;
+	background: linear-gradient(45deg, red, blue);
+	mask-image: linear-gradient(to right, transparent, black);
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 500px;
+			height: 300px;
+			background: linear-gradient(45deg, red, blue);
+			mask-image: linear-gradient(to right, transparent, black);
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Использование SVG-элемента в качестве маски</h2>
+<p>
+	Создадим маску с помощью SVG-элемента и применим её к изображению:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;
+&lt;svg width="0" height="0"&gt;
+	&lt;mask id="mask"&gt;
+		&lt;path d="M150 15L183 111L285 111L204 171L237 267L150 216L63 267L96 171L15 111L117 111Z" fill="white"/&gt;
+	&lt;/mask&gt;
+&lt;/svg&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask-image: url(#mask);
+	mask-position: center;
+	mask-size: contain;
+	mask-repeat: no-repeat;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask-image: url(#mask);
+			mask-position: center;
+			mask-size: contain;
+			mask-repeat: no-repeat;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-image/@/image/image.jpg?v=1&quot;>
+		<svg width=&quot;0&quot; height=&quot;0&quot;>
+			<mask id=&quot;mask&quot;>
+				<path d=&quot;M150 15L183 111L285 111L204 171L237 267L150 216L63 267L96 171L15 111L117 111Z&quot; fill=&quot;white&quot;/>
+			</mask>
+		</svg>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../mask-position/index.html"><code data-gs="comd/c" data-x>mask-position</code></a>, <br>
+			определяет положение маски относительно элемента
+		</li>
+		<li>
+			свойство <a href="../mask-size/index.html"><code data-gs="comd/c" data-x>mask-size</code></a>, <br>
+			определяет размер маски
+		</li>
+		<li>
+			свойство <a href="../mask-repeat/index.html"><code data-gs="comd/c" data-x>mask-repeat</code></a>, <br>
+			определяет повторение маски
+		</li>
+		<li>
+			свойство <a href="../mask-mode/index.html"><code data-gs="comd/c" data-x>mask-mode</code></a>, <br>
+			определяет как маска взаимодействует с фоном
+		</li>
+		<li>
+			свойство <a href="../mask/index.html"><code data-gs="comd/c" data-x>mask</code></a>, <br>
+			сокращение для всех свойств маскирования
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../mask-composite/index.html" class="lesson-nav-btn lesson-nav-prev" title="mask-composite">← mask-composite</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../mask-mode/index.html" class="lesson-nav-btn lesson-nav-next" title="mask-mode">mask-mode →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

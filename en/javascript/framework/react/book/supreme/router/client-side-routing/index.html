@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Маршрутизация на стороне клиента в React Router — acteck.off</title>
+  <meta name="description" content="Маршрутизация на стороне клиента в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Маршрутизация на стороне клиента в React Router</h1>
+    <p>
+	На этом уроке мы рассмотрим важную
+	составляющую одностраничных (SPA)
+	приложений - маршрутизацию на стороне
+	клиента. Такая маршрутизация позволяет
+	нам обновлять URL в браузере без
+	дополнительных запросов документа
+	с сервера.
+</p>
+<p>
+	Запустите приложение, которое мы создавали на
+	прошлом уроке. Откройте панель разработчика и
+	в ней вкладку <code data-gs="comd/s" data-x>'Сеть'</code> (Network для Chrome).
+	После каждого клика по нашим ссылкам мы
+	видим каждый раз запрос для document. To есть
+	мы каждый раз просим сервер подгрузить нам
+	document.
+</p>
+<p>
+	Давайте же теперь воспользуемся преимуществами
+	React Router, чтобы избавиться от подобных
+	запросов. Для этого откроем <code data-gs="comd/p" data-x>root.jsx</code>
+	нашего приложения и заменим тег <code data-gs="comd/c" data-x>a</code>
+	разметки на компонент <code data-gs="comd/c" data-x>Link</code>. Для
+	начала добавим его импорт:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { Outlet, Link } from 'react-router-dom';</code>
+</div>
+<p>
+	Теперь заменим теги <code data-gs="comd/c" data-x>a</code> с атрибутом
+	<code data-gs="comd/c" data-x>href</code>. Вместо кусочка кода:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;a href={`/products/1`}&gt;Product1&lt;/a&gt;
+&lt;a href={`/products/2`}&gt;Product2&lt;/a&gt;</code>
+</div>
+<p>
+	У нас теперь будет следующий код:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;Link to={`/products/1`}&gt;Product1&lt;/Link&gt;
+&lt;Link to={`/products/2`}&gt;Product2&lt;/Link&gt;</code>
+</div>
+<p>
+	Снова открываем вкладку <code data-gs="comd/s" data-x>'Сеть'</code> на
+	панели разработчика, в адресной строке
+	устанавливаем корневой путь и обновляем
+	страничку. Теперь кликаем по ссылкам
+	и видим, что document у нас запрашивался
+	только один раз при изначальной загрузке
+	и при последующих кликах запроса на
+	сервер уже нет.
+</p>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлым урокам. Пользуясь
+		материалами урока, реализуйте в нем
+		маршрутизацию на стороне клиента,
+		переделав ваши ссылки, как описано
+		в уроке.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../nested-routes/index.html" class="lesson-nav-btn lesson-nav-prev" title="Вложенные маршруты">← Вложенные маршруты</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../get-storage-data/index.html" class="lesson-nav-btn lesson-nav-next" title="Получение данных из хранилища">Получение данных из хранилища →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

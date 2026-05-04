@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Основы работы с fetch в AJAX — acteck.off</title>
+  <meta name="description" content="Основы работы с fetch в AJAX — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Основы работы с fetch в AJAX</h1>
+    <p>
+	Давайте теперь посмотрим, как подгрузить
+	часть страницы с помощью AJAX. Пусть на нашей
+	странице <code data-gs="comd/p" data-x>index.html</code> будет расположен
+	див и кнопка (здесь показано содержимое <code data-gs="comd/c" data-x>body</code>):
+</p>
+<div data-p="bock/pane" data-p-file="public/index.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;&lt;/div&gt;
+&lt;button&gt;click me&lt;/button&gt;</code>
+</div>
+<p>
+	Пусть у нас также есть страница <code data-gs="comd/p" data-x>ajax.html</code>,
+	на которой расположены три абзаца (без тегов
+	страницы, просто абзацы):
+</p>
+<div data-p="bock/pane" data-p-file="public/ajax.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;1&lt;/p&gt;
+&lt;p&gt;2&lt;/p&gt;
+&lt;p&gt;3&lt;/p&gt;</code>
+</div>
+<p>
+	Давайте сделаем так, чтобы по клику на кнопку
+	на странице <code data-gs="comd/p" data-x>index.html</code> в див подгрузилось
+	содержимое страницы <code data-gs="comd/p" data-x>ajax.html</code>.
+</p>
+<p>
+	Для этого для начала получим в переменные
+	ссылки на наши элементы:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div    = document.querySelector('div');
+let button = document.querySelector('button');</code>
+</div>
+<p>
+	Давайте навесим на кнопку обработчик клика:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	// тут будем выполнять AJAX запрос
+});</code>
+</div>
+<p>
+	Давайте теперь выполним AJAX запрос. Для
+	этого используется функция <code data-gs="comd/c" data-x>fetch</code>,
+	параметром получающая адрес страницы, содержимое
+	которой мы хотим получить. Укажем адрес страницы
+	<code data-gs="comd/p" data-x>ajax.html</code> на нашем сервере:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	let result = fetch('/ajax.html'); 
+});</code>
+</div>
+<p>
+	Своим результатом <code data-gs="comd/c" data-x>fetch</code> вернет <a
+	href="../../promises/intro/index.html">промис</a>.
+	Дело в том, что запрос страницы через AJAX
+	- это асинхронная операция, ведь пройдет
+	некоторое время, через которое страница нам
+	ответит.
+</p>
+<p>
+	Давайте получим результат промиса:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	let promise = fetch('/ajax.html'); 
+	
+	promise.then(function(response) {
+		// ответ сервера лежит в переменной response
+	});
+});</code>
+</div>
+<p>
+	Упростим, избавившись от лишней переменной:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	fetch('/ajax.html').then(function(response) {
+		
+	});
+});</code>
+</div>
+<p>
+	Упростим, воспользовавшись стрелочной функцией:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	fetch('/ajax.html').then(response =&gt; {
+		
+	});
+});</code>
+</div>
+<p>
+	Представим в более читаемом виде:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	fetch('/ajax.html').then(
+		response =&gt; {
+			
+		}
+	);
+});</code>
+</div>
+<p>
+	В переменной <code data-gs="comd/c" data-x>response</code> содержится достаточно
+	сложный объект класса <code data-gs="comd/c" data-x>Response</code>:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	fetch('/ajax.html').then(response =&gt; {
+		console.log(response); // объект класса Response
+	});
+});</code>
+</div>
+<p>
+	Глубоко этот объект мы будем изучать в следующих
+	уроках, а пока нам нужно самое простое -
+	получить текст запрошенной страницы. Для
+	этого в этом объекте существует метод <code data-gs="comd/c" data-x>text</code>.
+	Этот метод, однако, возвращает не текст страницы,
+	а промис с ее текстом:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	fetch('/ajax.html').then(
+		response =&gt; {
+			console.log(response.text()); // выведет Promise
+		}
+	);
+});</code>
+</div>
+<p>
+	Чтобы добраться до текста страницы, необходимо
+	промис, полученный из <code data-gs="comd/c" data-x>response.text</code>,
+	обработать еще раз:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	fetch('/ajax.html').then(
+		response =&gt; {
+			return response.text();
+		}
+	).then(
+		text =&gt; {
+			console.log(text); // текст страницы
+		}
+	);
+});</code>
+</div>
+<p>
+	Итак, мы наконец получили текст запрошенной
+	страницы и можем, например, записать его
+	в наш див:
+</p>
+<div data-p="bock/pane" data-p-file="public/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
+	fetch('/ajax.html').then(
+		response =&gt; {
+			return response.text();
+		}
+	).then(
+		text =&gt; {
+			div.innerHTML = text;
+		}
+	);
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны три кнопки и див. На сервере даны три
+		страницы. Сделайте так, чтобы каждая из кнопок
+		подгружала в див соответствующую страницу.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть на сервере есть пять страниц. Пусть
+		первое нажатие на кнопку подгружает первую
+		страницу, второе нажатие - вторую, и так
+		далее, пока страницы не закончатся.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction в AJAX">← Introduction в AJAX</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../response-code/index.html" class="lesson-nav-btn lesson-nav-next" title="Код HTTP ответа">Код HTTP ответа →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

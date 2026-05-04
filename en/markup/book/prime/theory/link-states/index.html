@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Состояния ссылок в CSS — acteck.off</title>
+  <meta name="description" content="Состояния ссылок в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Состояния ссылок в CSS</h1>
+    <p>
+	Я думаю, что вы, посещая различные сайты
+	в интернете, обращали внимание на то, что
+	ссылки обычно реагируют на наведение мышкой
+	на них. Такого эффекта можно добиться, задавая
+	поведение ссылок в различных состояниях.
+</p>
+<p>
+	К примеру, вот так - <code data-gs="comd/z" data-x>a:hover</code> - мы
+	поймаем состояние, когда на ссылку навели
+	курсор мышки. В этот момент мы можем, к примеру,
+	поменять цвет ссылки или убрать/добавить
+	ей подчеркивание. Конструкция <code data-gs="comd/z" data-x>:hover</code>
+	называется <dfn data-gs="comd/d" data-x>псевдоклассом</dfn>. Псевдоклассы
+	позволяют отлавливать разные состояния элементов.
+</p>
+<p>
+	Кроме <code data-gs="comd/z" data-x>:hover</code> есть еще псевдоклассы
+	<code data-gs="comd/z" data-x>:link</code>, которые отлавливают не посещенную
+	ссылку, и <code data-gs="comd/z" data-x>:visited</code>, которые отлавливают
+	посещенную ссылку. На некоторых сайтах с
+	их помощью показывают пользователям, где
+	они были, а где - нет. Есть еще и псевдокласс
+	<code data-gs="comd/z" data-x>:active</code>, который отлавливает следующее
+	состояние: <i>на элемент нажали мышкой, но
+	еще не отпустили</i>.
+</p>
+<p>
+	В следующем примере для ссылки в состоянии
+	<code data-gs="comd/z" data-x>:hover</code> убирается подчеркивание, в
+	состоянии <code data-gs="comd/z" data-x>:link</code> задается красный цвет,
+	в состоянии <code data-gs="comd/z" data-x>:visited</code> - зеленый, в
+	<code data-gs="comd/z" data-x>:active</code> - голубой. В результате получится,
+	что в начале ссылка будет красного цвета,
+	после нажатия на нее - зеленого, если нажать
+	на нее мышкой и не отпускать - голубого,
+	а если навести мышкой - станет
+	неподчеркнутой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">a:link {
+	color: red;
+}
+a:visited {
+	color: green;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	color: blue;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;a href="#"&gt;link&lt;/a&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			a:link {
+			color: red;
+		}
+		a:visited {
+			color: green;
+		}
+		a:hover {
+			text-decoration: none;
+		}
+		a:active {
+			color: blue;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<a href=&quot;#&quot;>link</a>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+    <div class="lesson-nav">
+      <a href="../attribute-selector/index.html" class="lesson-nav-btn lesson-nav-prev" title="Селекторы атрибутов">← Селекторы атрибутов</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../nuances-link-states-sequence/index.html" class="lesson-nav-btn lesson-nav-next" title="Нюансы последовательности состояния ссылок">Нюансы последовательности состояния ссылок →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

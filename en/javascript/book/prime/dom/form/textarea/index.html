@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Работа с текстареа в JavaScript — acteck.off</title>
+  <meta name="description" content="Работа с текстареа в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Работа с текстареа в JavaScript</h1>
+    <p>
+	В данном разделе учебника мы изучим
+	работу с более сложными возможностями форм.
+	Начнем изучение с тега <a href="../../../../../../markup/manual/html/tag/textarea/index.html"><code data-gs="comd/c" data-x>textarea</code></a>,
+	представляющего собой многострочное поле ввода.
+</p>
+<p>
+	При работе с данным тегом есть некоторый
+	нюанс. Суть в следующем: текст, который будет
+	стоять в теге по умолчанию, располагается
+	между открывающем и закрывающем тегом <code data-gs="comd/c" data-x>textarea</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;textarea id="elem"&gt;text&lt;/textarea&gt;</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+		<textarea id=&quot;elem&quot;>text</textarea>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Однако, не смотря на это, прочитывать и записывать
+	текст тега следует не через свойство <code data-gs="comd/c" data-x>innerHTML</code>,
+	а через <code data-gs="comd/c" data-x>value</code>. Для примера выведем
+	текст приведенного выше <code data-gs="comd/c" data-x>textarea</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+console.log(elem.value); // выведет 'text'</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан текстареа и абзац. По потери фокуса в
+		текстареа запишите его текст в абзац.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../../nodes/text/index.html" class="lesson-nav-btn lesson-nav-prev" title="Текст узлов">← Текст узлов</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../disabled/index.html" class="lesson-nav-btn lesson-nav-next" title="Блокировка элементов">Блокировка элементов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

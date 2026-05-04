@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Польза применения createAsyncThunk в Redux — acteck.off</title>
+  <meta name="description" content="Польза применения createAsyncThunk в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Польза применения createAsyncThunk в Redux</h1>
+    <p>
+	На прошлом занятии мы применили функцию
+	<code data-gs="comd/c" data-x>createAsyncThunk</code> из RTK для того,
+	чтобы написать наш первый thunk. В этом
+	уроке я бы хотел немного остановиться
+	на пользе этой функции при отправке
+	запросов.
+</p>
+<p>
+	Вообще, логика для получения данных методом
+	<code data-gs="comd/c" data-x>fetch</code> в Redux выглядит довольно шаблонно.
+	И, соответственно, для отправки статуса запроса
+	в thunk нам понадобиться создать как минимум три
+	action (с <code data-gs="comd/c" data-x>type</code> и <code data-gs="comd/c" data-x>payload</code>). Первый
+	должен отправляться при отправке запроса,
+	второй - при успешном выполнении запроса и
+	третий - при неудачном. Затем их можно отправлять
+	с помощью <code data-gs="comd/c" data-x>dispatch</code> в коде thunk, к примеру в
+	блоках <code data-gs="comd/c" data-x>try-catch</code>. В результате такой код
+	может выглядеть довольно громоздко и неудобно
+	(достаточно глянуть документацию). Каждый из action
+	при этом может иметь свой action creator. К
+	тому же нельзя перепутать последовательность
+	их отправки и сами экшены в частности. Конечно,
+	это не то чтобы все обязательно, но является широко
+	распространенной практикой при отправке запросов.
+</p>
+<p>
+	К счастью нам больше не надо делать все это
+	вручную - теперь это сделает функция
+	<code data-gs="comd/c" data-x>createAsyncThunk</code> и сгенерирует thunk,
+	который отправит все эти actions
+	автоматически. Нам лишь нужно передать
+	в <code data-gs="comd/c" data-x>createAsyncThunk</code> колбэк, который сделает
+	асинхронный вызов и вернет промис с
+	результатом. Что мы и сделали на
+	прошлом уроке.
+</p>
+    <div class="lesson-nav">
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction в thunks">← Introduction в thunks</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../component-dispatch-thunk/index.html" class="lesson-nav-btn lesson-nav-next" title="Отправка thunk из компонента">Отправка thunk из компонента →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

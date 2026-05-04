@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тег wbr — acteck.off</title>
+  <meta name="description" content="Тег wbr — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Тег wbr</h1>
+    <p>
+	Тег <code data-gs="comd/c" data-x>wbr</code> указывает место, где браузер
+	может сделать перенос строки в случае необходимости
+	(если текст не помещается в ширину элемента).
+	Такие переносы называются мягкими.
+</p>
+<p>
+	Не требует закрывающего тега.
+</p>
+<p>
+	При переносе слова через тег <code data-gs="comd/c" data-x>wbr</code> символ
+	переноса "-" не добавляется. Если
+	он вам нужен - используйте символ мягкого
+	переноса <code data-gs="comd/c" data-x>&amp;shy;</code> (точка с запятой
+	в конце обязательна, это не опечатка).
+</p>
+<p>
+	Мягкий перенос <code data-gs="comd/c" data-x>&amp;shy;</code> указывает
+	браузеру место, где он может сделать перенос
+	слова (в случае необходимости), поставив
+	при этом символ переноса "-".
+</p>
+<p>
+	Мягкие переносы <code data-gs="comd/c" data-x>&amp;shy;</code> не будут
+	работать, если свойство <a href="../../../css/property/hyphens/index.html"><code data-gs="comd/c" data-x>hyphens</code></a>
+	задано в значении <code data-gs="comd/v" data-x>none</code> (а переносы
+	<code data-gs="comd/c" data-x>wbr</code> будут).
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Текст без переносов</h2>
+<p>
+	Давайте посмотрим на образец текста, в котором
+	есть длинные слова, которые вылезают
+	за границу блока. Блоку зададим маленькую
+	ширину так, чтобы большое слово в нем не
+	поместилось:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	this is supersupersuperlong text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			this is supersupersuperlong text
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Тег wbr</h2>
+<p>
+	А здесь, давайте добавим тег <code data-gs="comd/c" data-x>wbr</code> в
+	местах, где мы рекомендуем браузеру сделать
+	перенос слова в случае необходимости (обратите
+	внимание на то, что браузер сделает переносы
+	не везде, где мы указали):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	this is super&lt;wbr&gt;super&lt;wbr&gt;super&lt;wbr&gt;long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			this is super<wbr>super<wbr>super<wbr>long text
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Символ &amp;shy;</h2>
+<p>
+	Давайте попробуем вместо тега <code data-gs="comd/c" data-x>wbr</code>
+	поставить символ <code data-gs="comd/c" data-x>&amp;shy;</code>. В местах
+	переноса будут отображаться дефисы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
+	this is super&shy;super&shy;super&shy;long text
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 200px;
+	border: 1px solid black;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem {
+			width: 200px;
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem&quot;>
+			this is super&shy;super&shy;super&shy;long text
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			тег <a href="../br/index.html"><code data-gs="comd/c" data-x>br</code></a>, <br>, <br>
+			который делает перенос на новую строку
+		</li>
+		<li>
+			свойство <a href="../../../css/property/hyphens/index.html"><code data-gs="comd/c" data-x>hyphens</code></a>,  <br>
+			которое задает настоящие переносы слов
+		</li>
+		<li>
+			свойства <a href="../../../css/property/word-break/index.html"><code data-gs="comd/c" data-x>word-break</code></a>
+			и <a href="../../../css/property/overflow-wrap/index.html"><code data-gs="comd/c" data-x>overflow-wrap</code></a>, <br>
+			которые позволяют перенести буквы длинного слова
+		</li>
+		<li>
+			свойство <a href="../../../css/property/overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>, <br>
+			которое обрезает вылезающие за границу блока части
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../video/index.html" class="lesson-nav-btn lesson-nav-prev" title="video">← video</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../xmp/index.html" class="lesson-nav-btn lesson-nav-next" title="xmp">xmp →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

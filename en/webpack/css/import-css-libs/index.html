@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подключение CSS библиотек в Webpack — acteck.off</title>
+  <meta name="description" content="Подключение CSS библиотек в Webpack — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/webpack/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/webpack/index.html">Webpack</a>
+    </div>
+
+    <h1>Подключение CSS библиотек в Webpack</h1>
+    <p>
+	Можно устанавливать через npm CSS библиотеки
+	и подключать их к CSS файлам. Давайте
+	посмотрим на примере библиотеки
+	<a href="https://necolas.github.io/normalize.css/">normalize.css</a>.
+	Установим ее:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install normalize.css</code>
+</div>
+<p>
+	Импортируем библиотеку прямо в CSS
+	файл. При этом в начале пути
+	следует поставить тильду <code data-gs="comd/c" data-x>~</code>.
+	Она скажет Webpack, что файлы
+	необходимо искать в <code data-gs="comd/p" data-x>node_modules</code>.
+	Выполним импорт:
+</p>
+<div data-p="bock/pane" data-p-file="src/styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">@import '~normalize.css'</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Установите и импортируйте библиотеку
+		<a href="https://www.npmjs.com/package/modern-css-reset">modern-css-reset</a>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Соберите проект. Посмотрите, куда попадает
+		установленная библиотека при сборке.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../../css/css-several-bundles/index.html" class="lesson-nav-btn lesson-nav-prev" title="Несколько CSS бандлов">← Несколько CSS бандлов</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../css/less-compilation/index.html" class="lesson-nav-btn lesson-nav-next" title="Работа с LESS">Работа с LESS →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

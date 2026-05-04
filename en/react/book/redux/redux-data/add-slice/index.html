@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавление еще одного слайса в Redux — acteck.off</title>
+  <meta name="description" content="Добавление еще одного слайса в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Добавление еще одного слайса в Redux</h1>
+    <p>
+	На прошлых занятиях мы плотно поработали
+	над слайсом <code data-gs="comd/c" data-x>products</code> для продуктов. В реальном
+	Redux приложении в стейте может быть много слайсов
+	для различных целей. Поэтому на этом уроке
+	мы добавим в state еще один слайс для
+	продавцов, которые фактически
+	и будут добавлять продукты в нашем
+	приложении. 
+</p>
+<p>
+	Откроем наше приложение с продуктами и
+	первое, что мы сделаем, это в папке <code data-gs="comd/p" data-x>parts</code>
+	создадим еще одну папку <code data-gs="comd/p" data-x>sellers</code>, здесь
+	мы будем размещать весь код и компоненты,
+	касающиеся продавцов.
+</p>
+<p>
+	Теперь, как и в случае с продуктами,
+	давайте создадим слайс для продавцов.
+	Для начала в папке <code data-gs="comd/p" data-x>sellers</code> создадим
+	файл <code data-gs="comd/p" data-x>sellersSlice.js</code> и импортируем
+	в него <code data-gs="comd/c" data-x>createSlice</code>:
+</p>
+<div data-p="bock/pane" data-p-file="parts/sellers/sellersSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { createSlice } from '@reduxjs/toolkit'</code>
+</div>
+<p>
+	Продолжаем делать стандартные шаги. В качестве
+	начального значения для слайса создадим четырех
+	продавцов. Для простоты у них будут два поля -
+	<code data-gs="comd/s" data-x>id</code> и <code data-gs="comd/s" data-x>name</code>:
+</p>
+<div data-p="bock/pane" data-p-file="sellers/sellersSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initialState = [
+	{ id: '0', name: 'Super Power' },
+	{ id: '1', name: 'Miracle Life' },
+	{ id: '2', name: 'Dolls&Toys' },
+	{ id: '3', name: 'Granny' },
+]</code>
+</div>
+<p>
+	Ниже с помощью <code data-gs="comd/c" data-x>createSlice</code> создадим слайс
+	<code data-gs="comd/c" data-x>sellers</code>, передадим ему начальное значение.
+	Поскольку мы не будем ни добавлять продавцов,
+	ни обновлять их данные в дальнейшем, то пусть
+	поле с редьюсерами у нас пока останется пустым: 
+</p>
+<div data-p="bock/pane" data-p-file="sellers/sellersSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const sellersSlice = createSlice({
+	name: 'sellers',
+	initialState,
+	reducers: {},
+})</code>
+</div>
+<p>
+	В конце файла не забудем про экспорт
+	полученного редьюсера:
+</p>
+<div data-p="bock/pane" data-p-file="sellers/sellersSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default sellersSlice.reducer</code>
+</div>
+<p>
+	Теперь нам нужно открыть файл <code data-gs="comd/p" data-x>store.js</code>
+	в папке <code data-gs="comd/p" data-x>app</code> и импортировать полученный
+	редьюсер:
+</p>
+<div data-p="bock/pane" data-p-file="app/store.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import sellersReducer from '../parts/sellers/sellersSlice'</code>
+</div>
+<p>
+	И затем назначить его в <code data-gs="comd/c" data-x>configureStore</code>
+	в качестве редьюсера для <code data-gs="comd/c" data-x>sellers</code>:
+</p>
+<div data-p="bock/pane" data-p-file="app/store.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default configureStore({
+	reducer: {
+		products: productsReducer,
+		sellers: sellersReducer,
+	},
+})</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Создайте еще одну папку <code data-gs="comd/p" data-x>teachers</code>, здесь
+		у вас будут файлы с кодом, касающиеся
+		преподавателей. Создайте в ней в файл
+		<code data-gs="comd/p" data-x>teachersSlice.js</code>. Пользуясь материалами
+		урока, создайте в нем слайс <code data-gs="comd/c" data-x>teachers</code>
+		при помощи <code data-gs="comd/c" data-x>createSlice</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть у каждого объекта с данными
+		учителя у вас будет три свойства: <code data-gs="comd/c" data-x>id</code>,
+		<code data-gs="comd/c" data-x>name</code> (которое будет содержать фамилию
+		и инициалы,	к примеру <code data-gs="comd/s" data-x>'Петров А.В.'</code>)
+		и предмет (любой, какой придумаете -
+		физика, математика, биология и т.п.).
+		Сделайте 3 таких объекта с учителями в
+		качестве начального значения для слайса.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Импортируйте полученный редьюсер
+		<code data-gs="comd/c" data-x>teachersReducer</code> в <code data-gs="comd/p" data-x>store.js</code> и
+		назначьте его в качестве редьюсера для
+		<code data-gs="comd/c" data-x>teachers</code>, как показано в уроке.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../prepare-action-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Подготовка данных для объекта action">← Подготовка данных для объекта action</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../add-seller-to-product/index.html" class="lesson-nav-btn lesson-nav-next" title="Добавление информации о продавце">Добавление информации о продавце →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

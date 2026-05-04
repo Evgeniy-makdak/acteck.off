@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реализация квадратного календарика на JavaScript — acteck.off</title>
+  <meta name="description" content="Реализация квадратного календарика на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Реализация квадратного календарика на JavaScript</h1>
+    <p>
+	В уроке показана реализация квадратного календарика
+	на JavaScript. Разобран общий подход к реализации
+	проектов с помощью пользовательских функций.
+</p>
+<div data-w="cont/video">
+	<h3>Start</h3>
+	<iframe src="https://www.youtube.com/embed/vw-pvefl-bQ" allowfullscreen></iframe>
+	
+	<h3>Продложение</h3>
+	<iframe src="https://www.youtube.com/embed/8v5ymxIp-XQ" allowfullscreen></iframe>
+</div>
+
+<h2>Исходники кода</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#calendar {
+	display: inline-block;
+}
+#calendar td, #calendar th {
+	padding: 10px;
+	border: 1px solid black;
+	text-align: center;
+}
+
+#calendar .nav, #calendar .info {
+	text-align: center;
+}
+#calendar a {
+	color: blue;
+	font-size: 25px;
+	text-decoration: none;
+}
+#calendar a:hover {
+	color: red;
+}
+
+#calendar .active {
+	color: red;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="info"&gt;Январь 2018&lt;/div&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;пн&lt;/th&gt;
+			&lt;th&gt;вт&lt;/th&gt;
+			&lt;th&gt;ср&lt;/th&gt;
+			&lt;th&gt;чт&lt;/th&gt;
+			&lt;th&gt;пт&lt;/th&gt;
+			&lt;th&gt;сб&lt;/th&gt;
+			&lt;th&gt;вс&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody class="dates"&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="nav"&gt;
+	&lt;a href="#" class="prev"&gt;&larr;&lt;/a&gt;
+	&lt;a href="#" class="next"&gt;&rarr;&lt;/a&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">(function(selector) {
+	initCalendar(document.querySelector(selector));
+	
+	function initCalendar(calendar) {
+		var date = new Date();
+		var showedYear = date.getFullYear();
+		var showedMonth = date.getMonth();
+		
+		var currentMoment = {
+			year: showedYear,
+			month: showedMonth,
+			date: date.getDate()
+		};
+	
+		var dates = calendar.querySelector('.dates');
+		var info = calendar.querySelector('.info');
+		drawCalendar(showedYear, showedMonth, currentMoment, calendar);
+		
+		var prev = calendar.querySelector('.prev');
+		var next = calendar.querySelector('.next');
+		
+		prev.addEventListener('click', function() {
+			showedYear = getPrevYear(showedYear, showedMonth);
+			showedMonth = getPrevMonth(showedMonth);
+			
+			drawCalendar(showedYear, showedMonth, currentMoment, calendar);
+		});
+		
+		next.addEventListener('click', function() {
+			showedYear = getNextYear(showedYear, showedMonth);
+			showedMonth = getNextMonth(showedMonth);
+			
+			drawCalendar(showedYear, showedMonth, currentMoment, calendar);
+		});
+		
+		function drawCalendar(showedYear, showedMonth, currentMoment, calendar) {
+			drawDates(showedYear, showedMonth, dates);
+			showInfo(showedYear, showedMonth, info);
+			showCurrentDate(showedYear, showedMonth, currentMoment, dates);
+		}
+	}
+	
+	function showCurrentDate(showedYear, showedMonth, currentMoment, dates) {	
+		if (
+			showedYear == currentMoment['year'] && 
+			showedMonth == currentMoment['month']
+		) {
+			var tds = dates.querySelectorAll('td');
+			for (var i = 0; i &lt; tds.length; i++) {
+				if (tds[i].innerHTML == currentMoment['date']) {
+					tds[i].classList.add('active');
+					break;
+				}
+			}
+		}
+	}
+	
+	function getPrevYear(year, month) {
+		if (month == 0) {
+			return year - 1;
+		} else {
+			return year;
+		}
+	}
+	
+	function getPrevMonth(month) {
+		if (month == 0) {
+			return 11;
+		} else {
+			return month - 1;
+		}
+	}
+	
+	function getNextYear(year, month) {
+		if (month == 11) {
+			return year + 1;
+		} else {
+			return year;
+		}
+	}
+	
+	function getNextMonth(month) {
+		if (month == 11) {
+			return 0;
+		} else {
+			return month + 1;
+		}
+	}
+	
+	function showInfo(year, month, elem) {
+		elem.innerHTML = getMonthName(month) + ' ' + year;
+	}
+	
+	function getMonthName(num) {
+		var monthes = [
+			'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
+			'Июль', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'
+		];
+			
+		return monthes[num];
+	}
+	
+	function drawDates(year, month, dates) {
+		var arr = [];
+		var firstDateOfMonth = 1;
+		var lastDateOfMonth = getLastDayOfMonth(year, month);
+		
+		var unshiftElemsNum = getUnshiftElemsNum(year, month);
+		var pushElemsNum = getPushElemsNum(year, month);
+		
+		arr = createArr(firstDateOfMonth, lastDateOfMonth);
+		arr = unshiftElems(unshiftElemsNum, '', arr);
+		arr = pushElems(pushElemsNum, '', arr);
+		arr = chunkArr(7, arr);
+		
+		createTable(arr, dates);
+	}
+	
+	//[['', '', 1, 2, 3, 4, 5], [], [], ]
+	function createTable(arr, parent) {
+		parent.innerHTML = '';
+		
+		for (var i = 0; i &lt; arr.length; i++) {
+			var tr = document.createElement('tr');
+			
+			for (var j = 0; j &lt; arr[i].length; j++) {
+				var td = document.createElement('td');
+				td.innerHTML = arr[i][j];
+				tr.appendChild(td);
+			}
+			
+			parent.appendChild(tr);
+		}
+	}
+	
+	function createArr(from, to) {
+		var arr = [];
+		for (var i = from; i &lt;= to; i++) {
+			arr.push(i);
+		}
+		
+		return arr;
+	}
+	
+	function unshiftElems(num, elem, arr) {
+		for (var i = 0; i &lt; num; i++) {
+			arr.unshift(elem);
+		}
+		
+		return arr;
+	}
+	
+	function pushElems(num, elem, arr) {
+		for (var i = 0; i &lt; num; i++) {
+			arr.push(elem);
+		}
+		
+		return arr;
+	}
+	
+	function getLastDayOfMonth(year, month) {
+		var date = new Date(year, month + 1, 0);
+		return date.getDate();
+	}
+	/*
+	function getLastDayOfMonth(year, month) {
+		if (month == 1) {
+			if (isLeap(year)) {
+				return 29;
+			} else {
+				return 28;
+			}
+		} else {
+			var days = [31, undefined, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+			return days[month];
+		}
+	}
+	
+	function isLeap(year) {
+		if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	*/
+	
+	function getUnshiftElemsNum(year, month) {
+		var jsDayNum = getFirstWeekDayOfMonthNum(year, month);
+		var realDayNum = getRealDayOfWeekNum(jsDayNum);
+		
+		return realDayNum - 1;
+	}
+	
+	function getPushElemsNum(year, month) {
+		var jsDayNum = getLastWeekDayOfMonthNum(year, month);
+		var realDayNum = getRealDayOfWeekNum(jsDayNum);
+		
+		return 7 - realDayNum;
+	}
+	
+	function chunkArr(num, arr) {
+		var result = [];
+		var chunk = [];
+		var iterCount = arr.length / num;
+		
+		for (var i = 0; i &lt; iterCount; i++) {
+			chunk = arr.splice(0, num);
+			result.push(chunk);
+		}
+			
+		return result;
+	}
+	
+	function getRealDayOfWeekNum(jsNumOfDay) {
+		if (jsNumOfDay == 0) {
+			return 7;
+		} else {
+			return jsNumOfDay;
+		}
+	}
+	
+	function getFirstWeekDayOfMonthNum(year, month) {
+		var date = new Date(year, month, 1);
+		return date.getDay();
+	}
+	
+	function getLastWeekDayOfMonthNum(year, month) {
+		var date = new Date(year, month + 1, 0);
+		return date.getDay();
+	}
+}('#calendar'));</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			видео <br>
+			<a href="../last-month-day-and-leap-year/index.html">
+				последний день месяца и високосный год JavaScript
+			</a>
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

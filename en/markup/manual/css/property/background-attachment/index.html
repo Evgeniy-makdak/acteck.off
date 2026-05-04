@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство background-attachment — acteck.off</title>
+  <meta name="description" content="Свойство background-attachment — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство background-attachment</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>background-attachment</code> задает
+	каким образом прокручивать фоновую картинку
+	элемента: вместе с текстом или текст будет
+	скользить по картинке.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	background-attachment: fixed | scroll | local;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>fixed</code></th>
+		<td>Картинка фона будет неподвижной, а текст будет скользить по ней.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>scroll</code></th>
+		<td>Картинка фона будет прокручиваться вместе с текстом.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/v" data-x>local</code></th>
+		<td>
+			Фон фиксируется с учетом поведения элемента. Если элемент имеет прокрутку,
+			то фон будет прокручиваться вместе с содержимым,
+			но фон выходящий за рамки элемента остается на месте.
+		</td>
+	</tr>
+</table>
+<p>
+	Значение по умолчанию: <code data-gs="comd/v" data-x>scroll</code>.
+</p>
+
+<h2>Пример <span data-gn="sect"></span>. Значение scroll</h2>
+<p>
+	Сейчас свойство <code data-gs="comd/c" data-x>background-attachment</code>
+	установлено в значение <code data-gs="comd/v" data-x>scroll</code>. Прокрутите
+	элемент по вертикали - вы увидите, как текст
+	прокручивается вместе с фоном:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;body&gt;
+	&lt;div id="elem"&gt;
+		some long text
+	&lt;/div&gt;
+&lt;/body&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">body {
+	background-attachment: scroll;
+	background-image: url("bg.png");
+}
+
+#elem {
+	width: 400px;
+	margin: 0 auto;
+	text-align: justify;
+	font-weight: bold;
+	font-size: 20px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			body {
+			background-attachment: scroll;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-attachment/@/image/bg.png?v=2&quot;);
+		}
+		
+		#elem {
+			width: 400px;
+			margin: 0 auto;
+			text-align: justify;
+			font-weight: bold;
+			font-size: 20px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<body>
+			<div id=&quot;elem&quot;>
+				
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+			</div>
+		</body>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Значение fixed</h2>
+<p>
+	А теперь свойство <code data-gs="comd/c" data-x>background-attachment</code>
+	установлено в значение <code data-gs="comd/v" data-x>fixed</code>. Прокрутите
+	элемент по вертикали - вы увидите, как текст
+	скользит по фону:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;body&gt;
+	&lt;div id="elem"&gt;
+		some long text
+	&lt;/div&gt;
+&lt;/body&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">body {
+	background-attachment: fixed;
+	background-image: url("bg.png");
+}
+
+#elem {
+	width: 400px;
+	margin: 0 auto;
+	text-align: justify;
+	font-weight: bold;
+	font-size: 20px;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			body {
+			background-attachment: fixed;
+			background-image: url(&quot;/cont/markup/manual/css/property/background-attachment/@/image/bg.png?v=2&quot;);
+		}
+		
+		#elem {
+			width: 400px;
+			margin: 0 auto;
+			text-align: justify;
+			font-weight: bold;
+			font-size: 20px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<body>
+			<div id=&quot;elem&quot;>
+				
+				Lorem ipsum dolor sit amet, consectetur adipiscing elitorire
+				aenean a dapibus magna, ac interdum nisl. Suspendisse egetil
+				fringilla nibh, eu commodo arcu. Donec lacinia tempor velite
+				sed tincidunt. Aliquam porttitor nulla purus, vel vulputater
+				ipsum faucibus sed. Phasellus sodales, lorem vel cursus vehi
+				ante purus lacini dui, interdum fringilla massa eros ut duir
+				nullam et ipsum ex. Donec ut iaculis massa. Duis vel ulamcor
+				per dolor. Suspendisse tristique dolor risus, nec laoreet du
+				aliquet maximus. Maecenas tempus congue arcu, si amet auctor
+				dui efficitur in. Proin ac auctor nisi. Phasellus luctus eur
+				neque sollicitudin rutrum. Curabitur ipsum justo, sodales in
+				lectus non, molestie ullamcorper elit. Orciro varius natoque
+				penatibus et magnis dis parturient montes, nascetur ridiclus
+				mus. Nullam euismod eu metus non malesuada. Quisque quisolor.
+			
+			</div>
+		</body>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../background/index.html"><code data-gs="comd/c" data-x>background</code></a>, <br>
+			представляющее собой свойство-сокращение для фона
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../background/index.html" class="lesson-nav-btn lesson-nav-prev" title="background">← background</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../background-blend-mode/index.html" class="lesson-nav-btn lesson-nav-next" title="background-blend-mode">background-blend-mode →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

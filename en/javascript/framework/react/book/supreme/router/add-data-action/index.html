@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавление данных с методом action в React Router — acteck.off</title>
+  <meta name="description" content="Добавление данных с методом action в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Добавление данных с методом action в React Router</h1>
+    <p>
+	На этом уроке мы познакомимся с методом
+	<code data-gs="comd/c" data-x>action</code> объекта маршрута. Этот
+	метод вызывается тогда, когда приложение
+	посылает <a href="../../../../../../../internet/protocol/http/request-methods/index.html">HTTP запрос</a>
+	типа POST, PUT, PATCH или DELETE (кроме GET)
+	вашему маршруту.
+</p>
+<p>
+	Для начала импортируем функцию для создания
+	продукта, которую мы написали на прошлом
+	уроке в наш <code data-gs="comd/p" data-x>root.jsx</code>:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { createProduct } from '../forStorage';</code>
+</div>
+<p>
+	Теперь нам необходимо создать функцию
+	<code data-gs="comd/c" data-x>action</code>, которую будет вызывать
+	React Router при клике по кнопке добавления
+	продукта, разместим ее после функции
+	<code data-gs="comd/c" data-x>loader</code>:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function action() {
+	const product = await createProduct();
+	return { product };
+}</code>
+</div>
+<p>
+	Давайте откроем <code data-gs="comd/p" data-x>main.jsx</code> и импортируем
+	action:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Root, {
+	loader as rootLoader,
+	action as rootAction
+} from './routes/root';</code>
+</div>
+<p>
+	И поставим ее в качестве значения
+	метода <code data-gs="comd/c" data-x>action</code> для объекта маршрута.
+	Компонент <code data-gs="comd/c" data-x>Form</code> не даст браузеру
+	отправлять запросы на сервер при нажатии
+	кнопки, а обратится к методу <code data-gs="comd/c" data-x>action</code>
+	нашего маршрута. Так интересно работает
+	маршрутизация на стороне клиента с React
+	Router:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([
+	{
+		path: '/',
+		element: &lt;Root /&gt;,
+		errorElement: &lt;ErrorPage404 /&gt;,
+		loader: rootLoader,
+		action: rootAction,
+		children: [
+			{
+				path: 'products/:productId',
+				element: &lt;Product /&gt;,
+			},
+		],
+	},
+	
+]);</code>
+</div>
+<p>
+	Запустим наше приложение. Откроем вкладку
+	<code data-gs="comd/s" data-x>'Приложение'</code> (Application для Chrome)
+	на панели разработчика, среди разных типов
+	хранилищ кликнем на indexedDB, здесь нас
+	интересует localforage. Теперь кликая на
+	кнопку добавления продуктов в нашем приложении
+	и обновляя хранилище localforage после клика
+	мы видим, как в keyvaluepairs в массив
+	<code data-gs="comd/c" data-x>products</code> добавляются объекты с разными
+	<code data-gs="comd/c" data-x>id</code>. Победа!!! Это значит, что у нас
+	в хранилище создаются записи! Конечно
+	же список в нашем приложении тоже пополняется.
+	Подсказка: не забудьте почистить потом сохраненные
+	данные этой странички на вкладке <code data-gs="comd/s" data-x>'Storage'</code>
+	в Application.
+</p>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлым урокам. Пользуясь
+		материалами урока, создайте функцию
+		<code data-gs="comd/c" data-x>action</code>, добавьте ее в объект
+		корневого маршрута в качестве метода
+		<code data-gs="comd/c" data-x>action</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../add-storage-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Добавление данных в хранилище">← Добавление данных в хранилище</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../get-storage-params/index.html" class="lesson-nav-btn lesson-nav-next" title="Загрузка данных страницы по URL параметрам из хранилища">Загрузка данных страницы по URL параметрам из хранилища →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

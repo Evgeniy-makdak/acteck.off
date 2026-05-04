@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавление новой покупки в калькуляторе продуктов — acteck.off</title>
+  <meta name="description" content="Добавление новой покупки в калькуляторе продуктов — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Добавление новой покупки в калькуляторе продуктов</h1>
+    <p>
+	Для начала давайте сделаем так, чтобы по
+	нажатию на кнопку в таблицу добавлялся новый
+	ряд с покупкой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">add.addEventListener('click', function() {
+	let tr = document.createElement('tr');
+	
+	let td;
+	
+	td = document.createElement('td');
+	td.textContent = name.value;
+	td.classList.add('name');
+	tr.appendChild(td);
+	
+	td = document.createElement('td');
+	td.textContent = price.value;
+	td.classList.add('price');
+	tr.appendChild(td);
+	
+	td = document.createElement('td');
+	td.textContent = amount.value;
+	td.classList.add('amount');
+	tr.appendChild(td);
+	
+	td = document.createElement('td');
+	td.textContent = price.value * amount.value;
+	td.classList.add('cost');
+	tr.appendChild(td);
+	
+	td = document.createElement('td');
+	td.textContent = 'удалить';
+	td.classList.add('remove');
+	tr.appendChild(td);
+	
+	table.appendChild(tr);
+});</code>
+</div>
+<p>
+	Приведенное мною решение, однако, имеет явные
+	проблемы с дублированием кода: фактически
+	для каждой ячейки мы пишем один и тот же код.
+</p>
+<p>
+	Уместно было бы иметь некоторую функцию для
+	создания ячейки таблицы. Пусть эта функция
+	первым параметром принимает ссылку на ряд
+	таблицы, вторым параметром - текст ячейки
+	таблицы, а третьим - имя CSS класса ячейки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function createCell(tr, value, name) {
+	
+}</code>
+</div>
+<p>
+	Имея такую функцию мы бы смогли переписать
+	приведенный выше код следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">add.addEventListener('click', function() {
+	let tr = document.createElement('tr');
+	
+	createCell(tr, name.value, 'name');
+	createCell(tr, price.value, 'price');
+	createCell(tr, amount.value, 'amount');
+	createCell(tr, price.value * amount.value, 'cost');
+	createCell(tr, 'удалить', 'remove');
+	
+	table.appendChild(tr);
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Реализуйте описанную мною функцию <code data-gs="comd/c" data-x>createCell</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Скопируйте мой код для добавления новой покупки.
+		Потестируйте добавление новой покупки в таблицу.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте функцию <code data-gs="comd/c" data-x>createCell</code> так,
+		чтобы она возвращала через <code data-gs="comd/c" data-x>return</code>
+		созданную ячейку таблицы.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../task-formulation/index.html" class="lesson-nav-btn lesson-nav-prev" title="Постановка задачи">← Постановка задачи</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../total-sum/index.html" class="lesson-nav-btn lesson-nav-next" title="Общая сумма покупок">Общая сумма покупок →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

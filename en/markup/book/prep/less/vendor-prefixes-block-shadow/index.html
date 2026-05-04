@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тень блока при помощи вендорных префиксов в LESS — acteck.off</title>
+  <meta name="description" content="Тень блока при помощи вендорных префиксов в LESS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Тень блока при помощи вендорных префиксов в LESS</h1>
+    <p>
+	Давайте сделаем функцию, которая будет
+	добавлять кроссбраузерную тень блоку:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">.shadow(@s) {
+	-moz-shadow+: @s;
+	-webkit-shadow+: @s;
+	box-shadow+: @s;
+}</code>
+</div>
+<p>
+	Воспользуемся созданной функцией:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">p {
+	.shadow(1px 10x red); 
+	.shadow(2px 3px blue);
+}</code>
+</div>
+<p>
+	Посмотрим на результат компиляции:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	-moz-shadow: 1px 10x red, 2px 3px blue;
+	-webkit-shadow: 1px 10x red, 2px 3px blue;
+	box-shadow: 1px 10x red, 2px 3px blue;
+}</code>
+</div>
+    <div class="lesson-nav">
+      <a href="../vendor-prefixes-rounded-corners/index.html" class="lesson-nav-btn lesson-nav-prev" title="Применение вендорных префиксов для создания скругленных уголков">← Применение вендорных префиксов для создания скругленных уголков</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../vendor-prefixes-transformation/index.html" class="lesson-nav-btn lesson-nav-next" title="Трансформация при помощи вендорных префиксов">Трансформация при помощи вендорных префиксов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

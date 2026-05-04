@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Клиент для приложения в Redux — acteck.off</title>
+  <meta name="description" content="Клиент для приложения в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Клиент для приложения в Redux</h1>
+    <p>
+	На прошлых занятиях мы практически завершили
+	работу с серверной частью для нашего приложения,
+	мы немного дополним ее по мере необходимости
+	в следующих уроках. Теперь нам необходимо
+	создать клиента для приложения, который
+	будет отправлять HTTP-запросы на сервер.
+</p>
+<p>
+	Откроем наше приложение с продуктами и
+	в папке <code data-gs="comd/p" data-x>api</code> создадим файл <code data-gs="comd/p" data-x>client.js</code>.
+	Для начала мы напишем саму функцию <code data-gs="comd/c" data-x>client</code>,
+	которая будет работать и для GET и для
+	POST запросов. Параметрами она будет получать
+	путь, тип и тело запроса (в случае POST), если
+	таковое имеется:
+</p>
+<div data-p="bock/pane" data-p-file="api/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function client(url, method, body = {}) {}</code>
+</div>
+<p>
+	Далее нам нужно сформировать объект
+	<code data-gs="comd/c" data-x>options</code>, в котором мы будем передавать
+	различную информацию для запроса. Это
+	будет тип запроса и заголовки:
+</p>
+<div data-p="bock/pane" data-p-file="api/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function client(url, method, body = {}) {
+	const options = {
+		method: method,
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	}
+}</code>
+</div>
+<p>
+	Свойство <code data-gs="comd/c" data-x>body</code> у нас опционально, мы должны
+	передавать его, если у нас POST-запрос. Для
+	этого внутри <code data-gs="comd/c" data-x>client</code> после кода для объекта
+	<code data-gs="comd/c" data-x>options</code> добавим его в <code data-gs="comd/c" data-x>options</code> с телом
+	запроса в формате JSON, если выбран метод
+	POST:
+</p>
+<div data-p="bock/pane" data-p-file="api/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">if (method === 'POST') {
+	options.body = JSON.stringify(body)
+}</code>
+</div>
+<p>
+	Затем ниже в коде <code data-gs="comd/c" data-x>client</code> организуем блок
+	<code data-gs="comd/c" data-x>try</code>, в первой строчке которого с помощью
+	<code data-gs="comd/c" data-x>fetch</code> получим ответ от сервера. В случае
+	неудачи мы традиционно вернем промис с
+	ошибкой:
+</p>
+<div data-p="bock/pane" data-p-file="api/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let data
+try {
+	const response = await window.fetch(url, options)
+} catch (err) {
+	return Promise.reject(err.message ? err.message : data)
+}</code>
+</div>
+<p>
+	Теперь давайте допишем код в блоке
+	<code data-gs="comd/c" data-x>try</code>. После получения <code data-gs="comd/c" data-x>response</code>, нам
+	нужно его обработать. Извлечем из
+	него данные в JSON и если статус ответа
+	сигнализирует нам, что все в порядке, то
+	вернем объект с данными и информацией:
+	статусом, заголовками и адресом. Если
+	же статус не <code data-gs="comd/s" data-x>'ok'</code>, то выбросим исключение
+	с текстом статуса:
+</p>
+<div data-p="bock/pane" data-p-file="api/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">try {
+	const response = await window.fetch(url, options)
+	data = await response.json()
+	if (response.ok) {
+		return {
+			status: response.status,
+			headers: response.headers,
+			url: response.url,
+			data,
+		}
+	}
+	throw new Error(response.statusText)
+}</code>
+</div>
+<p>
+	Код для функции <code data-gs="comd/c" data-x>client</code> у нас готов, осталось
+	только написать как будут работать наши методы
+	GET и POST при вызове. Давайте
+	напишем код для них после функции <code data-gs="comd/c" data-x>client</code>.
+	Метод <code data-gs="comd/c" data-x>client.get</code> будет принимать в качестве
+	параметра путь и вызывать функцию <code data-gs="comd/c" data-x>client</code>,
+	передавая ей этот путь и тип запроса GET:
+</p>
+<div data-p="bock/pane" data-p-file="api/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">client.get = (url) =&gt; client(url, 'GET')</code>
+</div>
+<p>
+	А <code data-gs="comd/c" data-x>client.post</code> должен передавать для
+	<code data-gs="comd/c" data-x>client</code> путь, тип запроса POST и
+	тело запроса:
+</p>
+<div data-p="bock/pane" data-p-file="api/client.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">client.post = (url, body) =&gt; client(url, 'POST', body)</code>
+</div>
+<p>
+	На этом все, наш маленький клиент готов к
+	работе с сервером.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами,
+		создайте в нем в папке <code data-gs="comd/p" data-x>api</code> файл
+		<code data-gs="comd/p" data-x>client.js</code>. Ознакомившись с материалами
+		урока напишите (скопируйте) код функции
+		<code data-gs="comd/c" data-x>client</code> и двух ее методов <code data-gs="comd/c" data-x>client.get</code>
+		и <code data-gs="comd/c" data-x>client.post</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../get-request-server/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отправка данных с сервера по GET-запросу">← Отправка данных с сервера по GET-запросу</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../async-thunk/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction в thunks">Introduction в thunks →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

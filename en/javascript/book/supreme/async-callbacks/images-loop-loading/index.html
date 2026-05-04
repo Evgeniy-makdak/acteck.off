@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Асинхронная загрузка картинок в цикле в JavaScript — acteck.off</title>
+  <meta name="description" content="Асинхронная загрузка картинок в цикле в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Асинхронная загрузка картинок в цикле в JavaScript</h1>
+    <p>
+	Пусть пути к картинкам хранятся в массиве:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['img1.png', 'img2.png', 'img3.png'];</code>
+</div>
+<p>
+	Мы можем загрузить эти картинки в цикле:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let path of arr) {
+	loadImage(path, function(image, err) {
+		document.body.append(image);
+	});
+}</code>
+</div>
+<p>
+	Код получился красивый и без callback hell,
+	однако, мы вернулись к двум нашим проблемам:
+	порядок картинок не гарантирован и невозможно
+	поймать момент загрузки всех картинок.
+</p>
+<p>
+	И решения в данной ситуации нет: невозможно
+	запустить цикл, использовать внутри него
+	асинхронную функцию, а потом поймать момент
+	завершения всех функций цикла. Либо вам не
+	нужно ловить этот момент и приведенный выше
+	код вам подойдет либо добро пожаловать в
+	callback hell.
+</p>
+<p>
+	Но, расстраиваться не стоит - решение проблемы
+	возможно через промисы, которые мы будем
+	изучать в следующих уроках.
+</p>
+  
+    <div class="lesson-nav">
+      <a href="../callback-hell/index.html" class="lesson-nav-btn lesson-nav-prev" title="Проблема callback hell">← Проблема callback hell</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../promises/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction в промисы">Introduction в промисы →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

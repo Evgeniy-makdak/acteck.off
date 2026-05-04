@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест с вопросами и ответами в HTML коде на JavaScript — acteck.off</title>
+  <meta name="description" content="Тест с вопросами и ответами в HTML коде на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Тест с вопросами и ответами в HTML коде на JavaScript</h1>
+    <p>
+	В этом и в нескольких следующих уроках мы
+	с вами займемся созданием тестов с вопросами
+	и ответами. Начнем с самых простых вариантов
+	и будем постепенно усложнять.
+</p>
+<p>
+	Пусть для начала мы хотим сделать набор вопросов,
+	на каждый из которых возможен только один
+	ответ. Пусть ответы вбиваются пользователем
+	в инпуты под самими вопросами.
+</p>
+<p>
+	Проиллюстрирую написанное HTML кодом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="test"&gt;
+	&lt;div&gt;
+		&lt;p&gt;вопрос 1?&lt;/p&gt;
+		&lt;input&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;p&gt;вопрос 2?&lt;/p&gt;
+		&lt;input&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;p&gt;вопрос 3?&lt;/p&gt;
+		&lt;input&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Как вы видите, у нас есть вопросы и инпуты
+	для ответов. Осталось придумать, где мы будем
+	хранить правильные ответы.
+</p>
+<p>
+	Самое простое, что можно придумать - это
+	хранить ответы прямо в HTML коде инпутов,
+	в каком-нибудь <code data-gs="comd/c" data-x>data-</code> атрибуте:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="test"&gt;
+	&lt;div&gt;
+		&lt;p&gt;вопрос 1?&lt;/p&gt;
+		&lt;input data-right="ответ 1"&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;p&gt;вопрос 2?&lt;/p&gt;
+		&lt;input data-right="ответ 2"&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;p&gt;вопрос 3?&lt;/p&gt;
+		&lt;input data-right="ответ 3"&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</div>
+<p>
+	Следующий нюанс, который следует продумать:
+	в какой момент мы будем выполнять проверку
+	ответов на правильность? Здесь можно предложить
+	два варианта: либо пусть каждый инпут сразу
+	же по вводу в него ответа проверяет правильный
+	ли этот ответ, либо пусть будет кнопка, по
+	нажатию на которую будут проверены ответы
+	на все вопросы сразу.
+</p>
+<p>
+	Какой бы из вариантов мы не выбрали, давайте,
+	если ответ правильный, то границу инпута
+	будем красить в зеленый цвет, а если неправильный
+	- в красный. Сделаем для этого соответствующие
+	CSS классы:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.right {
+	border: 1px solid green;
+}
+.wrong {
+	border: 1px solid red;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте так, чтобы ввод ответа в инпут завершался
+		нажатием клавиши <code data-gs="comd/k" data-x>Enter</code>. Пусть в этом
+		случае инпут сразу проверяет ответ на правильность.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте ваш код так, чтобы проверка
+		ответов выполнялась по нажатию на кнопку.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../../products-calculator/recounting-editing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Редактирование с перерасчетом">← Редактирование с перерасчетом</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../questions-in-array/index.html" class="lesson-nav-btn lesson-nav-next" title="Ответы в массиве">Ответы в массиве →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

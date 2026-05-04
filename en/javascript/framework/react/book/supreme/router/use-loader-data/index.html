@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Использование данных, полученных загрузчиком в React Router — acteck.off</title>
+  <meta name="description" content="Использование данных, полученных загрузчиком в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Использование данных, полученных загрузчиком в React Router</h1>
+    <p>
+	На прошлом уроке мы получили данные из
+	хранилища при помощи <code data-gs="comd/c" data-x>loader</code>. Для того,
+	чтобы воспользоваться этими данными,
+	мы используем хук <code data-gs="comd/c" data-x>useLoaderData</code>. Откроем
+	файл <code data-gs="comd/p" data-x>root.jsx</code> и добавим хук в импорт:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { Outlet, Link, useLoaderData } from 'react-router-dom';</code>
+</div>
+<p>
+	В функции Root мы будем теперь получать
+	данные в константу <code data-gs="comd/c" data-x>products</code> и
+	работать уже с ней. Если у нас есть какие-то
+	продукты, то список отобразится, если нет,
+	то выведем в абзаце <code data-gs="comd/s" data-x>'no products here ...'</code>.
+	В теге <code data-gs="comd/c" data-x>nav</code> мы теперь используем
+	стандартный цикл для вывода полученных
+	продуктов. Каждый элемент будет обернут
+	в компонент <code data-gs="comd/c" data-x>Link</code> и адрес будет
+	у каждого свой (об этом мы поговорим
+	позже). Соответственно, если у продукта
+	нет названия, то выведется <code data-gs="comd/s" data-x>'Unnamed'</code>
+	по умолчанию. Итак, учитывая вышесказанное,
+	теперь наш код для функции <code data-gs="comd/c" data-x>Root</code>
+	будет таким:
+</p>
+<div data-p="bock/pane" data-p-file="root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Root() {
+
+	const { products } = useLoaderData();
+	return (
+		&lt;div id="main"&gt;
+			{products.length ? (
+				&lt;nav&gt;
+					{products.map((product) =&gt; (
+						&lt;Link key={product.id} to={`products/${product.id}`}&gt;
+							{product.name ? product.name : &lt;i&gt;Unnamed&lt;/i&gt;}
+						&lt;/Link&gt;
+					))}
+				&lt;/nav&gt;
+			) : (
+				&lt;p&gt;&lt;i&gt;no products here ...&lt;/i&gt;&lt;/p&gt;
+			)}
+			&lt;div id="product"&gt;
+				&lt;Outlet /&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	);
+}</code>
+</div>
+<p>
+	Если мы сейчас перезапустим приложение
+	и зайдем home страницу, то увидим
+	только <code data-gs="comd/s" data-x>'no products here ...'</code>,
+	поскольку никакие продукты в хранилище
+	мы еще пока не положили.
+</p>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлым урокам. Пользуясь
+		материалами урока, добавьте отображение
+		полученных из загрузчика данных со
+		студентами, как описано в уроке.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../loader/index.html" class="lesson-nav-btn lesson-nav-prev" title="Загрузчик данных для маршрута">← Загрузчик данных для маршрута</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../adding-data/index.html" class="lesson-nav-btn lesson-nav-next" title="Добавление данных">Добавление данных →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

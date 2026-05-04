@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Основные термины в Redux — acteck.off</title>
+  <meta name="description" content="Основные термины в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Основные термины в Redux</h1>
+    <p>
+	В этом уроке мы кратко пройдемся по
+	основным понятиям и терминам, владение
+	которыми необходимо при дальнейшем
+	изучении Redux.
+</p>
+<p>
+	Начнем мы с <dfn data-gs="comd/d" data-x>действия</dfn> (<span data-gs="lang/e" data-x>action</span>).
+	Это некоторое событие, которое
+	описывает то, что произошло в нашем
+	приложении. Технически это обычный
+	JavaScript <a href="../../../../../../book/prime/objects/intro/index.html">объект</a>,
+	содержащий поле <code data-gs="comd/c" data-x>type</code>, в которое мы вписываем
+	название действия.
+</p>
+<p>
+	Вторым важным полем объекта с действием
+	является поле <code data-gs="comd/c" data-x>payload</code>.
+	Оно будет содержать <dfn data-gs="comd/d" data-x>полезную нагрузку</dfn>
+	действия. Под полезной нагрузкой понимается
+	некоторые данные, которые передаются
+	параметрами в действие.
+</p>
+<p>
+	Также в этом объекте могут
+	быть и другие поля с дополнительной
+	информацией.
+</p>
+<p>
+	Давайте для примера создадим действие
+	и назовем его <code data-gs="comd/c" data-x>addOrderAction</code>. Пусть
+	оно отвечает за добавление заказа.
+	Значит в свойстве <code data-gs="comd/c" data-x>type</code> мы укажем, что
+	заказ добавлен (<code data-gs="comd/c" data-x>orderAdded</code>) в заказы
+	(<code data-gs="comd/c" data-x>orders</code>). А в <code data-gs="comd/c" data-x>payload</code> укажем подробнее,
+	что за заказ, к примеру - покрасить
+	стену:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const addOrderAction = {
+	type: 'orders/orderAdded',
+	payload: 'Paint a wall'
+}</code>
+</div>
+<p>
+	Чтобы каждый раз не писать объект
+	с действием вручную, мы можем использовать
+	так называемый <dfn data-gs="comd/d" data-x>action creator</dfn> - функцию,
+	которая будет создавать и возвращать
+	нам объект с действием. Назовем ее
+	<code data-gs="comd/c" data-x>addOrder</code>. Параметром мы будем
+	передавать ей нужный нам текст для
+	свойства <code data-gs="comd/c" data-x>payload</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const addOrder = text =&gt; {
+	return {
+		type: 'orders/orderAdded',
+		payload: text
+	}
+}</code>
+</div>
+<p>
+	Следующее важное понятие в цепочке - это
+	<dfn data-gs="comd/d" data-x>reducer</dfn> (редьюсер) - функция, которая
+	принимает текущее состояние и объект
+	с действием. Эта функция решает, как обновить
+	состояние и возвращает уже обновленный
+	стейт, если это необходимо.
+</p>
+<p>
+	Следующие понятие - <dfn data-gs="comd/d" data-x>хранилище</dfn>
+	(<span data-gs="lang/e" data-x>store</span>) - это объект, в котором хранится
+	текущее глобальное состояние Redux приложения. У этого
+	объекта есть метод <dfn data-gs="comd/d" data-x>getState</dfn>, с помощью
+	которого можно получить текущее значение
+	стейта.
+</p>
+<p>
+	У хранилища есть также метод <dfn data-gs="comd/d" data-x>dispatch</dfn>.
+	Вызвать его и передать объект
+	с действием - это единственный способ,
+	чтобы изменить стейт. В результате
+	стор запустит функцию-редьюсер и сохранит у
+	себя новое значение стейта.
+</p>
+<p>
+	И последнее понятие, которое мы рассмотрим
+	в данном уроке - это <dfn data-gs="comd/d" data-x>селекторы</dfn>.
+	Селекторы - это специальные функции,
+	которые знают, как извлечь информацию
+	из стейта, находящегося в хранилище. Эти
+	функции оказываются особо полезными при
+	разрастании приложения и помогают
+	избежать повторения кода.
+</p>
+<p>
+	Подробнее обо всех этих понятиях и о
+	применении их на практике мы узнаем
+	из следующих разделов этого учебника.
+</p>
+    <div class="lesson-nav">
+      <a href="../concepts/index.html" class="lesson-nav-btn lesson-nav-prev" title="Две базовые идеи">← Две базовые идеи</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../app-workflow/index.html" class="lesson-nav-btn lesson-nav-next" title="Работа Redux приложения">Работа Redux приложения →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

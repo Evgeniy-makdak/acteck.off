@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Нюансы области видимости переменных в конструкциях if-else в JavaScript — acteck.off</title>
+  <meta name="description" content="Нюансы области видимости переменных в конструкциях if-else в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Нюансы области видимости переменных в конструкциях if-else в JavaScript</h1>
+    <p>
+	Область видимости переменных обладает некоторым
+	нюансом. Давайте рассмотрим его на примере.
+	Давайте объявим снаружи нашего условия переменную
+	<code data-gs="comd/c" data-x>res</code> с одним значением, а внутри
+	условия поменяем это значение на другое:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = 1;
+
+if (true) {
+	res = 2;
+}
+
+console.log(res); // выведет 2</code>
+</div>
+<p>
+	Как вы видите, переменная <code data-gs="comd/c" data-x>res</code> поменялась
+	внутри условия. Все, однако, поменяется,
+	если внутри условия также объявить переменную
+	<code data-gs="comd/c" data-x>res</code> через <code data-gs="comd/c" data-x>let</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = 1;
+
+if (true) {
+	let res = 2; // объявим переменную через let
+}
+
+console.log(res); // выведет 1, а не 2!</code>
+</div>
+<p>
+	Здесь все дело в том, что объявление переменой
+	через <code data-gs="comd/c" data-x>let</code> внутри условия создало локальную
+	переменную <code data-gs="comd/c" data-x>res</code>.
+</p>
+<p>
+	To есть внутри условия существует одна переменная
+	<code data-gs="comd/c" data-x>res</code>, а снаружи условия - другая.
+	Убедится в этом можно, выведя значение переменной
+	в консоль внутри условия:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = 1;
+
+if (true) {
+	let res = 2;
+	console.log(res); // выведет 2
+}
+
+console.log(res); // выведет 1</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор приведенного ниже кода хотел выполнить
+		проверку возраста на достижение <code data-gs="comd/n" data-x>18</code>
+		лет. Код, однако, при любом значение возраста
+		выводит в консоль значение <code data-gs="comd/c" data-x>undefined</code>.
+		Исправьте ошибку автора кода. Вот проблемный код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let age = 17;
+let adult;
+
+if (age &gt;= 18) {
+	let adult = true;
+} else {
+	let adult = false;
+}
+
+console.log(adult);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор приведенного ниже кода хотел выполнить
+		проверку возраста на достижение <code data-gs="comd/n" data-x>18</code>
+		лет. После проверки кода оказалось, что если
+		возраст равен или больше <code data-gs="comd/n" data-x>18</code> лет, то
+		в переменную <code data-gs="comd/c" data-x>adult</code> записывается true,
+		как и должно быть, однако, если возраст меньше
+		<code data-gs="comd/n" data-x>18</code>, то переменная <code data-gs="comd/c" data-x>adult</code> имеет
+		значение <code data-gs="comd/c" data-x>undefined</code>. Исправьте ошибку
+		автора кода.
+	</p>
+	<p>
+		Вот проблемный код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let age = 17;
+let adult;
+
+if (age &gt;= 18) {
+	adult = true;
+} else {
+	let adult = false;
+}
+
+console.log(adult);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор приведенного ниже кода хотел выполнить
+		проверку возраста. Код, однако, при любом
+		значение возраста выводит в консоль значение
+		<code data-gs="comd/c" data-x>undefined</code>. Исправьте ошибку автора кода.
+	</p>
+	<p>
+		Вот проблемный код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let age = 17;
+let res;
+
+if (age &gt;= 18) {
+	if (age &lt;= 23) {
+		let res = 'от 18 до 23';
+	} else {
+		let res = 'больше 23';
+	}
+} else {
+	let res = 'меньше 18';
+}
+
+console.log(res);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Автор приведенного ниже кода хотел выполнить
+		проверку возраста. Код, однако, при значение
+		возраста большим <code data-gs="comd/n" data-x>18</code> лет выводит в
+		консоль значение <code data-gs="comd/c" data-x>undefined</code>. Исправьте
+		ошибку автора кода.
+	</p>
+	<p>
+		Вот проблемный код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let age = 19;
+let res;
+
+if (age &gt;= 18) {
+	let res;
+	
+	if (age &lt;= 23) {
+		res = 'от 18 до 23';
+	} else {
+		res = 'больше 23';
+	}
+} else {
+	res = 'меньше 18';
+}
+
+console.log(res);</code>
+	</div>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../scope/index.html" class="lesson-nav-btn lesson-nav-prev" title="Область видимости">← Область видимости</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../examples/hours-parts/index.html" class="lesson-nav-btn lesson-nav-next" title="Проверка частей часа">Проверка частей часа →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Переменные в параметры хелперов в Handlebars — acteck.off</title>
+  <meta name="description" content="Переменные в параметры хелперов в Handlebars — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Переменные в параметры хелперов в Handlebars</h1>
+    <p>
+	Хелперы могут принимать параметрами не только
+	числа и строки, но и переменные. Давайте
+	посмотрим на практике. Пусть мы передаем
+	в представление переменную с именем <code data-gs="comd/c" data-x>str</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
+	res.render('test', {
+		str: 'abcde'
+	});
+});</code>
+</div>
+<p>
+	Давайте выведем нашу переменную в представлении:
+</p>
+<div data-p="bock/pane" data-p-file="views/test.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;p&gt;
+	{{str}}
+&lt;/p&gt;</code>
+</div>
+<p>
+	А теперь при выводе применим созданный нами
+	ранее хелпер <code data-gs="comd/c" data-x>upper</code>:
+</p>
+<div data-p="bock/pane" data-p-file="views/test.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;p&gt;
+	{{upper str}}
+&lt;/p&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Передайте в представление три переменных
+		с датами. Примените к каждой из этих переменных
+		созданный вами ранее хелпер, меняющий формат
+		вывода даты.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

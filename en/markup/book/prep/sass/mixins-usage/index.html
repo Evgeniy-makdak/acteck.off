@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Использование миксинов в SASS — acteck.off</title>
+  <meta name="description" content="Использование миксинов в SASS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Использование миксинов в SASS</h1>
+    <p>
+	После того как мы объявили миксин
+	мы вызываем его директивой <code data-gs="comd/c" data-x>@include</code>,
+	которая должна обязательно включать
+	имя миксина. Также в ней опционально
+	могут быть параметры и стили.
+	Рассмотрим пример:
+</p>
+<div data-p="bock/pane" data-p-file="styles.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin mix{
+	width: 100px;
+	height: 100px;
+}
+div {
+	@include mix;
+	padding: 4px;
+	margin-top: 10px;
+} </code>
+</div>
+<p>
+	Результат компиляции:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	width: 100px;
+	height: 100px;
+	padding: 4px;
+	margin-top: 10px;
+}</code>
+</div>
+<p>
+	Вызывать миксины можно и в корне
+	документа, но только в том случае,
+	когда они не описывают правила и
+	в них нет ссылки на родителя.
+	Смотрите следующий пример:
+</p>
+<div data-p="bock/pane" data-p-file="styles.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin active {
+	p {
+		color: #161618;
+		background-color: red;
+	}
+}
+@include active;</code>
+</div>
+<p>
+	После компиляции мы увидим:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	color: #161618;
+	background-color: red;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin font {
+	font-family:'Courier New', Courier, monospace;
+	font-size: 12px;
+}
+
+#product-card {
+	@include font;
+	color: #090957;
+	font-weight: 600px;
+}				 </code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin style {
+	color:#090957;
+}
+
+button, link {
+	@include style;
+	font-size: 10px;
+	padding: 4px;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin active-text {
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: underline;
+	color: blue;
+}
+
+#product-card, .active, .content {
+	@include active-text;
+	padding: 4px;
+} </code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, каким будет результат компиляции
+		следующего кода:
+	</p>
+	<div data-p="bock/pane" data-p-file="styles.scss">
+		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin size {
+	font-size: 14px;
+	padding: 10px;
+	margin: 4px;
+}
+
+@mixin color {
+	color: #580909;
+	background-color: #e9e5ab;
+}
+
+#product-card {
+	@include size;
+	@include color;
+	width: 600px;
+} </code>
+	</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../mixins/index.html" class="lesson-nav-btn lesson-nav-prev" title="Миксины">← Миксины</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../mixins-parameters/index.html" class="lesson-nav-btn lesson-nav-next" title="Параметры миксинов">Параметры миксинов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

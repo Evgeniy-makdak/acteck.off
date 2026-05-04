@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Установка msw для работы с серверной частью в Redux — acteck.off</title>
+  <meta name="description" content="Установка msw для работы с серверной частью в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Установка msw для работы с серверной частью в Redux</h1>
+    <p>
+	На прошлых занятиях мы сделали несколько
+	дополнительных изменений в нашем приложении.
+	Теперь нам необходимо разобраться с сервером,
+	с которым наше приложение будет обмениваться
+	данными.
+</p>
+<p>
+	Настоящего сервера у нас не будет, поэтому мы
+	просто сымитируем работу с ним, используя
+	крутой инструмент <a href="https://mswjs.io/">Mock Service Worker</a>.
+	Mock Service Worker (MSW) - это инструмент для
+	имитации API, который использует стандартизированный
+	API Service Worker, предназначенный для перехвата
+	запросов на сетевом уровне. MSW будет генерировать
+	фиктивные ответы (<span data-gs="lang/e" data-x>responses</span>) на наши
+	запросы (<span data-gs="lang/e" data-x>requests</span>). Причем,
+	как утверждают разработчики, инструмент
+	настолько эффективен и гибок, что после
+	отладки с моками (для которых в приложении
+	ничего специального создавать не требуется),
+	приложение можно пустить в работу с уже
+	настоящим внешним сервером. Документация
+	по нему довольно обширная, и, если вы
+	заинтересуетесь MSW, можете почитать ее
+	на официальном сайте.
+</p>
+<p>
+	Давайте перейдем к установке msw. Для
+	этого откроем наш проект с продуктами
+	и в терминале введем:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install msw --save-dev</code>
+</div>
+<p>
+	Для работы msw нам также нужно создать и скопировать
+	<code data-gs="comd/p" data-x>mockServiceWorker.js</code> в какую-то публичную
+	директорию. Часто это папка <code data-gs="comd/p" data-x>public</code>. У нас
+	есть пустая папка <code data-gs="comd/p" data-x>public</code>, давайте скопируем
+	его туда. Для этого запустите в терминале
+	команду и затем согласитесь на использование
+	<code data-gs="comd/p" data-x>public</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npx msw init public</code>
+</div>
+<p>
+	Теперь заглянем в <code data-gs="comd/p" data-x>public</code>, там должен появится
+	сгенерированный скрипт <code data-gs="comd/p" data-x>mockServiceWorker.js</code>. Теперь
+	запустим наше приложение с продуктами и в адресной строке
+	браузера введем <code data-gs="comd/p" data-x>http://localhost:5173/mockServiceWorker.js</code>
+	(поскольку наше приложение работает на <code data-gs="comd/n" data-x>5173</code> порту).
+	Видите в окне браузера отобразилось содержимое
+	файла <code data-gs="comd/p" data-x>mockServiceWorker.js</code>? Значит все замечательно,
+	идем дальше.
+</p>
+<p>
+	Далее давайте в папке <code data-gs="comd/p" data-x>src</code> создадим папку
+	<code data-gs="comd/p" data-x>api</code>, а в ней файл <code data-gs="comd/p" data-x>server.js</code>, в котором
+	будем писать код сервера. Теперь откроем <code data-gs="comd/p" data-x>server.js</code>
+	и импортируем в него функцию <code data-gs="comd/c" data-x>setupWorker</code>
+	из установленной msw библиотеки:
+</p>
+<div data-p="bock/pane" data-p-file="src/api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { setupWorker } from 'msw/browser'</code>
+</div>
+<p>
+	Ниже в файле создадим переменную <code data-gs="comd/c" data-x>worker</code>
+	и экспортируем его:
+</p>
+<div data-p="bock/pane" data-p-file="src/api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const worker = setupWorker()</code>
+</div>
+<p>
+	А сейчас давайте откроем файл <code data-gs="comd/p" data-x>main.jsx</code>
+	и импортируем в него нашего воркера:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { worker } from './api/server'</code>
+</div>
+<p>
+	Теперь подцепим его к нашему приложению. Для
+	этого код, с помощью которого мы создаем корень
+	нашего React приложения, мы обернем в функцию, назовем
+	ее <code data-gs="comd/c" data-x>main</code> и первой строчкой добавим в нее функцию
+	запуска для воркера. Конечно же не забудем
+	вызвать и сам <code data-gs="comd/c" data-x>main</code>. Полный код после всех
+	строчек с импортом будем теперь выглядеть
+	так:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">async function main() {
+	await worker.start({ onUnhandledRequest: 'bypass' })
+
+	ReactDOM.createRoot(document.getElementById('root')).render(
+		&lt;React.StrictMode&gt;
+			&lt;Provider store={store}&gt;
+				&lt;App /&gt;
+			&lt;/Provider&gt;
+		&lt;/React.StrictMode&gt;
+	)
+}
+
+main()</code>
+</div>
+<p>
+	Теперь мы уверены, что наше приложение
+	не начнет работать прежде (и отправлять запросы ;) ),
+	чем запустится воркер.
+</p>
+<p>   
+	Давайте запустим наше приложение и откроем в
+	браузере консоль для разработчиков. Если
+	вы видите в ней текст <code data-gs="comd/s" data-x>'[MSW] Mocking enabled.'</code>,
+	то вы молодцы и все установили правильно!!!
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Ознакомившись с материалом этого урока,
+		установите Mock Service Worker для вашего
+		приложения.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Создайте файл <code data-gs="comd/p" data-x>server.js</code>, а в нем создайте
+		воркер. Прицепите worker к приложению в
+		<code data-gs="comd/p" data-x>main.js</code>, как показано в уроке. Убедитесь,
+		что все работает.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../selectors-optimization/index.html" class="lesson-nav-btn lesson-nav-prev" title="Оптимизация работы с селекторами">← Оптимизация работы с селекторами</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../data-base/index.html" class="lesson-nav-btn lesson-nav-next" title="База данных для сервера">База данных для сервера →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

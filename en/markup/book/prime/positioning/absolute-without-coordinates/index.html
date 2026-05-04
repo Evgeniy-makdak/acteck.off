@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Абсолютное позиционирование без координат в CSS — acteck.off</title>
+  <meta name="description" content="Абсолютное позиционирование без координат в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Абсолютное позиционирование без координат в CSS</h1>
+    <p>
+	На самом деле указания координат при абсолютном
+	позиционировании не обязательно. Если элементу
+	просто написать <code data-gs="comd/c" data-x>position</code> в значении
+	<code data-gs="comd/v" data-x>absolute</code>, то он станет абсолютно спозиционированным,
+	но останется стоять в том же месте, где и
+	стоял. При этом все остальные элементы будут
+	вести себя так, будто нашего элемента нет
+	и могут налезть на него.
+</p>
+<p>
+	Давайте посмотрим на примерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Для начала давайте просто сделаем три блока
+	без позиционирования и между ними
+	некоторый текст:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
+&lt;div id="elem2"&gt;&lt;/div&gt;
+text text text text text text
+&lt;div id="elem3"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
+	width: 200px;
+	height: 150px;
+	border: 1px solid red;
+}
+#elem2 {
+	width: 100px;
+	height: 100px;
+	margin-left: 10px;
+	border: 1px solid green;
+}
+#elem3 {
+	width: 50px;
+	height: 150px;
+	border: 1px solid blue;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem1 {
+			width: 200px;
+			height: 150px;
+			border: 1px solid red;
+		}
+		#elem2 {
+			width: 100px;
+			height: 100px;
+			margin-left: 10px;
+			border: 1px solid green;
+		}
+		#elem3 {
+			width: 50px;
+			height: 150px;
+			border: 1px solid blue;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+		<div id=&quot;elem2&quot;></div>
+		text text text text text text
+		<div id=&quot;elem3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте добавим зеленому блоку <code data-gs="comd/v" data-x>absolute</code>.
+	В результате этот блок останется на месте,
+	а все элементы снизу будут вести себя так,
+	будто нашего элемента нет и налезут на него:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
+&lt;div id="elem2"&gt;&lt;/div&gt;
+text text text text text text
+&lt;div id="elem3"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
+	width: 200px;
+	height: 150px;
+	border: 1px solid red;
+}
+#elem2 {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	margin-left: 10px;
+	border: 1px solid green;
+}
+#elem3 {
+	width: 50px;
+	height: 150px;
+	border: 1px solid blue;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem1 {
+			width: 200px;
+			height: 150px;
+			border: 1px solid red;
+		}
+		#elem2 {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			margin-left: 10px;
+			border: 1px solid green;
+		}
+		#elem3 {
+			width: 50px;
+			height: 150px;
+			border: 1px solid blue;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+		<div id=&quot;elem2&quot;></div>
+		text text text text text text
+		<div id=&quot;elem3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь давайте добавим свойство <code data-gs="comd/c" data-x>left</code>,
+	не добавляя позицию по вертикали. В результате
+	по горизонтали наш блок станет на указанное
+	значение, а по вертикали - останется стоять
+	там, где и стоял:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
+&lt;div id="elem2"&gt;&lt;/div&gt;
+text text text text text text
+&lt;div id="elem3"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
+	width: 200px;
+	height: 150px;
+	border: 1px solid red;
+}
+#elem2 {
+	position: absolute;
+	left: 40px; /* добавляем позицию по горизонтали */
+	
+	width: 100px;
+	height: 100px;
+	margin-left: 10px;
+	border: 1px solid green;
+}
+#elem3 {
+	width: 50px;
+	height: 150px;
+	border: 1px solid blue;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem1 {
+			width: 200px;
+			height: 150px;
+			border: 1px solid red;
+		}
+		#elem2 {
+			position: absolute;
+			left: 40px; /* добавляем позицию по горизонтали */
+			
+			width: 100px;
+			height: 100px;
+			margin-left: 10px;
+			border: 1px solid green;
+		}
+		#elem3 {
+			width: 50px;
+			height: 150px;
+			border: 1px solid blue;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+		<div id=&quot;elem2&quot;></div>
+		text text text text text text
+		<div id=&quot;elem3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Теперь давайте, наоборот, добавим свойство
+	<code data-gs="comd/c" data-x>top</code>, не добавляя позицию по горизонтали.
+	В результате по вертикали наш блок станет
+	на указанное значение, а по горизонтали -
+	останется стоять там, где и стоял:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
+&lt;div id="elem2"&gt;&lt;/div&gt;
+text text text text text text
+&lt;div id="elem3"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
+	width: 200px;
+	height: 150px;
+	border: 1px solid red;
+}
+#elem2 {
+	position: absolute;
+	top: 100px; /* добавляем позицию по вертикали */
+	
+	width: 100px;
+	height: 100px;
+	margin-left: 10px;
+	border: 1px solid green;
+}
+#elem3 {
+	width: 50px;
+	height: 150px;
+	border: 1px solid blue;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#elem1 {
+			width: 200px;
+			height: 150px;
+			border: 1px solid red;
+		}
+		#elem2 {
+			position: absolute;
+			top: 100px; /* добавляем позицию по вертикали */
+			
+			width: 100px;
+			height: 100px;
+			margin-left: 10px;
+			border: 1px solid green;
+		}
+		#elem3 {
+			width: 50px;
+			height: 150px;
+			border: 1px solid blue;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;elem1&quot;></div>
+		<div id=&quot;elem2&quot;></div>
+		text text text text text text
+		<div id=&quot;elem3&quot;></div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+    <div class="lesson-nav">
+      <a href="../absolute-relativly-absolute/index.html" class="lesson-nav-btn lesson-nav-prev" title="Абсолютное относительно абсолюта">← Абсолютное относительно абсолюта</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../centering-via-absolute/index.html" class="lesson-nav-btn lesson-nav-next" title="Центрирование через absolute">Центрирование через absolute →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

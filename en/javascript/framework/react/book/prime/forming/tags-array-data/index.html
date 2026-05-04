@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Формирование тегов из массива с данными в React — acteck.off</title>
+  <meta name="description" content="Формирование тегов из массива с данными в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Формирование тегов из массива с данными в React</h1>
+    <p>
+	Пусть у нас есть какой-нибудь массив с некими
+	данными, например, вот такой:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const arr = [1, 2, 3, 4, 5];
+}</code>
+</div>
+<p>
+	Давайте положим каждый элемент этого массива
+	в абзац и выведем эти абзацы в диве. Для
+	этого мы можем воспользоваться любым удобным
+	циклом JavaScript. Например, обычным <a href="../../../../../../book/prime/loops/for-of/index.html"><code data-gs="comd/c" data-x>for-of</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const arr = [1, 2, 3, 4, 5];
+	const res = [];
+	
+	for (const elem of arr) {
+		res.push(&lt;p&gt;{elem}&lt;/p&gt;);
+	}
+	
+	return &lt;div&gt;
+		{res}
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Однако, в React для таких дел более принято
+	использовать метод <a href="../../../../../../manual/array/map/index.html"><code data-gs="comd/c" data-x>map</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const arr = [1, 2, 3, 4, 5];
+	
+	const res = arr.map(function(item) {
+		return &lt;p&gt;{item}&lt;/p&gt;;
+	});
+	
+	return &lt;div&gt;
+		{res}
+	&lt;/div&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан массив:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const arr = ['a', 'b', 'c', 'd', 'e'];
+}</code>
+	</div>
+	<p>
+		С помощью этого массива сформируйте следующий код:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;a&lt;/li&gt;
+	&lt;li&gt;b&lt;/li&gt;
+	&lt;li&gt;c&lt;/li&gt;
+	&lt;li&gt;d&lt;/li&gt;
+	&lt;li&gt;e&lt;/li&gt;
+&lt;/ul&gt;</code>
+	</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../loop-tags-array/index.html" class="lesson-nav-btn lesson-nav-prev" title="Массив тегов в цикле">← Массив тегов в цикле</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../array-keys/index.html" class="lesson-nav-btn lesson-nav-next" title="Ключи в массиве">Ключи в массиве →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

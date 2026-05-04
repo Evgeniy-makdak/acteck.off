@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отправка файла в качестве ответа в Express — acteck.off</title>
+  <meta name="description" content="Отправка файла в качестве ответа в Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Отправка файла в качестве ответа в Express</h1>
+    <p>
+	В предыдущих уроках мы по запросу отдавали
+	некоторый текст, при этом этот текст мы записывали
+	прямо в функции-обработчике запроса:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/', function(req, res) {
+	res.send('page');
+});</code>
+</div>
+<p>
+	В реальной жизни это, конечно же, неудобно,
+	и в качестве ответа будут отдаваться файлы.
+	Пусть, к примеру, у нас есть файл <code data-gs="comd/p" data-x>page.html</code>,
+	который мы хотим отдать по некоторому адресу.
+</p>
+<p>
+	Это можно сделать с помощью метода <code data-gs="comd/c" data-x>sendFile</code>
+	объекта ответа. Здесь, однако, есть нюансы.
+	Относительный путь к файлу не будет работать
+	(почему-то):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/', function(req, res) {
+	res.sendFile('page.html'); // не будет работать
+});</code>
+</div>
+<p>
+	Поэтому нам придется использовать абсолютный
+	путь. Сделаем его с помощью <a href="../../../../../javascript/nodejs/book/prime/file-system/dirname-constant/index.html"><code data-gs="comd/c" data-x>__dirname</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import __dirname from './dirname';</code>
+</div>
+<p>
+	Отдадим теперь файл в браузер:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/', function(req, res) {
+	res.sendFile(__dirname + '/page.html');
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте так, чтобы по пути <code data-gs="comd/p" data-x>/page/1/</code>
+		отдавался файл <code data-gs="comd/p" data-x>pages/1.html</code>, по пути
+		<code data-gs="comd/p" data-x>/page/2/</code> - файл <code data-gs="comd/p" data-x>pages/2.html</code>,
+		а по пути <code data-gs="comd/p" data-x>/page/3/</code> - файл <code data-gs="comd/p" data-x>pages/3.html</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

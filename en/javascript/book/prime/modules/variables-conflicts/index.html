@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конфликты переменных в JavaScript — acteck.off</title>
+  <meta name="description" content="Конфликты переменных в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Конфликты переменных в JavaScript</h1>
+    <p>
+	Пусть у нас есть HTML страница <code data-gs="comd/p" data-x>index.html</code>,
+	на которой в теге <code data-gs="comd/c" data-x>script</code> вы создаете
+	переменную <code data-gs="comd/c" data-x>str</code> и выводите ее на экран:
+</p>
+<div data-p="bock/pane" data-p-file="index.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;html&gt;
+	&lt;head&gt;
+		&lt;script&gt;
+			let str = 'script text';
+			alert(str); // выведет 'script text'
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		...
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<p>
+	Пусть у нас также есть файл <code data-gs="comd/p" data-x>script.js</code>,
+	в котором также задается переменная <code data-gs="comd/c" data-x>str</code>:
+</p>
+<div data-p="bock/pane" data-p-file="script.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'file text';</code>
+</div>
+<p>
+	Пусть теперь наш файл <code data-gs="comd/p" data-x>script.js</code> подключается
+	к странице <code data-gs="comd/p" data-x>index.html</code> следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;html&gt;
+	&lt;head&gt;
+		&lt;script&gt;
+			let str = 'script text';
+		&lt;/script&gt;
+		&lt;script src="script.js"&gt;&lt;/script&gt;
+		&lt;script&gt;
+			alert(str);
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		...
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<p>
+	Так как переменная <code data-gs="comd/c" data-x>str</code> есть и в файле
+	<code data-gs="comd/p" data-x>index.html</code>, и в файле <code data-gs="comd/p" data-x>script.js</code>,
+	то будет конфликт, в котором победит та переменная,
+	которая написана ниже, то есть переменная
+	из файла <code data-gs="comd/p" data-x>script.js</code>. To есть наш код
+	выведет <code data-gs="comd/s" data-x>'file text'</code>, а не <code data-gs="comd/s" data-x>'script
+	text'</code>, как мы ожидаем.
+</p>
+<p>
+	Проблема на самом деле очень серьезная. В
+	реальном сайте у вас чаще всего будет несколько
+	файлов с вашими скриптами, кроме того, вы
+	будете подключать какие-то сторонние плагины.
+	В этом случае переменные и функции одного
+	файла могут конфликтовать с переменными и
+	функциями другого файла.
+</p>
+  
+    <div class="lesson-nav">
+      <a href="../../dom/functions/tables-creating-function-array/index.html" class="lesson-nav-btn lesson-nav-prev" title="Функция для создания таблицы из массива">← Функция для создания таблицы из массива</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../modules-clousures/index.html" class="lesson-nav-btn lesson-nav-next" title="Модули через замыкания">Модули через замыкания →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

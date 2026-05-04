@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Импортирование файлов LESS — acteck.off</title>
+  <meta name="description" content="Импортирование файлов LESS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Импортирование файлов LESS</h1>
+    <p>
+	Можно разделять код LESS по нескольким файлам,
+	а затем собирать их вместе в один CSS файл.
+	Это делается с помощью команды <code data-gs="comd/c" data-x>@import</code>.
+</p>
+<p>
+	Давайте посмотрим на примере. Пусть у нас
+	есть файл <code data-gs="comd/p" data-x>lib.less</code>, в котором мы будем
+	размещать вспомогательные функции:
+</p>
+<div data-p="bock/pane" data-p-file="lib.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix() {
+	color: red;
+}</code>
+</div>
+<p>
+	Давайте импортируем этот файл к нашему основному
+	файлу <code data-gs="comd/p" data-x>styles.less</code>:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">@import url('lib.less');</code>
+</div>
+<p>
+	После импорта в нашем файле становятся доступны
+	все данные из импортированного файла. Поэтому
+	мы можем воспользоваться примешниванием <code data-gs="comd/c" data-x>.mix</code>:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
+	.mix;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте файл с библиотекой полезных функций.
+		Импортируйте его к вашему основному файлу.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../calc-function/index.html" class="lesson-nav-btn lesson-nav-prev" title="Функция calc">← Функция calc</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../vendor-prefixes/index.html" class="lesson-nav-btn lesson-nav-next" title="Вендорные префиксы">Вендорные префиксы →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Изменение текста элемента через jQuery — acteck.off</title>
+  <meta name="description" content="Изменение текста элемента через jQuery — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Изменение текста элемента через jQuery</h1>
+    <p>	 
+	В предыдущих уроках мы научились получать
+	группу элементов через jQuery и даже видели
+	некоторые примеры работы с методами. Теперь
+	разберемся с ними более подробно. В этом уроке
+	мы научимся менять текст элемента при помощи двух
+	методов: <a href="../../../../manual/html/index.html"><code data-gs="comd/c" data-x>html</code></a> и
+	<a href="../../../../manual/text/index.html"><code data-gs="comd/c" data-x>text</code></a>.
+</p>
+<p>
+	Решим следующую задачу: получим все элементы
+	с классом <code data-gs="comd/z" data-x>www</code> и одновременно поменяем
+	всем им текст на <code data-gs="comd/s" data-x>'!!!'</code>. Пусть у нас есть
+	следующий HTML код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="www"&gt;text&lt;/p&gt;
+&lt;p class="www"&gt;text&lt;/p&gt;
+&lt;p class="www"&gt;text&lt;/p&gt;
+&lt;p&gt;text&lt;/p&gt;</code>
+</div>
+<p>
+	Toгда JavaScript код будет выглядеть следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.getElementsByClassName('www');
+
+for (let i = 0; i &lt; elems.length; i++) {
+	elems[i].innerHTML = '!!!';
+}</code>
+</div>
+<p>
+	Через jQuery все будет намного проще: получим
+	все элементы с помощью доллара, вот так:
+	<code data-gs="comd/c" data-x>$('.www')</code>, а потом применим к ним метод
+	<a href="../../../../manual/html/index.html"><code data-gs="comd/c" data-x>html</code></a>,
+	который параметром принимает новый
+	текст - <code data-gs="comd/c" data-x>$('.www').html('new text')</code>. Все! Эта
+	строчка выполнит всю работу без всяких циклов и
+	прочей ерунды. Запустите пример и убедитесь в
+	этом сами:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('.www').html('!!!');</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Всем <code data-gs="comd/c" data-x>h3</code> с помощью метода <code data-gs="comd/c" data-x>html</code>
+		поставьте текст <code data-gs="comd/s" data-x>'!!!'</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../sets/index.html" class="lesson-nav-btn lesson-nav-prev" title="Наборы jQuery">← Наборы jQuery</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../array-to-variable/index.html" class="lesson-nav-btn lesson-nav-next" title="Запись набора в переменную">Запись набора в переменную →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

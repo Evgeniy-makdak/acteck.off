@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Объект Event при передаче параметров — acteck.off</title>
+  <meta name="description" content="Объект Event при передаче параметров — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Объект Event при передаче параметров</h1>
+    <p>
+	Пусть у нас есть некоторая функция <code data-gs="comd/c" data-x>func</code>,
+	которую мы хотим использовать в качестве
+	обработчика события. Пусть эта функция принимает
+	некоторый параметр:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function func(arg) {
+	console.log(arg);
+}</code>
+</div>
+<p>
+	Давайте используем эту функцию в качестве
+	обработчика, передав ей параметр:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	function func(arg) {
+		console.log(arg);
+	}
+	
+	return &lt;div&gt;
+		&lt;button onClick={() =&gt; func('eee')}&gt;act&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Пусть теперь кроме параметра мы хотим получить
+	в нашей функции объект <code data-gs="comd/c" data-x>Event</code>. Для
+	этого нам нужно поступить следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	function func(arg, event) {
+		console.log(arg, event);
+	}
+	
+	return &lt;div&gt;
+		&lt;button onClick={event =&gt; func('eee', event)}&gt;act&lt;/button&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Расскажите, как работает приведенный код.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте приведенный код так, чтобы функция
+		принимала два параметра.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу так, чтобы
+		объект с событием передавался первым параметром
+		функции, а не последним.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу так, чтобы
+		объект с событием передавался вторым параметром
+		функции, находясь между первым и третьим
+		параметрами.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../event-object/index.html" class="lesson-nav-btn lesson-nav-prev" title="Объект Event">← Объект Event</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../forming/tags-array/index.html" class="lesson-nav-btn lesson-nav-next" title="Массив тегов">Массив тегов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

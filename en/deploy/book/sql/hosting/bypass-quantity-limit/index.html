@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обход ограничения на количество БД на хостинге — acteck.off</title>
+  <meta name="description" content="Обход ограничения на количество БД на хостинге — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/deploy/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/deploy/index.html">Деплой</a>
+    </div>
+
+    <h1>Обход ограничения на количество БД на хостинге</h1>
+    <p>
+	Как вы уже знаете, количество баз данных
+	на виртуальном хостинге обычно ограничено.
+	Как правило оно равно количеству сайтов.
+</p>
+<p>
+	Однако, бывают ситуации, когда нам нужно
+	больше баз данных. Давайте обсудим,
+	что это за ситуации и как обойти
+	ограничение на количество БД.
+</p>
+<p>
+	Итак. Пусть у нас самый дешевый тариф, в котором
+	мы можем сделать только один
+	сайт и соответственно одну базу данных.
+</p>
+<p>
+	Однако, мы можем сделать один сайт
+	<b>второго</b> уровня, но любое количество
+	поддоменов. К примеру, на основном
+	домене у нас может быть интернет-магазин,
+	а на поддомене - форум.
+</p>
+<p>
+	Получается, нам нужно две базы данных.
+	И только из-за этого нам придется брать
+	более дорогой тариф. Но есть обходной путь.
+</p>
+<p>
+	Суть обходного пути в следующем. Оба наших сайта
+	будут жить в одной базе данных.
+	Но, чтобы имена таблиц не конфликтовали,
+	мы будем давать им префиксы.
+</p>
+<p>
+	К примеру,
+	имена таблиц магазина мы будем начинать
+	на <code data-gs="comd/s" data-x>shop_</code>, а имена таблиц
+	форума на <code data-gs="comd/s" data-x>forum_</code>.
+	Однако, обычно для краткости
+	префиксы делают двухбуквенными,
+	в нашем случае это может быть
+	<code data-gs="comd/s" data-x>sh_</code> и <code data-gs="comd/s" data-x>fr_</code>.
+</p>
+<p>
+	Конечно, смена имен таблиц во всем
+	коде может доставить некоторые неудобства.
+	Поэтому, разрабатывая сайт, лучше сразу
+	предвидеть возможность такой ситуации
+	и не хардкодить имена таблиц,
+	а хранить их где-то в одном месте,
+	чтобы их легко было поменять.
+</p>
+<p>
+	Либо сразу предусмотреть в нашем коде
+	наличие префикса и везде в SQL запросах
+	перед именем таблицы добавлять
+	еще и префикс. Сам префикс будет
+	хранится где-то в одном месте -
+	в конфигурации нашего сайта.
+	Таким образом мы сможем легко
+	его исправить на нужный нам.
+</p>
+<div data-w="cont/task">
+	<p>
+		Обдумайте код, который вы
+		напишете в вашем проекте для поддержки префиксов
+		таблиц.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

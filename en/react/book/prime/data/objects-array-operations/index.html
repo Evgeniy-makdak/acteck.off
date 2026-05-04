@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реактивные операции над массивами объектов в React — acteck.off</title>
+  <meta name="description" content="Реактивные операции над массивами объектов в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Реактивные операции над массивами объектов в React</h1>
+    <p>
+	Давайте теперь научимся делать реактивные
+	операции над массивами объектов. В этом
+	случае мы должны передать в функцию
+	<code data-gs="comd/c" data-x>id</code> элемента массива, с которым
+	мы собираемся что-то делать:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [notes, setNotes] = useState(initNotes);
+	
+	const result = notes.map(note =&gt; {
+		return &lt;li key={note.id}&gt;
+			&lt;span&gt;{note.prop1}&lt;/span&gt;
+			&lt;span&gt;{note.prop2}&lt;/span&gt;
+			&lt;span&gt;{note.prop3}&lt;/span&gt;
+			
+			&lt;button onClick={() =&gt; doSmth(note.id)}&gt;
+				btn
+			&lt;/button&gt;
+		&lt;/li&gt;;
+	});
+	
+	return &lt;div&gt;
+		&lt;ul&gt;
+			{result}
+		&lt;/ul&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Для того, чтобы что-то сделать с элементом,
+	мы сначала должны найти его, перебрав
+	весь массив циклом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	...
+	
+	function doSmth(id) {
+		setNotes(notes.map(note =&gt; {
+			if (note.id === id) {
+				// что-то делаем с элементом
+			}
+			
+			return note;
+		}));
+	}
+}</code>
+</div>
+<p>
+	Давайте для примера поменяем тексты
+	найденного объекта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	...
+	
+	function doSmth(id) {
+		setNotes(notes.map(note =&gt; {
+			if (note.id === id) {
+				note.prop1 += '!';
+				note.prop2 += '!';
+				note.prop2 += '!';
+				
+				return note;
+			}
+			
+			return note;
+		}));
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		В конце каждой <code data-gs="comd/c" data-x>li</code> сделайте кнопку,
+		по нажатию на которую эта <code data-gs="comd/c" data-x>li</code> будет
+		удаляться из списка.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны три инпута. В конце каждой <code data-gs="comd/c" data-x>li</code>
+		сделайте кнопку, по нажатию на которую
+		данные объекта этой <code data-gs="comd/c" data-x>li</code> будут
+		попадать в соответствующие инпуты.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу так,
+		чтобы рядом с инпутами была кнопка,
+		по нажатию на которую данные инпутов
+		будут попадать в соответствующую <code data-gs="comd/c" data-x>li</code>.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

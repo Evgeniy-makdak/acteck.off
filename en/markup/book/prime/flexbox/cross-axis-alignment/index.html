@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выравнивание флекс блоков по поперечной оси в CSS — acteck.off</title>
+  <meta name="description" content="Выравнивание флекс блоков по поперечной оси в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Выравнивание флекс блоков по поперечной оси в CSS</h1>
+    <p>
+	Давайте теперь будем выравнивать блоки и
+	по поперечной оси. Выравнивание по этой оси
+	задается свойством <code data-gs="comd/c" data-x>align-items</code>. Значение
+	<code data-gs="comd/v" data-x>flex-start</code> прижимает элементы к началу
+	оси, а значение <code data-gs="comd/v" data-x>flex-end</code> - к концу.
+</p>
+<p>
+	Давайте попробуем на примерах.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Направим главную ось слева направо. В этом
+	случае поперечная ось будет направлена сверху
+	вниз. Давайте порегулируем расположение наших
+	блоков и по главной оси, и по перечной оси.
+</p>
+<p>
+	По главной оси прижмем блоки к ее началу,
+	то есть к левому краю. Для этого <code data-gs="comd/c" data-x>justify-content</code>
+	установим в значение <code data-gs="comd/v" data-x>flex-start</code>. По
+	поперечной оси также прижмем блоки к ее началу,
+	то есть к верхнему краю. Для этого <code data-gs="comd/c" data-x>align-items</code>
+	также установим в значение <code data-gs="comd/v" data-x>flex-start</code>.
+</p>
+<p>
+	Посмотрим, что у нас получается:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-direction:  row;        /* главная ось направо, поперечная вниз */
+	justify-content: flex-start; /* блоки к началу главной оси */
+	align-items:     flex-start; /* блоки к началу поперечной оси */
+}</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-direction:  row;        /* главная ось направо, поперечная вниз */
+			justify-content: flex-start; /* блоки к началу главной оси */
+			align-items:     flex-start; /* блоки к началу поперечной оси */
+			width: 300px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child {
+			width: 50px;
+			height: 50px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте теперь прижмем блоки к концу поперечной
+	оси, то есть к низу. Для этого <code data-gs="comd/c" data-x>align-items</code>
+	установим в значение <code data-gs="comd/v" data-x>flex-end</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-direction:  row;        /* главная ось направо, поперечная вниз */
+	justify-content: flex-start; /* блоки к началу главной оси */
+	align-items:     flex-end;   /* блоки к концу поперечной оси */
+}</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-direction:  row;        /* главная ось направо, поперечная вниз */
+			justify-content: flex-start; /* блоки к началу главной оси */
+			align-items:     flex-end;   /* блоки к концу поперечной оси */
+			width: 300px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child {
+			width: 50px;
+			height: 50px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Направим теперь главную ось сверху вниз.
+	Так как главная ось вертикальна, то поперечная
+	будет направлена справа налево. Давайте прижмем
+	блоки по обеим осям к их началу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-direction:  column;     /* главная ось вниз, поперечная вправо */
+	justify-content: flex-start; /* блоки к началу главной оси */
+	align-items:     flex-start; /* блоки к началу поперечной оси */
+}</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-direction:  column;     /* главная ось вниз, поперечная вправо */
+			justify-content: flex-start; /* блоки к началу главной оси */
+			align-items:     flex-start; /* блоки к началу поперечной оси */
+			width: 300px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child {
+			width: 50px;
+			height: 50px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	А теперь по поперечной оси прижмем блоки
+	к ее концу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-direction:  column;     /* главная ось вниз, поперечная вправо */
+	justify-content: flex-start; /* блоки к началу главной оси */
+	align-items:     flex-end;   /* блоки к концу поперечной оси */
+}</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-direction:  column;     /* главная ось вниз, поперечная вправо */
+			justify-content: flex-start; /* блоки к началу главной оси */
+			align-items:     flex-end;   /* блоки к концу поперечной оси */
+			width: 300px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child {
+			width: 50px;
+			height: 50px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Прижмем блоки к концу обеих осей:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-direction:  column;   /* главная ось вниз, поперечная вправо */
+	justify-content: flex-end; /* блоки к концу главной оси */
+	align-items:     flex-end; /* блоки к концу поперечной оси */
+}</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-direction:  column;   /* главная ось вниз, поперечная вправо */
+			justify-content: flex-end; /* блоки к концу главной оси */
+			align-items:     flex-end; /* блоки к концу поперечной оси */
+			width: 300px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child {
+			width: 50px;
+			height: 50px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте поменяем направление главной оси
+	- направим ее снизу вверх. При этом поперечная
+	ось не изменит своего направления, так как
+	главная ось по-прежнему вертикальна.
+</p>
+<p>
+	Прижмем блоки к началу обеих осей:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
+	display: flex;
+	flex-direction:  column-reverse; /* главная ось вверх, поперечная вправо */
+	justify-content: flex-start;     /* блоки к началу главной оси */
+	align-items:     flex-start;     /* блоки к началу поперечной оси */
+}</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+			display: flex;
+			flex-direction:  column-reverse; /* главная ось вверх, поперечная вправо */
+			justify-content: flex-start;     /* блоки к началу главной оси */
+			align-items:     flex-start;     /* блоки к началу поперечной оси */
+			width: 300px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child {
+			width: 50px;
+			height: 50px;
+			border: 1px solid green;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+			<div class=&quot;child&quot;>1</div>
+			<div class=&quot;child&quot;>2</div>
+			<div class=&quot;child&quot;>3</div>
+		</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Повторите страницу по данному образцу:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				display: flex;
+				flex-direction: column-reverse;
+				justify-content: flex-end;
+				align-items: flex-end;
+				width: 900px;
+				height: 400px;
+				margin: 20px auto;
+				border: 1px solid red;
+			}
+			.child {
+				width: 120px;
+				height: 60px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				<div class=&quot;child&quot;>1</div>
+				<div class=&quot;child&quot;>2</div>
+				<div class=&quot;child&quot;>3</div>
+				<div class=&quot;child&quot;>4</div>
+				<div class=&quot;child&quot;>5</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Повторите страницу по данному образцу:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: flex-start;
+				align-items: flex-end;
+				width: 900px;
+				height: 400px;
+				margin: 20px auto;
+				border: 1px solid red;
+			}
+			.child {
+				width: 120px;
+				height: 60px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				<div class=&quot;child&quot;>1</div>
+				<div class=&quot;child&quot;>2</div>
+				<div class=&quot;child&quot;>3</div>
+				<div class=&quot;child&quot;>4</div>
+				<div class=&quot;child&quot;>5</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Повторите страницу по данному образцу:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				display: flex;
+				flex-direction: column-reverse;
+				justify-content: flex-end;
+				align-items: flex-start;
+				width: 900px;
+				height: 400px;
+				margin: 20px auto;
+				border: 1px solid red;
+			}
+			.child {
+				width: 120px;
+				height: 60px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				<div class=&quot;child&quot;>1</div>
+				<div class=&quot;child&quot;>2</div>
+				<div class=&quot;child&quot;>3</div>
+				<div class=&quot;child&quot;>4</div>
+				<div class=&quot;child&quot;>5</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Повторите страницу по данному образцу:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				display: flex;
+				flex-direction: column-reverse;
+				justify-content: flex-start;
+				align-items: flex-end;
+				width: 900px;
+				height: 400px;
+				margin: 20px auto;
+				border: 1px solid red;
+			}
+			.child {
+				width: 120px;
+				height: 60px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				<div class=&quot;child&quot;>1</div>
+				<div class=&quot;child&quot;>2</div>
+				<div class=&quot;child&quot;>3</div>
+				<div class=&quot;child&quot;>4</div>
+				<div class=&quot;child&quot;>5</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Повторите страницу по данному образцу:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: flex-end;
+				width: 900px;
+				height: 400px;
+				margin: 20px auto;
+				border: 1px solid red;
+			}
+			.child {
+				width: 120px;
+				height: 60px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				<div class=&quot;child&quot;>1</div>
+				<div class=&quot;child&quot;>2</div>
+				<div class=&quot;child&quot;>3</div>
+				<div class=&quot;child&quot;>4</div>
+				<div class=&quot;child&quot;>5</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Повторите страницу по данному образцу:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: flex-start;
+				width: 900px;
+				height: 400px;
+				margin: 20px auto;
+				border: 1px solid red;
+			}
+			.child {
+				width: 120px;
+				height: 60px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				<div class=&quot;child&quot;>1</div>
+				<div class=&quot;child&quot;>2</div>
+				<div class=&quot;child&quot;>3</div>
+				<div class=&quot;child&quot;>4</div>
+				<div class=&quot;child&quot;>5</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Повторите страницу по данному образцу:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/open" data-m-type="W">
+						<a href="" data-e="link" data-x>
+							<span data-e="text" data-x data-lo="torc" data-m-kest="open-window"></span>
+							<div data-e="code" data-x data-v-code="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			.parent {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: flex-end;
+				width: 900px;
+				height: 400px;
+				margin: 20px auto;
+				border: 1px solid red;
+			}
+			.child {
+				width: 120px;
+				height: 60px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=&quot;parent&quot;>
+				<div class=&quot;child&quot;>1</div>
+				<div class=&quot;child&quot;>2</div>
+				<div class=&quot;child&quot;>3</div>
+				<div class=&quot;child&quot;>4</div>
+				<div class=&quot;child&quot;>5</div>
+			</div>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></div>
+						</a>
+					</div>
+				</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../main-axis-alignment/index.html" class="lesson-nav-btn lesson-nav-prev" title="Выравнивание по главной оси">← Выравнивание по главной оси</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../cross-axis-center/index.html" class="lesson-nav-btn lesson-nav-next" title="Значение center свойства align-items">Значение center свойства align-items →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Команда composes для файлов в CSS modules в React — acteck.off</title>
+  <meta name="description" content="Команда composes для файлов в CSS modules в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Команда composes для файлов в CSS modules в React</h1>
+    <p>
+	Команду <code data-gs="comd/c" data-x>composes</code> можно применить и для 
+	переиспользования стилей из одного файла 
+	в другом.
+</p>
+<p>
+	Вернемся к приложению <code data-gs="comd/c" data-x>buttons</code>,
+	которое мы делали в предыдущих уроках.
+	Предположим, мы хотим добавить всем
+	кнопочкам одинаковые тени, стиль курсора
+	и жирный шрифт. Пусть эти стили будут
+	расположены в файле <code data-gs="comd/p" data-x>App.module.css</code>.
+	Давайте откроем этот файл и добавим в
+	начало новый класс <code data-gs="comd/z" data-x>beauty</code> с этими
+	стилями:
+</p>
+<div data-p="bock/pane" data-p-file="App.module.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.beauty { 
+	box-shadow: rgba(50, 50, 50, 0.2) 0 5px 5px 0;
+	font-weight: bold;
+	cursor: pointer;
+}</code>
+</div>
+<p>
+	Давайте применим его для стилизации кнопочек. 
+	Для этого откроем <code data-gs="comd/p" data-x>Buttons.module.css</code> и 
+	внесем изменения в класс <code data-gs="comd/z" data-x>common-btn</code>.
+	Мы добавим строку с командой <code data-gs="comd/c" data-x>composes</code>,
+	где укажем название класса <code data-gs="comd/z" data-x>beauty</code>,
+	который мы хотим применить и файла
+	<code data-gs="comd/p" data-x>App.module.css</code>, в котором находится
+	этот класс:
+</p>
+<div data-p="bock/pane" data-p-file="Buttons.module.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.common-btn {
+	composes: beauty from "../App.module.css"; 
+	font-size: 16px;
+	border-radius: 3px;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Возьмите код вашего приложения из  
+		задачи к прошлому уроку и сделайте
+		какую-нибудь тень к вашим инпутам
+		используя способ, приведенный в
+		данном уроке.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../css-modules-composes-styles/index.html" class="lesson-nav-btn lesson-nav-prev" title="Команда composes для классов">← Команда composes для классов</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../project/checklist/index.html" class="lesson-nav-btn lesson-nav-next" title="Чеклист">Чеклист →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

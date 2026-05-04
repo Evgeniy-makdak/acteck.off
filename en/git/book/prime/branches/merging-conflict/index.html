@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конфликт при слиянии веток в Git — acteck.off</title>
+  <meta name="description" content="Конфликт при слиянии веток в Git — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/git/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/git/index.html">Git</a>
+    </div>
+
+    <h1>Конфликт при слиянии веток в Git</h1>
+    <p>
+	В процессе слияния двух веток возможны конфликты,
+	если в каждой из веток мы изменяли один и тот же файл.
+	Рассмотрим ситуацию, когда в обоих
+	ветках <code data-gs="comd/s" data-x>master</code> и <code data-gs="comd/s" data-x>test</code> из
+	предыдущего урока мы изменили и сделали
+	коммит на один тот же файл <code data-gs="comd/p" data-x>file.txt</code>.
+	А затем применили команду слияния:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git merge test</code>
+</div>
+<p>
+	В результате увидим ошибку:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">Auto-merging file.txt
+CONFLICT (content): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.</code>
+</div>
+<p>
+	Кроме того, в изменяемом файле мы
+	увидим маркеры конфликта:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+тут будут написаны изменения ветки master
+=======
+тут будут написаны изменения ветки test
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; test</code>
+</div>
+<p>
+	В верхней части сообщения указаны изменения,
+	сделанные в основной на данный момент ветке,
+	в нижней части - во второй ветке,
+	которую мы хотим слить с первой.
+	Для <dfn data-gs="comd/d" data-x>разрешения</dfn> конфликта нам необходимо привести
+	содержимое файла к общему виду,
+	предварительно удалив (руками в редакторе!)
+	все обозначения конфликта, которые оставил в нем Git.
+</p>
+<p>
+	После того, как мы <dfn data-gs="comd/d" data-x>разрешим</dfn> конфликт
+	(то есть оставим правильный код в файле),
+	проиндексируем наш файл и сделаем коммит
+	в ветке <code data-gs="comd/s" data-x>master</code>, в которой мы
+	сейчас находимся:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="text">git add file.txt
+git commit -m "слияние"</code>
+</div>
+<p>
+	Toлько после этого мы можем переключиться
+	на вторую ветку <code data-gs="comd/s" data-x>test</code> и проделать
+	все те же операции, что и в ветке <code data-gs="comd/s" data-x>master</code>,
+	в том числе и заменить содержимое файла
+	<code data-gs="comd/p" data-x>file.txt</code> на то же, что и в первой ветке:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git add file.txt
+git commit -m "слияние"</code>
+</div>
+<p>
+	Теперь мы можем снова переключиться
+	на основную ветку и влить в нее вторую:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git switch master
+git merge test</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Намеренно создайте конфликт при слиянии
+		веток. Затем разрешите его.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../merging/index.html" class="lesson-nav-btn lesson-nav-prev" title="Слияние веток">← Слияние веток</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../removing/index.html" class="lesson-nav-btn lesson-nav-next" title="Удаление веток">Удаление веток →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

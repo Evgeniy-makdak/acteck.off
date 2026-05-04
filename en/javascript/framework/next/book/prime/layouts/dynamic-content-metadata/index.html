@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Динамическая передача метаданных из контента в NextJS — acteck.off</title>
+  <meta name="description" content="Динамическая передача метаданных из контента в NextJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/next/index.html">Next.js</a>
+    </div>
+
+    <h1>Динамическая передача метаданных из контента в NextJS</h1>
+    <p>
+	В предыдущем уроке мы научились задавать
+	метаданные в контенте сайта. Этот способ
+	хорош, но применим не всегда.
+	Дело в том, что метаданные страницы
+	могут меняться в зависимости от параметра
+	динамического роута.
+</p>
+<p>
+	Давайте посмотрим на примере.
+	Пусть у нас есть файл с конентом
+	для показа юзера по его <code data-gs="comd/c" data-x>id</code>.
+	Пусть в этом файле есть
+	массив с юзерами:
+</p>
+<div data-p="bock/pane" data-p-file="app/users/[id]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let users = [
+	'user1',
+	'user2',
+	'user3',
+	'user4',
+	'user5',
+];</code>
+</div>
+<p>
+	Давайте выведем данные юзера,
+	соответствующего переданному параметру:
+</p>
+<div data-p="bock/pane" data-p-file="app/users/[id]/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function User({ params }) {
+	return &lt;&gt;
+		&lt;h1&gt;user {params.id}&lt;/h1&gt;
+		&lt;p&gt;
+			name: {users[params.id]}
+		&lt;/p&gt;
+	&lt;/&gt;;
+}</code>
+</div>
+<p>
+	Перейдем теперь к нашей проблеме.
+	Так как мы показываем разных юзеров,
+	то и метаданные для них должны быть разными.
+	Мы должны формировать их динамически,
+	в зависимости от значения параметра.
+</p>
+<p>
+	Это делается с помощью специальной
+	функции <code data-gs="comd/c" data-x>generateMetadata</code>,
+	которую мы должны экспортировать
+	из нашего компонента:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const generateMetadata = () =&gt; {
+	return {
+		title: '',
+		description: '',
+	};
+};</code>
+</div>
+<p>
+	В этой функции нам доступны параметры
+	роута:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const generateMetadata = ({params}) =&gt; {
+	console.log(params);
+};</code>
+</div>
+<p>
+	Давайте будем отдавать нужные метаданные
+	в зависимости от значения параметра:
+</p>
+<div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const generateMetadata = ({params}) =&gt; {
+	return {
+		title: `Page for user {params.id}`,
+		description: `Description for user "{users[params.id]}"`,
+	};
+};</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте роут, обрабатывающий адреса
+		вида <code data-gs="comd/p" data-x>/post/:id</code>, где вместо <code data-gs="comd/p" data-x>:id</code>
+		может быть любое число.
+	</p>
+	<p>
+		Пусть дан следующий массив:
+	</p>
+	<div data-p="bock/pane" data-p-file="page.jsx">
+		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let posts = [
+	{
+		id: '1',
+		title: 'post 1',
+		desc: 'description for post 1',
+		text: 'text1 text1 text1 text1 text1 text1 text1 text1',
+	},
+	{
+		id: '2',
+		title: 'post 2',
+		desc: 'description for post 2',
+		text: 'text2 text2 text2 text2 text2 text2 text2 text2',
+	},
+	{
+		id: '3',
+		title: 'post 3',
+		desc: 'description for post 3',
+		text: 'text3 text3 text3 text3 text3 text3 text3 text3',
+	},
+];
+
+export default function Post() {
+	
+}</code>
+	</div>
+	<p>
+		Сделайте так, чтобы по заданному айди
+		выводилась верстка нужного поста,
+		а также устанавливался правильный тайтл
+		и метаописание.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../static-content-metadata/index.html" class="lesson-nav-btn lesson-nav-prev" title="Статические метаданные из контента">← Статические метаданные из контента</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../parts/index.html" class="lesson-nav-btn lesson-nav-next" title="Части сайта">Части сайта →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>База данных для сервера в Redux — acteck.off</title>
+  <meta name="description" content="База данных для сервера в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>База данных для сервера в Redux</h1>
+    <p>
+	На прошлом занятии мы установили msw,
+	который нам поможет сымитировать работу
+	нашего приложения с сервером. И для начала
+	мы бы хотели подгружать при запуске
+	приложения уже имеющиеся на сервере
+	данные.
+</p>
+<p>
+	Давайте откроем наше приложение с продуктами,
+	а в нем файл <code data-gs="comd/p" data-x>server.js</code>. Здесь у нас уже
+	имеется пара строчек кода с прошлого
+	занятия.
+</p>
+<p>
+	И первое, что мы должны спросить у себя: где
+	обычно хранятся данные? Да, конечно в базе
+	данных, ответим мы не задумываясь. Поэтому
+	давайте используем еще один крутой инструмент,
+	который позволит нам создать модель наших
+	данных, а также сделать так, как будто мы
+	работаем с настоящей SQL-базой.
+</p>
+<p>
+	Инструмент, который нам в этом поможет -
+	это библиотека <a href="https://github.com/mswjs/data">@mswjs/data</a>.
+	Чтобы ее установить, вбейте в терминале
+	следующую команду:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install @mswjs/data --save-dev</code>
+</div>
+<p>
+	Теперь импортируем в файле <code data-gs="comd/p" data-x>server.js</code>
+	нужные нам вещи:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { factory, oneOf, manyOf, primaryKey } from '@mswjs/data'</code>
+</div>
+<p>
+	И создадим нашу импровизировнную базу
+	данных. Для этого мы используем функцию
+	<code data-gs="comd/c" data-x>factory</code>. Сделаем мы это ниже после
+	строчек с импортом и перед экспортом воркера:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const db = factory({})</code>
+</div>
+<p>
+	А какие данные мы будем в ней хранить?
+	С сервера мы должны получать продукты,
+	продавцов и реакции пользователей. Значит
+	в нашей базе данных мы должны создать
+	три модельки, которые принимает <code data-gs="comd/c" data-x>factory</code>
+	в виде объектов:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const db = factory({
+	product: {},
+	seller: {},
+	reaction: {},
+})</code>
+</div>
+<p>
+	Как и в настоящей SQL базе данных каждая
+	наша моделька должна иметь <code data-gs="comd/c" data-x>primary key</code>.
+	Традиционно, мы назначим таким полем <code data-gs="comd/c" data-x>id</code>,
+	генерировать который мы будем все той же
+	nanoid библиотекой:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const db = factory({
+	product: {
+		id: primaryKey(nanoid),
+	},
+	seller: {
+		id: primaryKey(nanoid),
+	},
+	reaction: {
+		id: primaryKey(nanoid),
+	},
+})</code>
+</div>
+<p>
+	Не забудем добавить nanoid в строчках
+	импорта в начале файла:
+</p>
+<div data-p="bock/pane" data-p-file="api/server.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { nanoid } from '@reduxjs/toolkit'</code>
+</div>
+<p>
+	На следующем уроке мы дополним наши модели
+	необходимыми полями.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Ознакомившись с материалом этого урока,
+		установите @mswjs/data для вашего
+		приложения.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Далее создайте модель базы данных <code data-gs="comd/c" data-x>db</code> при
+		помощи функции <code data-gs="comd/c" data-x>factory</code>. Передайте ей три
+		объекта (<code data-gs="comd/c" data-x>student</code>, <code data-gs="comd/c" data-x>teacher</code>, <code data-gs="comd/c" data-x>vote</code>) для
+		ваших данных, подобно тому как показано
+		в уроке. 
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../install-msw/index.html" class="lesson-nav-btn lesson-nav-prev" title="Установка msw для работы с сервером">← Установка msw для работы с сервером</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../data-models/index.html" class="lesson-nav-btn lesson-nav-next" title="Создание моделей данных для базы данных">Создание моделей данных для базы данных →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

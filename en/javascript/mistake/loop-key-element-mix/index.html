@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Путаница ключа и элемента в цикле for в JavaScript — acteck.off</title>
+  <meta name="description" content="Путаница ключа и элемента в цикле for в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Путаница ключа и элемента в цикле for в JavaScript</h1>
+    <p>
+	Пусть дан массив с названиями месяцев:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [
+	'янв', 'фев', 'март', 'апр', 'май', 'июнь',
+	'июль', 'авг', 'сен', 'окт', 'ноя', 'дек'
+];</code>
+</div>
+<p>
+	Пусть в переменной <code data-gs="comd/c" data-x>month</code> хранится
+	номер текущего месяца:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let month = 10;</code>
+</div>
+<p>
+	Давайте с помощью цикла выведем все месяцы,
+	при этом текущий месяц выведем курсивом.
+</p>
+<p>
+	Некий программист уже решил эту задачу,
+	однако, он ошибся и не обратил внимание
+	на то, что в переменной <code data-gs="comd/c" data-x>month</code>
+	хранится номер месяца, а не его название:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let i = 0; i &lt; arr.length; i++) {
+	if (month === arr[i]) { // ошибка тут
+    	document.write('&lt;i&gt;' + arr[i] + '&lt;/i&gt;');
+	}
+	else { 
+    	document.write(arr[i]);
+	}
+	
+	document.write('&lt;br&gt;');
+}</code>
+</div>
+<p>
+	Наш программист сравнивает элемент массива
+	с переменной <code data-gs="comd/c" data-x>month</code>. Но ведь в этой
+	переменной хранится номер месяца,
+	а не его название!
+</p>
+<p>
+	Чтобы код работал правильно,
+	нужно сравнивать <code data-gs="comd/c" data-x>month</code>
+	с номером месяца, то есть
+	со значением счетчика <code data-gs="comd/c" data-x>i</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let i = 0; i &lt; arr.length; i++){
+	if (month === i) { // исправили ошибку
+    	document.write('&lt;i&gt;' + arr[i] + '&lt;/i&gt;');
+	}
+	else { 
+    	document.write(arr[i]);
+	}
+	
+	document.write('&lt;br&gt;');
+}</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

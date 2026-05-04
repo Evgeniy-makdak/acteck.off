@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вывод текста элемента через jQuery — acteck.off</title>
+  <meta name="description" content="Вывод текста элемента через jQuery — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Вывод текста элемента через jQuery</h1>
+    <p>
+	Методы <a href="../../../../manual/html/index.html"><code data-gs="comd/c" data-x>html</code></a>
+	и <a href="../../../../manual/text/index.html"><code data-gs="comd/c" data-x>text</code></a>
+	можно использовать не только для изменения текста
+	элементов, но и для вывода его на экран. Давайте
+	получим элемент и выведем
+	его текст:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text&lt;/p&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">alert($('#test').html());</code>
+</div>
+<p>
+	Если вы попытаетесь получить текст не одного
+	элемента, а многих, то увидите только содержимое
+	первого элемента. Используйте метод 
+	<a href="../../../../manual/each/index.html"><code data-gs="comd/c" data-x>each</code></a>,
+	чтобы получить тексты всех элементов, о нем
+	будет говорится в следующих уроках.
+</p>
+<p>
+	В примере ниже мы получаем все абзацы с классом
+	<code data-gs="comd/z" data-x>www</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="www"&gt;text1&lt;/p&gt;
+&lt;p class="www"&gt;text2&lt;/p&gt;
+&lt;p class="www"&gt;text3&lt;/p&gt;</code>
+</div>
+<p> 
+	Затем выводим содержимое с помощью
+	<code data-gs="comd/c" data-x>html</code>, при этом выведется только текст первого
+	абзаца из полученных:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">alert($('.www').html()); // выведет 'text1'</code>
+</div>
+<p>
+	С методом <code data-gs="comd/c" data-x>text</code> тоже нужно быть аккуратным,
+	в нашем случае он выведет содержимое всех найденных
+	элементов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">alert($('.www').text()); // выведет 'text1text2text3'</code>
+</div>
+    <div class="lesson-nav">
+      <a href="../tags-inserting/index.html" class="lesson-nav-btn lesson-nav-prev" title="Вставка текста с тегами методом html">← Вставка текста с тегами методом html</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../css-getting/index.html" class="lesson-nav-btn lesson-nav-next" title="Работа с CSS">Работа с CSS →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

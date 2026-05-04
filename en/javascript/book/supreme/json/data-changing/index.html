@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Изменение данных в JSON на JavaScript — acteck.off</title>
+  <meta name="description" content="Изменение данных в JSON на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Изменение данных в JSON на JavaScript</h1>
+    <p>
+	Пусть у нас есть строка, содержащая массив
+	в формате JSON:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = '[1, 2, 3, 4, 5]';</code>
+</div>
+<p>
+	Давайте добавим в конец этого массива еще
+	один элемент. Для этого нам нужно проделать
+	ряд шагов.
+</p>
+<p>
+	Для начала распакуем JSON в массив JavaScript:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = JSON.parse(json);</code>
+</div>
+<p>
+	Добавим в массив новый элемент:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">arr.push(6);</code>
+</div>
+<p>
+	Преобразуем измененный массив обратно в JSON:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = JSON.stringify(arr);</code>
+</div>
+<p>
+	Итоговый код будет выглядеть следующим образом:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = '[1, 2, 3, 4, 5]';
+
+let arr  = JSON.parse(json);
+arr.push(6);
+
+let res = JSON.stringify(arr);
+console.log(res);</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий JSON:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = '["user1","user2","user3","user4","user5"]';</code>
+	</div>
+	<p>
+		Добавьте в конец строки еще одного юзера.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий JSON:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = '["user1","user2","user3","user4","user5"]';</code>
+	</div>
+	<p>
+		Поменяйте имя второго юзера.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий JSON:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = `[
+	{
+		"name": "user1",
+		"age": 25,
+		"salary": 1000
+	},
+	{
+		"name": "user2",
+		"age": 26,
+		"salary": 2000
+	},
+	{
+		"name": "user3",
+		"age": 27,
+		"salary": 3000
+	}
+]`;</code>
+	</div>
+	<p>
+		Добавьте в эту строку еще одного работника.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../from-structure/index.html" class="lesson-nav-btn lesson-nav-prev" title="Данные в JSON">← Данные в JSON</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../storage/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

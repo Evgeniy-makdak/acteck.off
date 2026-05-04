@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свой файл макета в Webpack — acteck.off</title>
+  <meta name="description" content="Свой файл макета в Webpack — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../en/webpack/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../en/webpack/index.html">Webpack</a>
+    </div>
+
+    <h1>Свой файл макета в Webpack</h1>
+    <p>
+	На практике обычно у нас уже есть
+	свой HTML макет сайта. В этом случае
+	нам нужно, чтобы Webpack брал наш макет,
+	а не генерировал свой. Давайте
+	посмотрим, как это делается.
+</p>
+<p>
+	Пусть у нас есть следующий макет:
+</p>
+<div data-p="bock/pane" data-p-file="src/index.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;My layout&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<p>
+	Заставим Webpack взять наш макет.
+	Для этого пропишем его в следующей
+	настройке:
+</p>
+<div data-p="bock/pane" data-p-file="webpack.config.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
+	entry: './src/index.js',
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: './src/index.html',
+		}),
+	],
+};</code>
+</div>
+<p>
+	В результате после сборки в папке
+	<code data-gs="comd/p" data-x>dist</code> будет наш макет и в нем
+	автоматически будут подключены
+	все бандлы:
+</p>
+<div data-p="bock/pane" data-p-file="dist/index.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;My layout&lt;/title&gt;
+		
+		&lt;script defer src="main.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		
+	&lt;/body&gt;
+&lt;/html&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте свой макет. Настройте Webpack
+		так, чтобы он брал ваш макет.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../../html/many-styles-bundles/index.html" class="lesson-nav-btn lesson-nav-prev" title="Несколько бандлов стилей">← Несколько бандлов стилей</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../assets/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

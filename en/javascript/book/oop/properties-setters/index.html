@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сеттеры свойств в ООП в JavaScript — acteck.off</title>
+  <meta name="description" content="Сеттеры свойств в ООП в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Сеттеры свойств в ООП в JavaScript</h1>
+    <p>
+	Для записи приватных свойств также делают
+	методы, которые называют <dfn data-gs="comd/d" data-x>сеттеры</dfn>.
+	Их имена следует начинать со слова
+	<code data-gs="comd/c" data-x>set</code>. Давайте сделаем сеттеры
+	свойств:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
+	#name;
+	#surn;
+	
+	setName(name) {
+		this.#name = name;
+	}
+	setSurn(surn) {
+		this.#surn = surn;
+	}
+	
+	getName() {
+		return this.#name;
+	}
+	getSurn() {
+		return this.#surn;
+	}
+}</code>
+</div>
+<p>
+	Давайте проверим работу геттеров
+	и сеттеров. Создадим объект нашего
+	класса:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let user = new User;</code>
+</div>
+<p>
+	С помощью сеттеров установим
+	значения свойств:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">user.setName('john');
+user.setSurn('smit');</code>
+</div>
+<p>
+	С помощью геттеров выведем
+	значения свойств:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(user.getName());
+console.log(user.getSurn());</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Добавьте сеттеры свойств
+		в ваш класс <code data-gs="comd/c" data-x>Employee</code>.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../properties-getters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Геттеры свойств">← Геттеры свойств</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../getters-setters-advantages/index.html" class="lesson-nav-btn lesson-nav-next" title="Преимущества сеттеров и геттеров">Преимущества сеттеров и геттеров →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Асинхронная работа с fs через async-await в NodeJS — acteck.off</title>
+  <meta name="description" content="Асинхронная работа с fs через async-await в NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Асинхронная работа с fs через async-await в NodeJS</h1>
+    <p>
+	Давайте теперь вместо <code data-gs="comd/c" data-x>then</code> будем использовать
+	альтернативный синтаксис <code data-gs="comd/c" data-x>async-await</code>.
+	В этом случае мы получим возможность обращаться
+	с нашим асинхронным кодом также просто и
+	удобно, как с синхронным.
+</p>
+<p>
+	Давайте сразу смотреть на примерах. Прочитаем
+	текст файла и выведем его в консоль:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">async function func() {
+	let data = await fs.promises.readFile('readme.txt', 'utf8');
+	console.log(data);
+}
+
+func();</code>
+</div>
+<p>
+	Добавим обработку ошибок:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">async function func() {
+	try {
+		let data = await fs.promises.readFile('readme.txt', 'utf8');
+		console.log(data);
+	} catch (err) {
+		console.log('что-то пошло не так');
+	}
+}
+
+func();</code>
+</div>
+<p>
+	Прочитаем три файла, сольем их текст и выведем
+	в консоль:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">async function func() {
+	try {
+		let data1 = await fs.promises.readFile('1.txt', 'utf8');
+		let data2 = await fs.promises.readFile('2.txt', 'utf8');
+		let data3 = await fs.promises.readFile('3.txt', 'utf8');
+		
+		console.log(data1 + data2 + data3);
+	} catch (err) {
+		console.log('что-то пошло не так');
+	}
+}
+
+func();</code>
+</div>
+<p>
+	Запишем текст трех файлов в новый файл:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">async function func() {
+	try {
+		let data1 = await fs.promises.readFile('1.txt', 'utf8');
+		let data2 = await fs.promises.readFile('2.txt', 'utf8');
+		let data3 = await fs.promises.readFile('3.txt', 'utf8');
+		
+		await fs.promises.writeFile('res.txt', data1 + data2 + data3);
+	} catch (err) {
+		console.log('что-то пошло не так');
+	}
+}
+
+func();</code>
+</div>
+<p>
+	Пусть имена наших файлов записаны в массиве.
+	Давайте прочитаем данные наших файлов в цикле,
+	а затем запишем их в новый файл:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">async function func() {
+	try {
+		let names = ['1.txt', '2.txt', '3.txt'];
+		let data  = [];
+		
+		for (let name of names) {
+			data.push(await fs.promises.readFile(name, 'utf8'));
+		}
+		
+		await fs.promises.writeFile('res.txt', data.join(''));
+	} catch (err) {
+		console.log('что-то пошло не так');
+	}
+}
+
+func();</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны два файла с числами. Найдите сумму этих
+		чисел и запишите результат в третий файл.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан массив имен файлов. Переберите этот массив
+		циклом и создайте файлы с этими именами,
+		записав при создании в каждый файл случайное
+		число. После этого в цикле прочитайте содержимое
+		всех файлов и найдите сумму их чисел. Запишите
+		ее в новый файл.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../then/index.html" class="lesson-nav-btn lesson-nav-prev" title="Асинхронная работа с fs через then">← Асинхронная работа с fs через then</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../fs-promises-shorthand/index.html" class="lesson-nav-btn lesson-nav-next" title="Сокращение fs.promises">Сокращение fs.promises →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

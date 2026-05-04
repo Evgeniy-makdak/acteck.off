@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выбрасывание различных типов исключений в JavaScript — acteck.off</title>
+  <meta name="description" content="Выбрасывание различных типов исключений в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Выбрасывание различных типов исключений в JavaScript</h1>
+    <p>
+	Давайте выбросим свое исключение и посмотрим,
+	как будет вести себя объект с ошибкой в этом
+	случае:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
+	throw new Error('текст исключения');
+} catch (error) {
+	console.log(error.name); // 'Error'
+	console.log(error.message); // 'текст исключения'
+}</code>
+</div>
+<p>
+	Как вы видите, тип нашего исключения - <code data-gs="comd/s" data-x>'Error'</code>.
+	Такой же тип будет у любых исключений, выброшенных
+	подобным образом. Это, однако, не всегда
+	будет удобно, так как, если у нас могут быть
+	несколько исключений, мы не сможем их отличить
+	друг от друга.
+</p>
+<p>
+	В JavaScript предусмотрено решение этой проблемы:
+	можно выбрасывать исключения не только типа
+	<code data-gs="comd/c" data-x>Error</code>, но и любого встроенного в JavaScript
+	типа ошибки, например, <code data-gs="comd/c" data-x>TypeError</code>,
+	<code data-gs="comd/c" data-x>SyntaxError</code>, <code data-gs="comd/c" data-x>RangeError</code>.
+</p>
+<p>
+	Давайте для примера выбросим исключение типа
+	<code data-gs="comd/c" data-x>SyntaxError</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
+	throw new SyntaxError('текст исключения');
+} catch (error) {
+	console.log(error.name); // 'SyntaxError'
+	console.log(error.message); // 'текст исключения'
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Выбросите исключение с типом <code data-gs="comd/c" data-x>TypeError</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Выбросите исключение с типом <code data-gs="comd/c" data-x>SyntaxError</code>
+		и <code data-gs="comd/c" data-x>RangeError</code>. Поймайте эти исключения
+		с помощью одного блока <code data-gs="comd/c" data-x>try</code>. В блоке <code data-gs="comd/c" data-x>catch</code>
+		выведите разные сообщения об ошибке для исключений
+		разных типов.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../throwing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Выбрасывание исключений">← Выбрасывание исключений</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../throwing-user-types/index.html" class="lesson-nav-btn lesson-nav-next" title="Выбрасывание своих типов исключений">Выбрасывание своих типов исключений →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

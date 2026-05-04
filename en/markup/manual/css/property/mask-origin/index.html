@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство mask-origin — acteck.off</title>
+  <meta name="description" content="Свойство mask-origin — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство mask-origin</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>mask-origin</code> устанавливает точку отсчёта для позиционирования маски. Оно определяет, относительно какой части элемента (границы, отступы или содержимое) будет размещаться маска.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	mask-origin: content-box | padding-box | border-box;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>border-box</code></th>
+		<td>Маска позиционируется относительно границы элемента (включая border).</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>padding-box</code></th>
+		<td>Маска позиционируется относительно padding области (по умолчанию).</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>content-box</code></th>
+		<td>Маска позиционируется относительно содержимого элемента.</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span>. border-box</h2>
+<p>
+	Маска позиционируется относительно границы элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	padding: 20px;
+	border: 30px dashed rgba(0,0,0,0.3);
+	mask-image: url("heart.svg");
+	mask-position: center;
+	mask-size: 200px;
+	mask-repeat: no-repeat;
+	mask-origin: border-box;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			padding: 20px;
+			border: 30px dashed rgba(0,0,0,0.3);
+			mask-image: url(&quot;/cont/markup/manual/css/property/mask-origin/@/image/heart.svg?v=1&quot;);
+			mask-position: center;
+			mask-size: 200px;
+			mask-repeat: no-repeat;
+			mask-origin: border-box;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-origin/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. padding-box</h2>
+<p>
+	Маска позиционируется относительно области отступов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	padding: 20px;
+	border: 30px dashed rgba(0,0,0,0.3);
+	mask-image: url("heart.svg");
+	mask-position: center;
+	mask-size: 200px;
+	mask-repeat: no-repeat;
+	mask-origin: padding-box;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			padding: 20px;
+			border: 30px dashed rgba(0,0,0,0.3);
+			mask-image: url(&quot;/cont/markup/manual/css/property/mask-origin/@/image/heart.svg?v=1&quot;);
+			mask-position: center;
+			mask-size: 200px;
+			mask-repeat: no-repeat;
+			mask-origin: padding-box;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-origin/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. content-box</h2>
+<p>
+	Маска позиционируется относительно содержимого:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	padding: 20px;
+	border: 30px dashed rgba(0,0,0,0.3);
+	mask-image: url("heart.svg");
+	mask-position: center;
+	mask-size: 200px;
+	mask-repeat: no-repeat;
+	mask-origin: content-box;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			padding: 20px;
+			border: 30px dashed rgba(0,0,0,0.3);
+			mask-image: url(&quot;/cont/markup/manual/css/property/mask-origin/@/image/heart.svg?v=1&quot;);
+			mask-position: center;
+			mask-size: 200px;
+			mask-repeat: no-repeat;
+			mask-origin: content-box;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-origin/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../mask-clip/index.html"><code data-gs="comd/c" data-x>mask-clip</code></a>, <br>
+			определяет область отсечения маски
+		</li>
+		<li>
+			свойство <a href="../mask-position/index.html"><code data-gs="comd/c" data-x>mask-position</code></a>, <br>
+			устанавливает положение маски
+		</li>
+		<li>
+			свойство <a href="../mask/index.html"><code data-gs="comd/c" data-x>mask</code></a>, <br>
+			сокращение для всех свойств маскирования
+		</li>
+		<li>
+			свойство <a href="../background-origin/index.html"><code data-gs="comd/c" data-x>background-origin</code></a>, <br>
+			аналогичное свойство для фона элемента
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../mask-mode/index.html" class="lesson-nav-btn lesson-nav-prev" title="mask-mode">← mask-mode</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../mask-position/index.html" class="lesson-nav-btn lesson-nav-next" title="mask-position">mask-position →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Работа с select в Vue — acteck.off</title>
+  <meta name="description" content="Работа с select в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/vue/book/prime/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
+    </div>
+
+    <h1>Работа с select в Vue</h1>
+    <p>
+	Работа с <a href="../../../../../markup/manual/html/tag/select/index.html"><code data-gs="comd/c" data-x>select</code></a>
+	осуществляется аналогично - на тег вешается атрибут
+	<code data-gs="comd/c" data-x>v-model</code>, к нему привязывается свойство
+	объекта <code data-gs="comd/c" data-x>data</code>. В это свойство будет
+	попадать текст выбранного тега <a href="../../../../../markup/manual/html/tag/option/index.html"><code data-gs="comd/c" data-x>option</code></a>.
+</p>
+<p>
+	Следующий код демонстрирует пример
+	работы выпадающего списка:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		selected: 'value1', // значение по умолчанию
+	}
+}</code>
+</div>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;select v-model="selected"&gt;
+		&lt;option&gt;value1&lt;/option&gt;
+		&lt;option&gt;value2&lt;/option&gt;
+		&lt;option&gt;value3&lt;/option&gt;
+	&lt;/select&gt;
+	
+	&lt;p&gt;{{ selected }}&lt;/p&gt;
+&lt;/template&gt;</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Спросите у пользователя с помощью <code data-gs="comd/c" data-x>select</code>
+		в каком городе он живет. Сделайте так, чтобы
+		выбранный город вывелся в абзац.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

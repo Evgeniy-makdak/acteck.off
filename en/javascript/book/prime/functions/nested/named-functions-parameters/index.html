@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Именованные функции-параметры в JavaScript — acteck.off</title>
+  <meta name="description" content="Именованные функции-параметры в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Именованные функции-параметры в JavaScript</h1>
+    <p>
+	Функции, которые передаются параметрами,
+	не обязательно должны быть анонимными.
+</p>
+<p>
+	Давайте сделаем их как Function Declaration.
+	Первую функцию назовем <code data-gs="comd/c" data-x>get1</code>, а вторую
+	- <code data-gs="comd/c" data-x>get2</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function get1() {
+	return 1;
+}
+function get2() {
+	return 2;
+}</code>
+</div>
+<p>
+	Передадим в параметры функции <code data-gs="comd/c" data-x>test</code>
+	имена функций <code data-gs="comd/c" data-x>get1</code> и <code data-gs="comd/c" data-x>get2</code> (то
+	есть их исходный код, а не результат):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function get1() {
+	return 1;
+}
+function get2() {
+	return 2;
+}
+
+test(get1, get2); // выведет 3
+
+function test(func1, func2) {
+	console.log( func1() + func2() );
+}</code>
+</div>
+<p>
+	Переделаем на Function Expression:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let get1 = function() {
+	return 1;
+}
+let get2 = function() {
+	return 2;
+}
+
+test(get1, get2); // выведет 3
+
+function test(func1, func2) {
+	console.log( func1() + func2() );
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте функцию <code data-gs="comd/c" data-x>test</code>, параметрами
+		принимающую <code data-gs="comd/n" data-x>3</code> функции и возвращающую
+		сумму результатов переданных функций.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте <code data-gs="comd/n" data-x>3</code> функции, объявив их как
+		Function Declaration и дав им имена <code data-gs="comd/c" data-x>func1</code>,
+		<code data-gs="comd/c" data-x>func2</code> и <code data-gs="comd/c" data-x>func3</code>. Пусть первая
+		функция возвращает <code data-gs="comd/n" data-x>1</code>, вторая - <code data-gs="comd/n" data-x>2</code>,
+		а третья - <code data-gs="comd/n" data-x>3</code>. Передайте эти функции
+		параметром в функцию <code data-gs="comd/c" data-x>test</code> из предыдущей
+		задачи.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Модифицируйте предыдущую задачу так, чтобы
+		функции были объявлены как Function Expression
+		с теми же именами.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../functions-as-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Передача функций параметрами">← Передача функций параметрами</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../passing-functions-parameters/index.html" class="lesson-nav-btn lesson-nav-next" title="Параметры передаваемых функций">Параметры передаваемых функций →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

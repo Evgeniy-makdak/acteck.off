@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практика на комбинации CSS селекторов — acteck.off</title>
+  <meta name="description" content="Практика на комбинации CSS селекторов — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Практика на комбинации CSS селекторов</h1>
+    <div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет абзацы,
+		расположенные внутри дивов <code data-gs="comd/c" data-x>div</code>. Проверьте
+		ваш селектор на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;p&gt;
+		+++
+	&lt;/p&gt;
+	&lt;p&gt;
+		+++
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+	&lt;p&gt;
+		+++
+	&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+	---
+&lt;/p&gt;
+&lt;p&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все <code data-gs="comd/c" data-x>h2</code>,
+		расположенные внутри дивов <code data-gs="comd/c" data-x>div</code>. Проверьте
+		ваш селектор на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	&lt;h2&gt;+++&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+	&lt;h2&gt;+++&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;---&lt;/h2&gt;
+&lt;p&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все абзацы
+		<code data-gs="comd/c" data-x>p</code> из элемента с <code data-gs="comd/c" data-x>id</code>, равным
+		<code data-gs="comd/z" data-x>block</code>. Проверьте ваш селектор на следующем
+		коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;h2&gt;---&lt;/h2&gt;
+	&lt;p&gt;
+		+++
+	&lt;/p&gt;
+	&lt;p&gt;
+		+++
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+	&lt;h2&gt;---&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;---&lt;/h2&gt;
+&lt;p&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все <code data-gs="comd/c" data-x>h2</code>
+		из элемента с <code data-gs="comd/c" data-x>id</code>, равным <code data-gs="comd/z" data-x>block</code>.
+		Проверьте ваш селектор на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;h2&gt;+++&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	
+	&lt;h2&gt;+++&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+	&lt;h2&gt;---&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;---&lt;/h2&gt;
+&lt;p&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все элементы
+		с классом <code data-gs="comd/z" data-x>bbb</code>. Проверьте ваш селектор
+		на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;h2 class="bbb"&gt;+++&lt;/h2&gt;
+	&lt;p class="bbb"&gt;
+		+++
+	&lt;/p&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	
+	&lt;h2 class="bbb"&gt;+++&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="bbb"&gt;
+	+++
+&lt;/div&gt;
+
+&lt;h2&gt;---&lt;/h2&gt;
+&lt;p class="bbb"&gt;
+	+++
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все элементы
+		с классом <code data-gs="comd/z" data-x>bbb</code> из элемента с <code data-gs="comd/c" data-x>id</code>,
+		равным <code data-gs="comd/z" data-x>block</code>. Проверьте ваш селектор
+		на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;h2 class="bbb"&gt;+++&lt;/h2&gt;
+	&lt;p class="bbb"&gt;
+		+++
+	&lt;/p&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	
+	&lt;h2 class="bbb"&gt;+++&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="bbb"&gt;
+	---
+&lt;/div&gt;
+
+&lt;h2&gt;---&lt;/h2&gt;
+&lt;p class="bbb"&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все абзацы
+		<code data-gs="comd/c" data-x>p</code> с классом <code data-gs="comd/z" data-x>bbb</code>. Проверьте
+		ваш селектор на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;h2 class="bbb"&gt;---&lt;/h2&gt;
+	&lt;p class="bbb"&gt;
+		+++
+	&lt;/p&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	
+	&lt;h2 class="bbb"&gt;---&lt;/h2&gt;
+	&lt;p class="bbb"&gt;
+		+++
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="bbb"&gt;
+	---
+&lt;/div&gt;
+
+&lt;h2&gt;---&lt;/h2&gt;
+&lt;p class="bbb"&gt;
+	+++
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все <code data-gs="comd/c" data-x>h2</code>
+		с классом <code data-gs="comd/z" data-x>bbb</code>. Проверьте ваш селектор
+		на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;h2 class="bbb"&gt;+++&lt;/h2&gt;
+	&lt;p class="bbb"&gt;
+		---
+	&lt;/p&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	
+	&lt;h2 class="bbb"&gt;+++&lt;/h2&gt;
+	&lt;p class="bbb"&gt;
+		---
+	&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;---&lt;/h2&gt;
+&lt;p class="bbb"&gt;
+	---
+&lt;/p&gt;
+
+&lt;h2 class="bbb"&gt;+++&lt;/h2&gt;
+&lt;p class="bbb"&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все абзацы
+		<code data-gs="comd/c" data-x>p</code> с классом <code data-gs="comd/z" data-x>bbb</code> из элемента
+		с <code data-gs="comd/c" data-x>id</code>, равным <code data-gs="comd/z" data-x>block</code>. Проверьте
+		ваш селектор на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;h2 class="bbb"&gt;---&lt;/h2&gt;
+	&lt;p class="bbb"&gt;
+		+++
+	&lt;/p&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	
+	&lt;h2 class="bbb"&gt;---&lt;/h2&gt;
+	&lt;p class="bbb"&gt;
+		+++
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="bbb"&gt;
+	---
+&lt;/div&gt;
+
+&lt;h2&gt;---&lt;/h2&gt;
+&lt;p class="bbb"&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все элементы
+		с классом <code data-gs="comd/z" data-x>bbb</code> и элементы с классом
+		<code data-gs="comd/z" data-x>xxx</code> одновременно (то есть нужно сгруппировать
+		селекторы через запятую). Проверьте ваш селектор
+		на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;h2 class="bbb"&gt;+++&lt;/h2&gt;
+&lt;p class="bbb"&gt;
+	+++
+&lt;/p&gt;
+
+&lt;h2 class="xxx"&gt;+++&lt;/h2&gt;
+&lt;p&gt;
+	---
+&lt;/p&gt;
+
+&lt;h2&gt;---&lt;/h2&gt;
+&lt;p class="xxx"&gt;
+	+++
+&lt;/p&gt;
+
+&lt;div class="bbb"&gt;
+	+++
+&lt;/div&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все абзацы
+		<code data-gs="comd/c" data-x>p</code> с классом <code data-gs="comd/z" data-x>bbb</code> и одновременно
+		все <code data-gs="comd/c" data-x>h2</code> с классом <code data-gs="comd/z" data-x>xxx</code>. Проверьте
+		ваш селектор на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;h2 class="bbb"&gt;---&lt;/h2&gt;
+&lt;p class="bbb"&gt;
+	+++
+&lt;/p&gt;
+
+&lt;h2 class="xxx"&gt;+++&lt;/h2&gt;
+&lt;p&gt;
+	---
+&lt;/p&gt;
+
+&lt;h2&gt;---&lt;/h2&gt;
+&lt;p class="xxx"&gt;
+	---
+&lt;/p&gt;
+
+&lt;div class="bbb"&gt;
+	---
+&lt;/div&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все абзацы
+		<code data-gs="comd/c" data-x>p</code> с классом <code data-gs="comd/z" data-x>bbb</code> из элемента
+		с <code data-gs="comd/c" data-x>id</code>, равным <code data-gs="comd/c" data-x>block</code> и одновременно
+		все абзацы <code data-gs="comd/c" data-x>p</code> с классом <code data-gs="comd/z" data-x>xxx</code>
+		из из элемента с <code data-gs="comd/c" data-x>id</code>, равным <code data-gs="comd/z" data-x>block</code>.
+		Проверьте ваш селектор на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;h2 class="bbb"&gt;---&lt;/h2&gt;
+	&lt;p class="bbb"&gt;
+		+++
+	&lt;/p&gt;
+	
+	&lt;h2 class="xxx"&gt;---&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	
+	&lt;h2&gt;---&lt;/h2&gt;
+	&lt;p class="xxx"&gt;
+		+++
+	&lt;/p&gt;
+	
+	&lt;div class="bbb"&gt;
+		---
+	&lt;/div&gt;
+	&lt;div class="xxx"&gt;
+		---
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 class="bbb"&gt;---&lt;/h2&gt;
+&lt;p class="xxx"&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все элементы
+		с классом <code data-gs="comd/z" data-x>fff</code>. Проверьте ваш селектор
+		на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="fff"&gt;
+	+++
+&lt;/div&gt;
+
+&lt;h2 class="fff"&gt;+++&lt;/h2&gt;
+&lt;p class="fff"&gt;
+	+++
+&lt;/p&gt;
+
+&lt;h2 class="bbb"&gt;---&lt;/h2&gt;
+&lt;p class="xxx"&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все абзацы
+		<code data-gs="comd/c" data-x>p</code> из элемента с классом <code data-gs="comd/z" data-x>fff</code>.
+		Проверьте ваш селектор на
+		следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="fff"&gt;
+	&lt;h2&gt;---&lt;/h2&gt;
+	&lt;p&gt;
+		+++
+	&lt;/p&gt;
+	&lt;p&gt;
+		+++
+	&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 class="fff"&gt;---&lt;/h2&gt;
+&lt;p class="fff"&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все абзацы
+		<code data-gs="comd/c" data-x>p</code> с классом <code data-gs="comd/z" data-x>fff</code>. Проверьте
+		ваш селектор на следующем коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="block"&gt;
+	&lt;h2&gt;---&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	&lt;p class="fff"&gt;
+		+++
+	&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 class="fff"&gt;---&lt;/h2&gt;
+&lt;p class="fff"&gt;
+	+++
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все элементы
+		с классом <code data-gs="comd/z" data-x>bbb</code> из элемента с классом
+		<code data-gs="comd/z" data-x>fff</code>. Проверьте ваш селектор на следующем
+		коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="fff"&gt;
+	&lt;h2 class="bbb"&gt;+++&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	&lt;p class="bbb"&gt;
+		+++
+	&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 class="fff"&gt;---&lt;/h2&gt;
+&lt;p class="bbb"&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите селектор, который выберет все <code data-gs="comd/c" data-x>h2</code>
+		с классом <code data-gs="comd/z" data-x>bbb</code> из элемента с классом
+		<code data-gs="comd/z" data-x>fff</code>. Проверьте ваш селектор на следующем
+		коде:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="fff"&gt;
+	&lt;h2 class="bbb"&gt;+++&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	
+	&lt;h2 class="bbb"&gt;+++&lt;/h2&gt;
+	&lt;p&gt;
+		---
+	&lt;/p&gt;
+	&lt;p class="bbb"&gt;
+		---
+	&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 class="bbb"&gt;---&lt;/h2&gt;
+&lt;p class="bbb"&gt;
+	---
+&lt;/p&gt;
+&lt;p class="fff"&gt;
+	---
+&lt;/p&gt;</code>
+	</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../complex-selectors-grouping-mistake/index.html" class="lesson-nav-btn lesson-nav-prev" title="Ошибка при группировке">← Ошибка при группировке</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../selectors-priority/index.html" class="lesson-nav-btn lesson-nav-next" title="Приоритет селекторов">Приоритет селекторов →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

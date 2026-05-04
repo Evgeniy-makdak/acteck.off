@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вставка данных в атрибут style из отдельного файла в React — acteck.off</title>
+  <meta name="description" content="Вставка данных в атрибут style из отдельного файла в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Вставка данных в атрибут style из отдельного файла в React</h1>
+    <p>
+	Мы можем не писать объекты со стилями
+	в файле с компонентом, как в прошлом
+	уроке, а создать отдельный файл с
+	нашими объектами стилей и импортировать
+	их в нужный компонент.
+</p>
+<p>
+	Итак, возьмем наш компонент
+	без CSS стилей:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	return (
+		&lt;div&gt;
+			&lt;p&gt;text&lt;/p&gt;
+			&lt;p&gt;text&lt;/p&gt;
+			&lt;p&gt;text&lt;/p&gt;
+		&lt;/div&gt;
+	);
+}</code>
+</div>
+<p>
+	Давайте создадим в папке <code data-gs="comd/p" data-x>src</code>
+	отдельный файл <code data-gs="comd/p" data-x>styles.js</code>, в
+	котором пропишем наши объекты со
+	стилями:
+</p>	
+<div data-p="bock/pane" data-p-file="styles.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">const class1 = {
+	width: '200px',
+	border: '2px solid brown',
+	padding: '10px',
+	textAlign: 'center',
+};
+
+const class2 = {
+	color: 'orangered',
+	fontWeight: 'bold',
+};
+
+const class3 = {
+	fontStyle: 'italic',
+	color: 'brown',
+};
+
+const class4 = {
+	backgroundColor: 'orange',
+	fontWeight: 'bold',
+	color: 'white',
+};</code>
+</div>
+<p>
+	Не забудем внизу файла <code data-gs="comd/p" data-x>styles.js</code>
+	экспортировать наши объекты одним объектом
+	<code data-gs="comd/c" data-x>styles</code>:
+</p>
+<div data-p="bock/pane" data-p-file="styles.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export const styles = {
+	class1: class1,
+	class2: class2,
+	class3: class3,
+	class4: class4
+};</code>
+</div>
+<p>
+	Теперь импортируем объект <code data-gs="comd/c" data-x>styles</code>
+	в наш компонент:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { styles } from "./styles";			 </code>
+</div>
+<p>
+	Теперь мы можем применять нужный нам
+	объект с CSS стилями из общего объекта
+	<code data-gs="comd/c" data-x>styles</code> к нашим тегам. Применим
+	к первому абзацу стили из объекта
+	<code data-gs="comd/c" data-x>class2</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p style={styles.class2}&gt;text&lt;/p&gt;</code>
+</div>
+<p>
+	Подобным образом добавим стили из 
+	объектов остальным тегам.
+</p>
+<p>
+	В результате, код компонента будет
+	выглядеть следующим образом:
+</p>
+<div data-p="bock/pane" data-p-file="App.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	return (
+		&lt;div style={styles.class1}&gt;
+			&lt;p style={styles.class2}&gt;text&lt;/p&gt;
+			&lt;p style={styles.class3}&gt;text&lt;/p&gt;
+			&lt;p style={styles.class4}&gt;text&lt;/p&gt;
+		&lt;/div&gt;
+	);
+}  </code>
+</div> 
+<div data-w="cont/task">
+	<p>
+		Возьмите React компонент, который вы 
+		делали в задаче к прошлому уроку. Создайте
+		отдельный файл <code data-gs="comd/p" data-x>styles.js</code>, в котором
+		будут объекты CSS стилей для ваших тегов,
+		экспортируйет их как один объект, примените
+		стили к вашему React компоненту.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

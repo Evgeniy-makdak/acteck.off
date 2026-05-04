@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction в медиазапросы в CSS — acteck.off</title>
+  <meta name="description" content="Introduction в медиазапросы в CSS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Introduction в медиазапросы в CSS</h1>
+    <p>
+	Существует специальная команда <code data-gs="comd/c" data-x>@media</code>,
+	которая позволяет выполнять различный код
+	в зависимости от ширины экрана.
+</p>
+<p>
+	В следующем примере некоторый код сработает,
+	если ширина экрана от <code data-gs="comd/u" data-x>300px</code> до
+	<code data-gs="comd/u" data-x>1200px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 300px) and (max-width: 1200px) {
+	/* некоторый код */
+}</code>
+</div>
+<p>
+	В следующем примере некоторый код сработает,
+	если ширина экрана больше <code data-gs="comd/u" data-x>300px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 300px) {
+	/* некоторый код */
+}</code>
+</div>
+<p>
+	В следующем примере некоторый код сработает,
+	если ширина экрана меньше <code data-gs="comd/u" data-x>1200px</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (max-width: 1200px) {
+	/* некоторый код */
+}</code>
+</div>
+<p>
+	Давайте напишем в нашем медиа запросе какой-нибудь
+	код. Например, при определенных размерах
+	экрана покрасим абзацы в красный цвет:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 300px) and (max-width: 1200px) {
+	p {
+		color: red;
+	}
+}
+
+@media (min-width: 300px) and (max-width: 1200px) {
+	p {
+		color: red;
+	}
+}</code>
+</div>
+<p>
+	А теперь покрасим абзацы в различные цвета
+	в зависимости от ширины экрана:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (max-width: 300px) {
+	p {
+		color: red;
+	}
+}
+@media (min-width: 300px) and (max-width: 900px) {
+	p {
+		color: green;
+	}
+}
+@media (min-width: 900px) and (max-width: 1200px) {
+	p {
+		color: blue;
+	}
+}
+@media (min-width: 1200px) {
+	p {
+		color: orange;
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть следующий код применится на экране
+		шириной от <code data-gs="comd/u" data-x>0</code> до <code data-gs="comd/u" data-x>800px</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 20px;
+}</code>
+	</div>
+	<p>
+		А следующий код пусть применится на экране
+		шириной от <code data-gs="comd/u" data-x>800px</code> и больше:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 30px;
+}</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть следующий код применится на экране
+		шириной от <code data-gs="comd/u" data-x>0</code> до <code data-gs="comd/u" data-x>500px</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 15px;
+}</code>
+	</div>
+	<p>
+		Следующий код пусть применится на экране
+		шириной от <code data-gs="comd/u" data-x>500px</code> до <code data-gs="comd/u" data-x>900px</code>:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 20px;
+}</code>
+	</div>
+	<p>
+		Следующий код пусть применится на экране
+		шириной от <code data-gs="comd/u" data-x>900px</code> и больше:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
+	font-size: 30px;
+}</code>
+	</div>
+</div>
+    <div class="lesson-nav">
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../blocks-rebuilding/index.html" class="lesson-nav-btn lesson-nav-next" title="Перестроение блоков">Перестроение блоков →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

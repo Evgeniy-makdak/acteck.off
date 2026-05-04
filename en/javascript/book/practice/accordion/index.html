@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Аккордеон на JavaScript — acteck.off</title>
+  <meta name="description" content="Аккордеон на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Аккордеон на JavaScript</h1>
+    <p>
+	Давайте теперь реализуем аккордеон. Он похож
+	на вкладки, перевернутые на бок. При этом
+	в аккордеоне можно закрыть текущую вкладку,
+	если нажать на активную ссылку.
+</p>
+<p>
+	Вот образец:
+</p>
+<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#parent {
+			margin: 0 auto;
+			width: 400px;
+		}
+		.tab {
+			margin-bottom: 10px;
+		}
+		
+		.tab .link a {
+			display: block;
+			padding: 10px;
+			color: black;
+			text-decoration: none;
+			text-align: center;
+			background: #f8f8f8;
+			border: 1px solid gray;
+		}
+		.tab .link:hover a {
+			background: #f2f2f2;
+		}
+		
+		.tab:not(.active) .text {
+			display: none;
+		}
+		.tab .text {
+			border: 1px dashed gray;
+			border-top: none;
+			
+			padding: 10px;
+			height: 300px;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<div id=&quot;parent&quot;>
+			<div class=&quot;tab active&quot;>
+				<div class=&quot;link&quot;>
+					<a href=&quot;#&quot; >вкладка 1</a>
+				</div>
+				<div class=&quot;text&quot;>
+					текст вкладки 1
+				</div>
+			</div>
+			<div class=&quot;tab&quot;>
+				<div class=&quot;link&quot;>
+					<a href=&quot;#&quot; >вкладка 2</a>
+				</div>
+				<div class=&quot;text&quot;>
+					текст вкладки 2
+				</div>
+			</div>
+			<div class=&quot;tab&quot;>
+				<div class=&quot;link&quot;>
+					<a href=&quot;#&quot; >вкладка 3</a>
+				</div>
+				<div class=&quot;text&quot;>
+					текст вкладки 3
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			
+			let parent = document.querySelector('#parent');
+		let links  = parent.querySelectorAll('.tab .link a');
+		
+		for (let link of links) {
+			link.addEventListener('click', function(event) {
+				let activeTab = parent.querySelector('.tab.active');
+				
+				if (activeTab) {
+					activeTab.classList.remove('active');
+				}
+				
+				let newTab = link.closest('.tab');
+				if (newTab !== activeTab) {
+					newTab.classList.add('active');
+				}
+				
+				event.preventDefault();
+			});
+		}
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+<p>
+	Изучите также верстку, на которой мы будем
+	решать задачу:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;div class="tab active"&gt;
+		&lt;div class="link"&gt;
+			&lt;a href="#" &gt;вкладка 1&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div class="text"&gt;
+			текст вкладки 1
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="tab"&gt;
+		&lt;div class="link"&gt;
+			&lt;a href="#" &gt;вкладка 2&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div class="text"&gt;
+			текст вкладки 2
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="tab"&gt;
+		&lt;div class="link"&gt;
+			&lt;a href="#" &gt;вкладка 3&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div class="text"&gt;
+			текст вкладки 3
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	margin: 0 auto;
+	width: 400px;
+}
+.tab {
+	margin-bottom: 10px;
+}
+
+.tab .link a {
+	display: block;
+	padding: 10px;
+	color: black;
+	text-decoration: none;
+	text-align: center;
+	background: #f8f8f8;
+	border: 1px solid gray;
+}
+.tab .link:hover a {
+	background: #f2f2f2;
+}
+
+.tab:not(.active) .text {
+	display: none;
+}
+.tab .text {
+	border: 1px dashed gray;
+	border-top: none;
+	
+	padding: 10px;
+	height: 300px;
+}</code>
+</div>
+
+<h2>Обсуждение</h2>
+<p>
+	Технически HTML код аккордеона удобнее, чем
+	код вкладок: в нем ссылки расположены непосредственно
+	над спойлером, который они открывают и закрывают.
+	Кроме того, класс <code data-gs="comd/z" data-x>active</code> в нашей верстки
+	дается общему родителю ссылки и спойлера.
+</p>
+<p>
+	Это значит, что при нажатии на ссылку нужно
+	просто деактивировать старую вкладку и активировать
+	новую. Чтобы деактивировать старую вкладку
+	нужно найти вкладку с классом <code data-gs="comd/z" data-x>active</code>
+	и удалить из нее этот класс.
+</p>
+<p>
+	Чтобы активировать новую вкладку нужно по
+	клику на ссылку найти вкладку-родителя этой
+	ссылки и дать ей класс <code data-gs="comd/z" data-x>active</code>. Технически
+	такой поиск можно сделать так: просто найти
+	ближайшего родителя ссылки, имеющего класс
+	<code data-gs="comd/z" data-x>tab</code>.
+</p>
+<div data-w="cont/task">
+	<p>
+		Скопируйте себе приведенный HTML и CSS коды.
+		Реализуйте аккордеон согласно описанному
+		алгоритму.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../tabs/index.html" class="lesson-nav-btn lesson-nav-prev" title="Вкладки">← Вкладки</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../game-cities/task-formulation/index.html" class="lesson-nav-btn lesson-nav-next" title="Постановка задачи">Постановка задачи →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

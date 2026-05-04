@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лексическое окружение функций в JavaScript — acteck.off</title>
+  <meta name="description" content="Лексическое окружение функций в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Лексическое окружение функций в JavaScript</h1>
+    <p>
+	Все внешние, доступные функции переменные,
+	называются ее <dfn data-gs="comd/d" data-x>лексическим окружением</dfn>
+	(<span data-gs="lang/a" data-x>LexicalEnvironment</span>).
+</p>
+<p>
+	В следующем примере функции доступны две
+	переменные: <code data-gs="comd/c" data-x>num1</code> и <code data-gs="comd/c" data-x>num2</code>, которые
+	и являются лексическим окружением нашей функции:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num1 = 1;
+let num2 = 2;
+
+function func() {
+	// функция знает про переменные num1 и num2
+}</code>
+</div>
+<p>
+	Само лексическое окружение представляет собой
+	некий внутренний объект JavaScript, привязанный
+	к нашей функции. В данном случае его можно
+	представить в следующем виде:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{num1: 1, num2: 2}</code>
+</div>
+<p>
+	Значение любой переменной лексического окружения
+	всегда равно текущему значению этой переменной:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num1 = 1; // окружение {num1: 1}
+let num2 = 2; // окружение {num1: 1, num2: 2}
+
+// Поменяем переменную num1:
+num1 = 123; // окружение {num1: 123, num2: 2}
+
+function func() {
+	
+}</code>
+</div>
+<p>
+	Когда мы пытаемся обратится к какой-либо
+	переменной внутри функции, эта переменная
+	вначале ищется среди локальных переменных
+	функции и, если такой переменной там нет,
+	то ищется в лексическом окружении функции.
+</p>
+  
+    <div class="lesson-nav">
+      <a href="../outer-variables-access/index.html" class="lesson-nav-btn lesson-nav-prev" title="Доступ к внешним переменным">← Доступ к внешним переменным</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../lexical-environment-applying/index.html" class="lesson-nav-btn lesson-nav-next" title="Применение лексического окружения">Применение лексического окружения →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойство mask-mode — acteck.off</title>
+  <meta name="description" content="Свойство mask-mode — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Свойство mask-mode</h1>
+    <p>
+	Свойство <code data-gs="comd/c" data-x>mask-mode</code> устанавливает способ взаимодействия маски с фоном элемента. Оно определяет, будет ли маска использовать альфа-канал (прозрачность) или значения яркости (luminance) изображения-маски.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
+	mask-mode: alpha | luminance | match-source;
+}</code>
+</div>
+
+<h2>Значения</h2>
+<table data-w="cont/desc">
+	<tr>
+		<th>Значение</th>
+		<th>Описание</th>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>alpha</code></th>
+		<td>Маска использует только альфа-канал (прозрачность) изображения.</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>luminance</code></th>
+		<td>Маска использует значения яркости изображения (белый = видимый, черный = прозрачный).</td>
+	</tr>
+	<tr>
+		<th><code data-gs="comd/u" data-x>match-source</code></th>
+		<td>Для изображений использует альфа-канал, для SVG - luminance (значение по умолчанию).</td>
+	</tr>
+</table>
+
+<h2>Пример <span data-gn="sect"></span>. Режим alpha</h2>
+<p>
+	Применение SVG-маски в режиме alpha:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") center/150px no-repeat;
+	mask-mode: alpha;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask-mode/@/image/heart.svg?v=1&quot;) center/150px no-repeat;
+			mask-mode: alpha;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-mode/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Режим luminance</h2>
+<p>
+	Применение SVG-маски в режиме luminance:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url("heart.svg") center/150px no-repeat;
+	mask-mode: luminance;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(&quot;/cont/markup/manual/css/property/mask-mode/@/image/heart.svg?v=1&quot;) center/150px no-repeat;
+			mask-mode: luminance;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-mode/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. SVG маска с режимом match-source</h2>
+<p>
+	Использование значения по умолчанию (match-source) для SVG:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;
+&lt;svg width="0" height="0"&gt;
+	&lt;mask id="svg-mask"&gt;
+		&lt;path d="M150 15L183 111L285 111L204 171L237 267L150 216L63 267L96 171L15 111L117 111Z" fill="white"/&gt;
+	&lt;/mask&gt;
+&lt;/svg&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: url(#svg-mask);
+	mask-mode: match-source;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: url(#svg-mask);
+			mask-mode: match-source;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-mode/@/image/image.jpg?v=1&quot;>
+		<svg width=&quot;0&quot; height=&quot;0&quot;>
+			<mask id=&quot;svg-mask&quot;>
+				<path d=&quot;M150 15L183 111L285 111L204 171L237 267L150 216L63 267L96 171L15 111L117 111Z&quot; fill=&quot;white&quot;/>
+			</mask>
+		</svg>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Пример <span data-gn="sect"></span>. Композиция с разными режимами</h2>
+<p>
+	Комбинирование масок с разными режимами наложения:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;img id="image" src="image.jpg"&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#image {
+	width: 500px;
+	height: 281px;
+	mask: 
+		url("heart.svg") 100px 50px / 150px no-repeat alpha,
+		url("arrow.svg") 200px 30px / 150px no-repeat luminance;
+	mask-composite: add;
+}</code>
+</div>
+	<p>
+		<span data-lo="torc" data-m-kest="code-result"></span>:
+	</p>
+	<div data-p="bock/pane">
+					<div data-w="bock/tain">
+						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
+	<head>
+		<base target=&quot;_blank&quot;>
+		<meta charset=&quot;utf-8&quot;>
+		<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+		
+		<style>
+			
+		</style>
+		<style>
+			#image {
+			width: 500px;
+			height: 281px;
+			mask: 
+				url(&quot;/cont/markup/manual/css/property/mask-mode/@/image/heart.svg?v=1&quot;) 100px 50px / 150px no-repeat alpha,
+				url(&quot;/cont/markup/manual/css/property/mask-mode/@/image/arrow.svg?v=1&quot;) 200px 30px / 150px no-repeat luminance;
+			mask-composite: add;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<img id=&quot;image&quot; src=&quot;../../../../../cont/markup/manual/css/property/mask-mode/@/image/image.jpg?v=1&quot;>
+		
+		<script>
+			
+			
+		</script>
+	</body>
+</html>"></iframe>
+					</div>
+				</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../mask-image/index.html"><code data-gs="comd/c" data-x>mask-image</code></a>, <br>
+			задает изображение для маски
+		</li>
+		<li>
+			свойство <a href="../mask-composite/index.html"><code data-gs="comd/c" data-x>mask-composite</code></a>, <br>
+			определяет взаимодействие нескольких масок
+		</li>
+		<li>
+			свойство <a href="../mask/index.html"><code data-gs="comd/c" data-x>mask</code></a>, <br>
+			сокращение для всех свойств маскирования
+		</li>
+	</ul>
+</div>
+    <div class="lesson-nav">
+      <a href="../mask-image/index.html" class="lesson-nav-btn lesson-nav-prev" title="mask-image">← mask-image</a>
+      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../mask-origin/index.html" class="lesson-nav-btn lesson-nav-next" title="mask-origin">mask-origin →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

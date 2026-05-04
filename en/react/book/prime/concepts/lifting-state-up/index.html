@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подъем состояний в React — acteck.off</title>
+  <meta name="description" content="Подъем состояний в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Подъем состояний в React</h1>
+    <p>
+	Часто несколько компонентов должны отражать
+	одни и те же изменяющиеся данные. В React
+	рекомендовано поднимать общее состояние до
+	ближайшего общего предка. Давайте посмотрим
+	на примере.
+</p>
+<p>
+	Пусть мы хотим сделать калькулятор температуры
+	воды. Он будет представлять собой инпут,
+	в который пользователь будет вводить температуру,
+	и абзац, в который будет выводится вердикт:
+	вода жидкая, вода твердая, вода газообразная.
+</p>
+<p>
+	Пусть наш калькулятор представляет собой
+	компонент-контейнер <code data-gs="comd/c" data-x>Calculator</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Calculator() {
+	return &lt;div&gt;
+		
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Вынесем инпут для ввода температуры в компонент
+	<code data-gs="comd/c" data-x>TempInp</code>, а абзац с вердиктом - в компонент
+	<code data-gs="comd/c" data-x>Verdict</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Calculator() {
+	return &lt;div&gt;
+		&lt;Verdict /&gt;
+		&lt;TempInp /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Легко понять, что и <code data-gs="comd/c" data-x>TempInp</code>, и <code data-gs="comd/c" data-x>Verdict</code> должны
+	иметь стейт с температурой. При этом логично,
+	что это должна быть одна и та же температура:
+	по мере ввода данных в инпут должен
+	отображаться вердикт.
+<p>
+<p>
+	В таком случае рекомендовано использовать прием,
+	называемый <dfn data-gs="comd/d" data-x>подъем состояния</dfn>: состояние,
+	общее для двух (и более) компонентов поднимается
+	вверх до их общего родителя.
+<p>
+<p>
+	В нашем случае получится, что стейт с температурой
+	должен принадлежать компоненту <code data-gs="comd/c" data-x>Calculator</code>,
+	который будет передавать его в <code data-gs="comd/c" data-x>TempInp</code> и
+	<code data-gs="comd/c" data-x>Verdict</code> в качестве пропсов:
+<p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Calculator() {
+	const [temp, setTemp] = useState(0);
+	
+	return &lt;div&gt;
+		&lt;Verdict temp={temp} /&gt;
+		&lt;TempInp temp={temp} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	В компоненте <code data-gs="comd/c" data-x>TempInp</code> должен быть инпут
+	для изменения температуры. Но, так как эта
+	температура является пропсом данного компонента,
+	то непосредственно в <code data-gs="comd/c" data-x>TempInp</code> изменять
+	его нельзя. Правильно будет передать из компонента
+	<code data-gs="comd/c" data-x>Calculator</code> специальную функцию для
+	изменения температуры:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Calculator() {
+	const [temp, setTemp] = useState(0);
+	
+	function changeTemp(event) {
+		setTemp(event.target.value);
+	}
+	
+	return &lt;div&gt;
+		&lt;Verdict temp={temp} /&gt;
+		&lt;TempInp temp={temp} changeTemp={changeTemp} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Можно, кстати, не вводить новую функцию,
+	а передать в дочерний компонент функцию <code data-gs="comd/c" data-x>setTemp</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Calculator() {
+	const [temp, setTemp] = useState(0);
+	
+	return &lt;div&gt;
+		&lt;Verdict temp={temp} /&gt;
+		&lt;TempInp temp={temp} setTemp={setTemp} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите реализацию компонентов <code data-gs="comd/c" data-x>TempInp</code>
+		и <code data-gs="comd/c" data-x>Verdict</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Придумайте <code data-gs="comd/n" data-x>3</code> задачи, в которых нужно
+		использовать подъем состояния. Напишите решения
+		этих задач.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Список продавцов в Redux — acteck.off</title>
+  <meta name="description" content="Список продавцов в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Список продавцов в Redux</h1>
+    <p>
+	На прошлых занятиях мы закончили с основным
+	материалом. Теперь с помощью thunk мы получаем
+	список продуктов с сервера и можем сохранить
+	на сервере новый продукт. Давайте разберемся
+	с продавцами. Ведь мы получаем данные и для них.
+	Давайте сделаем отдельную страничку со списком
+	продавцов.
+</p>
+<p>
+	Откроем наше приложение с продуктами, а в
+	нем папку <code data-gs="comd/p" data-x>sellers</code>. Создадим в этой папке
+	файл <code data-gs="comd/p" data-x>SellersList.jsx</code>. Здесь мы будем
+	использовать <code data-gs="comd/c" data-x>useSelector</code>, <code data-gs="comd/c" data-x>Link</code> и
+	<code data-gs="comd/c" data-x>selectAllSellers</code>, код которого мы
+	напишем в <code data-gs="comd/p" data-x>sellersSlice.js</code> чуть позже:
+</p>
+<div data-p="bock/pane" data-p-file="sellers/SellersList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { selectAllSellers } from './sellersSlice'</code>
+</div>
+<p>
+	Далее создадим сам <code data-gs="comd/c" data-x>SellersList</code>. В нем мы
+	получим всех продавцов с помощью хука
+	<code data-gs="comd/c" data-x>useSelector</code>, затем получим верстку для списка
+	продавцов в цикле <code data-gs="comd/c" data-x>map</code>, причем каждое название
+	продавца у нас будет вести на его страничку.
+	И в конце вернем верстку с заголовком и
+	полученным списком:
+</p>
+<div data-p="bock/pane" data-p-file="sellers/SellersList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const SellersList = () =&gt; {
+	const sellers = useSelector(selectAllSellers)
+	const sellersToRender = sellers.map((seller) =&gt; (
+		&lt;li key={seller.id}&gt;
+			&lt;Link to={`/sellers/${seller.id}`}&gt;{seller.name}&lt;/Link&gt;
+		&lt;/li&gt;
+	))
+
+	return (
+		&lt;div&gt;
+			&lt;h2&gt;Sellers:&lt;/h2&gt;
+
+			&lt;ul&gt;{sellersToRender}&lt;/ul&gt;
+		&lt;/div&gt;
+	)
+}</code>
+</div>
+<p>
+	Затем зайдем в файл <code data-gs="comd/p" data-x>sellersSlice.js</code> и по аналогии
+	с селекторами в <code data-gs="comd/p" data-x>productsSlice.js</code> создадим в самом
+	конце файла два селектора после экспорта редьюсера:
+</p>
+<div data-p="bock/pane" data-p-file="sellers/sellersSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const selectAllSellers = (state) =&gt; state.sellers
+
+export const selectSellerById = (state, sellerId) =&gt;
+state.sellers.find((seller) =&gt; seller.id === sellerId)</code>
+</div>
+<p>
+	Теперь нам необходимо прописать маршрут для
+	странички со списком, для этого откроем файл
+	<code data-gs="comd/p" data-x>App.jsx</code> и в массив дочерних маршрутов
+	<code data-gs="comd/c" data-x>children</code> добавим еще один объект
+	(не забудьте импортировать компонент
+	<code data-gs="comd/c" data-x>SellersList</code>):
+</p>
+<div data-p="bock/pane" data-p-file="App.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{
+	path: '/sellers',
+	element: &lt;SellersList /&gt;,
+},</code>
+</div>
+<p>
+	Чтобы наша ссылка <code data-gs="comd/s" data-x>'Sellers'</code> в меню заработала,
+	давайте зайдем в файл <code data-gs="comd/p" data-x>root.jsx</code> (как давно
+	это было ... ) и заменим тег <code data-gs="comd/c" data-x>a</code> на
+	элемент <code data-gs="comd/c" data-x>NavLink</code>:
+</p>
+<div data-p="bock/pane" data-p-file="app/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;NavLink to="/sellers" end&gt;
+	Sellers
+&lt;/NavLink&gt;</code>
+</div>
+<p>
+	И последнее. Чтобы в нашей менюшке
+	выделялась активная ссылка, и было
+	понятно на какой страничке мы находимся,
+	мы добавим стиль в <code data-gs="comd/p" data-x>index.css</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">nav a.active {
+	color: purple;
+}</code>
+</div>
+<p>
+	Запустим наше приложение. Теперь мы можем
+	зайти на страничку с продавцами, кликнув по
+	<code data-gs="comd/s" data-x>'Sellers'</code> в меню. Прежде, конечно,
+	нужно кликнуть по <code data-gs="comd/s" data-x>'Products'</code> в меню, иначе
+	наши продукты не подгрузятся. На следующем
+	уроке мы сделаем страничку для каждого продавца
+	и на этом закончим изучение данного учебника по
+	Redux.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Изучив материалы урока, в папке <code data-gs="comd/p" data-x>teachers</code>
+		создайте файл <code data-gs="comd/p" data-x>TeachersList.jsx</code>. С помощью
+		этого компонента вы будете выводить список
+		преподавателей. Импортируйте в него
+		необходимые компоненты и хуки.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите код для компонента <code data-gs="comd/p" data-x>TeachersList</code>,
+		получите в нем всех преподавателей и сделайте
+		список преподавателей <code data-gs="comd/p" data-x>teachersToRender</code>, пусть
+		в каждой строчке этого списка отображаются их
+		фамилии и инициалы, а в скобочках предмет, который
+		они ведут. Пусть каждые ФИО вместе
+		будут ссылкой, которая ведет на отдельную
+		страничку для каждого преподавателя. Затем
+		в конце кода компонента верните
+		верстку с заголовком и созданным списком.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В конце файла <code data-gs="comd/p" data-x>teachersSlice.js</code> создайте
+		пару функций-селекторов <code data-gs="comd/c" data-x>selectAllTeachers</code> и
+		<code data-gs="comd/c" data-x>selectTeacherById</code>, как показано в уроке.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В <code data-gs="comd/p" data-x>App.jsx</code> подключите еще один дочерний
+		маршрут для странички с преподавателями.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		В файле <code data-gs="comd/p" data-x>root.jsx</code> в меню для
+		<code data-gs="comd/s" data-x>'Teachers'</code> замените тег <code data-gs="comd/c" data-x>a</code> на
+		<code data-gs="comd/c" data-x>NavLink</code>, как показано
+		в уроке. Сделайте так, чтобы активная
+		ссылка в меню как-то выделялась, добавив для
+		этого стили в <code data-gs="comd/p" data-x>index.css</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../thunk-results-component/index.html" class="lesson-nav-btn lesson-nav-prev" title="Вывод результатов работы в компоненте">← Вывод результатов работы в компоненте</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../seller-page/index.html" class="lesson-nav-btn lesson-nav-next" title="Page продавца">Page продавца →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

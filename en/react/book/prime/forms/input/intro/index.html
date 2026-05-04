@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Работа с инпутами в React — acteck.off</title>
+  <meta name="description" content="Работа с инпутами в React — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Работа с инпутами в React</h1>
+    <p>
+	Работа с инпутами в React происходит с помощью
+	стейтов. Каждому инпуту назначается свой
+	стейт, содержащий в себе <code data-gs="comd/c" data-x>value</code> инпута.
+</p>
+<p>
+	Давайте посмотрим на примере. Пусть у нас
+	есть инпут:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	return &lt;div&gt;
+		&lt;input /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Пусть также у нас есть стейт:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [value, setValue] = useState('text');
+	
+	return &lt;div&gt;
+		&lt;input /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Давайте к атрибуту <code data-gs="comd/c" data-x>value</code> инпута привяжем
+	нас стейт:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [value, setValue] = useState('text');
+	
+	return &lt;div&gt;
+		&lt;input value={value} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	В таком случае получится, что <i>при изменении
+	стейта, реактивно поменяется и текст инпута</i>.
+</p>
+<p>
+	Это, однако, дает интересный побочный эффект:
+	теперь при запуске кода в браузере в инпуте
+	невозможно поменять текст! Почему: потому
+	что при вводе текста в инпут не меняется
+	стейт <code data-gs="comd/c" data-x>value</code>, соответственно, и текст
+	в инпуте не должен меняться.
+</p>
+<p>
+	Попробуйте сами. Скопируйте мой код и запустите
+	у себя. Попробуйте поизменять текст в инпуте
+	- у вас ничего не получится. Откройте консоль
+	браузера - вы увидите в ней предупреждение
+	React. Это предупреждение указывает нам,
+	что мы привязали стейт к инпуту, но тем самым
+	заблокировали инпут.
+</p>
+<p>
+	Давайте сделаем так, чтобы в наш инпут можно
+	было вводить текст. Для этого нужно сделать
+	так, чтобы при вводе изменялся наш стейт
+	на текущее значение инпута.
+</p>
+<p>
+	Для начала для этого нужно навесить на инпут
+	событие <code data-gs="comd/c" data-x>onChange</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [value, setValue] = useState('text');
+	
+	return &lt;div&gt;
+		&lt;input value={value} onChange={handleChange} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Данное событие в React ведет себя по-другому
+	по сравнению с чистым JS. В React оно <i>срабатывает
+	сразу же по изменению инпута</i>. To есть
+	при вводе или удалении символа.
+</p>
+<p>
+	Давайте теперь добавим обработчик нашего события:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [value, setValue] = useState('text');
+	
+	function handleChange() {
+		
+	}
+	
+	return &lt;div&gt;
+		&lt;input value={value} onChange={handleChange} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	В этом обработчике мы должны прочитать текущий
+	текст инпута и установить его в стейт с помощью
+	функции <code data-gs="comd/c" data-x>setValue</code>.
+</p>
+<p>
+	Проблема в том, что <code data-gs="comd/c" data-x>this</code> данной функции
+	не будет указывать на наш инпут - такова
+	особенность React. Чтобы получить элемент,
+	в котором случилось событие, нам необходимо
+	использовать <a href="../../../../../../javascript/manual/event/target/index.html"><code data-gs="comd/c" data-x>event.target</code></a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [value, setValue] = useState('text');
+	
+	function handleChange(event) {
+		console.log(event.target); // ссылка на DOM элемент инпута
+	}
+	
+	return &lt;div&gt;
+		&lt;input value={value} onChange={handleChange} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Выведем с помощью <code data-gs="comd/c" data-x>event.target</code> текущий
+	текст инпута:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [value, setValue] = useState('text');
+	
+	function handleChange(event) {
+		console.log(event.target.value); // текущий текст инпута
+	}
+	
+	return &lt;div&gt;
+		&lt;input value={value} onChange={handleChange} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	А теперь запишем текст инпута в наш стейт:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [value, setValue] = useState('text');
+	
+	function handleChange(event) {
+		setValue(event.target.value);
+	}
+	
+	return &lt;div&gt;
+		&lt;input value={value} onChange={handleChange} /&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Теперь мы сможем вводить текст в инпут. При
+	этом стейт <code data-gs="comd/c" data-x>value</code> всегда будет содержать
+	текущий текст инпута.
+</p>
+<p>
+	Мы можем легко убедится в этом. Выведем содержимое
+	нашего текста в абзац. В этом случае при
+	вводе текста в инпут введенный текст будет
+	автоматически появляться в абзаце:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [value, setValue] = useState('');
+	
+	function handleChange(event) {
+		setValue(event.target.value);
+	}
+	
+	return &lt;div&gt;
+		&lt;input value={value} onChange={handleChange} /&gt;
+		&lt;p&gt;text: {value}&lt;/p&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Можем переписать на более компактный вариант
+	с анонимной стрелочной функцией:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
+	const [value, setValue] = useState('');
+	
+	return &lt;div&gt;
+		&lt;input value={value} onChange={event =&gt; setValue(event.target.value)} /&gt;
+		&lt;p&gt;text: {value}&lt;/p&gt;
+	&lt;/div&gt;;
+}</code>
+</div>
+<p>
+	Таким образом, для работы любого инпута нам
+	нужно следующее: создать стейт для этого
+	инпута, привязать стейт к атрибуту <code data-gs="comd/c" data-x>value</code>
+	инпута, навесить событие <code data-gs="comd/c" data-x>onChange</code> на инпут,
+	в обработчике события менять стейт инпута
+	на его текст.
+</p>
+<p>
+	Данные операции нужно будет проводить с каждым
+	инпутом. To есть, если у вас два инпута,
+	то у вас будет два стейта и две функции-обработчика
+	события <code data-gs="comd/c" data-x>onChange</code>.
+</p>
+<div data-w="cont/task">
+	<p>
+		Сделайте два инпута. Пусть текст первого
+		инпута выводится в первый абзац, а текст
+		второго инпута - во второй абзац.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

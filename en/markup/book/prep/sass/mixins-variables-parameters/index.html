@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Переменные в параметрах в SASS — acteck.off</title>
+  <meta name="description" content="Переменные в параметрах в SASS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Переменные в параметрах в SASS</h1>
+    <p>
+	Бывают ситуации, когда миксин
+	или функция должны принимать
+	неизвестное количество параметров.
+	Для чего в языке SASS есть возможность
+	передачи "переменных параметров" или параметров,
+	которые указываются последними в функции
+	или миксине и упаковывают все остальные
+	переданные параметры в список.
+</p>
+<p>
+	После таких параметров нужно ставить многоточие.
+	Рассмотрим следующий пример:
+</p>
+<div data-p="bock/pane" data-p-file="styles.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin box-content-padding($padding...) {
+	-moz-box-content-padding: $padding;
+	-webkit-box-content-padding: $padding;
+}
+div {
+	@include box-content-padding(0px 4px 5px 2px);
+}</code>
+</div>
+<p>
+	Результат компиляции:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	-moz-box-content-padding: 0px 4px 5px 2px;
+	-webkit-box-content-padding: 0px 4px 5px 2px;
+}</code>
+</div>
+<p>
+	В переменные функции или миксина также
+	можно передавать именованные параметры.
+	Для того, чтобы к ним можно обратиться
+	используют функцию <code data-gs="comd/c" data-x>keywords($args)</code>,
+	которая возвращает их как соответствие
+	имён (без знака <code data-gs="comd/c" data-x>$</code>) значениям.
+
+</p>
+<div data-p="bock/pane" data-p-file="styles.scss">
+	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin common-colors($text-color, $background, $shadow) {
+	color: $text-color;
+	background-color: $background;
+	box-shadow: $shadow;
+}
+
+$values: white, green, grey;
+
+.primary {
+	@include common-colors($values...);
+}
+
+$value-map: (text-color: black, background: grey, shadow: green);
+
+.secondary {
+	@include common-colors($value-map...);
+}</code>
+</div>
+<p>
+	После компиляции мы увидим:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.primary {
+	color: white;
+	background-color: green;
+	box-shadow: grey;
+}
+
+.secondary {
+	color: black;
+	background-color: grey;
+	box-shadow: green;
+}</code>
+</div>
+    <div class="lesson-nav">
+      <a href="../mixins-named-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Именованные параметры миксинов">← Именованные параметры миксинов</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../mixins-content-blocks/index.html" class="lesson-nav-btn lesson-nav-next" title="Блоки контента в миксинах">Блоки контента в миксинах →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

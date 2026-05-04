@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Несколько параметров в функциях LESS — acteck.off</title>
+  <meta name="description" content="Несколько параметров в функциях LESS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/markup/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/markup/index.html">Markup</a>
+    </div>
+
+    <h1>Несколько параметров в функциях LESS</h1>
+    <p>
+	В функциях в LESS можно передавать несколько
+	параметров. Для этого их нужно перечислить
+	через запятую. Для примера давайте сделаем
+	функцию <code data-gs="comd/c" data-x>size</code>, задающую размеры элемента:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">.size(@w, @h) {
+	width: @w;
+	height: @h;
+}</code>
+</div>
+<p>
+	Воспользуемся нашей функцией:
+</p>
+<div data-p="bock/pane" data-p-file="styles.less">
+	<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
+	.size(200px, 100px);
+}</code>
+</div>
+<p>
+	В результате после компиляции получится следующий
+	код:
+</p>
+<div data-p="bock/pane" data-p-file="styles.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	width: 200px;
+	height: 100px;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте функцию <code data-gs="comd/c" data-x>.fsh</code>, которая первым
+		параметром будет принимать значение свойства
+		<code data-gs="comd/c" data-x>font-size</code>, а вторым - значение свойства
+		<code data-gs="comd/c" data-x>line-height</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте функцию <code data-gs="comd/c" data-x>.absTL</code>, которая будет
+		задавать абсолютное позиционирование. Пи
+		этом она первым параметром будет принимать
+		значение свойства <code data-gs="comd/c" data-x>top</code>, а вторым -
+		значение свойства <code data-gs="comd/c" data-x>left</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте аналогичные функции <code data-gs="comd/c" data-x>.absTR</code>,
+		<code data-gs="comd/c" data-x>.absBL</code> и <code data-gs="comd/c" data-x>.absBR</code>, задающие абсолютное
+		позиционирование с различных сторон.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../functions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Функции">← Функции</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../functions-optional-parameter/index.html" class="lesson-nav-btn lesson-nav-next" title="Необязательный параметр в функциях">Необязательный параметр в функциях →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реализация автодополения на JavaScript — acteck.off</title>
+  <meta name="description" content="Реализация автодополения на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Реализация автодополения на JavaScript</h1>
+    <p>
+	Пусть у нас дан инпут, в который мы будем
+	вводить, например, какую-то страну. Давайте
+	сделаем так, чтобы по мере ввода символов
+	в этот инпут, под этим инпутом появлялся
+	список стран, начинающихся на введенные буквы.
+	При желании пользователь нашего сайта сможет
+	выбрать одну из стран из списка, не вводя
+	ее название полностью.
+</p>
+<div data-w="cont/video">
+	<iframe src="https://www.youtube.com/embed/z4paBkgq2zA" allowfullscreen></iframe>
+</div>
+
+<h2>Исходники кода</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
+	position: relative;
+}
+#parent ul {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	background-color: white;
+}
+
+#parent li {
+	border: 1px solid gray;
+	padding: 3px;
+}
+#parent li:hover {
+	border: 1px solid black;
+	cursor: pointer;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
+	&lt;input id="elem"&gt;
+	&lt;!--
+	&lt;ul&gt;
+		&lt;li&gt;Belarus&lt;/li&gt;
+		&lt;li&gt;Belgium&lt;/li&gt;
+		&lt;li&gt;Bulgaria&lt;/li&gt;
+	&lt;/ul&gt;
+	--&gt;
+&lt;/div&gt;
+text text text text text</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['Belarus', 'Belgium', 'Bulgaria', 'Russia'];
+let elem = document.querySelector('#elem');
+let parent = document.querySelector('#parent');
+
+let ul = document.createElement('ul');
+parent.appendChild(ul);
+
+elem.addEventListener('input', function() {
+	ul.innerHTML = '';
+	
+	if (this.value !== '') {
+		let matches = arr.filter(item =&gt; item.startsWith(this.value));
+		
+		if (matches.length &gt; 0) {
+			for (let match of matches) {
+				let li = document.createElement('li');
+				li.innerHTML = match;
+				ul.appendChild(li);
+				
+				li.addEventListener('click', function() {
+					elem.value = this.innerHTML;
+					ul.innerHTML = '';
+				});
+			}
+		}
+	}
+});</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

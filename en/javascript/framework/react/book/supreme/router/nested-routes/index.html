@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вложенные маршруты в React Router — acteck.off</title>
+  <meta name="description" content="Вложенные маршруты в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Вложенные маршруты в React Router</h1>
+    <p>
+	На этом уроке мы познакомимся с <dfn data-gs="comd/d" data-x>вложенными
+	маршрутами</dfn>. Запустите приложение, которое мы
+	делали на прошлом уроке. Кликая по ссылкам,
+	мы попадаем на отдельную страничку с продуктом.
+	Предположим, нам неудобно, чтобы так было, и
+	нам бы хотелось, чтобы список с продуктами и
+	страничка продукта отображались рядом, на
+	одном экране для большей наглядности. Давайте
+	сделаем так.
+</p>
+<p>
+	Для этого давайте откроем файл <code data-gs="comd/p" data-x>main.jsx</code>
+	и просто сделаем наш маршрут для странички
+	с продуктом дочерним маршрутом корневого
+	маршрута или, другими словами "вложим" его
+	в корневой маршрут. Для этого воспользуемся
+	еще одним свойством объекта маршрута
+	<code data-gs="comd/c" data-x>children</code>:
+</p>
+<div data-p="bock/pane" data-p-file="main.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([
+	{
+		path: '/',
+		element: &lt;Root /&gt;,
+		errorElement: &lt;ErrorPage404 /&gt;,
+		children: [
+			{
+				path: 'products/:productId',
+				element: &lt;Product /&gt;,
+			},
+		],
+	},
+
+]);</code>
+</div>
+<p>
+	Кликаем по ссылкам снова, но справа от списка
+	продуктов мы ничего не видим. Все потому, что
+	мы не сказали корневому маршруту где мы
+	хотим отобразить его дочерние маршруты.
+</p>
+<p>
+	Как раз для отрисовки элементов дочерних
+	маршрутов в родительском нам поможет компонент
+	<code data-gs="comd/c" data-x>Outlet</code>. Давайте импортируем его из
+	библиотеки в файл для корневого маршрута:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { Outlet } from 'react-router-dom';</code>
+</div>
+<p>	   
+	Затем обернем его в див <code data-gs="comd/z" data-x>#product</code>
+	и добавим в макет для корневого маршрута
+	в конце верстки после закрывающего тега
+	<code data-gs="comd/c" data-x>nav</code>, а всю конструкцию обернем еще
+	в один див <code data-gs="comd/z" data-x>#main</code>:
+</p>
+<div data-p="bock/pane" data-p-file="routes/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
+	&lt;div id="main"&gt;
+		&lt;nav&gt;
+			&lt;a href={`/products/1`}&gt;Product1&lt;/a&gt;
+			&lt;a href={`/products/2`}&gt;Product2&lt;/a&gt;
+		&lt;/nav&gt;
+		&lt;div id="product"&gt;
+			&lt;Outlet /&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+);</code>
+</div>
+<p>
+	Кликая по ссылкам, теперь мы видим и
+	список продуктов и страничку продукта.
+</p>
+<p>
+	Добавим немного стилей в наш
+	<code data-gs="comd/p" data-x>index.css</code>:
+</p>
+<div data-p="bock/pane" data-p-file="index.css">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">h1, h2 {
+	margin: 0;
+}
+
+div#main {
+	display: flex;
+	margin: 20px;
+}
+
+div#product {
+	margin-left: 40px;
+}</code>
+</div>	
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		задании к прошлому уроку. Пользуясь
+		материалами урока, сделайте маршрут
+		для странички студента вложенным в
+		корневой.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		А теперь сделайте так, чтобы при
+		клике по ссылкам на экране отображался
+		и список студентов и страничка студента.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../add-new-route/index.html" class="lesson-nav-btn lesson-nav-prev" title="Добавление ещё одного маршрута">← Добавление ещё одного маршрута</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../client-side-routing/index.html" class="lesson-nav-btn lesson-nav-next" title="Маршрутизация на стороне клиента">Маршрутизация на стороне клиента →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод insertAdjacentText — acteck.off</title>
+  <meta name="description" content="Метод insertAdjacentText — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод insertAdjacentText</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>insertAdjacentText</code> позволяет
+	вставить строку в любое место страницы. Строка
+	вставляется относительно <i>опорного элемента</i>.
+	Можно сделать вставку перед опорным элементом
+	(способ вставки <code data-gs="comd/s" data-x>'beforeBegin'</code>), после
+	него (способ вставки <code data-gs="comd/s" data-x>'afterEnd'</code>), а
+	также в начало (способ вставки <code data-gs="comd/s" data-x>'afterBegin'</code>)
+	или в конец (способ вставки <code data-gs="comd/s" data-x>'beforeEnd'</code>)
+	опорного элемента.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">опорный элемент.insertAdjacentText(способ вставки, текст для вставки);</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Способ <code data-gs="comd/s" data-x>beforeBegin</code></h2>
+<p>
+	Пусть опорный элемент - это элемент <code data-gs="comd/z" data-x>#target</code>.
+	Вставим перед ним какой-нибудь текст:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="target"&gt;
+	&lt;p&gt;elem&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let target = document.querySelector('#target');
+target.insertAdjacentText('beforeBegin', 'text');</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">text
+&lt;div id="target"&gt;
+	&lt;p&gt;elem&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Способ <code data-gs="comd/s" data-x>afterEnd</code></h2>
+<p>
+	А теперь вставим новый абзац после опорного
+	элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="target"&gt;
+	&lt;p&gt;elem&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let target = document.querySelector('#target');
+target.insertAdjacentText('afterEnd', 'text');</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="target"&gt;
+	&lt;p&gt;elem&lt;/p&gt;
+&lt;/div&gt;
+text</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. <code data-gs="comd/s" data-x>afterBegin</code></h2>
+<p>
+	Вставим новый абзац в начало опорного элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="target"&gt;
+	&lt;p&gt;elem&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let target = document.querySelector('#target');
+target.insertAdjacentText('afterBegin', 'text');</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="target"&gt;
+	text
+	&lt;p&gt;elem&lt;/p&gt;
+&lt;/div&gt;</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span>. Способ <code data-gs="comd/s" data-x>beforeEnd</code></h2>
+<p>
+	Вставим новый абзац в конец опорного элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="target"&gt;
+	&lt;p&gt;elem&lt;/p&gt;
+&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let target = document.querySelector('#target');
+target.insertAdjacentText('beforeEnd', 'text');</code>
+</div>
+<p>
+	Результат выполнения кода:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="target"&gt;
+	&lt;p&gt;elem&lt;/p&gt;
+	text
+&lt;/div&gt;</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../insertAdjacentElement/index.html"><code data-gs="comd/c" data-x>insertAdjacentElement</code></a>, <br>
+			который вставляет элемент в заданное место
+		</li>
+		<li>
+			метод <a href="../insertAdjacentHTML/index.html"><code data-gs="comd/c" data-x>insertAdjacentHTML</code></a>, <br>
+			который вставляет код в заданное место
+		</li>
+		<li>
+			метод <a href="../prepend/index.html"><code data-gs="comd/c" data-x>prepend</code></a>, <br>
+			который вставляет элементы в начало
+		</li>
+		<li>
+			метод <a href="../append/index.html"><code data-gs="comd/c" data-x>append</code></a>, <br>
+			который вставляет элементы в конец
+		</li>
+		<li>
+			метод <a href="../appendChild/index.html"><code data-gs="comd/c" data-x>appendChild</code></a>, <br>
+			который вставляет элементы в конец родителя
+		</li>
+		<li>
+			метод <a href="../insertBefore/index.html"><code data-gs="comd/c" data-x>insertBefore</code></a>, <br>
+			который вставляет элементы перед элементом
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

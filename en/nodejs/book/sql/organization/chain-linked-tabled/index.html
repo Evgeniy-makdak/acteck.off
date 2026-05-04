@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Цепочка связанных таблиц в NodeJS — acteck.off</title>
+  <meta name="description" content="Цепочка связанных таблиц в NodeJS — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Цепочка связанных таблиц в NodeJS</h1>
+    <p>
+	Пусть теперь юзеры живут в определенных городах,
+	а эти города расположены в разных странах.
+	В таком случае для хранения нам понадобятся
+	уже три таблицы: юзеры будут связаны с городами,
+	а города - со странами. При этом нам не нужно
+	будет поле связи юзеров со странами - ведь
+	юзеры и так будут связаны со странами через
+	связь городов и стран.
+</p>
+<p>
+	Давайте посмотрим на наши таблицы. Таблица
+	со странами:
+</p>
+<div data-w="bock/stab">
+	<table>
+		<caption>countries</caption>
+		<tr>
+			<th>id</th>
+			<th>name</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>country1</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>country2</td>
+		</tr>
+	</table>
+</div>
+<p>
+	Таблица с городами:
+</p>
+<div data-w="bock/stab">
+	<table>
+		<caption>cities</caption>
+		<tr>
+			<th>id</th>
+			<th>name</th>
+			<th>country_id</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>city1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+		<tr>
+			<td>2</td>
+			<td>city2</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>city3</td>
+			<td>2</td>
+		</tr>
+	</table>
+</div>
+<p>
+	Таблица с юзерами останется неизменной:
+</p>
+<div data-w="bock/stab">
+	<table>
+		<caption>users</caption>
+		<tr>
+			<th>id</th>
+			<th>name</th>
+			<th>city_id</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>user1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>user2</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>user3</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>user4</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>user5</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>user6</td>
+			<td>2</td>
+		</tr>
+	</table>
+</div>
+
+<h2>Запросы</h2>
+<p>
+	Для того, чтобы достать юзеров вместе с их
+	городами и странами, нам придется сделать
+	два джоина: первый присоединит города к юзерам,
+	а второй - страны к городам:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT
+	users.name,
+	cities.name as city_name,
+	countries.name as country_name
+FROM
+	users
+LEFT JOIN cities ON cities.id=users.city_id
+LEFT JOIN countries ON countries.id=cities.country_id</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Пусть товары принадлежат определенной подкатегории,
+		а подкатегории принадлежат определенной категории.
+		Распишите структуру хранения.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите запрос, который достанет товары,
+		вместе с их подкатегориями и
+		категориями.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Напишите запрос, который достанет подкатегории
+		вместе с их категориями.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

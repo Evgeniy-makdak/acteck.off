@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Условия в Handlebars Express — acteck.off</title>
+  <meta name="description" content="Условия в Handlebars Express — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../en/nodejs/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
+    </div>
+
+    <h1>Условия в Handlebars Express</h1>
+    <p>
+	С помощью команды <code data-gs="comd/c" data-x>{{#if}}</code> можно сделать
+	так, чтобы определенный текст был показан,
+	если некоторая переменная имеет значение
+	<code data-gs="comd/c" data-x>true</code>, и скрыт, если <code data-gs="comd/c" data-x>false</code>.
+	Давайте посмотрим на примере.
+</p>
+<p>
+	Пусть в представление передается некоторая
+	логическая переменная:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/', function(req, res) {
+	res.render('page', {
+		show: true
+	});
+});</code>
+</div>
+<p>
+	Давайте покажем некоторый текст, если значение
+	нашей переменной равно <code data-gs="comd/c" data-x>true</code>:
+</p>
+<div data-p="bock/pane" data-p-file="views/page.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
+	{{#if show}}
+		&lt;p&gt;hello&lt;/p&gt;
+	{{/if}}
+&lt;/div&gt;</code>
+</div>
+
+<h2>Команда else</h2>
+<p>
+	Можно также использовать команду <code data-gs="comd/c" data-x>{{else}}</code>,
+	чтобы показать или один, или второй текст:
+</p>
+<div data-p="bock/pane" data-p-file="views/page.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
+	{{#if show}}
+		&lt;p&gt;text1&lt;/p&gt;
+	{{else}}
+		&lt;p&gt;text2&lt;/p&gt;
+	{{/if}}
+&lt;/div&gt;</code>
+</div>
+
+<h2>Команда unless</h2>
+<p>
+	Команда <code data-gs="comd/c" data-x>{{#unless}}</code> обратна команде
+	<code data-gs="comd/c" data-x>{{#if}}</code>, то есть показывает текст,
+	если значение переменной ложно:
+</p>
+<div data-p="bock/pane" data-p-file="views/page.hbs">
+	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
+	{{#unless show}}
+		&lt;p&gt;text1&lt;/p&gt;
+	{{/unless}}
+&lt;/div&gt;</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Пусть в представление передаются следующие
+		переменные:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">res.render('page', {
+	show1: true,
+	show2: false,
+	show3: true,
+});</code>
+	</div>
+	<p>
+		Пусть у нас есть три блока:
+	</p>
+	<div data-p="bock/pane" data-p-file="views/page.hbs">
+		<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
+	block 1
+&lt;/div&gt;
+&lt;div&gt;
+	block 2
+&lt;/div&gt;
+&lt;div&gt;
+	block 3
+&lt;/div&gt;</code>
+	</div>
+	<p>
+		Сделайте так, чтобы каждый блок был видимым,
+		если соответствующая ему переменная истинна.
+	</p>
+</div>
+
+<h2>Замечание</h2>
+<div data-w="cont/nott">
+	<p>
+		Описанные команды могут проверять переменные
+		только на истину или ложь. Более сложные
+		условия недоступны.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

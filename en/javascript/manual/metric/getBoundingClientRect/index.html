@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод getBoundingClientRect — acteck.off</title>
+  <meta name="description" content="Метод getBoundingClientRect — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод getBoundingClientRect</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>getBoundingClientRect</code> содержит
+	объект координат элемента. Координаты рассчитываются
+	относительного видимой части страницы без
+	учета прокрутки (относительно окна). To есть
+	как при свойстве <a href="../../../../markup/manual/css/property/position/index.html"><code data-gs="comd/c" data-x>position</code></a>
+	в значении <code data-gs="comd/v" data-x>fixed</code>.
+</p>
+<p>
+	В возвращаемом объекте содержатся свойства: <code data-gs="comd/s" data-x>left</code>,
+	<code data-gs="comd/s" data-x>top</code>, <code data-gs="comd/s" data-x>right</code>, <code data-gs="comd/s" data-x>bottom</code>, <code data-gs="comd/s" data-x>width</code>, <code data-gs="comd/s" data-x>height</code>.
+	Стоит отметить, что эти свойства не имеют ничего
+	общего с CSS свойствами. В них содержатся
+	расстояния до соответствующих сторон элемента.
+	Для <code data-gs="comd/s" data-x>left/right</code> - от левой границы видимой
+	области страницы, а для <code data-gs="comd/s" data-x>top/bottom</code> - от верхней.
+</p>
+
+<h2>Синтаксис</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">элемент.getBoundingClientRect();</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Получим координаты элемента:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
+console.log(elem.getBoundingClientRect());</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			свойство <a href="../offsetParent/index.html"><code data-gs="comd/c" data-x>offsetParent</code></a>, <br>
+			которое содержит родителя с позиционированием
+		</li>
+		<li>
+			свойство <a href="../offsetTop/index.html"><code data-gs="comd/c" data-x>offsetTop</code></a>, <br>
+			которое содержит смещение элемента сверху
+		</li>
+		<li>
+			свойство <a href="../offsetLeft/index.html"><code data-gs="comd/c" data-x>offsetLeft</code></a>, <br>
+			которое содержит смещение элемента слева
+		</li>
+		<li>
+			метод <a href="../elementFromPoint/index.html"><code data-gs="comd/c" data-x>elementFromPoint</code></a>, <br>
+			которое возвращает элемент по координатам
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

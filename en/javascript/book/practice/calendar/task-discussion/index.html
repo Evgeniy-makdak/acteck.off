@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обсуждение реализации календаря на JavaScript — acteck.off</title>
+  <meta name="description" content="Обсуждение реализации календаря на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Обсуждение реализации календаря на JavaScript</h1>
+    <p>
+	Наш календарь представляет собой таблицу
+	с числами от <code data-gs="comd/n" data-x>1</code> до последнего дня месяца.
+	Проблема в том, что числа в таблице в первом
+	ряду должны идти не с первой ячейки.
+</p>
+<p>
+	Это в общем очевидно. Не очевидно с какой
+	именно ячейки нужно начинать. Давайте обдумаем.
+</p>
+<p>
+	Пусть неделя начинается с понедельника, и
+	он нулевой день. В этом случае номер дня
+	недели первого числа месяца соответствует
+	количеству пустых ячеек перед ним. Например,
+	четверг будет иметь номер <code data-gs="comd/n" data-x>3</code> и перед
+	ним будет <code data-gs="comd/n" data-x>3</code> пустых ячейки.
+</p>
+<p>
+	Аналогичная проблема нас будет ждать в конце
+	таблицы. Там тоже нужно оставлять пустые
+	ячейки после последнего числа месяца. В этом
+	случае количество пустых ячеек будет равно
+	шестерке, от которой нужно отнять номер дня
+	недели последнего дня месяца.
+</p>
+<p>
+	Подумаем теперь, как мы будем формировать
+	нашу таблицу. Очевидно, что удобнее всего
+	иметь двухмерный массив, в каждом подмассиве
+	которого будет по <code data-gs="comd/n" data-x>7</code> элементов (= количеству
+	дней в недели). При этом в первом и последнем
+	подмассивах часть элементов должны быть пустыми.
+</p>
+
+<h2>Алгоритм действий</h2>
+<p>
+	Сделаем функцию, которая будет делать массив
+	чисел от <code data-gs="comd/n" data-x>1</code> до последнего дня месяца.
+	Затем сделаем функцию, которая добавит в
+	начало массива необходимое количество пустых
+	элементов. Аналогичная функция должна добавлять
+	пустые элементы в конец массива.
+</p>
+<p>
+	После этого у нас получится одномерный массив
+	с количеством элементов, кратным <code data-gs="comd/n" data-x>7</code>.
+	Преобразуем этот массив в двухмерный по <code data-gs="comd/n" data-x>7</code>
+	элементов в подмассиве.
+</p>
+<p>
+	Затем возьмем этот двухмерный массив, переберем
+	циклами и сформируем нашу таблицу.
+</p>
+<p>
+	Этот алгоритм действий мы поэтапно будем
+	выполнять в следующих уроках.
+</p>
+  
+    <div class="lesson-nav">
+      <a href="../task-formulation/index.html" class="lesson-nav-btn lesson-nav-prev" title="Постановка задачи">← Постановка задачи</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../numbers-array-filling/index.html" class="lesson-nav-btn lesson-nav-next" title="Заполнение массива числами">Заполнение массива числами →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

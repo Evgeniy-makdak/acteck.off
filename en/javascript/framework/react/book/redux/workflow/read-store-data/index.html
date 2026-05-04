@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Получение данных из store в компоненте в Redux — acteck.off</title>
+  <meta name="description" content="Получение данных из store в компоненте в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Получение данных из store в компоненте в Redux</h1>
+    <p>
+	На этом занятии мы выведем данные из
+	store в React компоненте.
+</p>
+<p>
+	Откроем наше приложение с продуктами, зайдем
+	в папку <code data-gs="comd/p" data-x>parts/products</code> и создадим в ней
+	файл <code data-gs="comd/p" data-x>ProductsList.jsx</code>. Для начала импортируем
+	в него хук <code data-gs="comd/c" data-x>useSelector</code>, с помощью которого
+	будем получать данные из store:
+</p>
+<div data-p="bock/pane" data-p-file="parts/products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useSelector } from 'react-redux'</code>
+</div>
+<p>
+	Теперь давайте получим продукты из store.
+	Функцию-селектор мы не будем создавать отдельно,
+	пропишем ее код сразу в параметре для
+	<code data-gs="comd/c" data-x>useSelector</code>:
+</p>
+<div data-p="bock/pane" data-p-file="parts/products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const ProductsList = () =&gt; {
+	const products = useSelector((state) =&gt; state.products)
+}</code>
+</div>
+<p>
+	Затем мы выведем продукты стандартным способом
+	в теле функции <code data-gs="comd/c" data-x>ProductsList</code> после
+	строчки с получением продуктов, используя
+	<code data-gs="comd/c" data-x>map</code>:
+</p>
+<div data-p="bock/pane" data-p-file="parts/products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const dispProducts = products.map((product) =&gt; (
+	&lt;div key={product.id}&gt;
+		&lt;h3&gt;{product.name}&lt;/h3&gt;
+		&lt;p&gt;{product.desc.substring(0, 100)}&lt;/p&gt;
+		&lt;p&gt;Price: {product.price}&lt;/p&gt;
+		&lt;p&gt;Amount: {product.amount}&lt;/p&gt;
+	&lt;/div&gt;
+))</code>
+</div>
+<p>
+	А ниже выведем <code data-gs="comd/c" data-x>dispProducts</code> в следующей
+	верстке:
+</p>
+<div data-p="bock/pane" data-p-file="parts/products/ProductsList.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
+	&lt;div&gt;
+		&lt;h2&gt;Products&lt;/h2&gt;
+		{dispProducts}
+	&lt;/div&gt;
+)</code>
+</div>
+<p>
+	Теперь осталось отобразить наш список
+	продуктов на главной страничке. Откроем
+	файл <code data-gs="comd/p" data-x>root.jsx</code> и исправим заголовок:
+</p>
+<div data-p="bock/pane" data-p-file="app/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;h2&gt;This is my first Redux app!&lt;/h2&gt;</code>
+</div>
+<p>
+	На следующий:
+</p>
+<div data-p="bock/pane" data-p-file="app/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;h2&gt;My Products App&lt;/h2&gt;</code>
+</div>
+<p>
+	Затем импортируем в файл компонент
+	<code data-gs="comd/c" data-x>ProductsList</code>:
+</p>
+<div data-p="bock/pane" data-p-file="app/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { ProductsList } from '../parts/products/ProductsList'</code>
+</div>
+<p>
+	И вставим его в див с айди <code data-gs="comd/z" data-x>main-page</code>
+	сразу после закрывающего тега <code data-gs="comd/c" data-x>hr</code>:
+</p>
+<div data-p="bock/pane" data-p-file="app/root.jsx">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;ProductsList /&gt;</code>
+</div>
+<p>
+	Запускаем наше приложение. Наш список из
+	двух продуктов успешно вывелся на главной
+	страничке.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Создайте файл <code data-gs="comd/p" data-x>StudentsList.jsx</code> в папке
+		<code data-gs="comd/p" data-x>students</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Получите студентов из store с помощью
+		хука <code data-gs="comd/c" data-x>useSelector</code>, как описано в уроке.
+		Отобразите все поля с информацией о
+		студентах из стейта, воспользовавшись
+		<code data-gs="comd/c" data-x>map</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Импортируйте полученный компонент
+		<code data-gs="comd/c" data-x>StudentsList</code> в <code data-gs="comd/p" data-x>root.jsx</code> и
+		выведите его на главной страничке. Убедитесь,
+		что вся информация о студентах
+		отобразилась на экране.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../selectors-use-selector/index.html" class="lesson-nav-btn lesson-nav-prev" title="Селекторы и хук useSelector">← Селекторы и хук useSelector</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../local-state/index.html" class="lesson-nav-btn lesson-nav-next" title="Формы и локальные стейты">Формы и локальные стейты →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

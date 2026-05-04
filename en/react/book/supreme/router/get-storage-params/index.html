@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Загрузка данных страницы по URL параметрам из хранилища в React Router — acteck.off</title>
+  <meta name="description" content="Загрузка данных страницы по URL параметрам из хранилища в React Router — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Загрузка данных страницы по URL параметрам из хранилища в React Router</h1>
+    <p>
+	Теперь мы можем добавлять продукты в наше
+	приложение. Запустите приложение, добавьте
+	кнопкой пару продуктов. Если мы теперь
+	покликаем на сами продукты в списке, то
+	увидим, что у каждого продукта пока еще
+	одинаковая статическая страничка, ей мы
+	и займемся в этом и последующих уроках.
+</p>
+<p>
+	Также необходимо отметить еще один момент.
+	Вообще, весь URL делится на <dfn data-gs="comd/d" data-x>сегменты</dfn> - это
+	части URL между символами <code data-gs="comd/p" data-x>/</code>. Вы
+	наверное помните, что при создании этого
+	приложения мы указывали путь
+	<code data-gs="comd/p" data-x>'products/:productId'</code>, так вот
+	<code data-gs="comd/p" data-x>:productId</code> называется здесь
+	<dfn data-gs="comd/d" data-x>динамическим сегментом</dfn>. Перед ним
+	ставится символ <code data-gs="comd/p" data-x>':'</code>. Значения в
+	этом сегменте будут меняться,
+	именно они попадают в URL параметры
+	(URL Params или params), которые передаются
+	загрузчику под определенным ключом, в нашем
+	случае это будет <code data-gs="comd/c" data-x>params.productId</code>.
+</p>
+<p>
+	Взгляните на адресную строку в браузере,
+	когда кликаете на продукты в списке. Вы увидите,
+	что последний сегмент в адресной строке меняется,
+	именно эти значения и будут попадать в загрузчик.
+	А наши продукты в хранилище имеют уникальный
+	сгенерированный нами <code data-gs="comd/c" data-x>id</code>, таким образом
+	нам будет подгружаться тот продукт, который
+	нам нужен.
+</p>
+<p>
+	А теперь после небольшого отступления давайте
+	поработаем наконец со страничкой продукта,
+	а конкретнее - с загрузкой данных из
+	хранилища.   
+</p>
+<p>
+	Повторим знакомый процесс. Для начала в
+	<code data-gs="comd/p" data-x>forStorage.js</code> добавим функцию
+	<code data-gs="comd/c" data-x>getProduct</code> для получения данных
+	конкретного продукта из хранилища по
+	<code data-gs="comd/c" data-x>id</code>. Здесь мы уже передавать
+	в функцию <code data-gs="comd/c" data-x>id</code> и, соответсвенно,
+	если продукт у нас "закеширован", то
+	будет выводится без задержки:
+</p>
+<div data-p="bock/pane" data-p-file="forStorage.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function getProduct(id) {
+	await someNetwork(`product:${id}`);
+}</code>
+</div>
+<p>
+	Далее нам нужно получить массив продуктов
+	и среди них найти наш продукт по переданному
+	<code data-gs="comd/c" data-x>id</code>:
+</p>
+<div data-p="bock/pane" data-p-file="forStorage.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function getProduct(id) {
+	await someNetwork(`product:${id}`);
+	let products = await localforage.getItem('products');
+	let product = products.find((product) =&gt; product.id === id);
+	return product ?? null;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Возьмите приложение, созданное вами в
+		заданиях к прошлым урокам. Пользуясь
+		материалами урока, создайте в
+		<code data-gs="comd/p" data-x>forStorage.js</code> функцию
+		<code data-gs="comd/c" data-x>getStudent</code> для получения 
+		данных студента по <code data-gs="comd/c" data-x>id</code>.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

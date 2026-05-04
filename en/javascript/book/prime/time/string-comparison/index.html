@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Строковое сравнение дат на JavaScript — acteck.off</title>
+  <meta name="description" content="Строковое сравнение дат на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Строковое сравнение дат на JavaScript</h1>
+    <p>
+	Пусть у нас есть две даты в следующем текстовом
+	формате:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let date1 = '2020-12-01';
+let date2 = '2019-12-01';</code>
+</div>
+<p>
+	В таком случае можно выполнить сравнение
+	этих дат и узнать, какая из этих дат больше:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(date1 &gt; date2); // выведет true</code>
+</div>
+<p>
+	Каким образом происходит сравнение этих дат?
+	Дело в том, что наши даты представляют собой
+	строки и JavaScript сравнивает их как строки.
+	To есть он сначала сравнивает первые символы
+	двух дат: если они одинаковы, то JavaScript
+	сравнивает вторые символы, и так далее, пока
+	не найдет отличия. Благодаря тому, что в
+	нашем формате даты сначала расположен год,
+	потом месяц, а потом день, и возможно такое
+	сравнение.
+</p>
+<p>
+	Дело в том, что если цифра первого года оказывается
+	больше цифры второго года, значит уже не
+	имеет значения, что там с месяцами и днями
+	- первый год точно больше. Если же годы совпадают,
+	то больше будет та дата, у которой больше
+	месяц. А если и месяцы совпадают, то больше
+	будет та дата, у которой больше день. Ну,
+	а если и дни одинаковы, то и даты равны.
+</p>
+<p>
+	Важно также, чтобы даты были в одном формате.
+	В нашем случае разделителями частей дат являются
+	дефисы. Это, конечно же, не обязательно.
+	Например, можно поставить точки:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let date1 = '2020.12.01';
+let date2 = '2019.12.01';</code>
+</div>
+<p>
+	Или вообще убрать разделители:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let date1 = '20201201';
+let date2 = '20191201';</code>
+</div>
+<p>
+	Главное, чтобы сравнение было корректным,
+	размещение должно быть следующим: сначала
+	год, потом месяц, потом день.
+</p>
+<div data-w="cont/task">
+	<p>
+		Напишите код, который сравнит две приведенные
+		ниже даты и выведет сообщение о том, какая
+		из них больше:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let date1 = '2020-11-30';
+let date2 = '2020-12-01';</code>
+	</div>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../moments/practucum/index.html" class="lesson-nav-btn lesson-nav-prev" title="Практика на получение моментов времени">← Практика на получение моментов времени</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../comparison-without-year/index.html" class="lesson-nav-btn lesson-nav-next" title="Сравнение даты без года">Сравнение даты без года →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

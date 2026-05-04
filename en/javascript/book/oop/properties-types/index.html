@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свойства-аксессоры в ООП в JavaScript — acteck.off</title>
+  <meta name="description" content="Свойства-аксессоры в ООП в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Свойства-аксессоры в ООП в JavaScript</h1>
+    <p>
+	Есть два типа свойств объекта.
+</p>
+<p>
+	Первый тип это свойства-данные (<span data-gs="lang/e" data-x>data properties</span>).
+	Мы уже знаем, как работать с ними. Все свойства,
+	которые мы использовали до текущего момента,
+	были свойствами-данными.
+</p>
+<p>
+	Второй тип свойств мы ещё не рассматривали.
+	Это свойства-аксессоры (<span data-gs="lang/e" data-x>accessor properties</span>).
+	По своей сути это функции, которые используются
+	для присвоения и получения значения, но во внешнем
+	коде они выглядят как обычные свойства объекта.
+</p>
+<p>
+	Свойства-аксессоры создаются с помощью
+	ключевых слов <code data-gs="comd/c" data-x>get</code> и <code data-gs="comd/c" data-x>set</code> написанных
+	при объявлении методов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
+	get name() {
+	
+	}
+	set name(name) {
+	
+	}
+}</code>
+</div>
+<p>
+	В результате такого объявления
+	наш класс будет обладать свойством
+	<code data-gs="comd/c" data-x>name</code>. При этом при попытке чтения
+	этого свойства будет вызван метод,
+	объявленный через <code data-gs="comd/c" data-x>get</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let name = user.name;</code>
+</div>
+<p>
+	При попытке записи будет вызван метод,
+	объявленный через <code data-gs="comd/c" data-x>set</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">user.name = 'john';</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан следующий класс:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class Employee {
+	get name() {
+		console.log('get');
+	}
+	set name(name) {
+		console.log('set');
+	}
+}</code>
+	</div>
+	<p>
+		Создайте объект этого класса
+		и попробуйте записать и прочитать
+		данные из свойства <code data-gs="comd/c" data-x>name</code>.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../classes-modules-inheritance/index.html" class="lesson-nav-btn lesson-nav-prev" title="Классы, модули и наследование">← Классы, модули и наследование</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../accessors-getters/index.html" class="lesson-nav-btn lesson-nav-next" title="Геттеры аксессоров">Геттеры аксессоров →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

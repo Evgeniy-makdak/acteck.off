@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод stop — acteck.off</title>
+  <meta name="description" content="Метод stop — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод stop</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>stop</code> позволяет нам немедленно
+	остановить запущенную анимацию. Анимация продолжится
+	уже со следующей функции без завершения предыдущей.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Так мы останавливаем запущенную анимацию. Можно передать
+	два необязательных параметра, которые принимают Булевы
+	значения. Если первый параметр установить как <code data-gs="comd/c" data-x>true</code>,
+	то оставшиеся функции в очереди анимации будут удалены и
+	никогда не запустятся. Если второй парметр установить в
+	<code data-gs="comd/c" data-x>true</code>, то при остановке анимации css-свойства
+	элемента немедленно примут свои конечные значения (т.е.,
+	если целью было плавно скрыть элемент, то он будет скрыт
+	мгновенно):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.stop([clearQueue], [jumpToEnd]);</code>
+</div>
+<p>
+	Можно также передать необязательный параметр, в
+	котором указывается название очереди:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.stop([имя очереди], [clearQueue],[jumpToEnd]);</code>
+</div>
+<p>
+	Анимацию можно отключить глобально, используя настройку
+	<a href="../jQuery.fx.off/index.html"><code data-gs="comd/c" data-x>jQuery.fx.off</code></a> = <code data-gs="comd/c" data-x>true</code>,
+	которая устанавливает значение длительности в 0.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте сделаем так, что бы при каждом клике по
+	кнопке <code data-gs="comd/z" data-x>#toggle</code> наш прямоугольник то
+	разворачивался, то сворачивался с помощью метода
+	<a href="../slideToggle/index.html"><code data-gs="comd/c" data-x>slideToggle</code></a>.
+	Нажимайте на кнопку, не дожидаясь завершения
+	анимации - следующий этап будет запускаться, не
+	дожидаясь завершения предыдущего, благодаря
+	методу <code data-gs="comd/c" data-x>stop</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="toggle"&gt;toggle&lt;/button&gt;
+&lt;div id="test"&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">#test {
+	background-color: green;
+	border: 1px solid black;
+	width: 200px;
+	height: 100px;
+	margin: 10px;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#toggle').on('click', function() {
+	$('#test').stop().slideToggle(1500);
+});</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../clearQueue/index.html"><code data-gs="comd/c" data-x>clearQueue</code></a>, <br>
+			который позволяет удалить все невыполненные
+			элементы из очереди функций
+		</li> 
+		<li>
+			свойство 
+			<a href="../jQuery.fx.off/index.html"><code data-gs="comd/c" data-x>jQuery.fx.off</code></a>, <br> 
+			которое позволяет глобально отключить анимацию
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

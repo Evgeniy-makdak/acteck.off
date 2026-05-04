@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реактивность условий в Angular — acteck.off</title>
+  <meta name="description" content="Реактивность условий в Angular — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">javascript</a>
+    </div>
+
+    <h1>Реактивность условий в Angular</h1>
+    <p>
+	Реактивность также будет работать с условиями
+	<code data-gs="comd/c" data-x>ngIf</code>. Это значит, что мы можем
+	показывать или скрывать блок в зависимости
+	от того, что содержится в свойстве класса. 
+</p>
+<p>
+	Давайте попробуем на практике. Пусть у нас
+	есть следующий блок 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
+	text
+&lt;/div&gt;</code>
+</div>
+<p>
+	Давайте будем показывать или скрывать его
+	по условию: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div *ngIf="isShow"&gt;
+	text
+&lt;/div&gt;</code>
+</div>
+<p>
+	Сделаем теперь две кнопки. По клику на
+	первую будем показывать наш блок, а по
+	клику на вторую - скрывать: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.html">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button (click)="show()"&gt;
+	show
+&lt;/button&gt;
+&lt;button (click)="hide()"&gt;
+	hide
+&lt;/button&gt;</code>
+</div>
+<p>
+	Добавим в класс компонента свойство которое
+	будет регулировать то, показан ли блок или
+	нет: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
+	public isShow: boolean = true;
+}</code>
+</div>
+<p>
+	А теперь напишем реализацию наших методов
+	для показа и скрытия блока: 
+</p>
+<div data-p="bock/pane" data-p-file="app/app.component.ts">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
+	public isShow: boolean = true;
+	
+	public show(): void {
+		this.isShow = true;
+	}
+	public hide(): void {
+		this.isShow = false;
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте кнопку, нажатие по которой будет
+		тоглить блок: показывать, если он скрыт,
+		и скрывать, если он показан. 
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../reactivity-loops/index.html" class="lesson-nav-btn lesson-nav-prev" title="Реактивность циклов">← Реактивность циклов</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../two-way/index.html" class="lesson-nav-btn lesson-nav-next" title="Двусторонняя привязка">Двусторонняя привязка →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

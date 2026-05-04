@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Массивы объектов в TypeScript — acteck.off</title>
+  <meta name="description" content="Массивы объектов в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Массивы объектов в TypeScript</h1>
+    <p>
+	Массивы в TypeScript могут содержать в
+	себе не только примитивы, но и объекты
+	определенных типов. Давайте посмотрим на
+	примерах, как работать с такими массивами. 
+</p>
+
+<h2>Массив юзеров</h2>
+<p>
+	Пусть у нас есть интерфейс, задающий юзера: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">interface User {
+	name: string,
+	age: number
+}</code>
+</div>
+<p>
+	Объявим массив, указав в качестве типа его
+	содержимого объекты с юзерами (т.е. объекты,
+	реализующие наш интерфейс): 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let arr: User[] = [];</code>
+</div>
+<p>
+	Заполним наш массив данными указанного
+	типа: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">arr.push({name: 'john', age: 30});
+arr.push({name: 'eric', age: 40});</code>
+</div>
+
+<h2>Массив дат</h2>
+<p>
+	Объявим массив, хранящий в себе массив
+	дат: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let arr: Date[] = [];</code>
+</div>
+<p>
+	Заполним этот массив датами: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">arr.push(new Date(2030, 11, 31));
+arr.push(new Date(2020, 11, 31));</code>
+</div>
+
+<h2>Массив DOM элементов</h2>
+<p>
+	Объявим массив, содержащий в себе дом
+	элементы: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let arr: HTMLElement[] = [];</code>
+</div>
+<p>
+	Заполним наш массив данными: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let lst: NodeList = document.querySelectorAll('div');
+let arr: HTMLElement[] = Array.from(lst);</code>
+</div>
+
+<h2>Практические задачи</h2>
+<div data-w="cont/task">
+	<p>
+		Сделайте массив, элементы которого будут
+		регулярными выражениями. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте массив, элементы которого будут
+		промисами. 
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Сделайте интерфейс, описывающий работника.
+		Сделайте массив, состоящий из объектов с
+		этими работниками. 
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

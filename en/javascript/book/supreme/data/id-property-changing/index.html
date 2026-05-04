@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Изменение одного свойства по id в JavaScript — acteck.off</title>
+  <meta name="description" content="Изменение одного свойства по id в JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Изменение одного свойства по id в JavaScript</h1>
+    <p>
+	Вам может потребоваться изменять не весь
+	объект, а конкретное свойство. Давайте посмотрим,
+	как это делается.
+</p>
+<p>
+	Пусть в переменной <code data-gs="comd/c" data-x>arr</code> лежит
+	массив объектов:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [
+	{
+		id: 'GYi9GauC4gBF1e2SixDvu',
+		prop1: 'value11',
+		prop2: 'value12',
+		prop3: 'value13',
+	},
+	{
+		id: 'IWSpfBPSV3SXgRF87uO74',
+		prop1: 'value21',
+		prop2: 'value22',
+		prop3: 'value23',
+	},
+	{
+		id: 'JAmjRlfQT8rLTm5tG2m1L',
+		prop1: 'value31',
+		prop2: 'value32',
+		prop3: 'value33',
+	},
+];</code>
+</div>
+<p>
+	Пусть в переменных хранятся <code data-gs="comd/c" data-x>id</code> элемента,
+	имя свойства для изменения и новое значение
+	свойства:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let id = 'IWSpfBPSV3SXgRF87uO74';
+let prop = 'prop1';
+let value = '!!!';</code>
+</div>
+<p>
+	Для решения задачи удобно использовать деструктуризацию
+	и <a href="../../../prime/objects/computed-properties/index.html">вычисляемые имена свойств</a>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = arr.map(elem =&gt; {
+	if (elem.id === id) {
+		return {...elem, [prop]: value};
+	} else {
+		return elem;
+	}
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Даны следующие переменные:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let id = 'JAmjRlfQT8rLTm5tG2m1L';
+let prop = 'prop2';</code>
+	</div>
+	<p>
+		Сделайте кнопку, по нажатию на которую будет
+		браться элемент массива с указанным <code data-gs="comd/c" data-x>id</code>,
+		в нем будет браться свойство с указанным
+		именем и в конец значения этого свойства
+		будет дописываться знак <code data-gs="comd/s" data-x>'!'</code>.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Пусть даны две переменные с именами свойств:
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let id = 'JAmjRlfQT8rLTm5tG2m1L';
+let prop1 = 'prop2';
+let prop2 = 'prop3';</code>
+	</div>
+	<p>
+		Модифицируйте предыдущую задачу так, чтобы
+		по клику изменения выполнялись сразу для
+		двух указанных свойств.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Переделайте приведенное в теории решение
+		через копирование объекта с помощью <code data-gs="comd/c" data-x>Object.assign</code>.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../id-element-changing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Изменение элемента по id">← Изменение элемента по id</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../id-getting-element/index.html" class="lesson-nav-btn lesson-nav-next" title="Получение элемента по id">Получение элемента по id →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

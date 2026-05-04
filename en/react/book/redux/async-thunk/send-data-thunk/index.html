@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отправка данных с помощью thunk в Redux — acteck.off</title>
+  <meta name="description" content="Отправка данных с помощью thunk в Redux — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/react/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/react/index.html">React</a>
+    </div>
+
+    <h1>Отправка данных с помощью thunk в Redux</h1>
+    <p>
+	На прошлом занятии мы разобрались с обработкой
+	POST-запроса на нашем фейковом сервере. Давайте
+	теперь напишем thunk-функцию, которая будет
+	отправлять запрос на сервер.
+</p>
+<p>
+	Откроем наше приложение с продуктами, а в
+	нем файл <code data-gs="comd/p" data-x>productsSlice.js</code>. Теперь после
+	thunk <code data-gs="comd/c" data-x>fetchProducts</code> мы с помощью
+	<code data-gs="comd/c" data-x>createAsyncThunk</code> создадим thunk
+	<code data-gs="comd/c" data-x>addProduct</code>:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const addProduct = createAsyncThunk()</code>
+</div>
+<p>
+	Первым параметром мы передадим в <code data-gs="comd/c" data-x>createAsyncThunk</code>
+	<code data-gs="comd/s" data-x>'products/addProduct'</code>, а вторым асинхронный
+	callback, который будет принимать объект с
+	данными нового продукта:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const addProduct = createAsyncThunk(
+	'products/addProduct',
+	async (newProduct) =&gt; {}
+)</code>
+</div>
+<p>
+	В коде этого колбэка мы вызовем клиента,
+	передав ему параметрами путь и объект с
+	продуктом, а затем вернем данные ответа:
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const addProduct = createAsyncThunk(
+	'products/addProduct',
+	async (newProduct) =&gt; {
+		const response = await client.post('/fakeServer/products', newProduct)
+		return response.data
+	}
+)</code>
+</div>
+<p>
+	Теперь ниже в коде посмотрим на поле <code data-gs="comd/c" data-x>reducers</code>
+	для <code data-gs="comd/c" data-x>productsSlice</code>. Раньше мы добавляли
+	новый продукт с помощью редьюсера
+	<code data-gs="comd/c" data-x>productAdded</code>, в котором у нас были методы
+	<code data-gs="comd/c" data-x>reducer</code> и <code data-gs="comd/c" data-x>prepare</code>. Теперь мы генерируем
+	необходимые данные на сервере и работаем
+	с thunk, поэтому уберем здесь полностью
+	редьюсер <code data-gs="comd/c" data-x>productAdded</code> из кода. А затем внесем в
+	в метод <code data-gs="comd/c" data-x>extraReducers</code> (в конец его кода) еще один
+	дополнительный редьюсер, который в случае
+	успешного запроса будет добавлять в слайс
+	<code data-gs="comd/c" data-x>products</code> новый продукт прямо из <code data-gs="comd/c" data-x>payload</code>
+	экшена (помним, что такой код возможен
+	только благодаря неповторимому <code data-gs="comd/c" data-x>createSlice</code>):
+</p>
+<div data-p="bock/pane" data-p-file="products/productsSlice.js">
+	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">.addCase(addProduct.fulfilled, (state, action) =&gt; {
+	state.products.push(action.payload)
+})</code>
+</div>
+<p>
+	Да, кстати, не забудьте убрать nanoid из
+	строчек с импортом, а <code data-gs="comd/c" data-x>productAdded</code> из экспорта
+	экшенов в конце файла.
+</p>
+<div data-w="cont/task">
+	<p>
+		Откройте ваше приложение со студентами.
+		Откройте в нем файл <code data-gs="comd/p" data-x>studentsSlice.js</code>. При
+		помощи <code data-gs="comd/c" data-x>createAsyncThunk</code> создайте еще один
+		thunk <code data-gs="comd/c" data-x>addStudent</code>, который будет отправлять
+		POST-запрос на сервер, чтобы добавить нового
+		студента, как показано в уроке.
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Далее ниже внесите изменения
+		для <code data-gs="comd/c" data-x>studentsSlice</code>: уберите полностью
+		редьюсер <code data-gs="comd/c" data-x>studentAdded</code> в свойстве <code data-gs="comd/c" data-x>reducers</code>.
+		А в поле <code data-gs="comd/c" data-x>extraReducers</code> добавьте дополнительный
+		редьюсер, который будет добавлять
+		нового студента в слайс <code data-gs="comd/c" data-x>students</code> из
+		<code data-gs="comd/c" data-x>payload</code> экшена в случае успешного запроса,
+		как показано уроке.
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../send-data-server/index.html" class="lesson-nav-btn lesson-nav-prev" title="Обработка запроса, отправленного с помощью thunk">← Обработка запроса, отправленного с помощью thunk</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../thunk-results-component/index.html" class="lesson-nav-btn lesson-nav-next" title="Вывод результатов работы в компоненте">Вывод результатов работы в компоненте →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

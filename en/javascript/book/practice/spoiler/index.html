@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Спойлер на JavaScript — acteck.off</title>
+  <meta name="description" content="Спойлер на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Спойлер на JavaScript</h1>
+    <p>
+	Сейчас мы научимся делать спойлеры.
+	Под спойлерами я понимаю блоки, которые можно
+	развернуть, либо свернуть с помощью специальной
+	ссылки.
+</p>
+<p>
+	В следующем примере кода абзац с классом
+	<code data-gs="comd/z" data-x>spoiler</code> является спойлером, а ссылка
+	с классом <code data-gs="comd/z" data-x>toggle</code> должна по клику показывать
+	или скрывать этот спойлер:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	абзац с текстом
+	&lt;a href="" class="toggle"&gt;развернуть&lt;/a&gt;
+&lt;/p&gt;
+&lt;p class="spoiler"&gt;
+	скрытый спойлер
+&lt;/p&gt;
+&lt;p&gt;
+	абзац с текстом
+&lt;/p&gt;</code>
+</div>
+<p>
+	В тексте, конечно же, может быть много спойлеров
+	и у каждого должна быть своя ссылка:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
+	абзац с текстом
+&lt;/p&gt;
+&lt;p&gt;
+	абзац с текстом
+	&lt;a href="" class="toggle"&gt;развернуть спойлер 1&lt;/a&gt;
+&lt;/p&gt;
+&lt;p class="spoiler"&gt;
+	скрытый спойлер 1
+&lt;/p&gt;
+&lt;p&gt;
+	абзац с текстом
+&lt;/p&gt;
+&lt;p&gt;
+	абзац с текстом
+	&lt;a href="" class="toggle"&gt;развернуть спойлер 2&lt;/a&gt;
+&lt;/p&gt;
+&lt;p class="spoiler"&gt;
+	скрытый спойлер 2
+&lt;/p&gt;
+&lt;p&gt;
+	абзац с текстом
+&lt;/p&gt;</code>
+</div>
+<p>
+	Очевидно, что ссылку для разворачивания и
+	сам спойлер надо как-то связать. Можно придумать
+	различные варианты, но в данном случае я
+	предлагаю сделать по местоположению: скажем,
+	что ссылка с классом <code data-gs="comd/z" data-x>toggle</code> открывает
+	или закрывает элемент с классом <code data-gs="comd/z" data-x>spoiler</code>,
+	расположенный сразу под родителем этой ссылки.
+</p>
+<p>
+	Пусть спойлер по умолчанию будет скрыт, а
+	если мы хотим его показать - будем давать
+	ему класс <code data-gs="comd/z" data-x>active</code>. Напишем соответствующий
+	CSS код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">.spoiler:not(.active) {
+	display: none;
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Скопируйте себе приведенный HTML и CSS коды.
+		Реализуйте описанную работу спойлеров.
+	</p>
+</div>
+  
+    <div class="lesson-nav">
+      <a href="../autocompletion/index.html" class="lesson-nav-btn lesson-nav-prev" title="Автодополнение">← Автодополнение</a>
+      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../tabs/index.html" class="lesson-nav-btn lesson-nav-next" title="Вкладки">Вкладки →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

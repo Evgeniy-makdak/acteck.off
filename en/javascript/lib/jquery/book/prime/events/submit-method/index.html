@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод submit в jQuery — acteck.off</title>
+  <meta name="description" content="Метод submit в jQuery — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод submit в jQuery</h1>
+    <p>
+	Ранее мы использовали такую конструкцию:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('form').on('submit', function(event) {
+	event.preventDefault();
+});</code>
+</div>
+<p>
+	Вместо этого мы можем также в jQuery напрямую
+	воспользоваться методом
+	<a href="../../../../manual/submit/index.html"><code data-gs="comd/c" data-x>submit</code></a>,
+	который привязывает обработчик формы, либо выполняет
+	событие:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('form').submit(function(event) {
+	event.preventDefault();
+});</code>
+</div>
+<p>
+	В следующем примере у нас есть простая форма,
+	к которой мы привяжем обработчик событий при помощи
+	метода <code data-gs="comd/c" data-x>submit</code>, с текстовым полем и
+	кнопкой - инпутом с типом <code data-gs="comd/v" data-x>submit</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;jQuery&lt;/p&gt;
+&lt;form action="/"&gt;
+	&lt;div&gt;
+		&lt;input type="text"&gt;
+		&lt;input type="submit"&gt;
+	&lt;/div&gt;
+&lt;/form&gt;
+&lt;span&gt;&lt;/span&gt;</code>
+</div>
+<p>
+	Давайте будем вводит текст в текстовое поле, а при нажатии на
+	кнопку проверять этот текст. Если мы введем
+	<code data-gs="comd/s" data-x>'jQuery'</code>, то в спане покажем текст
+	<code data-gs="comd/s" data-x>'Good!'</code>, с помощью методов
+	<a href="../../../../manual/text/index.html"><code data-gs="comd/c" data-x>text</code></a> и
+	<a href="../../../../manual/show/index.html"><code data-gs="comd/c" data-x>show</code></a>,
+	а если что-то другое, то - <code data-gs="comd/s" data-x>'Bad...'</code>:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('form').submit(function(event) {
+	event.preventDefault();
+		if ($('input').first().val() === 'jQuery') {
+			$('span').text('Good!').show();
+			return;
+		}
+	$('span').text('Bad...').show();
+});</code>
+</div>
+    <div class="lesson-nav">
+      <a href="../cancel-default-action/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отмена действия по умолчанию">← Отмена действия по умолчанию</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../effects/hide-show-methods/index.html" class="lesson-nav-btn lesson-nav-next" title="Методы hide и show">Методы hide и show →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

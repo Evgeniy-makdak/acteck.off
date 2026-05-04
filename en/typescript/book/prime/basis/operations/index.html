@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Операции над данными в TypeScript — acteck.off</title>
+  <meta name="description" content="Операции над данными в TypeScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/typescript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/typescript/index.html">TypeScript</a>
+    </div>
+
+    <h1>Операции над данными в TypeScript</h1>
+    <p>
+	TypeScript, в отличие от других языков со
+	строгой типизацией, позволяет выполнять
+	операции над разными типами данных, не
+	преобразуя их в один общий тип. 
+</p>
+<p>
+	Давайте посмотрим на примере, что имеется
+	ввиду. Пусть у нас есть строковая и числовая
+	переменные: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test1: number = 123;
+let test2: string = 'abc';</code>
+</div>
+<p>
+	Давайте выполним сложение этих переменных: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">console.log(test1 + test2); // выведет '123abc'</code>
+</div>
+<p>
+	To есть можно складывать, например, строки
+	и числа, и это не приведет к ошибке. To
+	есть TypeScript следит только за тем, чтобы
+	программист не изменил тип данных переменной. 
+</p>
+<p>
+	Для примера в следующем коде мы попытаемся
+	записать строку в числовую переменную и
+	это уже приведет к ошибке: 
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test1: number = 123;
+let test2: string = 'abc';
+let test3: number;
+
+test3 = test1 + test2; // пытаемся записать строку</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test1: number = 123;
+let test2: number = 456;
+
+console.log(test1 + test2);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test1: string = '123';
+let test2: string = '456';
+
+console.log(test1 + test2);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test1: string = '123';
+let test2: string = '456';
+
+let test3: number = test1 + test2;
+console.log(test3);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test1: number = 123;
+let test2: number = 456;
+
+let test3: string = test1 + test2;
+console.log(test3);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test1: number = 123;
+let test2: number = 456;
+
+let test3: string = test1 + ' ' + test2;
+console.log(test3);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test1: number = 123;
+let test2: number = 456;
+let test3: string = '!';
+
+let test4: string = test1 + test2 + test3;
+console.log(test4);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test1: number = '123';
+let test2: number = '456';
+
+console.log(test1 + test2);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test1: number = +'123';
+let test2: number = +'456';
+
+console.log(test1 + test2);</code>
+	</div>
+</div>
+<div data-w="cont/task">
+	<p>
+		Не запуская код определите каким будет
+		результат выполнения кода: 
+	</p>
+	<div data-p="bock/pane">
+		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let test: string = '1';
+test += 1;
+
+console.log(test);</code>
+	</div>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

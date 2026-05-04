@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конвертация объекта с датами в многомерный объект на JavaScript — acteck.off</title>
+  <meta name="description" content="Конвертация объекта с датами в многомерный объект на JavaScript — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Конвертация объекта с датами в многомерный объект на JavaScript</h1>
+    <p>
+	В данном уроке я покажу вам, как сконвертироватать
+	объект с данными в многомерную структуру.
+	Я покажу вам принцип такого конвертирования,
+	а также проблемы, возникающие при этом. В
+	качестве бонуса вы увидите примеры применения
+	ES6 деструктуризации.
+</p>
+<div data-w="cont/video">
+	<iframe src="https://www.youtube.com/embed/KziwzYYhuVA" allowfullscreen></iframe>
+</div>
+
+<h2>Исходники кода</h2>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let affairs = {
+	'2018-11-29': ['массив данных'],
+	'2018-11-30': ['массив данных'],
+	'2018-12-30': ['массив данных'],
+	'2018-12-31': ['массив данных'],
+	
+	'2019-12-29': ['массив данных'],
+	'2019-12-30': ['массив данных'],
+	'2019-12-31': ['массив данных'],
+};
+
+let result = {};
+for (let date in affairs) {
+	let [year, month, day] = date.split('-');
+	
+	if (result[year] == undefined) {
+		result[year] = {};
+	}
+	if (result[year][month] == undefined) {
+		result[year][month] = {};
+	}
+	
+	result[year][month][day] = affairs[date];
+}
+
+console.log(result);</code>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../assets/js/main.js"></script>
+</body>
+</html>

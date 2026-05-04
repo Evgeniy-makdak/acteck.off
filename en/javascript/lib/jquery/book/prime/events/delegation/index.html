@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Делегирование в jQuery — acteck.off</title>
+  <meta name="description" content="Делегирование в jQuery — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Делегирование в jQuery</h1>
+    <p>
+	Если вы изучали JavaScript, то вы уже сталкивались
+	с темой 
+	<a href="../../../../../../book/prime/dom/object-Event/events-delegation/index.html">
+	делегирования событий</a>, с помощью которого
+	можно, например, избавиться от проблем при навешивании
+	событий для новых элементов. Давайте посмотрим,
+	как это будет выглядеть для jQuery.
+</p>
+<p>
+	Возьмем следующий HTML код:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+	&lt;li&gt;text&lt;/li&gt;
+&lt;/ul&gt;</code>
+</div>
+<p>
+	CSS для него выглядит так:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">li {
+	width: 100px;
+	cursor: pointer;
+}</code>
+</div>
+<p>
+	Давайте теперь, с помощью метода
+	<a href="../../../../manual/on/index.html"><code data-gs="comd/c" data-x>on</code></a>,
+	будем привязывать метод <code data-gs="comd/c" data-x>click</code> не
+	к пункту списка <code data-gs="comd/c" data-x>li</code>, как мы делали в предыдущих
+	уроках, а к самому списку <code data-gs="comd/c" data-x>ul</code>. Также мы передадим
+	вторым (необязательным) параметром <code data-gs="comd/s" data-x>'li'</code> в качестве
+	селектора потомков. Посмотрим, что получилось:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('ul').on('click', 'li', function() {
+	$(this).append('!');
+});</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан <code data-gs="comd/c" data-x>ul</code>, в нем несколько <code data-gs="comd/c" data-x>li</code>. Под 
+		<code data-gs="comd/c" data-x>ul</code> сделайте кнопку, по нажатию на которую в
+		конец <code data-gs="comd/c" data-x>ul</code> будет добавляться новый <code data-gs="comd/c" data-x>li</code>
+		с текстом <code data-gs="comd/s" data-x>'пункт'</code>. Сделайте так, чтобы
+		при клике на каждый <code data-gs="comd/c" data-x>li</code>, ему в конец добавлялся
+		<code data-gs="comd/s" data-x>'!'</code>. Это должно работать и для вновь
+		добавленных <code data-gs="comd/c" data-x>li</code>. Задачу решите с помощью
+		делегирования (то есть событие должно быть
+		навешано на <code data-gs="comd/c" data-x>ul</code>).
+	</p>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дана таблица с юзерами с двумя колонками: имя и
+		фамилия. Под таблицей сделайте форму, с помощью
+		которой можно будет добавить нового юзера в
+		таблицу. Сделайте так, чтобы при клике на любую
+		ячейку появлялся <code data-gs="comd/c" data-x>prompt</code>, с помощью которого
+		можно изменить текст ячейки. Задачу решите
+		с помощью делегирования (то есть событие
+		должно быть навешано на <code data-gs="comd/c" data-x>table</code>).
+	</p>
+</div>
+    <div class="lesson-nav">
+      <a href="../off-method/index.html" class="lesson-nav-btn lesson-nav-prev" title="Метод off">← Метод off</a>
+      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../single/index.html" class="lesson-nav-btn lesson-nav-next" title="Однократное событие">Однократное событие →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../../../assets/js/main.js"></script>
+</body>
+</html>

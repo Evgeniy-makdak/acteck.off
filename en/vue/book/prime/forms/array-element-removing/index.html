@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кнопка для удаления элемента массива в Vue — acteck.off</title>
+  <meta name="description" content="Кнопка для удаления элемента массива в Vue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/vue/book/prime/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
+    </div>
+
+    <h1>Кнопка для удаления элемента массива в Vue</h1>
+    <p>
+	Давайте сделаем кнопку реактивного
+	удаления элементов из списка.
+	Приступим к реализации.
+	Пусть у нас дан массив:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
+	return {
+		items: ['a', 'b', 'c', 'd', 'e'],
+	}
+}</code>
+</div>
+<p>
+	Выведем содержимое массива
+	в виде списка:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;ul&gt;
+		&lt;li v-for="(item, index) in items" :key="index"&gt;
+			{{ item }}
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	Сделаем в каждом пункте списка кнопку
+	для удаления. В этой кнопке привяжем
+	метод, параметром которого будем
+	передавать номер элемента массива,
+	которого мы собираемся удалить:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
+	&lt;ul&gt;
+		&lt;li v-for="(item, index) in items" :key="index"&gt;
+			{{ item }}
+			&lt;button @click="removeItem(index)"&gt;remove&lt;/button&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/template&gt;</code>
+</div>
+<p>
+	Реализуем удаление в методе <code data-gs="comd/c" data-x>removeItem</code>:
+</p>
+<div data-p="bock/pane" data-p-file="App.vue">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
+	removeItem: function(index) {
+		this.items.splice(index, 1);
+	}
+}</code>
+</div>
+<div data-w="cont/task">
+	<p>
+		Дан массив. Выведите элементы этого массива
+		в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте так, чтобы
+		по нажатию на любую <code data-gs="comd/c" data-x>li</code> она удалялась
+		из списка.
+	</p>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>

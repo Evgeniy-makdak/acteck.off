@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Метод queue — acteck.off</title>
+  <meta name="description" content="Метод queue — учебные материалы по программированию.">
+  <link rel="stylesheet" href="../../../../../../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../../../../../../en/index.html" class="logo">
+        <div class="logo-icon">A</div>
+        <div>
+          <div class="logo-text"><span>acteck</span>.off</div>
+          <div class="logo-slogan">programming education</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <a href="../../../../../../en/javascript/index.html" class="back-link">← Back</a>
+    
+    <div class="breadcrumbs">
+      <a href="../../../../../../en/index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="../../../../../../en/javascript/index.html">JavaScript</a>
+    </div>
+
+    <h1>Метод queue</h1>
+    <p>
+	Метод <code data-gs="comd/c" data-x>queue</code> позволяет нам работать с очередью
+	функций, привязанных к элементу. Смотрите также метод
+	<a href="../clearQueue/index.html"><code data-gs="comd/c" data-x>clearQueue</code></a>,
+	который позволяет нам удалить из очереди все функции,
+	которые не были запущены.
+</p>
+
+<h2>Синтаксис</h2>
+<p>
+	Так мы показываем очередь выполняемых функций,
+	привязанных к элементу. Можно передать
+	необязательным параметром название очереди
+	в виде строки (по умолчанию <code data-gs="comd/c" data-x>fx</code> - стандартная
+	очередь эффектов):
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.queue([имя очереди]);</code>
+</div>
+<p>
+	Мы можем манипулировать очередью. Выполняется один
+	раз для каждого элемента. Для этого можно передать
+	вторым параметром массив функций, которые заменят
+	содержание текущей очереди:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.queue([имя очереди], новая очередь );</code>
+</div>
+<p>
+	А можно вторым параметром передать новую callback-функцию
+	для добавления в очередь. Эта функция в свою очередь получает
+	другую функцию в качестве параметра. Это позволяет
+	автоматически убирать из очереди следующий элемент и
+	двигать очередь:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.queue([имя очереди], callback-функция(next) {
+	next();
+});</code>
+</div>
+<p>
+	Каждый элемент может иметь одну или несколько
+	очередей. Во многих приложениях используется только
+	одна (<code data-gs="comd/c" data-x>fx</code>). Очереди позволяют осуществлять
+	последовательность действий с элементом асинхронно,
+	без прерывания выполнения программы.
+	Вызов <code data-gs="comd/c" data-x>queue</code> c callback-функцией позволяет нам
+	поместить новую функцию в конец очереди. callback-функция
+	выполняется один раз для каждого элемента в наборе.
+	При добавлении функции с помощью <code data-gs="comd/c" data-x>queue</code>, мы
+	должны убедится, что потом будет вызван метод
+	<a href="../hide/index.html"><code data-gs="comd/c" data-x>dequeue</code></a>,
+	для того чтобы следующая функция в цепочке заработала.
+</p>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте добавим пользовательскую функцию. Сначала,
+	после нажатия на <code data-gs="comd/z" data-x>#animate</code>, мы покажем красный квадрат,
+	который будет двигаться вправо в течение <code data-gs="comd/u" data-x>2с</code>,
+	затем при помощи <code data-gs="comd/c" data-x>queue</code> мы добавим
+	пользовательскую функцию, которая перекрасит квадрат
+	в зеленый, добавив класс <code data-gs="comd/z" data-x>newcolor</code>. Как видите,
+	затем здесь вызывается <code data-gs="comd/c" data-x>dequeue</code>, чтобы убрать
+	функцию из очереди. Затем наш квадрат будет двигаться
+	влево полсекунды и перекрасится обратно в красный - при
+	помощи второй пользовательской функции мы убираем
+	класс <code data-gs="comd/z" data-x>newcolor</code>. По окончанию анимации мы
+	сворачиваем наш квадрат:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="animate"&gt;start&lt;/button&gt;
+&lt;div&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	position: absolute;
+	margin: 3px;
+	width: 50px;
+	height: 50px;
+	left: 0px;
+	top: 30px;
+	background: red;
+	display: none;
+}
+
+div.newcolor {
+	background: green;
+}</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#animate').click(function() {
+	$('div')
+		.show('slow')
+		.animate({left: '+=200'}, 2000)
+		.queue(function() {
+			$(this).addClass('newcolor').dequeue();
+		})
+		.animate({left: '-=200'}, 500)
+		.queue(function() {
+			$(this).removeClass('newcolor').dequeue();
+		})
+		.slideUp();
+});</code>
+</div>
+
+<h2>Пример <span data-gn="sect"></span></h2>
+<p>
+	Давайте добавим очередь в виде массива, чтобы удалить
+	предыдущую. При нажитии на кнопку <code data-gs="comd/z" data-x>#start</code> мы будем
+	видеть анимацию из предыдущего примера. При нажатии на
+	кнопку <code data-gs="comd/z" data-x>#stop</code> мы будем останавливать анимацию путем
+	добавления пустого массива. При повторном нажатии на
+	<code data-gs="comd/z" data-x>#start</code> анимация будет начинаться заново:
+</p>
+<div data-p="bock/pane">
+	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="start"&gt;start&lt;/button&gt;
+&lt;button id="stop"&gt;stop&lt;/button&gt;
+&lt;div&gt;&lt;/div&gt;</code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
+	position: absolute;
+	margin: 3px;
+	width: 50px;
+	height: 50px;
+	left: 0px;
+	top: 30px;
+	background: red;
+	display: none;
+}
+div.newcolor {
+	background: green;
+}		 </code>
+	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#start').click(function() {
+	$('div')
+		.show('slow')
+		.animate({left: '+=200'}, 5000)
+		.queue(function() {
+			$(this).addClass('newcolor').dequeue();
+		})
+		.animate({left: '-=200'}, 1500)
+		.queue(function() {
+			$(this).removeClass('newcolor').dequeue();
+		})
+		.slideUp();
+});
+	
+$('#stop').click(function() {
+	$('div').queue('fx', []).stop();
+});</code>
+</div>
+
+<h2>Смотрите также</h2>
+<div data-w="cont/also">
+	<ul>
+		<li>
+			метод <a href="../animate/index.html"><code data-gs="comd/c" data-x>animate</code></a>, <br>
+			который анимирует свойства элементов
+		</li> 
+		<li>
+			метод <a href="../clearQueue/index.html"><code data-gs="comd/c" data-x>clearQueue</code></a>, <br>
+			который позволяет удалить все невыполненные 
+			элементы из очереди функций
+		</li> 
+		<li>
+			метод <a href="../dequeue/index.html"><code data-gs="comd/c" data-x>dequeue</code></a>, <br>
+			который позволяет выполнить следующую 
+			функцию в очереди функций
+		</li>
+	</ul>
+</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
+      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+    </div>
+  </footer>
+
+  <script src="../../../../../../assets/js/main.js"></script>
+</body>
+</html>
