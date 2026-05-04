@@ -495,10 +495,55 @@ a:hover {
 }
 
 /* ============================================
+   LESSON NAVIGATION
+   ============================================ */
+
+.lesson-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.lesson-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.lesson-nav a:hover {
+  border-color: var(--primary);
+  color: var(--text-heading);
+  background: var(--bg-card-hover);
+}
+
+.lesson-nav .nav-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.lesson-nav .nav-center {
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 
 @media (max-width: 768px) {
+
   .hero h1 {
     font-size: 32px;
   }
