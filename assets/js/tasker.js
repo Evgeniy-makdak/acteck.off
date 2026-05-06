@@ -481,6 +481,86 @@ const TASKS = {
             { input: [{}], expected: 0 }
         ]
     },
+    '306': {
+        id: '306',
+        title: { ru: 'Сортировка по цене', en: 'Sort by Price' },
+        difficulty: 'easy',
+        description: { ru: 'Отсортируйте массив объектов (товаров) по цене в порядке возрастания.', en: 'Sort an array of products by price in ascending order.' },
+        initialCode: 'function sortByPrice(products) {\n  // Your code here\n}',
+        tests: [{ input: [[{ name: 'A', price: 10 }, { name: 'B', price: 5 }]], expected: [{ name: 'B', price: 5 }, { name: 'A', price: 10 }] }]
+    },
+    '307': {
+        id: '307',
+        title: { ru: 'Клонирование объекта', en: 'Clone Object' },
+        difficulty: 'medium',
+        description: { ru: 'Реализуйте функцию для глубокого клонирования объекта.', en: 'Implement a function for deep cloning an object.' },
+        initialCode: 'function deepClone(obj) {\n  // Your code here\n}',
+        tests: []
+    },
+    '308': {
+        id: '308',
+        title: { ru: 'Объединение объектов', en: 'Merge Objects' },
+        difficulty: 'easy',
+        description: { ru: 'Напишите функцию, которая объединяет два объекта в один.', en: 'Write a function that merges two objects into one.' },
+        initialCode: 'function merge(obj1, obj2) {\n  // Your code here\n}',
+        tests: [{ input: [{ a: 1 }, { b: 2 }], expected: { a: 1, b: 2 } }]
+    },
+    '309': {
+        id: '309',
+        title: { ru: 'Инверсия объекта', en: 'Invert Object' },
+        difficulty: 'medium',
+        description: { ru: 'Создайте новый объект, где ключи станут значениями, а значения - ключами.', en: 'Create a new object where keys become values and values become keys.' },
+        initialCode: 'function invert(obj) {\n  // Your code here\n}',
+        tests: [{ input: [{ a: 'x', b: 'y' }], expected: { x: 'a', y: 'b' } }]
+    },
+    '310': {
+        id: '310',
+        title: { ru: 'Сортировка по именам', en: 'Sort by Name' },
+        difficulty: 'easy',
+        description: { ru: 'Отсортируйте массив объектов по полю name в алфавитном порядке.', en: 'Sort an array of objects by the name field alphabetically.' },
+        initialCode: 'function sortByName(arr) {\n  // Your code here\n}',
+        tests: [{ input: [[{ name: 'Z' }, { name: 'A' }]], expected: [{ name: 'A' }, { name: 'Z' }] }]
+    },
+    '311': {
+        id: '311',
+        title: { ru: 'Группировка данных', en: 'Group By' },
+        difficulty: 'hard',
+        description: { ru: 'Сгруппируйте массив объектов по значению указанного свойства.', en: 'Group an array of objects by the value of a specified property.' },
+        initialCode: 'function groupBy(arr, prop) {\n  // Your code here\n}',
+        tests: [{ input: [[{ type: 'A', v: 1 }, { type: 'B', v: 2 }, { type: 'A', v: 3 }], 'type'], expected: { A: [{ type: 'A', v: 1 }, { type: 'A', v: 3 }], B: [{ type: 'B', v: 2 }] } }]
+    },
+    '312': {
+        id: '312',
+        title: { ru: 'Массив ключей', en: 'Get Keys' },
+        difficulty: 'easy',
+        description: { ru: 'Верните массив всех ключей объекта.', en: 'Return an array of all object keys.' },
+        initialCode: 'function getKeys(obj) {\n  // Your code here\n}',
+        tests: [{ input: [{ a: 1, b: 2 }], expected: ['a', 'b'] }]
+    },
+    '313': {
+        id: '313',
+        title: { ru: 'Массив значений', en: 'Get Values' },
+        difficulty: 'easy',
+        description: { ru: 'Верните массив всех значений объекта.', en: 'Return an array of all object values.' },
+        initialCode: 'function getValues(obj) {\n  // Your code here\n}',
+        tests: [{ input: [{ a: 1, b: 2 }], expected: [1, 2] }]
+    },
+    '314': {
+        id: '314',
+        title: { ru: 'Фильтрация объекта', en: 'Pick' },
+        difficulty: 'medium',
+        description: { ru: 'Создайте новый объект, содержащий только указанные ключи из исходного.', en: 'Create a new object containing only the specified keys.' },
+        initialCode: 'function pick(obj, keys) {\n  // Your code here\n}',
+        tests: [{ input: [{ a: 1, b: 2, c: 3 }, ['a', 'c']], expected: { a: 1, c: 3 } }]
+    },
+    '315': {
+        id: '315',
+        title: { ru: 'Удаление ключей', en: 'Omit' },
+        difficulty: 'medium',
+        description: { ru: 'Создайте новый объект, исключив из него указанные ключи.', en: 'Create a new object excluding the specified keys.' },
+        initialCode: 'function omit(obj, keys) {\n  // Your code here\n}',
+        tests: [{ input: [{ a: 1, b: 2, c: 3 }, ['b']], expected: { a: 1, c: 3 } }]
+    },
     '316': {
         id: '316',
         title: { ru: 'Анаграммы', en: 'Anagrams' },
@@ -521,6 +601,30 @@ const TASKS = {
             { input: [[1, 2, 3, 4], (x) => x % 2 === 0], expected: [2, 4] }
         ]
     },
+    '403': {
+        id: '403',
+        title: { ru: 'Функция reduce', en: 'reduce Function' },
+        difficulty: 'medium',
+        description: { ru: 'Реализуйте аналог метода Array#reduce.', en: 'Implement an analogue of the standard Array#reduce method.' },
+        initialCode: 'function reduce(arr, cb, initial) {\n  // Your code here\n}',
+        tests: [{ input: [[1, 2, 3], (acc, x) => acc + x, 0], expected: 6 }]
+    },
+    '404': {
+        id: '404',
+        title: { ru: 'Функция find', en: 'find Function' },
+        difficulty: 'easy',
+        description: { ru: 'Реализуйте аналог метода Array#find.', en: 'Implement an analogue of the standard Array#find method.' },
+        initialCode: 'function find(arr, cb) {\n  // Your code here\n}',
+        tests: [{ input: [[1, 2, 3], (x) => x > 1], expected: 2 }]
+    },
+    '405': {
+        id: '405',
+        title: { ru: 'Функция every', en: 'every Function' },
+        difficulty: 'easy',
+        description: { ru: 'Реализуйте аналог метода Array#every.', en: 'Implement an analogue of the standard Array#every method.' },
+        initialCode: 'function every(arr, cb) {\n  // Your code here\n}',
+        tests: [{ input: [[2, 4, 6], (x) => x % 2 === 0], expected: true }]
+    },
     '406': {
         id: '406',
         title: { ru: 'Функция map', en: 'map Function' },
@@ -533,6 +637,78 @@ const TASKS = {
         tests: [
             { input: [[1, 2, 3], (x) => x * 2], expected: [2, 4, 6] }
         ]
+    },
+    '407': {
+        id: '407',
+        title: { ru: 'Функция some', en: 'some Function' },
+        difficulty: 'easy',
+        description: { ru: 'Реализуйте аналог метода Array#some.', en: 'Implement an analogue of the standard Array#some method.' },
+        initialCode: 'function some(arr, cb) {\n  // Your code here\n}',
+        tests: [{ input: [[1, 2, 3], (x) => x > 2], expected: true }]
+    },
+    '408': {
+        id: '408',
+        title: { ru: 'Каррирование', en: 'Currying' },
+        difficulty: 'hard',
+        description: { ru: 'Напишите функцию curry, которая трансформирует функцию с n аргументами в цепочку функций.', en: 'Implement a currying function.' },
+        initialCode: 'function curry(fn) {\n  // Your code here\n}',
+        tests: []
+    },
+    '409': {
+        id: '409',
+        title: { ru: 'Композиция', en: 'Compose' },
+        difficulty: 'medium',
+        description: { ru: 'Реализуйте функцию compose, которая объединяет несколько функций в одну (справа налево).', en: 'Implement a compose function.' },
+        initialCode: 'function compose(...fns) {\n  // Your code here\n}',
+        tests: []
+    },
+    '410': {
+        id: '410',
+        title: { ru: 'Частичное применение', en: 'Partial' },
+        difficulty: 'medium',
+        description: { ru: 'Реализуйте функцию partial для частичного применения аргументов.', en: 'Implement a partial application function.' },
+        initialCode: 'function partial(fn, ...args) {\n  // Your code here\n}',
+        tests: []
+    },
+    '411': {
+        id: '411',
+        title: { ru: 'Мемоизация', en: 'Memoize' },
+        difficulty: 'hard',
+        description: { ru: 'Напишите функцию memoize, которая кеширует результаты вызовов функции.', en: 'Implement a memoization function.' },
+        initialCode: 'function memoize(fn) {\n  // Your code here\n}',
+        tests: []
+    },
+    '412': {
+        id: '412',
+        title: { ru: 'Once', en: 'Once' },
+        difficulty: 'easy',
+        description: { ru: 'Напишите функцию, которая позволяет вызвать переданную функцию только один раз.', en: 'Implement a function that can be called only once.' },
+        initialCode: 'function once(fn) {\n  // Your code here\n}',
+        tests: []
+    },
+    '413': {
+        id: '413',
+        title: { ru: 'Pipe', en: 'Pipe' },
+        difficulty: 'medium',
+        description: { ru: 'Реализуйте функцию pipe (аналог compose, но слева направо).', en: 'Implement a pipe function.' },
+        initialCode: 'function pipe(...fns) {\n  // Your code here\n}',
+        tests: []
+    },
+    '414': {
+        id: '414',
+        title: { ru: 'Zip', en: 'Zip' },
+        difficulty: 'medium',
+        description: { ru: 'Напишите функцию zip, которая объединяет два массива в один массив пар.', en: 'Implement a zip function.' },
+        initialCode: 'function zip(arr1, arr2) {\n  // Your code here\n}',
+        tests: [{ input: [[1, 2], ['a', 'b']], expected: [[1, 'a'], [2, 'b']] }]
+    },
+    '415': {
+        id: '415',
+        title: { ru: 'Unzip', en: 'Unzip' },
+        difficulty: 'medium',
+        description: { ru: 'Напишите функцию unzip, обратную zip.', en: 'Implement an unzip function.' },
+        initialCode: 'function unzip(pairs) {\n  // Your code here\n}',
+        tests: [{ input: [[[1, 'a'], [2, 'b']]], expected: [[1, 2], ['a', 'b']] }]
     },
     '501': {
         id: '501',
@@ -554,6 +730,112 @@ const TASKS = {
             en: 'Implement a Counter class with increment, decrement and getValue methods.'
         },
         initialCode: 'class Counter {\n  constructor() { this.count = 0; }\n  // Your code here\n}',
+        tests: []
+    },
+    '510': {
+        id: '510',
+        title: { ru: 'Класс Прямоугольник', en: 'Rectangle Class' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Реализуйте класс Rectangle, принимающий ширину и высоту. Добавьте методы getArea (площадь) и getPerimeter (периметр).',
+            en: 'Implement a Rectangle class that takes width and height. Add getArea and getPerimeter methods.'
+        },
+        initialCode: 'class Rectangle {\n  constructor(width, height) {\n    this.width = width;\n    this.height = height;\n  }\n  getArea() {\n    // Your code here\n  }\n  getPerimeter() {\n    // Your code here\n  }\n}',
+        tests: [
+            { input: [10, 5], expected: { area: 50, perimeter: 30 }, isClass: true, checkMethods: ['getArea', 'getPerimeter'] }
+        ]
+    },
+    '511': {
+        id: '511',
+        title: { ru: 'Класс Круг', en: 'Circle Class' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Реализуйте класс Circle с методом getArea. Площадь круга: π * r² (используйте Math.PI). Округлите результат до 2 знаков.',
+            en: 'Implement a Circle class with a getArea method. Area: π * r². Round to 2 decimal places.'
+        },
+        initialCode: 'class Circle {\n  constructor(radius) {\n    this.radius = radius;\n  }\n  getArea() {\n    // Your code here\n  }\n}',
+        tests: [
+            { input: [5], expected: 78.54, isClass: true, checkMethod: 'getArea' }
+        ]
+    },
+    '512': {
+        id: '512',
+        title: { ru: 'Класс Квадрат', en: 'Square Class' },
+        difficulty: 'easy',
+        description: { ru: 'Создайте класс Square, наследующий от Rectangle. Конструктор должен принимать только сторону side.', en: 'Create a Square class inheriting from Rectangle.' },
+        initialCode: 'class Square extends Rectangle {\n  constructor(side) {\n    // Your code here\n  }\n}',
+        tests: []
+    },
+    '513': {
+        id: '513',
+        title: { ru: 'Геттеры и сеттеры', en: 'Getters and Setters' },
+        difficulty: 'medium',
+        description: { ru: 'Добавьте в класс Person геттер fullName, который объединяет firstName и lastName.', en: 'Add a fullName getter to the Person class.' },
+        initialCode: 'class Person {\n  constructor(first, last) {\n    this.firstName = first;\n    this.lastName = last;\n  }\n  // Add getter here\n}',
+        tests: []
+    },
+    '514': {
+        id: '514',
+        title: { ru: 'Статический метод', en: 'Static Method' },
+        difficulty: 'medium',
+        description: { ru: 'Добавьте статический метод isPoint в класс Point, который проверяет, является ли объект экземпляром Point.', en: 'Add a static method isPoint to the Point class.' },
+        initialCode: 'class Point {\n  constructor(x, y) { this.x = x; this.y = y; }\n  // Add static method\n}',
+        tests: []
+    },
+    '515': {
+        id: '515',
+        title: { ru: 'Приватные поля', en: 'Private Fields' },
+        difficulty: 'medium',
+        description: { ru: 'Реализуйте класс BankAccount с приватным полем #balance и методом getBalance().', en: 'Implement a BankAccount class with a private #balance field.' },
+        initialCode: 'class BankAccount {\n  #balance = 0;\n  constructor(initial) { this.#balance = initial; }\n  getBalance() { return this.#balance; }\n}',
+        tests: []
+    },
+    '516': {
+        id: '516',
+        title: { ru: 'Цепочка вызовов', en: 'Method Chaining' },
+        difficulty: 'medium',
+        description: { ru: 'Реализуйте класс Calculator, методы которого (add, subtract) позволяют делать цепочку вызовов.', en: 'Implement a Calculator class with method chaining.' },
+        initialCode: 'class Calculator {\n  constructor(val = 0) { this.val = val; }\n  add(n) { /* ... */ }\n  subtract(n) { /* ... */ }\n  getResult() { return this.val; }\n}',
+        tests: []
+    },
+    '517': {
+        id: '517',
+        title: { ru: 'Переопределение метода', en: 'Method Overriding' },
+        difficulty: 'medium',
+        description: { ru: 'Создайте класс Animal с методом speak() и класс Dog, который переопределяет его, возвращая "Woof".', en: 'Create an Animal class and a Dog class that overrides speak().' },
+        initialCode: 'class Animal { speak() { return "Sound"; } }\nclass Dog extends Animal {\n  // Override speak\n}',
+        tests: []
+    },
+    '518': {
+        id: '518',
+        title: { ru: 'Класс Пользователь', en: 'User Class' },
+        difficulty: 'easy',
+        description: { ru: 'Создайте класс User с полями name и email. Добавьте метод getInfo().', en: 'Create a User class with name and email.' },
+        initialCode: 'class User {\n  // Your code here\n}',
+        tests: []
+    },
+    '519': {
+        id: '519',
+        title: { ru: 'Счетчик экземпляров', en: 'Instance Counter' },
+        difficulty: 'hard',
+        description: { ru: 'Используйте статическое свойство, чтобы считать, сколько объектов класса было создано.', en: 'Use a static property to count class instances.' },
+        initialCode: 'class Item {\n  static count = 0;\n  constructor() {\n    // Your code here\n  }\n}',
+        tests: []
+    },
+    '520': {
+        id: '520',
+        title: { ru: 'Валидация в сеттере', en: 'Setter Validation' },
+        difficulty: 'medium',
+        description: { ru: 'В классе User добавьте сеттер для age, который не позволяет устанавливать отрицательное значение.', en: 'Add a setter for age with validation.' },
+        initialCode: 'class User {\n  set age(value) {\n    // Your code here\n  }\n}',
+        tests: []
+    },
+    '521': {
+        id: '521',
+        title: { ru: 'Класс Точка', en: 'Point Class' },
+        difficulty: 'easy',
+        description: { ru: 'Реализуйте класс Point(x, y) с методом distanceTo(otherPoint).', en: 'Implement a Point class with distanceTo method.' },
+        initialCode: 'class Point {\n  // Your code here\n}',
         tests: []
     },
     '601': {
@@ -583,6 +865,128 @@ const TASKS = {
             { input: [{ value: 1, left: { value: 2, left: null, right: null }, right: { value: 3, left: null, right: null } }], expected: 6 }
         ]
     },
+    '603': {
+        id: '603',
+        title: { ru: 'Факториал числа', en: 'Factorial' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Реализуйте функцию вычисления факториала числа n с помощью рекурсии.',
+            en: 'Implement a function to calculate the factorial of a number n using recursion.'
+        },
+        initialCode: 'function factorial(n) {\n  // Your code here\n}',
+        tests: [
+            { input: [5], expected: 120 },
+            { input: [0], expected: 1 }
+        ]
+    },
+    '604': {
+        id: '604',
+        title: { ru: 'Числа Фибоначчи', en: 'Fibonacci' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите рекурсивную функцию, которая возвращает n-е число Фибоначчи (0, 1, 1, 2, 3, 5, 8, 13...).',
+            en: 'Write a recursive function that returns the n-th Fibonacci number.'
+        },
+        initialCode: 'function fibonacci(n) {\n  // Your code here\n}',
+        tests: [
+            { input: [7], expected: 13 },
+            { input: [10], expected: 55 }
+        ]
+    },
+    '605': {
+        id: '605',
+        title: { ru: 'Сумма цифр числа', en: 'Sum of Digits' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Вычислите сумму цифр числа n с помощью рекурсии.',
+            en: 'Calculate the sum of the digits of a number n using recursion.'
+        },
+        initialCode: 'function sumDigits(n) {\n  // Your code here\n}',
+        tests: [
+            { input: [123], expected: 6 },
+            { input: [405], expected: 9 }
+        ]
+    },
+    '606': {
+        id: '606',
+        title: { ru: 'Возведение в степень', en: 'Power' },
+        difficulty: 'easy',
+        description: { ru: 'Реализуйте рекурсивную функцию pow(base, exp).', en: 'Implement a recursive pow(base, exp) function.' },
+        initialCode: 'function pow(base, exp) {\n  // Your code here\n}',
+        tests: [{ input: [2, 3], expected: 8 }, { input: [5, 0], expected: 1 }]
+    },
+    '607': {
+        id: '607',
+        title: { ru: 'Реверс строки', en: 'Reverse String' },
+        difficulty: 'medium',
+        description: { ru: 'Разверните строку с помощью рекурсии.', en: 'Reverse a string using recursion.' },
+        initialCode: 'function reverse(str) {\n  // Your code here\n}',
+        tests: [{ input: ["abc"], expected: "cba" }]
+    },
+    '608': {
+        id: '608',
+        title: { ru: 'Длина массива', en: 'Array Length' },
+        difficulty: 'easy',
+        description: { ru: 'Посчитайте длину массива без использования .length, только рекурсией.', en: 'Calculate array length using recursion only.' },
+        initialCode: 'function getLength(arr) {\n  // Your code here\n}',
+        tests: [{ input: [[1, 2, 3]], expected: 3 }]
+    },
+    '609': {
+        id: '609',
+        title: { ru: 'Проверка палиндрома', en: 'Palindrome Check' },
+        difficulty: 'medium',
+        description: { ru: 'Рекурсивно проверьте, является ли строка палиндромом.', en: 'Recursively check if a string is a palindrome.' },
+        initialCode: 'function isPalindrome(str) {\n  // Your code here\n}',
+        tests: [{ input: ["racecar"], expected: true }, { input: ["hello"], expected: false }]
+    },
+    '610': {
+        id: '610',
+        title: { ru: 'Плоский массив', en: 'Flatten Array' },
+        difficulty: 'hard',
+        description: { ru: 'Превратите многомерный массив в одномерный с помощью рекурсии.', en: 'Flatten a nested array using recursion.' },
+        initialCode: 'function flatten(arr) {\n  // Your code here\n}',
+        tests: [{ input: [[1, [2, [3, 4]], 5]], expected: [1, 2, 3, 4, 5] }]
+    },
+    '611': {
+        id: '611',
+        title: { ru: 'Сумма массива', en: 'Sum Array' },
+        difficulty: 'easy',
+        description: { ru: 'Найдите сумму элементов массива рекурсивно.', en: 'Find the sum of array elements recursively.' },
+        initialCode: 'function sum(arr) {\n  // Your code here\n}',
+        tests: [{ input: [[1, 2, 3, 4]], expected: 10 }]
+    },
+    '612': {
+        id: '612',
+        title: { ru: 'Наибольший общий делитель', en: 'GCD' },
+        difficulty: 'medium',
+        description: { ru: 'Найдите НОД двух чисел по алгоритму Евклида (рекурсивно).', en: 'Find GCD of two numbers using Euclid\'s algorithm recursively.' },
+        initialCode: 'function gcd(a, b) {\n  // Your code here\n}',
+        tests: [{ input: [48, 18], expected: 6 }]
+    },
+    '613': {
+        id: '613',
+        title: { ru: 'Поиск в объекте', en: 'Object Search' },
+        difficulty: 'hard',
+        description: { ru: 'Рекурсивно проверьте, содержит ли объект заданное значение.', en: 'Recursively check if an object contains a value.' },
+        initialCode: 'function contains(obj, target) {\n  // Your code here\n}',
+        tests: [{ input: [{ a: { b: { c: 1 } } }, 1], expected: true }]
+    },
+    '614': {
+        id: '614',
+        title: { ru: 'Генерация диапазона', en: 'Range Generation' },
+        difficulty: 'medium',
+        description: { ru: 'Создайте массив чисел от start до end рекурсивно.', en: 'Create an array of numbers from start to end recursively.' },
+        initialCode: 'function range(start, end) {\n  // Your code here\n}',
+        tests: [{ input: [1, 5], expected: [1, 2, 3, 4, 5] }]
+    },
+    '615': {
+        id: '615',
+        title: { ru: 'Перемножение элементов', en: 'Product of Array' },
+        difficulty: 'easy',
+        description: { ru: 'Найдите произведение всех чисел в массиве рекурсивно.', en: 'Find the product of all numbers in an array recursively.' },
+        initialCode: 'function product(arr) {\n  // Your code here\n}',
+        tests: [{ input: [[1, 2, 3, 4]], expected: 24 }]
+    },
     '701': {
         id: '701',
         title: { ru: 'Сумма двух промисов', en: 'Add Promises' },
@@ -604,6 +1008,108 @@ const TASKS = {
         },
         initialCode: 'function sleep(ms) {\n  // Your code here\n}',
         tests: []
+    },
+    '711': {
+        id: '711',
+        title: { ru: 'Промис с тайм-аутом', en: 'Promise Timeout' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Напишите функцию, которая принимает промис и время в мс. Если промис не выполнится за это время, он должен отклониться с ошибкой "Timeout".',
+            en: 'Write a function that takes a promise and a timeout in ms. If the promise doesn\'t resolve within this time, it should reject with "Timeout".'
+        },
+        initialCode: 'function timeoutPromise(promise, ms) {\n  // Your code here\n}',
+        tests: []
+    },
+    '712': {
+        id: '712',
+        title: { ru: 'Асинхронная очередь', en: 'Async Queue' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте функцию, которая принимает массив функций, возвращающих промисы, и выполняет их строго последовательно.',
+            en: 'Implement a function that takes an array of functions returning promises and executes them strictly sequentially.'
+        },
+        initialCode: 'async function sequence(tasks) {\n  // Your code here\n}',
+        tests: []
+    },
+    '713': {
+        id: '713',
+        title: { ru: 'Асинхронный фильтр', en: 'Async Filter' },
+        difficulty: 'hard',
+        description: { ru: 'Реализуйте функцию asyncFilter, которая принимает массив и асинхронный предикат.', en: 'Implement an asyncFilter function.' },
+        initialCode: 'async function asyncFilter(arr, predicate) {\n  // Your code here\n}',
+        tests: []
+    },
+    '714': {
+        id: '714',
+        title: { ru: 'Асинхронный мап', en: 'Async Map' },
+        difficulty: 'medium',
+        description: { ru: 'Реализуйте асинхронную версию Array.map.', en: 'Implement an async version of Array.map.' },
+        initialCode: 'async function asyncMap(arr, fn) {\n  // Your code here\n}',
+        tests: []
+    },
+    '715': {
+        id: '715',
+        title: { ru: 'Повтор запроса', en: 'Retry Promise' },
+        difficulty: 'hard',
+        description: { ru: 'Напишите функцию retry(fn, retries), которая пытается выполнить асинхронную функцию n раз перед ошибкой.', en: 'Write a retry(fn, retries) function.' },
+        initialCode: 'async function retry(fn, retries) {\n  // Your code here\n}',
+        tests: []
+    },
+    '716': {
+        id: '716',
+        title: { ru: 'Параллельное выполнение', en: 'Parallel Execution' },
+        difficulty: 'medium',
+        description: { ru: 'Напишите функцию, которая принимает массив промисов и возвращает их результаты (аналог Promise.all).', en: 'Implement a Promise.all-like function.' },
+        initialCode: 'async function all(promises) {\n  // Your code here\n}',
+        tests: []
+    },
+    '717': {
+        id: '717',
+        title: { ru: 'Промисификация', en: 'Promisify' },
+        difficulty: 'medium',
+        description: { ru: 'Превратите функцию с колбэком (node-style: err, data) в функцию, возвращающую промис.', en: 'Convert a callback-style function to a promise-returning one.' },
+        initialCode: 'function promisify(fn) {\n  // Your code here\n}',
+        tests: []
+    },
+    '718': {
+        id: '718',
+        title: { ru: 'Асинхронный редьюс', en: 'Async Reduce' },
+        difficulty: 'hard',
+        description: { ru: 'Реализуйте асинхронную версию Array.reduce.', en: 'Implement an async version of Array.reduce.' },
+        initialCode: 'async function asyncReduce(arr, fn, initial) {\n  // Your code here\n}',
+        tests: []
+    },
+    '719': {
+        id: '719',
+        title: { ru: 'Гонка промисов', en: 'Promise Race' },
+        difficulty: 'medium',
+        description: { ru: 'Реализуйте аналог Promise.race.', en: 'Implement a Promise.race-like function.' },
+        initialCode: 'function race(promises) {\n  // Your code here\n}',
+        tests: []
+    },
+    '720': {
+        id: '720',
+        title: { ru: 'Задержка результата', en: 'Delay Result' },
+        difficulty: 'easy',
+        description: { ru: 'Напишите функцию, которая возвращает значение через указанное время.', en: 'Return a value after a specified delay.' },
+        initialCode: 'async function delayValue(val, ms) {\n  // Your code here\n}',
+        tests: []
+    },
+    '721': {
+        id: '721',
+        title: { ru: 'Асинхронный поиск', en: 'Async Find' },
+        difficulty: 'medium',
+        description: { ru: 'Реализуйте асинхронный поиск элемента в массиве.', en: 'Implement an async version of Array.find.' },
+        initialCode: 'async function asyncFind(arr, predicate) {\n  // Your code here\n}',
+        tests: []
+    },
+    '722': {
+        id: '722',
+        title: { ru: 'Асинхронный Any', en: 'Promise Any' },
+        difficulty: 'hard',
+        description: { ru: 'Реализуйте аналог Promise.any.', en: 'Implement a Promise.any-like function.' },
+        initialCode: 'function any(promises) {\n  // Your code here\n}',
+        tests: []
     }
 };
 
@@ -621,27 +1127,27 @@ const TOPICS = [
     {
         id: 'objects',
         title: { ru: 'Объекты и сортировки', en: 'Objects and Sorting' },
-        taskIds: ['301', '302', '303', '304', '305', '316']
+        taskIds: ['301', '302', '303', '304', '305', '306', '307', '308', '309', '310', '311', '312', '313', '314', '315', '316']
     },
     {
         id: 'fp',
         title: { ru: 'Функциональное программирование', en: 'Functional Programming' },
-        taskIds: ['401', '402', '406']
+        taskIds: ['401', '402', '403', '404', '405', '406', '407', '408', '409', '410', '411', '412', '413', '414', '415']
     },
     {
         id: 'oop',
         title: { ru: 'ООП: this, классы, прототипы', en: 'OOP: this, classes, prototypes' },
-        taskIds: ['501', '509']
+        taskIds: ['501', '509', '510', '511', '512', '513', '514', '515', '516', '517', '518', '519', '520', '521']
     },
     {
         id: 'recursion',
         title: { ru: 'Рекурсия', en: 'Recursion' },
-        taskIds: ['601', '602']
+        taskIds: ['601', '602', '603', '604', '605', '606', '607', '608', '609', '610', '611', '612', '613', '614', '615']
     },
     {
         id: 'async',
         title: { ru: 'Асинхронность', en: 'Asynchrony' },
-        taskIds: ['701', '710']
+        taskIds: ['701', '710', '711', '712', '713', '714', '715', '716', '717', '718', '719', '720', '721', '722']
     }
 ];
 
