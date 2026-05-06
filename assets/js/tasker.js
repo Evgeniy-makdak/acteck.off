@@ -151,6 +151,81 @@ const TASKS = {
             { input: [3, 30], expected: 75 }
         ]
     },
+    '111': {
+        id: '111',
+        title: { ru: 'Первая цифра', en: 'First Digit' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая возвращает первую цифру числа.',
+            en: 'Write a function that returns the first digit of a number.'
+        },
+        initialCode: 'function getFirstDigit(num) {\n  // Your code here\n}',
+        tests: [
+            { input: [123], expected: 1 },
+            { input: [5678], expected: 5 },
+            { input: [9], expected: 9 }
+        ]
+    },
+    '112': {
+        id: '112',
+        title: { ru: 'Последняя цифра', en: 'Last Digit' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая возвращает последнюю цифру числа.',
+            en: 'Write a function that returns the last digit of a number.'
+        },
+        initialCode: 'function getLastDigit(num) {\n  // Your code here\n}',
+        tests: [
+            { input: [123], expected: 3 },
+            { input: [5678], expected: 8 },
+            { input: [0], expected: 0 }
+        ]
+    },
+    '113': {
+        id: '113',
+        title: { ru: 'Сумма первой и последней', en: 'Sum First and Last' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая возвращает сумму первой и последней цифры числа.',
+            en: 'Write a function that returns the sum of the first and last digit of a number.'
+        },
+        initialCode: 'function sumFirstAndLast(num) {\n  // Your code here\n}',
+        tests: [
+            { input: [123], expected: 4 },
+            { input: [5678], expected: 13 },
+            { input: [9], expected: 18 }
+        ]
+    },
+    '114': {
+        id: '114',
+        title: { ru: 'Количество цифр', en: 'Digit Count' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая возвращает количество цифр в числе.',
+            en: 'Write a function that returns the number of digits in a number.'
+        },
+        initialCode: 'function digitCount(num) {\n  // Your code here\n}',
+        tests: [
+            { input: [123], expected: 3 },
+            { input: [56789], expected: 5 },
+            { input: [0], expected: 1 }
+        ]
+    },
+    '115': {
+        id: '115',
+        title: { ru: 'Сравнение первых цифр', en: 'Compare First Digits' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Проверьте, совпадают ли первые цифры двух чисел.',
+            en: 'Check if the first digits of two numbers match.'
+        },
+        initialCode: 'function compareFirstDigits(num1, num2) {\n  // Your code here\n}',
+        tests: [
+            { input: [123, 156], expected: true },
+            { input: [123, 234], expected: false },
+            { input: [5, 500], expected: true }
+        ]
+    },
     '201': {
         id: '201',
         title: { ru: 'Самое короткое слово', en: 'Shortest Word' },
@@ -256,6 +331,48 @@ const TASKS = {
             { input: ["123"], expected: true }
         ]
     },
+    '209': {
+        id: '209',
+        title: { ru: 'Первый элемент', en: 'First Element' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Верните первый элемент массива.',
+            en: 'Return the first element of an array.'
+        },
+        initialCode: 'function getFirst(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 3]], expected: 1 },
+            { input: [["a", "b"]], expected: "a" }
+        ]
+    },
+    '210': {
+        id: '210',
+        title: { ru: 'Последний элемент', en: 'Last Element' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Верните последний элемент массива.',
+            en: 'Return the last element of an array.'
+        },
+        initialCode: 'function getLast(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 3]], expected: 3 },
+            { input: [["a", "b"]], expected: "b" }
+        ]
+    },
+    '212': {
+        id: '212',
+        title: { ru: 'Сумма элементов', en: 'Sum Array' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Верните сумму всех элементов массива.',
+            en: 'Return the sum of all elements in an array.'
+        },
+        initialCode: 'function sumArray(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 3]], expected: 6 },
+            { input: [[-1, 1, 0]], expected: 0 }
+        ]
+    },
     '211': {
         id: '211',
         title: { ru: 'Разность массивов', en: 'Array Diff' },
@@ -334,6 +451,34 @@ const TASKS = {
         initialCode: 'function greetDevelopers(list) {\n  // Your code here\n}',
         tests: [
             { input: [[{ firstName: 'Sofia', language: 'Java' }]], expected: [{ firstName: 'Sofia', language: 'Java', greeting: 'Hi Sofia, what do you like the most about Java?' }] }
+        ]
+    },
+    '304': {
+        id: '304',
+        title: { ru: 'Наличие свойства', en: 'Has Property' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Проверьте, есть ли у объекта свойство с заданным именем.',
+            en: 'Check if an object has a property with a given name.'
+        },
+        initialCode: 'function hasProperty(obj, prop) {\n  // Your code here\n}',
+        tests: [
+            { input: [{ a: 1 }, "a"], expected: true },
+            { input: [{ a: 1 }, "b"], expected: false }
+        ]
+    },
+    '305': {
+        id: '305',
+        title: { ru: 'Количество свойств', en: 'Property Count' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Верните количество собственных свойств объекта.',
+            en: 'Return the number of own properties of an object.'
+        },
+        initialCode: 'function countProperties(obj) {\n  // Your code here\n}',
+        tests: [
+            { input: [{ a: 1, b: 2 }], expected: 2 },
+            { input: [{}], expected: 0 }
         ]
     },
     '316': {
@@ -466,17 +611,17 @@ const TOPICS = [
     {
         id: 'logic',
         title: { ru: 'Условия и циклы', en: 'Conditions and Loops' },
-        taskIds: ['101', '102', '103', '104', '105', '106', '107', '108', '109', '110']
+        taskIds: ['101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115']
     },
     {
         id: 'arrays',
         title: { ru: 'Массивы и строки', en: 'Arrays and Strings' },
-        taskIds: ['201', '202', '203', '204', '205', '206', '207', '208', '211', '215', '223']
+        taskIds: ['201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '215', '223']
     },
     {
         id: 'objects',
         title: { ru: 'Объекты и сортировки', en: 'Objects and Sorting' },
-        taskIds: ['301', '302', '303', '316']
+        taskIds: ['301', '302', '303', '304', '305', '316']
     },
     {
         id: 'fp',
