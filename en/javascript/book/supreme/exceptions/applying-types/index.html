@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Применение типов исключений в JavaScript — acteck.off</title>
-  <meta name="description" content="Применение типов исключений в JavaScript — учебные материалы по программированию.">
+  <title>Using Exception Types in JavaScript - acteck.off</title>
+  <meta name="description" content="Using Exception Types in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,12 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Применение типов исключений в JavaScript</h1>
-    <p>
-	Пусть у нас есть функция, параметром принимающая
-	JSON с массивом данных и записывающая каждый
-	элемент этого массива в локальное хранилище:
-</p>
+    <h1>Using Exception Types in JavaScript</h1>
+    <p>Let us have a function that takes a JSON with a data array as a parameter and writes each element of this array to local storage:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function saveData(json) {
 	let arr = JSON.parse(json);
@@ -51,17 +47,8 @@
 	}
 }</code>
 </div>
-<p>
-	В данной функции исключительная ситуация
-	может возникнуть в двух местах: при разборе
-	JSON и при попытке сохранения данных в локальное
-	хранилище.
-</p>
-<p>
-	Пусть, к примеру, в качестве обработки ошибок
-	мы решили выводить некоторое сообщение о
-	проблемах:
-</p>
+<p>In this function, an exception can occur in two places: when parsing JSON and when trying to save data to local storage.</p>
+<p>Suppose, for example, we decided to display some message about problems as error handling:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
 	saveData('{1,2,3,4,5}');
@@ -69,15 +56,8 @@
 	alert('какие-то проблемы');
 }</code>
 </div>
-<p>
-	Наше сообщение, это, конечно, хорошо, но
-	оно никак не дифференцирует возникшие проблемы.
-	Более логично было бы вывести сообщение о
-	том, какая именно проблема возникла.
-</p>
-<p>
-	Для этого отличим возникшие ошибки по имени:
-</p>
+<p>Our message is, of course, good, but it does not differentiate the problems that have arisen. It would be more logical to display a message indicating exactly what problem occurred.</p>
+<p>To do this, we can distinguish the errors that have arisen by name:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
 	saveData('{1,2,3,4,5}');
@@ -92,31 +72,24 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Скопируйте код моей функции <code data-gs="comd/c" data-x>saveData</code>,
-		а затем не подсматривая в мой код реализуйте
-		описанную мною обработку ошибок.
-	</p>
+	<p>Copy my function code<code data-gs="comd/c" data-x>saveData</code>, and then, without looking at my code, implement the error handling I described.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Специально по очереди создайте исключительные
-		ситуации, которые могут возникнуть в функции
-		<code data-gs="comd/c" data-x>saveData</code>.
+	<p>Specifically, one by one, create exceptions that may occur in the function<code data-gs="comd/c" data-x>saveData</code>.
 	</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../basic-types/index.html" class="lesson-nav-btn lesson-nav-prev" title="Основные типы исключений">← Основные типы исключений</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../throwing/index.html" class="lesson-nav-btn lesson-nav-next" title="Выбрасывание исключений">Выбрасывание исключений →</a>
+      <a href="../basic-types/index.html" class="lesson-nav-btn lesson-nav-prev" title="Basic types of exceptions">← Main types of exceptions</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../throwing/index.html" class="lesson-nav-btn lesson-nav-next" title="Throwing exceptions">Throwing exceptions →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

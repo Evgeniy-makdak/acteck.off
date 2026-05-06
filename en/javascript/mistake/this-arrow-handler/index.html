@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ошибка this в стрелочном обработчике JavaScript — acteck.off</title>
-  <meta name="description" content="Ошибка this в стрелочном обработчике JavaScript — учебные материалы по программированию.">
+  <title>This error in JavaScript arrow handler - acteck.off</title>
+  <meta name="description" content="This error in JavaScript arrow handler - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../en/index.html" class="logo">
+      <a href="../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,61 +36,35 @@
       <a href="../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Ошибка this в стрелочном обработчике JavaScript</h1>
-    <p>
-	Последнее время стало модно применять
-	везде стрелочные функции вместо обычных.
-	Эти функции, однако, имеют подвох -
-	они не сохраняют <code data-gs="comd/c" data-x>this</code>. Давайте
-	посмотрим, с какой проблемой можно
-	столкнутся из-за этого.
-</p>
-<p>
-	Пусть у нас есть кнопка:
-</p>
+    <h1>This error in JavaScript arrow handler</h1>
+    <p>Recently, it has become fashionable to use arrow functions everywhere instead of regular ones. These functions, however, have a catch - they don't save<code data-gs="comd/c" data-x>this</code>. Let's see what problem you might encounter because of this.</p>
+<p>Let's say we have a button:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button&gt;text&lt;/button&gt;</code>
 </div>
-<p>
-	Получим ссылку на эту кнопку в переменную:
-</p>
+<p>Let's get a link to this button in a variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let button = document.querySelector('button');</code>
 </div>
-<p>
-	Навесим на кнопку обработчик события,
-	воспользовавшись стрелочной функцией:
-</p>
+<p>Let's attach an event handler to the button using the arrow function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', () =&gt; {
 	console.log(this.textContent);
 });</code>
 </div>
-<p>
-	Тут-то нас и поджидает сюрприз: <code data-gs="comd/c" data-x>this</code>
-	в стрелочной функции не будет относится
-	к элементу, в котором произошло событие.
-</p>
-<p>
-	Давайте посмотрим, что с этим можно сделать.
-</p>
+<p>This is where a surprise awaits us:<code data-gs="comd/c" data-x>this</code>in an arrow function will not refer to the element in which the event occurred.</p>
+<p>Let's see what we can do about this.</p>
 
-<h2>Решение первое</h2>
-<p>
-	Можно отказаться от использования <code data-gs="comd/c" data-x>this</code>
-	и воспользоваться переменной, к которой
-	привязано событие:
-</p>
+<h2>Solution one</h2>
+<p>You can refuse to use<code data-gs="comd/c" data-x>this</code>and use the variable to which the event is bound:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', () =&gt; {
 	console.log(button.textContent);
 });</code>
 </div>
 
-<h2>Решение второе</h2>
-<p>
-	Можно получить элемент, к которому привязано
-	событие, через <code data-gs="comd/c" data-x>event.target</code>:
+<h2>Solution two</h2>
+<p>You can get the element that the event is attached to via<code data-gs="comd/c" data-x>event.target</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', (event) =&gt; {
@@ -98,11 +72,8 @@
 });</code>
 </div>
 
-<h2>Решение третье</h2>
-<p>
-	Можно отказаться от стрелочной функции
-	и воспользоваться обычной:
-</p>
+<h2>Solution three</h2>
+<p>You can abandon the arrow function and use the usual one:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	console.log(this.textContent);
@@ -113,7 +84,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

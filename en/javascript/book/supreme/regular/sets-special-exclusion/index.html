@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Исключения внутри наборов в регулярках JavaScript — acteck.off</title>
-  <meta name="description" content="Исключения внутри наборов в регулярках JavaScript — учебные материалы по программированию.">
+  <title>Exceptions within sets in JavaScript regex - acteck.off</title>
+  <meta name="description" content="Exceptions within sets in JavaScript regular expressions - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,65 +36,45 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Исключения внутри наборов в регулярках JavaScript</h1>
-    <p>
-	Вы уже знаете, что спецсимволы внутри <code data-gs="comd/c" data-x>[]</code>
-	становятся обычными символами. Есть,
-	однако, исключения: если вам нужны квадратные
-	скобки как символы внутри <code data-gs="comd/c" data-x>[ ]</code> - то
-	их нужно экранировать обратным слешем.
-	Для примера в следующем коде шаблон поиска
-	выглядит так: <span data-gs="comd/r" data-x>между иксами стоит квадратная
-	скобка</span>:
+    <h1>Exceptions within sets in JavaScript regex</h1>
+    <p>You already know that special characters are inside<code data-gs="comd/c" data-x>[]</code>become ordinary symbols. There are exceptions, however: if you need square brackets as characters inside<code data-gs="comd/c" data-x>[ ]</code>- then they need to be escaped with a backslash. For example, in the following code, the search template looks like this:<span data-gs="comd/r" data-x>there is a square bracket between the X's</span>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'x]x xax x[x x1x';
 let res = str.replace(/x[\[\]]x/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! xax ! x1x'</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'x[]z x[[]]z x()z';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая найдет все слова
-		по шаблону: <span data-gs="comd/r" data-x>буква <code data-gs="comd/s" data-x>'x'</code>, затем квадратные скобки любое
-		количество раз, затем буква <code data-gs="comd/s" data-x>'z'</code></span>.
+	<p>Write a regular search engine that will find all words according to the pattern:<span data-gs="comd/r" data-x>letter<code data-gs="comd/s" data-x>'x'</code>, then square brackets any number of times, then a letter<code data-gs="comd/s" data-x>'z'</code></span>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'x[]z x{}z x.z x()z x([])z';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая найдет все слова
-		по шаблону: <span data-gs="comd/r" data-x>буква <code data-gs="comd/s" data-x>'x'</code>, затем любое
-		количество любых скобок, затем буква <code data-gs="comd/s" data-x>'z'</code></span>.
+	<p>Write a regular search engine that will find all words according to the pattern:<span data-gs="comd/r" data-x>letter<code data-gs="comd/s" data-x>'x'</code>, then any number of any parentheses, then a letter<code data-gs="comd/s" data-x>'z'</code></span>.
 	</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../sets-groups/index.html" class="lesson-nav-btn lesson-nav-prev" title="Группы символов внутри наборов">← Группы символов внутри наборов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../sets-hat/index.html" class="lesson-nav-btn lesson-nav-next" title="Символ шляпки внутри наборов">Символ шляпки внутри наборов →</a>
+      <a href="../sets-groups/index.html" class="lesson-nav-btn lesson-nav-prev" title="Groups of characters within sets">← Groups of characters within sets</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../sets-hat/index.html" class="lesson-nav-btn lesson-nav-next" title="Hat symbol inside sets">Hat symbol inside sets →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

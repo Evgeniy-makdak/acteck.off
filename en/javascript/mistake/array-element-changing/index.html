@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ошибка изменения элемента массива в JavaScript — acteck.off</title>
-  <meta name="description" content="Ошибка изменения элемента массива в JavaScript — учебные материалы по программированию.">
+  <title>Error changing array element in JavaScript - acteck.off</title>
+  <meta name="description" content="Error changing array element in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../en/index.html" class="logo">
+      <a href="../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,56 +36,29 @@
       <a href="../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Ошибка изменения элемента массива в JavaScript</h1>
-    <p>
-	Давайте рассмотрим ошибку, возникающую
-	при неправильном изменении элемента
-	массива. Пусть у нас дан вот такой
-	массив:
-</p>
+    <h1>Error changing array element in JavaScript</h1>
+    <p>Let's look at the error that occurs when an array element is changed incorrectly. Let us be given the following array:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3, 4, 5];</code>
 </div>
-<p>
-	Пусть у нас также есть функция,
-	которая параметром принимает число
-	и возвращает квадрат этого числа:
-</p>
+<p>Let us also have a function that takes a number as a parameter and returns the square of that number:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(num) {
 	return num ** 2;
 }</code>
 </div>
-<p>
-	Давайте с помощью цикла <code data-gs="comd/c" data-x>for-of</code>
-	переберем наш массив и к каждому
-	из его элементов применим нашу функцию:
-</p>
+<p>Let's use a loop<code data-gs="comd/c" data-x>for-of</code>Let's iterate through our array and apply our function to each of its elements:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of arr) {
 	elem = func(elem);
 }</code>
 </div>
-<p>
-	В этом месте начинающие часто допускают
-	ошибку. Дело в том, что изменение переменной
-	<code data-gs="comd/c" data-x>elem</code> не приводит к изменению элемента
-	в самом массиве. Убедимся в этом:
-</p>
+<p>This is where beginners often make a mistake. The point is that changing the variable<code data-gs="comd/c" data-x>elem</code>does not change the element in the array itself. Let's make sure of this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(arr); // массив не изменился</code>
 </div>
-<p>
-	Массив не изменяется из-за того,
-	что в переменной <code data-gs="comd/c" data-x>elem</code> хранится
-	копия элемента, а не ссылка на него.
-	Изменение <code data-gs="comd/c" data-x>elem</code> влияет на копию,
-	но не на сам массив.
-</p>
-<p>
-	Для решения проблемы нужно изменять
-	именно элементы массива:
-</p>
+<p>The array does not change due to the fact that in the variable<code data-gs="comd/c" data-x>elem</code>a copy of the element is stored, not a reference to it. Change<code data-gs="comd/c" data-x>elem</code>affects the copy, but not the array itself.</p>
+<p>To solve the problem, you need to change exactly the elements of the array:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let i = 0; i &lt; arr.length; i++) {
 	arr[i] = func(arr[i]);
@@ -98,7 +71,7 @@ console.log(arr); // теперь массив изменился</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

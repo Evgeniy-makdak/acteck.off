@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Редьюсеры в Redux — acteck.off</title>
-  <meta name="description" content="Редьюсеры в Redux — учебные материалы по программированию.">
+  <title>Reducers in Redux - acteck.off</title>
+  <meta name="description" content="Reducers in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,61 +36,17 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Редьюсеры в Redux</h1>
-    <p>
-	На прошлом уроке мы при помощи функции
-	<code data-gs="comd/c" data-x>createSlice</code> создали слайс для продуктов
-	<code data-gs="comd/c" data-x>products</code> и редьюсер, который будет обновлять
-	этот слайс, хранящийся в store. Еще раз напоминаю,
-	что в Redux данные стейта изменяются
-	при помощи редьюсеров.
+    <h1>Reducers in Redux</h1>
+    <p>In the last lesson, using the function<code data-gs="comd/c" data-x>createSlice</code>created a slice for products<code data-gs="comd/c" data-x>products</code>and a reducer that will update this slice stored in the store. Let me remind you once again that in Redux, state data is changed using reducers.</p>
+<p>We must remember that reducers are subject to a number of restrictions. The reducer updates the state only based on the received values ​​of the current state and object<code data-gs="comd/c" data-x>action</code>, and then decides how to change the state and returns its new value.</p>
+<p>We know that by default, objects and arrays in JavaScript are mutable (changeable). We also know that you cannot change state directly; in this case, you only need to work with copies. The reducer must also obey this rule. But writing such logic manually can be quite tedious and complex, and this is where the function comes to the rescue<code data-gs="comd/c" data-x>createSlice</code>which uses the library<a href="https://immerjs.github.io/immer/">Immer</a>, which converts your 'mutable' code to 'non-mutable' code. Thus, you can sin and simplify life only by using the functions<code data-gs="comd/c" data-x>createSlice</code>or<code data-gs="comd/c" data-x>createReducer</code>.
 </p>
-<p>
-	Надо помнить, что на редьюсеры накладывается
-	ряд ограничений. Редьюсер обновляет состояние
-	только на основе полученных значений текущего
-	стейта и объекта <code data-gs="comd/c" data-x>action</code>, а затем решает,
-	как изменить стейт и возвращает его новое значение.
-</p>
-<p>
-	Мы знаем, что по умолчанию объекты и массивы
-	в JavaScript мутабельны (изменяемы). Также
-	мы знаем, что менять state напрямую нельзя,
-	в таком случае надо работать только с копиями.
-	Этому правилу должен подчиняться и редьюсер.
-	Но написание такой логики вручную может быть
-	довольно утомительным и сложным занятием, и
-	здесь на помощь приходит функция <code data-gs="comd/c" data-x>createSlice</code>,
-	которая использует библиотеку
-	<a href="https://immerjs.github.io/immer/">Immer</a>,
-	преобразующую ваш 'мутабельный' код в
-	'немутабельный'. Таким образом, грешить и упрощать
-	жизнь можно только при использовании функций
-	<code data-gs="comd/c" data-x>createSlice</code> или <code data-gs="comd/c" data-x>createReducer</code>.
-</p>
-<p>
-	В число ограничений редьюсера входит также
-	использование асинхронной логики, высчисление
-	случайных значений и выполнение других
-	<a href="../../../supreme/hooks/effects/index.html">"сторонних эффектов"</a>.
-	А теперь, познакомившись с редьюсером поближе,
-	вернемся к нашему приложению с продуктами.
-</p>
-<p>
-	В нашем приложении есть store, который
-	мы создали в предыдущих уроках, но пока
-	в нем ничего нет. Давайте откроем наш
-	файл <code data-gs="comd/p" data-x>store.js</code> и добавим в него немного
-	кода. Для начала импортируем в него функцию
-	reducer для продуктов:
-</p>
+<p>The reducer's limitations also include the use of asynchronous logic, the calculation of random values, and other<a href="../../../supreme/hooks/effects/index.html">"side effects"</a>. Now, having gotten to know the reducer better, let’s return to our application with products.</p>
+<p>Our application has a store that we created in previous lessons, but there is nothing in it yet. Let's open our file<code data-gs="comd/p" data-x>store.js</code>and add some code to it. First, import the reducer function for products into it:</p>
 <div data-p="bock/pane" data-p-file="app/store.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import productsReducer from '../parts/products/productsSlice'</code>
 </div>
-<p>
-	Теперь в качестве редьюсера мы можем
-	указать импортированную функцию
-	<code data-gs="comd/c" data-x>productsReducer</code>:
+<p>Now we can specify the imported function as a reducer<code data-gs="comd/c" data-x>productsReducer</code>:
 </p>
 <div data-p="bock/pane" data-p-file="app/store.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default configureStore({
@@ -99,51 +55,26 @@
 	}
 })</code>
 </div>
-<p>
-	Вышеуказанной строчкой мы говорим нашему
-	store, что теперь при возникновении action
-	все данные для слайса <code data-gs="comd/c" data-x>state.products</code> будут
-	обновляться редьюсером <code data-gs="comd/c" data-x>productsReducer</code>.
+<p>With the above line we tell our store that now when an action occurs, all the data for the slice<code data-gs="comd/c" data-x>state.products</code>will be updated by the reducer<code data-gs="comd/c" data-x>productsReducer</code>.
 </p>
-<p>
-	Теперь вы можете запустить приложение (заметьте,
-	что в консоли исчезло предупреждение о
-	невалидном редьюсере!), открыть Redux DevTools
-	в браузере и полазить по его вкладкам. К примеру,
-	нажав на вкладку State во вкладке Inspector
-	мы можем видеть два наших объекта с продуктами,
-	которые вывелись в качестве начального значения
-	стейта при первом запуске приложения. На вкладке
-	Log monitor мы видим какие слайсы имеет в
-	себе глобальный стейт - это слайс <code data-gs="comd/c" data-x>products</code>,
-	включающий два объекта. Также загляните на
-	вкладку Chart.
-</p>
+<p>Now you can run the application (note that the warning about an invalid reducer has disappeared in the console!), open Redux DevTools in the browser and browse through its tabs. For example, by clicking on the State tab in the Inspector tab, we can see our two objects with products that were displayed as the initial state value when the application was first launched. On the Log monitor tab we see what slices the global state contains - this is a slice<code data-gs="comd/c" data-x>products</code>, including two objects. Also take a look at the Chart tab.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами и
-		измените код файла <code data-gs="comd/p" data-x>store.js</code>, как
-		показано в уроке.
-	</p>
+	<p>Open your application with students and change the file code<code data-gs="comd/p" data-x>store.js</code>, as shown in the lesson.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Запустите в браузере ваше приложение
-		и полазьте по вкладкам расширения
-		Redux DevTools.
-	</p>
+	<p>Launch your application in the browser and browse through the tabs of the Redux DevTools extension.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../slices/index.html" class="lesson-nav-btn lesson-nav-prev" title="Добавление слайса">← Добавление слайса</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../selectors-use-selector/index.html" class="lesson-nav-btn lesson-nav-next" title="Селекторы и хук useSelector">Селекторы и хук useSelector →</a>
+      <a href="../slices/index.html" class="lesson-nav-btn lesson-nav-prev" title="Adding a slice">← Adding a slice</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../selectors-use-selector/index.html" class="lesson-nav-btn lesson-nav-next" title="Selectors and the useSelector hook">Selectors and useSelector hook →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

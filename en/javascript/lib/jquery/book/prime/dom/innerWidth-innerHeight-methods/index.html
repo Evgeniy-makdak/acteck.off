@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Методы innerWidth и innerHeight в jQuery — acteck.off</title>
-  <meta name="description" content="Методы innerWidth и innerHeight в jQuery — учебные материалы по программированию.">
+  <title>jQuery innerWidth and innerHeight methods - acteck.off</title>
+  <meta name="description" content="jQuery innerWidth and innerHeight methods - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,26 +36,15 @@
       <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Методы innerWidth и innerHeight в jQuery</h1>
-    <p>
-	С помощью методов <code data-gs="comd/c" data-x>innerWidth</code> и
-	<code data-gs="comd/c" data-x>innerHeight</code> мы получаем ширину и высоту
-	элементов, но уже с учетом не только контента, но
-	и внутренних отступов - <code data-gs="comd/c" data-x>padding</code>.
+    <h1>jQuery innerWidth and innerHeight methods</h1>
+    <p>Using methods<code data-gs="comd/c" data-x>innerWidth</code>And<code data-gs="comd/c" data-x>innerHeight</code>we get the width and height of the elements, but taking into account not only the content, but also the internal padding -<code data-gs="comd/c" data-x>padding</code>.
 </p>
-<p>
-	Давайте получим значения ширины и высоты абзаца
-	<code data-gs="comd/z" data-x>#test</code>, но уже при помощи <code data-gs="comd/c" data-x>innerWidth</code> и
-	<code data-gs="comd/c" data-x>innerHeight</code>, и выведем их в другой абзац. Пусть у
-	нас есть два абзаца:
-</p>
+<p>Let's get the paragraph width and height values<code data-gs="comd/z" data-x>#test</code>, but with the help<code data-gs="comd/c" data-x>innerWidth</code>And<code data-gs="comd/c" data-x>innerHeight</code>, and display them in another paragraph. Let's say we have two paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test"&gt;text&lt;/p&gt;
 &lt;p id="out"&gt;&lt;/p&gt;</code>
 </div>
-<p>
-	CSS выглядит так:
-</p>
+<p>The CSS looks like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
 margin: 10px;
@@ -63,50 +52,33 @@ padding: 5px;
 border: 2px solid blue;
 }</code>
 </div>
-	<p>
-		В Javascript прописываем следующий код:
-	</p>
+	<p>In Javascript we write the following code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let w = $('#test').innerWidth();
 let h = $('#test').innerHeight();
 $('#out').text('Width: ' + w + ' Height: ' + h);</code>
 </div>
-<p>
-	Как видите значения уже отличаются на <code data-gs="comd/u" data-x>10px</code>,
-	так как учитываются внутренние отступы, которые в
-	нашем случае составляют по <code data-gs="comd/u" data-x>5px</code> со всех сторон.
-</p>
-<p>
-	Также просто с помощью методов <code data-gs="comd/c" data-x>innerWidth</code> и
-	<code data-gs="comd/c" data-x>innerHeight</code> мы можем
-	изменить значения ширины и высоты элементов.
-	Например, давайте поставим ширину дива <code data-gs="comd/z" data-x>#test1</code>
-	равной <code data-gs="comd/u" data-x>250px</code>, а высоту <code data-gs="comd/z" data-x>#test2</code> - <code data-gs="comd/u" data-x>200px</code>:
+<p>As you can see, the values ​​​​already differ by<code data-gs="comd/u" data-x>10px</code>, since internal indents are taken into account, which in our case amount to<code data-gs="comd/u" data-x>5px</code>from all sides.</p>
+<p>Also just using methods<code data-gs="comd/c" data-x>innerWidth</code>And<code data-gs="comd/c" data-x>innerHeight</code>we can change the width and height values ​​of the elements. For example, let's set the width of the div<code data-gs="comd/z" data-x>#test1</code>equal to<code data-gs="comd/u" data-x>250px</code>, and the height<code data-gs="comd/z" data-x>#test2</code> - <code data-gs="comd/u" data-x>200px</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test1').innerWidth(250);
 $('#test2').innerHeight(200);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дополните решение первой задачи - выведите
-		во второй абзац под дивом <code data-gs="comd/z" data-x>#wrapper</code>
-		значения ширины и высоты дива <code data-gs="comd/z" data-x>#wrapper</code>, на
-		этот раз с учетом внутренних отступов, но без
-		учета границ и внешних отступов.
-	</p>
+	<p>Complete the solution to the first problem - display it in the second paragraph under the div<code data-gs="comd/z" data-x>#wrapper</code>div width and height values<code data-gs="comd/z" data-x>#wrapper</code>, this time taking into account padding, but not taking into account borders and outer padding.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../width-height-methods/index.html" class="lesson-nav-btn lesson-nav-prev" title="Методы width и height">← Методы width и height</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../outerWidth-outerHeight-methods/index.html" class="lesson-nav-btn lesson-nav-next" title="Методы outerWidth и outerHeight">Методы outerWidth и outerHeight →</a>
+      <a href="../width-height-methods/index.html" class="lesson-nav-btn lesson-nav-prev" title="width and height methods">← Methods width and height</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../outerWidth-outerHeight-methods/index.html" class="lesson-nav-btn lesson-nav-next" title="outerWidth and outerHeight methods">outerWidth and outerHeight methods →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

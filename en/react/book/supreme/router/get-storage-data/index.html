@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Получение данных из хранилища в React Router — acteck.off</title>
-  <meta name="description" content="Получение данных из хранилища в React Router — учебные материалы по программированию.">
+  <title>Retrieving data from storage in React Router - acteck.off</title>
+  <meta name="description" content="Retrieving data from storage in React Router - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,44 +36,14 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Получение данных из хранилища в React Router</h1>
-    <p>
-	Вы видите, что пока наше приложение статично.
-	В этом и последующих уроках мы начнем его
-	оживлять. Уже на ближайших уроках мы сможем
-	добавлять продукты в список с помощью
-	React Router.
-</p>
-<p>
-	В этом уроке мы, для начала, разберемся с
-	получением данных из хранилища. Для локального
-	хранения данных мы будем использовать
-	хранилище localForage (вы можете почитать
-	об его использовании и преимуществах в <a href="https://github.com/localForage/localForage">документации</a>)
-	- аналог <a href="../../../../../javascript/book/supreme/storage/intro/index.html">LocalStorage</a>,
-	который поддерживают все современные
-	браузеры. Фактически это объединение
-	нескольких технологий хранилищ. При
-	относительно легком использовании, оно
-	позволяет хранить большие объемы данных,
-	причем разных типов, в том числе и картинки.
-	Давайте установим его в наш проект. Вбейте в
-	терминале:		
-</p>
+    <h1>Retrieving data from storage in React Router</h1>
+    <p>You see that our application is static for now. In this and subsequent lessons we will begin to revive it. In the next lessons we will be able to add products to the list using React Router.</p>
+<p>In this lesson, we will first look at retrieving data from the storage. To store data locally, we will use localForage storage (you can read about its use and benefits in<a href="https://github.com/localForage/localForage">documentation</a>) - analogue<a href="../../../../../javascript/book/supreme/storage/intro/index.html">LocalStorage</a>, which is supported by all modern browsers. In fact, it is a combination of several storage technologies. With relatively easy use, it allows you to store large amounts of data, of different types, including pictures. Let's install it in our project. Type in the terminal:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm i localforage</code>
 </div>
-<p>
-	Перезапустим наше приложение. В папке
-	<code data-gs="comd/p" data-x>src</code> мы создадим файл <code data-gs="comd/p" data-x>forStorage.js</code>,
-	в котором будут функции для работы с хранилищем.
-</p>
-<p>
-	Итак, начнем с функции загрузки продуктов
-	из хранилища. Добавим в <code data-gs="comd/p" data-x>forStorage.js</code>
-	импорт библиотеки и напишем функцию
-	<code data-gs="comd/c" data-x>getProducts</code> для получения продуктов:
-</p>
+<p>Let's restart our application. In a folder<code data-gs="comd/p" data-x>src</code>we will create a file<code data-gs="comd/p" data-x>forStorage.js</code>, which will contain functions for working with storage.</p>
+<p>So, let's start with the function of loading products from storage. Add to<code data-gs="comd/p" data-x>forStorage.js</code>import the library and write a function<code data-gs="comd/c" data-x>getProducts</code>to receive products:</p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import localforage from 'localforage';
 
@@ -84,16 +54,7 @@ export async function getProducts() {
 	return products;
 }</code>
 </div>
-<p>
-	Ниже после кода функции мы также добавим
-	код для <code data-gs="comd/c" data-x>someNetwork</code>, имитируя
-	задержки сети (до 0.7 секунды) для
-	нормальной работы функций. Если наш продукт
-	"закэширован", то в функциях для работы с
-	хранилищем задержки не будет, если нет,
-	то будет задержка, вы увидите в дальнейшем,
-	как это работает:
-</p>
+<p>Below after the function code we will also add the code for<code data-gs="comd/c" data-x>someNetwork</code>, simulating network delays (up to 0.7 seconds) for normal operation of functions. If our product is “cached”, then there will be no delay in the functions for working with the storage; if not, then there will be a delay; you will see later how this works:</p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let someCache = {};
 
@@ -114,23 +75,14 @@ async function someNetwork(key) {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Установите
-		в приложении хранилище localForage.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Set the application to localForage storage.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пользуясь материалами урока, создайте
-		файл <code data-gs="comd/p" data-x>forStorage.js</code> и напишите в нем
-		функцию <code data-gs="comd/c" data-x>getStudents</code> для получения
-		данных студентов из хранилища.
-	</p>
+	<p>Using the lesson materials, create a file<code data-gs="comd/p" data-x>forStorage.js</code>and write a function in it<code data-gs="comd/c" data-x>getStudents</code>to retrieve student data from the storage.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -138,7 +90,7 @@ async function someNetwork(key) {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

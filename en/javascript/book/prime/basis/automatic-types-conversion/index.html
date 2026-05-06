@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Автоматическое преобразование типов данных — acteck.off</title>
-  <meta name="description" content="Автоматическое преобразование типов данных — учебные материалы по программированию.">
+  <title>Automatic data type conversion - acteck.off</title>
+  <meta name="description" content="Automatic Data Type Conversion - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,256 +36,148 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Автоматическое преобразование типов данных</h1>
-    <p>
-	Как вы уже знаете, строки в JavaScript следует
-	брать в кавычки. Может быть такое, что всеми
-	символами строки будут являться цифры:
-</p>
+    <h1>Automatic data type conversion</h1>
+    <p>As you already know, strings in JavaScript must be quoted. It may happen that all the characters in the string will be numbers:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '123';</code>
 </div>
-<p>
-	В этом случае переменная <code data-gs="comd/c" data-x>a</code> также является
-	строкой, но с некоторым нюансом.
-</p>
-<p>
-	Суть нюанса в следующем: если над строкой
-	с цифрами выполнить какую-либо математическую
-	операцию - эта операция будет выполнена так,
-	будто у нас действительно числа, а не строки:
-</p>
+<p>In this case the variable<code data-gs="comd/c" data-x>a</code>is also a string, but with some nuance.</p>
+<p>The essence of the nuance is this: if you perform any mathematical operation on a string with numbers, this operation will be performed as if we really had numbers, and not strings:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">alert('2' * '3'); // выведет 6</code>
 </div>
-<p>
-	В данном случае JavaScript видит, что мы
-	пытаемся выполнить недопустимую для строк,
-	но допустимую для чисел операцию.
-</p>
-<p>
-	Он также видит, что фактически наши строки
-	- это числа в кавычках. Поэтому JavaScript
-	автоматически выполняет преобразование этих
-	строк к числам и выполняет соответствующую
-	математическую операцию над ними.
-</p>
-<p>
-	Такое работает, если в наших строках только
-	цифры. Если там будет хотя бы одна буква
-	- JavaScript посчитает операцию некорректной
-	и сделает ее результатом значение <code data-gs="comd/c" data-x>NaN</code>:
+<p>In this case, JavaScript sees that we are trying to perform an operation that is not valid for strings, but valid for numbers.</p>
+<p>He also sees that our strings are actually numbers in quotes. Therefore, JavaScript automatically converts these strings to numbers and performs the corresponding mathematical operation on them.</p>
+<p>This works if our strings contain only numbers. If there is at least one letter there, JavaScript will consider the operation incorrect and make its result a value<code data-gs="comd/c" data-x>NaN</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">alert('2' * '3s'); // выведет NaN</code>
 </div>
-<p>
-	Кроме того, автоматическое преобразование
-	происходит, если операция математически корректна,
-	но недопустима для строк.
-</p>
-<p>
-	Например, строки нельзя (а числа можно) умножать,
-	делить, вычитать, поэтому во всех таких операциях
-	будет автоматическое преобразование строк
-	с цифрами в числа.
-</p>
-<p>
-	Однако, строки, как и числа, складываются
-	с помощью оператора <code data-gs="comd/c" data-x>+</code>. Это значит,
-	что в случае сложения автоматического преобразования
-	не будет:
-</p>
+<p>Additionally, automatic conversion occurs if the operation is mathematically correct but not valid for strings.</p>
+<p>For example, strings cannot (but numbers can) be multiplied, divided, subtracted, so in all such operations there will be automatic conversion of strings with digits into numbers.</p>
+<p>However, strings, like numbers, can be added using the operator<code data-gs="comd/c" data-x>+</code>. This means that in case of addition there will be no automatic conversion:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '1' + '2';
 alert(a); // выведет '12' - произошло сложение строк</code>
 </div>
-<p>
-	Если одно из слагаемых число, а другое -
-	строка, то всегда побеждает строка:
-</p>
+<p>If one of the terms is a number and the other is a string, then the string always wins:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = 1 + '2';
 alert(a); // выведет '12'</code>
 </div>
-<p>
-	В таких случаях JavaScript, наоборот, автоматически
-	преобразует числа в строки и выполняет сложение
-	строк.
-</p>
-<p>
-	Есть, однако, нюансы, когда слагаемых больше,
-	чем два: в этом случае преобразование к определенному
-	типу зависит от порядка выполнения операций.
-</p>
-<p>
-	В следующем примере вначале <code data-gs="comd/n" data-x>2</code> и <code data-gs="comd/n" data-x>3</code>
-	сложатся как числа, а затем результат прибавится
-	к строке <code data-gs="comd/s" data-x>'1'</code> уже как строка <code data-gs="comd/s" data-x>'5'</code>,
-	что в итоге даст строку <code data-gs="comd/s" data-x>'15'</code>:
+<p>In such cases, JavaScript, on the contrary, automatically converts numbers into strings and performs string addition.</p>
+<p>There are, however, nuances when there are more than two terms: in this case, the conversion to a specific type depends on the order of operations.</p>
+<p>In the following example, first<code data-gs="comd/n" data-x>2</code>And<code data-gs="comd/n" data-x>3</code>will add up like numbers, and then the result will be added to the string<code data-gs="comd/s" data-x>'1'</code>already like a line<code data-gs="comd/s" data-x>'5'</code>, which will ultimately give the line<code data-gs="comd/s" data-x>'15'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '1' + (2 + 3);
 alert(a); // выведет '15'</code>
 </div>
-<p>
-	Если же убрать скобки, то все будет складываться
-	слева направо. To есть сначала к строке <code data-gs="comd/s" data-x>'1'</code>
-	прибавится число <code data-gs="comd/n" data-x>2</code> и в результате
-	получится строка <code data-gs="comd/s" data-x>'12'</code>. Затем к этой
-	строке прибавится число <code data-gs="comd/n" data-x>3</code> и в результате
-	получится строка <code data-gs="comd/s" data-x>'123'</code>:
+<p>If you remove the brackets, then everything will add up from left to right. That is, first to the line<code data-gs="comd/s" data-x>'1'</code>the number will be added<code data-gs="comd/n" data-x>2</code>and the result will be the line<code data-gs="comd/s" data-x>'12'</code>. Then the number will be added to this line<code data-gs="comd/n" data-x>3</code>and the result will be the line<code data-gs="comd/s" data-x>'123'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '1' + 2 + 3;
 alert(a); // выведет '123'</code>
 </div>
-<p>
-	А вот в следующем примере числа <code data-gs="comd/n" data-x>2</code>
-	и <code data-gs="comd/n" data-x>3</code> написаны в начале, поэтому сначала
-	они сложатся как числа, дав в результате
-	число <code data-gs="comd/n" data-x>5</code>, а затем к этому числу прибавится
-	строка <code data-gs="comd/s" data-x>'1'</code>, дав в итоге строку <code data-gs="comd/s" data-x>'51'</code>:
+<p>But in the next example the numbers<code data-gs="comd/n" data-x>2</code>And<code data-gs="comd/n" data-x>3</code>are written at the beginning, so they will first add up like numbers, resulting in the number<code data-gs="comd/n" data-x>5</code>, and then the line will be added to this number<code data-gs="comd/s" data-x>'1'</code>, resulting in the line<code data-gs="comd/s" data-x>'51'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = 2 + 3 + '1';
 alert(a); // выведет '51'</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '5' + '2';
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '5' + 2;
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = 5 + '2';
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = 5 + 2;
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '5' * '2';
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '5' - '2';
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '5' / '2';
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '5' % '2';
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '5s' * '2';
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '5s' + '2';
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = (-'5') + (-'2');
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '5' * 1 + '2' * 1;
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '5' * '1' + '2' * '1';
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = '' + 3 + 1;
 alert(a);</code>
@@ -293,16 +185,16 @@ alert(a);</code>
 </div>
   
     <div class="lesson-nav">
-      <a href="../constants/index.html" class="lesson-nav-btn lesson-nav-prev" title="Константы">← Константы</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../conversion-to-number/index.html" class="lesson-nav-btn lesson-nav-next" title="Преобразование к числу">Преобразование к числу →</a>
+      <a href="../constants/index.html" class="lesson-nav-btn lesson-nav-prev" title="Constants">← Constants</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../conversion-to-number/index.html" class="lesson-nav-btn lesson-nav-next" title="Conversion to number">Conversion to number →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

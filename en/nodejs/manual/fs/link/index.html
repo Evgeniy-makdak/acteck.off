@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод link — acteck.off</title>
-  <meta name="description" content="Метод link — учебные материалы по программированию.">
+  <title>Link method - acteck.off</title>
+  <meta name="description" content="Link method - programming educational materials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,32 +36,18 @@
       <a href="../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Метод link</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>link</code> изменяет путь к файлу и
-	соответственно может установить новое название файла.
-	Метод возвращает новый файл, а исходный
-	файл остается на прежнем пути.
-	В первом параметре указываем исходный путь к файлу,
-	во втором параметре - новый путь к файлу,
-	в третьем необязательном параметре указываем
-	коллбэк.
-</p>
+    <h1>link method</h1>
+    <p>Method<code data-gs="comd/c" data-x>link</code>changes the path to the file and can accordingly set a new file name. The method returns a new file, and the original file remains in the same path. In the first parameter we indicate the original path to the file, in the second parameter - the new path to the file, in the third optional parameter we indicate the callback.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.link(исходный путь, новый путь, [коллбэк]);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть у нас есть следующая
-	файловая структура:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's say we have the following file structure:</p>
 <div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/dir1/<ul><li data-s-type="F">/dir1.2/<ul><li data-s-type="F">file1.txt</li><li data-s-type="F">file2.txt</li></ul></li></ul></li><li data-s-type="D">/dir2/<ul><ul><li data-s-type="F">file3.txt</li></ul></li></ul></li></ul></div></div>
-<p>
-	Давайте асинхронно установим новый путь
-	к файлу <code data-gs="comd/p" data-x>file1</code> через <code data-gs="comd/c" data-x>await</code>:
+<p>Let's set a new file path asynchronously<code data-gs="comd/p" data-x>file1</code>through<code data-gs="comd/c" data-x>await</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -74,10 +60,8 @@ try {
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь давайте асинхронно установим новый путь
-	к файлу через <code data-gs="comd/c" data-x>then</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's asynchronously set the new file path via<code data-gs="comd/c" data-x>then</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -89,11 +73,8 @@ fs.link('./dir1/dir1.2/file1.txt', './dir2/file1.txt').then(() =&gt; {
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте асинхронно установим новый путь
-	к файлу через коллбэк:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's set a new file path asynchronously via a callback:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
 
@@ -106,10 +87,8 @@ fs.link('./dir1/dir1.2/file1.txt', './dir2/file1.txt', err =&gt; {
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь давайте синхронно установим новый путь
-	к файлу через <code data-gs="comd/c" data-x>linkSync</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's synchronously set the new file path via<code data-gs="comd/c" data-x>linkSync</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
@@ -122,26 +101,17 @@ try {
 }</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../../../../javascript/nodejs/manual/fs/rename/index.html"><code data-gs="comd/c" data-x>rename</code></a>, <br>
-			который переименовывает файл
-		</li>
-		<li>
-			метод <a href="../../../../javascript/nodejs/manual/fs/cp/index.html"><code data-gs="comd/c" data-x>cp</code></a>, <br>
-			который копирует папку
-		</li>
-		<li>
-			метод <a href="../../../../javascript/nodejs/manual/fs/symlink/index.html"><code data-gs="comd/c" data-x>symlink</code></a>, <br>
-			который создает символическую ссылку
-		</li>
+		<li>method<a href="../../../../javascript/nodejs/manual/fs/rename/index.html"><code data-gs="comd/c" data-x>rename</code></a>, <br>which renames the file</li>
+		<li>method<a href="../../../../javascript/nodejs/manual/fs/cp/index.html"><code data-gs="comd/c" data-x>cp</code></a>, <br>which copies the folder</li>
+		<li>method<a href="../../../../javascript/nodejs/manual/fs/symlink/index.html"><code data-gs="comd/c" data-x>symlink</code></a>, <br>which creates a symbolic link</li>
 	</ul>
 </div>
     <div class="lesson-nav">
       <a href="../futimes/index.html" class="lesson-nav-btn lesson-nav-prev" title="futimes">← futimes</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../lstat/index.html" class="lesson-nav-btn lesson-nav-next" title="lstat">lstat →</a>
     </div>
   </section>
@@ -149,7 +119,7 @@ try {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

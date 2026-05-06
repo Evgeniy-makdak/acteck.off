@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Селектор потомков в CSS — acteck.off</title>
-  <meta name="description" content="Селектор потомков в CSS — учебные материалы по программированию.">
+  <title>Descendant selector in CSS - acteck.off</title>
+  <meta name="description" content="Descendant selector in CSS - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,13 +33,11 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Селектор потомков в CSS</h1>
-    <p>
-	Пусть у нас есть список <code data-gs="comd/c" data-x>ul</code> и список
-	<code data-gs="comd/c" data-x>ol</code>:
+    <h1>Descendant selector in CSS</h1>
+    <p>Let us have a list<code data-gs="comd/c" data-x>ul</code>and list<code data-gs="comd/c" data-x>ol</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
@@ -57,31 +55,14 @@
 	&lt;li&gt;text&lt;/li&gt;
 &lt;/ol&gt;</code>
 </div>
-<p>
-	Давайте покрасим теги <code data-gs="comd/c" data-x>li</code> в этих списках
-	в красный цвет:
-</p>
+<p>Let's color the tags<code data-gs="comd/c" data-x>li</code>in these lists in red:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">li {
 	color: red;
 }</code>
 </div>
-<p>
-	Пусть теперь мы хотим покрасить теги <code data-gs="comd/c" data-x>li</code>
-	списка <code data-gs="comd/c" data-x>ul</code> в красный цвет, а теги <code data-gs="comd/c" data-x>li</code>
-	списка <code data-gs="comd/c" data-x>ol</code> - в зеленый.
-</p>
-<p>
-	В этом случае нам поможет селектор <dfn data-gs="comd/d" data-x>потомков</dfn>.
-	Он позволяет выбирать теги по их родителю.
-	Для этого нужно указать селектор родителя,
-	а через пробел - селектор потомка. В нашем
-	случае селектор <code data-gs="comd/z" data-x>ul li</code> выберет все
-	теги <code data-gs="comd/c" data-x>li</code> из списка <code data-gs="comd/c" data-x>ul</code>, а селектор
-	<code data-gs="comd/z" data-x>ol li</code> - выберет все теги <code data-gs="comd/c" data-x>li</code>
-	из списка <code data-gs="comd/c" data-x>ol</code>. Покрасим их
-	в нужные цвета:
-</p>
+<p>Now let's say we want to color the tags<code data-gs="comd/c" data-x>li</code>list<code data-gs="comd/c" data-x>ul</code>in red, and tags<code data-gs="comd/c" data-x>li</code>list<code data-gs="comd/c" data-x>ol</code>- in green.</p>
+<p>In this case, the selector will help us<dfn data-gs="comd/d" data-x>descendants</dfn>. It allows you to select tags by their parent. To do this, you need to specify the parent selector, followed by a space - the child selector. In our case, the selector<code data-gs="comd/z" data-x>ul li</code>will select all tags<code data-gs="comd/c" data-x>li</code>from the list<code data-gs="comd/c" data-x>ul</code>, and the selector<code data-gs="comd/z" data-x>ol li</code>- selects all tags<code data-gs="comd/c" data-x>li</code>from the list<code data-gs="comd/c" data-x>ol</code>. Let's paint them in the desired colors:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">ul li {
 	color: red;
@@ -90,14 +71,7 @@ ol li {
 	color: green;
 }</code>
 </div>
-<p>
-	Селектор потомков не обязательно должен состоять
-	из двух селекторов тегов - их может быть
-	любое количество, записанное через пробел.
-	В следующем коде, например, выбираются все
-	теги <code data-gs="comd/c" data-x>i</code>, находящиеся внутри тега <code data-gs="comd/c" data-x>li</code>,
-	которые в свою очередь находятся внутри тега
-	<code data-gs="comd/c" data-x>ul</code>:
+<p>A descendant selector does not have to consist of two tag selectors - there can be any number of them, separated by a space. The following code, for example, selects all tags<code data-gs="comd/c" data-x>i</code>, located inside the tag<code data-gs="comd/c" data-x>li</code>, which in turn are inside the tag<code data-gs="comd/c" data-x>ul</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">ul li i {
@@ -105,9 +79,7 @@ ol li {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий код:
-	</p>
+	<p>The following code is given:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li&gt;text &lt;i&gt;italic&lt;/i&gt;&lt;/li&gt;
@@ -123,16 +95,11 @@ ol li {
 	paragraph text &lt;i&gt;italic&lt;/i&gt;
 &lt;/p&gt;</code>
 	</div>
-	<p>
-		Покрасьте в красный цвет курсив из тегов
-		<code data-gs="comd/c" data-x>ul</code>, а в зеленый цвет - курсив из тегов
-		<code data-gs="comd/c" data-x>p</code>.
+	<p>Color the italics from the tags red<code data-gs="comd/c" data-x>ul</code>, and in green - italics from tags<code data-gs="comd/c" data-x>p</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий код:
-	</p>
+	<p>The following code is given:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
 	paragraph text &lt;b&gt;&lt;i&gt;bold italic&lt;/i&gt;&lt;/b&gt;
@@ -141,23 +108,20 @@ ol li {
 	paragraph text &lt;i&gt;italic&lt;/i&gt;
 &lt;/p&gt;</code>
 	</div>
-	<p>
-		Покрасьте в красный цвет курсив, находящийся
-		внутри тега <code data-gs="comd/c" data-x>b</code>, который в свою очередь
-		находится внутри тега <code data-gs="comd/c" data-x>p</code>.
+	<p>Color the italics inside the tag red<code data-gs="comd/c" data-x>b</code>, which in turn is inside the tag<code data-gs="comd/c" data-x>p</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../common-properties/index.html" class="lesson-nav-btn lesson-nav-prev" title="Общие свойства">← Общие свойства</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../child-selector/index.html" class="lesson-nav-btn lesson-nav-next" title="Дочерний селектор">Дочерний селектор →</a>
+      <a href="../common-properties/index.html" class="lesson-nav-btn lesson-nav-prev" title="General properties">← General properties</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../child-selector/index.html" class="lesson-nav-btn lesson-nav-next" title="Child selector">Child selector →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

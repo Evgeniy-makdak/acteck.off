@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Схема макетов с несколькими врапперами в CSS — acteck.off</title>
-  <meta name="description" content="Схема макетов с несколькими врапперами в CSS — учебные материалы по программированию.">
+  <title>Layout diagram with multiple wrappers in CSS - acteck.off</title>
+  <meta name="description" content="Multiple Wrapper Layouts in CSS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,16 +33,11 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Схема макетов с несколькими врапперами в CSS</h1>
-    <p>
-	Часто при разработке встречаются макеты,
-	в которых блоки имеют фон на всю ширину страницы,
-	а содержимое этих блоков стоит по центру.
-	Вот пример такого макета:
-</p>
+    <h1>Layout diagram with multiple wrappers in CSS</h1>
+    <p>Often when developing, you come across layouts in which blocks have a background that spans the entire width of the page, and the content of these blocks is in the center. Here is an example of such a layout:</p>
 <div data-p="bock/pane">
 					<div data-w="bock/open" data-m-type="P">
 						<a href="" data-e="link" data-x>
@@ -140,18 +135,8 @@
 						</a>
 					</div>
 				</div>
-<p>
-	В таком макете нам придется сделать не один
-	враппер, а несколько - для каждого блока.
-	При этом внутри враппера должен быть еще
-	один блок, выполняющий центрирование содержимого.
-	Также должен быть класс, отвечающий за покраску
-	содержимого фоном.
-</p>
-<p>
-	Общая схема нашего макета будет выглядеть
-	следующим образом:
-</p>
+<p>In this layout, we will have to make not one wrapper, but several for each block. In this case, there should be another block inside the wrapper that centers the content. There should also be a class responsible for coloring the content as the background.</p>
+<p>The general outline of our layout will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="wrapper"&gt;
 	&lt;div class="center"&gt;
@@ -174,10 +159,7 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Класс <code data-gs="comd/z" data-x>center</code> будет использоваться
-	для центрирования блоков:
-</p>
+<p>Class<code data-gs="comd/z" data-x>center</code>will be used to center the blocks:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.center {
 	width: 800px;
@@ -185,29 +167,20 @@
 	margin: 0 auto;
 }</code>
 </div>
-<p>
-	Класс <code data-gs="comd/z" data-x>line</code> будет использоваться для
-	покраски блоков:
-</p>
+<p>Class<code data-gs="comd/z" data-x>line</code>will be used to paint blocks:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.wrapper.line {
 	background-color: #008040;
 	color: white;
 }</code>
 </div>
-<p>
-	А класс <code data-gs="comd/z" data-x>wrapper</code> будет родителем каждого
-	блока. Используем его для задания отступа
-	между блоками:
-</p>
+<p>A class<code data-gs="comd/z" data-x>wrapper</code>will be the parent of each block. We use it to set the indentation between blocks:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.wrapper {
 	margin-bottom: 30px;
 }</code>
 </div>
-<p>
-	Давайте теперь напишем полный код нашей задачи:
-</p>
+<p>Let's now write the complete code for our task:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="wrapper"&gt;
 	&lt;div class="center"&gt;
@@ -374,21 +347,15 @@ body {
 		
 		<div id=&quot;header&quot; class=&quot;wrapper&quot;>
 				<div class=&quot;center&quot;>
-					<h1>Любые виды ремонтных работ</h1>
-					<p>
-						Выезд специалиста, замер и смета работ бесплатно
-					</p>
-					<p>
-						Бесплатный дизайн проект
-					</p>
-					<p>
-						Гарантия 3 года
-					</p>
+					<h1>Any types of repair work</h1>
+					<p>Visit of a specialist, measurements and estimate of work free of charge</p>
+					<p>Free design project</p>
+					<p>3 year warranty</p>
 				</div>
 			</div>
 			<div id=&quot;services&quot; class=&quot;wrapper&quot;>
 				<div class=&quot;center&quot;>
-					<h2>Наши услуги</h2>
+					<h2>Our services</h2>
 					<ol>
 						<li>
 							Pellentesque pellentesque sem ac justo tristique pellentesque. Vestibulum semper pulvinar rutrum. Maecenas odio urna, porta sed lectus eget, fringilla posuere odio. Maecenas pulvinar sed massa vitae tincidunt.
@@ -407,15 +374,13 @@ body {
 			</div>
 			<div id=&quot;contacts&quot; class=&quot;wrapper&quot;>
 				<div class=&quot;center&quot;>
-					<h2>Наши контакты</h2>
-					<p>
-						Телефоны: +375 29 335 29 38 МТС, +375 31 335 29 38 Velcom
-					</p>
+					<h2>Our contacts</h2>
+					<p>Phones: +375 29 335 29 38 MTS, +375 31 335 29 38 Velcom</p>
 				</div>
 			</div>
 			<div id=&quot;company&quot; class=&quot;wrapper&quot;>
 				<div class=&quot;center&quot;>
-					<h2>Наша компания</h2>
+					<h2>Our company</h2>
 					<p>
 						Pellentesque pellentesque sem ac justo tristique pellentesque. Vestibulum semper pulvinar rutrum. Maecenas odio urna, porta sed lectus eget, fringilla posuere odio. Maecenas pulvinar sed massa vitae tincidunt. Praesent ullamcorper est ac lorem aliquet, sed tempus lacus iaculis. Pellentesque a odio pharetra, sagittis enim sit amet, euismod leo. Nullam egestas, nisi eget blandit dignissim, augue dui accumsan est, at tincidunt ipsum metus quis justo. Aenean sed mauris ornare, faucibus tortor in, iaculis magna. Duis eros lectus, auctor eu mi sit amet, ornare scelerisque elit.
 					</p>
@@ -425,10 +390,7 @@ body {
 				</div>
 			</div>
 			<div id=&quot;footer&quot; class=&quot;wrapper&quot;>
-				<div class=&quot;center&quot;>
-					Строительная компания &quot;Рога и копыта&quot; &copy;
-					Все права более чем защищены.
-				</div>
+				<div class=&quot;center&quot;>Construction company "Horns and Hooves" © All rights are more than reserved.</div>
 			</div>
 		
 		<script>
@@ -442,16 +404,16 @@ body {
 				</div>
 </div>
     <div class="lesson-nav">
-      <a href="../one-column-layout/index.html" class="lesson-nav-btn lesson-nav-prev" title="Простые одноколоночные макеты сайтов">← Простые одноколоночные макеты сайтов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../page-structure/index.html" class="lesson-nav-btn lesson-nav-next" title="Структурные блоки сайта">Структурные блоки сайта →</a>
+      <a href="../one-column-layout/index.html" class="lesson-nav-btn lesson-nav-prev" title="Simple One Column Website Layouts">← Simple one-column website layouts</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../page-structure/index.html" class="lesson-nav-btn lesson-nav-next" title="Structural blocks of the site">Structural blocks of the site →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

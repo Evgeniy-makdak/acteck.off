@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Редирект на другой маршрут в React Router — acteck.off</title>
-  <meta name="description" content="Редирект на другой маршрут в React Router — учебные материалы по программированию.">
+  <title>Redirect to another route in React Router - acteck.off</title>
+  <meta name="description" content="Redirect to another route in React Router - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,90 +36,34 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Редирект на другой маршрут в React Router</h1>
-    <p>
-	Теперь данные, занесенные в форму при
-	редактировании продукта, сохраняются,
-	но есть одно НО - после сохранения
-	данных мы остаемся на странице с формой,
-	а нам надо попасть обратно на страничку
-	продукта. В этом нам поможет редирект,
-	с которым мы познакомимся в этом уроке.
-</p>
-<p>
-	Давайте откроем файл <code data-gs="comd/p" data-x>edit.jsx</code>
-	и импортируем <code data-gs="comd/c" data-x>redirect</code> из
-	библиотеки:
-</p>
+    <h1>Redirect to another route in React Router</h1>
+    <p>Now the data entered into the form when editing a product is saved, but there is one BUT - after saving the data, we remain on the page with the form, and we need to get back to the product page. A redirect will help us with this, which we will get acquainted with in this lesson.</p>
+<p>Let's open the file<code data-gs="comd/p" data-x>edit.jsx</code>and import<code data-gs="comd/c" data-x>redirect</code>from the library:</p>
 <div data-p="bock/pane" data-p-file="routes/edit.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { redirect } from 'react-router-dom';</code>
 </div>
-<p>
-	А затем сделаем так, что функция
-	<code data-gs="comd/c" data-x>action</code> будет теперь возвращать
-	не <code data-gs="comd/n" data-x>1</code>, а перенаправлять нас
-	на нужный маршрут. В данном случае
-	нам необходимо вернуться обратно на
-	страничку с продуктом:
-</p>
+<p>And then let's make the function<code data-gs="comd/c" data-x>action</code>will now not return<code data-gs="comd/n" data-x>1</code>, but redirect us to the desired route. In this case, we need to go back to the product page:</p>
 <div data-p="bock/pane" data-p-file="routes/edit.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return redirect(`/products/${params.productId}`);</code>
 </div>
-<p>
-	Теперь, нажимая кнопку сохранения, мы
-	попадаем обратно на страничку продукта
-	с обновленными данными.
-</p>
-<p>
-	Все тоже самое мы можем проделать и
-	для добавления нового продукта, ведь
-	наверное было бы удобней сразу выходить
-	на форму и заполнять ее. Давайте так
-	и сделаем.
-</p>
-<p>
-	Для начала нам необходимо теперь открыть
-	файл <code data-gs="comd/p" data-x>root.jsx</code> и импортировать
-	<code data-gs="comd/c" data-x>redirect</code>, поскольку добавление
-	продуктов происходит на корневой странице:
-</p>
+<p>Now, by clicking the save button, we are taken back to the product page with updated data.</p>
+<p>We can do the same thing to add a new product, because it would probably be more convenient to immediately go to the form and fill it out. Let's do just that.</p>
+<p>First, we now need to open the file<code data-gs="comd/p" data-x>root.jsx</code>and import<code data-gs="comd/c" data-x>redirect</code>, since adding products occurs on the root page:</p>
 <div data-p="bock/pane" data-p-file="routes/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { redirect } from 'react-router-dom';</code>
 </div>
-<p>
-	Снова берем функцию <code data-gs="comd/c" data-x>action</code> и
-	теперь будем возвращать не <code data-gs="comd/c" data-x>product</code>,
-	а делать редирект на страничку
-	редактирования:
-</p>
+<p>Let's take the function again<code data-gs="comd/c" data-x>action</code>and now we will not return<code data-gs="comd/c" data-x>product</code>, and redirect to the editing page:</p>
 <div data-p="bock/pane" data-p-file="routes/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return redirect(`/products/${product.id}/edit`);</code>
 </div>
-<p>
-	Проверим и это. Кликнем теперь на кнопку
-	добавления продукта и увидим форму для
-	его редактирования
-</p>
+<p>Let's check this too. Now click on the add product button and see a form for editing it</p>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, реализуйте в нем
-		редирект на страничку студента после
-		нажатия кнопки сохранения данных на
-		страничке с формой.
-	</p>
-	<p>
-		А теперь реализуйте редирект с главной
-		страницы на страницу с формой
-		редактирования данных студента после
-		клика по кнопке добавления студента
-		в список.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, implement a redirect to the student’s page after clicking the save data button on the page with the form.</p>
+	<p>Now implement a redirect from the main page to the page with the form for editing student data after clicking on the button to add a student to the list.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -127,7 +71,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

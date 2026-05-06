@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Простое перебазирование коммитов в Git — acteck.off</title>
-  <meta name="description" content="Простое перебазирование коммитов в Git — учебные материалы по программированию.">
+  <title>Easily rebase commits in Git - acteck.off</title>
+  <meta name="description" content="Easily rebase commits in Git - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,93 +36,46 @@
       <a href="../../../../../../en/git/index.html">Git</a>
     </div>
 
-    <h1>Простое перебазирование коммитов в Git</h1>
-    <p>
-	Система Git предоставляет два способа
-	внесения изменений при работе с ветками:
-	<dfn data-gs="comd/d" data-x>слияние</dfn> и <dfn data-gs="comd/d" data-x>перебазирование</dfn>.
+    <h1>Easily rebase commits in Git</h1>
+    <p>Git provides two ways to make changes when working with branches:<dfn data-gs="comd/d" data-x>merger</dfn>And<dfn data-gs="comd/d" data-x>relocation</dfn>.
 </p>
-<p>
-	Достоинством перебазирования является то,
-	что история коммитов обеих веток, в отличие от слияния,
-	будет выглядеть более линейной и простой для
-	восприятия членами команды, работающей
-	на одним проектом.
-</p>
-<p>
-	В Git слияние, выполняемое с помощью
-	команды <code data-gs="comd/c" data-x>merge</code>, происходит как
-	трехстороннее объединение последних изменений
-	двух сливаемых веток и самого нового снимка
-	родительской ветки, общей для этих сливаемых веток.
-	При этом сливаются только конечные снимки
-	коммитов веток, а не вся их
-	предыдущая история.
-</p>
-<p>
-	Перебазирование предполагает применение изменений
-	из одной ветки (текущей) поверх другой ветки (которая сливается
-	с текущей). Давайте создадим ветку <code data-gs="comd/s" data-x>test</code>, в которой
-	мы сделаем новый файл <code data-gs="comd/p" data-x>file.txt</code>,
-	проиндексируем его и сделаем коммит:
-</p>
+<p>The advantage of rebasing is that the commit history of both branches, unlike a merge, will look more linear and easier to understand for team members working on the same project.</p>
+<p>In Git, merging done using the command<code data-gs="comd/c" data-x>merge</code>, occurs as a three-way merge of the latest changes of the two merged branches and the newest snapshot of the parent branch shared by these merged branches. In this case, only the final snapshots of branch commits are merged, and not their entire previous history.</p>
+<p>Rebasing involves applying changes from one branch (the current one) on top of another branch (which is merged into the current one). Let's create a branch<code data-gs="comd/s" data-x>test</code>, in which we will make a new file<code data-gs="comd/p" data-x>file.txt</code>, index it and commit it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git branch test
 git switch test
 git add file.txt
 git commit -m "commit from branch test"</code>
 </div>
-<p>
-	Теперь переключимся на ветку <code data-gs="comd/s" data-x>test</code>
-	и перебазируем ее относительно главной
-	ветки <code data-gs="comd/s" data-x>master</code>:
+<p>Now let's switch to the branch<code data-gs="comd/s" data-x>test</code>and rebase it relative to the main branch<code data-gs="comd/s" data-x>master</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git checkout test
 git rebase master</code>
 </div>
-<p>
-	Сам процесс перебазирования происходит следующим
-	образом: сначала Git делает снимок родительской ветки
-	<code data-gs="comd/s" data-x>master</code>, который сохраняется во временном файле. Затем
-	текущая ветка <code data-gs="comd/s" data-x>test</code> вставляет свои изменения
-	после самого последнего коммита ветки <code data-gs="comd/s" data-x>master</code>.
-	Теперь история коммитов основной ветки будет
-	выглядеть так:
+<p>The rebasing process itself works like this: first, Git takes a snapshot of the parent branch<code data-gs="comd/s" data-x>master</code>, which is saved in a temporary file. Then the current branch<code data-gs="comd/s" data-x>test</code>inserts its changes after the most recent commit of the branch<code data-gs="comd/s" data-x>master</code>. Now the commit history of the main branch will look like this:</p>
+<p>After a rebase, the branch's commit history<code data-gs="comd/s" data-x>test</code>will also look similar to a branch<code data-gs="comd/s" data-x>master</code>.
 </p>
-<p>
-	После перебазирования история коммитов
-	ветки <code data-gs="comd/s" data-x>test</code> также будет выглядеть
-	аналогично ветке <code data-gs="comd/s" data-x>master</code>.
-</p>
-<p>
-	Затем этого можно перейти на ветку <code data-gs="comd/s" data-x>master</code>
-	и выполнить слияние перемоткой,
-	т.е. <code data-gs="comd/s" data-x>master</code> снова станет главной и включит
-	в себя все изменения с ветки <code data-gs="comd/s" data-x>test</code>:
+<p>Then this can be moved to the branch<code data-gs="comd/s" data-x>master</code>and perform the merge by rewinding, i.e.<code data-gs="comd/s" data-x>master</code>will become master again and include all changes from the branch<code data-gs="comd/s" data-x>test</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git merge test</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Создайте две ветки <code data-gs="comd/s" data-x>test1</code> и <code data-gs="comd/s" data-x>test2</code>,
-		в каждой из которых будет по три коммита на
-		разные файлы, затем выполните их
-		слияние простым перебазированием.
-	</p>
+	<p>Create two branches<code data-gs="comd/s" data-x>test1</code>And<code data-gs="comd/s" data-x>test2</code>, each of which will have three commits to different files, then merge them by simply rebasing.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../merged/index.html" class="lesson-nav-btn lesson-nav-prev" title="Слитые ветки">← Слитые ветки</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../commits-complicated-rebase/index.html" class="lesson-nav-btn lesson-nav-next" title="Более сложное перебазирование коммитов">Более сложное перебазирование коммитов →</a>
+      <a href="../merged/index.html" class="lesson-nav-btn lesson-nav-prev" title="Merged branches">← Merged branches</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../commits-complicated-rebase/index.html" class="lesson-nav-btn lesson-nav-next" title="More complex commit rebasing">More complex commit rebasing →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

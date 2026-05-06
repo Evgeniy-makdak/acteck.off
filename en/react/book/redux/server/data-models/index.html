@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Создание моделей данных для базы данных в Redux — acteck.off</title>
-  <meta name="description" content="Создание моделей данных для базы данных в Redux — учебные материалы по программированию.">
+  <title>Creating Data Models for a Database in Redux - acteck.off</title>
+  <meta name="description" content="Creating Data Models for a Database in Redux - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,24 +36,9 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Создание моделей данных для базы данных в Redux</h1>
-    <p>
-	На этом занятии мы заполним модели данных,
-	которые мы создали на прошлом уроке.
-</p>
-<p>
-	Давайте откроем наше приложение с продуктами,
-	а в нем файл <code data-gs="comd/p" data-x>server.js</code>. Начнем с модели продукта.
-	Данные, которые мы для него будем получать,
-	это - название, описание, цена, количество,
-	реакции и продавец данного продукта. Давайте
-	внесем эти необходимые свойства с их типом
-	значений, а также связи между моделями в объект -
-	все как в настоящей базе данных. Как
-	вы заметили значения полей для реакции
-	и продавца связаны с соответствующими
-	моделями:
-</p>
+    <h1>Creating Data Models for a Database in Redux</h1>
+    <p>In this lesson we will populate the data models we created in the last lesson.</p>
+<p>Let's open our application with products, and in it there is a file<code data-gs="comd/p" data-x>server.js</code>. Let's start with the product model. The data that we will receive for it is the name, description, price, quantity, reactions and seller of this product. Let's bring these necessary properties with their value type, as well as the relationships between models, into the object - just like in a real database. As you noticed, the field values ​​for reaction and seller are associated with the corresponding models:</p>
 <div data-p="bock/pane" data-p-file="api/server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">product: {
 	id: primaryKey(nanoid),
@@ -65,14 +50,7 @@
 	seller: oneOf('seller'),
 },</code>
 </div>
-<p>
-	Перейдем к модели данных для продавца.
-	Здесь нам нужны данные о названии и
-	продуктах, которые выложил данный
-	продавец (значение берем из модели
-	продукта. На одного продавца может
-	приходится несколько продуктов):
-</p>
+<p>Let's move on to the data model for the seller. Here we need data about the name and products that this seller has posted (we take the value from the product model. One seller may have several products):</p>
 <div data-p="bock/pane" data-p-file="api/server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">seller: {
 	id: primaryKey(nanoid),
@@ -80,13 +58,8 @@
 	products: manyOf('product'),
 },</code>
 </div>
-<p>
-	И наконец, модель для реакций. Реакция
-	у нас может быть <code data-gs="comd/s" data-x>'хорошо'</code>,
-	<code data-gs="comd/s" data-x>'ни рыба ни мясо'</code> и <code data-gs="comd/s" data-x>'плохо'</code>. Так
-	же она относится к какому-то продукту. Так
-	и запишем:
-</p>
+<p>And finally, a model for reactions. We may have a reaction<code data-gs="comd/s" data-x>'хорошо'</code>,
+	<code data-gs="comd/s" data-x>'ни рыба ни мясо'</code>And<code data-gs="comd/s" data-x>'плохо'</code>. It also applies to some product. So let's write it down:</p>
 <div data-p="bock/pane" data-p-file="api/server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">reaction: {
 	id: primaryKey(nanoid),
@@ -96,30 +69,21 @@
 	product: oneOf('product'),
 },</code>
 </div>
-<p>
-	Модель базы данных у нас готова!
-</p>
+<p>Our database model is ready!</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Ознакомившись с материалом этого урока,
-		наполните заготовки ваших трех моделей
-		данных <code data-gs="comd/c" data-x>student</code>, <code data-gs="comd/c" data-x>teacher</code> и
-		<code data-gs="comd/c" data-x>vote</code> необходимыми свойствами, типами
-		значений и связями.
-	</p>
+	<p>Open your application with students. After reviewing the material in this lesson, fill in the blanks for your three data models<code data-gs="comd/c" data-x>student</code>, <code data-gs="comd/c" data-x>teacher</code>And<code data-gs="comd/c" data-x>vote</code>necessary properties, value types and relationships.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../data-base/index.html" class="lesson-nav-btn lesson-nav-prev" title="База данных для сервера">← База данных для сервера</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../create-seller-object/index.html" class="lesson-nav-btn lesson-nav-next" title="Создание объекта с данными продавца">Создание объекта с данными продавца →</a>
+      <a href="../data-base/index.html" class="lesson-nav-btn lesson-nav-prev" title="Server database">← Database for the server</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../create-seller-object/index.html" class="lesson-nav-btn lesson-nav-next" title="Creating an object with seller data">Creating an object with seller data →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

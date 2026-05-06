@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Абстрактные ООП классы в TypeScript — acteck.off</title>
-  <meta name="description" content="Абстрактные ООП классы в TypeScript — учебные материалы по программированию.">
+  <title>Abstract OOP classes in TypeScript - acteck.off</title>
+  <meta name="description" content="Abstract OOP classes in TypeScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,28 +36,12 @@
       <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Абстрактные ООП классы в TypeScript</h1>
-    <p>
-	Бывают ситуации, когда у нас есть родительский
-	класс, содержащий общие свойства и методы,
-	а от него наследуют классы-потомки. 
+    <h1>Abstract OOP classes in TypeScript</h1>
+    <p>There are situations when we have a parent class containing common properties and methods, and child classes inherit from it.</p>
+<p>In this case, it may be that we will create objects of descendant classes, but not of the parent class. We only need it to group common properties and methods.</p>
+<p>In this case, to explicitly prohibit the creation of objects of the parent class, you can declare it<dfn data-gs="comd/d" data-x>abstract</dfn>. This is done using the keyword<code data-gs="comd/c" data-x>abstract</code>. 
 </p>
-<p>
-	При этом может быть так, что мы будем
-	создавать объекты классов-потомков, но не
-	родительского класса. Он нужен нам только
-	для группировки общих свойств и методов. 
-</p>
-<p>
-	В этом случае, чтобы явно запретить создание
-	объектов родительского класса, можно
-	объявить его <dfn data-gs="comd/d" data-x>абстрактным</dfn>. Это
-	делается с помощью ключевого слова <code data-gs="comd/c" data-x>abstract</code>. 
-</p>
-<p>
-	Давайте посмотрим на примере. Возьмем наш
-	класс <code data-gs="comd/c" data-x>User</code> и объявим его абстрактным: 
-</p>
+<p>Let's look at an example. Let's take our class<code data-gs="comd/c" data-x>User</code>and declare it abstract:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">abstract class User {
 	public name: string;
@@ -67,9 +51,7 @@
 	}
 }</code>
 </div>
-<p>
-	Сделаем класс <code data-gs="comd/c" data-x>Student</code>, наследующий
-	от <code data-gs="comd/c" data-x>User</code>: 
+<p>Let's make a class<code data-gs="comd/c" data-x>Student</code>, inheriting from<code data-gs="comd/c" data-x>User</code>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class Student extends User {
@@ -81,9 +63,7 @@
 	}
 }</code>
 </div>
-<p>
-	Сделаем класс <code data-gs="comd/c" data-x>Employee</code>, наследующий
-	от <code data-gs="comd/c" data-x>User</code>: 
+<p>Let's make a class<code data-gs="comd/c" data-x>Employee</code>, inheriting from<code data-gs="comd/c" data-x>User</code>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class Employee extends User {
@@ -96,36 +76,27 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Создайте абстрактный класс <code data-gs="comd/c" data-x>Figure</code>,
-		представляющий собой геометрическую фигуру.
-		Пусть в нем будут свойства для периметра
-		и площади. 
+	<p>Create an abstract class<code data-gs="comd/c" data-x>Figure</code>, which is a geometric figure. Let it contain properties for perimeter and area.</p>
+</div>
+<div data-w="cont/task">
+	<p>Make a class<code data-gs="comd/c" data-x>Square</code>, inheriting from class<code data-gs="comd/c" data-x>Figure</code>. 
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте класс <code data-gs="comd/c" data-x>Square</code>, наследующий
-		от класса <code data-gs="comd/c" data-x>Figure</code>. 
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		Сделайте класс <code data-gs="comd/c" data-x>Rectangle</code>, наследующий
-		от класса <code data-gs="comd/c" data-x>Figure</code>. 
+	<p>Make a class<code data-gs="comd/c" data-x>Rectangle</code>, inheriting from class<code data-gs="comd/c" data-x>Figure</code>. 
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../static-methods/index.html" class="lesson-nav-btn lesson-nav-prev" title="Статические методы">← Статические методы</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../abstract-methods/index.html" class="lesson-nav-btn lesson-nav-next" title="Абстрактные методы">Абстрактные методы →</a>
+      <a href="../static-methods/index.html" class="lesson-nav-btn lesson-nav-prev" title="Static methods">← Static methods</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../abstract-methods/index.html" class="lesson-nav-btn lesson-nav-next" title="Abstract methods">Abstract methods →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

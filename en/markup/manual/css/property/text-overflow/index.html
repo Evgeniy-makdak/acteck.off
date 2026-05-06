@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свойство text-overflow — acteck.off</title>
-  <meta name="description" content="Свойство text-overflow — учебные материалы по программированию.">
+  <title>text-overflow property - acteck.off</title>
+  <meta name="description" content="Text-overflow property - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,60 +33,40 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Свойство text-overflow</h1>
-    <p>
-	Свойство <code data-gs="comd/c" data-x>text-overflow</code> добавляет троеточие
-	в конец обрезанного текста в знак того, что
-	текст не помещался в блок и был обрезан.
-</p>
-<p>
-	Для работы свойства текст должен быть обрезан
-	через свойство <a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>
-	или свойство <a href="../overflow-x/index.html"><code data-gs="comd/c" data-x>overflow-x</code></a>
-	в значении <code data-gs="comd/v" data-x>hidden</code>, <code data-gs="comd/v" data-x>auto</code> или
-	<code data-gs="comd/v" data-x>scroll</code>. Если задано <code data-gs="comd/v" data-x>visible</code> (а так
-	и есть по умолчанию) - <code data-gs="comd/c" data-x>text-overflow</code>
-	работать не будет.
-</p>
+    <h1>text-overflow property</h1>
+    <p>Property<code data-gs="comd/c" data-x>text-overflow</code>adds an ellipsis to the end of trimmed text to indicate that the text did not fit in the block and was trimmed.</p>
+<p>For the property to work, the text must be trimmed through the property<a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>or property<a href="../overflow-x/index.html"><code data-gs="comd/c" data-x>overflow-x</code></a>in meaning<code data-gs="comd/v" data-x>hidden</code>, <code data-gs="comd/v" data-x>auto</code>or<code data-gs="comd/v" data-x>scroll</code>. If set<code data-gs="comd/v" data-x>visible</code>(and it is by default) -<code data-gs="comd/c" data-x>text-overflow</code>won't work.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
 	text-overflow: ellipsis | clip;
 }</code>
 </div>
 
-<h2>Значения</h2>
+<h2>Values</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Значение</th>
-		<th>Описание</th>
+		<th>Meaning</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>ellipsis</code></th>
-		<td>Добавляет в конец обрезанного текста троеточие.</td>
+		<td>Adds an ellipsis to the end of the trimmed text.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>clip</code></th>
-		<td>
-			Не добавляет троеточие в конец (это значение по умолчанию, нужно для
-			отмены действия свойства при необходимости).
-		</td>
+		<td>Does not add an ellipsis at the end (this is the default, needed to cancel the property if necessary).</td>
 	</tr>
 </table>
-<p>
-	Значение по умолчанию: <code data-gs="comd/v" data-x>clip</code>.
+<p>Default value:<code data-gs="comd/v" data-x>clip</code>.
 </p>
 
-<h2>Пример <span data-gn="sect"></span>. Вылезающий текст</h2>
-<p>
-	В данном примере очень длинное слово не поместится
-	в контейнер и вылезет за его границы. Обрезания
-	не происходит:
-</p>
+<h2>Example<span data-gn="sect"></span>. Pop-out text</h2>
+<p>In this example, a very long word will not fit into the container and will fall outside its boundaries. No cutting occurs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet
@@ -140,11 +120,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Добавим свойство overflow</h2>
-<p>
-	Сейчас все, что вылезло за границы контейнера,
-	просто обрежется:
-</p>
+<h2>Example<span data-gn="sect"></span>. Let's add the overflow property</h2>
+<p>Now everything that has gone beyond the boundaries of the container will simply be cut off:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet
@@ -198,13 +175,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение ellipsis</h2>
-<p>
-	Сейчас в дополнение к свойству <a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>
-	добавим еще и <code data-gs="comd/c" data-x>text-overflow</code> в значении
-	<code data-gs="comd/v" data-x>ellipsis</code>. Обрезанному тексту добавится
-	троеточие в конец:
-</p>
+<h2>Example<span data-gn="sect"></span>. Meaning of ellipsis</h2>
+<p>Now in addition to the property<a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>let's also add<code data-gs="comd/c" data-x>text-overflow</code>in meaning<code data-gs="comd/v" data-x>ellipsis</code>. An ellipsis will be added to the end of the trimmed text:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet
@@ -260,13 +232,9 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. С полосами прокрутки</h2>
-<p>
-	Если задать <b>overflow: auto</b> и <b>text-overflow:
-	ellipsis</b>, то появится полоса прокрутки,
-	но троеточие по-прежнему будет добавлено.
-	Попробуйте прокрутить полосу прокрутки в примере:
-</p>
+<h2>Example<span data-gn="sect"></span>. With scroll bars</h2>
+<p>If you set<b>overflow: auto</b>And<b>text-overflow:
+	ellipsis</b>, the scroll bar will appear, but the ellipsis will still be added. Try scrolling the scrollbar in the example:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet
@@ -322,13 +290,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Если нет очень длинных слов</h2>
-<p>
-	Если нет настолько длинных слов, чтобы они
-	вылазили за границу контейнера, то обрезания
-	не произойдет (ничего же не вылазит). Посмотрите
-	следующий пример:
-</p>
+<h2>Example<span data-gn="sect"></span>. If there are no very long words</h2>
+<p>If there are no words so long that they extend beyond the border of the container, then trimming will not occur (nothing will extend). Look at the following example:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet adipiscing elit.
@@ -378,17 +341,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Текст в одну строку</h2>
-<p>
-	Однако, бывают ситуации, когда мы хотим,
-	чтобы текст обрезался, если он слишком длинный
-	(текст вообще, а не отдельные слова) и не
-	переносился на следующую строку. Это делается
-	с помощью добавления свойства <a href="../white-space/index.html"><code data-gs="comd/c" data-x>white-space</code></a>
-	в значении <code data-gs="comd/v" data-x>nowrap</code>, которое запретит
-	перенос текста на другую строку. Посмотрите
-	на пример, теперь текст обрезается:
-</p>
+<h2>Example<span data-gn="sect"></span>. One line text</h2>
+<p>However, there are situations when we want text to be cut off if it is too long (text in general, not individual words) and not wrap to the next line. This is done by adding a property<a href="../white-space/index.html"><code data-gs="comd/c" data-x>white-space</code></a>in meaning<code data-gs="comd/v" data-x>nowrap</code>, which will prevent text from wrapping to another line. Look at the example, now the text is cut off:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet adipiscing elit.
@@ -440,11 +394,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Ширина в процентах</h2>
-<p>
-	Если задать ширину блока в %, то обрезание
-	тоже будет работать корректно:
-</p>
+<h2>Example<span data-gn="sect"></span>. Width in percentage</h2>
+<p>If you set the block width in %, then cropping will also work correctly:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet
@@ -505,27 +456,17 @@
 					</div>
 				</div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			свойства <a href="../word-break/index.html"><code data-gs="comd/c" data-x>word-break</code></a>
-			и <a href="../overflow-wrap/index.html"><code data-gs="comd/c" data-x>overflow-wrap</code></a>, <br>
-			которые позволяют перенести буквы длинного слова на новую строку
-		</li>
-		<li>
-			свойство <a href="../hyphens/index.html"><code data-gs="comd/c" data-x>hyphens</code></a>, <br>
-			которое включает переносы слов по слогам
-		</li>
-		<li>
-			свойство <a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>, <br>
-			которое обрезает вылезающие за границу блока части
-		</li>
+		<li>properties<a href="../word-break/index.html"><code data-gs="comd/c" data-x>word-break</code></a>And<a href="../overflow-wrap/index.html"><code data-gs="comd/c" data-x>overflow-wrap</code></a>, <br>which allow you to move the letters of a long word to a new line</li>
+		<li>property<a href="../hyphens/index.html"><code data-gs="comd/c" data-x>hyphens</code></a>, <br>which includes hyphenation of words by syllables</li>
+		<li>property<a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>, <br>which cuts off parts that extend beyond the block boundary</li>
 	</ul>
 </div>
     <div class="lesson-nav">
       <a href="../text-orientation/index.html" class="lesson-nav-btn lesson-nav-prev" title="text-orientation">← text-orientation</a>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list">☰</a>
       <a href="../text-shadow/index.html" class="lesson-nav-btn lesson-nav-next" title="text-shadow">text-shadow →</a>
     </div>
   </section>
@@ -533,7 +474,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

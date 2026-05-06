@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свойства только для чтения в интерфейсе в TypeScript — acteck.off</title>
-  <meta name="description" content="Свойства только для чтения в интерфейсе в TypeScript — учебные материалы по программированию.">
+  <title>Read-only properties in the interface in TypeScript - acteck.off</title>
+  <meta name="description" content="Read-Only Properties in an Interface in TypeScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,27 +36,17 @@
       <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Свойства только для чтения в интерфейсе в TypeScript</h1>
-    <p>
-	Свойства только для чтения задаются только
-	один раз при создании объекта. В дальнейшем
-	изменить их нельзя. Для объявления данных
-	свойств используется ключевое слово <code data-gs="comd/c" data-x>readonly</code>. 
+    <h1>Read-only properties in an interface in TypeScript</h1>
+    <p>Read-only properties are set only once when the object is created. They cannot be changed in the future. The keyword is used to declare these properties<code data-gs="comd/c" data-x>readonly</code>. 
 </p>
-<p>
-	Возьмем интерфейс <code data-gs="comd/c" data-x>IFigure</code>, созданный
-	в предыдущем уроке. Но теперь зададим
-	свойству <code data-gs="comd/c" data-x>width</code> доступ только для
-	чтения: 
-</p>
+<p>Let's take the interface<code data-gs="comd/c" data-x>IFigure</code>, created in the previous lesson. But now let's set the property<code data-gs="comd/c" data-x>width</code>read-only access:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">interface IFigure {
 	height: number;
 	readonly width: number;
 }</code>
 </div>
-<p>
-	Давайте создадим объект <code data-gs="comd/c" data-x>rectangle</code>: 
+<p>Let's create an object<code data-gs="comd/c" data-x>rectangle</code>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let rectangle: IFigure = {
@@ -64,37 +54,28 @@
 	width: 300
 }</code>
 </div>
-<p>
-	Изменим высоту: 
-</p>
+<p>Let's change the height:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">rectangle.height = 150;</code>
 </div>
-<p>
-	А теперь изменим ширину и увидим ошибку,
-	так ширина объявлена неизменяемой: 
-</p>
+<p>Now let’s change the width and see an error, since the width is declared immutable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">rectangle.width = 400; // ошибка</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Создайте интерфейс <code data-gs="comd/c" data-x>IUser</code>, в котором
-		свойство <code data-gs="comd/c" data-x>salary</code> будет доступным
-		только для чтения. 
-	</p>
+	<p>Create an interface<code data-gs="comd/c" data-x>IUser</code>, in which the property<code data-gs="comd/c" data-x>salary</code>will be read-only.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../optional-properties/index.html" class="lesson-nav-btn lesson-nav-prev" title="Опциональные свойства интерфейса">← Опциональные свойства интерфейса</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../functions/index.html" class="lesson-nav-btn lesson-nav-next" title="Функции">Функции →</a>
+      <a href="../optional-properties/index.html" class="lesson-nav-btn lesson-nav-prev" title="Optional Interface Properties">← Optional interface properties</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../functions/index.html" class="lesson-nav-btn lesson-nav-next" title="Functions">Functions →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отслеживание файлов в Git — acteck.off</title>
-  <meta name="description" content="Отслеживание файлов в Git — учебные материалы по программированию.">
+  <title>Tracking files in Git - acteck.off</title>
+  <meta name="description" content="Tracking Files in Git - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,88 +36,44 @@
       <a href="../../../../../../en/git/index.html">Git</a>
     </div>
 
-    <h1>Отслеживание файлов в Git</h1>
-    <p>
-	В предыдущем уроке мы инициализировали
-	Git в нашем проекте. И теперь мы можем
-	с помощью команд Git делать сохранки
-	проекта, или, по правильной
-	терминологии, делать <dfn data-gs="comd/d" data-x>коммиты</dfn>.
+    <h1>File tracking in Git</h1>
+    <p>In the previous tutorial, we initialized Git in our project. And now we can use Git commands to save the project, or, in the correct terminology, do<dfn data-gs="comd/d" data-x>commits</dfn>.
 </p>
-<p>
-	Однако, все не так просто. Дело в том,
-	что в каждом проекте есть файлы,
-	резервные копии которых не нужны.
-	Например, файлы с кэшем. Поэтому
-	в системе Git нужно явно указать,
-	какие именно файлы мы хотим сохранять.
+<p>However, everything is not so simple. The fact is that in every project there are files whose backup copies are not needed. For example, files with cache. Therefore, in the Git system we need to explicitly indicate which files we want to save.</p>
+<p>There are two types of files in Git:<dfn data-gs="comd/d" data-x>untraceable</dfn> (<span data-gs="lang/e" data-x>untracked</span>) And<dfn data-gs="comd/d" data-x>trackable</dfn> (<span data-gs="lang/e" data-x>tracked</span>).
 </p>
-<p>
-	В Git файлы бывают двух типов:
-	<dfn data-gs="comd/d" data-x>неотслеживаемые</dfn> (<span data-gs="lang/e" data-x>untracked</span>) и
-	<dfn data-gs="comd/d" data-x>отслеживаемые</dfn> (<span data-gs="lang/e" data-x>tracked</span>).
-</p>
-<p>
-	Отслеживаемые файлы - это файлы, за изменениями
-	которых Git следит. В случае изменения
-	этих файлов, Git сообщит нам об этом.
-</p>
-<p>
-	Неотслеживаемые файлы - это файлы, за изменениями
-	которых Git не следит. Изначально все
-	файлы будут именно такими. А чтобы Git
-	начал следить за файлами, нужно специально
-	попросить его об этом. Давайте разберемся,
-	как это сделать.
-</p>
-<p>
-	Для начала нам нужно научится смотреть
-	состояния файлов. Для этого в Git есть
-	специальная команда <code data-gs="comd/c" data-x>status</code>:
+<p>Tracked files are files that Git monitors for changes. If these files change, Git will notify us about it.</p>
+<p>Untracked files are files for which Git does not keep track of changes. Initially, all files will be exactly like this. And for Git to start monitoring files, you need to specifically ask it to do so. Let's figure out how to do this.</p>
+<p>First, we need to learn how to look at the states of files. There is a special command in Git for this<code data-gs="comd/c" data-x>status</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git status</code>
 </div>
-<p>
-	Пусть в вашей папке с проектом есть
-	несколько файлов:
-</p>
+<p>Let there be several files in your project folder:</p>
 <div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="F">index.html</li><li data-s-type="F">styles.css</li></ul></div></div>
-<p>
-	Эти файлы изначально
-	неотслеживаемые. В этом случае команда
-	<code data-gs="comd/c" data-x>status</code> выведет список этих
-	файлов в таком виде:
-</p>
+<p>These files are initially untraceable. In this case the command<code data-gs="comd/c" data-x>status</code>will list these files like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="text">Untracked files:
 	index.html
 	styles.css</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Проверьте статус файлов в вашем проекте.
-	</p>
+	<p>Check the status of the files in your project.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте в папке с проектом еще один
-		файл. Проверьте статус. Убедитесь,
-		что новый файл появился в списке
-		неотслеживаемых.
-	</p>
+	<p>Make another file in the project folder. Check the status. Make sure the new file appears in the untracked list.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../repository-create/index.html" class="lesson-nav-btn lesson-nav-prev" title="Создание репозитория">← Создание репозитория</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../files-tracking-starting/index.html" class="lesson-nav-btn lesson-nav-next" title="Start слежения за файлами">Start слежения за файлами →</a>
+      <a href="../repository-create/index.html" class="lesson-nav-btn lesson-nav-prev" title="Creating a repository">← Creating a repository</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../files-tracking-starting/index.html" class="lesson-nav-btn lesson-nav-next" title="Start tracking files">Start tracking files →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

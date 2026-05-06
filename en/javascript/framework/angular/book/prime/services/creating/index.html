@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Создание сервиса в Angular — acteck.off</title>
-  <meta name="description" content="Создание сервиса в Angular — учебные материалы по программированию.">
+  <title>Creating a service in Angular - acteck.off</title>
+  <meta name="description" content="Creating a service in Angular - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,31 +36,15 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Создание сервиса в Angular</h1>
-    <p>
-	Давайте начнем изучение сервисов с создания
-	своего собственного. Для этого в папке
-	<code data-gs="comd/p" data-x>test/src/app</code> сделаем файл
-	<code data-gs="comd/p" data-x>data.service.ts</code>. Пусть наш сервис
-	отвечает за вывод некоторых данных на
-	экран. 
-</p>
-<p>
-	Сделаем класс для нашего сервиса: 
-</p>
+    <h1>Creating a service in Angular</h1>
+    <p>Let's start exploring services by creating your own. To do this in the folder<code data-gs="comd/p" data-x>test/src/app</code>let's make a file<code data-gs="comd/p" data-x>data.service.ts</code>. Let our service be responsible for displaying some data on the screen.</p>
+<p>Let's create a class for our service:</p>
 <div data-p="bock/pane" data-p-file="data.service.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class DataService {
 	
 }</code>
 </div>
-<p>
-	Теперь нам нужен декоратор <code data-gs="comd/c" data-x>Injectable</code>.
-	Его применение позволит сделать так, что
-	класс сервиса можно будет <dfn data-gs="comd/d" data-x>внедрять</dfn>
-	в класс компонента. О внедрении мы поговорим
-	на следующем уроке. А сейча импортируем
-	нужный декоратор: 
-</p>
+<p>Now we need a decorator<code data-gs="comd/c" data-x>Injectable</code>. Its use will make it possible for the service class to be<dfn data-gs="comd/d" data-x>deploy</dfn>to the component class. We'll talk about implementation in the next lesson. Now let’s import the desired decorator:</p>
 <div data-p="bock/pane" data-p-file="data.service.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { Injectable } from '@angular/core';
 
@@ -68,9 +52,7 @@ export class DataService {
 	
 }</code>
 </div>
-<p>
-	Применим его к нашему классу: 
-</p>
+<p>Let's apply it to our class:</p>
 <div data-p="bock/pane" data-p-file="data.service.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { Injectable } from '@angular/core';
 
@@ -79,22 +61,13 @@ export class DataService {
 	
 }</code>
 </div>
-<p>
-	Теперь сделаем так, чтобы в нашем классе
-	были некоторые данные. Обычно в приложениях
-	Angular происходит загрузка данных с
-	сервера, но мы в учебных целях будем
-	использовать массив. Сделаем его в приватном
-	свойстве: 
-</p>
+<p>Now let's make sure that our class has some data. Typically, Angular applications load data from the server, but for educational purposes we will use an array. Let's make it in a private property:</p>
 <div data-p="bock/pane" data-p-file="data.service.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class DataService {
 	private data: string[] = ['a', 'b', 'c'];
 }</code>
 </div>
-<p>
-	Напишем теперь метод для получения данных: 
-</p>
+<p>Let's now write a method to receive data:</p>
 <div data-p="bock/pane" data-p-file="data.service.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class DataService {
 	private data: string[] = ['a', 'b', 'c'];
@@ -104,15 +77,9 @@ export class DataService {
 	}
 }</code>
 </div>
-<p>
-	Наш сервис готов. В следующем уроке мы
-	будем подключать его к классу компонента. 
-</p>
+<p>Our service is ready. In the next tutorial we will connect it to the component class.</p>
 <div data-w="cont/task">
-	<p>
-		Создайте свой сервис, который будет отдавать
-		массив объектов с товарами: 
-	</p>
+	<p>Create your own service that will return an array of objects with goods:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">[
 	{
@@ -132,15 +99,15 @@ export class DataService {
 </div>
     <div class="lesson-nav">
       <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../using/index.html" class="lesson-nav-btn lesson-nav-next" title="Использование сервиса">Использование сервиса →</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../using/index.html" class="lesson-nav-btn lesson-nav-next" title="Using the service">Using the service →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод cp — acteck.off</title>
-  <meta name="description" content="Метод cp — учебные материалы по программированию.">
+  <title>cp method - acteck.off</title>
+  <meta name="description" content="cp method - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,49 +36,32 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Метод cp</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>cp</code> копирует структуру папок,
-	включая подпапки и файлы. В первом параметре
-	метода указываем путь к исходной папке,
-	во втором параметре - путь к папке, в которую
-	копируем, в третьем параметре - объект с опциями.
-	В четвертом необязательном параметре
-	можно указать коллбэк.
-</p>
+    <h1>cp method</h1>
+    <p>Method<code data-gs="comd/c" data-x>cp</code>copies the folder structure, including subfolders and files. In the first parameter of the method we indicate the path to the source folder, in the second parameter - the path to the folder to which we are copying, in the third parameter - an object with options. In the fourth optional parameter you can specify a callback.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.cp(исходная папка, куда копируем, опции, коллбэк);</code>
 </div>
 
-<h2>Объект с опциями</h2>
+<h2>Object with options</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Опция</th>
-		<th>Описание</th>
+		<th>Option</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/s" data-x>recursive</code></th>
-		<td>
-			Если <code data-gs="comd/c" data-x>true</code>, копирует папку рекурсивно,
-			то есть со всем содержимым.
-		</td>
+		<td>If<code data-gs="comd/c" data-x>true</code>, copies the folder recursively, that is, with all its contents.</td>
 	</tr>
 </table>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть у нас есть следующая файловая
-	структура:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's say we have the following file structure:</p>
 <div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/dir1/<ul><li data-s-type="F">/dir1.2/<ul><li data-s-type="F">file1.txt</li><li data-s-type="F">file2.txt</li></ul></li></ul></li><li data-s-type="D">/dir2/<ul><ul><li data-s-type="F">file3.txt</li></ul></li></ul></li></ul></div></div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте асинхронно скопируем
-	папку <code data-gs="comd/c" data-x>dir1</code> через
-	<code data-gs="comd/c" data-x>await</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's copy the folder asynchronously<code data-gs="comd/c" data-x>dir1</code>through<code data-gs="comd/c" data-x>await</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -91,11 +74,8 @@ try {
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь давайте асинхронно скопируем
-	папку из предыдущего примера
-	через <code data-gs="comd/c" data-x>then</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's asynchronously copy the folder from the previous example via<code data-gs="comd/c" data-x>then</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -107,11 +87,8 @@ fs.cp('./dir1', './dir2', { recursive: true }).then(data =&gt; {
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте асинхронно скопируем
-	папку через коллбэк:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's copy the folder asynchronously via a callback:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
 		
@@ -124,10 +101,8 @@ fs.cp('./dir1', './dir2', { recursive: true }, err =&gt; {
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь давайте синхронно скопируем
-	папку через <code data-gs="comd/c" data-x>cpSync</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's synchronously copy the folder via<code data-gs="comd/c" data-x>cpSync</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
@@ -140,18 +115,15 @@ try {
 }</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../fileRead/index.html"><code data-gs="comd/c" data-x>copyFile</code></a>, <br>
-			который копирует файл
-		</li>
+		<li>method<a href="../fileRead/index.html"><code data-gs="comd/c" data-x>copyFile</code></a>, <br>which copies the file</li>
 	</ul>
 </div>
         <div class="lesson-nav">
       <a href="../copyFile/index.html" class="lesson-nav-btn lesson-nav-prev" title="copyFile">← copyFile</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../createReadStream/index.html" class="lesson-nav-btn lesson-nav-next" title="createReadStream">createReadStream →</a>
     </div>
   </section>
@@ -159,7 +131,7 @@ try {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

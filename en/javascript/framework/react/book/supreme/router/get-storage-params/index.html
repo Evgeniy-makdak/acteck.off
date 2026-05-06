@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Загрузка данных страницы по URL параметрам из хранилища в React Router — acteck.off</title>
-  <meta name="description" content="Загрузка данных страницы по URL параметрам из хранилища в React Router — учебные материалы по программированию.">
+  <title>Loading page data using URL parameters from storage in React Router - acteck.off</title>
+  <meta name="description" content="Loading page data using URL parameters from storage in React Router - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,67 +36,19 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Загрузка данных страницы по URL параметрам из хранилища в React Router</h1>
-    <p>
-	Теперь мы можем добавлять продукты в наше
-	приложение. Запустите приложение, добавьте
-	кнопкой пару продуктов. Если мы теперь
-	покликаем на сами продукты в списке, то
-	увидим, что у каждого продукта пока еще
-	одинаковая статическая страничка, ей мы
-	и займемся в этом и последующих уроках.
+    <h1>Loading page data using URL parameters from storage in React Router</h1>
+    <p>Now we can add products to our application. Launch the application, add a couple of products using the button. If we now click on the products themselves in the list, we will see that each product still has the same static page, which is what we will deal with in this and subsequent lessons.</p>
+<p>It is also necessary to note one more point. In general, the entire URL is divided into<dfn data-gs="comd/d" data-x>segments</dfn>- these are the parts of the URL between characters<code data-gs="comd/p" data-x>/</code>. You probably remember that when creating this application we specified the path<code data-gs="comd/p" data-x>'products/:productId'</code>, so here it is<code data-gs="comd/p" data-x>:productId</code>called here<dfn data-gs="comd/d" data-x>dynamic segment</dfn>. It is preceded by a symbol<code data-gs="comd/p" data-x>':'</code>. The values ​​in this segment will change, they are the ones that go into the URL parameters (URL Params or params), which are passed to the loader under a certain key, in our case it will be<code data-gs="comd/c" data-x>params.productId</code>.
 </p>
-<p>
-	Также необходимо отметить еще один момент.
-	Вообще, весь URL делится на <dfn data-gs="comd/d" data-x>сегменты</dfn> - это
-	части URL между символами <code data-gs="comd/p" data-x>/</code>. Вы
-	наверное помните, что при создании этого
-	приложения мы указывали путь
-	<code data-gs="comd/p" data-x>'products/:productId'</code>, так вот
-	<code data-gs="comd/p" data-x>:productId</code> называется здесь
-	<dfn data-gs="comd/d" data-x>динамическим сегментом</dfn>. Перед ним
-	ставится символ <code data-gs="comd/p" data-x>':'</code>. Значения в
-	этом сегменте будут меняться,
-	именно они попадают в URL параметры
-	(URL Params или params), которые передаются
-	загрузчику под определенным ключом, в нашем
-	случае это будет <code data-gs="comd/c" data-x>params.productId</code>.
-</p>
-<p>
-	Взгляните на адресную строку в браузере,
-	когда кликаете на продукты в списке. Вы увидите,
-	что последний сегмент в адресной строке меняется,
-	именно эти значения и будут попадать в загрузчик.
-	А наши продукты в хранилище имеют уникальный
-	сгенерированный нами <code data-gs="comd/c" data-x>id</code>, таким образом
-	нам будет подгружаться тот продукт, который
-	нам нужен.
-</p>
-<p>
-	А теперь после небольшого отступления давайте
-	поработаем наконец со страничкой продукта,
-	а конкретнее - с загрузкой данных из
-	хранилища.   
-</p>
-<p>
-	Повторим знакомый процесс. Для начала в
-	<code data-gs="comd/p" data-x>forStorage.js</code> добавим функцию
-	<code data-gs="comd/c" data-x>getProduct</code> для получения данных
-	конкретного продукта из хранилища по
-	<code data-gs="comd/c" data-x>id</code>. Здесь мы уже передавать
-	в функцию <code data-gs="comd/c" data-x>id</code> и, соответсвенно,
-	если продукт у нас "закеширован", то
-	будет выводится без задержки:
-</p>
+<p>Take a look at the address bar in your browser when you click on products in the list. You will see that the last segment in the address bar changes, these are the values ​​​​that will end up in the bootloader. And our products in the warehouse have a unique generated by us<code data-gs="comd/c" data-x>id</code>, this way we will be loaded with the product that we need.</p>
+<p>And now, after a short digression, let's finally work with the product page, and more specifically, with loading data from the storage.</p>
+<p>Let's repeat the familiar process. To start with<code data-gs="comd/p" data-x>forStorage.js</code>let's add a function<code data-gs="comd/c" data-x>getProduct</code>to retrieve specific product data from storage by<code data-gs="comd/c" data-x>id</code>. Here we are already passing to the function<code data-gs="comd/c" data-x>id</code>and, accordingly, if the product is “cached”, it will be displayed without delay:</p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function getProduct(id) {
 	await someNetwork(`product:${id}`);
 }</code>
 </div>
-<p>
-	Далее нам нужно получить массив продуктов
-	и среди них найти наш продукт по переданному
-	<code data-gs="comd/c" data-x>id</code>:
+<p>Next, we need to receive an array of products and among them find our product according to the passed<code data-gs="comd/c" data-x>id</code>:
 </p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function getProduct(id) {
@@ -107,26 +59,20 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, создайте в
-		<code data-gs="comd/p" data-x>forStorage.js</code> функцию
-		<code data-gs="comd/c" data-x>getStudent</code> для получения 
-		данных студента по <code data-gs="comd/c" data-x>id</code>.
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, create<code data-gs="comd/p" data-x>forStorage.js</code>function<code data-gs="comd/c" data-x>getStudent</code>to obtain student data by<code data-gs="comd/c" data-x>id</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../add-data-action/index.html" class="lesson-nav-btn lesson-nav-prev" title="Добавление данных с методом action">← Добавление данных с методом action</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../get-loader-data-params/index.html" class="lesson-nav-btn lesson-nav-next" title="Получение данных загрузчика по URL параметрам">Получение данных загрузчика по URL параметрам →</a>
+      <a href="../add-data-action/index.html" class="lesson-nav-btn lesson-nav-prev" title="Adding data with the action method">← Adding data with the action method</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../get-loader-data-params/index.html" class="lesson-nav-btn lesson-nav-next" title="Retrieving loader data by URL parameters">Obtaining loader data by URL parameters →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

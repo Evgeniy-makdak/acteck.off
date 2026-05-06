@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Изменение структуры стейта в Redux — acteck.off</title>
-  <meta name="description" content="Изменение структуры стейта в Redux — учебные материалы по программированию.">
+  <title>Changing the state structure in Redux - acteck.off</title>
+  <meta name="description" content="Changing the state structure in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,33 +36,9 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Изменение структуры стейта в Redux</h1>
-    <p>
-	Первый этап, который мы будем реализовывать
-	для взаимодействии нашего Redux приложения с
-	каким-то внешним сервером - это получение
-	данных, которые на нем хранятся при запуске
-	приложения. Но прежде давайте внесем в
-	наше приложение некоторые изменения.
-</p>
-<p>
-	Откроем наше приложение с продуктами, а в нем
-	файл <code data-gs="comd/p" data-x>productsSlice.js</code>. Обратите внимание на
-	определение <code data-gs="comd/c" data-x>initialState</code>. Изначально наш слайс с
-	продуктами <code data-gs="comd/c" data-x>productsSlice</code> - это массив, в котором
-	имеются объекты (в нашем случае их два) с данными
-	продуктов. Во-первых, так как теперь мы будем
-	загружать их с сервера, то нам нужно убрать их из
-	<code data-gs="comd/c" data-x>initialState</code>. Во-вторых, мы будем посылать на
-	сервер API запросы и нам будет важно знать об их
-	статусе. Учитывая эти две вещи, давайте
-	переделаем <code data-gs="comd/c" data-x>initialState</code>. Пусть теперь это
-	будет просто объект с полями <code data-gs="comd/c" data-x>products</code>
-	(изначально здесь не будет никаких данных, а
-	просто пустой массив), <code data-gs="comd/c" data-x>status</code> и <code data-gs="comd/c" data-x>error</code>.
-	Теперь наш код для <code data-gs="comd/c" data-x>initialState</code> станет
-	немного короче:
-</p>
+    <h1>Changing the state structure in Redux</h1>
+    <p>The first stage that we will implement for the interaction of our Redux application with some external server is to receive the data that is stored on it when the application is launched. But first, let's make some changes to our application.</p>
+<p>Let's open our application with products, and in it there is a file<code data-gs="comd/p" data-x>productsSlice.js</code>. Pay attention to the definition<code data-gs="comd/c" data-x>initialState</code>. Initially our slice with products<code data-gs="comd/c" data-x>productsSlice</code>- this is an array in which there are objects (in our case there are two of them) with product data. Firstly, since we will now download them from the server, we need to remove them from<code data-gs="comd/c" data-x>initialState</code>. Secondly, we will send API requests to the server and it will be important for us to know about their status. Given these two things, let's redo<code data-gs="comd/c" data-x>initialState</code>. Now let it be just an object with fields<code data-gs="comd/c" data-x>products</code>(initially there will be no data here, just an empty array),<code data-gs="comd/c" data-x>status</code>And<code data-gs="comd/c" data-x>error</code>. Now our code for<code data-gs="comd/c" data-x>initialState</code>will be a little shorter:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initialState = {
 	products: [],
@@ -70,79 +46,45 @@
 	error: null,
 }</code>
 </div>
-<p>
-	Пока мы выставили статус <code data-gs="comd/s" data-x>'idle'</code> (бездействие),
-	ведь первоначально мы не отправляем никаких
-	запросов, а вообще он будет меняться и может
-	принимать значения <code data-gs="comd/s" data-x>'загрузка'</code>, <code data-gs="comd/s" data-x>'выполнен'</code>,
-	<code data-gs="comd/s" data-x>'ошибка загрузки'</code>. Помните, что для обозначения
-	статуса вы можете выбрать те имена, которые
-	будут удобны вам.
-</p>
-<p>
-	Спускаемся ниже по коду. Следом за изменением
-	<code data-gs="comd/c" data-x>initialState</code>, нам следует поменять и код, в
-	котором мы работаем с этим стейтом в функциях-редьюсерах.
-	Посмотрим на код для <code data-gs="comd/c" data-x>productAdded</code>:
+<p>While we have set the status<code data-gs="comd/s" data-x>'idle'</code>(inaction), because initially we do not send any requests, but in general it will change and can take values<code data-gs="comd/s" data-x>'загрузка'</code>, <code data-gs="comd/s" data-x>'выполнен'</code>,
+	<code data-gs="comd/s" data-x>'ошибка загрузки'</code>. Remember that to indicate your status, you can choose names that are convenient for you.</p>
+<p>Let's go down the code. Following the change<code data-gs="comd/c" data-x>initialState</code>, we should also change the code in which we work with this state in reducer functions. Let's look at the code for<code data-gs="comd/c" data-x>productAdded</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">state.push(action.payload)</code>
 </div>
-<p>
-	Теперь новые продукты мы будем складывать
-	не просто в state для продуктов, а в его
-	свойство <code data-gs="comd/c" data-x>state.products</code>. Поэтому,
-	заменим вышеуказанную строку на:
-</p>
+<p>Now we will add new products not just to the state for products, but to its property<code data-gs="comd/c" data-x>state.products</code>. Therefore, let's replace the above line with:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">state.products.push(action.payload)</code>
 </div>
-<p>
-	Соответственно, проделаем те же изменения
-	для редьюсера <code data-gs="comd/c" data-x>reactionClicked</code>. Вместо:
-</p>
+<p>Accordingly, let's make the same changes for the reducer<code data-gs="comd/c" data-x>reactionClicked</code>. Instead of:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const currentProduct = state.find((product) =&gt; product.id === productId)</code>
 </div>
-<p>
-	Теперь будет:
-</p>
+<p>Now it will be:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const currentProduct = state.products.find((product) =&gt; product.id === productId)</code>
 </div>
-<p>
-	Замените сами <code data-gs="comd/c" data-x>state</code> на <code data-gs="comd/c" data-x>state.products</code>
-	и в коде редьюсера <code data-gs="comd/c" data-x>productUpdated</code>.
+<p>Replace it yourself<code data-gs="comd/c" data-x>state</code>on<code data-gs="comd/c" data-x>state.products</code>and in the reducer code<code data-gs="comd/c" data-x>productUpdated</code>.
 </p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Откройте в нем файл <code data-gs="comd/p" data-x>studentsSlice.js</code>.
-		Пусть теперь ваш <code data-gs="comd/c" data-x>initialState</code> имеет
-		три свойства: <code data-gs="comd/c" data-x>students</code>, <code data-gs="comd/c" data-x>status</code>,
-		<code data-gs="comd/c" data-x>error</code> - переделайте его, как показано
-		в уроке.
-	</p>
+	<p>Open your application with students. Open the file in it<code data-gs="comd/p" data-x>studentsSlice.js</code>. Let it be yours now<code data-gs="comd/c" data-x>initialState</code>has three properties:<code data-gs="comd/c" data-x>students</code>, <code data-gs="comd/c" data-x>status</code>,
+		<code data-gs="comd/c" data-x>error</code>- remake it as shown in the lesson.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Внесите соответствующие изменения и
-		ниже по коду. Замените <code data-gs="comd/c" data-x>state</code> на
-		<code data-gs="comd/c" data-x>state.students</code> в коде для ваших
-		трех функций-редьюсеров.
-	</p>
+	<p>Make the appropriate changes in the code below. Replace<code data-gs="comd/c" data-x>state</code>on<code data-gs="comd/c" data-x>state.students</code>in the code for your three reducer functions.</p>
 </div>
     <div class="lesson-nav">
       <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../selectors-optimization/index.html" class="lesson-nav-btn lesson-nav-next" title="Оптимизация работы с селекторами">Оптимизация работы с селекторами →</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../selectors-optimization/index.html" class="lesson-nav-btn lesson-nav-next" title="Optimizing work with selectors">Optimizing work with selectors →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

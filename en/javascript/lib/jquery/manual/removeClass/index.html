@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод removeClass — acteck.off</title>
-  <meta name="description" content="Метод removeClass — учебные материалы по программированию.">
+  <title>removeClass method - acteck.off</title>
+  <meta name="description" content="removeClass method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,96 +36,66 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод removeClass</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>removeClass</code> удаляет 
-	заданный CSS класс из атрибута 
-	<a href="../../../../../markup/manual/html/attr/class/index.html"><code data-gs="comd/c" data-x>class</code></a>. Можно 
-	удалить один или несколько классов одновременно.
-</p>
+    <h1>removeClass method</h1>
+    <p>Method<code data-gs="comd/c" data-x>removeClass</code>removes the specified CSS class from an attribute<a href="../../../../../markup/manual/html/attr/class/index.html"><code data-gs="comd/c" data-x>class</code></a>. You can delete one or more classes at the same time.</p>
 
-<h2>Синтаксис</h2>
-<p>
-	Один CSS класс:
-</p>
+<h2>Syntax</h2>
+<p>One CSS class:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).removeClass(имя CSS класса)</code>
 </div>
-<p>
-	Несколько CSS классов:
-</p>
+<p>Several CSS classes:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).removeClass('класс1 класс2 класс3 ...')</code>
 </div>
-<p>
-	Применение функции к каждому элементу в наборе:
-</p>
+<p>Applying a function to each element in a set:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).removeClass(function(номер в наборе, текущие CSS классы элемента))</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	У нашего абзаца уже есть два класса. Давайте
-	удалим класс <code data-gs="comd/z" data-x>www</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Our paragraph already has two classes. Let's delete the class<code data-gs="comd/z" data-x>www</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class="eee www"&gt;text&lt;/p&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').removeClass('www');</code>
 </div>
-<p>
-	HTML код станет выглядеть так:
-</p>
+<p>The HTML code will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class="eee"&gt;text&lt;/p&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	У нашего абзаца уже есть класс. Давайте удалим
-	этот класс:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Our paragraph already has a class. Let's remove this class:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class="www"&gt;text&lt;/p&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').removeClass('www');</code>
 </div>
-<p>
-	HTML код станет выглядеть так:
-</p>
+<p>The HTML code will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class=""&gt;text&lt;/p&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	У нашего абзаца уже есть <code data-gs="comd/n" data-x>3</code> класса.
-	Давайте удалим два класса - <code data-gs="comd/z" data-x>www</code> и
-	<code data-gs="comd/z" data-x>ggg</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Our paragraph already has<code data-gs="comd/n" data-x>3</code>class. Let's remove two classes -<code data-gs="comd/z" data-x>www</code>And<code data-gs="comd/z" data-x>ggg</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class="eee www ggg"&gt;text&lt;/p&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').removeClass('www ggg');</code>
 </div>
-<p>
-	HTML код станет выглядеть так:
-</p>
+<p>The HTML code will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class="eee"&gt;text&lt;/p&gt;</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			методы <a href="../addClass/index.html"><code data-gs="comd/c" data-x>addClass</code></a>,
+		<li>methods<a href="../addClass/index.html"><code data-gs="comd/c" data-x>addClass</code></a>,
 			<a href="../toggleClass/index.html"><code data-gs="comd/c" data-x>toggleClass</code></a>,
 			<a href="../hasClass/index.html"><code data-gs="comd/c" data-x>hasClass</code></a>
 		</li>
-		<li>
-			JavaScript свойство <a href="../../../../manual/dom/classList/index.html"><code data-gs="comd/c" data-x>classlist</code></a>, <br> 
-			с помощью которого можно добавлять и удалять CSS
-			классы элемента на чистом JavaScript
-		</li>
+		<li>JavaScript property<a href="../../../../manual/dom/classList/index.html"><code data-gs="comd/c" data-x>classlist</code></a>, <br>with which you can add and remove CSS element classes in pure JavaScript</li>
 	</ul>
 </div>
   </section>
@@ -133,7 +103,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

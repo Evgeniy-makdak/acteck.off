@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Оборачивание нескольких элементов в jQuery — acteck.off</title>
-  <meta name="description" content="Оборачивание нескольких элементов в jQuery — учебные материалы по программированию.">
+  <title>Wrapping multiple elements in jQuery - acteck.off</title>
+  <meta name="description" content="Wrapping Multiple Elements in jQuery - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,31 +36,22 @@
       <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Оборачивание нескольких элементов в jQuery</h1>
-    <p>
-	Можно оборачивать не каждый элемент по отдельности,
-	а все найденные элементы вместе с помощью метода
-	<a href="../../../../manual/wrapAll/index.html"><code data-gs="comd/c" data-x>wrapAll</code></a>.
+    <h1>Wrapping multiple elements in jQuery</h1>
+    <p>You can wrap not each element individually, but all found elements together using the method<a href="../../../../manual/wrapAll/index.html"><code data-gs="comd/c" data-x>wrapAll</code></a>.
 </p>
-<p>
-	В HTML коде представлена группа абзацев:
-</p>
+<p>The HTML code shows a group of paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="www"&gt;text&lt;/p&gt;
 &lt;p class="www"&gt;text&lt;/p&gt;
 &lt;p class="www"&gt;text&lt;/p&gt;
 &lt;p&gt;text&lt;/p&gt;</code>
 </div>
-<p>
-	Давайте найдем все абзацы с классом <code data-gs="comd/z" data-x>www</code> и
-	обернем их в один тег <code data-gs="comd/c" data-x>div</code>:
+<p>Let's find all paragraphs with class<code data-gs="comd/z" data-x>www</code>and wrap them in one tag<code data-gs="comd/c" data-x>div</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('.www').wrapAll('&lt;div&gt;&lt;/div&gt;');</code>
 </div>
-<p>
-	HTML код станет выглядеть так:
-</p>
+<p>The HTML code will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
 &lt;p class="www"&gt;text&lt;/p&gt;
@@ -69,27 +60,19 @@
 &lt;/div&gt;
 &lt;p&gt;text&lt;/p&gt;</code>
 </div>
-<p>
-	Учтите, что если оборачиваемые элементы стоят
-	не рядом, то метод <code data-gs="comd/c" data-x>wrapAll</code> сначала
-	переместит элементы в одно место, а потом
-	обернет их. Смотрите следующий пример:
-</p>
+<p>Please note that if the wrapped elements are not next to each other, then the method<code data-gs="comd/c" data-x>wrapAll</code>will first move the elements into one place and then wrap them. See the following example:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="www"&gt;text1&lt;/p&gt;
 &lt;p class="www"&gt;text2&lt;/p&gt;
 &lt;p&gt;text&lt;/p&gt;
 &lt;p class="www"&gt;text3&lt;/p&gt;</code>
 </div>
-<p>
-	Применяем метод <code data-gs="comd/c" data-x>wrapAll</code>:
+<p>Applying the method<code data-gs="comd/c" data-x>wrapAll</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('.www').wrapAll('&lt;div&gt;&lt;/div&gt;');</code>
 </div>
-<p>
-	В итоге мы получаем следующий HTML код:
-</p>
+<p>As a result, we get the following HTML code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
 	&lt;p class="www"&gt;text1&lt;/p&gt;
@@ -98,27 +81,22 @@
 &lt;/div&gt;
 &lt;p&gt;text&lt;/p&gt;</code>
 </div>
-<p>
-	Методы оборачивания элементов также предусматривают
-	возможность применения функции к каждому
-	элементу в наборе.
-</p>
+<p>Element wrapping methods also provide the ability to apply a function to each element in a set.</p>
 <div data-w="cont/task">
-	<p>
-		Оберните все <code data-gs="comd/c" data-x>h2</code> в один <code data-gs="comd/c" data-x>i</code>.
+	<p>Wrap it all up<code data-gs="comd/c" data-x>h2</code>in one<code data-gs="comd/c" data-x>i</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../text-inside-tags-wrapping/index.html" class="lesson-nav-btn lesson-nav-prev" title="Оборачивание текста внутри тегов">← Оборачивание текста внутри тегов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../elements-inserting-prepend-method/index.html" class="lesson-nav-btn lesson-nav-next" title="Метод prepend для вставки элементов">Метод prepend для вставки элементов →</a>
+      <a href="../text-inside-tags-wrapping/index.html" class="lesson-nav-btn lesson-nav-prev" title="Wrapping text inside tags">← Wrapping text inside tags</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../elements-inserting-prepend-method/index.html" class="lesson-nav-btn lesson-nav-next" title="prepend method for inserting elements">prepend method for inserting elements →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

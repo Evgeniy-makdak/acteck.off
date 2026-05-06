@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Навешивание обработчиков на новые элементы в JavaScript — acteck.off</title>
-  <meta name="description" content="Навешивание обработчиков на новые элементы в JavaScript — учебные материалы по программированию.">
+  <title>Attaching handlers to new elements in JavaScript - acteck.off</title>
+  <meta name="description" content="Attaching handlers to new elements in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Навешивание обработчиков на новые элементы в JavaScript</h1>
-    <p>
-	Пусть у нас есть список <code data-gs="comd/c" data-x>ul</code> и кнопка:
-</p>
+    <h1>Attaching handlers to new elements in JavaScript</h1>
+    <p>Let us have a list<code data-gs="comd/c" data-x>ul</code>and button:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li&gt;item&lt;/li&gt;
@@ -51,18 +49,13 @@
 
 &lt;button&gt;add&lt;/button&gt;</code>
 </div>
-<p>
-	Получим наши элементы в соответствующие переменные:
-</p>
+<p>Let's get our elements into the corresponding variables:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let button = document.querySelector('button');
 let list   = document.querySelector('ul');
 let items  = list.querySelectorAll('li');</code>
 </div>
-<p>
-	Сделаем так, чтобы по клику на любую <code data-gs="comd/c" data-x>li</code>
-	ей в конец добавлялся восклицательный знак:
-</p>
+<p>Let's make it so that by clicking on any<code data-gs="comd/c" data-x>li</code>an exclamation point was added to the end:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let item of items) {
 	item.addEventListener('click', function() {
@@ -70,10 +63,7 @@ let items  = list.querySelectorAll('li');</code>
 	});
 }</code>
 </div>
-<p>
-	Давайте теперь сделаем так, чтобы по нажатию
-	на кнопку в конец списка добавлялся новая
-	<code data-gs="comd/c" data-x>li</code>:
+<p>Let's now make sure that when you click a button, a new one is added to the end of the list<code data-gs="comd/c" data-x>li</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
@@ -82,18 +72,9 @@ let items  = list.querySelectorAll('li');</code>
 	list.appendChild(item);
 });</code>
 </div>
-<p>
-	Мы, однако, получим проблему: клик на новую
-	добавленную <code data-gs="comd/c" data-x>li</code> не будет приводить
-	к добавлению восклицательного знака в конец.
-	Дело в том, что мы добавляем обработчик клика
-	только на те <code data-gs="comd/c" data-x>li</code>, которые существовали
-	изначально, но <i>не на новые</i>.
+<p>We will, however, get a problem: clicking on the new one added<code data-gs="comd/c" data-x>li</code>will not cause an exclamation point to be added to the end. The point is that we add a click handler only to those<code data-gs="comd/c" data-x>li</code>, which existed initially, but<i>not for new ones</i>.
 </p>
-<p>
-	Исправим проблему, навесив на новую <code data-gs="comd/c" data-x>li</code>
-	обработчик клика:
-</p>
+<p>Let's fix the problem by assigning a new one<code data-gs="comd/c" data-x>li</code>click handler:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	let item = document.createElement('li');
@@ -106,21 +87,13 @@ let items  = list.querySelectorAll('li');</code>
 	list.appendChild(item);
 });</code>
 </div>
-<p>
-	Однако, теперь код функции-обработчика дублируется
-	в двух местах - для изначально существующих
-	<code data-gs="comd/c" data-x>li</code> и для новых. Исправим это, вынеся
-	его в отдельную функцию:
-</p>
+<p>However, now the code of the handler function is duplicated in two places - for the initially existing<code data-gs="comd/c" data-x>li</code>and for new ones. Let's fix this by moving it into a separate function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function handler() {
 	this.textContent = this.textContent + '!';
 }</code>
 </div>
-<p>
-	Используем нашу функцию, чтобы избежать дублирования
-	кода:
-</p>
+<p>Let's use our function to avoid code duplication:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let item of items) {
 	item.addEventListener('click', handler);
@@ -135,27 +108,19 @@ button.addEventListener('click', function() {
 	list.appendChild(item);
 });</code>
 </div>
-<p>
-	Задача в общем-то решена и мы избежали дублирования
-	кода функции-обработчика. Однако, навешивать
-	обработчики событий нам все равно приходится
-	в двух местах: и в цикле для существующих
-	<code data-gs="comd/c" data-x>li</code>, и в при клике на кнопку. В следующем
-	уроке мы разберем способ избавится от этого
-	неудобства.
-</p>
+<p>The problem is generally solved and we have avoided duplicating the code of the handler function. However, we still have to attach event handlers in two places: and in the loop for existing<code data-gs="comd/c" data-x>li</code>, and in when you click on the button. In the next lesson we will look at a way to get rid of this inconvenience.</p>
   
     <div class="lesson-nav">
-      <a href="../events-capturing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Погружение событий">← Погружение событий</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../events-delegation/index.html" class="lesson-nav-btn lesson-nav-next" title="Делегирование событий">Делегирование событий →</a>
+      <a href="../events-capturing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Immersive Events">← Immersive Events</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../events-delegation/index.html" class="lesson-nav-btn lesson-nav-next" title="Event delegation">Event delegation →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

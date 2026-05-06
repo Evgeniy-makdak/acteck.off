@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод slice — acteck.off</title>
-  <meta name="description" content="Метод slice — учебные материалы по программированию.">
+  <title>slice method - acteck.off</title>
+  <meta name="description" content="The slice method - programming educational materials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,111 +36,63 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод slice</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>slice</code> вырезает и возвращает
-	указанную часть массива. Сам массив
-	при этом не изменяется.
-</p>
-<p>
-	Первым параметром указывается номер элемента
-	массива, с которого начинается вырезание,
-	а вторым параметром - номер элемента, на
-	котором закончится вырезание (при этом элемент
-	с этим номером не включится в вырезанную часть).
-	Второй параметр не является обязательным.
-	Если его не указать - подмассив возьмется
-	с указанного в первом параметре элемента
-	до конца массива.
-</p>
-<p>
-	Он также может принимать отрицательные
-	значения. В этом случае отсчет элемента,
-	на котором закончится обрезание, начинается
-	с конца массива. Последний элемент при этом
-	будет иметь номер <code data-gs="comd/n" data-x>-1</code>.
+    <h1>slice method</h1>
+    <p>Method<code data-gs="comd/c" data-x>slice</code>cuts and returns the specified portion of the array. The array itself does not change.</p>
+<p>The first parameter indicates the number of the array element from which cutting begins, and the second parameter indicates the number of the element at which cutting will end (in this case, the element with this number will not be included in the cut part). The second parameter is optional. If you do not specify it, the subarray will be taken from the element specified in the first parameter to the end of the array.</p>
+<p>It can also take negative values. In this case, the counting of the element at which the trimming ends begins from the end of the array. The last element will have the number<code data-gs="comd/n" data-x>-1</code>.
 </p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">массив.slice(откуда отрезать, [докуда отрезать]);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте вырежем из массива элементы с нулевого
-	по второй не включительно (второй не вырежется):
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's cut out elements from the array from zero to the second, not inclusive (the second one will not be cut):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['a', 'b', 'c', 'd', 'e'];
 let sub = arr.slice(0, 2);
 
 console.log(sub);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['a', 'b']</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте вырежем с первого элемента до конца
-	массива. Для этого второй параметр не задаем:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's cut from the first element to the end of the array. To do this, we do not set the second parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['a', 'b', 'c', 'd', 'e'];
 let sub = arr.slice(1);
 
 console.log(sub);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['b', 'c', 'd', 'e']</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте вырежем элементы со второго по предпоследний
-	(<code data-gs="comd/n" data-x>-1</code> указывает на последний элемент и он не
-	включится в извлеченную часть):
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's cut out the elements from the second to the penultimate (<code data-gs="comd/n" data-x>-1</code>points to the last element and it will not be included in the extracted part):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['a', 'b', 'c', 'd', 'e'];
 let sub = arr.slice(1, -1);
 
 console.log(sub);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['b', 'c', 'd']</code>
 </div>
-<p>
-	Преимущество такого подхода в том, что вырезаться
-	всегда будет часть массива, не включая последний
-	элемент, независимо от размера массива.
-</p>
+<p>The advantage of this approach is that part of the array will always be cut, not including the last element, regardless of the size of the array.</p>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../splice/index.html"><code data-gs="comd/c" data-x>splice</code></a>, <br>
-			который также отрезает части массива, изменяя при этом сам массив
-		</li>
-		<li>
-			метод <a href="../shift/index.html"><code data-gs="comd/c" data-x>shift</code></a>, <br>
-			который удаляет первый элемент массива
-		</li>
-		<li>
-			метод <a href="../pop/index.html"><code data-gs="comd/c" data-x>pop</code></a>, <br>
-			который удаляет последний элемент массива
-		</li>
+		<li>method<a href="../splice/index.html"><code data-gs="comd/c" data-x>splice</code></a>, <br>which also cuts off parts of the array while changing the array itself</li>
+		<li>method<a href="../shift/index.html"><code data-gs="comd/c" data-x>shift</code></a>, <br>which removes the first element of the array</li>
+		<li>method<a href="../pop/index.html"><code data-gs="comd/c" data-x>pop</code></a>, <br>which removes the last element of the array</li>
 	</ul>
 </div>
   </section>
@@ -148,7 +100,7 @@ console.log(sub);</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

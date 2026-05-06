@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Получение данных формы по событию в Vue — acteck.off</title>
-  <meta name="description" content="Получение данных формы по событию в Vue — учебные материалы по программированию.">
+  <title>Retrieving form data by event in Vue - acteck.off</title>
+  <meta name="description" content="Retrieving Form Data by Event in Vue - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,21 +36,9 @@
       <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
     </div>
 
-    <h1>Получение данных формы по событию в Vue</h1>
-    <p>
-	Пусть у нас есть кнопка и инпут, в который
-	вводится число. Давайте по нажатию на кнопку
-	выведем квадрат введенного в инпут числа.
-	Приступим к реализации.
-</p>
-<p>
-	Для решения задачи нам понадобится
-	два свойства. Свойство <code data-gs="comd/c" data-x>num</code>
-	будет изменяться по мере ввода
-	данных в инпут, а в свойство
-	<code data-gs="comd/c" data-x>res</code> мы будем записывать
-	результат возведения в квадрат:
-</p>
+    <h1>Retrieving form data by event in Vue</h1>
+    <p>Let us have a button and an input into which a number is entered. Let's click on the button to display the square of the number entered in the input. Let's start implementation.</p>
+<p>To solve the problem we need two properties. Property<code data-gs="comd/c" data-x>num</code>will change as data is entered into the input, and into the property<code data-gs="comd/c" data-x>res</code>we will write the result of squaring:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
 	return {
@@ -59,13 +47,7 @@
 	}
 }</code>
 </div>
-<p>
-	Давайте теперь сделаем инпут, привяжем
-	к нему свойство <code data-gs="comd/c" data-x>num</code>, сделаем кнопку,
-	по клику на которую будет выполнятся метод
-	<code data-gs="comd/c" data-x>calc</code>, и сделаем также абзац, в который
-	будет выводится результат:
-</p>
+<p>Let's now make an input and bind a property to it<code data-gs="comd/c" data-x>num</code>, let’s make a button that, when clicked, will execute the method<code data-gs="comd/c" data-x>calc</code>, and also make a paragraph in which the result will be displayed:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;p&gt;{{ res }}&lt;/p&gt;
@@ -73,8 +55,7 @@
 	&lt;button v-on:click="calc"&gt;work&lt;/button&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Давайте напишем реализацию метода <code data-gs="comd/c" data-x>calc</code>:
+<p>Let's write the implementation of the method<code data-gs="comd/c" data-x>calc</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
@@ -83,52 +64,25 @@
 	}
 }</code>
 </div>
-<p>
-	Получится, что как только будет вызван метод
-	<code data-gs="comd/c" data-x>calc</code> (а это случится по нажатию на
-	кнопку), в свойство <code data-gs="comd/c" data-x>res</code> запишется
-	результат и при этом одновременно выведется
-	в нашем абзаце.
-</p>
+<p>It turns out that as soon as the method is called<code data-gs="comd/c" data-x>calc</code>(and this will happen when you click the button), to the property<code data-gs="comd/c" data-x>res</code>the result will be recorded and at the same time displayed in our paragraph.</p>
 <div data-w="cont/task">
-	<p>
-		Дан инпут. Дана кнопка. Дан абзац. В инпут
-		вводится число. Сделайте так, чтобы по нажатию
-		на кнопку абзаце появился квадратный корень
-		этого числа.
-	</p>
+	<p>Input given. A button is given. A paragraph is given. A number is entered into the input. Make sure that when you click on the paragraph button, the square root of this number appears.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны два инпута. Дана кнопка. Дан абзац.
-		В каждый инпут вводятся числа. Сделайте так,
-		чтобы по нажатию на кнопку в абзаце появилась
-		сумма этих чисел.
-	</p>
+	<p>Two inputs are given. A button is given. A paragraph is given. Numbers are entered into each input. Make sure that when you press a button, the sum of these numbers appears in the paragraph.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны два инпута. Дана кнопка. В каждый инпут
-		вводится какой-то текст. Сделайте так, чтобы
-		по нажатию на кнопку текст первого инпута
-		стал во втором и наоборот.
-	</p>
+	<p>Two inputs are given. A button is given. Some text is entered into each input. Make it so that when you click on the button, the text of the first input becomes in the second and vice versa.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан инпут, <code data-gs="comd/n" data-x>3</code> абзаца и кнопка. В инпут
-		вводится ФИО пользователя через пробел. Сделайте
-		так, чтобы по нажатию на кнопку в первом
-		абзаце появилась фамилия пользователя, во
-		втором - имя, а в третьем - отчество.
-	</p>
+	<p>Given input,<code data-gs="comd/n" data-x>3</code>paragraph and button. The user's full name is entered into the input, separated by a space. Make sure that when you click the button, the user's last name appears in the first paragraph, the first name in the second, and the patronymic in the third.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

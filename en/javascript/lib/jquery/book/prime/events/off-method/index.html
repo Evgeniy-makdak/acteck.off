@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод off в jQuery — acteck.off</title>
-  <meta name="description" content="Метод off в jQuery — учебные материалы по программированию.">
+  <title>The off method in jQuery is acteck.off</title>
+  <meta name="description" content="jQuery off method - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,19 +36,9 @@
       <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод off в jQuery</h1>
-    <p>
-	Отвязывание событий, привязанных через
-	<a href="../../../../manual/on/index.html"><code data-gs="comd/c" data-x>on</code></a>,
-	производится с помощью метода
-	<a href="../../../../manual/off/index.html"><code data-gs="comd/c" data-x>off</code></a>.
-	Первым параметром он принимает тип события
-	(например, <code data-gs="comd/s" data-x>'click'</code>), а вторым - имя
-	функции, которую следует отвязать.
-</p>
-<p>
-	Рассмотрим следующий пример. Пусть у нас есть HTML код:
-</p>
+    <h1>jQuery off method</h1>
+    <p>Unbinding events bound via<a href="../../../../manual/on/index.html"><code data-gs="comd/c" data-x>on</code></a>, is produced using the method<a href="../../../../manual/off/index.html"><code data-gs="comd/c" data-x>off</code></a>. It takes the event type as its first parameter (for example,<code data-gs="comd/s" data-x>'click'</code>), and the second is the name of the function to unbind.</p>
+<p>Consider the following example. Let's say we have HTML code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li&gt;text&lt;/li&gt;
@@ -56,8 +46,7 @@
 	&lt;li&gt;text&lt;/li&gt;
 &lt;/ul&gt;</code>
 </div>
-<p>
-	В CSS указан стиль к тегу <code data-gs="comd/c" data-x>li</code>:
+<p>The CSS specifies the style for the tag<code data-gs="comd/c" data-x>li</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">li {
@@ -65,63 +54,35 @@
 	cursor: pointer;
 }</code>
 </div>
-<p>
-	Давайте сделаем так, чтобы после первого
-	клика по <code data-gs="comd/c" data-x>li</code>, событие от нее
-	отвязывалось:
-</p>
+<p>Let's make sure that after the first click on<code data-gs="comd/c" data-x>li</code>, the event was untied from it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('li').on('click', function() {
 	$(this).append('!');
 	$(this).off('click', func);
 });</code>
 </div>
-<p>
-	Понажимайте на пункты списка. Вы увидите, что при повторном
-	нажатии на тот же пункт списка ничего не происходит, поскольку
-	наша функция <code data-gs="comd/c" data-x>func</code> после выполнения метода
-	<a href="../../../../manual/append/index.html"><code data-gs="comd/c" data-x>append</code></a>
-	отвязывается методом <code data-gs="comd/c" data-x>off</code>.
+<p>Click on the list items. You will see that when you click on the same list item again, nothing happens because our function<code data-gs="comd/c" data-x>func</code>after executing the method<a href="../../../../manual/append/index.html"><code data-gs="comd/c" data-x>append</code></a>untied by method<code data-gs="comd/c" data-x>off</code>.
 </p>
 <div data-w="cont/task">
-	<p>
-		Привяжите всем ссылкам событие - по
-		наведению на ссылку в конец ее текста
-		дописывается ее <code data-gs="comd/c" data-x>href</code> в круглых
-		скобках. После первого наведению на ссылку
-		следует отвязать от нее событие, которое
-		добавляет <code data-gs="comd/c" data-x>href</code> в конец текста.
-	</p>
+	<p>Bind an event to all links - when you hover over a link, it is appended to the end of its text<code data-gs="comd/c" data-x>href</code>in parentheses. After the first hover over the link, you should unbind an event from it that adds<code data-gs="comd/c" data-x>href</code>to the end of the text.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Для всех инпутов сделайте так, чтобы они
-		выводили свой <code data-gs="comd/c" data-x>value</code> при
-		нажатии на любой из них, но только по
-		первому нажатию. Повторное нажатие на
-		инпут не должно вызывать реакции.
-	</p>
+	<p>For all inputs, make them output their own<code data-gs="comd/c" data-x>value</code>when you click on any of them, but only on the first click. Pressing the input again should not cause a reaction.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны абзацы с числами. По клику на абзац
-		в нем должен появится квадрат числа, которое
-		он содержит, но только по первому клику. По
-		двойному клику на абзац число в абзаце
-		должно удвоится, но тоже только первый раз.
-	</p>
+	<p>Paragraphs with numbers are given. By clicking on a paragraph, the square of the number it contains should appear, but only on the first click. By double-clicking on a paragraph, the number in the paragraph should double, but also only the first time.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../on-method/index.html" class="lesson-nav-btn lesson-nav-prev" title="Универсальный метод on">← Универсальный метод on</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../delegation/index.html" class="lesson-nav-btn lesson-nav-next" title="Делегирование">Делегирование →</a>
+      <a href="../on-method/index.html" class="lesson-nav-btn lesson-nav-prev" title="Generic on method">← Universal method on</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../delegation/index.html" class="lesson-nav-btn lesson-nav-next" title="Delegation">Delegation →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

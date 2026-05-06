@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Абсолютное позиционирование элементов в CSS — acteck.off</title>
-  <meta name="description" content="Абсолютное позиционирование элементов в CSS — учебные материалы по программированию.">
+  <title>Absolute positioning of elements in CSS - acteck.off</title>
+  <meta name="description" content="Absolute Positioning of Elements in CSS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,51 +33,18 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Абсолютное позиционирование элементов в CSS</h1>
-    <p>
-	В данном уроке мы разберем абсолютное
-	позиционирование элементов. Оно позволяет
-	располагать элементы по указанным координатам
-	страницы. Например, можно расположить элемент
-	в позицию <code data-gs="comd/u" data-x>100px</code> сверху страницы и
-	<code data-gs="comd/u" data-x>200px</code> слева. Элемент переместится
-	туда, не взирая на то, что там будут располагаться
-	другие элементы и просто станет поверх их.
-	Говорят, что при этом элемент выпадает из
-	<dfn data-gs="comd/d" data-x>нормального потока</dfn> документа: все
-	остальные элементы будут вести себя так,
-	будто нашего элемента нет.
+    <h1>Absolute positioning of elements in CSS</h1>
+    <p>In this lesson we will look at the absolute positioning of elements. It allows you to position elements at specified page coordinates. For example, you can position the element at position<code data-gs="comd/u" data-x>100px</code>at the top of the page and<code data-gs="comd/u" data-x>200px</code>left. The element will move there, regardless of the fact that other elements will be located there and will simply appear on top of them. They say that in this case the element falls out of<dfn data-gs="comd/d" data-x>normal flow</dfn>document: all other elements will behave as if our element does not exist.</p>
+<p>To make an element absolutely positioned, the element must have the property<code data-gs="comd/c" data-x>position</code>in meaning<code data-gs="comd/v" data-x>absolute</code>. In addition to this property, two more are needed: one will set the vertical coordinate, and the second - horizontal.</p>
+<p>For vertical, you need to set the indent either at the top or bottom. The top margin specifies the property<code data-gs="comd/c" data-x>top</code>, and the bottom indentation is the property<code data-gs="comd/c" data-x>bottom</code>. For a horizontal line, you need to set the indent either to the left or to the right. The left indent specifies the property<code data-gs="comd/c" data-x>left</code>, and the right indentation is the property<code data-gs="comd/c" data-x>right</code>.
 </p>
-<p>
-	Для того, чтобы сделать элемент абсолютно
-	спозиционированным, этому элементу необходимо
-	задать свойство <code data-gs="comd/c" data-x>position</code> в значении
-	<code data-gs="comd/v" data-x>absolute</code>. Кроме этого свойства, нужны
-	еще два: одно будет задавать координату по
-	вертикали, а второе - по горизонтали.
-</p>
-<p>
-	Для вертикали нужно задать отступ или сверху,
-	или снизу. Отступ сверху задает свойство
-	<code data-gs="comd/c" data-x>top</code>, а отступ снизу - свойство <code data-gs="comd/c" data-x>bottom</code>.
-	Для горизонтали нужно задать отступ или слева,
-	или справа. Отступ слева задает свойство
-	<code data-gs="comd/c" data-x>left</code>, а отступ справа - свойство
-	<code data-gs="comd/c" data-x>right</code>.
-</p>
-<p>
-	Давайте посмотрим на примерах.
-</p>
+<p>Let's look at examples.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Для начала давайте просто сделаем два блока
-	без позиционирования (<i>обратите внимание
-	на то, что элементы не прижаты к краю окна,
-	так как <code data-gs="comd/c" data-x>body</code> имеет <code data-gs="comd/c" data-x>margin</code> по умолчанию</i>):
+<h2>Example<span data-gn="sect"></span></h2>
+<p>First let's just make two blocks without positioning (<i>Please note that the elements are not pressed against the edge of the window, since<code data-gs="comd/c" data-x>body</code>has<code data-gs="comd/c" data-x>margin</code>default</i>):
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
@@ -137,11 +104,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте теперь зеленому блоку зададим абсолютное
-	позиционирование, поставив его в позицию
-	сверху <code data-gs="comd/u" data-x>150px</code> и слева <code data-gs="comd/u" data-x>100px</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's now give the green block absolute positioning, placing it in the position on top<code data-gs="comd/u" data-x>150px</code>and left<code data-gs="comd/u" data-x>100px</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
@@ -209,11 +173,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте теперь поставим зеленый блок в позицию
-	<code data-gs="comd/u" data-x>0px</code> сверху и <code data-gs="comd/u" data-x>0px</code> слева:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's now put the green block in position<code data-gs="comd/u" data-x>0px</code>from above and<code data-gs="comd/u" data-x>0px</code>left:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
 &lt;div id="elem2"&gt;&lt;/div&gt;</code>
@@ -280,11 +241,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте теперь поставим зеленый блок в позицию
-	<code data-gs="comd/u" data-x>0px</code> сверху и <code data-gs="comd/u" data-x>0px</code> справа:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's now put the green block in position<code data-gs="comd/u" data-x>0px</code>from above and<code data-gs="comd/u" data-x>0px</code>right:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
 &lt;div id="elem2"&gt;&lt;/div&gt;</code>
@@ -351,11 +309,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте теперь поставим зеленый блок в позицию
-	<code data-gs="comd/u" data-x>0px</code> снизу и <code data-gs="comd/u" data-x>0px</code> справа:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's now put the green block in position<code data-gs="comd/u" data-x>0px</code>from below and<code data-gs="comd/u" data-x>0px</code>right:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
 &lt;div id="elem2"&gt;&lt;/div&gt;</code>
@@ -422,11 +377,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте теперь поставим зеленый блок в позицию
-	<code data-gs="comd/u" data-x>0px</code> снизу и <code data-gs="comd/u" data-x>0px</code> слева:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's now put the green block in position<code data-gs="comd/u" data-x>0px</code>from below and<code data-gs="comd/u" data-x>0px</code>left:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
 &lt;div id="elem2"&gt;&lt;/div&gt;</code>
@@ -493,12 +445,9 @@
 					</div>
 				</div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		С помощью абсолютного позиционирования разместите
-		блоки следующим образом:
-	</p>
+	<p>Using absolute positioning, place the blocks as follows:</p>
 	<div data-p="bock/pane">
 					<div data-w="bock/tain">
 						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
@@ -551,10 +500,7 @@
 				</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		С помощью абсолютного позиционирования разместите
-		блоки следующим образом:
-	</p>
+	<p>Using absolute positioning, place the blocks as follows:</p>
 	<div data-p="bock/pane">
 					<div data-w="bock/tain">
 						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
@@ -605,10 +551,7 @@
 				</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		С помощью абсолютного позиционирования разместите
-		блоки следующим образом:
-	</p>
+	<p>Using absolute positioning, place the blocks as follows:</p>
 	<div data-p="bock/pane">
 					<div data-w="bock/tain">
 						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
@@ -661,10 +604,7 @@
 				</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		С помощью абсолютного позиционирования разместите
-		блоки следующим образом:
-	</p>
+	<p>Using absolute positioning, place the blocks as follows:</p>
 	<div data-p="bock/pane">
 					<div data-w="bock/tain">
 						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
@@ -717,16 +657,16 @@
 				</div>
 </div>
     <div class="lesson-nav">
-      <a href="../../block-model/flex-alignment-space-evenly/index.html" class="lesson-nav-btn lesson-nav-prev" title="Выравнивание флекс элементов по родителю с равными отступами">← Выравнивание флекс элементов по родителю с равными отступами</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../relative/index.html" class="lesson-nav-btn lesson-nav-next" title="Относительное">Относительное →</a>
+      <a href="../../block-model/flex-alignment-space-evenly/index.html" class="lesson-nav-btn lesson-nav-prev" title="Aligning flex elements to their parent with equal indentation">← Aligning flex elements to their parent with equal indents</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../relative/index.html" class="lesson-nav-btn lesson-nav-next" title="Relative">Relative →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

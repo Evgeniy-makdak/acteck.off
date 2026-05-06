@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Изменение элемента по id в JavaScript — acteck.off</title>
-  <meta name="description" content="Изменение элемента по id в JavaScript — учебные материалы по программированию.">
+  <title>Changing an element by id in JavaScript - acteck.off</title>
+  <meta name="description" content="Changing an element by id in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Изменение элемента по id в JavaScript</h1>
-    <p>
-	Пусть в переменной <code data-gs="comd/c" data-x>arr</code> лежит
-	массив объектов:
-</p>
+    <h1>Changing element by id in JavaScript</h1>
+    <p>Let in the variable<code data-gs="comd/c" data-x>arr</code>lies an array of objects:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [
 	{
@@ -63,11 +60,7 @@
 	},
 ];</code>
 </div>
-<p>
-	Пусть мы хотим изменить какой-нибудь элемент
-	массива. Пусть новые данные хранятся в переменной,
-	например, вот такие:
-</p>
+<p>Let's say we want to change some element of the array. Let the new data be stored in a variable, for example, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let data = {
 	id: 'IWSpfBPSV3SXgRF87uO74',
@@ -76,21 +69,8 @@
 	prop3: 'value23 !',
 };</code>
 </div>
-<p>
-	В приведенном объекте <code data-gs="comd/c" data-x>id</code> совпадает
-	с <code data-gs="comd/c" data-x>id</code> второго элемента массива, а значения
-	свойств - другие. Говоря другими словами
-	в <code data-gs="comd/c" data-x>data</code> в свойстве <code data-gs="comd/c" data-x>id</code> у нас хранится
-	<code data-gs="comd/c" data-x>id</code> того элемента массива, который
-	мы хотим изменить.
-</p>
-<p>
-	Давайте выполним это изменение. Для этого
-	будем перебирать элементы массива циклом
-	и, если <code data-gs="comd/c" data-x>id</code> совпадает с искомым, выполним
-	замену элемента, а если не совпадает, оставим
-	элемент без изменений:
-</p>
+<p>In the given object<code data-gs="comd/c" data-x>id</code>coincides with<code data-gs="comd/c" data-x>id</code>the second element of the array, and the property values ​​are different. In other words, in<code data-gs="comd/c" data-x>data</code>in property<code data-gs="comd/c" data-x>id</code>we store<code data-gs="comd/c" data-x>id</code>the array element that we want to change.</p>
+<p>Let's make this change. To do this, we will iterate through the elements of the array in a loop and, if<code data-gs="comd/c" data-x>id</code>matches the one we are looking for, we will replace the element, and if it does not match, we will leave the element unchanged:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = arr.map(elem =&gt; {
 	if (elem.id === data.id) {
@@ -100,33 +80,25 @@
 	}
 });</code>
 </div>
-<p>
-	Можно сократить код, воспользовавшись тернарным
-	оператором:
-</p>
+<p>You can shorten the code by using the ternary operator:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = arr.map(elem =&gt; elem.id === data.id ? data : elem);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть в переменной хранится <code data-gs="comd/c" data-x>id</code> элемента
-		массива. Сделайте кнопку, по нажатию на
-		которую будет изменен соответствующий
-		элемент массива.
-	</p>
+	<p>Let the variable store<code data-gs="comd/c" data-x>id</code>array element. Make a button that, when clicked, will change the corresponding element of the array.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../id-element-removing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Удаление элемента по id">← Удаление элемента по id</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../id-property-changing/index.html" class="lesson-nav-btn lesson-nav-next" title="Изменение одного свойства по id">Изменение одного свойства по id →</a>
+      <a href="../id-element-removing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Removing an element by id">← Removing an element by id</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../id-property-changing/index.html" class="lesson-nav-btn lesson-nav-next" title="Changing one property by id">Changing one property by id →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

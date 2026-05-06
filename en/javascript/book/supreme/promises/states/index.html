@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Состояния промиса в JavaScript — acteck.off</title>
-  <meta name="description" content="Состояния промиса в JavaScript — учебные материалы по программированию.">
+  <title>Promise states in JavaScript - acteck.off</title>
+  <meta name="description" content="JavaScript Promise States - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,17 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Состояния промиса в JavaScript</h1>
-    <p>
-	Промис может находится в одном из трех состояний.
-	При создании промис находится в ожидании
-	(<span data-gs="comd/y" data-x>pending</span>), а затем может стать исполненным
-	(<span data-gs="comd/y" data-x>fulfilled</span>), вернув полученный результат,
-	или отклоненным (<span data-gs="comd/y" data-x>rejected</span>), вернув
-	причину отказа. Вы можете посмотреть переход
-	из одного состояния в другой, запустив следующий
-	код:
-</p>
+    <h1>Promise states in JavaScript</h1>
+    <p>A promise can be in one of three states. When created, the promise is pending (<span data-gs="comd/y" data-x>pending</span>), and then can become executed (<span data-gs="comd/y" data-x>fulfilled</span>), returning the result, or rejected (<span data-gs="comd/y" data-x>rejected</span>), returning the reason for refusal. You can watch the transition from one state to another by running the following code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let promise = new Promise(function(resolve, reject) {
 	setTimeout(function() {
@@ -64,15 +55,7 @@ setInterval(function() {
 	console.log(promise); // каждую секунду выводим промис в консоль
 }, 1000);</code>
 </div>
-<p>
-	Учтите, что состояния <span data-gs="comd/y" data-x>fulfilled</span> и
-	<span data-gs="comd/y" data-x>rejected</span> неизменны: если промис перешел
-	в одно из этих состояний, то он уже не сможет
-	перейти в другое. Давайте посмотрим на примере.
-	В следующем коде вызов <span data-gs="comd/y" data-x>reject</span> случится
-	раньше, поэтому вызов <span data-gs="comd/y" data-x>resolve</span> будет
-	проигнорирован:
-</p>
+<p>Please note that states<span data-gs="comd/y" data-x>fulfilled</span>And<span data-gs="comd/y" data-x>rejected</span>are immutable: if a promise has passed into one of these states, then it will no longer be able to move to another. Let's look at an example. In the following code the call<span data-gs="comd/y" data-x>reject</span>will happen earlier, so the call<span data-gs="comd/y" data-x>resolve</span>will be ignored:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let promise = new Promise(function(resolve, reject) {
 	setTimeout(() =&gt; reject(new Error('error')), 1000);
@@ -80,31 +63,23 @@ setInterval(function() {
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте промис, который выполнится с успехом
-		через некоторое время. Выведите его в консоль
-		и изучите его начальное состояние и завершенное.
-	</p>
+	<p>Make a promise that will be fulfilled successfully after some time. Print it to the console and examine its initial and completed states.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте промис, который выполнится с неудачей
-		через некоторое время. Выведите его в консоль
-		и изучите его начальное состояние и завершенное.
-	</p>
+	<p>Make a promise that will fail after some time. Print it to the console and examine its initial and completed states.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../exceptions-catch/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отдельный перехват исключений">← Отдельный перехват исключений</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../chaining/index.html" class="lesson-nav-btn lesson-nav-next" title="Цепочки промисов">Цепочки промисов →</a>
+      <a href="../exceptions-catch/index.html" class="lesson-nav-btn lesson-nav-prev" title="Separate exception catching">← Separate exception catching</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../chaining/index.html" class="lesson-nav-btn lesson-nav-next" title="Promise chains">Promise chains →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

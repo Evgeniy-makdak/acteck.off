@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод utimes — acteck.off</title>
-  <meta name="description" content="Метод utimes — учебные материалы по программированию.">
+  <title>utimes method - acteck.off</title>
+  <meta name="description" content="utimes method - programming educational materials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,36 +36,16 @@
       <a href="../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Метод utimes</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>utimes</code> изменяет временные метки
-	модификации и доступа к файлу. Значениями временных меток
-	могут быть числа, строки или объект <a href="../../../../javascript/manual/time/Date/index.html"><code data-gs="comd/c" data-x>Date</code></a>.
-	Будет выдана ошибка, если метка времени не может быть преобразована в
-	правильное число или имеет значение <code data-gs="comd/c" data-x>NaN</code>, <code data-gs="comd/c" data-x>Infinity</code> или
-	<code data-gs="comd/c" data-x>-Infinity</code>. В первом параметре метода указывается путь
-	к нужному нам файлу. Во втором параметре задаем
-	новую отметку времени доступа, в третьем параметре -
-	новую отметку времени модификации.
-	В четвертом необязательном параметре
-	задаем коллбэк.
-</p>
+    <h1>utimes method</h1>
+    <p>Method<code data-gs="comd/c" data-x>utimes</code>changes file modification and access timestamps. Timestamp values ​​can be numbers, strings, or an object<a href="../../../../javascript/manual/time/Date/index.html"><code data-gs="comd/c" data-x>Date</code></a>. An error will be thrown if the timestamp cannot be converted to a valid number or has a value<code data-gs="comd/c" data-x>NaN</code>, <code data-gs="comd/c" data-x>Infinity</code>or<code data-gs="comd/c" data-x>-Infinity</code>. The first parameter of the method specifies the path to the file we need. In the second parameter we set a new access timestamp, in the third parameter - a new modification timestamp. In the fourth optional parameter we set the callback.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.utimes(путь к файлу, время доступа, время модификации, [коллбэк]);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте асинхронно изменим временные
-	метки модификации и доступа файла
-	через <code data-gs="comd/c" data-x>await</code>. Вначале узнаем статистику о файле
-	через метод <code data-gs="comd/c" data-x>stat</code>, затем с помощью
-	команд <code data-gs="comd/c" data-x>mtime</code> и <code data-gs="comd/c" data-x>atime</code> установим время модификации
-	и доступа файла. После этого введем новые значения для
-	времени доступа и времени модификации файла и в конце
-	применим метод <code data-gs="comd/c" data-x>utimes</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's asynchronously change file modification and access timestamps via<code data-gs="comd/c" data-x>await</code>. First, we find out statistics about the file through the method<code data-gs="comd/c" data-x>stat</code>, then using the commands<code data-gs="comd/c" data-x>mtime</code>And<code data-gs="comd/c" data-x>atime</code>set the file modification and access time. After this, we will enter new values ​​for the access time and file modification time and finally apply the method<code data-gs="comd/c" data-x>utimes</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -87,12 +67,8 @@ try {
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь давайте асинхронно
-	изменим временные метки модификации
-	и доступа файла через
-	<code data-gs="comd/c" data-x>then</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's asynchronously change the file modification and access timestamps via<code data-gs="comd/c" data-x>then</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -115,11 +91,8 @@ fs.utimes('./dir/file.txt', accessTime, modeTime).then(() =&gt; {
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте асинхронно изменим временные метки модификации
-	и доступа файла через коллбэк:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's asynchronously change the file modification and access timestamps via a callback:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
 
@@ -138,12 +111,8 @@ fs.utimes('./dir/file.txt', accessTime, modeTime, () =&gt; {
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	А теперь давайте синхронно изменим
-	временные метки модификации
-	и доступа файла через
-	<code data-gs="comd/c" data-x>utimesSync</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's synchronously change the file modification and access timestamps via<code data-gs="comd/c" data-x>utimesSync</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
@@ -166,18 +135,15 @@ try {
 }</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../../../../javascript/nodejs/manual/fs/futimes/index.html"><code data-gs="comd/c" data-x>futimes</code></a>, <br>
-			который изменяет временные метки модификации и доступа через файловый дескриптор
-		</li>
+		<li>method<a href="../../../../javascript/nodejs/manual/fs/futimes/index.html"><code data-gs="comd/c" data-x>futimes</code></a>, <br>which changes modification and access timestamps via a file descriptor</li>
 	</ul>
 </div>
     <div class="lesson-nav">
       <a href="../unwatchFile/index.html" class="lesson-nav-btn lesson-nav-prev" title="unwatchFile">← unwatchFile</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../watch/index.html" class="lesson-nav-btn lesson-nav-next" title="watch">watch →</a>
     </div>
   </section>
@@ -185,7 +151,7 @@ try {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

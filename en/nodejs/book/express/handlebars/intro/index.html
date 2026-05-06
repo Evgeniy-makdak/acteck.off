@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Introduction в шаблонизатор Handlebars в Express — acteck.off</title>
-  <meta name="description" content="Introduction в шаблонизатор Handlebars в Express — учебные материалы по программированию.">
+  <title>Introduction to the Handlebars template engine in Express - acteck.off</title>
+  <meta name="description" content="Introduction to the Handlebars template engine in Express - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,27 +36,13 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Introduction в шаблонизатор Handlebars в Express</h1>
-    <p>
-	Давайте теперь приступим к изучению <dfn data-gs="comd/d" data-x>шаблонизаторов</dfn>.
-	Они позволяют нам удобным образом отделить
-	файл макета сайта, его контент и его блоки
-	по отдельным файлам. Также они предоставляют
-	ряд команд, которые можно писать в HTML файлах
-	для генерации HTML кода.
-</p>
-<p>
-	Одним из самых популярных в Express шаблонизаторов
-	является Handlebars. Для его установки следует
-	выполнить команду:
-</p>
+    <h1>Introduction to the Handlebars template engine in Express</h1>
+    <p>Let's now start exploring<dfn data-gs="comd/d" data-x>template developers</dfn>. They allow us to conveniently separate the site layout file, its content and its blocks into separate files. They also provide a number of commands that can be written in HTML files to generate HTML code.</p>
+<p>One of the most popular template engines in Express is Handlebars. To install it, run the command:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install express-handlebars</code>
 </div>
-<p>
-	Теперь нам нужно подключить и настроить установленный
-	шаблонизатор. Сделаем это:
-</p>
+<p>Now we need to connect and configure the installed template engine. Let's do this:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import expressHandlebars from 'express-handlebars';
 const handlebars = expressHandlebars.create({
@@ -70,31 +56,17 @@ let app = express();
 app.engine('hbs', handlebars.engine);
 app.set('view engine', 'hbs');</code>
 </div>
-<p>
-	После этого в папке <code data-gs="comd/p" data-x>views</code> вы будете
-	хранить файлы вашего контента, а в папке
-	<code data-gs="comd/p" data-x>views/layouts</code> - ваши макеты, к которым
-	будут подключаться контенты. Эти файлы должны
-	будут иметь расширение <code data-gs="comd/p" data-x>.hbs</code>, чтобы
-	шаблонизатор понял, что это его файлы.
-</p>
-<p>
-	Handlebars будет брать файл шаблона, добавлять
-	в нужное место контент, тайтл и виджеты и
-	отправлять готовый код в браузер. А как это
-	делается, мы разберем в следующих уроках.
-</p>
+<p>After that in the folder<code data-gs="comd/p" data-x>views</code>you will store your content files, and in the folder<code data-gs="comd/p" data-x>views/layouts</code>- your layouts to which content will be connected. These files will need to have the extension<code data-gs="comd/p" data-x>.hbs</code>, so that the template engine understands that these are its files.</p>
+<p>Handlebars will take a template file, add content, title and widgets in the right place and send the finished code to the browser. We will look at how this is done in the following lessons.</p>
 <div data-w="cont/task">
-	<p>
-		Установите и подключите Handlebars.
-	</p>
+	<p>Install and connect Handlebars.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

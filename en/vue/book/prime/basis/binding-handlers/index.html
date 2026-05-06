@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Навешивание обработчиков событий в Vue — acteck.off</title>
-  <meta name="description" content="Навешивание обработчиков событий в Vue — учебные материалы по программированию.">
+  <title>Hangting event handlers in Vue - acteck.off</title>
+  <meta name="description" content="Hangting Event Handlers in Vue - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,25 +36,11 @@
       <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
     </div>
 
-    <h1>Навешивание обработчиков событий в Vue</h1>
-    <p>
-	Давайте теперь запустим наш метод по
-	какому-нибудь событию. Для того, чтобы
-	навесить событие на какой-нибудь DOM
-	элемент, нужно использовать директиву
-	<code data-gs="comd/c" data-x>v-on</code>.
+    <h1>Hangting Event Handlers in Vue</h1>
+    <p>Let's now run our method on some event. In order to attach an event to any DOM element, you need to use the directive<code data-gs="comd/c" data-x>v-on</code>.
 </p>
-<p>
-	В этой директиве после двоеточия
-	нужно указывать имя события,
-	а значением - имя метода,
-	который нужно вызвать по наступлению
-	этого события.
-</p>
-<p>
-	Давайте попробуем на практике.
-	Пусть у нас есть следующий метод:
-</p>
+<p>In this directive, after the colon you need to indicate the name of the event, and the value is the name of the method that needs to be called upon the occurrence of this event.</p>
+<p>Let's try it in practice. Let's say we have the following method:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
 	show: function() {
@@ -62,55 +48,37 @@
 	}
 }</code>
 </div>
-<p>
-	Пусть у нас есть следующая
-	кнопка:
-</p>
+<p>Let's say we have the following button:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;button&gt;text&lt;/button&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Давайте сделаем так, чтобы по клику
-	на эту кнопку вызывался метод
-	<code data-gs="comd/c" data-x>show</code>:
+<p>Let's make sure that when this button is clicked, the method is called<code data-gs="comd/c" data-x>show</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;button v-on:click="show"&gt;text&lt;/button&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Обычно все пользуются сокращенным
-	вариантом <code data-gs="comd/c" data-x>v-on</code>. Он представляет
-	собой символ <code data-gs="comd/c" data-x>@</code> перед
-	именем события:
-</p>
+<p>Usually everyone uses the shortened version<code data-gs="comd/c" data-x>v-on</code>. It represents a symbol<code data-gs="comd/c" data-x>@</code>before the event name:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;button @click="show"&gt;text&lt;/button&gt;
 &lt;/template&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте кнопку, по клику на которую
-		через <code data-gs="comd/c" data-x>alert</code> будет выводиться текущая дата.
-	</p>
+	<p>Make a button that when clicked<code data-gs="comd/c" data-x>alert</code>the current date will be displayed.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте предыдущую задачу так, чтобы
-		<code data-gs="comd/c" data-x>alert</code> выводился не по клику, а по наведению
-		мышкой.
-	</p>
+	<p>Modify the previous problem so that<code data-gs="comd/c" data-x>alert</code>was displayed not by click, but by mouse hover.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Основы работы с контекстом в JavaScript — acteck.off</title>
-  <meta name="description" content="Основы работы с контекстом в JavaScript — учебные материалы по программированию.">
+  <title>Basics of working with context in JavaScript - acteck.off</title>
+  <meta name="description" content="Basics of working with context in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,36 +36,20 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Основы работы с контекстом в JavaScript</h1>
-    <p>
-	Пусть у нас есть какая-то функция <code data-gs="comd/c" data-x>func</code>,
-	внутри которой используется <code data-gs="comd/c" data-x>this</code>:
+    <h1>Basics of working with context in JavaScript</h1>
+    <p>Let us have some function<code data-gs="comd/c" data-x>func</code>, inside which it is used<code data-gs="comd/c" data-x>this</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	console.log(this.value);
 }</code>
 </div>
-<p>
-	На что указывает <code data-gs="comd/c" data-x>this</code> в этой функции?
-	А мы не знаем. И JavaScript не знает. И сама
-	функция не знает. To есть в момент создания
-	функции то, на что именно указывает <code data-gs="comd/c" data-x>this</code>,
-	не определено. И определится это только тогда,
-	когда эта функция будет вызвана.
-</p>
-<p>
-	Пусть у нас есть какой-то инпут:
-</p>
+<p>What does it indicate?<code data-gs="comd/c" data-x>this</code>in this function? But we don't know. And it doesn't know JavaScript. And the function itself does not know. That is, at the time the function is created, what exactly does it point to?<code data-gs="comd/c" data-x>this</code>, not defined. And this will be determined only when this function is called.</p>
+<p>Let us have some kind of input:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="elem" value="text"&gt;</code>
 </div>
-<p>
-	Привяжем к этому инпуту нашу функцию <code data-gs="comd/c" data-x>func</code>
-	так, чтобы она выполнилась по потери фокуса
-	инпутом. Теперь в момент выполнения функции
-	<code data-gs="comd/c" data-x>this</code> будет указывать на наш инпут:
-</p>
+<p>Let's bind our function to this input<code data-gs="comd/c" data-x>func</code>so that it is executed when the input loses focus. Now at the time the function is executed<code data-gs="comd/c" data-x>this</code>will point to our input:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
 
@@ -74,26 +58,13 @@ function func() {
 	console.log(this.value); // по потери фокуса выведет 'text'
 }</code>
 </div>
-<p>
-	Но ведь у нас может быть не один инпут, а
-	несколько:
-</p>
+<p>But we can have not one input, but several:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="elem1" value="text1"&gt;
 &lt;input id="elem2" value="text2"&gt;</code>
 </div>
-<p>
-	И к каждому из этих инпутов мы можем привязать
-	нашу функцию <code data-gs="comd/c" data-x>func</code>. В этом случае для
-	первого элемента <code data-gs="comd/c" data-x>this</code> в момент вызова
-	функции будет указывать на него, а для второго
-	- на него.
-</p>
-<p>
-	На практике это значит, что <code data-gs="comd/c" data-x>this</code> внутри
-	функции зависит от того, на каком из инпутов
-	мы потеряли фокус:
-</p>
+<p>And to each of these inputs we can bind our function<code data-gs="comd/c" data-x>func</code>. In this case, for the first element<code data-gs="comd/c" data-x>this</code>at the time of calling the function will point to it, and for the second - to it.</p>
+<p>In practice this means that<code data-gs="comd/c" data-x>this</code>inside the function depends on which input we lost focus on:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem1 = document.querySelector('#elem1');
 elem1.addEventListener('blur', func);
@@ -105,27 +76,19 @@ function func() {
 	console.log(this.value); // выведет или 'text1', или 'text2'
 }</code>
 </div>
-<p>
-	В общем-то, такая особенность <code data-gs="comd/c" data-x>this</code>
-	очень удобна - мы создаем всего одну функцию
-	и привязываем ее к любому количеству инпутов.
-	Если бы <code data-gs="comd/c" data-x>this</code> не указывал на тот элемент,
-	в котором произошло событие, то у нас бы
-	такое не получилось - пришлось бы для каждого
-	инпута создавать свою функцию с тем же кодом!
-</p>
+<p>In general, this feature<code data-gs="comd/c" data-x>this</code>very convenient - we create just one function and bind it to any number of inputs. If<code data-gs="comd/c" data-x>this</code>didn’t point to the element in which the event occurred, then we wouldn’t be able to do this - we’d have to create our own function with the same code for each input!</p>
   
     <div class="lesson-nav">
-      <a href="../../dom/object-Event/universal-events-delegation/index.html" class="lesson-nav-btn lesson-nav-prev" title="Универсальное делегирование событий">← Универсальное делегирование событий</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../unbound-function-context/index.html" class="lesson-nav-btn lesson-nav-next" title="Контекст непривязанной функции">Контекст непривязанной функции →</a>
+      <a href="../../dom/object-Event/universal-events-delegation/index.html" class="lesson-nav-btn lesson-nav-prev" title="Universal Event Delegation">← Universal event delegation</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../unbound-function-context/index.html" class="lesson-nav-btn lesson-nav-next" title="Unbound function context">Unbound function context →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

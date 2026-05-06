@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Установка MySQL на ОС Linux — acteck.off</title>
-  <meta name="description" content="Установка MySQL на ОС Linux — учебные материалы по программированию.">
+  <title>Installing MySQL on Linux OS - acteck.off</title>
+  <meta name="description" content="Installing MySQL on Linux OS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,61 +36,28 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Установка MySQL на ОС Linux</h1>
-    <p>
-	ОС Linux включает в себя достаточно
-	много различных дистрибутивов. Дистрибутив -
-	это операционная система, основанная на
-	ядре Linux и включающая в себя различные
-	компоненты (утилиты, графические интерфейсы, библиотеки и
-	другие программные пакеты).
+    <h1>Installing MySQL on Linux OS</h1>
+    <p>The Linux OS includes quite a few different distributions. A distribution is an operating system based on the Linux kernel and includes various components (utilities, graphical interfaces, libraries and other software packages).</p>
+<p>Ubuntu is one of the most popular Linux distributions. Therefore, the installation of MySQL will be considered using the example of its latest stable version at this moment -<code data-gs="comd/n" data-x>22.04</code>. If you use other distributions, then to install MySQL I recommend going to<a href="https://dev.mysql.com/doc/refman/8.4/en/linux-installation.html">documentation</a>.
 </p>
-<p>
-	Ubuntu представляет собой один из наиболее
-	популярных дистрибутивов Linux. Поэтому установка
-	MySQL будет рассмотрена на примере его
-	последней стабильной версии к данному моменту -
-	<code data-gs="comd/n" data-x>22.04</code>. Если вы используете другие дистрибутивы, то для установки MySQL рекомендую обратиться к
-	<a href="https://dev.mysql.com/doc/refman/8.4/en/linux-installation.html">документации</a>.
-</p>
-<p>
-	Установку будем проводить через специальный пакетный менеджер
-	APT. Вначале давайте выполним
-	команду для обновления пакетного
-	менеджера:
-</p>
+<p>The installation will be carried out through a special package manager APT. First, let's run the command to update the package manager:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">sudo apt update</code>
 </div>
-<p>
-	Далее загружаем пакет <code data-gs="comd/c" data-x>mysql-server</code>:
+<p>Next, download the package<code data-gs="comd/c" data-x>mysql-server</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">sudo apt install mysql-server</code>
 </div>
-<p>
-	Теперь запускаем сервер <code data-gs="comd/c" data-x>mysql</code>
-	с помощью следующей
-	команды:
-</p>
+<p>Now let's start the server<code data-gs="comd/c" data-x>mysql</code>with the following command:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">sudo systemctl start mysql.service</code>
 </div>
-<p>
-	Затем приступим к настройке конфигурации
-	MySQL. Давайте сначала запустим безопасную
-	установку:
-</p>
+<p>Next, let's start setting up the MySQL configuration. Let's run the secure installation first:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">sudo mysql_secure_installation</code>
 </div>
-<p>
-	В терминале появятся сообщения, в которых вас попросят
-	внести изменения в параметры безопасности
-	MySQL. В первом сообщении будет
-	предложено настроить плагин проверки
-	надежности пароля для входа в БД:
-</p>
+<p>Messages will appear in the terminal asking you to make changes to your MySQL security settings. The first message will ask you to configure the password strength checker plugin for logging into the database:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="note">Securing the MySQL server deployment.
 
@@ -112,12 +79,7 @@ STRONG Length &gt;= 8, numeric, mixed case, special characters and dictionary   
 Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG:
 2</code>
 </div>
-<p>
-	Далее будет необходимо установить
-	пароль для пользователя root MySQL.
-	Введите и подтвердите безопасный
-	пароль:
-</p>
+<p>Next, you will need to set a password for the MySQL root user. Enter and confirm your secure password:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="note">Please set the password for root here.
 
@@ -125,102 +87,53 @@ New password:
 
 Re-enter new password:</code>
 </div>
-<p>
-	Если вы использовали плагин
-	проверки пароля, то появится сообщение
-	о надежности вашего нового пароля. Затем
-	появится вопрос, хотите ли вы продолжить
-	работу с этим паролем или хотите ввести
-	новый:
-</p>
+<p>If you used the password checker plugin, a message will appear indicating the strength of your new password. You will then be asked if you want to continue using this password or if you want to enter a new one:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="note">Estimated strength of the password: 100
 Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) : Y</code>
 </div>
-<p>
-	Для безопасной работы с БД
-	рекомендуется создать нового пользователя.
-	Вначале давайте зайдем
-	в среду MySQL:
-</p>
+<p>To work safely with the database, it is recommended to create a new user. First let's get into the MySQL environment:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">sudo mysql</code>
 </div>
-<p>
-	Далее создаем пользователя, который будет
-	идентифицироваться по паролю:
-</p>
+<p>Next, create a user who will be identified by password:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">CREATE USER 'username'@'host' IDENTIFIED WITH authentication_plugin BY 'password';</code>
 </div>
-<p>
-	Например, давайте создадим пользователя
-	<code data-gs="comd/c" data-x>admin</code>, который будет входить
-	в БД по паролю <code data-gs="comd/s" data-x>'123456'</code>:
+<p>For example, let's create a user<code data-gs="comd/c" data-x>admin</code>, which will enter the database using a password<code data-gs="comd/s" data-x>'123456'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">CREATE USER 'admin'@'localhost' IDENTIFIED WITH authentication_plugin BY '123456';</code>
 </div>
-<p>
-	После создания нового пользователя
-	вы можете предоставить ему
-	привилегии (разрешения) для работы
-	с данными. Общий синтаксис назначения
-	привилегий выглядит так:
-</p>
+<p>After creating a new user, you can grant him privileges (permissions) to work with data. The general syntax for assigning privileges is:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">GRANT PRIVILEGE ON database.table TO 'username'@'host';</code>
 </div>
-<p>
-	Значение <code data-gs="comd/c" data-x>PRIVILEGE</code> определяет, какие действия пользователю
-	разрешено выполнять с указанной базой данных и
-	таблицей. Вы можете предоставить несколько привилегий,
-	разделив их запятой:
-</p>
+<p>Meaning<code data-gs="comd/c" data-x>PRIVILEGE</code>determines what actions the user is allowed to perform on the specified database and table. You can grant multiple privileges by separating them with a comma:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'admin'@'localhost' WITH GRANT OPTION;</code>
 </div>
-<p>
-	Также можно назначить пользователю все привилегии сразу:
-</p>
+<p>You can also assign all privileges to a user at once:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;</code>
 </div>
-<p>
-	После этого прописываем команду <code data-gs="comd/c" data-x>FLUSH PRIVILEGES</code>.
-	Она нужна для освобождения памяти сервера:
-</p>
+<p>After that we write the command<code data-gs="comd/c" data-x>FLUSH PRIVILEGES</code>. It is needed to free up server memory:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">FLUSH PRIVILEGES;</code>
 </div>
-<p>
-	Затем выходим из среды MySQL:
-</p>
+<p>Then exit the MySQL environment:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">exit</code>
 </div>
-<p>
-	В следующий раз зайти
-	в БД MySQL можно с помощью
-	следующей команды
-	в терминале:
-</p>
+<p>Next time you can log into the MySQL database using the following command in the terminal:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">mysql -u admin -p</code>
 </div>
-<p>
-	Давайте проверим,
-	работает ли сервер MySQL.
-	Для этого пропишем
-	следующую команду:
-</p>
+<p>Let's check if the MySQL server is running. To do this, write the following command:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">systemctl status mysql.service</code>
 </div>
-<p>
-	После выполнения команды должно появится
-	следующее сообщение:
-</p>
+<p>After executing the command, the following message should appear:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="note">● mysql.service - MySQL Community Server
 		Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
@@ -234,25 +147,19 @@ Do you wish to continue with the password provided?(Press y|Y for Yes, any other
 		CGroup: /system.slice/mysql.service
 				└─2601 /usr/sbin/mysqld</code>
 </div>
-<p>
-	Если MySQL не запустилась, то нужно
-	выполнить следующую команду:
-</p>
+<p>If MySQL does not start, then you need to run the following command:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">sudo systemctl start mysql</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Установите MySQL. Убедитесь в терминале,
-		что MySQL активен.
-	</p>
+	<p>Install MySQL. Make sure in your terminal that MySQL is active.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дополнительные редьюсеры в Redux — acteck.off</title>
-  <meta name="description" content="Дополнительные редьюсеры в Redux — учебные материалы по программированию.">
+  <title>Additional reducers in Redux - acteck.off</title>
+  <meta name="description" content="Additional reducers in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,53 +36,21 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Дополнительные редьюсеры в Redux</h1>
-    <p>
-	Давайте откроем наше приложение с продуктами,
-	а в нем файл <code data-gs="comd/p" data-x>productsSlice.js</code>. Наверное вы
-	заметили, что мы создавали thunk <code data-gs="comd/c" data-x>fetchProducts</code>
-	как отдельную функцию? Мы сделали так, потому
-	что <code data-gs="comd/c" data-x>createSlice</code> не поддерживает определение
-	thunks. Как же нам в этом случае заставить
-	reducer слайса <code data-gs="comd/c" data-x>products</code> отвечать на экшены,
-	которые определены за пределами <code data-gs="comd/c" data-x>products</code>?
-	Ведь нам как раз нужно обработать экшены,
-	которые посылает thunk <code data-gs="comd/c" data-x>fetchProducts</code>.
+    <h1>Additional reducers in Redux</h1>
+    <p>Let's open our application with products, and in it there is a file<code data-gs="comd/p" data-x>productsSlice.js</code>. You probably noticed that we created thunk<code data-gs="comd/c" data-x>fetchProducts</code>as a separate function? We did this because<code data-gs="comd/c" data-x>createSlice</code>does not support defining thunks. How can we force the slice reducer in this case?<code data-gs="comd/c" data-x>products</code>respond to actions that are defined outside<code data-gs="comd/c" data-x>products</code>? After all, we just need to process the actions sent by thunk<code data-gs="comd/c" data-x>fetchProducts</code>.
 </p>
-<p>
-	Для таких случаев у <code data-gs="comd/c" data-x>createSlice</code> есть
-	свойство <code data-gs="comd/c" data-x>extraReducers</code>, которое позволяет
-	добавлять <dfn data-gs="comd/d" data-x>дополнительные редьюсеры</dfn>, которые
-	в свою очередь и будут обрабатывать экшены,
-	определенные не в данном слайсе.
-</p>
-<p>
-	Давайте теперь в теле функции <code data-gs="comd/c" data-x>createSlice</code>
-	после свойства <code data-gs="comd/c" data-x>reducers</code> со всеми редьюсерами
-	добавим еще один метод <code data-gs="comd/c" data-x>extraReducers</code>:
+<p>For such cases<code data-gs="comd/c" data-x>createSlice</code>there is a property<code data-gs="comd/c" data-x>extraReducers</code>, which allows you to add<dfn data-gs="comd/d" data-x>additional reducers</dfn>, which in turn will process actions that are not defined in this slice.</p>
+<p>Let's now in the body of the function<code data-gs="comd/c" data-x>createSlice</code>after property<code data-gs="comd/c" data-x>reducers</code>with all reducers we will add one more method<code data-gs="comd/c" data-x>extraReducers</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">extraReducers() {},</code>
 </div>
-<p>
-	Этому методу мы должны передать объект
-	<code data-gs="comd/c" data-x>builder</code>, у которого есть методы, с
-	помощью которых можно добавить
-	дополнительные редьюсеры:
-</p>
+<p>We must pass an object to this method<code data-gs="comd/c" data-x>builder</code>, which has methods with which you can add additional reducers:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">extraReducers(builder) {},</code>
 </div>
-<p>	
-	Мы будем использовать один из методов <code data-gs="comd/c" data-x>builder</code> -
-	<code data-gs="comd/c" data-x>addCase</code>, который первым параметром принимает
-	action creator, а вторым reducer. Один из
-	экшенов, который нам будет отправлять
-	<code data-gs="comd/c" data-x>fetchProducts</code> при запросе это
-	<code data-gs="comd/c" data-x>fetchProducts.pending</code>, что говорит нам
-	о том, что запрос отправлен. Давайте в этом
-	случае будем менять статус на <code data-gs="comd/s" data-x>'in progress'</code>
-	(до этого он был <code data-gs="comd/s" data-x>'idle'</code>):
+<p>We will use one of the methods<code data-gs="comd/c" data-x>builder</code> -
+	<code data-gs="comd/c" data-x>addCase</code>, which takes action creator as the first parameter, and reducer as the second. One of the actions that will be sent to us<code data-gs="comd/c" data-x>fetchProducts</code>when asked this<code data-gs="comd/c" data-x>fetchProducts.pending</code>, which tells us that the request has been sent. In this case, let's change the status to<code data-gs="comd/s" data-x>'in progress'</code>(before that he was<code data-gs="comd/s" data-x>'idle'</code>):
 </p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">extraReducers(builder) {
@@ -91,14 +59,7 @@
 	})
 },</code>
 </div>
-<p>
-	Теперь обработаем экшен, который отправится
-	в случае успешного запроса. Здесь мы будем
-	менять не только статус в стейте на
-	<code data-gs="comd/s" data-x>'success'</code>, но и заберем продукты в
-	слайс <code data-gs="comd/c" data-x>products</code> из <code data-gs="comd/c" data-x>payload</code> экшена.
-	Чтобы собрать все продукты нам понадобиться
-	метод <code data-gs="comd/c" data-x>concat</code>:
+<p>Now let's process the action that will be sent if the request is successful. Here we will change not only the status in the state to<code data-gs="comd/s" data-x>'success'</code>, but we will also take the products into a slice<code data-gs="comd/c" data-x>products</code>from<code data-gs="comd/c" data-x>payload</code>action. To collect all the products we need a method<code data-gs="comd/c" data-x>concat</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">extraReducers(builder) {
@@ -112,74 +73,36 @@
 		})
 },</code>
 </div>
-<p>
-	В случае неудачного запроса мы поменяем
-	статус на <code data-gs="comd/s" data-x>'fail'</code> и запишем в стейт
-	сообщение об ошибке:
-</p>
+<p>If the request is unsuccessful, we will change the status to<code data-gs="comd/s" data-x>'fail'</code>and write an error message to the state:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">.addCase(fetchProducts.rejected, (state, action) =&gt; {
 	state.status = 'fail'
 	state.error = action.error.message
 })</code>
 </div>
-<p>
-	Если мы сейчас запустим наше приложение
-	и в меню кликнем по <code data-gs="comd/s" data-x>'Products'</code>, то
-	через пару секунд (помните про задержку,
-	которую мы выставили на сервере?) увидим
-	список с продуктами.
+<p>If we now launch our application and click on<code data-gs="comd/s" data-x>'Products'</code>, then in a couple of seconds (remember the delay we set on the server?) we will see a list of products.</p>
+<p>We will also see changes in Redux DevTools. Now our products will appear in the state (look at the tab<code data-gs="comd/s" data-x>'State'</code>), if you clicked on the action<code data-gs="comd/c" data-x>products/fetchProducts/fulfilled</code>. A new status will also appear there.<code data-gs="comd/s" data-x>'success'</code>. Click on the action now<code data-gs="comd/c" data-x>products/fetchProducts/pending</code>and see how the tab is now different<code data-gs="comd/s" data-x>'State'</code>.
 </p>
-<p>
-	Toчно также мы увидим изменения и в Redux
-	DevTools. Теперь наши продукты появятся и
-	в стейте (посмотрите вкладку <code data-gs="comd/s" data-x>'State'</code>),
-	если вы кликнули по экшену
-	<code data-gs="comd/c" data-x>products/fetchProducts/fulfilled</code>.
-	Там же появится и новый статус <code data-gs="comd/s" data-x>'success'</code>.
-	Кликните теперь на экшен
-	<code data-gs="comd/c" data-x>products/fetchProducts/pending</code> и посмотрите,
-	чем теперь отличается вкладка <code data-gs="comd/s" data-x>'State'</code>.
-</p>
-<p>
-	Единственный неприятный момент, который
-	у вас может случиться (я говорил про это
-	на предыдущем уроке) - это дублирование
-	запроса данных. В результате чего, у нас
-	в списке получится не <code data-gs="comd/n" data-x>8</code>, а целых
-	<code data-gs="comd/n" data-x>16</code> продуктов и критические предупреждения
-	в консоли разработчика. Давайте
-	разберемся с этим на следующем уроке.
-</p>
+<p>The only unpleasant thing that can happen to you (I talked about this in the previous lesson) is duplicating the data request. As a result, we will not have any<code data-gs="comd/n" data-x>8</code>, and whole<code data-gs="comd/n" data-x>16</code>products and critical warnings in the developer console. Let's figure this out in the next lesson.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Откройте в нем файл <code data-gs="comd/p" data-x>studentsSlice.js</code>. В
-		теле функции <code data-gs="comd/c" data-x>createSlice</code> после свойства
-		<code data-gs="comd/c" data-x>reducers</code> добавьте свойство <code data-gs="comd/c" data-x>extraReducers</code>.
-		Передайте методу <code data-gs="comd/c" data-x>extraReducers</code> <code data-gs="comd/c" data-x>builder</code>.
+	<p>Open your application with students. Open the file in it<code data-gs="comd/p" data-x>studentsSlice.js</code>. In the function body<code data-gs="comd/c" data-x>createSlice</code>after property<code data-gs="comd/c" data-x>reducers</code>add property<code data-gs="comd/c" data-x>extraReducers</code>. Pass to method<code data-gs="comd/c" data-x>extraReducers</code> <code data-gs="comd/c" data-x>builder</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		С помощью метода <code data-gs="comd/c" data-x>builder.addCase</code>
-		добавьте обработку для экшенов <span data-gs="comd/y" data-x>pending</span>,
-		<span data-gs="comd/y" data-x>fulfilled</span> и <span data-gs="comd/y" data-x>rejected</span>, которые
-		отправляет <code data-gs="comd/c" data-x>fetchStudents</code> при запросе
-		данных, как показано в уроке.
-	</p>
+	<p>Using the method<code data-gs="comd/c" data-x>builder.addCase</code>add processing for actions<span data-gs="comd/y" data-x>pending</span>,
+		<span data-gs="comd/y" data-x>fulfilled</span>And<span data-gs="comd/y" data-x>rejected</span>which he sends<code data-gs="comd/c" data-x>fetchStudents</code>when querying data as shown in the tutorial.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../component-dispatch-thunk/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отправка thunk из компонента">← Отправка thunk из компонента</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../avoid-double-request/index.html" class="lesson-nav-btn lesson-nav-next" title="Устранение дублирования запроса.">Устранение дублирования запроса. →</a>
+      <a href="../component-dispatch-thunk/index.html" class="lesson-nav-btn lesson-nav-prev" title="Sending a thunk from a component">← Sending a thunk from a component</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../avoid-double-request/index.html" class="lesson-nav-btn lesson-nav-next" title="Eliminate request duplication.">Eliminate request duplication. →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

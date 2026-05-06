@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод addEventListener — acteck.off</title>
-  <meta name="description" content="Метод addEventListener — учебные материалы по программированию.">
+  <title>addEventListener method - acteck.off</title>
+  <meta name="description" content="addEventListener Method - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,32 +36,20 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод addEventListener</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>addEventListener</code> позволяет назначить
-	на элемент обработчики событий. С его помощью,
-	можно указать, например, что делать при клике
-	по кнопке или что делать при наборе текста
-	в текстовом поле. В первом параметре указываем
-	тип передаваемого события, во втором - функцию, которая
-	будет срабатывать после события, указанного
-	в первом параметре. В третьем необязательном параметре
-	передаем характеристики объекта (<code data-gs="comd/c" data-x>once</code>, <code data-gs="comd/c" data-x>capture</code>,
-	<code data-gs="comd/c" data-x>passive</code>) или параметр <code data-gs="comd/c" data-x>useCapture</code>.
+    <h1>addEventListener method</h1>
+    <p>Method<code data-gs="comd/c" data-x>addEventListener</code>allows you to assign event handlers to an element. With its help, you can specify, for example, what to do when you click on a button or what to do when typing in a text field. In the first parameter we indicate the type of event to be transmitted, in the second - the function that will be triggered after the event specified in the first parameter. In the third optional parameter we pass the characteristics of the object (<code data-gs="comd/c" data-x>once</code>, <code data-gs="comd/c" data-x>capture</code>,
+	<code data-gs="comd/c" data-x>passive</code>) or parameter<code data-gs="comd/c" data-x>useCapture</code>.
 </p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">элемент.addEventListener('тип события', функция, [характеристики объекта]);
 или
 элемент.addEventListener('тип события', функция, [useCapture]);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте сделаем так, чтобы при клике на кнопку выводилось
-	сообщение:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's make sure that when the button is clicked, a message is displayed:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="button" id="button" value="click me"&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let button = document.querySelector('#button');
@@ -105,12 +93,8 @@ button.addEventListener('click', function() {
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте напишем код, чтобы при потере фокуса в инпуте
-	выводилось сообщение с текстом этого
-	инпута:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's write the code so that when we lose focus in an input, a message is displayed with the text of this input:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="input" value="text"&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let input = document.querySelector('#input');
@@ -154,12 +138,8 @@ input.addEventListener('blur', function() {
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте сделаем так, чтобы при клике на кнопку
-	сообщение выводилось в консоль только один раз.
-	Для этого воспользуемся вторым параметром:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's make sure that when you click on the button, the message is displayed in the console only once. To do this, we will use the second parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="button" id="button" value="click me"&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let button = document.querySelector('#button');
@@ -174,13 +154,8 @@ button.addEventListener('click',
 );</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Параметр <code data-gs="comd/s" data-x>passive</code> запрещает вызывать метод
-	<code data-gs="comd/c" data-x>event.preventDefault</code> при обработке события.
-	Давайте к предыдущему примеру применим метод
-	<code data-gs="comd/c" data-x>event.preventDefault</code>, а также укажем в
-	параметре <code data-gs="comd/s" data-x>passive</code> значение <code data-gs="comd/c" data-x>true</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Parameter<code data-gs="comd/s" data-x>passive</code>prohibits calling the method<code data-gs="comd/c" data-x>event.preventDefault</code>when processing an event. Let's apply the method to the previous example<code data-gs="comd/c" data-x>event.preventDefault</code>, and also indicate in the parameter<code data-gs="comd/s" data-x>passive</code>meaning<code data-gs="comd/c" data-x>true</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="button" id="button" value="click me"&gt;</code>
@@ -196,27 +171,14 @@ button.addEventListener('click',
 	}
 );</code>
 </div>
-<p>
-	После выполнения кода
-	мы увидим следующие сообщения:
-</p>
+<p>After executing the code, we will see the following messages:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'No message';
 'Unable to preventDefault inside passive event listener invocation.'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Параметр <code data-gs="comd/c" data-x>useCapture</code> в значении
-	<code data-gs="comd/c" data-x>true</code> показывает всплытие событий
-	от внутреннего элемента до внешнего, при
-	значении <code data-gs="comd/c" data-x>false</code> - от внешнего
-	до внутреннего элемента. При передаче
-	параметра <code data-gs="comd/c" data-x>useCapture</code> его имя опускается
-	и записывает просто <code data-gs="comd/c" data-x>true</code> или <code data-gs="comd/c" data-x>false</code>.
-	Давайте посмотрим как всплывают события в родительском
-	и дочернем элементах при клике на них:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Parameter<code data-gs="comd/c" data-x>useCapture</code>in meaning<code data-gs="comd/c" data-x>true</code>shows the bubbling of events from the internal element to the external one, with the value<code data-gs="comd/c" data-x>false</code>- from external to internal element. When passing a parameter<code data-gs="comd/c" data-x>useCapture</code>his name is omitted and simply written<code data-gs="comd/c" data-x>true</code>or<code data-gs="comd/c" data-x>false</code>. Let's see how events pop up on parent and child elements when they are clicked:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;Parent
 	&lt;p id="child"&gt;Child&lt;/p&gt;
@@ -299,13 +261,10 @@ child.addEventListener('click',
 					</div>
 				</div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../removeEventListener/index.html"><code data-gs="comd/c" data-x>removeEventListener</code></a>, <br>
-			который отвязывает событие от элемента
-		</li>
+		<li>method<a href="../removeEventListener/index.html"><code data-gs="comd/c" data-x>removeEventListener</code></a>, <br>which unbinds an event from an element</li>
 	</ul>
 </div>
   </section>
@@ -313,7 +272,7 @@ child.addEventListener('click',
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

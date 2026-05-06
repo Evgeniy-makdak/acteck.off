@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Равенство по значению и типу в JavaScript — acteck.off</title>
-  <meta name="description" content="Равенство по значению и типу в JavaScript — учебные материалы по программированию.">
+  <title>Equality by value and type in JavaScript - acteck.off</title>
+  <meta name="description" content="Equality by Value and Type in JavaScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,22 +36,9 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Равенство по значению и типу в JavaScript</h1>
-    <p>
-	Пусть вы хотите сравнивать так, чтобы число
-	в кавычках не было равно такому же числу
-	без кавычек. Говоря другими словами, вы хотите
-	сравнивать так, чтобы сравнение было не только
-	по значению, но и по типу данных.
-</p>
-<p>
-	Для этого вместо оператора <code data-gs="comd/c" data-x>==</code> следует
-	использовать оператор <code data-gs="comd/c" data-x>===</code>. В следующем
-	примере при сравнении строки <code data-gs="comd/s" data-x>'3'</code> и
-	числа <code data-gs="comd/n" data-x>3</code> условие будет ложным,
-	так как переменные, хотя и равны по значению,
-	но не равны по типу:
-</p>
+    <h1>Equality by value and type in JavaScript</h1>
+    <p>Suppose you want to compare so that the number in quotes is not equal to the same number without quotes. In other words, you want to compare so that the comparison is not only by value, but also by data type.</p>
+<p>To do this, instead of the operator<code data-gs="comd/c" data-x>==</code>operator should be used<code data-gs="comd/c" data-x>===</code>. In the following example, when comparing a string<code data-gs="comd/s" data-x>'3'</code>and numbers<code data-gs="comd/n" data-x>3</code>the condition will be false, since the variables, although equal in value, are not equal in type:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">if ('3' === 3) {
 	console.log('+++');
@@ -59,10 +46,7 @@
 	console.log('---'); // сработает это
 }</code>
 </div>
-<p>
-	А вот при сравнении двух строк <code data-gs="comd/s" data-x>'3'</code>
-	условие будет истинно:
-</p>
+<p>But when comparing two strings<code data-gs="comd/s" data-x>'3'</code>the condition will be true:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">if ('3' === '3') {
 	console.log('+++'); // сработает это
@@ -70,9 +54,7 @@
 	console.log('---');
 }</code>
 </div>
-<p>
-	Так же, как и при сравнении чисел:
-</p>
+<p>The same as when comparing numbers:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">if (3 === 3) {
 	console.log('+++'); // сработает это
@@ -80,13 +62,7 @@
 	console.log('---');
 }</code>
 </div>
-<p>
-	Разница между оператором <code data-gs="comd/c" data-x>==</code> и оператором
-	<code data-gs="comd/c" data-x>===</code> проявляется именно тогда, когда
-	значения одинаковые, но разный тип данных.
-	В остальных случаях эти операторы работают
-	одинаково. К примеру, при сравнении разных
-	чисел, конечно же, выведется <code data-gs="comd/s" data-x>'---'</code>:
+<p>Difference between operator<code data-gs="comd/c" data-x>==</code>and operator<code data-gs="comd/c" data-x>===</code>It appears precisely when the values ​​are the same, but the data type is different. In other cases, these operators work the same. For example, when comparing different numbers, of course, it will display<code data-gs="comd/s" data-x>'---'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">if (2 === 3) {
@@ -96,10 +72,7 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		в консоль:
-	</p>
+	<p>Without running the code, determine what will be printed to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test1 = '3';
 let test2 = '3';
@@ -112,10 +85,7 @@ if (test1 == test2) {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		в консоль:
-	</p>
+	<p>Without running the code, determine what will be printed to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test1 = '3';
 let test2 = '3';
@@ -128,10 +98,7 @@ if (test1 === test2) {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		в консоль:
-	</p>
+	<p>Without running the code, determine what will be printed to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test1 = 3;
 let test2 = '3';
@@ -144,10 +111,7 @@ if (test1 == test2) {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		в консоль:
-	</p>
+	<p>Without running the code, determine what will be printed to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test1 = 3;
 let test2 = '3';
@@ -160,10 +124,7 @@ if (test1 === test2) {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		в консоль:
-	</p>
+	<p>Without running the code, determine what will be printed to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test1 = 3;
 let test2 = 3;
@@ -177,16 +138,16 @@ if (test1 === test2) {
 </div>
   
     <div class="lesson-nav">
-      <a href="../strings-numbers-equality/index.html" class="lesson-nav-btn lesson-nav-prev" title="Равенство строк и чисел">← Равенство строк и чисел</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../values-types-inequality/index.html" class="lesson-nav-btn lesson-nav-next" title="Неравенство по значению и типу">Неравенство по значению и типу →</a>
+      <a href="../strings-numbers-equality/index.html" class="lesson-nav-btn lesson-nav-prev" title="Equality between strings and numbers">← Equality between strings and numbers</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../values-types-inequality/index.html" class="lesson-nav-btn lesson-nav-next" title="Inequality by meaning and type">Inequality by value and type →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

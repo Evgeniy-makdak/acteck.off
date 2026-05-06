@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Двусторонняя привязка данных в Angular — acteck.off</title>
-  <meta name="description" content="Двусторонняя привязка данных в Angular — учебные материалы по программированию.">
+  <title>Two-way data binding in Angular - acteck.off</title>
+  <meta name="description" content="Two-Way Data Binding in Angular - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,24 +36,15 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Двусторонняя привязка данных в Angular</h1>
-    <p>
-	В Angular можно сделать так, чтобы по мере
-	ввода текста в инпут, этот текст автоматически
-	попадал в свойство класса. Это называется
-	<dfn data-gs="comd/d" data-x>двусторонняя привязка данных</dfn>. 
+    <h1>Two-way data binding in Angular</h1>
+    <p>In Angular, you can make it so that as you enter text into an input, this text automatically ends up in a class property. It's called<dfn data-gs="comd/d" data-x>two-way data binding</dfn>. 
 </p>
-<p>
-	Чтобы такая привязка заработала, для начала
-	ее необходимо включить. Для этого в файле
-	компонента импортируем <code data-gs="comd/c" data-x>FormsModule</code>: 
+<p>For this binding to work, you must first enable it. To do this, import in the component file<code data-gs="comd/c" data-x>FormsModule</code>: 
 </p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { FormsModule } from '@angular/forms';</code>
 </div>
-<p>
-	А затем добавляем в свойство <code data-gs="comd/c" data-x>imports</code>
-	декоратора <code data-gs="comd/c" data-x>@Component</code>: 
+<p>And then add it to the property<code data-gs="comd/c" data-x>imports</code>decorator<code data-gs="comd/c" data-x>@Component</code>: 
 </p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">@Component({
@@ -64,74 +55,45 @@
 	styleUrl: './app.component.css'
 })</code>
 </div>
-<p>
-	После этого двухсторонняя привязка данных
-	будет включена и мы можем ей воспользоваться.
-	Давайте сделаем это. 
-</p>
-<p>
-	Для начала объявим свойство класса, которое
-	мы затем подвергнем двухстороннему связыванию: 
-</p>
+<p>After this, two-way data binding will be enabled and we can use it. Let's do this.</p>
+<p>First, let's declare a class property, which we will then subject to two-way binding:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	public text: string = '';
 }</code>
 </div>
-<p>
-	Пусть у нас есть див и инпут. Пусть в диве
-	выводится некоторое свойство класса: 
-</p>
+<p>Let us have a div and an input. Let a div display some class property:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
 	{{ text }}
 &lt;/div&gt;
 &lt;input&gt;</code>
 </div>
-<p>
-	Давайте привяжем наше свойство <code data-gs="comd/c" data-x>text</code>
-	к изменению инпута. Для этого в инпуте
-	нужно написать специальную директиву <code data-gs="comd/c" data-x>[(ngModel)]</code>,
-	значением которой следует указать свойство
-	нашего класса: 
-</p>
+<p>Let's bind our property<code data-gs="comd/c" data-x>text</code>to change the input. To do this, you need to write a special directive in the input<code data-gs="comd/c" data-x>[(ngModel)]</code>, the value of which should indicate the property of our class:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
 	{{ text }}
 &lt;/div&gt;
 &lt;input [(ngModel)]="text"&gt;</code>
 </div>
-<p>
-	Теперь, если запустить код и начать вводить
-	текст в инпут, этот текст сразу же начнет
-	отображаться в диве. 
-</p>
+<p>Now, if you run the code and start entering text into the input, this text will immediately begin to display in the div.</p>
 <div data-w="cont/task">
-	<p>
-		Дан инпут и абзац. В инпут выводится число.
-		Сделайте так, чтобы по мере ввода числа в
-		инпут, в абзаце отображался квадрат этого
-		числа. 
-	</p>
+	<p>Given an input and a paragraph. The input displays a number. Make sure that as you enter a number into the input, the square of that number is displayed in the paragraph.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны два инпута и абзац. В инпуты вводятся
-		числа. Сделайте так, чтобы в абзаце
-		отображалась сумма введенных чисел. 
-	</p>
+	<p>Two inputs and a paragraph are given. Numbers are entered into the inputs. Make the paragraph display the sum of the entered numbers.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../reactivity-conditions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Реактивность условий">← Реактивность условий</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../styles/component/index.html" class="lesson-nav-btn lesson-nav-next" title="Стили компонента">Стили компонента →</a>
+      <a href="../reactivity-conditions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Reactivity of conditions">← Reactivity of conditions</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../styles/component/index.html" class="lesson-nav-btn lesson-nav-next" title="Component Styles">Component styles →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

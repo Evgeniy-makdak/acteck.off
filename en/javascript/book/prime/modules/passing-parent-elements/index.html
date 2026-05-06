@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Передача родительского элемента в модуль через замыкания в JavaScript — acteck.off</title>
-  <meta name="description" content="Передача родительского элемента в модуль через замыкания в JavaScript — учебные материалы по программированию.">
+  <title>Passing a parent element to a module via closures in JavaScript - acteck.off</title>
+  <meta name="description" content="Passing a Parent Element to a Module Using Closures in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Передача родительского элемента в модуль через замыкания в JavaScript</h1>
-    <p>
-	Пусть у нас есть следующие элементы:
-</p>
+    <h1>Passing a parent element to a module via closures in JavaScript</h1>
+    <p>Let us have the following elements:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="div1"&gt;1&lt;/div&gt;
 &lt;div id="div2"&gt;2&lt;/div&gt;
@@ -48,10 +46,7 @@
 
 &lt;button id="btn"&gt;click me&lt;/button&gt;</code>
 </div>
-<p>
-	Пусть с этими элементами работает следующий
-	модуль:
-</p>
+<p>Let the following module work with these elements:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function(selector1, selector2, selector3, selector4, selector5) {
 	let div1 = document.querySelector(selector1);
@@ -69,18 +64,8 @@
 	});
 })('#div1', '#div2', '#div3', '#res', '#btn');</code>
 </div>
-<p>
-	Как вы видите, количество передаваемых в
-	модуль параметров несколько великовато и
-	создает неудобства. Обычно в этом случае
-	поступают следующим образом: передают в модуль
-	общего родителя всех элементов, с которыми
-	работает наш модуль, а уже внутри модуля
-	получают из этого родителя различные элементы.
-</p>
-<p>
-	Давайте сделаем нашим тегам общего родителя:
-</p>
+<p>As you can see, the number of parameters passed to the module is somewhat large and creates inconvenience. Usually in this case they do the following: they transfer to the module the common parent of all the elements with which our module works, and within the module they receive various elements from this parent.</p>
+<p>Let's give our tags a common parent:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div id="div1"&gt;1&lt;/div&gt;
@@ -91,9 +76,7 @@
 	&lt;button id="btn"&gt;click me&lt;/button&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Переделаем теперь код модуля:
-</p>
+<p>Let's now rewrite the module code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function(root) {
 	let parent = document.querySelector(root);
@@ -114,24 +97,19 @@
 	});
 })('#parent');</code>
 </div>
-<p>
-	Таким образом получится, что родительский
-	элемент мы передаем в модуль снаружи и легко
-	можем его поменять. А дочерние элементы являются
-	внутренним делом модуля.
-</p>
+<p>Thus, it turns out that we transfer the parent element to the module from the outside and can easily change it. And child elements are an internal matter of the module.</p>
   
     <div class="lesson-nav">
-      <a href="../passing-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Передача параметров">← Передача параметров</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../passing-settings/index.html" class="lesson-nav-btn lesson-nav-next" title="Передача настроек модуля">Передача настроек модуля →</a>
+      <a href="../passing-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Passing parameters">← Transferring parameters</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../passing-settings/index.html" class="lesson-nav-btn lesson-nav-next" title="Transferring module settings">Transferring module settings →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

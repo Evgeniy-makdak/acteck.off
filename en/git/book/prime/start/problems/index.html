@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Проблема резервных копий — acteck.off</title>
-  <meta name="description" content="Проблема резервных копий — учебные материалы по программированию.">
+  <title>Backup problem - acteck.off</title>
+  <meta name="description" content="The Backup Problem - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,122 +36,27 @@
       <a href="../../../../../../en/git/index.html">Git</a>
     </div>
 
-    <h1>Проблема резервных копий</h1>
-    <p>
-	Представьте себе, что у вас есть некоторый
-	большой проект. Вы его пишите в какой-то
-	момент достигаете некоторой логической
-	завершенности и выкатываете версию <code data-gs="comd/n" data-x>1.0</code>,
-	которой начинают пользоваться юзеры.
-</p>
-<p>
-	Работа, однако, на этом не заканчивается
-	и вы выкатываете версию <code data-gs="comd/n" data-x>1.1</code> с исправлением
-	ошибок и дополнениями, потом версию <code data-gs="comd/n" data-x>1.2</code>,
-	потом <code data-gs="comd/n" data-x>1.3</code>, а потом все переписываете
-	заново и объявляете о выходе версии <code data-gs="comd/n" data-x>2.0</code>.
-	Ну и так далее - работа над проектом
-	обычно никогда не заканчивается.
-</p>
-<p>
-	В процессе разработки, однако, есть риск
-	что-то сломать в коде, либо случайно
-	удалить проект или его часть. Чтобы не потерять
-	всю работу, вы периодически сохраняете
-	код проекта в отдельную папку. Свои сохранки
-	вы просто нумеруете по порядку, указывая
-	некоторый комментарий к сохранке, о том,
-	какие изменения вы внесли или какой функционал
-	вы уже сделали к этому моменту сохранения.
-</p>
-<p>
-	Однако, вдруг оказалось, что нельзя просто
-	взять и выкатить версию <code data-gs="comd/n" data-x>2.0</code>, потому что 
-	пользователи первой версии возмущаются - они пока не готовы
-	переходить на вторую. Окей, говорите вы,
-	и начинаете работать над второй версией,
-	параллельно выпуская обновления в первую.
-	Ваш проект распадается на две папки - для
-	первой версии и для второй. Также распадается
-	папка для резервного копирования.
-	При этом часть кода первой и второй
-	версии одинаковы. Внося правки в этот
-	код в одной версии проекта, вы должны
-	не забыть внести правки и в другой
-	версии. Вы, однако, иногда забываете
-	это сделать. Появляются странные баги.
-	Работа стоит.
-</p>
-<p>
-	В процессе над версией <code data-gs="comd/n" data-x>2.0</code> вы решили
-	добавить новую фичу. Однако, делать ее долго
-	и вы решаете разбить вторую версию
-	на две папки, сдублировав код. В первой папке
-	вы будете вести дальнейшую разработку над вашим
-	проектом, а во второй делать придуманную
-	фичу. Наконец, фича доделана. За это время
-	основной проект стал уже версией <code data-gs="comd/n" data-x>2.3</code>.
-	Теперь вам нужно слить код с фичей с основным
-	кодом проекта. Вы начинаете копировать файлы
-	с кодом в основую папку, попутно разруливая
-	конфликты нового кода и старого. Это отнимает
-	у вас три рабочих дня. Работа стоит.
-</p>
-<p>
-	Проект вырос. Вы решаете позвать на помощь
-	друга. Вы выдаете другу задание и присылаете
-	ему архив с проектом. Друг делает задание
-	и возвращает вам архив с новыми файлами,
-	а также со старыми, в которые он внес изменения.
-	Полдня вы тратите на то, чтобы отделить
-	новые файлы от старых. Затем еще день
-	вы тратите на то, чтобы интегрировать
-	изменения в свои файлы.
-</p>
-<p>
-	Вы зовете на помощь еще двух друзей.
-	Теперь вас четверо. Ежедневно вам присылают
-	архивы со сделанной работой. Вы интегрируете
-	новые части в проект и рассылаете всем
-	архивы проекта с изменениями. Работа продвигается
-	медленно, так как пока вы интегрируете
-	одно изменение, ваши друзья ждут, пока
-	вы пришлете им новую версию проекта
-	и не могут работать дальше, чтобы
-	совсем не рассинхронизироваться.
-</p>
-<p>
-	В папке с резервными копиями уже содержатся
-	гигабайты кода. При этом в основном там лежат
-	дубли, ведь поменяв небольшую часть кода, вы
-	все равно сбрасываете весь проект целиком. Вы решаете
-	почистить эту папку, удалив первые сто
-	версий. Через неделю оказывается, что
-	в удаленных версиях был код отдельной фичи,
-	от которой вы тогда отказались, а теперь
-	решили вернуть. Но код с этой фичей уже
-	удален, и его нигде нет. Вы пишите эту
-	фичу заново. Работа стоит.
-</p>
-<p>
-	Звучит не очень, да? Однако, разработчики
-	действительно раньше работали так, как я
-	выше описал. Это, конечно же, было очень
-	неудобно. Поэтому появилась специальная
-	система Git, о возможностях которой мы
-	поговорим в следующем уроке.
-</p>
+    <h1>Backup problem</h1>
+    <p>Imagine that you have some big project. You write it, at some point you reach some logical completion and roll out a version<code data-gs="comd/n" data-x>1.0</code>, which users are starting to use.</p>
+<p>The work, however, does not end there and you roll out the version<code data-gs="comd/n" data-x>1.1</code>with bug fixes and additions, then a version<code data-gs="comd/n" data-x>1.2</code>, Then<code data-gs="comd/n" data-x>1.3</code>, and then you rewrite everything again and announce the release of the version<code data-gs="comd/n" data-x>2.0</code>. And so on - work on a project usually never ends.</p>
+<p>During the development process, however, there is a risk of breaking something in the code, or accidentally deleting the project or part of it. To avoid losing all your work, you periodically save the project code in a separate folder. You simply number your saves in order, indicating some comment on the save about what changes you have made or what functionality you have already done at this point in saving.</p>
+<p>However, it suddenly turned out that you can’t just roll out the version<code data-gs="comd/n" data-x>2.0</code>, because users of the first version are indignant - they are not yet ready to switch to the second. Okay, you say, and start working on the second version, while simultaneously releasing updates to the first. Your project is divided into two folders - for the first version and for the second. The backup folder also collapses. Moreover, some of the code of the first and second versions are the same. When you make changes to this code in one version of the project, you must remember to make changes in the other version. However, you sometimes forget to do this. Strange bugs appear. The work is worth it.</p>
+<p>Version in progress<code data-gs="comd/n" data-x>2.0</code>you decide to add a new feature. However, it takes a long time to do it and you decide to split the second version into two folders, duplicating the code. In the first folder you will conduct further development on your project, and in the second you will create an invented feature. Finally, the feature is completed. During this time, the main project has already become a version<code data-gs="comd/n" data-x>2.3</code>. Now you need to merge the code from the feature with the main project code. You start copying files with code into the main folder, simultaneously resolving conflicts between the new code and the old. This takes you three working days. The work is worth it.</p>
+<p>The project has grown. You decide to call a friend for help. You give a friend a task and send him an archive with the project. A friend completes the task and returns you an archive with new files, as well as old ones to which he has made changes. You spend half a day separating new files from old ones. Then you spend another day integrating the changes into your files.</p>
+<p>You call two more friends for help. Now there are four of you. Every day you are sent archives of completed work. You integrate new parts into the project and send out project archives with changes to everyone. The work progresses slowly, because while you are integrating one change, your friends are waiting for you to send them a new version of the project and cannot work further, lest they become completely out of sync.</p>
+<p>The backup folder already contains gigabytes of code. At the same time, there are mostly duplicates there, because if you change a small part of the code, you still reset the entire project. You decide to clean out this folder by deleting the first hundred versions. A week later, it turns out that the deleted versions contained code for a separate feature, which you then abandoned, and now decided to return. But the code with this feature has already been deleted and is nowhere to be found. You write this feature again. The work is worth it.</p>
+<p>Doesn't sound like much, right? However, the developers actually used to work as I described above. This, of course, was very inconvenient. Therefore, a special Git system appeared, the capabilities of which we will talk about in the next lesson.</p>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../git-system/index.html" class="lesson-nav-btn lesson-nav-next" title="Система Git">Система Git →</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../git-system/index.html" class="lesson-nav-btn lesson-nav-next" title="Git system">Git system →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

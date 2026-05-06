@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Объект события event в jQuery — acteck.off</title>
-  <meta name="description" content="Объект события event в jQuery — учебные материалы по программированию.">
+  <title>jQuery event object - acteck.off</title>
+  <meta name="description" content="Event Object in jQuery - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,21 +36,10 @@
       <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Объект события event в jQuery</h1>
-    <p>
-	А сейчас мы приступим к знакомству с событиями в jQuery.
-</p>
-<p>
-	При срабатывании события в jQuery
-	генерируется объект события
-	<a href="../../../../manual/event/index.html"><code data-gs="comd/c" data-x>event</code></a>,
-	который содержит всю информацию о нем. Данный
-	объект передается в функцию-обработчик.
-</p>
-<p>
-	Например, давайте узнаем на какой тег мы
-	кликаем. Возьмем следующий HTML код:
-</p>
+    <h1>Event object in jQuery</h1>
+    <p>Now we'll get started with events in jQuery.</p>
+<p>When an event fires in jQuery, an event object is generated<a href="../../../../manual/event/index.html"><code data-gs="comd/c" data-x>event</code></a>, which contains all the information about it. This object is passed to the handler function.</p>
+<p>For example, let's find out which tag we click on. Let's take the following HTML code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;body&gt;
 	&lt;div id="text"&gt;&lt;/div&gt;
@@ -61,9 +50,7 @@
 	&lt;/div&gt;
 &lt;/body&gt;</code>
 </div>
-<p>
-	CSS выглядит следующим образом:
-</p>
+<p>The CSS looks like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">span, strong, p {
 	display: block;
@@ -71,35 +58,28 @@
 	border: 1px solid black;
 }</code>
 </div>
-<p>
-	Теперь воспользуемся свойством
-	<code data-gs="comd/c" data-x>event.target.nodeName</code> нашего объекта
-	<code data-gs="comd/c" data-x>event</code>, который в свою очередь мы передаём
-	в функцию-обработчик метода <code data-gs="comd/c" data-x>click</code>:
+<p>Now let's use the property<code data-gs="comd/c" data-x>event.target.nodeName</code>our object<code data-gs="comd/c" data-x>event</code>, which in turn we pass to the method handler function<code data-gs="comd/c" data-x>click</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('body').click(function(event) {
 	$('#text').html('clicked: ' + event.target.nodeName);
 });</code>
 </div>
-<p>
-	Объект <code data-gs="comd/c" data-x>event</code> содержит множество свойств
-	и методов.
-</p>
+<p>Object<code data-gs="comd/c" data-x>event</code>contains many properties and methods.</p>
 <div data-w="cont/teor">
 	<a href="../../../../manual/event/index.html"><code data-gs="comd/c" data-x>event</code></a>
 </div>
     <div class="lesson-nav">
-      <a href="../../set/data-elements/index.html" class="lesson-nav-btn lesson-nav-prev" title="Работа с данными в элементах">← Работа с данными в элементах</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../binding/index.html" class="lesson-nav-btn lesson-nav-next" title="Привязывание событий">Привязывание событий →</a>
+      <a href="../../set/data-elements/index.html" class="lesson-nav-btn lesson-nav-prev" title="Working with data in elements">← Working with data in elements</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../binding/index.html" class="lesson-nav-btn lesson-nav-next" title="Event Binding">Event binding →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Функции в LESS — acteck.off</title>
-  <meta name="description" content="Функции в LESS — учебные материалы по программированию.">
+  <title>Functions in LESS - acteck.off</title>
+  <meta name="description" content="Functions in LESS - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,82 +33,53 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Функции в LESS</h1>
-    <p>
-	В этом уроке мы рассмотрим, как использовать
-	функции. Функции, чем-то похожи на примешивание,
-	но при этом позволяют добавлять параметры,
-	которые могут менять свои значения.
-</p>
-<p>
-	Эти параметры передаются в круглых скобках
-	функции. Посмотрим на примере.
-</p>
-<p>
-	Давайте сделаем функцию <code data-gs="comd/c" data-x>fs</code>, которая
-	будет задавать размер шрифта. Пусть размер
-	передается параметром. В качестве параметра
-	будет выступать переменная, имя которой мы
-	придумываем при объявлении функции:
-</p>
+    <h1>Functions in LESS</h1>
+    <p>In this tutorial we will look at how to use functions. Functions are somewhat similar to mixing, but at the same time they allow you to add parameters that can change their values.</p>
+<p>These parameters are passed in parentheses to the function. Let's look at an example.</p>
+<p>Let's make a function<code data-gs="comd/c" data-x>fs</code>, which will set the font size. Let the size be passed as a parameter. The parameter will be a variable whose name we come up with when declaring the function:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">.fs(@size) {
 	// тут будет код функции
 }</code>
 </div>
-<p>
-	Давайте укажем внутри функции, куда должно
-	вставится значение нашего параметра:
-</p>
+<p>Let's indicate inside the function where the value of our parameter should be inserted:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">.fs(@size) {
 	font-size: @size;
 }</code>
 </div>
-<p>
-	Вызовем нашу функцию, передав ей в качестве
-	параметра желаемый размер элемента:
-</p>
+<p>Let's call our function, passing it the desired element size as a parameter:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">p {
 	.fs(20px);
 }</code>
 </div>
-<p>
-	В результате после компиляции размер шрифта
-	абзаца станет равен указанному значению:
-</p>
+<p>As a result, after compilation, the paragraph font size will be equal to the specified value:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
 	font-size: 20px;
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте функцию <code data-gs="comd/c" data-x>w()</code>, которая будет
-		задавать ширину элементу.
-	</p>
+	<p>Make a function<code data-gs="comd/c" data-x>w()</code>, which will set the width of the element.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте функцию <code data-gs="comd/c" data-x>h()</code>, которая будет
-		задавать высоту элементу.
-	</p>
+	<p>Make a function<code data-gs="comd/c" data-x>h()</code>, which will set the height of the element.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../namespaces/index.html" class="lesson-nav-btn lesson-nav-prev" title="Пространства имен">← Пространства имен</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../functions-several-parameters/index.html" class="lesson-nav-btn lesson-nav-next" title="Несколько параметров в функциях">Несколько параметров в функциях →</a>
+      <a href="../namespaces/index.html" class="lesson-nav-btn lesson-nav-prev" title="Namespaces">← Namespaces</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../functions-several-parameters/index.html" class="lesson-nav-btn lesson-nav-next" title="Multiple parameters in functions">Multiple parameters in functions →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

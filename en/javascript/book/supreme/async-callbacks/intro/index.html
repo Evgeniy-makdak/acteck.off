@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Асинхронный код с коллбэками в JavaScript — acteck.off</title>
-  <meta name="description" content="Асинхронный код с коллбэками в JavaScript — учебные материалы по программированию.">
+  <title>Asynchronous code with callbacks in JavaScript - acteck.off</title>
+  <meta name="description" content="Asynchronous code with callbacks in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Асинхронный код с коллбэками в JavaScript</h1>
-    <p>
-	Пусть у нас есть некоторая асинхронная
-	функция:
-</p>
+    <h1>Asynchronous code with callbacks in JavaScript</h1>
+    <p>Let's say we have some asynchronous function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function make() {
 	setTimeout(function() {
@@ -48,41 +45,21 @@
 	}, 3000);
 }</code>
 </div>
-<p>
-	Пусть мы используем эту функцию
-	следующим образом:
-</p>
+<p>Let's use this function like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">make();
 console.log('2'); // выполнится первым</code>
 </div>
-<p>
-	Пусть мы хотим сделать так, чтобы второй
-	вывод в консоль выполнился после того,
-	как выполнится асинхронная операция
-	внутри функции.
-	Одним из подходов, используемых для этого,
-	является использование <a href="../../../prime/functions/nested/callbacks/index.html">коллбэка</a>:
-	обернем ожидающий код в анонимную функцию
-	и передадим параметром в функцию <code data-gs="comd/c" data-x>make</code>:
+<p>Let's say we want to make the second output to the console happen after the asynchronous operation inside the function is completed. One approach used for this is to use<a href="../../../prime/functions/nested/callbacks/index.html">callback</a>: wrap the waiting code in an anonymous function and pass it as a parameter to the function<code data-gs="comd/c" data-x>make</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">make(function() {
 	console.log('2');
 });</code>
 </div>
-<p>
-	Конечно же, само по себе это не решит нашу
-	задачу. Пока мы просто заключили следующее
-	соглашение: <i>при желании выполнить код после
-	срабатывания <code data-gs="comd/c" data-x>make</code> передайте этот код
-	коллбэком в вызов <code data-gs="comd/c" data-x>make</code></i>.
+<p>Of course, this alone will not solve our problem. For now we just made the following agreement:<i>optionally execute the code after triggering<code data-gs="comd/c" data-x>make</code>pass this code as a callback to the call<code data-gs="comd/c" data-x>make</code></i>.
 </p>
-<p>
-	Исправим код функции <code data-gs="comd/c" data-x>make</code> так, чтобы
-	она начала работать в соответствии с нашим
-	соглашением:
-</p>
+<p>Let's fix the function code<code data-gs="comd/c" data-x>make</code>so that it starts working according to our agreement:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function make(callback) {
 	setTimeout(function() {
@@ -92,10 +69,7 @@ console.log('2'); // выполнится первым</code>
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, в каком порядке выведутся
-		числа в консоль:
-	</p>
+	<p>Tell us in what order the numbers will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function make(callback) {
 	setTimeout(function() {
@@ -112,16 +86,16 @@ make(function() {
 </div>
   
     <div class="lesson-nav">
-      <a href="../../asynchrony/exceptions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Исключительные ситуации в асинхронном коде">← Исключительные ситуации в асинхронном коде</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../passing-result/index.html" class="lesson-nav-btn lesson-nav-next" title="Асинхронная передача результата в коллбэк">Асинхронная передача результата в коллбэк →</a>
+      <a href="../../asynchrony/exceptions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Exceptions in asynchronous code">← Exceptional situations in asynchronous code</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../passing-result/index.html" class="lesson-nav-btn lesson-nav-next" title="Asynchronously passing the result to the callback">Asynchronous transmission of the result to the callback →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

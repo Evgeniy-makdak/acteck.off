@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ошибки с единицами измерения в JavaScript — acteck.off</title>
-  <meta name="description" content="Ошибки с единицами измерения в JavaScript — учебные материалы по программированию.">
+  <title>Errors with units of measurement in JavaScript - acteck.off</title>
+  <meta name="description" content="JavaScript Unit Errors - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,40 +36,25 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Ошибки с единицами измерения в JavaScript</h1>
-    <p>
-	Часто легко ошибиться и забыть про
-	единицы измерения. Например, так:
-</p>
+    <h1>Errors with units of measurement in JavaScript</h1>
+    <p>It is often easy to make mistakes and forget about units of measurement. For example, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let width = 100;
 elem.style.width = width; // упс...</code>
 </div>
-<p>
-	Правильно будет указать значение
-	в пикселях:
-</p>
+<p>It would be correct to specify the value in pixels:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let width = 100;
 elem.style.width = width + 'px';</code>
 </div>
-<p>
-	Представим себе, что мы хотим увеличить
-	ширину на некоторое значение. Для этого
-	нам сначала нужно прочитать ширину,
-	затем извлечь число, прибавить к нему
-	нужное значение, добавить <code data-gs="comd/s" data-x>'px'</code>
-	и только потом записать обратно:
-</p>
+<p>Let's imagine that we want to increase the width by some amount. To do this, we first need to read the width, then extract the number, add the desired value to it, add<code data-gs="comd/s" data-x>'px'</code>and only then write it back:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let widthPx = elem.style.width;
 let widthNm = parseInt(widthPx);
 elem.style.width = (widthNm + 30) + 'px';</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Объясните, в чем ошибка в следующем коде:
-	</p>
+	<p>Explain what is wrong in the following code:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div style="font-size: 16px;"&gt;
 	text
@@ -79,9 +64,7 @@ elem.style.fontSize = elem.style.fontSize + 2;</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Объясните, в чем ошибка в следующем коде:
-	</p>
+	<p>Explain what is wrong in the following code:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div style="font-size: 16px;"&gt;
 	text
@@ -91,9 +74,7 @@ elem.style.fontSize = parseInt(elem.style.fontSize + 2) + 'px';</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Объясните, в чем ошибка в следующем коде:
-	</p>
+	<p>Explain what is wrong in the following code:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div style="font-size: 2.5em;"&gt;
 	text
@@ -103,47 +84,37 @@ elem.style.fontSize = parseInt(elem.style.fontSize) + 2 + 'em';</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан див:
-	</p>
+	<p>Dan div:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem" style="width: 300px; height: 200px; border: 1px solid red;"&gt;
 	text
 &lt;/div&gt;</code>
 	</div>
-	<p>
-		Дана также кнопка. По клику на кнопку
-		увеличьте ширину и высоту дива на
-		<code data-gs="comd/u" data-x>50px</code>.
+	<p>A button is also given. By clicking on the button, increase the width and height of the div by<code data-gs="comd/u" data-x>50px</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан див:
-	</p>
+	<p>Dan div:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem" style="width: 300px; height: 200px; border: 1px solid red;"&gt;
 	text
 &lt;/div&gt;</code>
 	</div>
-	<p>
-		Дана также кнопка. По клику на кнопку
-		увеличьте ширину и высоту дива на
-		<code data-gs="comd/u" data-x>10%</code>.
+	<p>A button is also given. By clicking on the button, increase the width and height of the div by<code data-gs="comd/u" data-x>10%</code>.
 	</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../attribute-units/index.html" class="lesson-nav-btn lesson-nav-prev" title="Единицы измерения в атрибуте style">← Единицы измерения в атрибуте style</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../unpacking-values/index.html" class="lesson-nav-btn lesson-nav-next" title="Распаковка значений CSS свойств">Распаковка значений CSS свойств →</a>
+      <a href="../attribute-units/index.html" class="lesson-nav-btn lesson-nav-prev" title="Units of measurement in the style attribute">← Units of measurement in the style attribute</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../unpacking-values/index.html" class="lesson-nav-btn lesson-nav-next" title="Unpacking CSS Property Values">Unpacking CSS property values ​​→</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

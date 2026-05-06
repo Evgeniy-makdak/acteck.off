@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Три встроенных итератора в JavaScript — acteck.off</title>
-  <meta name="description" content="Три встроенных итератора в JavaScript — учебные материалы по программированию.">
+  <title>Three built-in iterators in JavaScript - acteck.off</title>
+  <meta name="description" content="Three Built-in Iterators in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,20 +36,10 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Три встроенных итератора в JavaScript</h1>
-    <p>
-	На самом деле каждый итерируемый объект
-	содержит не один итератор, а три:
-	<code data-gs="comd/c" data-x>values</code>, <code data-gs="comd/c" data-x>keys</code> и <code data-gs="comd/c" data-x>entries</code>.
-	Для каждого типа объектов по умолчанию применяется
-	свой итератор. Для массивов - это <code data-gs="comd/c" data-x>values</code>,
-	а, например, для коллекции <code data-gs="comd/c" data-x>Map</code>,
-	это <code data-gs="comd/c" data-x>entries</code>.
+    <h1>Three built-in iterators in JavaScript</h1>
+    <p>In fact, each iterable object contains not one iterator, but three:<code data-gs="comd/c" data-x>values</code>, <code data-gs="comd/c" data-x>keys</code>And<code data-gs="comd/c" data-x>entries</code>. Each object type has its own default iterator. For arrays this is<code data-gs="comd/c" data-x>values</code>, and, for example, for a collection<code data-gs="comd/c" data-x>Map</code>, This<code data-gs="comd/c" data-x>entries</code>.
 </p>
-<p>
-	Обладая этими знаниями, мы теперь можем
-	применить этот принцип к любой коллекции.
-	Например, пусть у нас есть коллекция <code data-gs="comd/c" data-x>Map</code>:
+<p>With this knowledge, we can now apply this principle to any collection. For example, let's say we have a collection<code data-gs="comd/c" data-x>Map</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let map = new Map();
@@ -57,50 +47,40 @@ map.set('a', 1);
 map.set('b', 2);
 map.set('c', 3);</code>
 </div>
-<p>
-	По умолчанию для этой коллекции применяется
-	итератор <code data-gs="comd/c" data-x>entries</code>:
+<p>The default iterator for this collection is<code data-gs="comd/c" data-x>entries</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of map) {
 	console.log(elem); // ['a', 1], ['b', 2], ['c', 3]
 }</code>
 </div>
-<p>
-	Но мы легко можем получить ключи
-	нашей коллекции:
-</p>
+<p>But we can easily get the keys of our collection:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of map.keys()) {
 	console.log(elem); // 'a', 'b', 'c'
 }</code>
 </div>
-<p>
-	Также можем получить и значения:
-</p>
+<p>We can also get the values:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of map.values()) {
 	console.log(elem); // 1, 2, 3
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Какой итератор по умолчанию действует
-		в коллекции Set?
-	</p>
+	<p>What is the default iterator for a Set collection?</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../inbuilt-iterator-entries/index.html" class="lesson-nav-btn lesson-nav-prev" title="Встроенный итератор entries">← Встроенный итератор entries</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../spread/index.html" class="lesson-nav-btn lesson-nav-next" title="Оператор spread и итераторы">Оператор spread и итераторы →</a>
+      <a href="../inbuilt-iterator-entries/index.html" class="lesson-nav-btn lesson-nav-prev" title="Built-in iterator entries">← Built-in iterator entries</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../spread/index.html" class="lesson-nav-btn lesson-nav-next" title="spread operator and iterators">spread operator and iterators →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

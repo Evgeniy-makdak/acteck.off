@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отмена математических операций в LESS — acteck.off</title>
-  <meta name="description" content="Отмена математических операций в LESS — учебные материалы по программированию.">
+  <title>Undoing math operations in LESS - acteck.off</title>
+  <meta name="description" content="Undoing Math in LESS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,49 +33,27 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Отмена математических операций в LESS</h1>
-    <p>
-	Иногда бывают ситуации, когда у нас есть
-	некая математическая операция, которая не
-	должна быть воспринята LESS как команда на
-	вычисление. Например, такая проблема возникает
-	в CSS функции <a href="../../../../manual/css/function/calc/index.html"><code data-gs="comd/c" data-x>calc</code></a>:
+    <h1>Undoing Math Operations in LESS</h1>
+    <p>Sometimes there are situations when we have some kind of mathematical operation that should not be perceived by LESS as a command to calculate. For example, this problem occurs in the CSS function<a href="../../../../manual/css/function/calc/index.html"><code data-gs="comd/c" data-x>calc</code></a>:
 </p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
 	width: calc(100% - 10px);
 }</code>
 </div>
-<p>
-	К счастью, LESS умеет корректно обрабатывать
-	такие места и не произведет вычисление при
-	компиляции.
-</p>
-<p>
-	Бывают, однако, ситуации, когда выражение,
-	не требующее вычисления, находится в другом
-	месте, например, в переменной, вот так:
-</p>
+<p>Fortunately, LESS can handle such places correctly and will not perform the calculation during compilation.</p>
+<p>There are, however, situations when the expression that does not require evaluation is located in another place, for example, in a variable, like this:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">@exp: 100% - 10px;
 div {
 	width: calc(@exp);
 }</code>
 </div>
-<p>
-	В этом случае в переменную запишется результат
-	вычисления, и в <code data-gs="comd/c" data-x>calc</code> отправится переменная
-	с вычисленным значением. Чтобы такого не
-	произошло, мы можем явно указать, что выражение
-	должно остаться в неизменной виде.
-</p>
-<p>
-	Для этого выражение нужно взять в кавычки
-	и поставить перед ним знак тильды:
-</p>
+<p>In this case, the result of the calculation will be written to the variable, and<code data-gs="comd/c" data-x>calc</code>a variable with the calculated value will be sent. To prevent this from happening, we can explicitly specify that the expression must remain unchanged.</p>
+<p>To do this, you need to put the expression in quotes and put a tilde sign in front of it:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">@exp: ~'100% - 10px';
 div {
@@ -83,10 +61,7 @@ div {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Исправьте код, чтобы он заработал корректным
-		образом:
-	</p>
+	<p>Correct the code so that it works correctly:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@exp1: 80% + 10px;
 @exp2: 30vh - 10px;
@@ -98,16 +73,16 @@ div {
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../math-operations/index.html" class="lesson-nav-btn lesson-nav-prev" title="Математические операции">← Математические операции</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../mixins/index.html" class="lesson-nav-btn lesson-nav-next" title="Миксины">Миксины →</a>
+      <a href="../math-operations/index.html" class="lesson-nav-btn lesson-nav-prev" title="Mathematical operations">← Mathematical operations</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../mixins/index.html" class="lesson-nav-btn lesson-nav-next" title="Hagfish">Mixins →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

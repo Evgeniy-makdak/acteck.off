@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Группировка роутов в NextJS — acteck.off</title>
-  <meta name="description" content="Группировка роутов в NextJS — учебные материалы по программированию.">
+  <title>Grouping routes in NextJS - acteck.off</title>
+  <meta name="description" content="Grouping routes in NextJS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,62 +36,39 @@
       <a href="../../../../../../../../en/next/index.html">Next.js</a>
     </div>
 
-    <h1>Группировка роутов в NextJS</h1>
-    <p>
-	Иногда нам может потребоваться для удобства
-	сгруппировать несколько роутов в одну папку
-	так, чтобы группирующая папка не создавала
-	отдельный сегмент в URL.
+    <h1>Grouping routes in NextJS</h1>
+    <p>Sometimes we may need to conveniently group several routes into one folder so that the grouping folder does not create a separate segment in the URL.</p>
+<p>To do this, the name of the grouping folder should be placed in parentheses. Let's look at an example.</p>
+<p>Let by URL<code data-gs="comd/p" data-x>/reg</code>we want to register, and by URL<code data-gs="comd/p" data-x>/log</code>- authorization. Let's combine the folders corresponding to these URLs into one common folder called<code data-gs="comd/p" data-x>(auth)</code>.
 </p>
-<p>
-	Для этого имя группирующей папки
-	следует взять в круглые скобки.
-	Давайте посмотрим на примере.
-</p>
-<p>
-	Пусть по URL <code data-gs="comd/p" data-x>/reg</code> мы хотим сделать
-	регистрацию, а по URL <code data-gs="comd/p" data-x>/log</code> - авторизацию.
-	Объединим папки, соответствующие этим URL
-	в одну общую папку с именем <code data-gs="comd/p" data-x>(auth)</code>.
-</p>
-<p>
-	Таким образом у нас получится следующая
-	файловая структура:
-</p>
+<p>This gives us the following file structure:</p>
 <div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/app/<ul><li data-s-type="D">/(auth)/<ul><li data-s-type="D">/reg/<ul><li data-s-type="F">page.jsx</li></ul></li><li data-s-type="D">/log/<ul><li data-s-type="F">page.jsx</li></ul></li></ul></li></ul></li></ul></div></div>
-<p>
-	Сделаем файл для страницы регистрации:
-</p>
+<p>Let's create a file for the registration page:</p>
 <div data-p="bock/pane" data-p-file="app/(auth)/reg/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Reg() {
 	return &lt;h1&gt;register&lt;/h1&gt;;
 }</code>
 </div>
-<p>
-	Сделаем файл для страницы авторизации:
-</p>
+<p>Let's create a file for the login page:</p>
 <div data-p="bock/pane" data-p-file="app/(auth)/log/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Log() {
 	return &lt;h1&gt;login&lt;/h1&gt;;
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Проделайте описанные в уроки манипуляции.
-		Убедитесь, что все работает, как ожидается.
-	</p>
+	<p>Perform the manipulations described in the lessons. Make sure everything works as expected.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../invalid-param-error/index.html" class="lesson-nav-btn lesson-nav-prev" title="Ошибка недопустимого параметра">← Ошибка недопустимого параметра</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../private-folders/index.html" class="lesson-nav-btn lesson-nav-next" title="Приватные папки">Приватные папки →</a>
+      <a href="../invalid-param-error/index.html" class="lesson-nav-btn lesson-nav-prev" title="Invalid parameter error">← Invalid parameter error</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../private-folders/index.html" class="lesson-nav-btn lesson-nav-next" title="Private folders">Private folders →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

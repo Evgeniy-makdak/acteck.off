@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обновление контекста в React — acteck.off</title>
-  <meta name="description" content="Обновление контекста в React — учебные материалы по программированию.">
+  <title>Updating context in React - acteck.off</title>
+  <meta name="description" content="Updating Context in React - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,26 +36,11 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Обновление контекста в React</h1>
-    <p>
-	В этом уроке мы рассмотрим обновление
-	компонентов при смене значения контекста.
-	Предположим вы захотите, чтобы контекст
-	менялся.
+    <h1>Updating Context in React</h1>
+    <p>In this tutorial we will look at updating components when the context value changes. Let's say you want the context to change.</p>
+<p>In this case, it is useful to use context in conjunction with states. Let's slightly change our application with boxes, which we did in the last lesson and make sure that when the button is pressed, the value transferred becomes<code data-gs="comd/s" data-x>'metal box :)'</code>.
 </p>
-<p>
-	В этом случае полезно применять контекст
-	в связке со стейтами. Давайте немного
-	изменим наше приложение с коробочками,
-	которое мы делали на прошлом уроке и
-	сделаем так, чтобы по нажатию на кнопку
-	передаваемое значение стало бы
-	<code data-gs="comd/s" data-x>'metal box :)'</code>.
-</p>
-<p>
-	Итак, возьмем наш файл <code data-gs="comd/c" data-x>App</code> и после
-	<code data-gs="comd/c" data-x>BigBox</code> нарисуем кнопочку:
-</p>
+<p>So let's take our file<code data-gs="comd/c" data-x>App</code>and after<code data-gs="comd/c" data-x>BigBox</code>Let's draw a button:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return (
@@ -66,22 +51,14 @@
 	);
 }</code>
 </div>
-<p>
-	Далее импортируем хук <code data-gs="comd/c" data-x>useState</code> и заведем
-	стейт <code data-gs="comd/c" data-x>name</code>, значение которого будет
-	меняться по нажатию кнопки. Сделаем ему
-	начальным значением то, которое мы сразу
-	передавали значением контекста, то есть
-	<code data-gs="comd/s" data-x>'small box :)'</code>: 
+<p>Next we import the hook<code data-gs="comd/c" data-x>useState</code>and let's start a state<code data-gs="comd/c" data-x>name</code>, the value of which will change when the button is pressed. Let’s make it the initial value that we immediately passed as the context value, that is<code data-gs="comd/s" data-x>'small box :)'</code>: 
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [name, setName] = useState('small box :)');
 }</code>
 </div>
-<p>
-	На этот раз контекстом мы будем передавать
-	не строку, а стейт <code data-gs="comd/c" data-x>name</code>:
+<p>This time we will be passing a state rather than a string as context<code data-gs="comd/c" data-x>name</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;MyContext.Provider value={name}&gt;
@@ -89,43 +66,27 @@
 	&lt;button&gt;click&lt;/button&gt;
 &lt;/MyContext.Provider&gt;</code>
 </div>
-<p>
-	В качестве последнего шага мы будем вызывать
-	обработчик клика по кнопке и с помощью функции
-	<code data-gs="comd/c" data-x>setName</code> устанавливать новое значение
-	стейта в <code data-gs="comd/s" data-x>'metal box :)'</code>.
-	После этого можно будет нажать
-	на кнопку и проверить результат:
-</p>
+<p>As a final step, we will call the button click handler using the function<code data-gs="comd/c" data-x>setName</code>set new state value in<code data-gs="comd/s" data-x>'metal box :)'</code>. After this, you can click on the button and check the result:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;button onClick={() =&gt; {
 	setName('metal box :)');
 }}&gt;click&lt;/button&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Используйте приложение, созданное вами
-		при решении задач к предыдущему уроку.
-		Заведите стейт <code data-gs="comd/c" data-x>age</code>, который вы будете
-		вместо числа передавать с помощью контекста
-		из <code data-gs="comd/c" data-x>App</code>, установите ему начальное
-		значение <code data-gs="comd/n" data-x>50</code>. Добавьте под компонентом
-		<code data-gs="comd/c" data-x>Parent</code> в <code data-gs="comd/c" data-x>App</code> кнопку, при
-		каждом клике на которую значение стейта
-		<code data-gs="comd/c" data-x>age</code> будет уменьшаться на <code data-gs="comd/n" data-x>2</code>.
+	<p>Use the application you created when solving problems for the previous lesson. Create a state<code data-gs="comd/c" data-x>age</code>, which you will pass instead of a number using the context from<code data-gs="comd/c" data-x>App</code>, set it to an initial value<code data-gs="comd/n" data-x>50</code>. Add below the component<code data-gs="comd/c" data-x>Parent</code>V<code data-gs="comd/c" data-x>App</code>button, with each click on which the state value<code data-gs="comd/c" data-x>age</code>will decrease by<code data-gs="comd/n" data-x>2</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../use-context/index.html" class="lesson-nav-btn lesson-nav-prev" title="Хук контекста useContext">← Хук контекста useContext</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../refs/index.html" class="lesson-nav-btn lesson-nav-next" title="Рефы">Рефы →</a>
+      <a href="../use-context/index.html" class="lesson-nav-btn lesson-nav-prev" title="useContext context hook">← useContext context hook</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../refs/index.html" class="lesson-nav-btn lesson-nav-next" title="Refs">Refs →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

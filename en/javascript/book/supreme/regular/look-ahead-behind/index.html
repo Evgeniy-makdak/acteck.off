@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Позитивный и негативный просмотр в регулярках JavaScript — acteck.off</title>
-  <meta name="description" content="Позитивный и негативный просмотр в регулярках JavaScript — учебные материалы по программированию.">
+  <title>Positive and negative browsing in regular JavaScript - acteck.off</title>
+  <meta name="description" content="Positive and Negative Review in JavaScript Regulars - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,117 +36,74 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Позитивный и негативный просмотр в регулярках JavaScript</h1>
-    <p>
-	Иногда нужно решить задачу такого типа: найти
-	строку <code data-gs="comd/s" data-x>'aaa'</code> и заменить ее на <code data-gs="comd/s" data-x>'!'</code>,
-	<dfn data-gs="comd/d" data-x>но только если после <code data-gs="comd/s" data-x>'aaa'</code> стоит
-	<code data-gs="comd/s" data-x>'x'</code></dfn>, а сам <code data-gs="comd/s" data-x>'x'</code> при этом
-	не заменять. Если мы попытаемся решить задачу
-	<code data-gs="comd/s" data-x>'в лоб'</code>, то у нас ничего не выйдет:
-</p>
+    <h1>Positive and Negative Lookup in JavaScript Regulars</h1>
+    <p>Sometimes you need to solve a problem of this type: find a string<code data-gs="comd/s" data-x>'aaa'</code>and replace it with<code data-gs="comd/s" data-x>'!'</code>,
+	<dfn data-gs="comd/d" data-x>but only if after<code data-gs="comd/s" data-x>'aaa'</code>costs<code data-gs="comd/s" data-x>'x'</code></dfn>, and himself<code data-gs="comd/s" data-x>'x'</code>do not replace it. If we try to solve the problem<code data-gs="comd/s" data-x>'в лоб'</code>, then nothing will work for us:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'aaax baaa'.replace(/aaax/g, '!'); // вернет '! baaa', а хотели '!x baaa'</code>
 </div>
 
-<h2>Просмотр вперед</h2>
-<p>
-	Для решения задачи нужен способ сказать,
-	что <code data-gs="comd/s" data-x>'x'</code> не следует заменять. Делается
-	это с помощью специальных скобок <code data-gs="comd/c" data-x>(?= )</code>,
-	которые просто смотрят, но не забирают с собой.
-</p>
-<p>
-	Эти скобки называются <dfn data-gs="comd/d" data-x>позитивный просмотр
-	вперед</dfn>. Позитивный - так как <code data-gs="comd/s" data-x>'x'</code>
-	(в нашем случае) должен быть - только тогда
-	произойдет замена.
-</p>
-<p>
-	Давайте применим эти скобки для решения нашей
-	задачи:
-</p>
+<h2>Look ahead</h2>
+<p>To solve the problem we need a way to say that<code data-gs="comd/s" data-x>'x'</code>should not be replaced. This is done using special brackets<code data-gs="comd/c" data-x>(?= )</code>who just look at it but don’t take it with them.</p>
+<p>These brackets are called<dfn data-gs="comd/d" data-x>positive looking forward</dfn>. Positive - because<code data-gs="comd/s" data-x>'x'</code>(in our case) there must be - only then will the replacement occur.</p>
+<p>Let's use these brackets to solve our problem:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'aaax aaab'.replace(/aaa(?=x)/g, '!'); // вернет '!x aaab'</code>
 </div>
-<p>
-	Есть и <dfn data-gs="comd/d" data-x>негативный просмотр вперед</dfn>
-	- <code data-gs="comd/c" data-x>(?! )</code> - он, наоборот, говорит, что
-	чего-то должно не быть. В следующем примере,
-	замена произойдет, только если после <code data-gs="comd/s" data-x>'aaa'</code>
-	стоит НЕ <code data-gs="comd/s" data-x>'x'</code>:
+<p>There are also<dfn data-gs="comd/d" data-x>negative look-ahead</dfn>
+	- <code data-gs="comd/c" data-x>(?! )</code>- he, on the contrary, says that something should not exist. In the following example, the replacement will only occur if after<code data-gs="comd/s" data-x>'aaa'</code>worth NOT<code data-gs="comd/s" data-x>'x'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'aaax aaab'.replace(/aaa(?!x)/g, '!'); // вернет 'aaax !b'</code>
 </div>
 
-<h2>Просмотр назад</h2>
-<p>
-	Аналогичным образом есть <dfn data-gs="comd/d" data-x>позитивный просмотр
-	назад</dfn> - <code data-gs="comd/c" data-x>(?&lt;= )</code>. В следующем
-	примере замена произойдет, только если перед
-	<code data-gs="comd/s" data-x>'aaa'</code> стоит <code data-gs="comd/s" data-x>'x'</code>:
+<h2>View back</h2>
+<p>Likewise there is<dfn data-gs="comd/d" data-x>positive look back</dfn> - <code data-gs="comd/c" data-x>(?&lt;= )</code>. In the following example, the replacement will only occur if before<code data-gs="comd/s" data-x>'aaa'</code>costs<code data-gs="comd/s" data-x>'x'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'xaaa'.replace(/(?&lt;=x)aaa/g, '!'); // вернет 'x!'</code>
 </div>
-<p>
-	И есть также <dfn data-gs="comd/d" data-x>негативный просмотр назад</dfn>
-	- <code data-gs="comd/c" data-x>(?&lt;! )</code>. В следующем примере замена
-	произойдет, только если перед <code data-gs="comd/s" data-x>'aaa'</code>
-	не стоит <code data-gs="comd/s" data-x>'x'</code>:
+<p>And there is also<dfn data-gs="comd/d" data-x>negative look back</dfn>
+	- <code data-gs="comd/c" data-x>(?&lt;! )</code>. In the following example, the replacement will only occur if before<code data-gs="comd/s" data-x>'aaa'</code>not worth it<code data-gs="comd/s" data-x>'x'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'baaa'.replace(/(?&lt;!x)aaa/g, '!'); // вернет 'b!'</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Дана строка, содержащая имена функций:
-	</p>
+	<p>Given a string containing the names of the functions:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'func1() func2() func3()';</code>
 	</div>
-	<p>
-		Получите массив имен функций из строки.
-	</p>
+	<p>Get an array of function names from a string.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка с тегом:
-	</p>
+	<p>Given a line with a tag:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '&lt;a href="" class="eee" id="zzz"&gt;';</code>
 	</div>
-	<p>
-		Получите массив имен атрибутов этого тега.
-	</p>
+	<p>Get an array of attribute names for this tag.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка с переменными:
-	</p>
+	<p>Given a line with variables:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '$aaa $bbb $ccc xxxx';</code>
 	</div>
-	<p>
-		Получите подстроки, перед которыми
-		стоит символ доллара.
-	</p>
+	<p>Get substrings preceded by a dollar symbol.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../non-preserving-brackets/index.html" class="lesson-nav-btn lesson-nav-prev" title="Несохраняющие скобки">← Несохраняющие скобки</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../string/index.html" class="lesson-nav-btn lesson-nav-next" title="Строка с регуляркой">Строка с регуляркой →</a>
+      <a href="../non-preserving-brackets/index.html" class="lesson-nav-btn lesson-nav-prev" title="Non-preserving parentheses">← Non-preserving parentheses</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../string/index.html" class="lesson-nav-btn lesson-nav-next" title="String with regex">Regular string →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

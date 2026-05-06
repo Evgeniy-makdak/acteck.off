@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Передача данных в сеттер дочернего компонента в Angular — acteck.off</title>
-  <meta name="description" content="Передача данных в сеттер дочернего компонента в Angular — учебные материалы по программированию.">
+  <title>Passing data to a child component's setter in Angular - acteck.off</title>
+  <meta name="description" content="Passing Data to a Child Component Setter in Angular - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,14 +36,8 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Передача данных в сеттер дочернего компонента в Angular</h1>
-    <p>
-	Можно сделать так, чтобы данные из
-	родительского компонента попадали в <a href="../../../../../../book/oop/accessors-setters/index.html">сеттер</a>
-	приватного свойства. Давайте посмотрим на
-	примере. Пусть у нас есть приватное свойство
-	с сеттером и геттером: 
-</p>
+    <h1>Passing data to child component setter in Angular</h1>
+    <p>You can make the data from the parent component go into<a href="../../../../../../book/oop/accessors-setters/index.html">setter</a>private property. Let's look at an example. Let's say we have a private property with a setter and a getter:</p>
 <div data-p="bock/pane" data-p-file="app/user/user.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class UserComponent {
 	private _name: string = '';
@@ -61,12 +55,7 @@
 	}
 }</code>
 </div>
-<p>
-	Для примера давайте сделаем сеттер возраста,
-	в котором реализуем проверку переданных
-	данных. Также сделаем геттер для вывода
-	свойств пользователя: 
-</p>
+<p>For example, let's make an age setter in which we will implement verification of the transmitted data. We will also create a getter to display user properties:</p>
 <div data-p="bock/pane" data-p-file="app/user/user.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class UserComponent {
 	private _name: string = '';
@@ -85,44 +74,31 @@
 	}
 }</code>
 </div>
-<p>
-	Теперь передадим данные из родительского
-	компонента в дочерний: 
-</p>
+<p>Now let's pass data from the parent component to the child:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;user-data name="john"&gt;&lt;/user-data&gt;</code>
 </div>
-<p>
-	А в дочернем компоненте выведем переданное
-	имя на экран: 
-</p>
+<p>And in the child component we will display the passed name on the screen:</p>
 <div data-p="bock/pane" data-p-file="app/user/user.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;{{ name }}&lt;/p&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Объясните, почему приватное свойство <code data-gs="comd/c" data-x>_name</code>
-		начинается с символа подчеркивания. 
-	</p>
+	<p>Explain why a private property<code data-gs="comd/c" data-x>_name</code>begins with an underscore.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Реализуйте сеттеры и геттеры для названия
-		продукта и его цены, которые будут
-		передаваться из родительского компонента. 
-	</p>
+	<p>Implement setters and getters for the product name and price that will be passed from the parent component.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../child-passing-text/index.html" class="lesson-nav-btn lesson-nav-prev" title="Передача текста">← Передача текста</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../child-data-emiting/index.html" class="lesson-nav-btn lesson-nav-next" title="Испускание данных из потомка">Испускание данных из потомка →</a>
+      <a href="../child-passing-text/index.html" class="lesson-nav-btn lesson-nav-prev" title="Send text">← Text transfer</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../child-data-emiting/index.html" class="lesson-nav-btn lesson-nav-next" title="Emitting data from a child">Emitting data from a child →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

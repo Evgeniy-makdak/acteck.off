@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Функция isFinite — acteck.off</title>
-  <meta name="description" content="Функция isFinite — учебные материалы по программированию.">
+  <title>isFinite function - acteck.off</title>
+  <meta name="description" content="isFinite function - programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,167 +36,91 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Функция isFinite</h1>
-    <p>
-	Функция <code data-gs="comd/c" data-x>isFinite</code> для проверки параметра
-	на то, что он является конечным числом (то
-	есть не строкой, массивом и т.п. и не плюс
-	или минус бесконечностью).
+    <h1>isFinite function</h1>
+    <p>Function<code data-gs="comd/c" data-x>isFinite</code>to check that a parameter is a finite number (that is, not a string, array, etc., and not plus or minus infinity).</p>
+<p>How this function works: it will return<code data-gs="comd/c" data-x>false</code>, if the number is plus or minus infinity (that is<a href="../Infinity/index.html"><code data-gs="comd/c" data-x>Infinity</code></a>) or not a number (that is<a href="../NaN/index.html"><code data-gs="comd/c" data-x>NaN</code></a>), in other cases it will return<code data-gs="comd/c" data-x>true</code>. That is, strings, arrays, etc. will be converted to<code data-gs="comd/c" data-x>NaN</code>and will be returned accordingly<code data-gs="comd/c" data-x>false</code>.
 </p>
-<p>
-	Как работает эта функция: она вернет <code data-gs="comd/c" data-x>false</code>,
-	если число является плюс или минус бесконечностью
-	(то есть <a href="../Infinity/index.html"><code data-gs="comd/c" data-x>Infinity</code></a>)
-	или не числом (то есть <a href="../NaN/index.html"><code data-gs="comd/c" data-x>NaN</code></a>),
-	в остальных случаях вернет <code data-gs="comd/c" data-x>true</code>.
-	To есть строки, массивы и т.п. будут преобразованы
-	в <code data-gs="comd/c" data-x>NaN</code> и соответственно вернут <code data-gs="comd/c" data-x>false</code>.
+<p>However there is<b>exceptions</b>: empty string<code data-gs="comd/s" data-x>''</code>returns true, string with spaces<code data-gs="comd/s" data-x>'&nbsp;&nbsp;&nbsp;&nbsp;'</code>also returns true,<a href="../null/index.html"><code data-gs="comd/c" data-x>null</code></a>returns true for values<code data-gs="comd/c" data-x>true</code>And<code data-gs="comd/c" data-x>false</code>also returns<code data-gs="comd/c" data-x>true</code>.
 </p>
-<p>
-	Однако есть <b>исключения</b>: пустая строка
-	<code data-gs="comd/s" data-x>''</code> возвращает true, строка с пробелами <code data-gs="comd/s" data-x>'&nbsp;&nbsp;&nbsp;&nbsp;'</code>
-	также возвращает true, <a href="../null/index.html"><code data-gs="comd/c" data-x>null</code></a>
-	возвращает true, для значений <code data-gs="comd/c" data-x>true</code> и <code data-gs="comd/c" data-x>false</code>
-	также возвращается <code data-gs="comd/c" data-x>true</code>.
-</p>
-<p>
-	Это происходит потому, что эти значения
-	преобразуются в числа, а не в <code data-gs="comd/c" data-x>NaN</code>.
-	Если вам нужна действительно точная проверка
-	на число, которая не считает числом строку
-	из пробелов, логические и специальные значения
-	- используйте следующую функцию <code data-gs="comd/c" data-x>isNumeric</code>:
+<p>This is because these values ​​are converted to numbers rather than<code data-gs="comd/c" data-x>NaN</code>. If you want a truly precise number check that doesn't count a string of spaces, booleans, or special values ​​as a number, use the following function<code data-gs="comd/c" data-x>isNumeric</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function isNumeric(num) {
 	return !isNaN(parseFloat(num)) && isFinite(num);
 };</code>
 </div>
-<p>
-	Давайте разберемся, как она работает.
-	Функция <code data-gs="comd/c" data-x>isFinite</code> преобразует параметр
-	к числу и возвращает <code data-gs="comd/c" data-x>true</code>, если это не <code data-gs="comd/c" data-x>Infinity</code>,
-	<code data-gs="comd/c" data-x>-Infinity</code> или <code data-gs="comd/c" data-x>NaN</code>.
-	Таким образом, правая часть отсеет заведомо
-	<i>нечисла</i>, но оставит такие значения
-	как <code data-gs="comd/c" data-x>true</code>, <code data-gs="comd/c" data-x>false</code>, <code data-gs="comd/c" data-x>null</code>, пустую строку <code data-gs="comd/s" data-x>''</code> и
-	строку с пробелами, т.к. они корректно преобразуются
-	в числа.
-</p>
-<p>
-	Чтобы отсеять эти значения, нужна функция
-	<a href="../parseFloat/index.html"><code data-gs="comd/c" data-x>parseFloat</code></a>,
-	которая для <code data-gs="comd/c" data-x>true</code>, <code data-gs="comd/c" data-x>false</code>, <code data-gs="comd/c" data-x>null</code>, <code data-gs="comd/s" data-x>''</code>, <code data-gs="comd/s" data-x>'&nbsp;&nbsp;&nbsp;'</code>
-	вернет <code data-gs="comd/c" data-x>NaN</code>. Так устроена функция <code data-gs="comd/c" data-x>parseFloat</code>: она
-	преобразует параметр к строке, т.е. <code data-gs="comd/c" data-x>true</code>,
-	<code data-gs="comd/c" data-x>false</code>, <code data-gs="comd/c" data-x>null</code> становятся <code data-gs="comd/s" data-x>'true'</code>, <code data-gs="comd/s" data-x>'false'</code>,
-	<code data-gs="comd/s" data-x>'null'</code>, а затем считывает из нее число,
-	при этом пустая строка и строка с пробелами
-	дают <code data-gs="comd/c" data-x>NaN</code>. Затем результат <code data-gs="comd/c" data-x>parseFloat</code> обрабатывается
-	с помощью <a href="../isNaN/index.html">!isNaN</a>,
-	чтобы получить <code data-gs="comd/c" data-x>true</code> или <code data-gs="comd/c" data-x>false</code> вместо <code data-gs="comd/c" data-x>NaN</code>.
-	В результате отсеивается все, кроме строк-чисел
-	и обычных чисел.
-</p>
+<p>Let's figure out how it works. Function<code data-gs="comd/c" data-x>isFinite</code>converts the parameter to a number and returns<code data-gs="comd/c" data-x>true</code>if it's not<code data-gs="comd/c" data-x>Infinity</code>,
+	<code data-gs="comd/c" data-x>-Infinity</code>or<code data-gs="comd/c" data-x>NaN</code>. Thus, the right side will obviously eliminate<i>countless</i>, but will leave values ​​like<code data-gs="comd/c" data-x>true</code>, <code data-gs="comd/c" data-x>false</code>, <code data-gs="comd/c" data-x>null</code>, empty string<code data-gs="comd/s" data-x>''</code>and a line with spaces, because they are correctly converted to numbers.</p>
+<p>To filter out these values, you need a function<a href="../parseFloat/index.html"><code data-gs="comd/c" data-x>parseFloat</code></a>, which is for<code data-gs="comd/c" data-x>true</code>, <code data-gs="comd/c" data-x>false</code>, <code data-gs="comd/c" data-x>null</code>, <code data-gs="comd/s" data-x>''</code>, <code data-gs="comd/s" data-x>'&nbsp;&nbsp;&nbsp;'</code>will return<code data-gs="comd/c" data-x>NaN</code>. This is how the function works<code data-gs="comd/c" data-x>parseFloat</code>: It converts the parameter to a string, i.e.<code data-gs="comd/c" data-x>true</code>,
+	<code data-gs="comd/c" data-x>false</code>, <code data-gs="comd/c" data-x>null</code>become<code data-gs="comd/s" data-x>'true'</code>, <code data-gs="comd/s" data-x>'false'</code>,
+	<code data-gs="comd/s" data-x>'null'</code>, and then reads a number from it, with an empty string and a string with spaces giving<code data-gs="comd/c" data-x>NaN</code>. Then the result<code data-gs="comd/c" data-x>parseFloat</code>processed using<a href="../isNaN/index.html">!isNaN</a>to get<code data-gs="comd/c" data-x>true</code>or<code data-gs="comd/c" data-x>false</code>instead of<code data-gs="comd/c" data-x>NaN</code>. As a result, everything is eliminated except number strings and ordinary numbers.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">isFinite(значение);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Сейчас <code data-gs="comd/c" data-x>isFinite</code> выведет <code data-gs="comd/c" data-x>true</code>,
-	так как параметр является числом:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now<code data-gs="comd/c" data-x>isFinite</code>will output<code data-gs="comd/c" data-x>true</code>, since the parameter is a number:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 3;
 console.log(isFinite(num));</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">true</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Сейчас <code data-gs="comd/c" data-x>isFinite</code> выведет <code data-gs="comd/c" data-x>false</code>,
-	так как параметр не является числом:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now<code data-gs="comd/c" data-x>isFinite</code>will output<code data-gs="comd/c" data-x>false</code>, since the parameter is not a number:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 'abcde';
 console.log(isFinite(num));</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">false</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Сейчас <code data-gs="comd/c" data-x>isFinite</code> выведет <code data-gs="comd/c" data-x>false</code>,
-	так как параметр является бесконечностью:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now<code data-gs="comd/c" data-x>isFinite</code>will output<code data-gs="comd/c" data-x>false</code>, since the parameter is infinity:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = Infinity;
 console.log(isFinite(num));</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">false</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Сейчас <code data-gs="comd/c" data-x>isFinite</code> выведет <code data-gs="comd/c" data-x>false</code>,
-	так как <code data-gs="comd/n" data-x>1/0</code> - это по сути <code data-gs="comd/c" data-x>Infinity</code>
-	(бесконечность):
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now<code data-gs="comd/c" data-x>isFinite</code>will output<code data-gs="comd/c" data-x>false</code>, because<code data-gs="comd/n" data-x>1/0</code>- this is essentially<code data-gs="comd/c" data-x>Infinity</code>(infinity):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1 / 0;
 console.log(isFinite(num));</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">false</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Сейчас <code data-gs="comd/c" data-x>isFinite</code> выведет <code data-gs="comd/c" data-x>true</code>,
-	так как пустая строка, не являющаяся числом,
-	- это исключение:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now<code data-gs="comd/c" data-x>isFinite</code>will output<code data-gs="comd/c" data-x>true</code>since an empty string that is not a number is an exception:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = '';
 console.log(isFinite(num));</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">true</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			функцию <a href="../isNaN/index.html"><code data-gs="comd/c" data-x>isNaN</code></a>, <br>
-			которая осуществляет проверку на <code data-gs="comd/c" data-x>NaN</code>
+		<li>function<a href="../isNaN/index.html"><code data-gs="comd/c" data-x>isNaN</code></a>, <br>which checks for<code data-gs="comd/c" data-x>NaN</code>
 		</li>
-		<li>
-			оператор <a href="../typeof/index.html"><code data-gs="comd/c" data-x>typeof</code></a>, <br>
-			который определяет тип данных
-		</li>
+		<li>operator<a href="../typeof/index.html"><code data-gs="comd/c" data-x>typeof</code></a>, <br>which defines the data type</li>
 	</ul>
 </div>
   </section>
@@ -204,7 +128,7 @@ console.log(isFinite(num));</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

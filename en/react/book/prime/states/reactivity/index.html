@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Реактивность стейтов в React — acteck.off</title>
-  <meta name="description" content="Реактивность стейтов в React — учебные материалы по программированию.">
+  <title>State reactivity in React - acteck.off</title>
+  <meta name="description" content="State reactivity in React - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,53 +36,32 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Реактивность стейтов в React</h1>
-    <p>
-	Давайте теперь посмотрим, как работает
-	реактивность. Она делает так, что при
-	изменении стейта изменения мгновенно
-	отображаются на экране.
-</p>
-<p>
-	Давайте посмотрим на примере.
-	Пусть у нас есть стейт с названием
-	продукта:
-</p>
+    <h1>State reactivity in React</h1>
+    <p>Let's now see how reactivity works. It makes it so that when the state changes, the changes are instantly displayed on the screen.</p>
+<p>Let's look at an example. Let us have a state with the name of the product:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [name, setName] = useState('prod');</code>
 </div>
-<p>
-	Выведем название продукта в верстке:
-</p>
+<p>Let's display the product name in the layout:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return &lt;div&gt;
 	&lt;span&gt;{name}&lt;/span&gt;
 &lt;/div&gt;;</code>
 </div>
-<p>
-	Сделаем теперь кнопку, по нажатию
-	на которую наш стейт будет изменяться:
-</p>
+<p>Now let’s make a button, clicking on which will change our state:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return &lt;div&gt;
 	&lt;span&gt;{name}&lt;/span&gt;
 	&lt;button onClick={clickHandler}&gt;btn&lt;/button&gt;
 &lt;/div&gt;;</code>
 </div>
-<p>
-	В обработчике клика используем функцию <code data-gs="comd/c" data-x>setName</code>,
-	чтобы установить продукту новое название:
-</p>
+<p>In the click handler we use the function<code data-gs="comd/c" data-x>setName</code>to set a new name for the product:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function clickHandler() {
 	setName('xxxx');
 }</code>
 </div>
-<p>
-	Соберем весь наш код вместе. Получится, что
-	после нажатия на кнопку текст мгновенно
-	поменяется на новое значение:
-</p>
+<p>Let's put all our code together. It turns out that after clicking the button, the text will instantly change to a new value:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [name, setName] = useState('prod');
@@ -97,11 +76,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Использование отдельных функций-обработчиков
-	не обязательно. Можно использовать анонимную
-	стрелочную функцию:
-</p>
+<p>The use of separate handler functions is not necessary. You can use an anonymous arrow function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [name, setName] = useState('prod');
@@ -113,19 +88,14 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны стейты с именем и фамилией юзера.
-		Выведите их в верстке. Сделайте
-		кнопки для изменения этих
-		стейтов.
-	</p>
+	<p>Statements with the user's first and last name are given. Display them in layout. Make buttons to change these states.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

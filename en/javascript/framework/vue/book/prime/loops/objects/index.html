@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Перебор объектов в Vue — acteck.off</title>
-  <meta name="description" content="Перебор объектов в Vue — учебные материалы по программированию.">
+  <title>Iterating over objects in Vue - acteck.off</title>
+  <meta name="description" content="Iterating over objects in Vue - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,14 +36,8 @@
       <a href="../../index.html">Vue</a>
     </div>
 
-    <h1>Перебор объектов в Vue</h1>
-    <p>
-	Объекты также перебираются с помощью
-	директивы <code data-gs="comd/c" data-x>v-for</code>. Давайте
-	посмотрим, как это делается.
-	Пусть у нас есть следующий
-	объект:
-</p>
+    <h1>Iterating over objects in Vue</h1>
+    <p>Objects are also iterated using the directive<code data-gs="comd/c" data-x>v-for</code>. Let's see how it's done. Let us have the following object:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
 	return {
@@ -51,10 +45,7 @@
 	}
 }</code>
 </div>
-<p>
-	Переберем этот объект циклом
-	и выведем его элементы:
-</p>
+<p>Let's loop through this object and display its elements:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;p v-for="elem in obj"&gt;
@@ -62,10 +53,7 @@
 	&lt;/p&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	А теперь выведем и ключи,
-	и элементы:
-</p>
+<p>Now let’s display both the keys and the elements:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;p v-for="(elem, key) in obj"&gt;
@@ -73,10 +61,7 @@
 	&lt;/p&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	А теперь выведем еще и порядковые
-	номера элементов в объекте:
-</p>
+<p>Now let’s also display the serial numbers of the elements in the object:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;p v-for="(elem, key, index) in obj"&gt;
@@ -87,9 +72,7 @@
 &lt;/template&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий объект:
-	</p>
+	<p>Given the following object:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{
 	user1: '100$',
@@ -97,9 +80,7 @@
 	user3: '300$',
 }</code>
 	</div>
-	<p>
-		С помощью <code data-gs="comd/c" data-x>v-for</code> выведите на экран следующее:
-	</p>
+	<p>By using<code data-gs="comd/c" data-x>v-for</code>display the following:</p>
 	<div class="block">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li&gt;100$&lt;/li&gt;
@@ -109,9 +90,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий объект:
-	</p>
+	<p>Given the following object:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{
 	user1: '100$',
@@ -119,9 +98,7 @@
 	user3: '300$',
 }</code>
 	</div>
-	<p>
-		С помощью <code data-gs="comd/c" data-x>v-for</code> выведите на экран следующее:
-	</p>
+	<p>By using<code data-gs="comd/c" data-x>v-for</code>display the following:</p>
 	<div class="block">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li&gt;user1 - 100$&lt;/li&gt;
@@ -131,11 +108,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Переделайте предыдущую задачу так, чтобы
-		в конце каждой <code data-gs="comd/c" data-x>li</code> стоял еще и порядковый
-		номер элемента в объекте. Вот так:
-	</p>
+	<p>Rework the previous task so that at the end of each<code data-gs="comd/c" data-x>li</code>There was also a serial number of the element in the object. Like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li&gt;user1 - 100$ - 0&lt;/li&gt;
@@ -145,10 +118,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Переделайте предыдущую задачу так, чтобы
-		номера начинались не с нуля, а с единицы. Вот так:
-	</p>
+	<p>Rework the previous problem so that the numbers start from one rather than zero. Like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li&gt;user1 - 100$ - 1&lt;/li&gt;
@@ -158,16 +128,16 @@
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../array-keys/index.html" class="lesson-nav-btn lesson-nav-prev" title="Получение ключей при переборе массивов">← Получение ключей при переборе массивов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../tags-group/index.html" class="lesson-nav-btn lesson-nav-next" title="Перебор группы тегов">Перебор группы тегов →</a>
+      <a href="../array-keys/index.html" class="lesson-nav-btn lesson-nav-prev" title="Obtaining keys when iterating over arrays">← Obtaining keys when iterating over arrays</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../tags-group/index.html" class="lesson-nav-btn lesson-nav-next" title="Iterating through a group of tags">Searching through a group of tags →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

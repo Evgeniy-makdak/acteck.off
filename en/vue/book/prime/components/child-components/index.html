@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Создание дочерних компонентов в Vue — acteck.off</title>
-  <meta name="description" content="Создание дочерних компонентов в Vue — учебные материалы по программированию.">
+  <title>Creating Child Components in Vue - acteck.off</title>
+  <meta name="description" content="Creating Child Components in Vue - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,20 +36,10 @@
       <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
     </div>
 
-    <h1>Создание дочерних компонентов в Vue</h1>
-    <p>
-	Компоненты внутри имеют такую
-	же структуру, как и основной компонент,
-	с которым мы работали ранее. To есть
-	в файле каждого компонента будут
-	теги <code data-gs="comd/c" data-x>script</code> и <code data-gs="comd/c" data-x>template</code>.
+    <h1>Creating Child Components in Vue</h1>
+    <p>The components inside have the same structure as the main component we worked with earlier. That is, in the file of each component there will be tags<code data-gs="comd/c" data-x>script</code>And<code data-gs="comd/c" data-x>template</code>.
 </p>
-<p>
-	Давайте для примера сделаем
-	компонент с названием <code data-gs="comd/c" data-x>User</code>.
-	Разместим его код в соответствующем
-	файле:
-</p>
+<p>Let's make an example component with the name<code data-gs="comd/c" data-x>User</code>. Let's place its code in the appropriate file:</p>
 <div data-p="bock/pane" data-p-file="components/User.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;script&gt;
 	export default {
@@ -61,10 +51,7 @@
 	}
 &lt;/script&gt;</code>
 </div>
-<p>
-	В объекте <code data-gs="comd/c" data-x>data</code> компонента можно
-	разместить какие-то данные:
-</p>
+<p>In the object<code data-gs="comd/c" data-x>data</code>component you can place some data:</p>
 <div data-p="bock/pane" data-p-file="components/User.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;script&gt;
 	export default {
@@ -76,21 +63,13 @@
 	}
 &lt;/script&gt;</code>
 </div>
-<p>
-	Эти данные можно вывести в
-	представлении компонента:
-</p>
+<p>This data can be displayed in the component view:</p>
 <div data-p="bock/pane" data-p-file="components/User.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	{{ name }}
 &lt;/template&gt;</code>
 </div>
-<p>
-	Давайте теперь подключим созданный
-	нами компонент к основному компоненту.
-	Для этого для начала импортируем
-	его:
-</p>
+<p>Let's now connect the component we created to the main component. To do this, first import it:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;script&gt;
 	import User from './components/User.vue'
@@ -100,8 +79,7 @@
 	}
 &lt;/script&gt;</code>
 </div>
-<p>
-	Пропишем его имя в настройке <code data-gs="comd/c" data-x>components</code>:
+<p>Let's write his name in the settings<code data-gs="comd/c" data-x>components</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;script&gt;
@@ -114,31 +92,21 @@
 	}
 &lt;/script&gt;</code>
 </div>
-<p>
-	В представлении родительского компонента
-	можно вывести представление дочернего
-	компонента. Для этого нужно написать
-	тег, имя которого соответствует
-	имени компонента. Давайте сделаем
-	это:
-</p>
+<p>In a parent component's view, you can display a child component's view. To do this, you need to write a tag whose name matches the name of the component. Let's do this:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;User /&gt;
 &lt;/template&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте компонент <code data-gs="comd/c" data-x>Employee</code>.
-		Подключите его к основному компоненту.
-	</p>
+	<p>Make a component<code data-gs="comd/c" data-x>Employee</code>. Connect it to the main component.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

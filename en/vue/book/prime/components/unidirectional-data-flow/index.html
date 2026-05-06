@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Однонаправленный поток данных в Vue — acteck.off</title>
-  <meta name="description" content="Однонаправленный поток данных в Vue — учебные материалы по программированию.">
+  <title>Unidirectional data flow in Vue - acteck.off</title>
+  <meta name="description" content="Unidirectional Data Flow in Vue - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,41 +36,13 @@
       <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
     </div>
 
-    <h1>Однонаправленный поток данных в Vue</h1>
-    <p>
-	Все входные параметры образуют одностороннюю
-	привязку между дочерним свойством и родительским:
-	когда родительское свойство обновляется - оно будет
-	передаваться дочернему, но не наоборот.
-	Это предотвращает случайное изменение
-	дочерними компонентами родительского
-	состояния, что может затруднить понимание
-	потока данных вашего приложения.
-</p>
-<p>
-	Кроме того, каждый раз, когда обновляется родительский
-	компонент, все входные параметры дочернего
-	компонента будут обновлены актуальными
-	значениями. Это означает, что <i>вы не должны
-	пытаться изменять входной параметр внутри
-	дочернего компонента</i>. Если вы это сделаете,
-	Vue отобразит предупреждение в консоли.
-</p>
-<p>
-	Обычно встречаются два случая, когда возникает
-	соблазн изменять входной параметр. Давайте
-	их рассмотрим.
-</p>
+    <h1>Unidirectional data flow in Vue</h1>
+    <p>All input parameters form a one-way binding between the child property and the parent: when the parent property is updated, it will be passed to the child, but not vice versa. This prevents child components from accidentally changing their parent state, which can make your application's data flow difficult to understand.</p>
+<p>Additionally, every time the parent component is updated, all input parameters of the child component will be updated with the latest values. This means that<i>you shouldn't try to change an input parameter inside a child component</i>. If you do this, Vue will display a warning in the console.</p>
+<p>There are usually two cases where the temptation to change an input parameter arises. Let's look at them.</p>
 
-<h2>Случай первый</h2>
-<p>
-	Входной параметр используется для передачи
-	начального значения; дочерний компонент хочет
-	использовать его как локальное свойство данных
-	в дальнейшем. В этом случае лучше всего определить
-	локальное свойство в данных, которое использует
-	значение входного параметра в качестве начального:
-</p>
+<h2>Case one</h2>
+<p>The input parameter is used to pass the initial value; the child component wants to use it as a local data property later on. In this case, it is best to define a local property in the data that uses the value of the input parameter as an initial one:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">props: ['initialCounter'],
 data() {
@@ -80,13 +52,8 @@ data() {
 }</code>
 </div>
 
-<h2>Случай второй</h2>
-<p>
-	Входной параметр передаётся как необработанное
-	значение, которое необходимо преобразовать.
-	В этом случае лучше всего определить вычисляемое
-	свойство с использованием входного параметра:
-</p>
+<h2>Case two</h2>
+<p>The input parameter is passed as a raw value that needs to be converted. In this case, it is best to define a computed property using an input parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">props: ['size'],
 computed: {
@@ -96,27 +63,16 @@ computed: {
 }</code>
 </div>
 
-<h2>Замечание</h2>
+<h2>Comment</h2>
 <div data-w="cont/nott">
-	<p>
-		Обратите внимание, что объекты и массивы в
-		JavaScript передаются по ссылке, поэтому если
-		входной параметр массив или объект, то изменения
-		внутри дочернего компонента этого объекта или
-		массива будет влиять на состояние родителя и Vue
-		не в состоянии предупредить об этом.
-		Следует избегать любых мутаций входных параметров,
-		в том числе объектов и массивов, так как игнорирование
-		одностороннего связывания данных может привести
-		к нежелательным результатам.
-	</p>
+	<p>Note that objects and arrays in JavaScript are passed by reference, so if the input parameter is an array or an object, then changes within the child component of that object or array will affect the state of the parent and Vue has no way to warn about this. Any mutation of input parameters, including objects and arrays, should be avoided, since ignoring one-way data binding can lead to undesirable results.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

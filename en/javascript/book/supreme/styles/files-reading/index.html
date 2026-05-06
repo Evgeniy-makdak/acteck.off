@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Чтение свойств из CSS файлов в JavaScript — acteck.off</title>
-  <meta name="description" content="Чтение свойств из CSS файлов в JavaScript — учебные материалы по программированию.">
+  <title>Reading properties from CSS files in JavaScript - acteck.off</title>
+  <meta name="description" content="Reading properties from CSS files in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,25 +36,16 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Чтение свойств из CSS файлов в JavaScript</h1>
-    <p>
-	Свойства, заданные в CSS файле, можно
-	прочитать с помощью специальной функции
-	<code data-gs="comd/c" data-x>getComputedStyles</code>.
+    <h1>Reading properties from CSS files in JavaScript</h1>
+    <p>Properties set in a CSS file can be read using a special function<code data-gs="comd/c" data-x>getComputedStyles</code>.
 </p>
-<p>
-	Давайте посмотрим, как это делается.
-	Пусть у нас есть следующий элемент:
-</p>
+<p>Let's see how it's done. Let us have the following element:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	text
 &lt;/div&gt;</code>
 </div>
-<p>
-	Пусть для этого элемента заданы
-	следующие стили:
-</p>
+<p>Let the following styles be set for this element:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
 	width: 100px;
@@ -62,84 +53,59 @@
 	font-size: 20px;
 }</code>
 </div>
-<p>
-	Получим ссылку на элемент в переменную:
-</p>
+<p>Let's get a reference to the element in a variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');</code>
 </div>
-<p>
-	Теперь передадим ссылку на полученный
-	элемент в качестве параметра функции
-	<code data-gs="comd/c" data-x>getComputedStyles</code>:
+<p>Now let's pass a link to the received element as a function parameter<code data-gs="comd/c" data-x>getComputedStyles</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript"> let computedStyle = getComputedStyle(elem);</code>
 </div>
-<p>
-	В результате мы получим объект,
-	содержащий значения CSS свойств
-	для нашего элемента. Давайте
-	с его помощью прочитаем,
-	например, цвет:
-</p>
+<p>As a result, we will receive an object containing the CSS property values ​​for our element. Let's use it to read, for example, color:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(computedStyle.color); // выведет 'red'</code>
 </div>
-<p>
-	А теперь ширину:
-</p>
+<p>And now the width:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(computedStyle.width); // выведет '100px'</code>
 </div>
-<p>
-	А теперь размер шрифта:
-</p>
+<p>And now the font size:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(computedStyle.fontSize); // выведет '20px'</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Для элемента заданы следующие стили:
-	</p>
+	<p>The element has the following styles:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
 	width: 200px;
 	height: 200px;
 }</code>
 	</div>
-	<p>
-		По клику на кнопку выведите ширину и
-		высоту элемента.
-	</p>
+	<p>By clicking on the button, display the width and height of the element.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Для элемента заданы следующие стили:
-	</p>
+	<p>The element has the following styles:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
 	width: 200px;
 	height: 200px;
 }</code>
 	</div>
-	<p>
-		По клику на кнопку увеличьте ширину и высоту
-		элемента в два раза.
-	</p>
+	<p>By clicking on the button, double the width and height of the element.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../styles-reading-problems/index.html" class="lesson-nav-btn lesson-nav-prev" title="Проблемы чтения стилей">← Проблемы чтения стилей</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../converting-read-values/index.html" class="lesson-nav-btn lesson-nav-next" title="Преобразование прочитанных значений">Преобразование прочитанных значений →</a>
+      <a href="../styles-reading-problems/index.html" class="lesson-nav-btn lesson-nav-prev" title="Problems reading styles">← Problems reading styles</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../converting-read-values/index.html" class="lesson-nav-btn lesson-nav-next" title="Converting Read Values">Converting read values ​​→</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

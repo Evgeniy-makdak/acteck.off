@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Формы и локальные стейты в Redux — acteck.off</title>
-  <meta name="description" content="Формы и локальные стейты в Redux — учебные материалы по программированию.">
+  <title>Forms and local states in Redux - acteck.off</title>
+  <meta name="description" content="Forms and local states in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,57 +36,16 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Формы и локальные стейты в Redux</h1>
-    <p>
-	В прошлых уроках мы научились получать
-	данные из store и выводить их в React
-	компоненте. В этом уроке мы приступим
-	к добавлению новых данных. Делать мы это
-	будем при помощи формы, заполнив которую,
-	продавец сможет добавить новый продукт.
-</p>
-<p>
-	Начнем с того, что не всегда есть смысл
-	использовать глобальный стейт Redux.
-	Бывают случаи, когда мы под наши нужды
-	можем создавать <dfn data-gs="comd/d" data-x>локальные</dfn> стейты.
-	Локальными стейтами мы будем называть
-	стейты, которые используются внутри
-	определенного компонента для технических
-	нужд. К примеру, чтобы скрыть или показать
-	что-то по кнопке.
-</p>
-<p>  
-	В нашем случае пользователь будет вводить
-	данные в форму и, естественно, нам пригодятся
-	для этого стейты. Можно было бы воспользоваться
-	глобальным Redux стейтом, но в этом нет
-	смысла, поскольку наши стейты будут работать
-	только в одном месте приложения для формы
-	добавления продукта. Главное правило, которому
-	при этом нужно следовать - нельзя, чтобы
-	локальные стейты работали за пределами
-	компонента, в котором они созданы, и ни в
-	коем случае не касались store. Такая
-	практика часто используется при создании
-	форм.
-</p>
-<p>
-	Давайте откроем папку <code data-gs="comd/p" data-x>products</code> нашего
-	приложения с продуктами, создадим в ней
-	файл <code data-gs="comd/p" data-x>NewProductForm.jsx</code> и импортириуем
-	в него хук <code data-gs="comd/c" data-x>useState</code>:
+    <h1>Forms and local states in Redux</h1>
+    <p>In previous lessons, we learned how to receive data from the store and display it in a React component. In this tutorial we will start adding new data. We will do this using a form, by filling which the seller will be able to add a new product.</p>
+<p>Let's start with the fact that it doesn't always make sense to use the Redux global state. There are times when we can create to suit our needs<dfn data-gs="comd/d" data-x>local</dfn>states. We will call local states states that are used within a specific component for technical needs. For example, to hide or show something using a button.</p>
+<p>In our case, the user will enter data into the form and, naturally, we will need states for this. We could use a global Redux state, but this makes no sense, since our states will only work in one place in the application for the product adding form. The main rule that needs to be followed is that local states cannot work outside the component in which they are created, and in no case touch the store. This practice is often used when creating forms.</p>
+<p>Let's open the folder<code data-gs="comd/p" data-x>products</code>of our application with products, let's create a file in it<code data-gs="comd/p" data-x>NewProductForm.jsx</code>and import the hook into it<code data-gs="comd/c" data-x>useState</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useState } from 'react'</code>
 </div>
-<p>
-	Теперь создадим сам компонент с формой и
-	пропишем в нем обычные стейты, как мы
-	делали это раньше в React. Нам нужны
-	стейты для работы с названием,
-	описанием, ценой и количеством продукта:
-</p>
+<p>Now let’s create the component itself with a form and write regular states in it, as we did before in React. We need states to work with the name, description, price and quantity of the product:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const NewProductForm = () =&gt; {
 	const [name, setName] = useState('')
@@ -95,21 +54,14 @@
 	const [amount, setAmount] = useState(0)
 }</code>
 </div>
-<p>
-	Далее добавим стандартную обработку для
-	каждого поля при введении пользователем
-	данных:
-</p>
+<p>Next, let's add standard processing for each field when the user enters data:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const onNameChanged = (e) =&gt; setName(e.target.value)
 const onDescChanged = (e) =&gt; setDesc(e.target.value)
 const onPriceChanged = (e) =&gt; setPrice(e.target.value)
 const onAmountChanged = (e) =&gt; setAmount(e.target.value)</code>
 </div>
-<p>
-	И затем вернем в компоненте верстку с
-	заголовком и пустой формой:
-</p>
+<p>And then return the layout with a title and an empty form in the component:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
 	&lt;div&gt;
@@ -120,32 +72,22 @@ const onAmountChanged = (e) =&gt; setAmount(e.target.value)</code>
 )</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Создайте файл <code data-gs="comd/p" data-x>NewStudentForm.jsx</code> в папке
-		<code data-gs="comd/p" data-x>students</code>. Заведите в компоненте
-		<code data-gs="comd/c" data-x>NewStudentForm</code> локальные стейты для
-		необходимых	вам полей, напишите для каждого
-		поля обработку, как показано в уроке.
-	</p>
+	<p>Open your application with students. Create a file<code data-gs="comd/p" data-x>NewStudentForm.jsx</code>in a folder<code data-gs="comd/p" data-x>students</code>. Enter in the component<code data-gs="comd/c" data-x>NewStudentForm</code>local states for the fields you need, write processing for each field, as shown in the lesson.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Верните в компоненте <code data-gs="comd/c" data-x>NewStudentForm</code>
-		верстку, содержащую заголовок и пустую форму.
-	</p>
+	<p>Return in component<code data-gs="comd/c" data-x>NewStudentForm</code>layout containing a title and an empty form.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../read-store-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Получение данных из store в компоненте">← Получение данных из store в компоненте</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../add-form/index.html" class="lesson-nav-btn lesson-nav-next" title="Добавление формы">Добавление формы →</a>
+      <a href="../read-store-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Retrieving data from store in a component">← Receiving data from store in a component</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../add-form/index.html" class="lesson-nav-btn lesson-nav-next" title="Adding a Form">Adding a form →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Смена формата даты в JavaScript — acteck.off</title>
-  <meta name="description" content="Смена формата даты в JavaScript — учебные материалы по программированию.">
+  <title>Changing the date format in JavaScript - acteck.off</title>
+  <meta name="description" content="Changing the Date Format in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,36 +36,18 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Смена формата даты в JavaScript</h1>
-    <p>
-	Давайте теперь научимся менять формат даты.
-	Пусть, к примеру, у нас есть строка с датой
-	в формате <span data-gs="comd/f" data-x>год-месяц-день</span>. Давайте
-	поменяем формат этой даты на другой, к примеру,
-	на такой: <span data-gs="comd/f" data-x>день/месяц/год</span>.
+    <h1>Changing date format in JavaScript</h1>
+    <p>Let's now learn how to change the date format. Let, for example, we have a string with a date in the format<span data-gs="comd/f" data-x>year-month-day</span>. Let's change the format of this date to another one, for example, to this:<span data-gs="comd/f" data-x>day/month/year</span>.
 </p>
-<p>
-	Давайте решим задачу на конкретном примере.
-	Пусть в переменной <code data-gs="comd/c" data-x>date</code> лежит дата
-	<code data-gs="comd/s" data-x>'2025-12-31'</code>. Давайте преобразуем
-	эту дату в <code data-gs="comd/s" data-x>'31/12/2025'</code>
+<p>Let's solve the problem using a specific example. Let in the variable<code data-gs="comd/c" data-x>date</code>lies the date<code data-gs="comd/s" data-x>'2025-12-31'</code>. Let's convert this date to<code data-gs="comd/s" data-x>'31/12/2025'</code>
 </p>
-<p>
-	Для решения задачи разобьем нашу строку <code data-gs="comd/s" data-x>'2025-12-31'</code>
-	в массив, используя метод <a href="../../../../manual/string/split/index.html"><code data-gs="comd/c" data-x>split</code></a>
-	с разделителем дефисом. В результате в нулевом
-	элементе массива окажется год, в первом -
-	месяц, во втором - день:
-</p>
+<p>To solve the problem, let's split our string<code data-gs="comd/s" data-x>'2025-12-31'</code>to an array using the method<a href="../../../../manual/string/split/index.html"><code data-gs="comd/c" data-x>split</code></a>with a hyphen separator. As a result, the zero element of the array will contain the year, the first - the month, and the second - the day:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '2025-12-31';
 let arr = str.split('-');
 console.log(arr); // получим массив ['2025', '12', '31']</code>
 </div>
-<p>
-	Теперь, обращаясь к разным элементам массива
-	по их ключам, сформируем нужную нам строку:
-</p>
+<p>Now, referring to different elements of the array by their keys, we will form the string we need:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '2025-12-31';
 let arr = str.split('-');
@@ -73,11 +55,8 @@ let res = arr[2] + '/' + arr[1] + '/' + arr[0];
 
 console.log(res); // получим строку '31/12/2025'</code>
 </div>
-<p>
-	Можно также использовать комбинацию методов
-	<a href="../../../../manual/string/split/index.html"><code data-gs="comd/c" data-x>split</code></a>,
-	<a href="../../../../manual/array/reverse/index.html"><code data-gs="comd/c" data-x>reverse</code></a>
-	и <a href="../../../../manual/array/join/index.html"><code data-gs="comd/c" data-x>join</code></a>:
+<p>You can also use a combination of methods<a href="../../../../manual/string/split/index.html"><code data-gs="comd/c" data-x>split</code></a>,
+	<a href="../../../../manual/array/reverse/index.html"><code data-gs="comd/c" data-x>reverse</code></a>And<a href="../../../../manual/array/join/index.html"><code data-gs="comd/c" data-x>join</code></a>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '2025-12-31';
@@ -86,23 +65,21 @@ let res = str.split('-').reverse().join('/');
 console.log(res); // получим строку '31/12/2025'</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана дата в формате <span data-gs="comd/f" data-x>год-месяц-день</span>.
-		Преобразуйте эту дату в формат <span data-gs="comd/f" data-x>день.месяц.год</span>.
+	<p>The date is given in the format<span data-gs="comd/f" data-x>year-month-day</span>. Convert this date to format<span data-gs="comd/f" data-x>day.month.year</span>.
 	</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../formatting/index.html" class="lesson-nav-btn lesson-nav-prev" title="Форматирование">← Форматирование</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../weekday-getting/index.html" class="lesson-nav-btn lesson-nav-next" title="Получение дня недели">Получение дня недели →</a>
+      <a href="../formatting/index.html" class="lesson-nav-btn lesson-nav-prev" title="Formatting">← Formatting</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../weekday-getting/index.html" class="lesson-nav-btn lesson-nav-next" title="Getting the day of the week">Getting the day of the week →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

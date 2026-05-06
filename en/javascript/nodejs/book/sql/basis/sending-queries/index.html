@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отправка запросов к базе данных в NodeJS — acteck.off</title>
-  <meta name="description" content="Отправка запросов к базе данных в NodeJS — учебные материалы по программированию.">
+  <title>Sending database queries in NodeJS - acteck.off</title>
+  <meta name="description" content="Querying a Database in NodeJS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,15 +36,8 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Отправка запросов к базе данных в NodeJS</h1>
-    <p>
-	После соединения с базой к ней можно отправлять
-	запросы. Для этого в блоке
-	<code data-gs="comd/c" data-x>try</code> к константе
-	<code data-gs="comd/c" data-x>connection</code> применяем
-	метод <code data-gs="comd/c" data-x>query</code>. В параметре метода
-	следует прописать SQL запрос к БД:
-</p>
+    <h1>Sending database queries in NodeJS</h1>
+    <p>After connecting to the database, you can send requests to it. For this purpose in the block<code data-gs="comd/c" data-x>try</code>to a constant<code data-gs="comd/c" data-x>connection</code>apply the method<code data-gs="comd/c" data-x>query</code>. In the method parameter you should write an SQL query to the database:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">const connection = await mysql.createConnection({
 	host: 'localhost',
@@ -63,13 +56,7 @@ try {
 	console.log(err);
 }</code>
 </div>
-<p>
-	После выполнения кода в консоль
-	выведется многомерный массив,
-	состоящий из массива с результатом
-	запроса и массива с информацией
-	о полях таблицы:
-</p>
+<p>After executing the code, a multidimensional array will be displayed in the console, consisting of an array with the result of the query and an array with information about the table fields:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[
 	// массив с результатом запроса:
@@ -90,29 +77,17 @@ try {
 	]
 ]</code>
 </div>
-<p>
-	Для удобства этот многомерный массив
-	можно распаковать в две переменные.
-	Пусть переменная <code data-gs="comd/c" data-x>results</code> отвечает за вывод
-	результата запроса, а <code data-gs="comd/c" data-x>fields</code> -
-	за информацию о полях таблицы:
-</p>
+<p>For convenience, this multidimensional array can be unpacked into two variables. Let the variable<code data-gs="comd/c" data-x>results</code>is responsible for displaying the result of the request, and<code data-gs="comd/c" data-x>fields</code>- for information about the table fields:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let [results, fields] = await connection.query(
 	'SELECT * FROM users'
 );</code>
 </div>
-<p>
-	Теперь давайте выведем в консоль
-	данные из таблицы:
-</p>
+<p>Now let's output the data from the table to the console:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(results);</code>
 </div>
-<p>
-	После выполнения кода отобразятся
-	данные о юзерах:
-</p>
+<p>After executing the code, user data will be displayed:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[
 	{ id: 1, name: 'user1', age: 23, salary: 400 },
@@ -123,16 +98,11 @@ try {
 	{ id: 6, name: 'user6', age: 28, salary: 900 }
 ]</code>
 </div>
-<p>
-	А теперь посмотрим на информацию
-	о структуре таблицы:
-</p>
+<p>Now let's look at the information about the table structure:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(fields);</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[
 	`id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -141,10 +111,7 @@ try {
 	`salary` INT NOT NULL
 ]</code>
 </div>
-<p>
-	Давайте еще немного улучшим читабельность нашего кода
-	и вынесем запрос к БД в отдельную переменную
-	<code data-gs="comd/c" data-x>query</code>:
+<p>Let's improve the readability of our code a little more and put the database query into a separate variable<code data-gs="comd/c" data-x>query</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "SELECT * FROM users";
@@ -158,15 +125,11 @@ try {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Выведите все данные из таблицы
-		<code data-gs="comd/s" data-x>users</code>.
+	<p>Output all data from the table<code data-gs="comd/s" data-x>users</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Узнайте информацию о полях таблицы
-		<code data-gs="comd/s" data-x>users</code>.
+	<p>Find out information about table fields<code data-gs="comd/s" data-x>users</code>.
 	</p>
 </div>
   </section>
@@ -174,7 +137,7 @@ try {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

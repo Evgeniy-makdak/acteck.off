@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Стилизация с помощью CSS классов на JavaScript — acteck.off</title>
-  <meta name="description" content="Стилизация с помощью CSS классов на JavaScript — учебные материалы по программированию.">
+  <title>Styling with CSS classes in JavaScript - acteck.off</title>
+  <meta name="description" content="Styling with CSS classes in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,58 +36,23 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Стилизация с помощью CSS классов на JavaScript</h1>
-    <p>
-	В предыдущем уроке мы научились менять
-	CSS стили элементов через изменение атрибута
-	style. Чаще всего это не очень хорошая идея.
-	Дело в том, что, если раскидать CSS стили
-	по JavaScript коду, в дальнейшем будет проблематично
-	изменить дизайн сайта, так как придется ковырять
-	JavaScript код в поисках зашитых туда стилей.
-</p>
-<p>
-	Более удобно для дальнейшей поддержки будет
-	добавлять или убирать элементу CSS классы,
-	тем самым стилизуя их нужным образом.
-</p>
-<p>
-	Давайте посмотрим на примере. Пусть у нас
-	есть несколько абзацев:
-</p>
+    <h1>Styling with CSS classes in JavaScript</h1>
+    <p>In the previous lesson, we learned how to change the CSS styles of elements by changing the style attribute. Most often this is not a good idea. The fact is that if you scatter CSS styles throughout the JavaScript code, it will be problematic to change the site design in the future, since you will have to tinker with the JavaScript code in search of the styles embedded there.</p>
+<p>It would be more convenient for further support to add or remove CSS classes to the element, thereby styling them as needed.</p>
+<p>Let's look at an example. Let's say we have several paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text1&lt;/p&gt;
 &lt;p&gt;text2&lt;/p&gt;
 &lt;p&gt;text3&lt;/p&gt;</code>
 </div>
-<p>
-	Давайте сделаем так, чтобы по клику на любой
-	абзац, этот абзац красился в какой-нибудь
-	цвет, например, в зеленый. Для этого в CSS
-	файле сделаем специальный класс для окрашивания
-	абзацев:
-</p>
+<p>Let's make sure that when you click on any paragraph, this paragraph will be painted in some color, for example, green. To do this, in the CSS file we will create a special class for coloring paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.colored {
 	color: green;
 }</code>
 </div>
-<p>
-	Преимущество использование класса в том,
-	что теперь легко можно будет поменять желаемый
-	цвет - для этого нужно будет просто внести
-	изменение в CSS файл, не ковыряя JavaScript
-	код. Особенно удобно это будет в том случае,
-	если JavaScript код пишете вы, а в дальнейшем
-	стилизовать его будет кто-то другой (возможно
-	менее квалифицированный человек, умеющий
-	работать только с CSS).
-</p>
-<p>
-	Итак, теперь, после введения класса, по клику
-	на любой абзац можно изменить его цвет, просто
-	добавив ему наш класс:
-</p>
+<p>The advantage of using the class is that now you can easily change the desired color - to do this you just need to make a change to the CSS file without messing with the JavaScript code. This will be especially convenient if you write the JavaScript code, and in the future it will be styled by someone else (perhaps a less qualified person who only knows how to work with CSS).</p>
+<p>So, now, after introducing the class, by clicking on any paragraph you can change its color by simply adding our class to it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');
 
@@ -98,33 +63,24 @@ for (let elem of elems) {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Объясните, почему я выбрал для названия класса
-		слово <code data-gs="comd/z" data-x>colored</code>, а не слово <code data-gs="comd/z" data-x>green</code>,
-		явно указывающее на желаемый нами цвет.
-	</p>
+	<p>Explain why I chose the word<code data-gs="comd/z" data-x>colored</code>, not a word<code data-gs="comd/z" data-x>green</code>, clearly indicating the color we want.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан абзац. Даны кнопки <code data-gs="comd/s" data-x>'перечеркнуть'</code>,
-		<code data-gs="comd/s" data-x>'сделать жирным'</code>, <code data-gs="comd/s" data-x>'сделать красным'</code>.
-		Пусть по нажатию на каждую кнопку заданное
-		действие происходит с абзацем (становится
-		красным, например).
-	</p>
+	<p>A paragraph is given. Buttons are given<code data-gs="comd/s" data-x>'перечеркнуть'</code>,
+		<code data-gs="comd/s" data-x>'сделать жирным'</code>, <code data-gs="comd/s" data-x>'сделать красным'</code>. Suppose that when you click on each button, the specified action occurs with the paragraph (it turns red, for example).</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../exception/index.html" class="lesson-nav-btn lesson-nav-prev" title="Исключение при стилизации элементов">← Исключение при стилизации элементов</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../classes-advantages/index.html" class="lesson-nav-btn lesson-nav-next" title="Преимущество стилизации с помощью CSS классов">Преимущество стилизации с помощью CSS классов →</a>
+      <a href="../exception/index.html" class="lesson-nav-btn lesson-nav-prev" title="Exception when styling elements">← Exception when styling elements</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../classes-advantages/index.html" class="lesson-nav-btn lesson-nav-next" title="The Benefit of Styling with CSS Classes">The advantage of styling with CSS classes →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

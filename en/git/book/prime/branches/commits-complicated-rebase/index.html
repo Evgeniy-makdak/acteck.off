@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Более сложное перебазирование коммитов в Git — acteck.off</title>
-  <meta name="description" content="Более сложное перебазирование коммитов в Git — учебные материалы по программированию.">
+  <title>More complex rebasing of commits in Git - acteck.off</title>
+  <meta name="description" content="More complex rebasing of commits in Git - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,51 +36,23 @@
       <a href="../../../../../../en/git/index.html">Git</a>
     </div>
 
-    <h1>Более сложное перебазирование коммитов в Git</h1>
-    <p>
-	В системе Git можно выполнить перебазирование
-	для трех веток. Пусть у нас есть две ветки
-	<code data-gs="comd/s" data-x>member1</code> и <code data-gs="comd/s" data-x>member2</code>, у которых есть разные
-	коммиты.
-</p>
-<p>
-	В процессе работы над проектом нам понадобилось
-	вставить коммиты <code data-gs="comd/s" data-x>commit3</code>, <code data-gs="comd/s" data-x>commit4</code>
-	из ветки <code data-gs="comd/s" data-x>member2</code> в ветку <code data-gs="comd/s" data-x>member1</code>
-	и применить их на ветке <code data-gs="comd/s" data-x>master</code>.
-	Для этого выполняем следующую
-	команду:
-</p>
+    <h1>More complex rebasing of commits in Git</h1>
+    <p>In Git, you can rebase up to three branches. Let us have two branches<code data-gs="comd/s" data-x>member1</code>And<code data-gs="comd/s" data-x>member2</code>, which have different commits.</p>
+<p>While working on the project, we needed to insert commits<code data-gs="comd/s" data-x>commit3</code>, <code data-gs="comd/s" data-x>commit4</code>from the thread<code data-gs="comd/s" data-x>member2</code>to the thread<code data-gs="comd/s" data-x>member1</code>and apply them on the branch<code data-gs="comd/s" data-x>master</code>. To do this, run the following command:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git rebase --onto master member1 member2</code>
 </div>
-<p>
-	Данная команда приказывает системе Git
-	переключиться на ветку <code data-gs="comd/s" data-x>member2</code>,
-	найти в ней коммиты, которых нет в ветке <code data-gs="comd/s" data-x>member1</code>
-	и слить только эти недостающие коммиты с
-	веткой <code data-gs="comd/s" data-x>master</code>.
+<p>This command tells Git to switch to a branch<code data-gs="comd/s" data-x>member2</code>, find commits in it that are not in the branch<code data-gs="comd/s" data-x>member1</code>and merge only these missing commits to the branch<code data-gs="comd/s" data-x>master</code>.
 </p>
-<p>
-	Теперь выполним слияние обратной перемоткой:
-</p>
+<p>Now let's perform a rewind merge:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git switch master
 git merge member2</code>
 </div>
-<p>
-	Следует помнить, что нельзя перебазировать
-	коммиты, находящиеся во внешнем репозитории.
-	Все участники команды берут из него коммиты
-	для выполнения своей задачи, но если произошло
-	перебазирование веток, всем участникам придется
-	снова сливать коммиты со своими ветками,
-	что может вызвать дополнительную
-	путаницу.
-</p>
+<p>One thing to remember is that you cannot rebase commits that are in an external repository. All team members pull commits from it to complete their task, but if branches are rebased, all members will have to merge the commits back into their branches, which can cause further confusion.</p>
     <div class="lesson-nav">
-      <a href="../commits-simple-rebase/index.html" class="lesson-nav-btn lesson-nav-prev" title="Простое перебазирование коммитов">← Простое перебазирование коммитов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../commits-simple-rebase/index.html" class="lesson-nav-btn lesson-nav-prev" title="Easily rebase commits">← Easy rebasing of commits</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../../remote/repository/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
     </div>
   </section>
@@ -88,7 +60,7 @@ git merge member2</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

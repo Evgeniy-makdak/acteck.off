@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Оптимизация повторения тяжелых операций в JavaScript — acteck.off</title>
-  <meta name="description" content="Оптимизация повторения тяжелых операций в JavaScript — учебные материалы по программированию.">
+  <title>Optimizing repetition of heavy operations in JavaScript - acteck.off</title>
+  <meta name="description" content="Optimizing Repetition of Heavy Operations in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,19 +36,9 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Оптимизация повторения тяжелых операций в JavaScript</h1>
-    <p>
-	В предыдущем уроке повторные вызовы функций
-	на самом деле занимают очень мало времени и наша
-	оптимизация сэкономит не очень много. Однако,
-	все будет гораздо хуже, если мы будем несколько
-	раз делать вызов "тяжелой" функции, которая
-	выполняется достаточно долгое время.
-</p>
-<p>
-	Пусть, например, у нас есть функция, которая
-	находит делители числа:
-</p>
+    <h1>Optimizing repetition of heavy operations in JavaScript</h1>
+    <p>In the previous lesson, repeated function calls actually take very little time and our optimization will not save much. However, everything will be much worse if we make several calls to a “heavy” function that has been running for quite a long time.</p>
+<p>Let, for example, we have a function that finds the divisors of a number:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getDivisorsSum(num) {
 	let res = 0;
@@ -62,10 +52,7 @@
 	return res;
 }</code>
 </div>
-<p>
-	Очевидно, что эта функция достаточно "тяжелая".
-	Поэтому плохой идеей будет написать вот такой код:
-</p>
+<p>Obviously, this function is quite “heavy”. Therefore, it would be a bad idea to write code like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 123456;
 
@@ -75,12 +62,7 @@ if (getDivisorsSum(num) &gt;= 10 && getDivisorsSum(num) &lt;= 100) {
 	console.log('---');
 }</code>
 </div>
-<p>
-	Лучше, конечно же, выполнить "тяжелую" операцию
-	один раз и результат записать в переменную,
-	а потом использовать эту переменную в нужных
-	местах:
-</p>
+<p>It is better, of course, to perform the “heavy” operation once and write the result into a variable, and then use this variable in the right places:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 123456;
 let sum = getDivisorsSum(num);
@@ -92,9 +74,7 @@ if (sum &gt;= 10 && sum &lt;= 100) {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Оптимизируйте приведенный ниже код:
-	</p>
+	<p>Optimize the code below:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1233456789;
 
@@ -118,16 +98,16 @@ function getSumSquare(num) {
 </div>
   
     <div class="lesson-nav">
-      <a href="../repeating-operations/index.html" class="lesson-nav-btn lesson-nav-prev" title="Оптимизация повторных операций">← Оптимизация повторных операций</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../loop-operations/index.html" class="lesson-nav-btn lesson-nav-next" title="Оптимизация цикличных операций">Оптимизация цикличных операций →</a>
+      <a href="../repeating-operations/index.html" class="lesson-nav-btn lesson-nav-prev" title="Optimizing repeat operations">← Optimization of repeated operations</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../loop-operations/index.html" class="lesson-nav-btn lesson-nav-next" title="Optimization of cyclic operations">Optimization of cyclic operations →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

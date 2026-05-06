@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Применение прекращения всплытия событий в JavaScript — acteck.off</title>
-  <meta name="description" content="Применение прекращения всплытия событий в JavaScript — учебные материалы по программированию.">
+  <title>Using event bubbling stop in JavaScript - acteck.off</title>
+  <meta name="description" content="Using Event Bubbling Termination in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Применение прекращения всплытия событий в JavaScript</h1>
-    <p>
-	Пусть внутри одного родителя у нас есть кнопка
-	и некоторый блок:
-</p>
+    <h1>Using event bubbling termination in JavaScript</h1>
+    <p>Let us have a button and some block inside one parent:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;button&gt;click me&lt;/button&gt;
@@ -49,73 +46,47 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Получим ссылки на наши элементы в переменные:
-</p>
+<p>Let's get references to our elements in variables:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let parent = document.querySelector('#parent');
 let button = document.querySelector('button');
 let block  = document.querySelector('#block');</code>
 </div>
-<p>
-	Пусть наш блок изначально скрыт:
-</p>
+<p>Let our block be initially hidden:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block:not(.active) {
 	display: none;
 }</code>
 </div>
-<p>
-	Сделаем так, чтобы по клику на кнопку наш
-	блок показался:
-</p>
+<p>Let's make our block appear when you click on the button:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	block.classList.add('active');
 });</code>
 </div>
-<p>
-	А теперь сделаем так, чтобы по клику на любое
-	место родителя наш блок скрывался:
-</p>
+<p>Now let’s make sure that when you click on any place in the parent, our block will disappear:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">parent.addEventListener('click', function() {
 	block.classList.remove('active');
 });</code>
 </div>
-<p>
-	Нас, однако, ждет неожиданный сюрприз: так
-	как кнопка находится внутри родителя, то
-	<i>клик по кнопке одновременно означает и
-	клик по родителю</i>. Это значит, что сначала
-	наш блок покажется, а затем из-за всплытия
-	события сработает обработчик в родителе и
-	наш блок скроется.
-</p>
-<p>
-	Вот тут-то нам и пригодится возможность отменить
-	всплытие: мы можем сделать так, чтобы при
-	клике на кнопку отменить всплытие, родитель
-	не реагировал на этот клик.
-</p>
+<p>However, we are in for an unexpected surprise: since the button is located inside the parent, then<i>Clicking on the button also means clicking on the parent</i>. This means that first our block will appear, and then, due to the event bubbling, the handler in the parent will fire and our block will disappear.</p>
+<p>This is where the ability to cancel bubbling comes in handy: we can make it so that when the cancel bubbling button is clicked, the parent does not react to this click.</p>
 <div data-w="cont/task">
-	<p>
-		Самостоятельно реализуйте корректную работу
-		описанной задачи.
-	</p>
+	<p>Implement the correct operation of the described task yourself.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../immediate-termination/index.html" class="lesson-nav-btn lesson-nav-prev" title="Немедленное прекращение всплытия">← Немедленное прекращение всплытия</a>
-      <a href="../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../events-capturing/index.html" class="lesson-nav-btn lesson-nav-next" title="Погружение событий">Погружение событий →</a>
+      <a href="../immediate-termination/index.html" class="lesson-nav-btn lesson-nav-prev" title="Immediate cessation of ascent">← Immediate cessation of ascent</a>
+      <a href="../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../events-capturing/index.html" class="lesson-nav-btn lesson-nav-next" title="Immersive Events">Event immersion →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отправка action и хук useDispatch в Redux — acteck.off</title>
-  <meta name="description" content="Отправка action и хук useDispatch в Redux — учебные материалы по программированию.">
+  <title>Sending an action and useDispatch hook in Redux - acteck.off</title>
+  <meta name="description" content="Dispatch an action and useDispatch hook in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,86 +36,37 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Отправка action и хук useDispatch в Redux</h1>
-    <p>
-	Мы реализовали практически все составляющие
-	для работы Redux приложения. Осталось
-	только разобраться с отправкой action из
-	React компонента. Приступим.
-</p>
-<p>
-	Откройте наше приложение с продуктами. В
-	форме компонента <code data-gs="comd/c" data-x>NewProductForm</code> у нас
-	есть кнопка для сохранения данных нового
-	продукта. Давайте навесим ей обработчик
-	клика. Пусть по клику на нее срабатывает
-	обработчик <code data-gs="comd/c" data-x>onSaveProductClick</code>:
+    <h1>Dispatch action and useDispatch hook in Redux</h1>
+    <p>We have implemented almost all the components for a Redux application to work. All that remains is to figure out sending an action from a React component. Let's get started.</p>
+<p>Open our products app. In component form<code data-gs="comd/c" data-x>NewProductForm</code>we have a button to save new product data. Let's attach a click handler to it. Let the handler be triggered when it is clicked<code data-gs="comd/c" data-x>onSaveProductClick</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;button type="button" onClick={onSaveProductClick}&gt;
 	save
 &lt;/button&gt;</code>
 </div>
-<p>
-	При создании нового продукта нам понадобится
-	для него новый id. Мы будем генерировать его
-	при помощи всеизвестной библиотеки
-	<a href="https://www.npmjs.com/package/nanoid">nanoid</a>.
-	Кстати, ее не надо устанавливать, поскольку
-	она уже идет с пакетом RTK. Добавим nanoid
-	в импорт:
-</p>
+<p>When creating a new product, we will need a new id for it. We will generate it using the well-known library<a href="https://www.npmjs.com/package/nanoid">nanoid</a>. By the way, there is no need to install it, since it already comes with the RTK package. Let's add nanoid to the import:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { nanoid } from '@reduxjs/toolkit'</code>
 </div>
-<p>
-	Также мы помним, что единственный способ
-	изменить state - это вызвать метод <code data-gs="comd/c" data-x>dispatch</code>,
-	который есть у store и передать объект action.
-	Чтобы добраться до этого метода, мы
-	применим React-Redux хук <code data-gs="comd/c" data-x>useDispatch</code>.
-	Давайте импортируем и его:
-</p>
+<p>We also remember that the only way to change state is to call the method<code data-gs="comd/c" data-x>dispatch</code>, which store has and pass the action object. To get to this method, we'll use the React-Redux hook<code data-gs="comd/c" data-x>useDispatch</code>. Let's import it too:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useDispatch } from 'react-redux'</code>
 </div>
-<p>
-	В коде функции <code data-gs="comd/c" data-x>NewProductForm</code> заведем
-	для него константу <code data-gs="comd/c" data-x>dispatch</code> сразу после
-	того, как мы завели константы для наших
-	локальных стейтов:
-</p>
+<p>In the function code<code data-gs="comd/c" data-x>NewProductForm</code>let's create a constant for it<code data-gs="comd/c" data-x>dispatch</code>right after we created constants for our local states:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const dispatch = useDispatch()</code>
 </div>
-<p>
-	Также нам необходимо импортировать
-	action creator <code data-gs="comd/c" data-x>productAdded</code>, который
-	мы получили на прошлом уроке:
-</p>
+<p>We also need to import action creator<code data-gs="comd/c" data-x>productAdded</code>, which we received in the last lesson:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { productAdded } from './productsSlice'</code>
 </div>
-<p>
-	Теперь мы можем написать саму функцию
-	обработчика <code data-gs="comd/c" data-x>onSaveProductClick</code>. Сделаем
-	это перед командой <code data-gs="comd/c" data-x>return</code>:
+<p>Now we can write the handler function itself<code data-gs="comd/c" data-x>onSaveProductClick</code>. Let's do it in front of the team<code data-gs="comd/c" data-x>return</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const onSaveProductClick = () =&gt; {}</code>
 </div>
-<p>
-	Внутри функции мы вызываем <code data-gs="comd/c" data-x>dispatch</code>,
-	формируем объект action, в свойство
-	<code data-gs="comd/c" data-x>payload</code> которого у нас попадут сгенерированный
-	id, название, описание, цена и количество
-	продукта. Все эти данные мы берем из локальных
-	стейтов. При этом в начале мы проверяем
-	в условии все ли поля заполнены - только
-	в этом случае вызываем <code data-gs="comd/c" data-x>dispatch</code>. В конце
-	кода функции мы возвращаем локальные
-	стейты в исходное состояние:
-</p>
+<p>Inside the function we call<code data-gs="comd/c" data-x>dispatch</code>, we form the action object into the property<code data-gs="comd/c" data-x>payload</code>which we will have the generated id, name, description, price and quantity of the product. We take all this data from local states. At the same time, at the beginning we check in the condition whether all fields are filled in - only in this case we call<code data-gs="comd/c" data-x>dispatch</code>. At the end of the function code, we return the local states to their original state:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const onSaveProductClick = () =&gt; {
 	if (name && desc && price && amount) {
@@ -136,67 +87,30 @@
 	}
 }</code>
 </div>
-<p>
-	Теперь запустим наше приложение, введем 
-	данные в поля формы и нажмем кнопку
-	сохранения. Ура, внизу на страничке появился
-	новый продукт. Открыв Redux DevTools, а
-	в нем вкладку Inspector, мы видим, что слева
-	кроме @@INIT появился еще и наш action
-	<code data-gs="comd/c" data-x>products/productAdded</code>. А в правой части
-	мы можем пощелкать по вкладкам Action и State,
-	переключая при этом @@INIT и <code data-gs="comd/c" data-x>products/productAdded</code>.
-	Теперь мы видим, что наш новый продукт
-	добавляется. Также на вкладке Action
-	мы видим action, сгенерированный автоматически
-	с помощью <code data-gs="comd/c" data-x>createSlice</code> (щелкните, к примеру,
-	по Raw). Ура: нам не пришлось прописывать его
-	руками.
-</p>
+<p>Now let's launch our application, enter data into the form fields and press the save button. Hurray, a new product has appeared at the bottom of the page. Having opened Redux DevTools, and in it the Inspector tab, we see that on the left, in addition to @@INIT, our action has also appeared<code data-gs="comd/c" data-x>products/productAdded</code>. And on the right side we can click on the Action and State tabs, while switching @@INIT and<code data-gs="comd/c" data-x>products/productAdded</code>. Now we see our new product being added. Also on the Action tab we see the action generated automatically using<code data-gs="comd/c" data-x>createSlice</code>(click on Raw for example). Hurray: we didn’t have to write it manually.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами,
-		а затем файл <code data-gs="comd/p" data-x>NewStudentForm.jsx</code>, навесьте
-		на кнопку сохранения обработчик клика.
-	</p>
+	<p>Open your application with students and then the file<code data-gs="comd/p" data-x>NewStudentForm.jsx</code>, attach a click handler to the save button.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пропишите все необходимые импорты и
-		напишите функцию-обработчик
-		<code data-gs="comd/c" data-x>onSaveStudentClick</code>, применяя метод
-		<code data-gs="comd/c" data-x>dispatch</code> как показано в уроке.
-	</p>
+	<p>List all the necessary imports and write a handler function<code data-gs="comd/c" data-x>onSaveStudentClick</code>, using the method<code data-gs="comd/c" data-x>dispatch</code>as shown in the lesson.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Запустите приложение, внесите в поля формы
-		данные и нажмите на кнопку сохранения.
-		Убедитесь, что на страничке внизу добавился
-		новый студент.
-	</p>
+	<p>Launch the application, enter data in the form fields and click on the save button. Make sure that a new student has been added to the page below.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Откройте Redux DevTools и пройдитесь по
-		вкладкам Action и State, убедитесь, что
-		новый объект со студентом добавляется.
-		Посмотрите на объект action, который у вас
-		сгенерировался, пришлите его в ответе на
-		эту задачу.
-	</p>
+	<p>Open Redux DevTools and go through the Action and State tabs, make sure that a new object with a student is added. Look at the action object that was generated for you, send it in response to this task.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../reducer-and-action/index.html" class="lesson-nav-btn lesson-nav-prev" title="Редьюсер и action">← Редьюсер и action</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../discussion/index.html" class="lesson-nav-btn lesson-nav-next" title="Обсуждение работы схемы">Обсуждение работы схемы →</a>
+      <a href="../reducer-and-action/index.html" class="lesson-nav-btn lesson-nav-prev" title="Reducer and action">← Reducer and action</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../discussion/index.html" class="lesson-nav-btn lesson-nav-next" title="Discussion of the operation of the circuit">Discussion of the operation of the circuit →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод trigger — acteck.off</title>
-  <meta name="description" content="Метод trigger — учебные материалы по программированию.">
+  <title>Trigger method - acteck.off</title>
+  <meta name="description" content="Trigger method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,56 +36,24 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод trigger</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>trigger</code> позволяет запустить
-	все обработчики событий, привязанные к элементу
-	для событий заданного типа. Он вызывает
-	функции-обработчики в том порядке, в котором они
-	бы вызывались пользователем.
-	Если вы хотите вызвать обработчик событий, но не
-	выполнять стандартное событие, то воспользуйтесь методом
-	<a href="../triggerHandler/index.html"><code data-gs="comd/c" data-x>triggerHandler</code></a>.
+    <h1>Trigger method</h1>
+    <p>Method<code data-gs="comd/c" data-x>trigger</code>allows you to run all event handlers bound to an element for events of a given type. It calls the handler functions in the order in which they would be called by the user. If you want to call an event handler, but not execute a standard event, then use the method<a href="../triggerHandler/index.html"><code data-gs="comd/c" data-x>triggerHandler</code></a>.
 </p>
 
-<h2>Синтаксис</h2>
-<p>
-	В качестве первого параметра мы можем
-	передать тип события в виде строки, вторым
-	(необязательным) массив или объект, содержащим
-	дополнительные параметры для передачи
-	обработчику:
-</p>
+<h2>Syntax</h2>
+<p>As the first parameter we can pass the event type as a string, the second (optional) is an array or object containing additional parameters to be passed to the handler:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).trigger(тип события, [дополнительные параметры]);</code>
 </div>
-<p>
-	Можно первым параметром передать событие
-	в виде объекта <code data-gs="comd/c" data-x>jQuery.Event</code>:
+<p>You can pass the event as an object as the first parameter<code data-gs="comd/c" data-x>jQuery.Event</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).trigger(событие, [дополнительные параметры]);</code>
 </div>
-<p>
-	Есть разница между передачей дополнительных
-	параметров методу <code data-gs="comd/c" data-x>trigger</code> и данных в метод
-	<a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>. В
-	в первом случае данные должны быть определены во время
-	выполнения события, а во втором уже на момент превязки
-	функции-обработчика.
-</p>
+<p>There is a difference between passing additional parameters to a method<code data-gs="comd/c" data-x>trigger</code>and data into the method<a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>. In the first case, the data must be determined during the execution of the event, and in the second, already at the time of binding the handler function.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	При нажатии на кнопку <code data-gs="comd/z" data-x>#first</code> значение будет
-	увеличиваться только в первом спане, при
-	нажатии на кнопку <code data-gs="comd/z" data-x>#second</code> - в обоих, при
-	этом имитируя на первой клик пользователя. Функция
-	<code data-gs="comd/c" data-x>increase</code> будет увеличивать на <code data-gs="comd/n" data-x>1</code> число,
-	передаваемое ей в качестве параметра. При помощи
-	метода <code data-gs="comd/c" data-x>trigger</code> мы заставляем срабатывать
-	также событие по клику и в первом спане, хотя
-	нажимаем на кнопку <code data-gs="comd/z" data-x>#second</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>When you press the button<code data-gs="comd/z" data-x>#first</code>the value will increase only in the first span, when the button is pressed<code data-gs="comd/z" data-x>#second</code>- in both, while simulating the user’s first click. Function<code data-gs="comd/c" data-x>increase</code>will increase by<code data-gs="comd/n" data-x>1</code>the number passed to it as a parameter. Using the method<code data-gs="comd/c" data-x>trigger</code>we also force the click event to fire in the first span, although we click on the button<code data-gs="comd/z" data-x>#second</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="first"&gt;button1&lt;/button&gt;
@@ -119,27 +87,13 @@ function increase(str) {
 }</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>, <br>
-			который позволяет привязать обработчик событий к элементу
-		</li>
-		<li>
-			метод <a href="../triggerHandler/index.html"><code data-gs="comd/c" data-x>triggerHandler</code></a>, <br>
-			который позволяет запустить все обработчики событий,
-			привязанные к элементу
-		</li>
-		<li>
-			объект <a href="../event/index.html"><code data-gs="comd/c" data-x>event</code></a>, <br>
-			который содержит информацию о событии
-		</li>
-		<li>
-			метод <a href="../submit/index.html"><code data-gs="comd/c" data-x>submit</code></a>, <br>
-			который позволяет позволяет привязывать обработчик к
-			JavaScript событию submit или запускать это событие
-		</li>
+		<li>method<a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>, <br>which allows you to bind an event handler to an element</li>
+		<li>method<a href="../triggerHandler/index.html"><code data-gs="comd/c" data-x>triggerHandler</code></a>, <br>which allows you to run all event handlers bound to an element</li>
+		<li>object<a href="../event/index.html"><code data-gs="comd/c" data-x>event</code></a>, <br>which contains information about the event</li>
+		<li>method<a href="../submit/index.html"><code data-gs="comd/c" data-x>submit</code></a>, <br>which allows you to bind a handler to the JavaScript submit event or fire this event</li>
 	</ul>
 </div>
   </section>
@@ -147,7 +101,7 @@ function increase(str) {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

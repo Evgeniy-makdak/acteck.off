@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Получение нажатых клавиш в JavaScript — acteck.off</title>
-  <meta name="description" content="Получение нажатых клавиш в JavaScript — учебные материалы по программированию.">
+  <title>Getting pressed keys in JavaScript - acteck.off</title>
+  <meta name="description" content="Getting Keypresses in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,98 +36,62 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Получение нажатых клавиш в JavaScript</h1>
-    <p>
-	С помощью объекта <code data-gs="comd/c" data-x>Event</code> можно
-	получать нажатые клавиши. Давайте
-	посмотрим, как это делается.
-	Пусть у нас есть инпут:
-</p>
+    <h1>Getting pressed keys in JavaScript</h1>
+    <p>Using an object<code data-gs="comd/c" data-x>Event</code>you can receive the keys pressed. Let's see how it's done. Let us have an input:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input&gt;</code>
 </div>
-<p>
-	Получим ссылку на него в переменную:
-</p>
+<p>Let's get a link to it in a variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('input');</code>
 </div>
-<p>
-	Навесим на наш инпут событие,
-	срабатывающее по каждому нажатию
-	клавиши:
-</p>
+<p>Let's attach an event to our input that fires on each key press:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">elem.addEventListener('keypress', function(event) {
 	
 });</code>
 </div>
-<p>
-	В свойстве <code data-gs="comd/c" data-x>key</code> объекта
-	с событием будет лежать
-	нажатый символ:
-</p>
+<p>In property<code data-gs="comd/c" data-x>key</code>The object with the event will contain the pressed symbol:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">elem.addEventListener('keypress', function(event) {
 	console.log(event.key);
 });</code>
 </div>
-<p>
-	А в свойстве <code data-gs="comd/c" data-x>code</code> будет
-	лежать код нажатой клавиши:
-</p>
+<p>And in the property<code data-gs="comd/c" data-x>code</code>The code of the key pressed will be:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">elem.addEventListener('keypress', function(event) {
 	console.log(event.code);
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте инпут, который будет
-		по вводу выводить значения
-		введенных клавиш и их коды.
+	<p>Make an input that will display the values ​​of the entered keys and their codes based on input.</p>
+</div>
+<div data-w="cont/task">
+	<p>Press various keys in the input and see what their meanings and codes are.</p>
+</div>
+<div data-w="cont/task">
+	<p>Determine what code the key will have<code data-gs="comd/k" data-x>Enter</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Понажимайте в инпуте различные
-		клавиши и посмотрите, какие
-		у них значения и коды.
+	<p>Determine what code the key will have<code data-gs="comd/k" data-x>BackSpace</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Определите, какой код будет
-		у клавиши <code data-gs="comd/k" data-x>Enter</code>.
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		Определите, какой код будет
-		у клавиши <code data-gs="comd/k" data-x>BackSpace</code>.
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		Дан абзац и инпут. В него вводится текст
-		и нажимается клавиша <code data-gs="comd/k" data-x>Enter</code>. Сделайте
-		так, чтобы в этот момент введенный
-		текст попадал в абзац под инпутом,
-		а содержимое инпута очищалось.
-	</p>
+	<p>A paragraph and an input are given. Text is entered into it and a key is pressed<code data-gs="comd/k" data-x>Enter</code>. Make sure that at this moment the entered text falls into the paragraph under the input, and the contents of the input are cleared.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../event-element/index.html" class="lesson-nav-btn lesson-nav-prev" title="Элемент события">← Элемент события</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../keys-modifiers/index.html" class="lesson-nav-btn lesson-nav-next" title="Отслеживание клавиш-модификаторов">Отслеживание клавиш-модификаторов →</a>
+      <a href="../event-element/index.html" class="lesson-nav-btn lesson-nav-prev" title="Event element">← Event element</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../keys-modifiers/index.html" class="lesson-nav-btn lesson-nav-next" title="Tracking modifier keys">Tracking modifier keys →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

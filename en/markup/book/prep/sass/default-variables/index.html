@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Переменные по умолчанию в SASS — acteck.off</title>
-  <meta name="description" content="Переменные по умолчанию в SASS — учебные материалы по программированию.">
+  <title>Default variables in SASS - acteck.off</title>
+  <meta name="description" content="Default Variables in SASS - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,24 +33,13 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Переменные по умолчанию в SASS</h1>
-    <p>
-	В некоторых случаях, если значение
-	переменнойпока не определено,
-	но ее нужно использовать в коде,
-	мы можем задать ей значение по умолчанию,
-	после которого ставим метку <code data-gs="comd/c" data-x>!default</code>.
+    <h1>Default Variables in SASS</h1>
+    <p>In some cases, if the value of a variable is not yet defined, but it needs to be used in the code, we can give it a default value, after which we put a label<code data-gs="comd/c" data-x>!default</code>.
 </p>
-<p>
-	Необходимо отметить, что если переменной
-	уже было присвоено значение раньше,
-	то оно останется прежним, но вот
-	если мы создали новую пустую переменную,
-	то для нее будет указано значение по умолчанию.
-</p>
+<p>It should be noted that if the variable has already been assigned a value before, then it will remain the same, but if we created a new empty variable, then the default value will be specified for it.</p>
 <div data-p="bock/pane" data-p-file="styles.scss">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">$name: "John";
 $name: "Bob" !default;
@@ -61,21 +50,15 @@ $new_name: "Mark" !default;
 	new_name: $new_name;
 }</code>
 </div>
-<p>
-	Результат компиляции приведенного кода будет
-	следующим:
-</p>
+<p>The result of compiling the above code will be as follows:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#main {
 	name: "John";
 	new_name: "Mark";
 }</code>
 </div>
-<p>
-	Если же мы поставили переменной значение <code data-gs="comd/c" data-x>null</code>,
-	<code data-gs="comd/c" data-x>!default</code> рассмотрит ее как
-	не имеющую значения:
-</p>
+<p>If we set the variable to the value<code data-gs="comd/c" data-x>null</code>,
+	<code data-gs="comd/c" data-x>!default</code>will treat it as irrelevant:</p>
 <div data-p="bock/pane" data-p-file="styles.scss">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">$name: null;
 $name: "Bob" !default;
@@ -84,25 +67,23 @@ $name: "Bob" !default;
 	name: $name;
 }</code>
 </div>
-<p>
-	После компиляции мы увидим:
-</p>
+<p>After compilation we will see:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#main {
 	name: "Bob"; 
 }</code>
 </div>
     <div class="lesson-nav">
-      <a href="../global-variables-inside-selectors/index.html" class="lesson-nav-btn lesson-nav-prev" title="Глобальные переменные внутри селекторов">← Глобальные переменные внутри селекторов</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../math-operations/index.html" class="lesson-nav-btn lesson-nav-next" title="Математические операции">Математические операции →</a>
+      <a href="../global-variables-inside-selectors/index.html" class="lesson-nav-btn lesson-nav-prev" title="Global variables inside selectors">← Global variables inside selectors</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../math-operations/index.html" class="lesson-nav-btn lesson-nav-next" title="Mathematical operations">Mathematical operations →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

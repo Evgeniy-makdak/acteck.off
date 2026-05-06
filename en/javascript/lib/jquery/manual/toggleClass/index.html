@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод toggleClass — acteck.off</title>
-  <meta name="description" content="Метод toggleClass — учебные материалы по программированию.">
+  <title>toggleClass method - acteck.off</title>
+  <meta name="description" content="toggleClass method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,95 +36,63 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод toggleClass</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>toggleClass</code> чередует добавление/удаление
-	CSS класса: если его нет - добавит, если есть - удалит.
-</p>
+    <h1>toggleClass method</h1>
+    <p>Method<code data-gs="comd/c" data-x>toggleClass</code>alternates adding/removing a CSS class: if it is not there, it will be added, if it is there, it will be removed.</p>
 
-<h2>Синтаксис</h2>
-<p>
-	Один CSS класс:
-</p>
+<h2>Syntax</h2>
+<p>One CSS class:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).toggleClass(имя класса);</code>
 </div>
-<p>
-	Toлько добавить или удалить CSS класс в зависимости 
-	от второго параметра, который принимает значения 
-	<code data-gs="comd/c" data-x>true</code> или <code data-gs="comd/c" data-x>false</code>:
+<p>Just add or remove a CSS class depending on the second parameter, which takes values<code data-gs="comd/c" data-x>true</code>or<code data-gs="comd/c" data-x>false</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).toggleClass(имя CSS класса, состояние);</code>
 </div>
-<p>
-	Несколько CSS классов:
-</p>
+<p>Several CSS classes:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).toggleClass(['класс1', 'класс2', 'класс3', '...']);</code>
 </div>
-<p>
-	Toлько добавить или удалить CSS классы 
-	в зависимости от второго параметра:
-</p>
+<p>Only add or remove CSS classes depending on the second parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).toggleClass(['класс1', 'класс2', 'класс3', '...'], состояние');</code>
 </div>
-<p>
-	Применение функции к каждому элементу в наборе, 
-	состояние может быть <code data-gs="comd/c" data-x>true</code> или <code data-gs="comd/c" data-x>false</code>, 
-	и указывает методу - только добавить или только 
-	удалить CSS класс:
-</p>
+<p>Applying a function to each element in a set, the state can be<code data-gs="comd/c" data-x>true</code>or<code data-gs="comd/c" data-x>false</code>, and tells the method whether to only add or only remove the CSS class:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).toggleClass(function(номер в наборе, текущие классы элемента, состояние), [состояние]);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	У нашего абзаца уже есть два класса. Давайте
-	добавим ему еще и класс <code data-gs="comd/z" data-x>www</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Our paragraph already has two classes. Let's add some class to it too<code data-gs="comd/z" data-x>www</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class="eee ggg"&gt;text&lt;/p&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').toggleClass('www');</code>
 </div>
-<p>
-	HTML код станет выглядеть так:
-</p>
+<p>The HTML code will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class="eee ggg www"&gt;text&lt;/p&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	А теперь класс <code data-gs="comd/z" data-x>www</code> уже есть в элементе
-	- давайте его удалим:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>And now class<code data-gs="comd/z" data-x>www</code>is already in the element - let's remove it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class="eee ggg www"&gt;text&lt;/p&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').toggleClass('www');</code>
 </div>
-<p>
-	HTML код станет выглядеть так:
-</p>
+<p>The HTML code will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class="eee ggg"&gt;text&lt;/p&gt;</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			методы <a href="../addClass/index.html"><code data-gs="comd/c" data-x>addClass</code></a>,
+		<li>methods<a href="../addClass/index.html"><code data-gs="comd/c" data-x>addClass</code></a>,
 			<a href="../removeClass/index.html"><code data-gs="comd/c" data-x>removeClass</code></a>,
 			<a href="../hasClass/index.html"><code data-gs="comd/c" data-x>hasClass</code></a>
 		</li>
-		<li>
-			JavaScript свойство <a href="../../../../manual/dom/classList/index.html"><code data-gs="comd/c" data-x>classList</code></a>, <br>
-			с помощью которого можно чередовать добавление/удаление класса
-			на чистом JavaScript
-		</li>
+		<li>JavaScript property<a href="../../../../manual/dom/classList/index.html"><code data-gs="comd/c" data-x>classList</code></a>, <br>with which you can alternate adding/removing a class in pure JavaScript</li>
 	</ul>
 </div>
   </section>
@@ -132,7 +100,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

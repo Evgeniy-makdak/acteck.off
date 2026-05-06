@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Модификатор private в TypeScript — acteck.off</title>
-  <meta name="description" content="Модификатор private в TypeScript — учебные материалы по программированию.">
+  <title>Private modifier in TypeScript - acteck.off</title>
+  <meta name="description" content="The private modifier in TypeScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,18 +36,9 @@
       <a href="../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Модификатор private в TypeScript</h1>
-    <p>
-	Модификатор <code data-gs="comd/c" data-x>private</code> применяется в
-	тех случаях, когда нужно закрыть доступ к
-	свойствам и методам снаружи класса. При
-	этом даже в классах-потомках нельзя будет
-	обратиться к данным свойствам. 
-</p>
-<p>
-	Давайте посмотрим на примере. Сделаем в
-	классе <code data-gs="comd/c" data-x>User</code> приватное свойство
-	<code data-gs="comd/c" data-x>name</code>: 
+    <h1>The private modifier in TypeScript</h1>
+    <p>Modifier<code data-gs="comd/c" data-x>private</code>used in cases where you need to block access to properties and methods outside the class. In this case, even in descendant classes it will not be possible to access these properties.</p>
+<p>Let's look at an example. Let's do it in class<code data-gs="comd/c" data-x>User</code>private property<code data-gs="comd/c" data-x>name</code>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class User {
@@ -58,32 +49,19 @@
 	}
 }</code>
 </div>
-<p>
-	Создадим объект класса, передав в конструктор
-	значение нашего свойства: 
-</p>
+<p>Let's create a class object by passing the value of our property to the constructor:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user: User = new User('john');</code>
 </div>
-<p>
-	Теперь попытка прочитать данное приватное
-	свойство вне класса приведет к ошибке: 
-</p>
+<p>Now trying to read this private property outside the class will result in an error:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">console.log(user.name); // ошибка</code>
 </div>
-<p>
-	Также к ошибке приведет и попытка записать
-	что-то в это свойство снаружи класса: 
-</p>
+<p>An attempt to write something to this property outside the class will also result in an error:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">user.name = 'eric'; // ошибка</code>
 </div>
-<p>
-	А вот внутри методов класса можно будет
-	как читать, так и изменять значение нашего
-	приватного свойства: 
-</p>
+<p>But inside the class methods it will be possible to both read and change the value of our private property:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class User {
 	private name: string;
@@ -102,32 +80,17 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте класс <code data-gs="comd/c" data-x>User</code>, содержащий
-		приватные свойства с именем и возрастом.
-		Пусть их начальные значения задаются через
-		конструктор. 
-	</p>
+	<p>Make a class<code data-gs="comd/c" data-x>User</code>, containing private properties with name and age. Let their initial values ​​be specified through the constructor.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		В вашем классе <code data-gs="comd/c" data-x>User</code> сделайте публичные
-		методы <code data-gs="comd/c" data-x>getName</code> и <code data-gs="comd/c" data-x>getAge</code>,
-		позволяющие получить значения соответствующих
-		приватных свойств. 
-	</p>
+	<p>In your class<code data-gs="comd/c" data-x>User</code>make public methods<code data-gs="comd/c" data-x>getName</code>And<code data-gs="comd/c" data-x>getAge</code>, allowing you to get the values ​​of the corresponding private properties.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		В вашем классе <code data-gs="comd/c" data-x>User</code> сделайте публичные
-		методы <code data-gs="comd/c" data-x>setName</code> и <code data-gs="comd/c" data-x>setAge</code>,
-		позволяющие изменить значения соответствующих
-		приватных свойств. 
-	</p>
+	<p>In your class<code data-gs="comd/c" data-x>User</code>make public methods<code data-gs="comd/c" data-x>setName</code>And<code data-gs="comd/c" data-x>setAge</code>, allowing you to change the values ​​of the corresponding private properties.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -135,7 +98,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

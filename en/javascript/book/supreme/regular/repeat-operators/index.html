@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Операторы повторения символов в регулярках — acteck.off</title>
-  <meta name="description" content="Операторы повторения символов в регулярках — учебные материалы по программированию.">
+  <title>Character repetition operators in regular expressions - acteck.off</title>
+  <meta name="description" content="Character repetition operators in regular expressions - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,150 +36,95 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Операторы повторения символов в регулярках</h1>
-    <p>
-	Бывают ситуации, когда мы хотим указать,
-	что символ повторяется заданное количество
-	раз. Если мы знаем точное число повторений,
-	то можно просто написать его несколько раз
-	- <code data-gs="comd/c" data-x>/aaaa/</code>. Но что делать, если мы хотим
-	сказать такое: <span data-gs="comd/r" data-x>повторить один или более
-	раз</span>?
+    <h1>Character repetition operators in regular expressions</h1>
+    <p>There are situations when we want to indicate that a character is repeated a specified number of times. If we know the exact number of repetitions, then we can simply write it several times -<code data-gs="comd/c" data-x>/aaaa/</code>. But what if we want to say this:<span data-gs="comd/r" data-x>repeat one or more times</span>?
 </p>
-<p>
-	Для этого существуют операторы (квантификаторы)
-	повторения: плюс <code data-gs="comd/c" data-x>+</code> (один и более раз),
-	звездочка <code data-gs="comd/c" data-x>*</code> (ноль или более раз) и
-	вопрос <code data-gs="comd/c" data-x>?</code> (ноль или один раз). Эти
-	операторы действуют на тот символ, который
-	стоит перед ними.
-</p>
-<p>
-	Давайте посмотрим на работу этих операторов
-	на примерах.
-</p>
+<p>There are repetition operators (quantifiers) for this: plus<code data-gs="comd/c" data-x>+</code>(one or more times), asterisk<code data-gs="comd/c" data-x>*</code>(zero or more times) and a question<code data-gs="comd/c" data-x>?</code>(zero or one time). These operators act on the symbol that comes before them.</p>
+<p>Let's look at how these operators work with examples.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Найдем все подстроки по шаблону <span data-gs="comd/r" data-x>буква
-	<code data-gs="comd/s" data-x>'x'</code>, буква <code data-gs="comd/s" data-x>'a'</code> один или более
-	раз, буква <code data-gs="comd/s" data-x>'x'</code></span>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Find all substrings according to the pattern<span data-gs="comd/r" data-x>letter<code data-gs="comd/s" data-x>'x'</code>, letter<code data-gs="comd/s" data-x>'a'</code>one or more times, letter<code data-gs="comd/s" data-x>'x'</code></span>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'xx xax xaax xaaax xbx';
 let res = str.replace(/xa+x/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'xx ! ! ! xbx'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Найдем все подстроки по шаблону <span data-gs="comd/r" data-x>буква
-	<code data-gs="comd/s" data-x>'x'</code>, буква <code data-gs="comd/s" data-x>'a'</code> ноль или более
-	раз, буква <code data-gs="comd/s" data-x>'x'</code></span>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Find all substrings according to the pattern<span data-gs="comd/r" data-x>letter<code data-gs="comd/s" data-x>'x'</code>, letter<code data-gs="comd/s" data-x>'a'</code>zero or more times, letter<code data-gs="comd/s" data-x>'x'</code></span>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'xx xax xaax xaaax xbx'
 let res = str.replace(/xa*x/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! ! ! xbx'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Найдем все подстроки по шаблону <span data-gs="comd/r" data-x>буква
-	<code data-gs="comd/s" data-x>'x'</code>, буква <code data-gs="comd/s" data-x>'a'</code> ноль или один
-	раз, буква <code data-gs="comd/s" data-x>'x'</code></span>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Find all substrings according to the pattern<span data-gs="comd/r" data-x>letter<code data-gs="comd/s" data-x>'x'</code>, letter<code data-gs="comd/s" data-x>'a'</code>zero or one times, letter<code data-gs="comd/s" data-x>'x'</code></span>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'xx xax xaax xbx';
 let res = str.replace(/xa?x/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! xaax xbx'</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aa aba abba abbba abca abea';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая найдет строки
-		<code data-gs="comd/s" data-x>'aba'</code>, <code data-gs="comd/s" data-x>'abba'</code>, <code data-gs="comd/s" data-x>'abbba'</code>
-		по шаблону: <span data-gs="comd/r" data-x>буква <code data-gs="comd/s" data-x>'a'</code>, буква <code data-gs="comd/s" data-x>'b'</code>
-		любое количество раз, буква <code data-gs="comd/s" data-x>'a'</code></span>.
+	<p>Write a regular expression that finds strings<code data-gs="comd/s" data-x>'aba'</code>, <code data-gs="comd/s" data-x>'abba'</code>, <code data-gs="comd/s" data-x>'abbba'</code>according to the template:<span data-gs="comd/r" data-x>letter<code data-gs="comd/s" data-x>'a'</code>, letter<code data-gs="comd/s" data-x>'b'</code>any number of times, letter<code data-gs="comd/s" data-x>'a'</code></span>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aa aba abba abbba abca abea';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая найдет строки
-		<code data-gs="comd/s" data-x>'aa'</code>, <code data-gs="comd/s" data-x>'aba'</code>, <code data-gs="comd/s" data-x>'abba'</code>,
-		<code data-gs="comd/s" data-x>'abbba'</code> по шаблону: <span data-gs="comd/r" data-x>буква <code data-gs="comd/s" data-x>'a'</code>,
-		буква <code data-gs="comd/s" data-x>'b'</code> любое количество раз (в
-		том числе ниодного раза), буква <code data-gs="comd/s" data-x>'a'</code></span>.
+	<p>Write a regular expression that finds strings<code data-gs="comd/s" data-x>'aa'</code>, <code data-gs="comd/s" data-x>'aba'</code>, <code data-gs="comd/s" data-x>'abba'</code>,
+		<code data-gs="comd/s" data-x>'abbba'</code>according to the template:<span data-gs="comd/r" data-x>letter<code data-gs="comd/s" data-x>'a'</code>, letter<code data-gs="comd/s" data-x>'b'</code>any number of times (including none), letter<code data-gs="comd/s" data-x>'a'</code></span>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aa aba abba abbba abca abea';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая найдет строки
-		<code data-gs="comd/s" data-x>'aa'</code>, <code data-gs="comd/s" data-x>'aba'</code> по шаблону: <span data-gs="comd/r" data-x>буква
-		<code data-gs="comd/s" data-x>'a'</code>, буква <code data-gs="comd/s" data-x>'b'</code> один раз или
-		ниодного, буква <code data-gs="comd/s" data-x>'a'</code></span>.
+	<p>Write a regular expression that finds strings<code data-gs="comd/s" data-x>'aa'</code>, <code data-gs="comd/s" data-x>'aba'</code>according to the template:<span data-gs="comd/r" data-x>letter<code data-gs="comd/s" data-x>'a'</code>, letter<code data-gs="comd/s" data-x>'b'</code>once or not at all, letter<code data-gs="comd/s" data-x>'a'</code></span>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aa aba abba abbba abca abea';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая найдет строки
-		<code data-gs="comd/s" data-x>'aa'</code>, <code data-gs="comd/s" data-x>'aba'</code>, <code data-gs="comd/s" data-x>'abba'</code>,
-		<code data-gs="comd/s" data-x>'abbba'</code>, не захватив <code data-gs="comd/s" data-x>'abca'</code>
-		и <code data-gs="comd/s" data-x>'abea'</code>.
+	<p>Write a regular expression that finds strings<code data-gs="comd/s" data-x>'aa'</code>, <code data-gs="comd/s" data-x>'aba'</code>, <code data-gs="comd/s" data-x>'abba'</code>,
+		<code data-gs="comd/s" data-x>'abbba'</code>without capturing<code data-gs="comd/s" data-x>'abca'</code>And<code data-gs="comd/s" data-x>'abea'</code>.
 	</p>
 </div>
   
     <div class="lesson-nav">
       <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../grouping-brackets/index.html" class="lesson-nav-btn lesson-nav-next" title="Группирующие скобки">Группирующие скобки →</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../grouping-brackets/index.html" class="lesson-nav-btn lesson-nav-next" title="Grouping brackets">Grouping brackets →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

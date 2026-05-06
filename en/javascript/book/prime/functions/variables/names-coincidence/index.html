@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Одинаковые имена переменных в функциях в JavaScript — acteck.off</title>
-  <meta name="description" content="Одинаковые имена переменных в функциях в JavaScript — учебные материалы по программированию.">
+  <title>Same variable names in functions in JavaScript - acteck.off</title>
+  <meta name="description" content="Same Variable Names in Functions in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,12 +36,8 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Одинаковые имена переменных в функциях в JavaScript</h1>
-    <p>
-	Пусть и снаружи функции, и внутри есть переменная
-	<code data-gs="comd/c" data-x>num</code>. В этом случае любые изменения
-	с локальной переменной <code data-gs="comd/c" data-x>num</code> никак не
-	влияют на глобальную переменную <code data-gs="comd/c" data-x>num</code>:
+    <h1>Same variable names in functions in JavaScript</h1>
+    <p>Let there be a variable both outside the function and inside<code data-gs="comd/c" data-x>num</code>. In this case, any changes to a local variable<code data-gs="comd/c" data-x>num</code>do not affect the global variable in any way<code data-gs="comd/c" data-x>num</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1; // глобальная переменная
@@ -54,12 +50,7 @@ func(); // вызываем функцию, выведет 2
 
 console.log(num); // выведет 1 - глобальная переменная не поменялась</code>
 </div>
-<p>
-	Но, если мы забудем объявить локальную переменную
-	<code data-gs="comd/c" data-x>num</code> через <code data-gs="comd/c" data-x>let</code>, то внутри функции
-	не создастся локальная переменная <code data-gs="comd/c" data-x>num</code>,
-	а просто изменится глобальная переменная:
-</p>
+<p>But, if we forget to declare a local variable<code data-gs="comd/c" data-x>num</code>through<code data-gs="comd/c" data-x>let</code>, then a local variable will not be created inside the function<code data-gs="comd/c" data-x>num</code>, but the global variable will simply change:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1;
 
@@ -71,23 +62,11 @@ func(); // вызываем функцию, выведет 2
 
 console.log(num); // выведет 2 - переменная поменялась</code>
 </div>
-<p>
-	Тут может быть две ситуации: или мы действительно
-	хотели поменять глобальную переменную (тогда
-	все ок), или мы забыли <code data-gs="comd/c" data-x>let</code> и случайно
-	поменяли глобальную переменную.
-</p>
-<p>
-	Второй случай является трудноуловимой ошибкой,
-	ведущей к непредсказуемому поведению скрипта.
-	Поэтому всегда, вводя новую переменную объявляйте
-	ее через <code data-gs="comd/c" data-x>let</code>.
+<p>There can be two situations here: either we really wanted to change the global variable (then everything is ok), or we forgot<code data-gs="comd/c" data-x>let</code>and accidentally changed the global variable.</p>
+<p>The second case is a subtle error leading to unpredictable script behavior. Therefore, whenever you introduce a new variable, declare it using<code data-gs="comd/c" data-x>let</code>.
 </p>
 <div data-w="cont/task">
-	<p>
-		Определите, не запуская код, что выведется
-		в консоль:
-	</p>
+	<p>Determine, without running the code, what will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1;
 
@@ -100,10 +79,7 @@ console.log(num);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Определите, не запуская код, что выведется
-		в консоль:
-	</p>
+	<p>Determine, without running the code, what will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1;
 
@@ -117,16 +93,16 @@ console.log(num);</code>
 </div>
   
     <div class="lesson-nav">
-      <a href="../local/index.html" class="lesson-nav-btn lesson-nav-prev" title="Локальные переменные">← Локальные переменные</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../global-variables-changing/index.html" class="lesson-nav-btn lesson-nav-next" title="Изменение глобальных переменных">Изменение глобальных переменных →</a>
+      <a href="../local/index.html" class="lesson-nav-btn lesson-nav-prev" title="Local variables">← Local variables</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../global-variables-changing/index.html" class="lesson-nav-btn lesson-nav-next" title="Changing Global Variables">Changing global variables →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

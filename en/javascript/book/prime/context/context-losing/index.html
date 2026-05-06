@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Потеря контекста в JavaScript — acteck.off</title>
-  <meta name="description" content="Потеря контекста в JavaScript — учебные материалы по программированию.">
+  <title>Losing context in JavaScript - acteck.off</title>
+  <meta name="description" content="Losing Context in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Потеря контекста в JavaScript</h1>
-    <p>
-	Пусть у нас есть функция в функции. Давайте
-	внешнюю функцию назовем <code data-gs="comd/c" data-x>parent</code>, а
-	внутреннюю - <code data-gs="comd/c" data-x>child</code>:
+    <h1>Losing Context in JavaScript</h1>
+    <p>Let's say we have a function within a function. Let's call the external function<code data-gs="comd/c" data-x>parent</code>, and internal -<code data-gs="comd/c" data-x>child</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function parent() {
@@ -49,12 +46,7 @@
 	}
 }</code>
 </div>
-<p>
-	Из <a href="../../functions/nested/inner-functions-scope/index.html">предыдущих
-	уроков</a> вы знаете, что если задать какую-либо
-	переменную во внешней функции - она будет
-	доступна во внутренней:
-</p>
+<p>From<a href="../../functions/nested/inner-functions-scope/index.html">previous lessons</a>you know that if you set any variable in the outer function, it will be available in the inner one:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function parent() {
 	let str = 'abcde';
@@ -67,32 +59,13 @@
 
 parent(); // вызываем внешнюю функцию</code>
 </div>
-<p>
-	Есть, однако, нюанс: внутренняя функция имеет
-	доступ ко всем переменным внешней, но не
-	имеет доступа <code data-gs="comd/c" data-x>this</code>. To есть: если
-	внешняя функция привязана к какому-то DOM
-	элементу, то <code data-gs="comd/c" data-x>this</code> в ней будет указывать
-	на этот элемент, но <code data-gs="comd/c" data-x>this</code> внутренней
-	функции - не будет!
-</p>
-<p>
-	На что же тогда будет указывать <code data-gs="comd/c" data-x>this</code>
-	внутренней функции? Ответ: он будет равен
-	<code data-gs="comd/c" data-x>undefined</code> (в строгом режиме), так
-	как функция ни к чему не привязана.
-</p>
-<p>
-	Давайте проверим на практике. Пусть у нас
-	дан инпут:
-</p>
+<p>There is, however, a caveat: the inner function has access to all the variables of the outer one, but does not have access<code data-gs="comd/c" data-x>this</code>. That is: if an external function is bound to some DOM element, then<code data-gs="comd/c" data-x>this</code>it will point to this element, but<code data-gs="comd/c" data-x>this</code>there will be no internal function!</p>
+<p>What then will it indicate?<code data-gs="comd/c" data-x>this</code>internal function? Answer: it will be equal<code data-gs="comd/c" data-x>undefined</code>(in strict mode), since the function is not bound to anything.</p>
+<p>Let's check it in practice. Let us be given an input:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="elem" value="text"&gt;</code>
 </div>
-<p>
-	Привяжем к этому инпуту функцию <code data-gs="comd/c" data-x>parent</code>,
-	которая будет вызываться по потери фокуса инпутом:
-</p>
+<p>Let's bind a function to this input<code data-gs="comd/c" data-x>parent</code>, which will be called when focus is lost with the input:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">"use strict";
 
@@ -109,10 +82,7 @@ function parent() {
 	child(); // вызываем дочернюю функцию
 }</code>
 </div>
-<p>
-	Давайте выведем содержимое <code data-gs="comd/c" data-x>this</code> в
-	консоль в двух местах: внутри функции <code data-gs="comd/c" data-x>parent</code>
-	и внутри функции <code data-gs="comd/c" data-x>child</code>:
+<p>Let's output the contents<code data-gs="comd/c" data-x>this</code>to the console in two places: inside a function<code data-gs="comd/c" data-x>parent</code>and inside the function<code data-gs="comd/c" data-x>child</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">"use strict";
@@ -129,22 +99,10 @@ function parent() {
 	child();
 }</code>
 </div>
-<p>
-	Запустите этот код, потеряйте фокус инпуту
-	и посмотрите в консоль - вы увидите, что
-	первый <code data-gs="comd/c" data-x>console.log</code> выведет в консоль
-	ссылку на наш инпут, а второй - просто <code data-gs="comd/c" data-x>undefined</code>.
-	Такая ситуация, когда <code data-gs="comd/c" data-x>this</code> неожиданным
-	для нас образом указывает не на то, что нам
-	нужно, называется <dfn data-gs="comd/d" data-x>потеря контекста</dfn>.
+<p>Run this code, lose focus on the input and look at the console - you will see that the first<code data-gs="comd/c" data-x>console.log</code>will display a link to our input in the console, and the second one will simply<code data-gs="comd/c" data-x>undefined</code>. This is the situation when<code data-gs="comd/c" data-x>this</code>in an unexpected way for us, indicates something that is not what we need, is called<dfn data-gs="comd/d" data-x>loss of context</dfn>.
 </p>
 <div data-w="cont/task">
-	<p>
-		Пусть теперь в одной и во второй функции
-		мы будем выводить <code data-gs="comd/c" data-x>value</code> инпута. Определите,
-		что выведется в строчках кода, отмеченных
-		комментариями:
-	</p>
+	<p>Let us now output in one and the second function<code data-gs="comd/c" data-x>value</code>input. Determine what is printed in the commented lines of code:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">"use strict";
 
@@ -163,16 +121,16 @@ function parent() {
 </div>
   
     <div class="lesson-nav">
-      <a href="../unbound-function-context/index.html" class="lesson-nav-btn lesson-nav-prev" title="Контекст непривязанной функции">← Контекст непривязанной функции</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../solving-context-problem/index.html" class="lesson-nav-btn lesson-nav-next" title="Решение проблемы с контекстом">Решение проблемы с контекстом →</a>
+      <a href="../unbound-function-context/index.html" class="lesson-nav-btn lesson-nav-prev" title="Unbound function context">← Unbound function context</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../solving-context-problem/index.html" class="lesson-nav-btn lesson-nav-next" title="Solving the Context Problem">Solving the problem with context →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

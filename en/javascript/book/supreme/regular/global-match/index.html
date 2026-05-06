@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Глобальный match в регулярках JavaScript — acteck.off</title>
-  <meta name="description" content="Глобальный match в регулярках JavaScript — учебные материалы по программированию.">
+  <title>Global match in regular JavaScript - acteck.off</title>
+  <meta name="description" content="Global match in JavaScript regular expressions - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,95 +36,70 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Глобальный match в регулярках JavaScript</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>match</code>, вызванный с модификатором
-	<code data-gs="comd/c" data-x>g</code>, возвращает все найденные совпадения
-	в виде массива. Давайте посмотрим
-	на примерах.
-</p>
+    <h1>Global match in JavaScript regex</h1>
+    <p>Method<code data-gs="comd/c" data-x>match</code>, called with modifier<code data-gs="comd/c" data-x>g</code>, returns all found matches as an array. Let's look at examples.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте получим массив подстрок, состоящих
-	из букв <code data-gs="comd/s" data-x>'a'</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's get an array of substrings consisting of letters<code data-gs="comd/s" data-x>'a'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'a aa aaa aaaa';
 let res = str.match(/a+/g);</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['a', 'aa', 'aaa', 'aaaa']</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте получим массив чисел:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's get an array of numbers:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '1 23 456 789';
 let res = str.match(/\d+/g);</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['1', '23', '456', '789']</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте получим массив всех цифр:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's get an array of all numbers:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '1 23 456 789';
 let res = str.match(/\d/g);</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['1', '2', '3', '4', '5', '6', '7', '8', '9']</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'site.ru sss site.com zzz site.net';</code>
 	</div>
-	<p>
-		Получите массив доменных имен из этой строки.
-	</p>
+	<p>Get an array of domain names from this string.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'a1b c34d x567z';</code>
 	</div>
-	<p>
-		Найдите сумму всех чисел этой строки.
-	</p>
+	<p>Find the sum of all numbers in this line.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../match-pockets/index.html" class="lesson-nav-btn lesson-nav-prev" title="Карманы в методе match">← Карманы в методе match</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../global-matchAll/index.html" class="lesson-nav-btn lesson-nav-next" title="Глобальный matchAll">Глобальный matchAll →</a>
+      <a href="../match-pockets/index.html" class="lesson-nav-btn lesson-nav-prev" title="Pockets in the match method">← Pockets in the match method</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../global-matchAll/index.html" class="lesson-nav-btn lesson-nav-next" title="Global matchAll">Global matchAll →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

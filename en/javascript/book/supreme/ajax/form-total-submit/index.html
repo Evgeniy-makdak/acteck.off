@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отправка формы через AJAX с помощью FormData JavaScript — acteck.off</title>
-  <meta name="description" content="Отправка формы через AJAX с помощью FormData JavaScript — учебные материалы по программированию.">
+  <title>Submitting a form via AJAX using FormData JavaScript - acteck.off</title>
+  <meta name="description" content="Submitting a Form via AJAX Using FormData JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,16 +36,9 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Отправка формы через AJAX с помощью FormData JavaScript</h1>
-    <p>
-	С помощью <a href="../../forms/FormData/intro/index.html"><code data-gs="comd/c" data-x>FormData</code></a>
-	можно автоматически отправить все поля формы
-	на сервер. Давайте посмотрим, как это делается.
-</p>
-<p>
-	Пусть у нас есть следующая форма,
-	в которой инпутам даны атрибуты
-	<code data-gs="comd/c" data-x>name</code>:
+    <h1>Submitting a form via AJAX using FormData JavaScript</h1>
+    <p>By using<a href="../../forms/FormData/intro/index.html"><code data-gs="comd/c" data-x>FormData</code></a>you can automatically send all form fields to the server. Let's see how it's done.</p>
+<p>Let us have the following form, in which the attributes are given to the inputs<code data-gs="comd/c" data-x>name</code>:
 </p>
 <div data-p="bock/pane" data-p-file="public/index.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="" method="GET"&gt;
@@ -54,19 +47,11 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	Давайте отправим эту форму через AJAX. Для
-	начала получим ссылку на форму в переменную:
-</p>
+<p>Let's submit this form via AJAX. First, let's get a link to the form into a variable:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let form = document.querySelector('form');</code>
 </div>
-<p>
-	Теперь в теле запроса в качестве данных
-	укажем объект <code data-gs="comd/c" data-x>FormData</code>. А самому
-	объекту параметром передадим 
-	ссылку на форму:
-</p>
+<p>Now in the body of the request we will indicate the object as data<code data-gs="comd/c" data-x>FormData</code>. And we’ll pass a link to the form to the object itself as a parameter:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">form.addEventListener('submit', function(event) {
 	let promise = fetch('/handler/', {
@@ -77,10 +62,7 @@
 	event.preventDefault();
 });</code>
 </div>
-<p>
-	В результате на сервере мы сможем
-	получить значения инпутов по их именам
-	из атрибутов <code data-gs="comd/c" data-x>name</code>:
+<p>As a result, on the server we will be able to get the input values ​​by their names from the attributes<code data-gs="comd/c" data-x>name</code>:
 </p>
 <div data-p="bock/pane" data-p-file="server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
@@ -92,26 +74,20 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана форма с пятью инпутами, в которые
-		вводятся числа. Отправьте эту форму на
-		сервер методом POST. Пусть сервер найдет
-		среднее арифметическое введенных чисел
-		и отправит результат обратно в браузер.
-	</p>
+	<p>A form is given with five inputs into which numbers are entered. Submit this form to the server using the POST method. Let the server find the arithmetic mean of the entered numbers and send the result back to the browser.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../query-FormData/index.html" class="lesson-nav-btn lesson-nav-prev" title="Данные через FormData">← Данные через FormData</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../sending-json/index.html" class="lesson-nav-btn lesson-nav-next" title="Отправка JSON">Отправка JSON →</a>
+      <a href="../query-FormData/index.html" class="lesson-nav-btn lesson-nav-prev" title="Data via FormData">← Data via FormData</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../sending-json/index.html" class="lesson-nav-btn lesson-nav-next" title="Sending JSON">Sending JSON →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

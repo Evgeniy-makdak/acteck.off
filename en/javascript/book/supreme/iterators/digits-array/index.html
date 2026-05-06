@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Массив цифр числа в JavaScript — acteck.off</title>
-  <meta name="description" content="Массив цифр числа в JavaScript — учебные материалы по программированию.">
+  <title>Array of digits of a number in JavaScript - acteck.off</title>
+  <meta name="description" content="Array of digits numbers in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,38 +36,24 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Массив цифр числа в JavaScript</h1>
-    <p>
-	Давайте получим массив цифр числа.
-	Пусть дано следующее число:
-</p>
+    <h1>Array of number digits in JavaScript</h1>
+    <p>Let's get an array of digits of a number. Let the following number be given:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 12345;</code>
 </div>
-<p>
-	Попытка разложить число через <code data-gs="comd/c" data-x>spread</code>
-	приведет к ошибке, так как числа
-	не итерируемы:
-</p>
+<p>An attempt to expand a number through<code data-gs="comd/c" data-x>spread</code>will result in an error since the numbers are not iterable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 12345;
 let arr = [...num]; // ошибка
 console.log(arr);</code>
 </div>
-<p>
-	Для решения проблемы преобразуем
-	число в строку:
-</p>
+<p>To solve the problem, convert the number to a string:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 12345;
 let arr = [...String(num)];
 console.log(arr); // ['1', '2', '3', '4', '5']</code>
 </div>
-<p>
-	У нас, однако, получился массив строк,
-	а не чисел. Исправим проблему с помощью
-	хитрого приема, используя метод
-	<a href="../../../../manual/array/map/index.html"><code data-gs="comd/c" data-x>map</code></a>:
+<p>However, we ended up with an array of strings, not numbers. Let's fix the problem with a tricky trick using the method<a href="../../../../manual/array/map/index.html"><code data-gs="comd/c" data-x>map</code></a>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 12345;
@@ -75,22 +61,20 @@ let arr = [...String(num)].map(Number);
 console.log(arr); // [1, 2, 3, 4, 5]</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дано число. Найдите сумму его цифр.
-	</p>
+	<p>A number is given. Find the sum of its digits.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../string/index.html" class="lesson-nav-btn lesson-nav-prev" title="Встроенные итераторы строк">← Встроенные итераторы строк</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../dom-elems-numbers/index.html" class="lesson-nav-btn lesson-nav-next" title="Нумерация DOM элементов">Нумерация DOM элементов →</a>
+      <a href="../string/index.html" class="lesson-nav-btn lesson-nav-prev" title="Built-in String Iterators">← Built-in string iterators</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../dom-elems-numbers/index.html" class="lesson-nav-btn lesson-nav-next" title="Numbering of DOM elements">Numbering of DOM elements →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

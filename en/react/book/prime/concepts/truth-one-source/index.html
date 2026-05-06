@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Один источник истины в React — acteck.off</title>
-  <meta name="description" content="Один источник истины в React — учебные материалы по программированию.">
+  <title>One source of truth in React - acteck.off</title>
+  <meta name="description" content="One source of truth in React is programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,42 +36,15 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Один источник истины в React</h1>
-    <p>
-	Для любых изменяемых данных в React-приложении
-	должен быть один <dfn data-gs="comd/d" data-x>источник истины</dfn>.
-	Под этими словами имеется ввиду то, что если
-	у вас есть два стейта и один стейт может
-	быть вычислен через другой - значит один
-	из стейтов лишний и его нужно убрать.
-</p>
-<p>
-	Давайте обсудим это на примере. Пусть у вас,
-	к примеру, есть два инпута: в первый вводится
-	температура в градусах Фаренгейта, а во второй
-	- в градусах Цельсия. При этом мы хотим,
-	чтобы оба инпута были синхронизированы: при
-	вводе температуры в один инпут она соответствующим
-	образом должна меняться во втором.
-</p>
-<p>
-	Неправильным подходом будет ввести два стейта:
-	один для температуры по Фаренгейту, а второй
-	- по Цельсию. Почему не правильно: потому
-	что одна температура вычисляется из другой,
-	а значит в качестве места хранения данных
-	должен быть один стейт.
-</p>
+    <h1>One source of truth in React</h1>
+    <p>For any changeable data in a React application there must be one<dfn data-gs="comd/d" data-x>source of truth</dfn>. What these words mean is that if you have two states and one state can be calculated through the other, then one of the states is redundant and needs to be removed.</p>
+<p>Let's discuss this with an example. Let, for example, you have two inputs: the first one contains the temperature in degrees Fahrenheit, and the second - in degrees Celsius. At the same time, we want both inputs to be synchronized: when entering temperature into one input, it should change accordingly in the second.</p>
+<p>The wrong approach would be to introduce two states: one for Fahrenheit temperature, and the second for Celsius. Why is it not correct: because one temperature is calculated from another, which means there should be one state as the data storage location.</p>
 <div data-w="cont/task">
-	<p>
-		Напишите реализацию описанной задачи.
-	</p>
+	<p>Write an implementation of the described task.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Некий программист написал код, выводящий
-		сумму элементов массива:
-	</p>
+	<p>A certain programmer wrote code that displays the sum of the elements of an array:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function getSum(arr) {
 	let res = 0;
@@ -103,15 +76,10 @@ function Calculator() {
 	&lt;/div&gt;;
 }</code>
 	</div>
-	<p>
-		Что не так с этим кодом? Исправьте его.
-	</p>
+	<p>What's wrong with this code? Fix it.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Некий программист написал код для редактирования
-		элементов массива:
-	</p>
+	<p>A certain programmer wrote code to edit array elements:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
@@ -140,16 +108,14 @@ function Calculator() {
 	&lt;/div&gt;;
 }</code>
 	</div>
-	<p>
-		Что не так с этим кодом? Исправьте его.
-	</p>
+	<p>What's wrong with this code? Fix it.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

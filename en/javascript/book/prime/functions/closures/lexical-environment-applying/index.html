@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Применение лексического окружения функций в JavaScript — acteck.off</title>
-  <meta name="description" content="Применение лексического окружения функций в JavaScript — учебные материалы по программированию.">
+  <title>Using the lexical environment of functions in JavaScript - acteck.off</title>
+  <meta name="description" content="Using the Lexical Environment of Functions in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Применение лексического окружения функций в JavaScript</h1>
-    <p>
-	Пусть у нас есть функция, своим результатом
-	возвращающая другую функцию:
-</p>
+    <h1>Using the lexical environment of functions in JavaScript</h1>
+    <p>Let us have a function that returns another function as its result:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
 	return function() {
@@ -48,11 +45,7 @@
 	}
 }</code>
 </div>
-<p>
-	Если родительская функция имеет какие-либо
-	переменные, то эти переменные будут содержаться
-	в лексическом окружении возвращаемой функции:
-</p>
+<p>If the parent function has any variables, then these variables will be contained in the lexical environment of the returned function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
 	let num = 1; // переменная родительской функции
@@ -62,10 +55,7 @@
 	}
 }</code>
 </div>
-<p>
-	Напишем в коде нашей возвращаемой функции
-	<code data-gs="comd/c" data-x>console.log</code>, выводящий значение переменной
-	<code data-gs="comd/c" data-x>num</code>:
+<p>Let's write in the code of our return function<code data-gs="comd/c" data-x>console.log</code>, outputting the value of a variable<code data-gs="comd/c" data-x>num</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
@@ -76,10 +66,7 @@
 	}
 }</code>
 </div>
-<p>
-	Давайте теперь вызовем родительскую функцию
-	<code data-gs="comd/c" data-x>test</code> и результат ее работы запишем
-	в переменную <code data-gs="comd/c" data-x>func</code>:
+<p>Let's now call the parent function<code data-gs="comd/c" data-x>test</code>and write the result of its work into a variable<code data-gs="comd/c" data-x>func</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
@@ -92,11 +79,7 @@
 
 let func = test();</code>
 </div>
-<p>
-	В переменную <code data-gs="comd/c" data-x>func</code> запишется возвращаемая
-	функция. Давайте вызовем нашу функцию - своим
-	результатом она выведет содержимое переменной
-	<code data-gs="comd/c" data-x>num</code>:
+<p>To a variable<code data-gs="comd/c" data-x>func</code>the return function will be written. Let's call our function - its result will display the contents of the variable<code data-gs="comd/c" data-x>num</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
@@ -110,10 +93,7 @@ let func = test();</code>
 let func = test();
 func(); // выведет 1</code>
 </div>
-<p>
-	Если же просто попытаться вывести переменную
-	<code data-gs="comd/c" data-x>num</code> вне функции - она будет недоступна:
-</p>
+<p>If you just try to output the variable<code data-gs="comd/c" data-x>num</code>outside the function - it will not be available:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
 	let num = 1;
@@ -125,18 +105,8 @@ func(); // выведет 1</code>
 
 console.log(num); // переменная num тут недоступна</code>
 </div>
-<p>
-	Как вы видите, локальная переменная <code data-gs="comd/c" data-x>num</code>
-	привязалась к лексическому окружению нашей
-	функции и теперь, вызвав в любом месте кода
-	эту функцию, мы сможем получить значение
-	переменной <code data-gs="comd/c" data-x>num</code>, даже если в месте
-	вызова сама по себе эта переменная и недоступна.
-</p>
-<p>
-	На самом деле аналогичного результата можно
-	добиться, сделав переменную <code data-gs="comd/c" data-x>num</code> глобальной:
-</p>
+<p>As you can see, the local variable<code data-gs="comd/c" data-x>num</code>tied to the lexical environment of our function and now, by calling this function anywhere in the code, we can get the value of the variable<code data-gs="comd/c" data-x>num</code>, even if this variable itself is not available at the call site.</p>
+<p>In fact, a similar result can be achieved by making a variable<code data-gs="comd/c" data-x>num</code>global:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
 	return function() {
@@ -148,17 +118,9 @@ let num = 1; // глобальная переменная
 let func = test();
 func(); // выведет 1</code>
 </div>
-<p>
-	Здесь, однако, будет существенная разница:
-	в новом варианте переменную <code data-gs="comd/c" data-x>num</code> можно
-	менять вне функций (так как она глобальная),
-	а в старом - нет.
-</p>
+<p>Here, however, there will be a significant difference: in the new version, the variable<code data-gs="comd/c" data-x>num</code>can be changed outside of functions (since it is global), but not in the old one.</p>
 <div data-w="cont/task">
-	<p>
-		Определите, не запуская код, что выведется
-		в консоль:
-	</p>
+	<p>Determine, without running the code, what will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
 	let num1 = 1;
@@ -174,10 +136,7 @@ console.log(func());</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Определите, не запуская код, что выведется
-		в консоль:
-	</p>
+	<p>Determine, without running the code, what will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
 	let num1 = 1;
@@ -192,10 +151,7 @@ console.log(test()());</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Определите, не запуская код, что выведется
-		в консоль:
-	</p>
+	<p>Determine, without running the code, what will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
 	let num1 = 1;
@@ -211,10 +167,7 @@ console.log(func());</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Определите, не запуская код, что выведется
-		в консоль:
-	</p>
+	<p>Determine, without running the code, what will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function test() {
 	let num = 1;
@@ -231,16 +184,16 @@ console.log(func());</code>
 </div>
   
     <div class="lesson-nav">
-      <a href="../lexical-environment/index.html" class="lesson-nav-btn lesson-nav-prev" title="Лексическое окружение функций">← Лексическое окружение функций</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction в замыкания">Introduction в замыкания →</a>
+      <a href="../lexical-environment/index.html" class="lesson-nav-btn lesson-nav-prev" title="Lexical environment of functions">← Lexical environment of functions</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction to Closures">Introduction to Closures →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

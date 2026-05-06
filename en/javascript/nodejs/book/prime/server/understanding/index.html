@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Понимание работы сервера на NodeJS — acteck.off</title>
-  <meta name="description" content="Понимание работы сервера на NodeJS — учебные материалы по программированию.">
+  <title>Understanding how a server works on NodeJS - acteck.off</title>
+  <meta name="description" content="Understanding how a server works on NodeJS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,25 +36,10 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Понимание работы сервера на NodeJS</h1>
-    <p>
-	Вам следует понимать, что наш сервер, будучи
-	один раз запущенным, обрабатывает запросы
-	всех пользователей нашего сайта. Этим подход
-	NodeJS отличается от подхода PHP в котором
-	скрипт запускается, отрабатывает и умирает.
-</p>
-<p>
-	В случае NodeJS получается, что функция-коллбэк
-	нашего сервера вызывается на каждый запрос.
-	Это значит, что внешние переменные этой функции
-	будут общими для всех запросов.
-</p>
-<p>
-	Таким образом можно сделать, к примеру, счетчик
-	запросов к нашему серверу и отдавать его
-	значение каждому запросу:
-</p>
+    <h1>Understanding how a server works on NodeJS</h1>
+    <p>You should understand that our server, once started, processes requests from all users of our site. This is how the NodeJS approach differs from the PHP approach in which the script is launched, executed and dies.</p>
+<p>In the case of NodeJS, it turns out that our server’s callback function is called for every request. This means that the external variables of this function will be common to all requests.</p>
+<p>In this way, you can make, for example, a counter of requests to our server and give its value to each request:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let i = 0;
 
@@ -66,25 +51,19 @@ http.createServer((request, response) =&gt; {
 }).listen(3000);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть изначально наш счетчик имеет значение
-		100. Каждый запрос уменьшайте это значение
-		на единицу и отдавайте новое значение в браузер.
-		Как только счетчик дойдет до нуля, выведите
-		результатом запроса сообщение об этом.
-	</p>
+	<p>Let our counter initially have a value of 100. Each request, decrease this value by one and send the new value to the browser. As soon as the counter reaches zero, print a message about this as a result of the query.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../response/index.html" class="lesson-nav-btn lesson-nav-prev" title="Настройка ответа">← Настройка ответа</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../request/index.html" class="lesson-nav-btn lesson-nav-next" title="Объект запроса">Объект запроса →</a>
+      <a href="../response/index.html" class="lesson-nav-btn lesson-nav-prev" title="Setting up a response">← Setting up a response</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../request/index.html" class="lesson-nav-btn lesson-nav-next" title="Request object">Request object →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

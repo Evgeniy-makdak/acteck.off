@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Индексы итераций циклов в Angular — acteck.off</title>
-  <meta name="description" content="Индексы итераций циклов в Angular — учебные материалы по программированию.">
+  <title>Loop iteration indexes in Angular - acteck.off</title>
+  <meta name="description" content="Loop Iteration Indexes in Angular - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,27 +36,15 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Индексы итераций циклов в Angular</h1>
-    <p>
-	При переборе через <code data-gs="comd/c" data-x>*ngFor</code> и <code data-gs="comd/c" data-x>@for</code>
-	можно получать не только элементы массива,
-	но и их номера. Давайте посмотрим, как это
-	делается. Пусть у нас в главном компоненте
-	есть массив: 
-</p>
+    <h1>Loop iteration indexes in Angular</h1>
+    <p>When searching through<code data-gs="comd/c" data-x>*ngFor</code>And<code data-gs="comd/c" data-x>@for</code>You can get not only the array elements, but also their numbers. Let's see how it's done. Let's say we have an array in the main component:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	public arr: string[] = ['a', 'b', 'c', 'd'];
 }</code>
 </div>
-<p>
-	Давайте выведем как его элементы, так и
-	номера. 
-</p>
-<p>
-	Для директивы <code data-gs="comd/c" data-x>*ngFor</code> для этого
-	используется специальный хитрый прием: 
-</p>
+<p>Let's print both its elements and numbers.</p>
+<p>For directive<code data-gs="comd/c" data-x>*ngFor</code>For this, a special trick is used:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li *ngFor="let el of arr; let i = index"&gt;
@@ -65,11 +53,7 @@
 	&lt;/li&gt;
 &lt;/ul&gt;</code>
 </div>
-<p>
-	А для конструкции <code data-gs="comd/c" data-x>@for</code> можно просто
-	брать и пользоваться этой переменной внутри
-	цикла: 
-</p>
+<p>And for the design<code data-gs="comd/c" data-x>@for</code>you can simply take and use this variable inside the loop:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	@for (el of arr; track $index) {
@@ -81,30 +65,25 @@
 &lt;/ul&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан массив: 
-	</p>
+	<p>Given an array:</p>
 	<div data-p="bock/pane" data-p-file="app/app.component.ts">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	public arr: string[] = ['a', 'b', 'c', 'd'];
 }</code>
 	</div>
-	<p>
-		Выведите его номера, но так, чтобы они
-		начинались с единицы, а не с нуля. 
-	</p>
+	<p>Print its numbers, but so that they start from one, not from zero.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../for-construction/index.html" class="lesson-nav-btn lesson-nav-prev" title="Конструкция for">← Конструкция for</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../first-iter/index.html" class="lesson-nav-btn lesson-nav-next" title="Первая итерация">Первая итерация →</a>
+      <a href="../for-construction/index.html" class="lesson-nav-btn lesson-nav-prev" title="The for construct">← Construction for</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../first-iter/index.html" class="lesson-nav-btn lesson-nav-next" title="First iteration">First iteration →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

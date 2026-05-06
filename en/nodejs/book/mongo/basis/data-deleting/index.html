@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Удаление данных в MongoDB — acteck.off</title>
-  <meta name="description" content="Удаление данных в MongoDB — учебные материалы по программированию.">
+  <title>Deleting data in MongoDB - acteck.off</title>
+  <meta name="description" content="Deleting Data in MongoDB - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,84 +36,59 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Удаление данных в MongoDB</h1>
-    <p>
-	В данном уроке мы рассмотрим методы, которые
-	позволяют удалять документы и коллекции из базы.
-</p>
+    <h1>Deleting data in MongoDB</h1>
+    <p>In this lesson we will look at methods that allow you to delete documents and collections from the database.</p>
 
-<h2>Удаление</h2>
-<p>
-	Метод удаляет из коллекции первый документ,
-	подходящий под фильтр. Давайте для примера
-	удалим первого юзера с возрастом <code data-gs="comd/n" data-x>25</code>:
+<h2>Removal</h2>
+<p>The method removes the first document from the collection that matches the filter. For example, let's delete the first user with age<code data-gs="comd/n" data-x>25</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">await coll.deleteOne({age: 25});</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Удалите первый продукт с ценой <code data-gs="comd/n" data-x>400</code>.
+	<p>Remove the first product with a price<code data-gs="comd/n" data-x>400</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Удалите первый продукт в коллекции.
-	</p>
+	<p>Remove the first product in the collection.</p>
 </div>
 
-<h2>Массовое удаление</h2>
-<p>
-	Метод <code data-gs="comd/c" data-x>deleteMany</code> удаляет все документы
-	в коллекции, подходящие под фильтр.
-	Давайте для примера удалим всех
-	юзеров с возрастом <code data-gs="comd/n" data-x>26</code>:
+<h2>Mass deletion</h2>
+<p>Method<code data-gs="comd/c" data-x>deleteMany</code>deletes all documents in the collection that match the filter. For example, let's delete all users with age<code data-gs="comd/n" data-x>26</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">await coll.deleteMany({age: 26});</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Удалите все продукты с ценой <code data-gs="comd/n" data-x>500</code>.
+	<p>Remove all products with a price<code data-gs="comd/n" data-x>500</code>.
 	</p>
 </div>
 
-<h2>Метод findOneAndDelete</h2>
-<p>
-	Метод не только удаляет документ из коллекции,
-	но и возвращает его. 
-</p>
+<h2>findOneAndDelete method</h2>
+<p>The method not only removes a document from the collection, but also returns it.</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = await coll.findOneAndDelete({age: 25});
 console.log(res);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Выведите в консоль первый продукт.
-		Одновременно удалите его из базы.
-	</p>
+	<p>Print the first product to the console. At the same time, remove it from the database.</p>
 </div>
 
-<h2>Метод drop</h2>
-<p>
-	Метод удаляет коллекцию из базы данных.
-	Удалим нашу коллекцию <code data-gs="comd/c" data-x>users</code>:
+<h2>drop method</h2>
+<p>The method removes the collection from the database. Let's delete our collection<code data-gs="comd/c" data-x>users</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">await coll.drop();</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Удалите какую-нибудь коллекцию
-		из вашей базы данных.
-	</p>
+	<p>Remove any collection from your database.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

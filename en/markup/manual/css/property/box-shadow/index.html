@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свойство box-shadow — acteck.off</title>
-  <meta name="description" content="Свойство box-shadow — учебные материалы по программированию.">
+  <title>box-shadow property - acteck.off</title>
+  <meta name="description" content="box-shadow property - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,19 +33,13 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Свойство box-shadow</h1>
-    <p>
-	Свойство <code data-gs="comd/c" data-x>box-shadow</code> задает тень блоку.
-	В качестве значения свойство принимает <code data-gs="comd/n" data-x>6</code>
-	параметров, перечисляемые через пробел, либо
-	ключевое слово <code data-gs="comd/v" data-x>none</code>, отменяющее тень
-	совсем.
-</p>
+    <h1>box-shadow property</h1>
+    <p>Property<code data-gs="comd/c" data-x>box-shadow</code>sets the shadow of the block. The property takes as its value<code data-gs="comd/n" data-x>6</code>parameters listed separated by a space or keyword<code data-gs="comd/v" data-x>none</code>, canceling the shadow completely.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
 	box-shadow: inset сдвиг_по_x сдвиг_по_y размытие размер_тени цвет;
@@ -57,76 +51,46 @@
 }</code>
 </div>
 
-<h2>Параметры</h2>
+<h2>Options</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Параметр</th>
-		<th>Описание</th>
+		<th>Parameter</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>inset</code></th>
 		<td>
-			<b>Необязательный параметр</b>. <br>
-			Если он задан, то тень будет внутри контейнера, если не задан - то снаружи.
-		</td>
+			<b>Optional parameter</b>. <br>If it is specified, then the shadow will be inside the container; if not specified, then it will be outside.</td>
 	</tr>
 	<tr>
-		<th>сдвиг по x</th>
-		<td>
-			Задает смещение тени по оси X.
-			<br>
-			Положительное значение смещает вправо, отрицательное - влево.
-		</td>
+		<th>x-shift</th>
+		<td>Sets the shadow offset along the X axis.<br>A positive value shifts to the right, a negative value shifts to the left.</td>
 	</tr>
 	<tr>
-		<th>сдвиг по y</th>
-		<td>
-			Задает смещение тени по оси Y.
-			<br>
-			Положительное значение смещает вниз, отрицательное - вверх.
-		</td>
+		<th>y shift</th>
+		<td>Sets the shadow offset along the Y axis.<br>A positive value moves down, a negative value moves up.</td>
 	</tr>
 	<tr>
-		<th>размытие</th>
-		<td>
-			Задает размытие тени.
-			<br>
-			Чем больше значение - тем более размытой будет тень.
+		<th>blur</th>
+		<td>Sets the shadow blur.<br>The higher the value, the more blurry the shadow will be.<hr>
+			<b>Optional parameter</b>. If not specified, the shadow will be clear.</td>
+	</tr>
+	<tr>
+		<th>shadow size</th>
+		<td>Sets the size of the shadow.<br>A positive value stretches the shadow, a negative value, on the contrary, compresses it.<hr>
+			<b>Optional parameter</b>. If not specified, the shadow will be the same size as the element.</td>
+	</tr>
+	<tr>
+		<th>color</th>
+		<td>Sets the shadow color in any<a href="../../reference/units/colors/index.html">units for color</a>.
 			<hr>
-			<b>Необязательный параметр</b>. Если не задан - тень будет четкой.
-		</td>
-	</tr>
-	<tr>
-		<th>размер тени</th>
-		<td>
-			Задает размер тени. <br>
-			Положительное значение растягивает тень, отрицательное, 
-			наоборот, ее сжимает.
-			<hr>
-			<b>Необязательный параметр</b>. Если не задан - тень будет такого 
-			же размера, что и элемент.
-		</td>
-	</tr>
-	<tr>
-		<th>цвет</th>
-		<td>
-			Задает цвет тени в любых <a href="../../reference/units/colors/index.html">единицах для цвета</a>.
-			<hr>
-			<b>Необязательный параметр</b>. Если не задан - цвет тени совпадает с цветом текста.
-		</td>
+			<b>Optional parameter</b>. If not specified, the shadow color matches the text color.</td>
 	</tr>
 </table>
-<p>
-	Смещения по осям, размытие и размер тени
-	задаются в любых <a href="../../reference/units/sizes/index.html">единицах
-	для размеров</a>, кроме процентов.
-</p>
+<p>Axis offsets, blur and shadow size can be set in any<a href="../../reference/units/sizes/index.html">units for sizes</a>except interest.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	В данном примере тень сдвинута вниз и вправо
-	и добавлено небольшое размытие:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>In this example, the shadow is moved down and to the right and a slight blur is added:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
@@ -172,11 +136,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Четкая тень</h2>
-<p>
-	В данном примере тень сдвинута вниз и вправо,
-	но размытия нет (тень будет четкой):
-</p>
+<h2>Example<span data-gn="sect"></span>. Clear shadow</h2>
+<p>In this example, the shadow is moved down and to the right, but there is no blur (the shadow will be clear):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
@@ -222,11 +183,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Равномерная тень</h2>
-<p>
-	В данном примере тень не сдвинута, но к ней
-	добавлено размытие:
-</p>
+<h2>Example<span data-gn="sect"></span>. Uniform shadow</h2>
+<p>In this example, the shadow is not moved, but a blur has been added to it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
@@ -272,12 +230,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Размер тени</h2>
-<p>
-	В данном примере тень не сдвинута, размытие
-	равно нулю, но к ней добавлен размер (черное
-	- это граница, красное - это тень):
-</p>
+<h2>Example<span data-gn="sect"></span>. Shadow size</h2>
+<p>In this example, the shadow is not moved, the blur is zero, but dimension is added to it (black is the border, red is the shadow):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
@@ -323,12 +277,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Размытие + размер тени</h2>
-<p>
-	В данном примере тень не сдвинута, но к ней
-	добавлены размытие и размер (черное - это
-	граница, красное - это тень):
-</p>
+<h2>Example<span data-gn="sect"></span>. Blur + shadow size</h2>
+<p>In this example, the shadow is not moved, but blur and size have been added to it (black is the border, red is the shadow):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
@@ -374,10 +324,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Внутренняя тень</h2>
-<p>
-	В данном примере тень находится внутри контейнера:
-</p>
+<h2>Example<span data-gn="sect"></span>. Inner shadow</h2>
+<p>In this example, the shadow is inside the container:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
@@ -423,18 +371,15 @@
 					</div>
 				</div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			свойство <a href="../text-shadow/index.html"><code data-gs="comd/c" data-x>text-shadow</code></a>, <br>
-			которое задает тень тексту
-		</li>
+		<li>property<a href="../text-shadow/index.html"><code data-gs="comd/c" data-x>text-shadow</code></a>, <br>which gives the text a shadow</li>
 	</ul>
 </div>
     <div class="lesson-nav">
       <a href="../bottom/index.html" class="lesson-nav-btn lesson-nav-prev" title="bottom">← bottom</a>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list">☰</a>
       <a href="../box-sizing/index.html" class="lesson-nav-btn lesson-nav-next" title="box-sizing">box-sizing →</a>
     </div>
   </section>
@@ -442,7 +387,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

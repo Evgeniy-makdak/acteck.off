@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Introduction в компоненты React — acteck.off</title>
-  <meta name="description" content="Introduction в компоненты React — учебные материалы по программированию.">
+  <title>Introduction to React Components - acteck.off</title>
+  <meta name="description" content="Introduction to React Components - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,40 +36,13 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Introduction в компоненты React</h1>
-    <p>
-	Взглянем на любой сайт. Он состоит из набора
-	независимых блоков: хедер, сайдбары, футер,
-	контент. Можно сказать, что эти блоки и есть
-	компоненты в том смысле, в котором подразумевается
-	в React.
-</p>
-<p>
-	Если посмотреть на тот же хедер, что в нем
-	можно выделить блок с логотипом, блок контактов,
-	блок с меню и так далее. To есть компоненты
-	могут состоять из других подкомпонентов.
-</p>
-<p>
-	Аналогичным образом дело обстоит в React
-	- сайт строится из набора компонентов, которые
-	в свою очередь могут содержать другие компоненты.
-</p>
-<p>
-	В React каждый компонент представляет собой
-	отдельный модуль. Обычно разработка начинается
-	с главного компонента <code data-gs="comd/c" data-x>App</code>, который
-	содержит в себе остальные.
-</p>
-<p>
-	Давайте потренируемся создавать новые компоненты.
-</p>
-<p>
-	Пусть для примера нам нужен компонент, выводящий
-	данные продукта. Для этого нам нужно в рабочей
-	папке создать файл <code data-gs="comd/p" data-x>Product.js</code> и добавить
-	в него следующий код:
-</p>
+    <h1>Introduction to React Components</h1>
+    <p>Let's take a look at any website. It consists of a set of independent blocks: header, sidebars, footer, content. We can say that these blocks are components in the sense that is meant in React.</p>
+<p>If you look at the same header, you can select a block with a logo, a block of contacts, a block with a menu, and so on. That is, components can consist of other subcomponents.</p>
+<p>The situation is similar in React - a site is built from a set of components, which in turn can contain other components.</p>
+<p>In React, each component is a separate module. Development usually starts with the main component<code data-gs="comd/c" data-x>App</code>, which contains the rest.</p>
+<p>Let's practice creating new components.</p>
+<p>For example, let's say we need a component that displays product data. To do this, we need to create a file in the working folder<code data-gs="comd/p" data-x>Product.js</code>and add the following code to it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import React from 'react';
 
@@ -81,18 +54,8 @@ function Product() {
 
 export default Product;</code>
 </div>
-<p>
-	Как вы видите, сейчас наш компонент возвращает
-	абзац с текстом. В следующих уроках мы доработаем
-	этот код так, чтобы возвращались данные продукта.
-	Но пока для начала просто оставим абзац
-	с некоторым начальным текстом.
-</p>
-<p>
-	Давайте теперь выведем наш созданный компонент
-	в компоненте <code data-gs="comd/c" data-x>App</code>. Пусть сейчас наш
-	<code data-gs="comd/c" data-x>App</code> имеет следующий код:
-</p>
+<p>As you can see, our component now returns a paragraph with text. In future tutorials, we'll modify this code to return product data. But for now, let's just start with a paragraph with some initial text.</p>
+<p>Let's now output our created component in component<code data-gs="comd/c" data-x>App</code>. Let it be ours now<code data-gs="comd/c" data-x>App</code>has the following code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import React from 'react';
 
@@ -104,10 +67,7 @@ function App() {
 
 export default App;</code>
 </div>
-<p>
-	Для начала нам нужно импортировать созданный
-	нами компонент с продуктом:
-</p>
+<p>First, we need to import the product component we created:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import React from 'react';
 import Product from './Product'; // импортируем продукт
@@ -120,21 +80,19 @@ function App() {
 
 export default App;</code>
 </div>
-<p>
-	После такого импорта внутри компонента <code data-gs="comd/c" data-x>App</code>
-	можно использовать компонент <code data-gs="comd/c" data-x>Product</code>.
+<p>After such import inside the component<code data-gs="comd/c" data-x>App</code>you can use the component<code data-gs="comd/c" data-x>Product</code>.
 </p>
     <div class="lesson-nav">
-      <a href="../../data/showing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Реактивный показ данных">← Реактивный показ данных</a>
-      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../using/index.html" class="lesson-nav-btn lesson-nav-next" title="Использование компонентов">Использование компонентов →</a>
+      <a href="../../data/showing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Reactive data display">← Reactive data display</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../using/index.html" class="lesson-nav-btn lesson-nav-next" title="Using Components">Using components →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

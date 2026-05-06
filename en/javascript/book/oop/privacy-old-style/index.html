@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Приватность в старом стиле в ООП в JavaScript — acteck.off</title>
-  <meta name="description" content="Приватность в старом стиле в ООП в JavaScript — учебные материалы по программированию.">
+  <title>Old style privacy in OOP in JavaScript - acteck.off</title>
+  <meta name="description" content="Old Style Privacy in OOP in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,26 +36,10 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Приватность в старом стиле в ООП в JavaScript</h1>
-    <p>
-	Объявление приватных свойств и методов
-	через символ <code data-gs="comd/c" data-x>#</code> появилось в JavaScript
-	совсем недавно. До этого приходилось
-	пользоваться специальным хитрым
-	приемом.
-</p>
-<p>
-	Суть этого приема в том, что заключается
-	соглашение о том, что имена приватных свойств
-	и методов должны начинаться с символа подчеркивания.
-	Реально такие имена не будут приватными,
-	но мы договариваемся о том, что
-	не будем их использовать извне класса.
-</p>
-<p>
-	Давайте попробуем. Сделаем
-	приватное свойство в таком стиле:
-</p>
+    <h1>Old style privacy in OOP in JavaScript</h1>
+    <p>Declaring private properties and methods using a symbol<code data-gs="comd/c" data-x>#</code>appeared in JavaScript quite recently. Before this, I had to use a special tricky technique.</p>
+<p>The essence of this technique is that there is an agreement that the names of private properties and methods must begin with an underscore character. In reality, such names will not be private, but we agree that we will not use them outside the class.</p>
+<p>Let's try it. Let's create a private property in this style:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
 	constructor(name) {
@@ -67,31 +51,20 @@
 	}
 }</code>
 </div>
-<p>
-	Создадим объект класса:
-</p>
+<p>Let's create a class object:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let user = new User('john', 'smit');</code>
 </div>
-<p>
-	Вызовем метод, выводящий значение
-	нашего свойства:
-</p>
+<p>Let's call the method that displays the value of our property:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(user.show());</code>
 </div>
-<p>
-	Попытка обратиться к свойству извне
-	класса не приведет к ошибке:
-</p>
+<p>Trying to access a property from outside the class will not produce an error:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(user._name); // ошибки нет</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		В следующем коде сделайте
-		свойства приватными:
-	</p>
+	<p>In the following code, make the properties private:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class Employee {
 	constructor(name, salary) {
@@ -109,10 +82,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		В следующем коде сделайте вспомогательный
-		метод приватным:
-	</p>
+	<p>In the following code, make the helper method private:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class Employee {
 	constructor(name, salary) {
@@ -132,16 +102,16 @@
 </div>
   
     <div class="lesson-nav">
-      <a href="../private-methods/index.html" class="lesson-nav-btn lesson-nav-prev" title="Приватные методы">← Приватные методы</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../properties-getters/index.html" class="lesson-nav-btn lesson-nav-next" title="Геттеры свойств">Геттеры свойств →</a>
+      <a href="../private-methods/index.html" class="lesson-nav-btn lesson-nav-prev" title="Private Methods">← Private methods</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../properties-getters/index.html" class="lesson-nav-btn lesson-nav-next" title="Property getters">Property getters →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

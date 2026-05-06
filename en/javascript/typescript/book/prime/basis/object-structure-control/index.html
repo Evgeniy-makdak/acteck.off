@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Контроль структуры объекта в TypeScript — acteck.off</title>
-  <meta name="description" content="Контроль структуры объекта в TypeScript — учебные материалы по программированию.">
+  <title>Controlling object structure in TypeScript - acteck.off</title>
+  <meta name="description" content="Controlling Object Structure in TypeScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,77 +36,50 @@
       <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Контроль структуры объекта в TypeScript</h1>
-    <p>
-	TypeScript также контролирует структуру
-	объекта. Пусть мы объявили наш объект с
-	юзером: 
-</p>
+    <h1>Controlling object structure in TypeScript</h1>
+    <p>TypeScript also controls the structure of the object. Let us declare our object with the user:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user = {name: 'john', age: 30};</code>
 </div>
-<p>
-	В момент объявления TypeScript запоминает,
-	что в нашем объекте есть ключи <code data-gs="comd/s" data-x>'name'</code>
-	и <code data-gs="comd/s" data-x>'age'</code>, а затем контролирует, чтобы
-	в переменной хранился объект именно с этими
-	ключами. 
-</p>
-<p>
-	Попытка записать в переменную другой объект
-	приводит к ошибке компиляции. Давайте
-	попробуем. Запишем в переменную объект, в
-	котором не хватает ключа: 
-</p>
+<p>At the moment of declaration, TypeScript remembers that our object has keys<code data-gs="comd/s" data-x>'name'</code>And<code data-gs="comd/s" data-x>'age'</code>, and then controls that the object with these keys is stored in the variable.</p>
+<p>An attempt to write another object to a variable results in a compilation error. Let's try it. Let's write the object that lacks the key into a variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">user = {name: 'eric'}; // ошибка</code>
 </div>
-<p>
-	Запишем в переменную новый объект с такими
-	же ключами, но еще и с лишним ключом: 
-</p>
+<p>Let's write a new object into a variable with the same keys, but also with an extra key:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">user = {name: 'eric', age: 40, salary: 300}; // ошибка</code>
 </div>
-<p>
-	А теперь запишем в переменную объект,
-	содержащий только ключи <code data-gs="comd/s" data-x>'name'</code> и
-	<code data-gs="comd/s" data-x>'age'</code>: 
+<p>Now let’s write an object containing only keys to a variable<code data-gs="comd/s" data-x>'name'</code>And<code data-gs="comd/s" data-x>'age'</code>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">user = {name: 'eric', age: 40}; // работает</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код определите каким будет
-		результат выполнения кода: 
-	</p>
+	<p>Without running the code, determine what the result of executing the code will be:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let date = {year: 2025, month: 12, day: 31};
 date = {year: 2025, month: 12};</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код определите каким будет
-		результат выполнения кода: 
-	</p>
+	<p>Without running the code, determine what the result of executing the code will be:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let date = {year: 2025, month: 12, day: 31};
 date = {year: 2025, month: 12, date: 7};</code>
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../object-types-control/index.html" class="lesson-nav-btn lesson-nav-prev" title="Контроль типа переменной в объекте">← Контроль типа переменной в объекте</a>
-      <a href="../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../object-values-types-control/index.html" class="lesson-nav-btn lesson-nav-next" title="Контроль типов значений объекта">Контроль типов значений объекта →</a>
+      <a href="../object-types-control/index.html" class="lesson-nav-btn lesson-nav-prev" title="Controlling the type of a variable in an object">← Controlling the type of a variable in an object</a>
+      <a href="../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../object-values-types-control/index.html" class="lesson-nav-btn lesson-nav-next" title="Controlling Object Value Types">Controlling object value types →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

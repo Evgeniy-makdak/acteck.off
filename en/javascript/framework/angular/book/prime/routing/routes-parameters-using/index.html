@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Использование параметров маршрутов в компоненте в Angular — acteck.off</title>
-  <meta name="description" content="Использование параметров маршрутов в компоненте в Angular — учебные материалы по программированию.">
+  <title>Using routes parameters in a component in Angular - acteck.off</title>
+  <meta name="description" content="Using Route Parameters in a Component in Angular - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,26 +36,16 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Использование параметров маршрутов в компоненте в Angular</h1>
-    <p>
-	Давайте теперь посмотрим, как мы можем
-	использовать параметры роутов внутри класса
-	компонента. 
-</p>
-<p>
-	Пусть у нас есть следующий маршрут с
-	параметрами: 
-</p>
+    <h1>Using routes parameters in a component in Angular</h1>
+    <p>Let's now see how we can use route parameters inside a component class.</p>
+<p>Let us have the following route with parameters:</p>
 <div data-p="bock/pane" data-p-file="app/app.routes.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">const routes: Routes = [
 	{ path: 'aaaa/:id', component: AaaaComponent },
 	{ path: 'bbbb', component: BbbbComponent },
 ];</code>
 </div>
-<p>
-	Пусть у нас есть ссылки для перехода на
-	данный компонент с различными параметрами: 
-</p>
+<p>Suppose we have links to go to a given component with various parameters:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;nav&gt;
 	&lt;a
@@ -78,10 +68,7 @@
 	&lt;/a&gt;
 &lt;/nav&gt;</code>
 </div>
-<p>
-	Пусть в дочернем компоненте содержится
-	следующий массив: 
-</p>
+<p>Let the child component contain the following array:</p>
 <div data-p="bock/pane" data-p-file="app/aaaa/aaaa.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let arr: string = [
 	'a', 'b', 'c', 'd', 'e'
@@ -91,11 +78,7 @@ export class AaaaComponent {
 
 }</code>
 </div>
-<p>
-	Давайте в завимости от значения параметра
-	роута будем получать сооветствующий элемент
-	массива: 
-</p>
+<p>Let's get the corresponding array element depending on the value of the route parameter:</p>
 <div data-p="bock/pane" data-p-file="app/aaaa/aaaa.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AaaaComponent {
 	constructor(private activateRoute: ActivatedRoute) {
@@ -106,17 +89,12 @@ export class AaaaComponent {
 	}
 }</code>
 </div>
-<p>
-	Выведем полученный элемент в представлении: 
-</p>
+<p>Let's display the resulting element in the view:</p>
 <div data-p="bock/pane" data-p-file="app/aaaa/aaaa.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">значение: {{ value }}</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть в дочернем компоненте хранится
-		следующий массив объектов: 
-	</p>
+	<p>Let the child component store the following array of objects:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">[
 	{
@@ -133,24 +111,19 @@ export class AaaaComponent {
 	},
 ]</code>
 	</div>
-	<p>
-		Сделайте маршрут с параметром. Пусть в
-		зависимости от значения параметра в
-		представление выводятся данные одно из
-		юзеров. 
-	</p>
+	<p>Make a route with a parameter. Let the data of one of the users be displayed in the view depending on the value of the parameter.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../routes-parameters-values/index.html" class="lesson-nav-btn lesson-nav-prev" title="Значения параметров маршрутов">← Значения параметров маршрутов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../routes-parameters-links/index.html" class="lesson-nav-btn lesson-nav-next" title="Параметры маршрутов в ссылках">Параметры маршрутов в ссылках →</a>
+      <a href="../routes-parameters-values/index.html" class="lesson-nav-btn lesson-nav-prev" title="Route Parameter Values">← Route parameter values</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../routes-parameters-links/index.html" class="lesson-nav-btn lesson-nav-next" title="Route parameters in links">Route parameters in links →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

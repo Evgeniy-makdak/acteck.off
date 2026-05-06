@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отмена компиляции примешивания в LESS — acteck.off</title>
-  <meta name="description" content="Отмена компиляции примешивания в LESS — учебные материалы по программированию.">
+  <title>Disabling mixin compilation in LESS - acteck.off</title>
+  <meta name="description" content="Uncompiling Mixing in LESS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,25 +33,13 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Отмена компиляции примешивания в LESS</h1>
-    <p>
-	Класс, который мы используем в качестве примешивания,
-	также попадет в результат компиляции.
-</p>
-<p>
-	Бывают, однако, ситуации, когда мы хотим
-	создать какой то кусок кода, в качестве заготовки,
-	для использования в других местах кода, и
-	при этом сам сам по себе этот кусочек использоваться
-	не будет.
-</p>
-<p>
-	Для отмены компиляции миксина нужно поставить
-	после его имени круглые скобки, вот так:
-</p>
+    <h1>Uncompiling mixin in LESS</h1>
+    <p>The class we use as a mixin will also end up in the compilation result.</p>
+<p>There are, however, situations when we want to create some piece of code, as a template, for use in other places in the code, and this piece itself will not be used.</p>
+<p>To cancel compilation of a mixin, you need to put parentheses after its name, like this:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix() {
 	width: 100px;
@@ -59,10 +47,7 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix() {
 	color: white;
@@ -76,10 +61,7 @@ p {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix1() {
 	color: white;
@@ -97,43 +79,32 @@ p {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте миксин <code data-gs="comd/c" data-x>.tnr</code>, который будет
-		задавать шрифт семейства <code data-gs="comd/v" data-x>Times New Roman</code>.
+	<p>Make a mixin<code data-gs="comd/c" data-x>.tnr</code>, which will specify the font family<code data-gs="comd/v" data-x>Times New Roman</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте миксин <code data-gs="comd/c" data-x>.df</code>, который будет
-		задавать свойство <code data-gs="comd/c" data-x>display</code> в значении
-		<code data-gs="comd/v" data-x>flex</code>.
+	<p>Make a mixin<code data-gs="comd/c" data-x>.df</code>, which will set the property<code data-gs="comd/c" data-x>display</code>in meaning<code data-gs="comd/v" data-x>flex</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте миксин <code data-gs="comd/c" data-x>.bold</code>, который будет
-		задавать свойство <code data-gs="comd/c" data-x>font-weight</code> в значении
-		<code data-gs="comd/v" data-x>bold</code>.
+	<p>Make a mixin<code data-gs="comd/c" data-x>.bold</code>, which will set the property<code data-gs="comd/c" data-x>font-weight</code>in meaning<code data-gs="comd/v" data-x>bold</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте миксин <code data-gs="comd/c" data-x>.nowrap</code>, который будет
-		задавать свойство <code data-gs="comd/c" data-x>white-space</code> в значении
-		<code data-gs="comd/v" data-x>nowrap</code>.
+	<p>Make a mixin<code data-gs="comd/c" data-x>.nowrap</code>, which will set the property<code data-gs="comd/c" data-x>white-space</code>in meaning<code data-gs="comd/v" data-x>nowrap</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../mixins/index.html" class="lesson-nav-btn lesson-nav-prev" title="Миксины">← Миксины</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../class-extending/index.html" class="lesson-nav-btn lesson-nav-next" title="Расширение классов">Расширение классов →</a>
+      <a href="../mixins/index.html" class="lesson-nav-btn lesson-nav-prev" title="Hagfish">← Mixins</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../class-extending/index.html" class="lesson-nav-btn lesson-nav-next" title="Class Extension">Class extension →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

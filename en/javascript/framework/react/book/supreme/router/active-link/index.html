@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Выделение активной ссылки в React Router — acteck.off</title>
-  <meta name="description" content="Выделение активной ссылки в React Router — учебные материалы по программированию.">
+  <title>Highlighting an active link in React Router - acteck.off</title>
+  <meta name="description" content="Highlighting an active link in React Router - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,57 +36,22 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Выделение активной ссылки в React Router</h1>
-    <p>
-	Предположим, мы добавили несколько продуктов
-	в наше приложение и просматриваем каждый из
-	продуктов. Как же нам понять на страничке
-	какого продукта мы сейчас находимся? Давайте
-	будем выделять этот продукт в списке, например
-	жирным шрифтом и коричневым цветом, а если
-	ссылка еще подгружается, то серым.
-</p>
-<p>
-	Для начала зайдите home страницу,
-	добавьте в список <code data-gs="comd/n" data-x>4</code> продукта
-	и для каждого из них внесите данные.
-	Дайте им любые названия.
-</p>
-<p>
-	В выделении активной ссылки нам поможет
-	компонент <code data-gs="comd/c" data-x>NavLink</code>, это подвид
-	компонента <code data-gs="comd/c" data-x>Link</code>, который знает
-	о состоянии данных. Обычно он применяется
-	при создании навигационного меню. 
-</p>
-<p>
-	Давайте откроем <code data-gs="comd/p" data-x>root.jsx</code> и импортируем
-	<code data-gs="comd/c" data-x>NavLink</code> (не забудьте убрать импорт
-	<code data-gs="comd/c" data-x>Link</code>, а то React может заругаться,
-	ведь мы его больше не используем):
-</p>
+    <h1>Highlighting the active link in React Router</h1>
+    <p>Let's say we have added several products to our application and are browsing through each of the products. How can we understand which product page we are currently on? Let's highlight this product in the list, for example, in bold and brown, and if the link is still being loaded, then in gray.</p>
+<p>To get started, go to the main page, add to the list<code data-gs="comd/n" data-x>4</code>product and enter data for each of them. Give them any names.</p>
+<p>The component will help us highlight the active link<code data-gs="comd/c" data-x>NavLink</code>, this is a subtype of component<code data-gs="comd/c" data-x>Link</code>, which knows about the state of the data. It is usually used when creating a navigation menu.</p>
+<p>Let's open<code data-gs="comd/p" data-x>root.jsx</code>and import<code data-gs="comd/c" data-x>NavLink</code>(don't forget to remove import<code data-gs="comd/c" data-x>Link</code>, otherwise React might get angry, because we don’t use it anymore):</p>
 <div data-p="bock/pane" data-p-file="routes/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { NavLink } from 'react-router-dom';</code>
 </div>
-<p>
-	Затем в макете заменим компонент
-	<code data-gs="comd/c" data-x>Link</code> на <code data-gs="comd/c" data-x>NavLink</code>:
+<p>Then in the layout we replace the component<code data-gs="comd/c" data-x>Link</code>on<code data-gs="comd/c" data-x>NavLink</code>:
 </p>
 <div data-p="bock/pane" data-p-file="routes/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;NavLink key={product.id} to={`products/${product.id}`}&gt;
 	{product.name ? product.name : &lt;i&gt;unnamed&lt;/i&gt;}
 &lt;/NavLink&gt;</code>
 </div>
-<p>
-	И добавим ему пропс <code data-gs="comd/c" data-x>className</code>, а
-	также используем условную логику. Если
-	страничка подгрузилась, то ссылка перейдет
-	в состояние активной, если прогружается,
-	то в состояние загрузки, если же ничего не
-	происходит, то останется прежней. В
-	зависимости от этого будет
-	меняться класс ссылки:
-</p>
+<p>And add props to him<code data-gs="comd/c" data-x>className</code>, and also use conditional logic. If the page has loaded, then the link will go into the active state, if it is loading, then into the loading state, but if nothing happens, it will remain the same. Depending on this, the link class will change:</p>
 <div data-p="bock/pane" data-p-file="routes/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;NavLink
 	key={product.id}
@@ -98,11 +63,7 @@
 	{product.name ? product.name : &lt;i&gt;Unnamed&lt;/i&gt;}
 &lt;/NavLink&gt;</code>
 </div>
-<p>
-	Нам осталось добавить стилей для
-	<code data-gs="comd/z" data-x>active</code> и <code data-gs="comd/z" data-x>loading</code>
-	классов в наш css-файл:
-</p>
+<p>All we have to do is add styles for<code data-gs="comd/z" data-x>active</code>And<code data-gs="comd/z" data-x>loading</code>classes to our css file:</p>
 <div data-p="bock/pane" data-p-file="index.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">a.active {
 	font-weight: bold;
@@ -113,32 +74,21 @@ a.loading {
 	color: gray;
 }</code>
 </div>
-<p>
-	Готово! А теперь покликайте на продукты
-	в списке.
-</p>
+<p>Ready! Now click on the products in the list.</p>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, реализуйте в нем
-		выделение активной ссылки для списка
-		студентов так, чтобы было понятно
-		данные какого студента юзер сейчас
-		просматривает.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, implement in it the selection of an active link for the list of students so that it is clear which student’s data the user is currently viewing.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../redirect/index.html" class="lesson-nav-btn lesson-nav-prev" title="Редирект на другой маршрут">← Редирект на другой маршрут</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../navigation-state/index.html" class="lesson-nav-btn lesson-nav-next" title="Состояние навигации">Состояние навигации →</a>
+      <a href="../redirect/index.html" class="lesson-nav-btn lesson-nav-prev" title="Redirect to another route">← Redirect to another route</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../navigation-state/index.html" class="lesson-nav-btn lesson-nav-next" title="Navigation state">Navigation status →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

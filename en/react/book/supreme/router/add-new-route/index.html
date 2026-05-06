@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Добавление ещё одного маршрута в React Router — acteck.off</title>
-  <meta name="description" content="Добавление ещё одного маршрута в React Router — учебные материалы по программированию.">
+  <title>Adding another route to React Router - acteck.off</title>
+  <meta name="description" content="Adding Another Route to React Router - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,35 +36,16 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Добавление ещё одного маршрута в React Router</h1>
-    <p>
-	У нас есть корневой маршрут, ведущий
-	home страницу, на которой у нас
-	есть ссылки для продуктов. Давайте
-	теперь добавим еще один маршрут, чтобы
-	при клике по одной из ссылок у нас
-	отображалась страничка для продукта,
-	а не экран с ошибкой.
-</p>
-<p>
-	Для начала давайте откроем наше приложение,
-	которое мы делали на прошлых уроках и
-	создадим в папке <code data-gs="comd/p" data-x>routes</code>
-	файл <code data-gs="comd/p" data-x>product.jsx</code>. Сделаем в нем
-	компонент <code data-gs="comd/c" data-x>Product</code>:
+    <h1>Adding another route to React Router</h1>
+    <p>We have a root route that goes to the main page where we have links for products. Let's now add another route so that when one of the links is clicked, we will see a page for the product, and not an error screen.</p>
+<p>First, let's open our application, which we made in previous lessons and create it in the folder<code data-gs="comd/p" data-x>routes</code>file<code data-gs="comd/p" data-x>product.jsx</code>. Let's make a component in it<code data-gs="comd/c" data-x>Product</code>:
 </p>
 <div data-p="bock/pane" data-p-file="routes/product.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product() {}
 
 export default Product;</code>
 </div>
-<p>
-	Теперь создадим внутри <code data-gs="comd/c" data-x>Product</code>
-	объект <code data-gs="comd/c" data-x>product</code>, со свойствами
-	<code data-gs="comd/c" data-x>name</code>, <code data-gs="comd/c" data-x>cost</code> и <code data-gs="comd/c" data-x>amount</code>,
-	пока это будут некоторые
-	фиксированные значения:
-</p>
+<p>Now let's create inside<code data-gs="comd/c" data-x>Product</code>object<code data-gs="comd/c" data-x>product</code>, with properties<code data-gs="comd/c" data-x>name</code>, <code data-gs="comd/c" data-x>cost</code>And<code data-gs="comd/c" data-x>amount</code>for now these will be some fixed values:</p>
 <div data-p="bock/pane" data-p-file="routes/product.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product() {
 	const product = {
@@ -76,11 +57,7 @@ export default Product;</code>
 
 export default Product;</code>
 </div>
-<p>
-	И на страничке продукта мы будем
-	выводить, соответственно, его название,
-	стоимость и количество:
-</p>
+<p>And on the product page we will display, respectively, its name, cost and quantity:</p>
 <div data-p="bock/pane" data-p-file="routes/product.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
 	&lt;div&gt;
@@ -91,20 +68,12 @@ export default Product;</code>
 	&lt;/div&gt;
 );</code>
 </div>
-<p>
-	Обязательно добавим импорт компонента
-	<code data-gs="comd/c" data-x>Product</code> в файл <code data-gs="comd/p" data-x>main.jsx</code>:
+<p>Be sure to add component import<code data-gs="comd/c" data-x>Product</code>to file<code data-gs="comd/p" data-x>main.jsx</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Product from './routes/product';</code>
 </div>
-<p>
-	И, наконец, добавим еще один маршрут
-	в наше приложение, сделаем это сразу
-	после корневого. В качестве пути
-	укажем <code data-gs="comd/v" data-x>'products/:productId'</code>, а в
-	качестве элемента для отображения
-	у нас выступает компонент <code data-gs="comd/c" data-x>Product</code>:
+<p>And finally, let's add another route to our application, do it right after the root one. As the path we indicate<code data-gs="comd/v" data-x>'products/:productId'</code>, and the element to be displayed is the component<code data-gs="comd/c" data-x>Product</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{
@@ -117,32 +86,13 @@ export default Product;</code>
 	element: &lt;Product /&gt;,
 },</code>
 </div>	
-<p>
-	А теперь запускаем приложение,
-	кликаем по ссылкам и оказываемся
-	на страничке с продуктом (пока она
-	у нас одинаковая для всех ссылок),
-	а не с ошибкой.
-</p>
+<p>Now we launch the application, click on the links and find ourselves on the page with the product (for now it is the same for all links), and not with an error.</p>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, создайте подобным
-		образом файл <code data-gs="comd/p" data-x>student.jsx</code>, пусть на
-		страничке студента будет выводиться
-		его имя, фамилия, год поступления и
-		специальность. Добавьте новый маршрут
-		для странички студента в файле <code data-gs="comd/p" data-x>main.jsx</code>,
-		установите значение <code data-gs="comd/c" data-x>path</code> в
-		<code data-gs="comd/s" data-x>'students/:studentId'</code>. Убедитесь,
-		что при клике по ссылкам вы попадаете
-		теперь на страничку студента.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, create a file in a similar way<code data-gs="comd/p" data-x>student.jsx</code>, let the student’s page display his first and last name, year of admission and specialty. Add a new route for the student page in the file<code data-gs="comd/p" data-x>main.jsx</code>, set the value<code data-gs="comd/c" data-x>path</code>V<code data-gs="comd/s" data-x>'students/:studentId'</code>. Make sure that when you click on the links you are now taken to the student's page.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -150,7 +100,7 @@ export default Product;</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

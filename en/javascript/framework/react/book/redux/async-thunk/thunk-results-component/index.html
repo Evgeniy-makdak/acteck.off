@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вывод результатов работы thunk в компоненте в Redux — acteck.off</title>
-  <meta name="description" content="Вывод результатов работы thunk в компоненте в Redux — учебные материалы по программированию.">
+  <title>Outputting thunk results in a component in Redux - acteck.off</title>
+  <meta name="description" content="Outputting thunk results in a component in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,63 +36,31 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Вывод результатов работы thunk в компоненте в Redux</h1>
-    <p>
-	На прошлом занятии мы отправили POST-запрос
-	с помощью thunk <code data-gs="comd/c" data-x>addProduct</code>. Давайте теперь
-	отобразим результаты его работы в компоненте.
-</p>
-<p>
-	Откроем наше приложение с продуктами, а в
-	нем файл <code data-gs="comd/p" data-x>NewProductForm.jsx</code>, поскольку этот
-	компонент ответственен за добавление нового
-	продукта. Посмотрим на строчки с импортом.
-	Заменим импорт экшена <code data-gs="comd/c" data-x>productAdded</code>, на
-	импорт thunk <code data-gs="comd/c" data-x>addProduct</code>:
+    <h1>Outputting thunk results in a component in Redux</h1>
+    <p>In the last lesson we sent a POST request using thunk<code data-gs="comd/c" data-x>addProduct</code>. Let's now display the results of its work in the component.</p>
+<p>Let's open our application with products, and in it there is a file<code data-gs="comd/p" data-x>NewProductForm.jsx</code>, since this component is responsible for adding a new product. Let's look at the import lines. Let's replace the import of the action<code data-gs="comd/c" data-x>productAdded</code>, to import thunk<code data-gs="comd/c" data-x>addProduct</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { addProduct } from './productsSlice'</code>
 </div>
-<p>
-	Теперь, поскольку мы не отслеживаем в слайсе
-	статус <code data-gs="comd/s" data-x>'pending'</code> запроса, давайте сделаем так,
-	чтобы пользователь смог нажать на кнопку с
-	сохранением продукта только один раз, ведь
-	нам не нужны те же самые повторные запросы.
-	Для этого заведем еще один локальный стейт:
-</p>
+<p>Now, since we are not tracking the status in the slice<code data-gs="comd/s" data-x>'pending'</code>request, let's make it so that the user can click on the button to save the product only once, because we don't need the same repeated requests. To do this, let's create another local state:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [requestStatus, setRequestStatus] = useState('idle')</code>
 </div>
-<p>
-	Далее после обработчиков и перед функцией
-	<code data-gs="comd/c" data-x>onSaveProductClick</code> напишем код, в котором
-	проверим, все ли поля формы у нас заполнены
-	и находится ли статус запроса в <code data-gs="comd/s" data-x>'idle'</code>:
+<p>Further after the handlers and before the function<code data-gs="comd/c" data-x>onSaveProductClick</code>Let's write a code in which we check whether all form fields are filled in and whether the request status is in<code data-gs="comd/s" data-x>'idle'</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const canBeSaved =
 	[name, desc, price, amount, sellerId].every(Boolean) &&
 	requestStatus === 'idle'</code>
 </div>
-<p>
-	Затем мы изменим код для <code data-gs="comd/c" data-x>onSaveProductClick</code>. Во-первых
-	это будет асинхронная функция и она будет выполняться,
-	если верно вышеприведенное условие:
-</p>
+<p>Then we will change the code to<code data-gs="comd/c" data-x>onSaveProductClick</code>. Firstly, it will be an asynchronous function and it will be executed if the above condition is true:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const onSaveProductClick = async () =&gt; {
 	if (canBeSaved) {}
 }</code>
 </div>
-<p>
-	Несмотря на то, что мы в слайсе не отслеживаем статус
-	<code data-gs="comd/s" data-x>'rejected'</code>, мы все равно можем вывести в
-	консоль ошибку, для этого воспользуемся
-	конструкцией <a href="../../../../../../book/supreme/exceptions/intro/index.html"><code data-gs="comd/c" data-x>try-catch</code></a>.
-	Также здесь мы добавим еще и <code data-gs="comd/c" data-x>finally</code>,
-	чтобы после выполнения запроса снова установить
-	локальный стейт в <code data-gs="comd/s" data-x>'idle'</code>:
+<p>Despite the fact that we do not track the status in the slice<code data-gs="comd/s" data-x>'rejected'</code>, we can still display an error in the console; for this we will use the construction<a href="../../../../../../book/supreme/exceptions/intro/index.html"><code data-gs="comd/c" data-x>try-catch</code></a>. Also here we will add<code data-gs="comd/c" data-x>finally</code>to set the local state to again after executing the request<code data-gs="comd/s" data-x>'idle'</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const onSaveProductClick = async () =&gt; {
@@ -106,19 +74,7 @@
 	}
 }</code>
 </div>
-<p>
-	С <code data-gs="comd/c" data-x>catch</code> и <code data-gs="comd/c" data-x>finally</code> блоками мы разобрались, давайте
-	напишем код для блока <code data-gs="comd/c" data-x>try</code>. Здесь мы установим локальный
-	статус в <code data-gs="comd/s" data-x>'in pogress'</code>, пока нам не вернется
-	какой-нибудь ответ в результате работы thunk,
-	затем отправим наш thunk <code data-gs="comd/c" data-x>addProduct</code>. Использовать
-	конструкцию <code data-gs="comd/c" data-x>try-catch</code> в зависимости
-	от типа ответа нам поможет функция RTK <code data-gs="comd/c" data-x>unwrap</code>,
-	которую он добавляет к возвращаемому промису.
-	Затем, если запрос был успешен мы устанавливаем
-	локальные стейты в их начальные состояния. Полный
-	код для <code data-gs="comd/c" data-x>onSaveProductClick</code> будет выглядеть так:
-</p>
+<p>WITH<code data-gs="comd/c" data-x>catch</code>And<code data-gs="comd/c" data-x>finally</code>we understand the blocks, let's write the code for the block<code data-gs="comd/c" data-x>try</code>. Here we will set the local status to<code data-gs="comd/s" data-x>'in pogress'</code>, until some response is returned to us as a result of the thunk, then we send our thunk<code data-gs="comd/c" data-x>addProduct</code>. Use construct<code data-gs="comd/c" data-x>try-catch</code>depending on the type of response, the RTK function will help us<code data-gs="comd/c" data-x>unwrap</code>, which it adds to the returned promise. Then, if the request was successful, we set the local states to their initial states. Full code for<code data-gs="comd/c" data-x>onSaveProductClick</code>will look like this:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const onSaveProductClick = async () =&gt; {
 	if (canBeSaved) {
@@ -139,57 +95,28 @@
 	}
 }</code>
 </div>
-<p>
-	Запустим наше приложение и попробуем добавить
-	новый продукт. Как вы видите, в случае успешного
-	запроса поля очищаются и новый продукт добавляется
-	в список продуктов. Также загляните в браузере
-	в Redux DevTools и побегайте по его вкладкам,
-	посмотрите на экшены и как меняется ваш стейт.
-</p>
+<p>Let's launch our application and try to add a new product. As you can see, if the request is successful, the fields are cleared and the new product is added to the product list. Also, look in your browser at Redux DevTools and run through its tabs, look at the actions and how your state changes.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Откройте в нем файл <code data-gs="comd/p" data-x>NewStudentForm.jsx</code>.
-		Добавьте еще один локальный стейт <code data-gs="comd/c" data-x>requestStatus</code>,
-		и установите его изначально в <code data-gs="comd/s" data-x>'idle'</code>.
-		Ознакомившись с материалами урока, заведите
-		переменную <code data-gs="comd/c" data-x>canBeSaved</code>, с помощью которой
-		кнопка сохранения новых данных студента будет
-		работать/не работать, в	зависимости от значения
-		<code data-gs="comd/c" data-x>requestStatus</code>	и от заполненности полей.
+	<p>Open your application with students. Open the file in it<code data-gs="comd/p" data-x>NewStudentForm.jsx</code>. Add another local state<code data-gs="comd/c" data-x>requestStatus</code>, and install it initially in<code data-gs="comd/s" data-x>'idle'</code>. After reading the lesson materials, create a variable<code data-gs="comd/c" data-x>canBeSaved</code>, with which the button for saving new student data will work/not work, depending on the value<code data-gs="comd/c" data-x>requestStatus</code>and on the completeness of the fields.</p>
+</div>
+<div data-w="cont/task">
+	<p>Write asynchronous code for<code data-gs="comd/c" data-x>onSaveStudentClick</code>, which will change the value<code data-gs="comd/c" data-x>requestStatus</code>according to the situation, send thunk<code data-gs="comd/c" data-x>addProduct</code>with the new student's data, clear the fields if the request is successful and print an error to the console if it fails, as shown in the lesson. Use the construct for this<code data-gs="comd/c" data-x>try-catch</code>and RTK function<code data-gs="comd/c" data-x>unwrap</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Напишите асинхронный код для <code data-gs="comd/c" data-x>onSaveStudentClick</code>,
-		который будет менять значение <code data-gs="comd/c" data-x>requestStatus</code>
-		по ситуации, отправлять thunk <code data-gs="comd/c" data-x>addProduct</code>
-		с данными нового студента, очищать поля
-		в случае успешного запроса и выводить в
-		консоль ошибку в случае неудачи,
-		как показано в уроке. Используйте для этого
-		конструкцию	<code data-gs="comd/c" data-x>try-catch</code> и функцию RTK
-		<code data-gs="comd/c" data-x>unwrap</code>.
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		Запустите ваше приложение, добавьте нового
-		студента и убедитесь, что все работает. 
-	</p>
+	<p>Launch your application, add a new student and make sure everything works.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../send-data-thunk/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отправка данных с помощью thunk">← Отправка данных с помощью thunk</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../sellers-list/index.html" class="lesson-nav-btn lesson-nav-next" title="Вывод списка продавцов">Вывод списка продавцов →</a>
+      <a href="../send-data-thunk/index.html" class="lesson-nav-btn lesson-nav-prev" title="Sending data using thunk">← Sending data using thunk</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../sellers-list/index.html" class="lesson-nav-btn lesson-nav-next" title="Displaying a list of sellers">Displaying a list of sellers →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

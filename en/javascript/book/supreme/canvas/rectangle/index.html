@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Рисование прямоугольников через canvas на JavaScript — acteck.off</title>
-  <meta name="description" content="Рисование прямоугольников через canvas на JavaScript — учебные материалы по программированию.">
+  <title>Drawing rectangles via canvas in JavaScript - acteck.off</title>
+  <meta name="description" content="Drawing rectangles using canvas in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,27 +36,13 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Рисование прямоугольников через canvas на JavaScript</h1>
-    <p>
-	Квадраты и прямоугольники не обязательно
-	рисовать с помощью комбинаций <code data-gs="comd/c" data-x>moveTo</code>,
-	<code data-gs="comd/c" data-x>lineTo</code> - для этого есть методы и попроще.
-	Давайте их разберем.
-</p>
+    <h1>Drawing rectangles using canvas in JavaScript</h1>
+    <p>Squares and rectangles do not have to be drawn using combinations<code data-gs="comd/c" data-x>moveTo</code>,
+	<code data-gs="comd/c" data-x>lineTo</code>- There are simpler methods for this. Let's look at them.</p>
 
-<h2>Метод strokeRect</h2>
-<p>
-	Метод <code data-gs="comd/c" data-x>strokeRect</code>(<i>x, y, ширина,
-	высота</i>) рисует в заданной точке контур
-	прямоугольника. Первые два параметра задают
-	координаты точки, в которой окажется верхний
-	левый угол нарисованного прямоугольника.
-</p>
-<p>
-	Давайте нарисуем прямоугольник с помощью
-	<code data-gs="comd/c" data-x>strokeRect</code> (считаем, что <code data-gs="comd/c" data-x>ctx</code>
-	уже есть):
-</p>
+<h2>strokeRect method</h2>
+<p>Method<code data-gs="comd/c" data-x>strokeRect</code>(<i>x, y, width, height</i>) draws the outline of a rectangle at a given point. The first two parameters specify the coordinates of the point where the upper left corner of the drawn rectangle will be.</p>
+<p>Let's draw a rectangle using<code data-gs="comd/c" data-x>strokeRect</code>(we believe that<code data-gs="comd/c" data-x>ctx</code>already exist):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;canvas width="200" height="200" style="background: #f4f4f4;"&gt;&lt;/canvas&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let canvas = document.querySelector('canvas');
@@ -130,13 +116,8 @@ ctx.strokeRect(50, 50, 100, 75);</code>
 				</div>
 </div>
 
-<h2>Метод fillRect</h2>
-<p>
-	Метод <code data-gs="comd/c" data-x>fillRect</code>(<i>x, y, ширина, высота</i>)
-	работает также, как и <code data-gs="comd/c" data-x>strokeRect</code>,
-	только рисует закрашенный прямоугольник.
-	Посмотрим на примере:
-</p>
+<h2>fillRect method</h2>
+<p>Method<code data-gs="comd/c" data-x>fillRect</code>(<i>x, y, width, height</i>) works the same way as<code data-gs="comd/c" data-x>strokeRect</code>, only draws a filled rectangle. Let's look at an example:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;canvas width="200" height="200" style="background: #f4f4f4;"&gt;&lt;/canvas&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let canvas = document.querySelector('canvas');
@@ -210,17 +191,9 @@ ctx.fillRect(50, 50, 100, 75);</code>
 				</div>
 </div>
 
-<h2>Метод rect</h2>
-<p>
-	Следующий метод <code data-gs="comd/c" data-x>rect</code>(<i>x, y, ширина,
-	высота</i>) также рисует прямоугольник. Но
-	видимым этот прямоугольник станет, только
-	если применить метод <code data-gs="comd/c" data-x>stroke</code> или <code data-gs="comd/c" data-x>fill</code>.
-	В первом случае будет контур, а во втором
-	- фигура.
-</p>
-<p>
-	Давайте нарисуем контур с помощью <code data-gs="comd/c" data-x>rect</code>:
+<h2>rect method</h2>
+<p>Next method<code data-gs="comd/c" data-x>rect</code>(<i>x, y, width, height</i>) also draws a rectangle. But this rectangle will become visible only if you apply the method<code data-gs="comd/c" data-x>stroke</code>or<code data-gs="comd/c" data-x>fill</code>. In the first case there will be an outline, and in the second there will be a figure.</p>
+<p>Let's draw the outline using<code data-gs="comd/c" data-x>rect</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;canvas width="200" height="200" style="background: #f4f4f4;"&gt;&lt;/canvas&gt;</code>
@@ -264,9 +237,7 @@ ctx.stroke();</code>
 </html>"></iframe>
 					</div>
 				</div>
-<p>
-	А теперь нарисуем фигуру:
-</p>
+<p>Now let's draw a figure:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;canvas width="200" height="200" style="background: #f4f4f4;"&gt;&lt;/canvas&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let canvas = document.querySelector('canvas');
@@ -376,16 +347,9 @@ ctx.fill();</code>
 				</div>
 </div>
 
-<h2>Метод clearRect</h2>
-<p>
-	Следующий метод <code data-gs="comd/c" data-x>clearRect</code>(<i>x, y,
-	ширина, высота</i>) работает как ластик,
-	очищая прямоугольную область и делая 
-	содержимое совершенно прозрачным.
-</p>
-<p>
-	Давайте нарисуем квадратик с помощью <code data-gs="comd/c" data-x>fillRect</code>
-	и сотрем его часть с помощью <code data-gs="comd/c" data-x>clearRect</code>:
+<h2>clearRect method</h2>
+<p>Next method<code data-gs="comd/c" data-x>clearRect</code>(<i>x, y, width, height</i>) works like an eraser, clearing a rectangular area and making the contents completely transparent.</p>
+<p>Let's draw a square using<code data-gs="comd/c" data-x>fillRect</code>and erase part of it with<code data-gs="comd/c" data-x>clearRect</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;canvas width="200" height="200" style="background: #f4f4f4;"&gt;&lt;/canvas&gt;</code>
@@ -464,16 +428,16 @@ ctx.clearRect(75, 75, 50, 50);</code>
 </div>
   
     <div class="lesson-nav">
-      <a href="../line/index.html" class="lesson-nav-btn lesson-nav-prev" title="Рисование линий">← Рисование линий</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../circle/index.html" class="lesson-nav-btn lesson-nav-next" title="Рисование окружностей">Рисование окружностей →</a>
+      <a href="../line/index.html" class="lesson-nav-btn lesson-nav-prev" title="Drawing lines">← Drawing lines</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../circle/index.html" class="lesson-nav-btn lesson-nav-next" title="Drawing circles">Drawing circles →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

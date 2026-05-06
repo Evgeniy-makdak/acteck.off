@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Использование библиотек в JavaScript — acteck.off</title>
-  <meta name="description" content="Использование библиотек в JavaScript — учебные материалы по программированию.">
+  <title>Using libraries in JavaScript - acteck.off</title>
+  <meta name="description" content="Using Libraries in JavaScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,37 +36,12 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Использование библиотек в JavaScript</h1>
-    <p>
-	Давайте посмотрим на общий принцип использования
-	библиотек. Пусть нам понадобилась библиотека
-	с удобными функциями для работы с массивами.
-	Пусть мы погуглили и нагуглили библиотеку
-	<a href="https://lodash.com/">lodash</a>.
+    <h1>Using Libraries in JavaScript</h1>
+    <p>Let's look at the general principle of using libraries. Suppose we needed a library with convenient functions for working with arrays. Let us google and google the library<a href="https://lodash.com/">lodash</a>.
 </p>
-<p>
-	Заходим на сайт библиотеки и ищем ссылки
-	на скачивание библиотеки. Как правило,
-	библиотеки предоставляются в двух вариантах:
-	в обычном и минимизированном. Обычный вид
-	удобен, если вы хотите изучить исходный
-	код библиотеки. Минимизированный вид
-	удобен тем, что он занимает меньше места.
-</p>
-<p>
-	Итак, ищем ссылку на скачивание. Скачиваем
-	библиотеку. Иногда бывает так, что в документации
-	дается ссылка на JavaScript файл. В этом случае
-	этот файл вместо того, чтобы скачаться,
-	просто откроется в браузере. В этом случае
-	в меню браузера нужно выбрать сохранение
-	или нажать <code data-gs="comd/k" data-x>Ctrl + S</code> и сохранить
-	себе библиотеку в виде файла.
-</p>
-<p>
-	Скаченную библиотеку нужно подключить
-	к своему HTML файлу:
-</p>
+<p>We go to the library website and look for links to download the library. Typically, libraries are provided in two versions: regular and minified. The normal view is useful if you want to examine the source code of a library. The minimized view is convenient because it takes up less space.</p>
+<p>So, we are looking for a download link. Download the library. Sometimes it happens that the documentation provides a link to a JavaScript file. In this case, instead of being downloaded, this file will simply open in the browser. In this case, you need to select save in the browser menu or click<code data-gs="comd/k" data-x>Ctrl + S</code>and save the library as a file.</p>
+<p>You need to connect the downloaded library to your HTML file:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -79,15 +54,7 @@
 	&lt;/body&gt;
 &lt;/html&gt;</code>
 </div>
-<p>
-	Подключенная библиотека создает одну
-	или несколько переменных в общей области
-	видимости. В случае с lodash эта переменная
-	называется <code data-gs="comd/c" data-x>_</code>. Давайте теперь ниже
-	подключения библиотеки подключим наш
-	файл, в котором мы будем писать код
-	нашего сайта:
-</p>
+<p>The linked library creates one or more variables in a shared scope. In the case of lodash, this variable is called<code data-gs="comd/c" data-x>_</code>. Let's now connect our file below the library connection, in which we will write the code for our site:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -101,33 +68,22 @@
 	&lt;/body&gt;
 &lt;/html&gt;</code>
 </div>
-<p>
-	В этом файле будет доступна глобальная
-	переменная, которую создает ранее подключенная
-	библиотека lodash:
-</p>
+<p>In this file, a global variable will be available, which is created by the previously included lodash library:</p>
 <div data-p="bock/pane" data-p-file="test.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(_); // в этой переменной библиотека lodash</code>
 </div>
-<p>
-	Воспользуемся одним из методов
-	подключенной библиотеки:
-</p>
+<p>Let's use one of the methods of the connected library:</p>
 <div data-p="bock/pane" data-p-file="test.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = _.chunk(['a', 'b', 'c', 'd'], 2);
 console.log([['a', 'b'], ['c', 'd']]);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Скачайте себе библиотеку <a href="https://underscorejs.org/">underscorejs</a>.
-		Подключите ее к своему HTML файлу. Опробуйте несколько
-		функций из этой библиотеки.
-	</p>
+	<p>Download your library<a href="https://underscorejs.org/">underscorejs</a>. Connect it to your HTML file. Try out several functions from this library.</p>
 </div>
   
     <div class="lesson-nav">
       <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../cdn/index.html" class="lesson-nav-btn lesson-nav-next" title="CDN">CDN →</a>
     </div>
   </section>
@@ -135,7 +91,7 @@ console.log([['a', 'b'], ['c', 'd']]);</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Атрибут key в Vue — acteck.off</title>
-  <meta name="description" content="Атрибут key в Vue — учебные материалы по программированию.">
+  <title>Key attribute in Vue - acteck.off</title>
+  <meta name="description" content="The key attribute in Vue - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,49 +36,12 @@
       <a href="../../index.html">Vue</a>
     </div>
 
-    <h1>Атрибут key в Vue</h1>
-    <p>
-	При обновлении Vue списка элементов,
-	отрисованного директивой <code data-gs="comd/c" data-x>v-for</code>, по
-	умолчанию используется стратегия обновления
-	"на месте". Если порядок элементов массива
-	или объекта изменился, Vue не станет
-	перемещать элементы DOM, а просто обновит
-	каждый элемент "на месте", чтобы он отображал
-	новые данные по соответствующему индексу. 
-</p>
-<p>
-	Чтобы подсказать Vue, как определять
-	идентичность каждого элемента, и, таким
-	образом, переиспользовать и упорядочивать
-	существующие элементы, необходимо указать
-	уникальный атрибут <code data-gs="comd/c" data-x>key</code> для каждого
-	элемента. 
-</p>
-<p>
-	Без ключей Vue использует алгоритм, который
-	минимизирует перемещения элементов и
-	по-максимуму будет стараться
-	изменять/переиспользовать элементы одного
-	типа. При использовании ключей элементы
-	будут переупорядочиваться в соответствии
-	с изменением порядка следования ключей, а
-	элементы, чьи ключи уже отсутствуют, будут
-	всегда удаляться/уничтожаться. 
-</p>
-<p>
-	Рекомендуется всегда указывать атрибут <code data-gs="comd/c" data-x>key</code>
-	с <code data-gs="comd/c" data-x>v-for</code>, кроме случаев когда
-	итерируемое содержимое DOM простое, или
-	когда сознательно полагаетесь на стратегию
-	обновления по умолчанию для улучшения
-	производительности. 
-</p>
-<p>
-	Как правило вопрос добавления ключей встает
-	при переборе массива объектов. В этом
-	случае одним из ключей объекта является
-	уникальное поле, например, <code data-gs="comd/c" data-x>id</code>: 
+    <h1>Key attribute in Vue</h1>
+    <p>When Vue updates a list of elements rendered by a directive<code data-gs="comd/c" data-x>v-for</code>, the default is to use the in-place update strategy. If the order of the elements of an array or object has changed, Vue will not move the DOM elements, but will simply update each element in-place so that it displays the new data at the appropriate index.</p>
+<p>To tell Vue how to determine the identity of each element, and thus reuse and arrange existing elements, you need to specify a unique attribute<code data-gs="comd/c" data-x>key</code>for each element.</p>
+<p>Without keys, Vue uses an algorithm that minimizes movement of elements and will try to change/reuse elements of the same type as much as possible. When using keys, elements will be reordered according to the reordering of the keys, and elements whose keys are no longer present will always be deleted/destroyed.</p>
+<p>It is recommended to always specify the attribute<code data-gs="comd/c" data-x>key</code>With<code data-gs="comd/c" data-x>v-for</code>, except when the DOM content being iterated is simple, or when deliberately relying on the default update strategy to improve performance.</p>
+<p>As a rule, the question of adding keys arises when iterating through an array of objects. In this case, one of the object keys is a unique field, for example,<code data-gs="comd/c" data-x>id</code>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
@@ -103,10 +66,7 @@
 	}
 }</code>
 </div>
-<p>
-	Давайте переберем приведенный массив циклом,
-	указав соответствующие ключи: 
-</p>
+<p>Let's loop through the given array, specifying the appropriate keys:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;p v-for="user in users" :key="user.id"&gt;
@@ -116,10 +76,7 @@
 &lt;/template&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Переберите циклом следующий массив и
-		выведите названия продуктов в виде списка
-		<code data-gs="comd/c" data-x>ul</code>: 
+	<p>Loop through the following array and display the names of the products as a list<code data-gs="comd/c" data-x>ul</code>: 
 	</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
@@ -143,16 +100,16 @@
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../conditions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Условия в циклах">← Условия в циклах</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../reactivity/index.html" class="lesson-nav-btn lesson-nav-next" title="Реактивность массивов">Реактивность массивов →</a>
+      <a href="../conditions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Conditions in loops">← Conditions in cycles</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../reactivity/index.html" class="lesson-nav-btn lesson-nav-next" title="Array reactivity">Array reactivity →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

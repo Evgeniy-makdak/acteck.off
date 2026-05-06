@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ограничение жадности в регулярках в JavaScript — acteck.off</title>
-  <meta name="description" content="Ограничение жадности в регулярках в JavaScript — учебные материалы по программированию.">
+  <title>Limiting greed in regular expressions in JavaScript - acteck.off</title>
+  <meta name="description" content="Limiting regular expression greed in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,87 +36,48 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Ограничение жадности в регулярках в JavaScript</h1>
-    <p>
-	Регулярные выражения по умолчанию <dfn data-gs="comd/d" data-x>жадные</dfn>.
-	Это значит, что они захватывают максимальное
-	возможное количество символов.
-	Давайте разберем на примере. Пусть у нас
-	есть вот такая строка:
-</p>
+    <h1>Limiting greediness in regular expressions in JavaScript</h1>
+    <p>Default regular expressions<dfn data-gs="comd/d" data-x>greedy</dfn>. This means they capture as many characters as possible. Let's look at it with an example. Let's say we have this line:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aeeex zzz x kkk';</code>
 </div>
-<p>
-	Пусть мы в этой строке хотим найти подстроку
-	<code data-gs="comd/s" data-x>'aeeex'</code> по следующему шаблону: <span data-gs="comd/r" data-x>буква
-	<code data-gs="comd/s" data-x>'a'</code>, затем любой символ один или более
-	раз, затем буква <code data-gs="comd/s" data-x>'x'</code></span>.
+<p>Suppose we want to find a substring in this line<code data-gs="comd/s" data-x>'aeeex'</code>according to the following template:<span data-gs="comd/r" data-x>letter<code data-gs="comd/s" data-x>'a'</code>, then any character one or more times, then a letter<code data-gs="comd/s" data-x>'x'</code></span>.
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = str.replace(/a.+x/g, '!');</code>
 </div>
-<p>
-	Мы ожидаем, что в переменную в результате
-	запишется строка <code data-gs="comd/s" data-x>'! zzz x kkk'</code>. Однако,
-	это не так - в переменную попадает строка
-	<code data-gs="comd/s" data-x>'! kkk'</code>.
+<p>We expect that the resulting string will be written to the variable<code data-gs="comd/s" data-x>'! zzz x kkk'</code>. However, this is not so - the string ends up in the variable<code data-gs="comd/s" data-x>'! kkk'</code>.
 </p>
-<p>
-	Все дело в том, что наша регулярка ищет все
-	символы от буквы <code data-gs="comd/s" data-x>'a'</code> до буквы <code data-gs="comd/s" data-x>'x'</code>.
-	Но в нашей строке две буквы <code data-gs="comd/s" data-x>'x'</code>! Из-за
-	жадности получается, что регулярка ищет до
-	самого последнего икса, тем самым захватывая
-	не то, что мы ожидали.
-</p>
-<p>
-	Конечно, зачастую такое поведение нам и нужно.
-	Но конкретно в этом случае мы бы хотели отменить
-	жадность и сказать регулярке, чтобы она искала
-	до первого икса.
-</p>
-<p>
-	Чтобы ограничить жадность, нужно после оператора
-	повторения поставить знак вопроса:
-</p>
+<p>The thing is that our regular engine searches for all characters starting from the letter<code data-gs="comd/s" data-x>'a'</code>to the letter<code data-gs="comd/s" data-x>'x'</code>. But our line contains two letters<code data-gs="comd/s" data-x>'x'</code>! Because of greed, it turns out that the regular season searches until the very last X, thereby capturing something that is not what we expected.</p>
+<p>Of course, this is often what we need. But specifically in this case, we would like to cancel greed and tell the regular to search until the first x.</p>
+<p>To limit greed, you need to put a question mark after the repetition operator:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = str.replace(/a.+?x/g, '!');</code>
 </div>
 <div data-w="cont/nott">
-	<p>
-		Жадность можно ограничивать всем операторам
-		повторения: и <code data-gs="comd/c" data-x>*</code>, и <code data-gs="comd/c" data-x>?</code>, и <code data-gs="comd/c" data-x>{}</code>
-		- вот так: <code data-gs="comd/c" data-x>*?</code>, <code data-gs="comd/c" data-x>??</code> и <code data-gs="comd/c" data-x>{}?</code>.
+	<p>Greediness can be limited to all repetition operators: and<code data-gs="comd/c" data-x>*</code>, And<code data-gs="comd/c" data-x>?</code>, And<code data-gs="comd/c" data-x>{}</code>- like this:<code data-gs="comd/c" data-x>*?</code>, <code data-gs="comd/c" data-x>??</code>And<code data-gs="comd/c" data-x>{}?</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aba accca azzza wwwwa';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая найдет все строки
-		по краям которых стоят буквы <code data-gs="comd/s" data-x>'a'</code>,
-		и заменит каждую из них на <code data-gs="comd/s" data-x>'!'</code>. Между
-		буквами <code data-gs="comd/s" data-x>'a'</code> может быть любой символ (кроме
-		<code data-gs="comd/s" data-x>'a'</code>).
+	<p>Write a regular expression that will find all lines with letters at the edges<code data-gs="comd/s" data-x>'a'</code>, and replace each of them with<code data-gs="comd/s" data-x>'!'</code>. Between letters<code data-gs="comd/s" data-x>'a'</code>can be any character (except<code data-gs="comd/s" data-x>'a'</code>).
 	</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../curly-braces/index.html" class="lesson-nav-btn lesson-nav-prev" title="Фигурные скобки">← Фигурные скобки</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../characters-groups/index.html" class="lesson-nav-btn lesson-nav-next" title="Группы символов">Группы символов →</a>
+      <a href="../curly-braces/index.html" class="lesson-nav-btn lesson-nav-prev" title="Braces">← Curly braces</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../characters-groups/index.html" class="lesson-nav-btn lesson-nav-next" title="Character groups">Character groups →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Добавление данных в React Router — acteck.off</title>
-  <meta name="description" content="Добавление данных в React Router — учебные материалы по программированию.">
+  <title>Adding data to React Router - acteck.off</title>
+  <meta name="description" content="Adding Data to React Router - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,23 +36,9 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Добавление данных в React Router</h1>
-    <p>
-	На прошлых уроках мы подготовили загрузчик
-	и выгрузку данных по определенному маршруту
-	из хранилища. Давайте теперь познакомимся
-	на примере нашего приложения как добавлять
-	новый продукт и записывать его данные в
-	хранилище. 
-</p>
-<p>
-	Откроем файл <code data-gs="comd/p" data-x>root.jsx</code> и добавим
-	в макет кнопку для добавления нового продукта
-	перед <code data-gs="comd/c" data-x>nav</code>, обернув ее в тег формы. Также
-	обернем теперь кнопку и наш список в еще
-	один див с <code data-gs="comd/z" data-x>#menu</code>. Макет теперь будет
-	выглядеть так:
-</p>
+    <h1>Adding Data to React Router</h1>
+    <p>In previous lessons, we prepared a loader and unloading data along a specific route from the storage. Let's now use our application as an example to learn how to add a new product and write its data to the storage.</p>
+<p>Let's open the file<code data-gs="comd/p" data-x>root.jsx</code>and add a button to the layout to add a new product before<code data-gs="comd/c" data-x>nav</code>, wrapping it in a form tag. Let's also now wrap the button and our list in another div with<code data-gs="comd/z" data-x>#menu</code>. The layout will now look like this:</p>
 <div data-p="bock/pane" data-p-file="routes/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
 	&lt;div id="main"&gt;
@@ -81,66 +67,36 @@
 	&lt;/div&gt;
 );</code>
 </div>
-<p>
-	Если мы сейчас зайдем на вкладку <code data-gs="comd/s" data-x>'Сеть'</code>
-	панели разработчика, а затем нажмем на
-	нашу кнопочку, то увидим ошибочный запрос
-	документа на сервер. С помощью React
-	Router мы снова воспользуемся маршрутизацией
-	на стороне клиента, исключая запрос на сервер.
-</p>
-<p>
-	Давайте для этого поменяем тег <code data-gs="comd/c" data-x>form</code>
-	на компонент <code data-gs="comd/c" data-x>Form</code> React Router. Добавим
-	для начала импорт <code data-gs="comd/c" data-x>Form</code>:		
+<p>If we go to the tab now<code data-gs="comd/s" data-x>'Сеть'</code>developer panel, and then click on our button, we will see an erroneous document request to the server. With React Router, we will again use client-side routing, eliminating the request to the server.</p>
+<p>Let's change the tag for this<code data-gs="comd/c" data-x>form</code>per component<code data-gs="comd/c" data-x>Form</code>React Router. Let's add import first<code data-gs="comd/c" data-x>Form</code>:		
 </p>
 <div data-p="bock/pane" data-p-file="routes/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { Form } from 'react-router-dom';</code>
 </div>
-<p>
-	Теперь заменим теги <code data-gs="comd/c" data-x>form</code> в кусочке кода:
-</p>
+<p>Now let's replace the tags<code data-gs="comd/c" data-x>form</code>in a piece of code:</p>
 <div data-p="bock/pane" data-p-file="root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;Form method="post"&gt;
 	&lt;button type="submit"&gt;add product&lt;/button&gt;
 &lt;/Form&gt;</code>
 </div>
-<p>
-	Перезагрузите наше приложение и гляньте снова
-	на панель разработчика. Нажмем кнопку добавления
-	продукта - теперь запроса на сервер уже нет
-	(на ошибку пока не обращайте внимания).
-</p>
+<p>Reload our application and look again at the developer panel. Click the add product button - now there is no longer a request to the server (ignore the error for now).</p>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, исправьте верстку
-		функции <code data-gs="comd/c" data-x>Root</code>, добавьте кнопку для
-		добавления студента в теге
-		<code data-gs="comd/c" data-x>form</code>. Убедитесь, что при нажатии
-		кнопки происходит запрос на сервер.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, correct the layout of the function<code data-gs="comd/c" data-x>Root</code>, add a button to add a student in the tag<code data-gs="comd/c" data-x>form</code>. Make sure that when the button is clicked, a request is made to the server.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		А теперь замените тег <code data-gs="comd/c" data-x>form</code>, на
-		компонент <code data-gs="comd/c" data-x>Form</code>. Убедитесь, что
-		при нажатии на кнопку добавления студента
-		запроса на сервер не отправляется.
-	</p>
+	<p>Now replace the tag<code data-gs="comd/c" data-x>form</code>, per component<code data-gs="comd/c" data-x>Form</code>. Make sure that when you click on the add student button, no request is sent to the server.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../use-loader-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Использование данных, полученных загрузчиком">← Использование данных, полученных загрузчиком</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../add-storage-data/index.html" class="lesson-nav-btn lesson-nav-next" title="Добавление данных в хранилище">Добавление данных в хранилище →</a>
+      <a href="../use-loader-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Using data received by the bootloader">← Using data received by the bootloader</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../add-storage-data/index.html" class="lesson-nav-btn lesson-nav-next" title="Adding data to the warehouse">Adding data to storage →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

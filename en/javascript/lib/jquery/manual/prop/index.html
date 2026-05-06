@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод prop — acteck.off</title>
-  <meta name="description" content="Метод prop — учебные материалы по программированию.">
+  <title>prop method - acteck.off</title>
+  <meta name="description" content="prop method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,53 +36,30 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод prop</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>prop</code> позволяет получить и 
-	изменить свойство элемента.
-	Важно не путать свойства и атрибуты элементов. 
-	При создании DOM дерева атрибуты переводятся 
-	в соответствующие им DOM свойства элементов. Их 
-	названия не всегда совпадают, как и их значения. 
-	Некоторые свойства также могут не иметь 
-	соответствующих им атрибутов, они могут быть 
-	получены и установлены только при использовании метода 
-	<code data-gs="comd/c" data-x>prop</code>, например свойство 
-	<a href="../../../../manual/dom/tagName/index.html"><code data-gs="comd/c" data-x>tagName</code></a>. Для
-	получение атрибутов элемента, используйте метод 
-	<a href="../attr/index.html"><code data-gs="comd/c" data-x>attr</code></a>.
+    <h1>prop method</h1>
+    <p>Method<code data-gs="comd/c" data-x>prop</code>allows you to get and change a property of an element. It is important not to confuse element properties and attributes. When creating a DOM tree, attributes are translated into their corresponding DOM element properties. Their names do not always coincide, nor do their meanings. Some properties may also not have attributes corresponding to them, these can only be obtained and set by using the method<code data-gs="comd/c" data-x>prop</code>, for example property<a href="../../../../manual/dom/tagName/index.html"><code data-gs="comd/c" data-x>tagName</code></a>. To get the attributes of an element, use the method<a href="../attr/index.html"><code data-gs="comd/c" data-x>attr</code></a>.
 </p>
 
-<h2>Синтаксис</h2>
-<p>
-	Получение значения свойства:
-</p>
+<h2>Syntax</h2>
+<p>Getting the property value:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).prop(имя свойства);</code>
 </div>
-<p>
-	Изменение значения свойства:
-</p>
+<p>Changing the property value:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).prop(имя свойства, новое значение);</code>
 </div>
-<p>
-	Изменение значений нескольких свойств:
-</p>
+<p>Changing the values ​​of several properties:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).prop({первое_свойство: новое_значение, второе_свойство: новое_значение, ...});</code>
 </div>
-<p>
-	Применение функции к каждому элементу в наборе:
-</p>
+<p>Applying a function to each element in a set:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).prop(имя свойства, function(номер в наборе, текущее значение свойства));</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	В следующем примере мы получим абзац по его <code data-gs="comd/c" data-x>id</code> 
-	и выведем на экран значение его свойства <code data-gs="comd/c" data-x>className</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>In the following example we will get the paragraph by its<code data-gs="comd/c" data-x>id</code>and display the value of its property<code data-gs="comd/c" data-x>className</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="test" class="aaa"&gt;text&lt;/p&gt;</code>
@@ -90,27 +67,19 @@
 console.log(value);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте поменяем одновременно свойства для 
-	<code data-gs="comd/c" data-x>className</code> и <code data-gs="comd/c" data-x>disabled</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's change the properties for<code data-gs="comd/c" data-x>className</code>And<code data-gs="comd/c" data-x>disabled</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input type="checkbox" class="aaa" id="test" /&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$("#test").prop({ className: 'bbb', disabled: 'true' });</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../removeProp/index.html"><code data-gs="comd/c" data-x>removeProp</code></a>, <br>
-			который позволяет удалять свойства элементов
-		</li>
-		<li>
-			метод <a href="../attr/index.html"><code data-gs="comd/c" data-x>attr</code></a>, <br>
-			который позволяет работать с атрибутами элементов
-		</li>
+		<li>method<a href="../removeProp/index.html"><code data-gs="comd/c" data-x>removeProp</code></a>, <br>which allows you to remove element properties</li>
+		<li>method<a href="../attr/index.html"><code data-gs="comd/c" data-x>attr</code></a>, <br>which allows you to work with element attributes</li>
 	</ul>
 </div>
   </section>
@@ -118,7 +87,7 @@ console.log(value);</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

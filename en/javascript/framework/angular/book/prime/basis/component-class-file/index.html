@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Файл с классом компонента в Angular — acteck.off</title>
-  <meta name="description" content="Файл с классом компонента в Angular — учебные материалы по программированию.">
+  <title>Component class file in Angular - acteck.off</title>
+  <meta name="description" content="Component class file in Angular - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,35 +36,18 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Файл с классом компонента в Angular</h1>
-    <p>
-	Основной частью любого компонента является
-	его функционал, то есть собственно его
-	программа. В Angular функционал компонента
-	пишется на языке TypeScript и представляет
-	собой <a href="../../../../../../book/oop/index.html">ООП класс</a>. 
+    <h1>Component class file in Angular</h1>
+    <p>The main part of any component is its functionality, that is, its program itself. In Angular, the functionality of a component is written in TypeScript and is<a href="../../../../../../book/oop/index.html">OOP class</a>. 
 </p>
-<p>
-	В каждом компоненте этот класс расположен
-	в файле с расширением <code data-gs="comd/p" data-x>.ts</code>. В нашем
-	основном компоненте это будет файл
-	<code data-gs="comd/p" data-x>app.component.ts</code>. 
+<p>In each component, this class is located in a file with the extension<code data-gs="comd/p" data-x>.ts</code>. In our main component this will be the file<code data-gs="comd/p" data-x>app.component.ts</code>. 
 </p>
-<p>
-	Давайте ознакомимся с содержимым этого
-	файла. Для начала обратите внимание на
-	класс нашего компонента: 
-</p>
+<p>Let's take a look at the contents of this file. First, pay attention to the class of our component:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	title: string = 'test';
 }</code>
 </div>
-<p>
-	К этому классу применяется декоратор <code data-gs="comd/c" data-x>@Component</code>.
-	Этот декоратор своим параметром принимает
-	объект, который конфигурирует наш компонент: 
-</p>
+<p>A decorator is applied to this class<code data-gs="comd/c" data-x>@Component</code>. This decorator takes as its parameter an object that configures our component:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">@Component({
 	selector: 'app-root',
@@ -74,61 +57,28 @@
 	styleUrls: ['./app.component.css'],
 })</code>
 </div>
-<p>
-	В свойстве <code data-gs="comd/c" data-x>templateUrl</code> задан путь
-	к файлу, содержащему верстку нашего
-	компонента. 
-</p>
-<p>
-	В свойстве <code data-gs="comd/c" data-x>styleUrls</code> задан массив
-	путей к CSS файлам, стилизующим верстку
-	нашего компонента. Как вы видите, файл
-	стилей может быть не один. 
-</p>
-<p>
-	В свойстве <code data-gs="comd/c" data-x>selector</code> задан селектор
-	HTML тега, в который будет выводиться
-	(<dfn data-gs="comd/d" data-x>монтироваться</dfn>) HTML код нашего
-	компонента. В нашем случае мы видим имя
-	<code data-gs="comd/c" data-x>app-root</code>. Этому имени соответствует
-	одноименный тег. Этот тег написан в файле
-	макета <code data-gs="comd/p" data-x>src/index.html</code>. В то место,
-	где написан этот тег, и будет вставляться
-	верстка нашего компонента. 
-</p>
-<p>
-	В свойстве <code data-gs="comd/c" data-x>imports</code> указаны модули,
-	которые импортируются в наш компонент. 
-</p>
-<p>
-	В свойстве <code data-gs="comd/c" data-x>standalone</code> всегда будет
-	указано значение <code data-gs="comd/c" data-x>true</code>. Сейчас это
-	скорее служебная штука Angular, поэтому
-	пока не вникайте в нее. 
-</p>
+<p>In property<code data-gs="comd/c" data-x>templateUrl</code>the path to the file containing the layout of our component is specified.</p>
+<p>In property<code data-gs="comd/c" data-x>styleUrls</code>An array of paths to CSS files that stylize the layout of our component is specified. As you can see, there may be more than one style file.</p>
+<p>In property<code data-gs="comd/c" data-x>selector</code>the selector of the HTML tag into which (<dfn data-gs="comd/d" data-x>be mounted</dfn>) HTML code of our component. In our case we see the name<code data-gs="comd/c" data-x>app-root</code>. This name corresponds to a tag of the same name. This tag is written in the layout file<code data-gs="comd/p" data-x>src/index.html</code>. The layout of our component will be inserted into the place where this tag is written.</p>
+<p>In property<code data-gs="comd/c" data-x>imports</code>The modules that are imported into our component are indicated.</p>
+<p>In property<code data-gs="comd/c" data-x>standalone</code>the value will always be specified<code data-gs="comd/c" data-x>true</code>. This is more of an Angular utility thing for now, so don't get into it yet.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте файл <code data-gs="comd/p" data-x>app.component.ts</code> и
-		изучите его. 
-	</p>
+	<p>Open the file<code data-gs="comd/p" data-x>app.component.ts</code>and study it.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте несколько файлов со стилями и
-		подключите их в декораторе. 
-	</p>
+	<p>Make several files with styles and include them in the decorator.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../component-styles-file/index.html" class="lesson-nav-btn lesson-nav-prev" title="Файл стилей компонента">← Файл стилей компонента</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../template/interpolation/index.html" class="lesson-nav-btn lesson-nav-next" title="Интерполяция">Интерполяция →</a>
+      <a href="../component-styles-file/index.html" class="lesson-nav-btn lesson-nav-prev" title="Component Style File">← Component style file</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../template/interpolation/index.html" class="lesson-nav-btn lesson-nav-next" title="Interpolation">Interpolation →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

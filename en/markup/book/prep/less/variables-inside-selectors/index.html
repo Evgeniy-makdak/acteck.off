@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Переменные внутри селекторов в LESS — acteck.off</title>
-  <meta name="description" content="Переменные внутри селекторов в LESS — учебные материалы по программированию.">
+  <title>Variables inside selectors in LESS - acteck.off</title>
+  <meta name="description" content="Variables inside selectors in LESS - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,110 +33,75 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Переменные внутри селекторов в LESS</h1>
-    <p>
-	Переменные можно использовать и внутри селекторов.
-	Для этого, однако, нужно воспользоваться
-	немного другим синтаксисом вставки переменной:
-	после <code data-gs="comd/c" data-x>@</code> имя переменной нужно взять
-	в фигурные скобки. Давайте посмотрим на примерах.
-	Пусть у нас есть следующая переменная:
-</p>
+    <h1>Variables inside selectors in LESS</h1>
+    <p>Variables can also be used inside selectors. To do this, however, you need to use a slightly different syntax for inserting a variable: after<code data-gs="comd/c" data-x>@</code>The variable name must be enclosed in curly braces. Let's look at examples. Let us have the following variable:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: div;</code>
 </div>
-<p>
-	Давайте выполним вставку этой переменной
-	в селектор. Рассмотрим различные ситуации.
-</p>
+<p>Let's insert this variable into the selector. Let's consider different situations.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Выполним вставку нашей переменной в качестве
-	селектора:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's insert our variable as a selector:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">@{var} {
 	font-size: 20px;
 }</code>
 </div>
-<p>
-	Результат компиляции:
-</p>
+<p>Compilation result:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
 	font-size: 20px;
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть теперь наша переменная содержит часть
-	селектора:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let our variable now contain part of the selector:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">main @{var} {
 	font-size: 20px;
 }</code>
 </div>
-<p>
-	Результат компиляции:
-</p>
+<p>Compilation result:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">main div {
 	font-size: 20px;
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть теперь мы говорим, что в нашей переменной
-	содержится не имя тега, а его <code data-gs="comd/c" data-x>id</code>.
-	Добавим перед именем переменной решетку:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let us now say that our variable contains not the name of the tag, but its<code data-gs="comd/c" data-x>id</code>. Add a hash in front of the variable name:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">#@{var} {
 	font-size: 20px;
 }</code>
 </div>
-<p>
-	Результат компиляции:
-</p>
+<p>Compilation result:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#div {
 	font-size: 20px;
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть теперь мы говорим, что в нашей переменной
-	содержится не имя тега, а его класс. Добавим
-	перед именем переменной точку:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let us now say that our variable contains not the name of the tag, but its class. Add a dot before the variable name:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">.@{var} {
 	font-size: 20px;
 }</code>
 </div>
-<p>
-	Результат компиляции:
-</p>
+<p>Compilation result:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.div {
 	font-size: 20px;
 }</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: ul;
 
@@ -146,10 +111,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: ul;
 
@@ -159,10 +121,7 @@ div @{var} {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: ul;
 
@@ -172,10 +131,7 @@ div @{var} {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: ul;
 
@@ -185,10 +141,7 @@ div @{var} {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: list;
 
@@ -198,10 +151,7 @@ div @{var} {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: list;
 
@@ -211,10 +161,7 @@ div @{var} {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: list;
 
@@ -224,10 +171,7 @@ div @{var} {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: list;
 
@@ -237,10 +181,7 @@ ul.@{var} li {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: list;
 
@@ -250,10 +191,7 @@ ul.@{var} li {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: .block;
 
@@ -263,10 +201,7 @@ ul@{var} {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: .block;
 
@@ -276,10 +211,7 @@ ul@{var} li {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var: a;
 
@@ -289,10 +221,7 @@ ul@{var} li {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var1: div;
 @var2: a;
@@ -303,10 +232,7 @@ ul@{var} li {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">@var1: block1;
 @var2: block2;
@@ -317,16 +243,16 @@ ul@{var} li {
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../variable-multiple-using/index.html" class="lesson-nav-btn lesson-nav-prev" title="Использование переменной несколько раз">← Использование переменной несколько раз</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../keywords-and-variables/index.html" class="lesson-nav-btn lesson-nav-next" title="Ключевые слова и переменные">Ключевые слова и переменные →</a>
+      <a href="../variable-multiple-using/index.html" class="lesson-nav-btn lesson-nav-prev" title="Using a variable multiple times">← Using a variable multiple times</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../keywords-and-variables/index.html" class="lesson-nav-btn lesson-nav-next" title="Keywords and Variables">Keywords and variables →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

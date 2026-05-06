@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Start изучения стилизации с CSS modules в React — acteck.off</title>
-  <meta name="description" content="Start изучения стилизации с CSS modules в React — учебные материалы по программированию.">
+  <title>Start learning styling with CSS modules in React - acteck.off</title>
+  <meta name="description" content="Start learning styling with CSS modules in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,57 +36,21 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Start изучения стилизации с CSS modules в React</h1>
-    <p>
-	В этом и последующих уроках, мы будем
-	рассмотривать еще один современный и
-	эффективный подход к стилизации React
-	компонентов - использование CSS modules.
-</p>
+    <h1>Start learning styling with CSS modules in React</h1>
+    <p>In this and subsequent lessons, we will look at another modern and effective approach to styling React components - using CSS modules.</p>
 <p>
-	<dfn data-gs="comd/d" data-x>CSS модули</dfn> в данном подходе - это
-	отдельные скомпилированные CSS файлы, в
-	которых имена классов и анимаций 
-	находятся в локальной области видимости, что 
-	позволяет избежать конфликтов между именами 
-	классов из разных компонентов.
-</p>
-<p>
-	Для начала создадим и запустим наше 
-	простенькое React приложение <code data-gs="comd/s" data-x>buttons</code>. Для 
-	этого создадим пустую папку <code data-gs="comd/p" data-x>test</code>, зайдем 
-	в нее и в терминале напишем следующие команды:
-</p>
+	<dfn data-gs="comd/d" data-x>CSS modules</dfn>in this approach, these are separate compiled CSS files in which the names of classes and animations are in local scope, which avoids conflicts between class names from different components.</p>
+<p>First, let's create and launch our simple React application.<code data-gs="comd/s" data-x>buttons</code>. To do this, create an empty folder<code data-gs="comd/p" data-x>test</code>, go into it and write the following commands in the terminal:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npx create-react-app buttons
 cd buttons
 npm start</code>
 </div>
-<p>
-	Если у вас свежая версия React, то есть она
-	поддерживает <code data-gs="comd/s" data-x>Create React App v2</code> и выше, то 
-	никаких дополнительных настроек делать не надо, 
-	поскольку в этом случае CSS модули будут 
-	поддерживаться автоматически. Для проверки 
-	загляните в <code data-gs="comd/p" data-x>package.json</code>, если зависимость
-	<code data-gs="comd/c" data-x>react-scripts</code> версии <code data-gs="comd/n" data-x>2.x.x</code> и выше, 
-	то все в порядке. Иначе обновите ваш React. 
-</p>
-<p>
-	Наше приложение для стилизации способом CSS modules 
-	будет содержать три кнопочки.
-</p>
-<p>
-	CSS файлы мы будем называть, придерживаясь 
-	соглашения, следующим образом:
-	<code data-gs="comd/p" data-x>[name].module.css</code>.
+<p>If you have a recent version of React, that is, it supports<code data-gs="comd/s" data-x>Create React App v2</code>and higher, then no additional settings need to be made, since in this case CSS modules will be supported automatically. To check, look at<code data-gs="comd/p" data-x>package.json</code>, if dependency<code data-gs="comd/c" data-x>react-scripts</code>versions<code data-gs="comd/n" data-x>2.x.x</code>and above, then everything is in order. Otherwise, update your React.</p>
+<p>Our application for styling using CSS modules will contain three buttons.</p>
+<p>We will name CSS files, following the convention, as follows:<code data-gs="comd/p" data-x>[name].module.css</code>.
 </p>		
-<p>
-	Давайте сейчас создадим папку <code data-gs="comd/p" data-x>components</code>
-	в <code data-gs="comd/p" data-x>src</code>, а в нее добавим файл
-	<code data-gs="comd/p" data-x>Buttons.module.css</code> 
-	с CSS стилями к нашим кнопкам:
-</p>
+<p>Let's create a folder now<code data-gs="comd/p" data-x>components</code>V<code data-gs="comd/p" data-x>src</code>, and add the file to it<code data-gs="comd/p" data-x>Buttons.module.css</code>with CSS styles for our buttons:</p>
 <div data-p="bock/pane" data-p-file="Buttons.module.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.btn1 {
 	background-color: orange;
@@ -106,17 +70,8 @@ npm start</code>
 	color: orange;
 }</code>
 </div>
-<p>
-	Также в папке <code data-gs="comd/p" data-x>components</code>, создадим
-	пустой файл React компонента <code data-gs="comd/p" data-x>Buttons.js</code>, 
-	при этом пока не трогайте сгенерированный
-	файл <code data-gs="comd/p" data-x>App.js</code>, мы займемся им позже!
-</p>
-<p>
-	В <code data-gs="comd/p" data-x>Buttons.js</code> обязательно импортируем
-	файл с CSS стилями, а также применим эти стили
-	к каждой кнопке с помощью атрибута 
-	<code data-gs="comd/c" data-x>class</code>:
+<p>Also in the folder<code data-gs="comd/p" data-x>components</code>, let's create an empty React component file<code data-gs="comd/p" data-x>Buttons.js</code>, do not touch the generated file yet<code data-gs="comd/p" data-x>App.js</code>, we'll deal with it later!</p>
+<p>IN<code data-gs="comd/p" data-x>Buttons.js</code>be sure to import a file with CSS styles, and also apply these styles to each button using the attribute<code data-gs="comd/c" data-x>class</code>:
 </p>
 <div data-p="bock/pane" data-p-file="Buttons.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import styles from "./Buttons.module.css"; 
@@ -131,44 +86,26 @@ const Buttons = () =&gt; (
 
 export default Buttons;</code>
 </div>
-<p>		
-	Кстати, необязательно использовать слово
-	<code data-gs="comd/s" data-x>styles</code> для имени импортируемого
-	объекта со стилями, вы можете назвать его,
-	как вам удобно.
-</p>
-<p>		
-	В следующем уроке мы завершим наше приложение.
-</p>
+<p>By the way, it is not necessary to use the word<code data-gs="comd/s" data-x>styles</code>for the name of the imported object with styles, you can name it as you wish.</p>
+<p>In the next tutorial we will complete our application.</p>
 <div data-w="cont/task">
-	<p>
-		Следуя теории к этому уроку сгенерируйте
-		React приложение <code data-gs="comd/s" data-x>inputs</code>.
+	<p>Following the theory in this lesson, generate a React application<code data-gs="comd/s" data-x>inputs</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Используйте подход CSS modules, приведенный
-		в уроке. Создайте в <code data-gs="comd/p" data-x>src</code> приложения
-		<code data-gs="comd/s" data-x>inputs</code> файл <code data-gs="comd/c" data-x>Inputs.js</code> для React
-		компонента <code data-gs="comd/c" data-x>Inputs</code>, который будет содержать
-		три инпута. Напишите пару-тройку стилей в
-		<code data-gs="comd/p" data-x>Inputs.modules.css</code> к инпутам.
-		Импортируйте этот файл в <code data-gs="comd/c" data-x>Inputs.js</code> и
-		примените стили. 
-	</p>
+	<p>Use the CSS modules approach given in the tutorial. Create in<code data-gs="comd/p" data-x>src</code>applications<code data-gs="comd/s" data-x>inputs</code>file<code data-gs="comd/c" data-x>Inputs.js</code>for React component<code data-gs="comd/c" data-x>Inputs</code>, which will contain three inputs. Write a couple of styles in<code data-gs="comd/p" data-x>Inputs.modules.css</code>to inputs. Import this file into<code data-gs="comd/c" data-x>Inputs.js</code>and apply the styles.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../styled-components-extending/index.html" class="lesson-nav-btn lesson-nav-prev" title="Компоненты с расширенной стилизацией">← Компоненты с расширенной стилизацией</a>
-      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../css-modules-finish/index.html" class="lesson-nav-btn lesson-nav-next" title="Продолжение работы с CSS modules">Продолжение работы с CSS modules →</a>
+      <a href="../styled-components-extending/index.html" class="lesson-nav-btn lesson-nav-prev" title="Advanced Styling Components">← Components with advanced styling</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../css-modules-finish/index.html" class="lesson-nav-btn lesson-nav-next" title="Continued work with CSS modules">Continued work with CSS modules →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

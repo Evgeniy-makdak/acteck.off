@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод parentsUntil — acteck.off</title>
-  <meta name="description" content="Метод parentsUntil — учебные материалы по программированию.">
+  <title>parentsUntil method - acteck.off</title>
+  <meta name="description" content="parentsUntil method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,46 +36,22 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод parentsUntil</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>parentsUntil</code> получает
-	всех родителей элемента - не только непосредственного,
-	но и прародителя, прапрародителя и так далее
-	до корневого элемента (то есть до тега
-	<a href="../../../../../markup/manual/html/tag/html/index.html"><code data-gs="comd/c" data-x>html</code></a>).
-	При этом поиск родителей заканчивается по
-	достижению родителя, попадающего под селектор,
-	указанного параметром этого метода.
-</p>
+    <h1>parentsUntil method</h1>
+    <p>Method<code data-gs="comd/c" data-x>parentsUntil</code>gets all the parents of the element - not only the immediate one, but also the grandparent, great-grandparent, and so on until the root element (that is, until the tag<a href="../../../../../markup/manual/html/tag/html/index.html"><code data-gs="comd/c" data-x>html</code></a>). In this case, the search for parents ends upon reaching a parent that falls under the selector specified by the parameter of this method.</p>
 
-<h2>Синтаксис</h2>
-<p>
-	Поиск родителя до родителя, подпадающего
-	под селектор, селектором может выступать
-	DOM узел, выражение или объект jQuery,
-	также можно воспользоваться вторым параметром
-	для дополнительной фильтрации. Оба параметра
-	являются необязательными:
-</p>
+<h2>Syntax</h2>
+<p>Search for parent to parent that matches the selector, the selector can be a DOM node, expression or jQuery object, you can also use the second parameter for additional filtering. Both parameters are optional:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.parentsUntil([селектор], [фильтр]);</code>
 </div>
-<p>
-	Селектор можно и не указывать, в этом случае
-	метод будет вести себя аналогично методу
-	<a href="../parents/index.html"><code data-gs="comd/c" data-x>parents</code></a>:
+<p>The selector may not be specified, in which case the method will behave similarly to the method<a href="../parents/index.html"><code data-gs="comd/c" data-x>parents</code></a>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.parentsUntil();</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте найдем элемент <code data-gs="comd/z" data-x>#test</code> затем
-	найдем всех его родителей до элемента с классом
-	<code data-gs="comd/z" data-x>zzz</code> с помощью <code data-gs="comd/c" data-x>parentsUntil</code> и
-	поставим им в начало текст <code data-gs="comd/s" data-x>'!'</code> с помощью
-	<a href="../prepend/index.html"><code data-gs="comd/c" data-x>prepend</code></a>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's find the element<code data-gs="comd/z" data-x>#test</code>then we find all its parents up to the element with the class<code data-gs="comd/z" data-x>zzz</code>by using<code data-gs="comd/c" data-x>parentsUntil</code>and put the text at the beginning<code data-gs="comd/s" data-x>'!'</code>by using<a href="../prepend/index.html"><code data-gs="comd/c" data-x>prepend</code></a>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
@@ -89,9 +65,7 @@
 &lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').parentsUntil('.zzz').prepend('!');</code>
 </div>
-<p>
-	HTML код станет выглядеть так:
-</p>
+<p>The HTML code will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
 	&lt;div class="zzz"&gt;
@@ -105,28 +79,13 @@
 &lt;/div&gt;</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../parent/index.html"><code data-gs="comd/c" data-x>parent</code></a>, <br>
-			который позволяет получить непосредственного
-			родителя элемента
-		</li>
-		<li>
-			метод <a href="../closest/index.html"><code data-gs="comd/c" data-x>closest</code></a>, <br>
-			который позволяет получить ближайший родительский 
-			элемент, удовлетворяющий селектору
-		</li>
-		<li>
-			метод <a href="../parents/index.html"><code data-gs="comd/c" data-x>parents</code></a>, <br>
-			который позволяет получить всех родителей
-			элемента
-		</li>
-		<li>
-			метод <a href="../children/index.html"><code data-gs="comd/c" data-x>children</code></a>, <br>
-			который позволяет получить потомков элемента
-		</li>
+		<li>method<a href="../parent/index.html"><code data-gs="comd/c" data-x>parent</code></a>, <br>which allows you to get the immediate parent of an element</li>
+		<li>method<a href="../closest/index.html"><code data-gs="comd/c" data-x>closest</code></a>, <br>which allows you to get the closest parent element that matches the selector</li>
+		<li>method<a href="../parents/index.html"><code data-gs="comd/c" data-x>parents</code></a>, <br>which allows you to get all parents of an element</li>
+		<li>method<a href="../children/index.html"><code data-gs="comd/c" data-x>children</code></a>, <br>which allows you to get the descendants of an element</li>
 	</ul>
 </div>
   </section>
@@ -134,7 +93,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

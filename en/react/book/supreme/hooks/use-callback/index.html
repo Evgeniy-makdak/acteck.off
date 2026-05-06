@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Хук оптимизации производительности useCallback в React — acteck.off</title>
-  <meta name="description" content="Хук оптимизации производительности useCallback в React — учебные материалы по программированию.">
+  <title>UseCallback performance optimization hook in React - acteck.off</title>
+  <meta name="description" content="UseCallback performance optimization hook in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,36 +36,16 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Хук оптимизации производительности useCallback в React</h1>
-    <p>
-	В этом уроке мы рассмотрим следующий
-	хук для оптимизации производительности
-	<code data-gs="comd/c" data-x>useCallback</code>.
+    <h1>UseCallback performance optimization hook in React</h1>
+    <p>In this tutorial we will look at the following performance optimization hook<code data-gs="comd/c" data-x>useCallback</code>.
 </p>
-<p>
-	Хук <code data-gs="comd/c" data-x>useCallback</code> подобен API <code data-gs="comd/c" data-x>useMemo</code>,
-	отличие заключается в том, что первый
-	кэширует значение между моментами перерисовки
-	экрана, а второй - <a href="../../../../../javascript/book/prime/functions/nested/callbacks/index.html">коллбэк</a>.
-	Это позволяет нам не перезапускать ресурсозатратные
-	функции, когда это не требуется и может
-	использоваться при
-	<a href="../../../../../javascript/framework/react/book/prime/components/changing-parent-state/index.html">передаче функции</a>
-	в дочерние компоненты.
-</p>
-<p>
-	Давайте разберемся подробнее на примере.
-	Для начала создадим компонент <code data-gs="comd/c" data-x>App</code>
-	и заведем в нем стейт <code data-gs="comd/c" data-x>num</code>:
+<p>Hook<code data-gs="comd/c" data-x>useCallback</code>similar to API<code data-gs="comd/c" data-x>useMemo</code>, the difference is that the first caches the value between the moments the screen is redrawn, and the second -<a href="../../../../../javascript/book/prime/functions/nested/callbacks/index.html">callback</a>. This allows us to avoid restarting resource-intensive functions when not required and can be used when<a href="../../../../../javascript/framework/react/book/prime/components/changing-parent-state/index.html">function transfer</a>to child components.</p>
+<p>Let's take a closer look with an example. First, let's create a component<code data-gs="comd/c" data-x>App</code>and let's create a state in it<code data-gs="comd/c" data-x>num</code>:
 </p>	
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [num, setNum] = useState(0);</code>
 </div>
-<p>
-	Пусть у нас будет кнопка, по клику
-	на которую <code data-gs="comd/c" data-x>num</code> увеличивается
-	на <code data-gs="comd/n" data-x>1</code>, и абзац, в котором мы
-	будем выводить значение <code data-gs="comd/c" data-x>num</code>: 
+<p>Let us have a button that, when clicked,<code data-gs="comd/c" data-x>num</code>increases by<code data-gs="comd/n" data-x>1</code>, and the paragraph in which we will display the value<code data-gs="comd/c" data-x>num</code>: 
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
@@ -75,36 +55,18 @@
 	&lt;/div&gt;
 );</code>
 </div>
-<p>
-	А сейчас, предположим, что у нас в
-	<code data-gs="comd/c" data-x>App</code> выводится еще какой-то список
-	с элементами, который мы будем дополнять
-	по нажатию другой кнопки. Для хранения
-	элементов этого списка мы заведем
-	стейт <code data-gs="comd/c" data-x>items</code>:
+<p>Now, let's assume that we have<code data-gs="comd/c" data-x>App</code>another list with elements is displayed, which we will supplement by pressing another button. To store the elements of this list we will create a state<code data-gs="comd/c" data-x>items</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [items, setItems] = useState([]);</code>
 </div>
-<p>
-	И затем напишем функцию <code data-gs="comd/c" data-x>addItem</code>
-	для их добавления:
-</p>
+<p>And then we'll write a function<code data-gs="comd/c" data-x>addItem</code>to add them:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function addItem() {
 	setItems([...items, 'new item']);
 }</code>
 </div>
-<p>
-	Теперь давайте напишем код для отображения
-	элементов списка и вынесем его в дочерний
-	компонент <code data-gs="comd/c" data-x>Items</code>, который в виде
-	пропсов будет получать массив элементов
-	и функцию для их добавления. Не забудем
-	добавить вывод в консоль, чтобы видеть
-	когда наш <code data-gs="comd/c" data-x>Items</code> будет
-	перерисовываться:
-</p>
+<p>Now let's write the code to display the list items and put it in a child component<code data-gs="comd/c" data-x>Items</code>, which in the form of props will receive an array of elements and a function for adding them. Let's not forget to add output to the console so we can see when our<code data-gs="comd/c" data-x>Items</code>will be redrawn:</p>
 <div data-p="bock/pane" data-p-file="Items.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Items({ items, addItem }) {
 
@@ -125,11 +87,7 @@
 
 export default Items;</code>
 </div>
-<p>
-	Разместим <code data-gs="comd/c" data-x>Items</code> в конце компонента
-	<code data-gs="comd/c" data-x>App</code> и будем передавать ему массив
-	<code data-gs="comd/c" data-x>items</code> и функцию для добавления
-	элементов <code data-gs="comd/c" data-x>addItem</code>:
+<p>Let's post<code data-gs="comd/c" data-x>Items</code>at the end of the component<code data-gs="comd/c" data-x>App</code>and we will pass it an array<code data-gs="comd/c" data-x>items</code>and a function to add elements<code data-gs="comd/c" data-x>addItem</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
@@ -143,131 +101,52 @@ export default Items;</code>
 	&lt;/&gt;
 );</code>
 </div>
-<p>
-	А теперь понажимаем на кнопочки
-	и убедимся, что <code data-gs="comd/c" data-x>num</code> растет и
-	новые элементы добавляются в список.
-	А открыв консоль, мы увидим, что
-	наш список перерисовывается каждый
-	раз, даже если мы кликаем по кнопке,
-	которая увеличивает <code data-gs="comd/c" data-x>num</code>.
+<p>Now let’s press the buttons and make sure that<code data-gs="comd/c" data-x>num</code>grows and new elements are added to the list. And when we open the console, we will see that our list is redrawn every time, even if we click on the button that increases<code data-gs="comd/c" data-x>num</code>.
 </p>
-<p>
-	Если у нас маленький списочек, то все
-	в порядке, а если предполагается, что он
-	будет объемным и там много чего еще есть?
-	Не беда - скажете вы, ведь на прошлом
-	уроке мы рассмотрели API <code data-gs="comd/c" data-x>memo</code>,
-	чтобы как раз избегать ненужных перерисовок
-	компонента.
-</p>
-<p>
-	Так давайте обернем наш компонент
-	<code data-gs="comd/c" data-x>Items</code> в <code data-gs="comd/c" data-x>memo</code> и все дела.
-	Кстати это можно сделать прямо
-	при экспорте <code data-gs="comd/c" data-x>Items</code>:
+<p>If we have a small list, then everything is fine, but what if it is supposed to be voluminous and there is a lot more in there? It doesn’t matter, you say, because in the last lesson we looked at the API<code data-gs="comd/c" data-x>memo</code>, just to avoid unnecessary redrawing of the component.</p>
+<p>So let's wrap our component<code data-gs="comd/c" data-x>Items</code>V<code data-gs="comd/c" data-x>memo</code>and that's all. By the way, this can be done directly during export.<code data-gs="comd/c" data-x>Items</code>:
 </p>
 <div data-p="bock/pane" data-p-file="Items.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default memo(Items);</code>
 </div>
-<p>
-	Не забудем импортировать <code data-gs="comd/c" data-x>memo</code>:
+<p>Let's not forget to import<code data-gs="comd/c" data-x>memo</code>:
 </p>
 <div data-p="bock/pane" data-p-file="Items.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { memo } from 'react';</code>
 </div>
-<p>
-	А теперь откроем консоль и понажимаем
-	на кнопочки. Все старания впустую! Мы
-	мемоизировали компонент, но при нажатии
-	на кнопку <code data-gs="comd/s" data-x>'click'</code> компонент
-	<code data-gs="comd/c" data-x>Items</code> все равно
-	перерисовывается каждый раз.
+<p>Now let’s open the console and press the buttons. All efforts are in vain! We memoized the component, but when the button is clicked<code data-gs="comd/s" data-x>'click'</code>component<code data-gs="comd/c" data-x>Items</code>it still gets redrawn every time.</p>
+<p>The thing is that when the parent component is redrawn, its functions are recreated anew - this also applies to our function<code data-gs="comd/c" data-x>addItem</code>, which we transfer to<code data-gs="comd/c" data-x>Items</code>.
 </p>
-<p>
-	Дело все в том, что когда родительский
-	компонент перерисовывается, его функции
-	пересоздаются заново - это касается и нашей
-	функции <code data-gs="comd/c" data-x>addItem</code>, которую мы передаем в
-	<code data-gs="comd/c" data-x>Items</code>.
-</p>
-<p>
-	Именно в этот момент нам поможет хук
-	<code data-gs="comd/c" data-x>useCallback</code>. Давайте применим
-	его. Для начала импортируем его в
-	<code data-gs="comd/c" data-x>App</code>:
+<p>It is at this moment that the hook will help us<code data-gs="comd/c" data-x>useCallback</code>. Let's apply it. First, let's import it into<code data-gs="comd/c" data-x>App</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useCallback } from 'react';</code>
 </div>
-<p>
-	Затем переделаем простое объявление функции
-	<code data-gs="comd/c" data-x>addItem</code> в
-	<a href="../../../../../javascript/book/prime/functions/types/declaration-types/index.html">
-	Function Expression</a>, укажем в качестве
-	первого параметра для <code data-gs="comd/c" data-x>useCallback</code>
-	нашу функцию в виде колбэка. Вторым
-	параметром в квадратных скобочках укажем
-	зависимости - все реактивные переменные,
-	участвующие в функции, в нашем случае
-	это массив <code data-gs="comd/c" data-x>items</code>:
+<p>Then we'll redo a simple function declaration<code data-gs="comd/c" data-x>addItem</code>V<a href="../../../../../javascript/book/prime/functions/types/declaration-types/index.html">
+	Function Expression</a>, we indicate as the first parameter for<code data-gs="comd/c" data-x>useCallback</code>our function as a callback. The second parameter in square brackets will indicate the dependencies - all reactive variables participating in the function, in our case this is an array<code data-gs="comd/c" data-x>items</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const addItem = useCallback(() =&gt; {
 	setItems(() =&gt; [...items, 'New item']);
 }, [items]);</code>
 </div>
-<p>
-	Готово! Таким образом мы закэшировали
-	функцию. Нажимаем снова на кнопочки и
-	видим, что теперь при нажатии на кнопку
-	<code data-gs="comd/s" data-x>'click'</code> наш дочерний компонент не
-	перерисовывается.
-</p>
+<p>Ready! This way we cached the function. We press the buttons again and see that now when you press the button<code data-gs="comd/s" data-x>'click'</code>our child component is not redrawn.</p>
 <div data-w="cont/task">
-	<p>
-		Создайте компонент <code data-gs="comd/c" data-x>App</code>, поместите
-		в него абзац с текстом. Заведите
-		стейт с начальным значением <code data-gs="comd/s" data-x>'text'</code>
-		и выведите его в абзаце. Пусть по клику
-		на абзац ему в конец текста
-		добавляется восклицательный знак.
+	<p>Create a component<code data-gs="comd/c" data-x>App</code>, place a paragraph with text in it. Create a state with an initial value<code data-gs="comd/s" data-x>'text'</code>and print it in a paragraph. Suppose that when you click on a paragraph, an exclamation mark is added to the end of the text.</p>
+</div>
+<div data-w="cont/task">
+	<p>Create a child component<code data-gs="comd/c" data-x>Products</code>, in which you will have a button to add a new product. Place it in<code data-gs="comd/c" data-x>App</code>. In the parent component, create a state with an array of products and a function to add a new product. Pass them as props to the child, display the passed array in it as a list<code data-gs="comd/c" data-x>ul</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Создайте дочерний компонент <code data-gs="comd/c" data-x>Products</code>,
-		в котором у вас будет кнопка для добавления
-		нового продукта. Разместите его в <code data-gs="comd/c" data-x>App</code>.
-		В родительском компоненте создайте стейт
-		с массивом продуктов и функцию добавления
-		нового продукта. Передайте их в
-		качестве пропсов в дочерний, выведите в нем
-		переданный массив в виде списка <code data-gs="comd/c" data-x>ul</code>.
-	</p>
+	<p>IN<code data-gs="comd/c" data-x>Products</code>output text to the console<code data-gs="comd/s" data-x>'products render'</code>. Wrap<code data-gs="comd/c" data-x>Products</code>V<code data-gs="comd/c" data-x>memo</code>. Click on the paragraph and the button. Make sure that when you click on a paragraph, the child component still redraws.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		В <code data-gs="comd/c" data-x>Products</code> выведите в консоль текст
-		<code data-gs="comd/s" data-x>'products render'</code>.
-		Оберните <code data-gs="comd/c" data-x>Products</code> в <code data-gs="comd/c" data-x>memo</code>.
-		Покликайте на абзац и кнопку. Убедитесь,
-		что при клике на абзац дочерний компонент
-		все равно перерисовывается.
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		Закэшируйте функцию для добавления
-		продуктов, обернув ее в хук <code data-gs="comd/c" data-x>useCallback</code>.
-		Покликайте на абзац и кнопку. Убедитесь,
-		что при клике на абзац, дочерний компонент
-		больше не перерисовывается.
-	</p>
+	<p>Cache the function for adding products by wrapping it in a hook<code data-gs="comd/c" data-x>useCallback</code>. Click on the paragraph and the button. Make sure that when you click on a paragraph, the child component is no longer redrawn.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -275,7 +154,7 @@ export default Items;</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

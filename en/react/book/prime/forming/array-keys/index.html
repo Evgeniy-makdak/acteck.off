@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Уникальные ключи в массиве тегов в React — acteck.off</title>
-  <meta name="description" content="Уникальные ключи в массиве тегов в React — учебные материалы по программированию.">
+  <title>Unique keys in an array of tags in React - acteck.off</title>
+  <meta name="description" content="Unique Keys in an Array of Tags in React - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,41 +36,23 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Уникальные ключи в массиве тегов в React</h1>
-    <p>
-	В предыдущем примере мы формировали наши
-	абзацы в цикле, вот так:
-</p>
+    <h1>Unique keys in an array of tags in React</h1>
+    <p>In the previous example, we formed our paragraphs in a loop, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const res = arr.map(function(item) {
 	return &lt;p&gt;{item}&lt;/p&gt;;
 });</code>
 </div>
-<p>
-	Это будет работать, однако, если заглянуть
-	в консоль - мы увидим ошибку: <i>Warning:
+<p>This will work, however, if we look at the console we will see the error:<i>Warning:
 	Each child in an array or iterator should
-	have a unique "key" prop</i>. В данном случае
-	React требует, чтобы каждому тегу из цикла
-	мы дали уникальный номер, чтобы React было
-	проще с этими тегами работать в дальнейшем.
-</p>
-<p>
-	Этот номер добавляется с помощью атрибута
-	<code data-gs="comd/c" data-x>key</code>. В данном случае в качестве номера
-	мы можем взять <i>номер элемента в массиве</i>.
-	В нашем случае этот номер хранится в переменной
-	<code data-gs="comd/c" data-x>index</code> и значит исправленная строка
-	будет выглядеть вот так:
-</p>
+	have a unique "key" prop</i>. In this case, React requires that we give each tag in the loop a unique number to make it easier for React to work with these tags in the future.</p>
+<p>This number is added using the attribute<code data-gs="comd/c" data-x>key</code>. In this case, we can take as the number<i>element number in the array</i>. In our case, this number is stored in a variable<code data-gs="comd/c" data-x>index</code>and that means the corrected line will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const res = arr.map(function(item, index) {
 	return &lt;p key={index}&gt;{item}&lt;/p&gt;;
 });</code>
 </div>
-<p>
-	Давайте запустим - ошибка из консоли исчезнет:
-</p>
+<p>Let's run it - the error from the console will disappear:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const arr = [1, 2, 3, 4, 5];
@@ -84,34 +66,19 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Еще раз: этот атрибут <code data-gs="comd/c" data-x>key</code> имеет служебное
-	значение для React, более глубоко вы поймете
-	этот момент в следующих уроках. Пока просто
-	знайте: если вы видите такую ошибку - добавьте
-	атрибут <code data-gs="comd/c" data-x>key</code> с уникальным для каждого
-	тега значением и проблема исчезнет.
-</p>
+<p>Once again: this attribute<code data-gs="comd/c" data-x>key</code>has utility value for React, you will understand this point more deeply in the following lessons. For now, just know: if you see this error, add the attribute<code data-gs="comd/c" data-x>key</code>with a unique value for each tag and the problem will disappear.</p>
 <div data-w="cont/nott">
-	<p>
-		Ключ <code data-gs="comd/c" data-x>key</code> должен быть уникальным
-		только внутри этого цикла, в другом цикле
-		значения <code data-gs="comd/c" data-x>key</code> могут совпадать со значениями
-		из другого цикла.
-	</p>
+	<p>Key<code data-gs="comd/c" data-x>key</code>must be unique only within this loop, in another loop the value<code data-gs="comd/c" data-x>key</code>may coincide with values ​​from another cycle.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте ваше решение предыдущей задачи
-		в соответствии с описанным.
-	</p>
+	<p>Modify your solution to the previous problem as described.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

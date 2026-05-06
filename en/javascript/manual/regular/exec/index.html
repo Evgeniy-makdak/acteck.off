@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод exec — acteck.off</title>
-  <meta name="description" content="Метод exec — учебные материалы по программированию.">
+  <title>exec method - acteck.off</title>
+  <meta name="description" content="exec method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,27 +36,17 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод exec</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>exec</code> осуществляет поиск по
-	строке по заданному <a href="../../../book/supreme/regular/intro/index.html">регулярному выражению</a>. Результатом возвращается найденная
-	подстрока и ее карманы. При этом каждый
-	последующий вызов данного метода
-	будет начинать поиск с того места,
-	в котором закончилась предыдущая
-	найденная подстрока. Если совпадение
-	не найдено - возвращается <code data-gs="comd/c" data-x>null</code>.
+    <h1>exec method</h1>
+    <p>Method<code data-gs="comd/c" data-x>exec</code>searches a string for a given<a href="../../../book/supreme/regular/intro/index.html">regular expression</a>. The result returns the found substring and its pockets. In this case, each subsequent call of this method will begin the search from the place where the previous found substring ended. If a match is not found, it is returned<code data-gs="comd/c" data-x>null</code>.
 </p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">регулярное_выражение.test(строка);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Проверим работу метода:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's check the operation of the method:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '12 34 56';
 let reg = /\d+/g;
@@ -73,9 +63,7 @@ console.log(res3);
 let res4 = reg.exec(str);
 console.log(res4);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[12]
 [34]
@@ -83,10 +71,8 @@ console.log(res4);</code>
 null</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Воспользуемся методом в цикле:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's use the method in a loop:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '12 34 56';
 let reg = /\d+/g;
@@ -96,20 +82,15 @@ while (res = reg.exec(str)) {
 	console.log(res);
 }</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[12]
 [34]
 [56] </code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Найденные совпадения можно разложить
-	по карманам:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>The matches found can be sorted into pockets:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '12 34 56';
 let reg = /(\d)(\d)/g;
@@ -119,21 +100,15 @@ while (res = reg.exec(str)) {
 	console.log(res);
 }</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[12, 1, 2]
 [34, 3, 4]
 [56, 5, 6] </code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	С помощью свойства <code data-gs="comd/c" data-x>lastIndex</code>
-	можно задать позицию, с которой следует
-	начинать поиск:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Using property<code data-gs="comd/c" data-x>lastIndex</code>you can set the position from which to start the search:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '12 34 56';
 
@@ -146,20 +121,14 @@ console.log(res1);
 let res2 = reg.exec(str)
 console.log(res2);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[34]
 [56]</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	С помощью модификатора <code data-gs="comd/c" data-x>y</code>
-	можно зафиксировать позицию
-	начала поиска:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Using a modifier<code data-gs="comd/c" data-x>y</code>you can fix the search start position:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '12 34 56';
 
@@ -172,41 +141,21 @@ console.log(res1);
 let res2 = reg.exec(str)
 console.log(res2);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">null
 [12]</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../test/index.html"><code data-gs="comd/c" data-x>test</code></a>, <br>
-			который проверяет строку
-		</li>
-		<li>
-			метод <a href="../match/index.html"><code data-gs="comd/c" data-x>match</code></a>, <br>
-			который ищет совпадения в строке
-		</li>
-		<li>
-			метод <a href="../matchAll/index.html"><code data-gs="comd/c" data-x>matchAll</code></a>, <br>
-			который ищет все совпадения в строке
-		</li>
-		<li>
-			метод <a href="../replace/index.html"><code data-gs="comd/c" data-x>replace</code></a>, <br>
-			который выполняет поиск и замену
-		</li>
-		<li>
-			метод <a href="../search/index.html"><code data-gs="comd/c" data-x>search</code></a>, <br>
-			который выполняет поиск
-		</li>
-		<li>
-			метод <a href="../split/index.html"><code data-gs="comd/c" data-x>split</code></a>, <br>
-			который разбивает строку
-		</li>
+		<li>method<a href="../test/index.html"><code data-gs="comd/c" data-x>test</code></a>, <br>which checks the string</li>
+		<li>method<a href="../match/index.html"><code data-gs="comd/c" data-x>match</code></a>, <br>which looks for matches in a string</li>
+		<li>method<a href="../matchAll/index.html"><code data-gs="comd/c" data-x>matchAll</code></a>, <br>which looks for all matches in a string</li>
+		<li>method<a href="../replace/index.html"><code data-gs="comd/c" data-x>replace</code></a>, <br>which does search and replace</li>
+		<li>method<a href="../search/index.html"><code data-gs="comd/c" data-x>search</code></a>, <br>which performs the search</li>
+		<li>method<a href="../split/index.html"><code data-gs="comd/c" data-x>split</code></a>, <br>which splits the string</li>
 	</ul>
 </div>
   </section>
@@ -214,7 +163,7 @@ console.log(res2);</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

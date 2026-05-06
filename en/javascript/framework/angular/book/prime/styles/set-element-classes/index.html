@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Массовая привязка CSS классов в Angular — acteck.off</title>
-  <meta name="description" content="Массовая привязка CSS классов в Angular — учебные материалы по программированию.">
+  <title>Bulk binding of CSS classes in Angular - acteck.off</title>
+  <meta name="description" content="Bulk binding of CSS classes in Angular - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,20 +36,10 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Массовая привязка CSS классов в Angular</h1>
-    <p>
-	С помощью директивы <code data-gs="comd/c" data-x>ngClass</code> можно
-	включать и выключать в теге сразу набор
-	CSS классов. Директива значением принимает
-	объект, ключами которого будут классы, а
-	значениями - булевы значения. Класс будет
-	включен, если для него установлено значение
-	<code data-gs="comd/c" data-x>true</code>, и выключен, если <code data-gs="comd/c" data-x>false</code>. 
+    <h1>Bulk binding of CSS classes in Angular</h1>
+    <p>Using a directive<code data-gs="comd/c" data-x>ngClass</code>You can turn on and off a set of CSS classes in a tag at once. The directive takes as a value an object whose keys will be classes and whose values ​​will be Boolean values. A class will be included if it is set to<code data-gs="comd/c" data-x>true</code>, and off if<code data-gs="comd/c" data-x>false</code>. 
 </p>
-<p>
-	Давайте посмотрим на практике. Пусть у нас
-	есть следующие классы: 
-</p>
+<p>Let's see in practice. Let us have the following classes:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.blue {
 	color: blue;
@@ -59,47 +49,33 @@
 	font-weight: bold;
 }</code>
 </div>
-<p>
-	Давайте посмотрим на примерах, как включать
-	и выключать эти классы для блока. 
-</p>
+<p>Let's look at examples of how to enable and disable these classes for a block.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Включим один класс и выключим другой: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's turn on one class and turn off the other:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div [ngClass]="{blue: true, bold: false}"&gt;
 	text
 &lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть состояния классов хранятся в свойствах
-	класса: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let class states be stored in class properties:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	public isBlue: boolean = true;
 	public isBold: boolean = false;
 }</code>
 </div>
-<p>
-	Привяжем видимость класса в зависимости
-	от значений наших свойств: 
-</p>
+<p>Let's bind the visibility of the class depending on the values ​​of our properties:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div [ngClass]="{blue: isBlue, bold: isBold}"&gt;
 	text
 &lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	В свойстве может быть целый объект с
-	классами и состояниями: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>A property can contain an entire object with classes and states:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	public styles = {
@@ -108,20 +84,15 @@
 	}
 }</code>
 </div>
-<p>
-	Привяжем этот объект к нашему блоку: 
-</p>
+<p>Let's bind this object to our block:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div [ngClass]="styles"&gt;
 	text
 &lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Можно значения для нашего объекта получить
-	из других свойств класса: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>You can get values ​​for our object from other properties of the class:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	public isBlue: boolean = false;
@@ -133,41 +104,31 @@
 	}
 }</code>
 </div>
-<p>
-	Привяжем этот объект к нашему блоку: 
-</p>
+<p>Let's bind this object to our block:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div [ngClass]="styles"&gt;
 	text
 &lt;/div&gt;</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Создайте два CSS класса. Пусть один из них
-		определяет фон блока, а второй - размер
-		шрифта. 
-	</p>
+	<p>Create two CSS classes. Let one of them determine the background of the block, and the second - the font size.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте две кнопки. Пусть нажатие на
-		первую кнопку тогглит первый класс, а
-		нажатие на вторую - тогглит второй класс. 
-	</p>
+	<p>Make two buttons. Let clicking the first button toggle the first class, and clicking the second button toggle the second class.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../css-classes-binding/index.html" class="lesson-nav-btn lesson-nav-prev" title="Привязка CSS классов">← Привязка CSS классов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../css-styles-binding/index.html" class="lesson-nav-btn lesson-nav-next" title="Привязка CSS стилей">Привязка CSS стилей →</a>
+      <a href="../css-classes-binding/index.html" class="lesson-nav-btn lesson-nav-prev" title="Binding CSS classes">← CSS class binding</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../css-styles-binding/index.html" class="lesson-nav-btn lesson-nav-next" title="Binding CSS Styles">Binding CSS styles →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

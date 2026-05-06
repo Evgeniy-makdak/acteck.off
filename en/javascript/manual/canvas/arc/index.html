@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод arc — acteck.off</title>
-  <meta name="description" content="Метод arc — учебные материалы по программированию.">
+  <title>Arc method - acteck.off</title>
+  <meta name="description" content="Arc method - programming educational materials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,44 +36,23 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод arc</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>arc</code> рисует дугу с центром в
-	заданной точке, заданным радиусом. Видимой
-	эта дуга станет, только если применить методы
-	<a href="../stroke/index.html"><code data-gs="comd/c" data-x>stroke</code></a>
-	или <a href="../fill/index.html"><code data-gs="comd/c" data-x>fill</code></a>.
-	В первом случае будет контур, а во втором
-	- фигура.
-</p>
-<p>
-	Последний необязательный параметр регулирует
-	направление рисования. Он принимает значение
-	<code data-gs="comd/c" data-x>true</code> или <code data-gs="comd/c" data-x>false</code>. Значение <code data-gs="comd/c" data-x>true</code>
-	рисует дугу по часовой стрелке, а значение
-	<code data-gs="comd/c" data-x>false</code> - против часовой (по умолчанию).
-</p>
-<p>
-	Можно задать начальный и конечный углы при
-	рисовании. Эти углы измеряются в <i>радианах</i>,
-	не в градусах. Для перевода градусов в радианы
-	вы можете использовать следующую функцию:
-</p>
+    <h1>arc method</h1>
+    <p>Method<code data-gs="comd/c" data-x>arc</code>draws an arc with a center at a given point and a given radius. This arc will become visible only if you apply the methods<a href="../stroke/index.html"><code data-gs="comd/c" data-x>stroke</code></a>or<a href="../fill/index.html"><code data-gs="comd/c" data-x>fill</code></a>. In the first case there will be an outline, and in the second there will be a figure.</p>
+<p>The last optional parameter controls the drawing direction. It takes meaning<code data-gs="comd/c" data-x>true</code>or<code data-gs="comd/c" data-x>false</code>. Meaning<code data-gs="comd/c" data-x>true</code>draws an arc clockwise, and the value<code data-gs="comd/c" data-x>false</code>- counterclockwise (default).</p>
+<p>You can set the start and end angles when drawing. These angles are measured in<i>radians</i>, not in degrees. To convert degrees to radians you can use the following function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getRadians(degrees) {
 	return (Math.PI / 180) * degrees;
 }</code>
 </div>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">контекст.arc(x, y, радиус, начальный угол, конечный угол, [направление = false]);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте нарисуем окружность:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's draw a circle:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;canvas id="canvas" width="200" height="200" style="background: #f4f4f4;"&gt;&lt;/canvas&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let canvas = document.querySelector('#canvas');
@@ -125,10 +104,8 @@ function getRadians(degrees) {
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте нарисуем половинку окружности:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's draw half a circle:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;canvas id="canvas" width="200" height="200" style="background: #f4f4f4;"&gt;&lt;/canvas&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let canvas = document.querySelector('#canvas');
@@ -180,10 +157,8 @@ function getRadians(degrees) {
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте нарисуем половинку круга (закрасим
-	контур с помощью <a href="../fill/index.html"><code data-gs="comd/c" data-x>fill</code></a>):
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's draw half a circle (fill in the outline with<a href="../fill/index.html"><code data-gs="comd/c" data-x>fill</code></a>):
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;canvas id="canvas" width="200" height="200" style="background: #f4f4f4;"&gt;&lt;/canvas&gt;</code>
@@ -236,13 +211,10 @@ function getRadians(degrees) {
 					</div>
 				</div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../rect/index.html"><code data-gs="comd/c" data-x>rect</code></a>, <br>
-			который рисует прямоугольник
-		</li>
+		<li>method<a href="../rect/index.html"><code data-gs="comd/c" data-x>rect</code></a>, <br>which draws a rectangle</li>
 	</ul>
 </div>
   </section>
@@ -250,7 +222,7 @@ function getRadians(degrees) {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

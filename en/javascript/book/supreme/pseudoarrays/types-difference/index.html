@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Разница между типами псевдомассивов в JavaScript — acteck.off</title>
-  <meta name="description" content="Разница между типами псевдомассивов в JavaScript — учебные материалы по программированию.">
+  <title>Difference between pseudo array types in JavaScript - acteck.off</title>
+  <meta name="description" content="Difference Between Pseudo Array Types in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,69 +36,42 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Разница между типами псевдомассивов в JavaScript</h1>
-    <p>
-	Разница между двумя типами псевдомассивов
-	в различном поведении при изменении DOM элементов.
-	Пусть, к примеру, мы получили коллекцию абзацев
-	в виде <code data-gs="comd/c" data-x>HTMLCollection</code> и в виде <code data-gs="comd/c" data-x>NodeList</code>.
-	Затем мы создадим и добавим еще один абзац
-	в наш DOM. В этом случае он автоматически
-	появится в <code data-gs="comd/c" data-x>HTMLCollection</code>, но коллекция
-	<code data-gs="comd/c" data-x>NodeList</code> останется без изменений.
-</p>
-<p>
-	Давайте посмотрим на примере. Пусть у 
-	нас будет див, а в нём абзацы. Получим 
-	наш див и одни и те же абзацы
-	в виде коллекций двух разных типов:
-</p>
+    <h1>Difference between pseudo-array types in JavaScript</h1>
+    <p>The difference between the two types of pseudo-arrays is the different behavior when changing DOM elements. Let, for example, we receive a collection of paragraphs in the form<code data-gs="comd/c" data-x>HTMLCollection</code>and in the form<code data-gs="comd/c" data-x>NodeList</code>. Next we will create and add another paragraph to our DOM. In this case, it will automatically appear in<code data-gs="comd/c" data-x>HTMLCollection</code>, but the collection<code data-gs="comd/c" data-x>NodeList</code>will remain unchanged.</p>
+<p>Let's look at an example. Let us have a div with paragraphs in it. Let's get our div and the same paragraphs in the form of collections of two different types:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let parent = document.querySelector('div');
 let elems1 = document.getElementsByTagName('p'); // HTMLCollection
 let elems2 = document.querySelectorAll('p');     // NodeList</code>
 </div>
-<p>
-	Добавим еще один абзац в наш див:
-</p>
+<p>Let's add another paragraph to our div:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let p = document.createElement('p');
 parent.append(p);</code>
 </div>
-<p>
-	В результате одна из коллекций изменится,
-	а вторая - нет:
-</p>
+<p>As a result, one of the collections will change, but the other will not:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(elems1); // 4 абзаца - с новым
 console.log(elems2); // 3 начальных абзаца</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Проверьте, как будет вести себя свойство
-		<a href="../../../../manual/dom/children/index.html"><code data-gs="comd/c" data-x>children</code></a>
-		при добавлении нового элемента.
-	</p>
+	<p>Test how the property will behave<a href="../../../../manual/dom/children/index.html"><code data-gs="comd/c" data-x>children</code></a>when adding a new element.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Проверьте, как будет вести себя свойство
-		<a href="../../../../manual/dom/childNodes/index.html"><code data-gs="comd/c" data-x>childNodes</code></a>
-		при добавлении нового элемента.
-	</p>
+	<p>Test how the property will behave<a href="../../../../manual/dom/childNodes/index.html"><code data-gs="comd/c" data-x>childNodes</code></a>when adding a new element.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../types/index.html" class="lesson-nav-btn lesson-nav-prev" title="Типы псевдомассивов">← Типы псевдомассивов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../symbol/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction в тип Symbol">Introduction в тип Symbol →</a>
+      <a href="../types/index.html" class="lesson-nav-btn lesson-nav-prev" title="Types of pseudo-arrays">← Types of pseudo-arrays</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../symbol/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction to the Symbol Type">Introduction to the Symbol type →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Значения массивы в MongoDB — acteck.off</title>
-  <meta name="description" content="Значения массивы в MongoDB — учебные материалы по программированию.">
+  <title>Array values ​​in MongoDB - acteck.off</title>
+  <meta name="description" content="Array values ​​in MongoDB - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,14 +36,8 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Значения массивы в MongoDB</h1>
-    <p>
-	Поля документов коллекции могут своими
-	значениями иметь массивы. Давайте посмотрим
-	на примере. Пусть у нас есть коллекция с
-	юзерами, для каждого юзера содержащая
-	массив языков, которые он знает:
-</p>
+    <h1>Array values ​​in MongoDB</h1>
+    <p>The fields of collection documents can have array values. Let's look at an example. Let us have a collection of users, for each user containing an array of languages ​​that he knows:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[
 	{
@@ -69,11 +63,8 @@
 ]</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте найдем все документы,
-	у которых в массиве с языками
-	есть <code data-gs="comd/s" data-x>'english'</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's find all documents that have languages ​​in their array<code data-gs="comd/s" data-x>'english'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let cond = {langs: 'english'};
@@ -81,12 +72,8 @@ let res  = await coll.find(cond).toArray();
 console.log(res);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Найдем теперь все документы,
-	у которых в массиве с языками
-	есть одновременно два языка,
-	<code data-gs="comd/s" data-x>'english'</code> и <code data-gs="comd/s" data-x>'german'</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let us now find all documents that have two languages ​​in the array with languages ​​at the same time,<code data-gs="comd/s" data-x>'english'</code>And<code data-gs="comd/s" data-x>'german'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let cond = {langs: ['english', 'german']};
@@ -94,45 +81,30 @@ let res  = await coll.find(cond).toArray();
 console.log(res);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь выведем все документы, в которых
-	<code data-gs="comd/s" data-x>'english'</code> находится на первом месте
-	в массиве:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's display all the documents in which<code data-gs="comd/s" data-x>'english'</code>is in first place in the array:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let cond = {'languages.0': "english"};
 let res  = await coll.find(cond).toArray();
 console.log(res);</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Из приведенной коллекции получите
-		всех юзеров, которые знают испанский.
-	</p>
+	<p>From the above collection, get all users who know Spanish.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Из приведенной коллекции получите
-		всех юзеров, которые знают немецкий
-		и испанский.
-	</p>
+	<p>From the above collection, get all users who know German and Spanish.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Из приведенной коллекции получите
-		всех юзеров, у которых испанский
-		является вторым элементом в массиве.
-	</p>
+	<p>From the above collection, get all users for whom Spanish is the second element in the array.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

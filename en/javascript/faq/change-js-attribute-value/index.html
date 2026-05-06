@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Поменять значение атрибута JS — acteck.off</title>
-  <meta name="description" content="Поменять значение атрибута JS — учебные материалы по программированию.">
+  <title>Change JS attribute value - acteck.off</title>
+  <meta name="description" content="Change JS attribute value - programming tutorials.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../en/index.html" class="logo">
+      <a href="../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,87 +36,55 @@
       <a href="../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Поменять значение атрибута JS</h1>
-    <p>
-	В данном уроке мы разберем способы поменять
-	значение атибута тега с помощью JavaScript.
-	Пусть для примера у нас есть следующий
-	инпут: 
-</p>
+    <h1>Change JS attribute value</h1>
+    <p>In this tutorial we will look at ways to change the value of a tag attribute using JavaScript. For example, let us have the following input:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input value="text"&gt;</code>
 </div>
-<p>
-	Давайте поменяем значение атрибута <code data-gs="comd/c" data-x>value</code>
-	инпута. Для начала получим ссылку на этот
-	инпут с помощью метода <a href="../../manual/dom/querySelector/index.html"><code data-gs="comd/c" data-x>querySelector</code></a>: 
+<p>Let's change the attribute value<code data-gs="comd/c" data-x>value</code>input. First, we get a link to this input using the method<a href="../../manual/dom/querySelector/index.html"><code data-gs="comd/c" data-x>querySelector</code></a>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let input = document.querySelector('input');</code>
 </div>
-<p>
-	А теперь разберем способы изменения нашего
-	атрибута. 
-</p>
+<p>Now let's look at ways to change our attribute.</p>
 
-<h2>Через свойство</h2>
-<p>
-	Самый простой вариант поменять значение
-	атрибута - это изменение свойства: 
-</p>
+<h2>Via property</h2>
+<p>The easiest way to change the value of an attribute is to change the property:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">input.value = 'xxx';</code>
 </div>
 
-<h2>Через метод</h2>
-<p>
-	Можно также поменять значение атрибута
-	через метод <a href="../../manual/dom/setAttribute/index.html"><code data-gs="comd/c" data-x>setAttribute</code></a>: 
+<h2>Via method</h2>
+<p>You can also change the attribute value using the method<a href="../../manual/dom/setAttribute/index.html"><code data-gs="comd/c" data-x>setAttribute</code></a>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">input.setAttribute('value', 'xxx');</code>
 </div>
 
-<h2>Атрибут class</h2>
-<p>
-	Атрибут <code data-gs="comd/c" data-x>class</code> является исключением
-	и к нему нужно обращаться через <code data-gs="comd/c" data-x>className</code>: 
+<h2>class attribute</h2>
+<p>Attribute<code data-gs="comd/c" data-x>class</code>is an exception and must be addressed via<code data-gs="comd/c" data-x>className</code>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">input.className = 'xxx';</code>
 </div>
 
-<h2>Изменение CSS классов</h2>
-<p>
-	С помощью объекта <a href="../../manual/dom/classList/index.html"><code data-gs="comd/c" data-x>classList</code></a>
-	можно добавлять и удалять отдельные CSS
-	классы в атритбут <code data-gs="comd/c" data-x>class</code>, не затрагивая
-	остальные классы: 
-</p>
+<h2>Changing CSS classes</h2>
+<p>Using an object<a href="../../manual/dom/classList/index.html"><code data-gs="comd/c" data-x>classList</code></a>you can add and remove individual CSS classes to the attribute<code data-gs="comd/c" data-x>class</code>without affecting other classes:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">input.classList.add('xxx');</code>
 </div>
 
-<h2>Атрибуты без значений</h2>
-<p>
-	В HTML существуют атрибуты, у которых нет
-	значений. Эти атрибуты либо есть, либо
-	нет. Примером может служить атрибут <a href="../../../markup/manual/html/attr/disabled/index.html"><code data-gs="comd/c" data-x>disabled</code></a>: 
+<h2>Attributes without values</h2>
+<p>There are attributes in HTML that have no values. These attributes are either present or not. An example would be the attribute<a href="../../../markup/manual/html/attr/disabled/index.html"><code data-gs="comd/c" data-x>disabled</code></a>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input disabled&gt;</code>
 </div>
-<p>
-	Для включения такого атрибута в соответствующее
-	свойство нужно записывать булево значение.
-	К примеру, установим наш атрибут: 
-</p>
+<p>To include such an attribute in the corresponding property, you need to write a Boolean value. For example, let's set our attribute:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">input.disabled = true;</code>
 </div>
-<p>
-	А теперь уберем наш атрибут: 
-</p>
+<p>Now let's remove our attribute:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">input.disabled = false;</code>
 </div>
@@ -125,7 +93,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

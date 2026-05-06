@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свойство animation-fill-mode — acteck.off</title>
-  <meta name="description" content="Свойство animation-fill-mode — учебные материалы по программированию.">
+  <title>animation-fill-mode property - acteck.off</title>
+  <meta name="description" content="animation-fill-mode property - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,83 +33,47 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Свойство animation-fill-mode</h1>
-    <p>
-	Свойство <code data-gs="comd/c" data-x>animation-fill-mode</code> устанавливает
-	в каком положении останавливаться анимации
-	после окончания. По умолчанию анимация возвращается
-	в первоначальное значение и это может выглядеть
-	не очень красиво.
-</p>
+    <h1>animation-fill-mode property</h1>
+    <p>Property<code data-gs="comd/c" data-x>animation-fill-mode</code>sets the position at which the animation stops after finishing. By default, the animation returns to its original value and this may not look very nice.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
 	animation-fill-mode: backwards | forwards | both | none;
 }</code>
 </div>
 
-<h2>Значения</h2>
+<h2>Values</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Значение</th>
-		<th>Описание</th>
+		<th>Meaning</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>none</code></th>
-		<td>
-			Если установлена задержка анимации - то в течении времени задержки
-			элемент будет оставаться на месте, а потом скачком перейдет к <code data-gs="comd/u" data-x>0%</code> кадру.
-			После окончания анимации элемент не останется в том состоянии,
-			где остановился, а перепрыгнет в начальное состояние.
-		</td>
+		<td>If an animation delay is set, then during the delay time the element will remain in place, and then jump to<code data-gs="comd/u" data-x>0%</code>frame. After the animation ends, the element will not remain in the state where it stopped, but will jump to the initial state.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>backwards</code></th>
-		<td>
-			Заставляет элемент двигаться после загрузки страницы к <code data-gs="comd/u" data-x>0%</code> кадру,
-			даже если установлена задержка
-			<a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>,
-			и оставаться там, пока не начнется анимация.
-			После окончания анимации элемент
-			не останется в том состоянии, где остановился, 
-			а перепрыгнет в начальное состояние.
-		</td>
+		<td>Causes the element to move after the page has loaded to<code data-gs="comd/u" data-x>0%</code>frame, even if a delay is set<a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>, and stay there until the animation starts. After the animation ends, the element will not remain in the state where it stopped, but will jump to the initial state.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>forwards</code></th>
-		<td>
-			Указывает браузеру, что после окончания анимации элемент 
-			останется в том состоянии, где остановился.
-		</td>
+		<td>Tells the browser that after the animation ends, the element will remain in the state where it left off.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>both</code></th>
-		<td>
-			Включает в себя backwards и forwards - после загрузки
-			страницы элемент установится к <code data-gs="comd/u" data-x>0%</code> кадру, а после
-			окончания анимации элемент останется там, где остановился.
-		</td>
+		<td>Includes backwards and forwards - after the page loads the element will be set to<code data-gs="comd/u" data-x>0%</code>frame, and after the animation ends, the element will remain where it left off.</td>
 	</tr>
 </table>
-<p>
-	Значение по умолчанию: <code data-gs="comd/v" data-x>none</code>.
+<p>Default value:<code data-gs="comd/v" data-x>none</code>.
 </p>
 
-<h2>Пример <span data-gn="sect"></span>. Значение none</h2>
-<p>
-	В данном примере <a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>
-	установлен в значение <code data-gs="comd/u" data-x>300px</code> для элемента,
-	а для первого кадра анимации - в <code data-gs="comd/u" data-x>0px</code>.
-	Так как нет задержки <a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>,
-	то элемент после загрузки страницы станет
-	в <code data-gs="comd/u" data-x>0px</code>, а не в <code data-gs="comd/u" data-x>300px</code>. Кроме
-	того, анимация после окончания будет перепрыгивать
-	в начальное значение:
-</p>
+<h2>Example<span data-gn="sect"></span>. Value none</h2>
+<p>In this example<a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>set to value<code data-gs="comd/u" data-x>300px</code>for the element, and for the first frame of the animation - in<code data-gs="comd/u" data-x>0px</code>. Because there is no delay<a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>, then the element after loading the page will be in<code data-gs="comd/u" data-x>0px</code>, not in<code data-gs="comd/u" data-x>300px</code>. In addition, the animation will jump to the starting value after finishing:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
@@ -185,20 +149,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение none</h2>
-<p>
-	В данном примере <a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>
-	установлен в значение <code data-gs="comd/u" data-x>300px</code> для элемента,
-	а для первого кадра анимации - в <code data-gs="comd/u" data-x>0px</code>.
-	Также для элемента установлена задержка <a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>
-	в <code data-gs="comd/n" data-x>3</code> секунды, поэтому элемент после
-	загрузки страницы станет в <code data-gs="comd/u" data-x>300px</code>,
-	а не в <code data-gs="comd/u" data-x>0px</code>, и будет стоять там <code data-gs="comd/n" data-x>3</code>
-	секунды после начала анимации а потом скачком
-	перейдет к <code data-gs="comd/u" data-x>0px</code> - и анимация начнется оттуда.
-	Кроме того,анимация после окончания будет
-	перепрыгивать в начальное значение:
-</p>
+<h2>Example<span data-gn="sect"></span>. Value none</h2>
+<p>In this example<a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>set to value<code data-gs="comd/u" data-x>300px</code>for the element, and for the first frame of the animation - in<code data-gs="comd/u" data-x>0px</code>. There is also a delay set for the element<a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>V<code data-gs="comd/n" data-x>3</code>seconds, so the element will be in<code data-gs="comd/u" data-x>300px</code>, not in<code data-gs="comd/u" data-x>0px</code>and will stand there<code data-gs="comd/n" data-x>3</code>seconds after the animation starts and then jumps to<code data-gs="comd/u" data-x>0px</code>- and the animation will start from there. In addition, the animation will jump to the initial value after finishing:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
@@ -274,19 +226,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение backwards</h2>
-<p>
-	В данном примере <a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>
-	установлен в значение <code data-gs="comd/u" data-x>300px</code> для элемента,
-	а для первого кадра анимации - в <code data-gs="comd/u" data-x>0px</code>.
-	Также для элемента установлен <code data-gs="comd/c" data-x>animation-fill-mode</code>
-	в значении <code data-gs="comd/v" data-x>backwards</code>, поэтому элемент
-	после загрузки страницы станет в <code data-gs="comd/u" data-x>0px</code>,
-	а не в <code data-gs="comd/u" data-x>300px</code>, как это было для <code data-gs="comd/c" data-x>animation-fill-mode</code>
-	в значении <code data-gs="comd/v" data-x>none</code>. Кроме того,анимация после
-	окончания будет перепрыгивать в начальное
-	значение:
-</p>
+<h2>Example<span data-gn="sect"></span>. Meaning of backwards</h2>
+<p>In this example<a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>set to value<code data-gs="comd/u" data-x>300px</code>for the element, and for the first frame of the animation - in<code data-gs="comd/u" data-x>0px</code>. Also set for the element<code data-gs="comd/c" data-x>animation-fill-mode</code>in meaning<code data-gs="comd/v" data-x>backwards</code>, so the element after the page loads will be in<code data-gs="comd/u" data-x>0px</code>, not in<code data-gs="comd/u" data-x>300px</code>as it was for<code data-gs="comd/c" data-x>animation-fill-mode</code>in meaning<code data-gs="comd/v" data-x>none</code>. In addition, the animation will jump to the initial value after finishing:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
@@ -362,21 +303,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение none и количество повторений равно 1</h2>
-<p>
-	В данном примере <a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>
-	установлен в значение <code data-gs="comd/u" data-x>300px</code> для элемента,
-	а для первого кадра анимации - в <code data-gs="comd/u" data-x>0px</code>.
-	Также для элемента установлена задержка <a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>
-	в <code data-gs="comd/n" data-x>3</code> секунды, поэтому элемент после
-	загрузки страницы станет в <code data-gs="comd/u" data-x>300px</code>,
-	а не в <code data-gs="comd/u" data-x>0px</code>, и будет стоять там <code data-gs="comd/n" data-x>3</code>
-	секунды после начала анимации а потом скачком
-	перейдет к <code data-gs="comd/u" data-x>0px</code> - и анимация начнется оттуда.
-	Так как <code data-gs="comd/c" data-x>animation-fill-mode</code> установлен
-	в значении none, то после проигрывания анимации
-	элемент вернется в начальное значение:
-</p>
+<h2>Example<span data-gn="sect"></span>. The value is none and the number of repetitions is 1</h2>
+<p>In this example<a href="../margin/index.html"><code data-gs="comd/c" data-x>margin-left</code></a>set to value<code data-gs="comd/u" data-x>300px</code>for the element, and for the first frame of the animation - in<code data-gs="comd/u" data-x>0px</code>. There is also a delay set for the element<a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>V<code data-gs="comd/n" data-x>3</code>seconds, so the element will be in<code data-gs="comd/u" data-x>300px</code>, not in<code data-gs="comd/u" data-x>0px</code>and will stand there<code data-gs="comd/n" data-x>3</code>seconds after the animation starts and then jumps to<code data-gs="comd/u" data-x>0px</code>- and the animation will start from there. Because<code data-gs="comd/c" data-x>animation-fill-mode</code>is set to none, then after playing the animation the element will return to its initial value:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
@@ -452,27 +380,9 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение forwards и количество повторений равно 1</h2>
-<p>
-	В данном примере <code data-gs="comd/c" data-x>animation-fill-mode</code>
-	установлен в значении <code data-gs="comd/v" data-x>forwards</code>, а
-	<a href="../animation-iteration-count/index.html">число
-	повторений анимации</a> - в <code data-gs="comd/n" data-x>1</code>. После
-	проигрывания анимации элемент останется в
-	том положении, где закончилась анимация,
-	а не прыгнет в исходную точку.
-</p>
-<p>
-	Кроме того, <code data-gs="comd/c" data-x>margin-left</code> установлен
-	в значение <code data-gs="comd/u" data-x>300px</code> для элемента, а для
-	первого кадра анимации - в <code data-gs="comd/u" data-x>0px</code>. Также
-	для элемента установлена задержка <code data-gs="comd/c" data-x>animation-delay</code>
-	в <code data-gs="comd/n" data-x>3</code> секунды, поэтому элемент после
-	загрузки страницы станет в <code data-gs="comd/u" data-x>300px</code>,
-	а не в <code data-gs="comd/u" data-x>0px</code>, и будет стоять там <code data-gs="comd/n" data-x>3</code>
-	секунды после начала анимации, а потом скачком
-	перейдет к <code data-gs="comd/u" data-x>0px</code> - и анимация начнется оттуда:
-</p>
+<h2>Example<span data-gn="sect"></span>. The value of forwards and the number of repetitions is 1</h2>
+<p>In this example<code data-gs="comd/c" data-x>animation-fill-mode</code>set to value<code data-gs="comd/v" data-x>forwards</code>, A<a href="../animation-iteration-count/index.html">number of animation repetitions</a>- V<code data-gs="comd/n" data-x>1</code>. After the animation plays, the element will remain in the position where the animation ended, rather than jumping to the starting point.</p>
+<p>Besides,<code data-gs="comd/c" data-x>margin-left</code>set to value<code data-gs="comd/u" data-x>300px</code>for the element, and for the first frame of the animation - in<code data-gs="comd/u" data-x>0px</code>. There is also a delay set for the element<code data-gs="comd/c" data-x>animation-delay</code>V<code data-gs="comd/n" data-x>3</code>seconds, so the element will be in<code data-gs="comd/u" data-x>300px</code>, not in<code data-gs="comd/u" data-x>0px</code>and will stand there<code data-gs="comd/n" data-x>3</code>seconds after the animation starts, and then jumps to<code data-gs="comd/u" data-x>0px</code>- and the animation will start from there:</p>
 <div data-p="bock/pane">
         <code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
@@ -548,17 +458,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение both и количество повторений равно 1</h2>
-<p>
-	В данном примере <code data-gs="comd/c" data-x>animation-fill-mode</code>
-	установлен в значении <code data-gs="comd/v" data-x>both</code>, а <a href="../animation-iteration-count/index.html">число
-	повторений анимации</a> - в <code data-gs="comd/n" data-x>1</code>. После
-	загрузки страницы элемент будет стоять в
-	первом кадре анимации (в <code data-gs="comd/u" data-x>0px</code>, а не
-	в <code data-gs="comd/u" data-x>300px</code>), а после проигрывания анимации элемент
-	останется в том положении, где закончилась
-	анимация, а не прыгнет в исходную точку:
-</p>
+<h2>Example<span data-gn="sect"></span>. The value is both and the number of repetitions is 1</h2>
+<p>In this example<code data-gs="comd/c" data-x>animation-fill-mode</code>set to value<code data-gs="comd/v" data-x>both</code>, A<a href="../animation-iteration-count/index.html">number of animation repetitions</a>- V<code data-gs="comd/n" data-x>1</code>. After the page loads, the element will appear in the first frame of the animation (in<code data-gs="comd/u" data-x>0px</code>, not in<code data-gs="comd/u" data-x>300px</code>), and after the animation plays, the element will remain in the position where the animation ended, rather than jumping to the starting point:</p>
 <div data-p="bock/pane">
         <code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@keyframes move {
@@ -634,54 +535,24 @@
 					</div>
 				</div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			свойство <a href="../animation-name/index.html"><code data-gs="comd/c" data-x>animation-name</code></a>, <br>
-			которое задает имя анимации
-		</li>
-		<li>
-			свойство <a href="../animation-duration/index.html"><code data-gs="comd/c" data-x>animation-duration</code></a>, <br>
-			которое задает продолжительность анимации
-		</li>
-		<li>
-			свойство <a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>, <br>
-			которое задает задержку перед выполнением анимации
-		</li>
-		<li>
-			свойство <a href="../animation-timing-function/index.html"><code data-gs="comd/c" data-x>animation-timing-function</code></a>, <br>
-			которое задает скорость выполнения анимации
-		</li>
-		<li>
-			свойство <a href="../animation-iteration-count/index.html"><code data-gs="comd/c" data-x>animation-iteration-count</code></a>, <br>
-			которое задает количество итераций анимации
-		</li>
-		<li>
-			свойство <a href="../animation-direction/index.html"><code data-gs="comd/c" data-x>animation-direction</code></a>, <br>
-			которое задает направление анимации
-		</li>
-		<li>
-			свойство <a href="../animation-play-state/index.html"><code data-gs="comd/c" data-x>animation-play-state</code></a>, <br>
-			которое позволяет поставить анимацию на паузу
-		</li>
-		<li>
-			свойство <a href="../animation/index.html"><code data-gs="comd/c" data-x>animation</code></a>, <br>
-			представляющее собой сокращение для анимаций
-		</li>
-		<li>
-			команду <a href="../../command/keyframes/index.html"><code data-gs="comd/c" data-x>@keyframes</code></a>, <br>
-			задающую ключевые кадры анимации
-		</li>
-		<li>
-			плавные переходы <a href="../transition/index.html"><code data-gs="comd/c" data-x>transition</code></a>,
-			представляющие собой анимацию по наведению на элемент
-		</li>
+		<li>property<a href="../animation-name/index.html"><code data-gs="comd/c" data-x>animation-name</code></a>, <br>which specifies the name of the animation</li>
+		<li>property<a href="../animation-duration/index.html"><code data-gs="comd/c" data-x>animation-duration</code></a>, <br>which sets the duration of the animation</li>
+		<li>property<a href="../animation-delay/index.html"><code data-gs="comd/c" data-x>animation-delay</code></a>, <br>which sets the delay before the animation is executed</li>
+		<li>property<a href="../animation-timing-function/index.html"><code data-gs="comd/c" data-x>animation-timing-function</code></a>, <br>which sets the animation execution speed</li>
+		<li>property<a href="../animation-iteration-count/index.html"><code data-gs="comd/c" data-x>animation-iteration-count</code></a>, <br>which specifies the number of animation iterations</li>
+		<li>property<a href="../animation-direction/index.html"><code data-gs="comd/c" data-x>animation-direction</code></a>, <br>which sets the direction of the animation</li>
+		<li>property<a href="../animation-play-state/index.html"><code data-gs="comd/c" data-x>animation-play-state</code></a>, <br>which allows you to pause the animation</li>
+		<li>property<a href="../animation/index.html"><code data-gs="comd/c" data-x>animation</code></a>, <br>which is shorthand for animations</li>
+		<li>team<a href="../../command/keyframes/index.html"><code data-gs="comd/c" data-x>@keyframes</code></a>, <br>defining animation keyframes</li>
+		<li>smooth transitions<a href="../transition/index.html"><code data-gs="comd/c" data-x>transition</code></a>, representing an animation when hovering over an element</li>
 	</ul>
 </div>
     <div class="lesson-nav">
       <a href="../animation-duration/index.html" class="lesson-nav-btn lesson-nav-prev" title="animation-duration">← animation-duration</a>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list">☰</a>
       <a href="../animation-iteration-count/index.html" class="lesson-nav-btn lesson-nav-next" title="animation-iteration-count">animation-iteration-count →</a>
     </div>
   </section>
@@ -689,7 +560,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обработка данных формы по нажатию на кнопку в React — acteck.off</title>
-  <meta name="description" content="Обработка данных формы по нажатию на кнопку в React — учебные материалы по программированию.">
+  <title>Processing form data on button click in React - acteck.off</title>
+  <meta name="description" content="Processing form data by clicking a button in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,37 +36,12 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Обработка данных формы по нажатию на кнопку в React</h1>
-    <p>
-	В предыдущем уроке мы делали так, чтобы при
-	вводе символа в инпут в абзаце мгновенно
-	появлялся результат. Это, конечно же, смотрится
-	красиво, но имеет недостаток.
-</p>
-<p>
-	Представим себе, что нам нужно сделать некоторую
-	"тяжелую", ресурсоемкую операцию. Не очень
-	оптимально делать ее на каждый ввод символа
-	- лучше дождаться окончательного ввода данных
-	и потом выполнить нужную операцию один раз
-	и результат вывести в абзац.
-</p>
-<p>
-	Для этого нам нужно ввести кнопку, по нажатию
-	на которую будет совершаться наша ресурсоемкая
-	операция. В таком случае у нас опять каждому
-	инпуту будет соответствовать свой стейт,
-	плюс еще один стейт нам нужен для записи
-	результата операции и отображения его на экран.
-</p>
-<p>
-	Посмотрим на примере. Пусть у нас есть два
-	инпута и кнопка. По нажатию на кнопку давайте
-	найдем сумму чисел, введенных в инпуты.
-</p>
-<p>
-	Реализуем:
-</p>
+    <h1>Processing form data on button click in React</h1>
+    <p>In the previous lesson, we made sure that when you enter a character into an input in a paragraph, the result instantly appears. This, of course, looks beautiful, but has a drawback.</p>
+<p>Let's imagine that we need to do some “heavy”, resource-intensive operation. It is not very optimal to do it for each character input - it is better to wait for the final data input and then perform the desired operation once and display the result in a paragraph.</p>
+<p>To do this, we need to enter a button, when clicked, our resource-intensive operation will be performed. In this case, each input will again have its own state, plus we need one more state to record the result of the operation and display it on the screen.</p>
+<p>Let's look at an example. Let's say we have two inputs and a button. By pressing the button, let's find the sum of the numbers entered in the inputs.</p>
+<p>We implement:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [value1, setValue1] = useState(0);
@@ -94,9 +69,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Можно использовать сокращенный вариант:
-</p>
+<p>You can use a shortened version:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [value1, setValue1] = useState(0);
@@ -113,53 +86,31 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны два инпута, две кнопки и абзац. Пусть
-		в инпуты вводятся числа. По нажатию на первую
-		кнопку найдите сумму чисел, а по нажатию
-		на вторую кнопку - произведение. Результат
-		выводите в абзац.
-	</p>
+	<p>Given two inputs, two buttons and a paragraph. Let numbers be entered into the inputs. By clicking on the first button, find the sum of the numbers, and by clicking on the second button, find the product. Write the result in a paragraph.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны два инпута, кнопка и абзац. Пусть в
-		инпуты вводятся даты в формате <span data-gs="comd/f" data-x>2025-12-31</span>.
-		По нажатию на кнопку найдите разницу между
-		датами в днях и результат выведите в абзац.
-	</p>
+	<p>Two inputs are given, a button and a paragraph. Let dates be entered into the inputs in the format<span data-gs="comd/f" data-x>2025-12-31</span>. By clicking the button, find the difference between the dates in days and display the result in a paragraph.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте предыдущую задачу так, чтобы
-		по умолчанию в инпутах стояла текущая дата.
-	</p>
+	<p>Modify the previous task so that the default input is the current date.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан инпут и абзац. В инпут вводится число.
-		По потери фокуса выведите в абзац сумму цифр
-		введенного числа.
-	</p>
+	<p>Given an input and a paragraph. A number is entered into the input. When you lose focus, print the sum of the digits of the entered number in a paragraph.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан инпут и абзац. В инпут вводится число.
-		По потери фокуса выведите в абзац произведение
-		делителей введенного числа.
-	</p>
+	<p>Given an input and a paragraph. A number is entered into the input. When you lose focus, print in a paragraph the product of the divisors of the entered number.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../input/several/index.html" class="lesson-nav-btn lesson-nav-prev" title="Работа с несколькими инпутами">← Работа с несколькими инпутами</a>
-      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../textarea/index.html" class="lesson-nav-btn lesson-nav-next" title="Работа с textarea">Работа с textarea →</a>
+      <a href="../input/several/index.html" class="lesson-nav-btn lesson-nav-prev" title="Working with Multiple Inputs">← Working with multiple inputs</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../textarea/index.html" class="lesson-nav-btn lesson-nav-next" title="Working with textarea">Working with textarea →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сохранение значений формы после отправки — acteck.off</title>
-  <meta name="description" content="Сохранение значений формы после отправки — учебные материалы по программированию.">
+  <title>Saving form values ​​after submission - acteck.off</title>
+  <meta name="description" content="Saving Form Values ​​After Submission - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,12 +36,8 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Сохранение значений формы после отправки</h1>
-    <p>
-	Давайте теперь сделаем так, чтобы после отправки
-	формы в ней остались введенные данные. Для
-	этого передадим данные в представление:
-</p>
+    <h1>Saving form values ​​after submission</h1>
+    <p>Let's now make sure that after submitting the form, the entered data remains in it. To do this, let's pass the data to the view:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
 	res.render('form', {
@@ -49,9 +45,7 @@
 	});
 });</code>
 </div>
-<p>
-	И выведем эти данные в <code data-gs="comd/c" data-x>value</code> инпутов:
-</p>
+<p>And we will display this data in<code data-gs="comd/c" data-x>value</code>inputs:</p>
 <div data-p="bock/pane" data-p-file="form.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;form action="" method="GET"&gt;
 	&lt;input name="test1" value="{{query.test1}}"&gt;
@@ -59,29 +53,16 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	Давайте разберемся, как это будет работать.
-	При первом заходе <code data-gs="comd/c" data-x>query.test1</code> и <code data-gs="comd/c" data-x>query.test2</code>
-	будут лежать <code data-gs="comd/c" data-x>undefined</code>. В этом случае
-	Handlebars выведет в инпуты пустые строки
-	и мы просто увидим пустую форму. А вот при
-	втором заходе после отправки формы мы увидим
-	уже ранее введенные данные.
-</p>
+<p>Let's figure out how this will work. On first entry<code data-gs="comd/c" data-x>query.test1</code>And<code data-gs="comd/c" data-x>query.test2</code>will lie<code data-gs="comd/c" data-x>undefined</code>. In this case, Handlebars will output empty lines as inputs and we will simply see an empty form. But on the second visit after submitting the form, we will see the previously entered data.</p>
 <div data-w="cont/task">
-	<p>
-		Дана форма, спрашивающая у пользователя его
-		имя, возраст и зарплату. Сделайте так, чтобы
-		после отправки формы в ней остались введенные
-		данные.
-	</p>
+	<p>A form is given that asks the user for his name, age and salary. Make sure that after submitting the form, the entered data remains in it.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Удаление маршрута в React Router — acteck.off</title>
-  <meta name="description" content="Удаление маршрута в React Router — учебные материалы по программированию.">
+  <title>Removing a route in React Router - acteck.off</title>
+  <meta name="description" content="Deleting a Route in React Router - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,20 +36,8 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Удаление маршрута в React Router</h1>
-    <p>
-	Функцию для удаления данных из
-	хранилища мы написали. Давайте
-	теперь добавим в верстку странички
-	продукта кусок кода с кнопкой для
-	удаления продукта. Добавим его сразу
-	после кнопки редактирования. Обернем
-	обе формы с кнопками в див <code data-gs="comd/z" data-x>#control</code>.
-	Затем в <code data-gs="comd/c" data-x>action</code> запишем значение
-	<code data-gs="comd/s" data-x>'delete'</code>. Также мы добавим диалоговое
-	окошко, чтобы юзер еще раз подтвердил - хочет
-	ли он удалить продукт:
-</p>
+    <h1>Removing a route in React Router</h1>
+    <p>We wrote a function to delete data from storage. Let's now add a piece of code with a button to delete a product to the layout of the product page. Let's add it right after the edit button. Let's wrap both forms with buttons in divs<code data-gs="comd/z" data-x>#control</code>. Then in<code data-gs="comd/c" data-x>action</code>write down the value<code data-gs="comd/s" data-x>'delete'</code>. We will also add a dialog box so that the user can once again confirm whether he wants to remove the product:</p>
 <div data-p="bock/pane" data-p-file="routes/product.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;div id="control"&gt;
 	&lt;Form action="edit"&gt;
@@ -68,9 +56,7 @@
 	&lt;/Form&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Добавим также стилей в наш CSS файл:
-</p>
+<p>Let's also add styles to our CSS file:</p>
 <div data-p="bock/pane" data-p-file="index.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">div#control {
 	display: flex;
@@ -80,43 +66,25 @@ button {
 	margin-right: 5px;
 }</code>
 </div>
-<p>
-	А сейчас мы создадим новый маршрут для
-	удаления продукта. Для этого откройте
-	папку <code data-gs="comd/p" data-x>routes</code> и создайте в ней файл
-	<code data-gs="comd/p" data-x>delete.jsx</code>. Добавим в него сразу
-	импорт <code data-gs="comd/c" data-x>redirect</code> и функции удаления
-	<code data-gs="comd/c" data-x>deleteProduct</code>:
+<p>Now we will create a new route to remove the product. To do this, open the folder<code data-gs="comd/p" data-x>routes</code>and create a file in it<code data-gs="comd/p" data-x>delete.jsx</code>. Let's immediately add import to it<code data-gs="comd/c" data-x>redirect</code>and delete functions<code data-gs="comd/c" data-x>deleteProduct</code>:
 </p>
 <div data-p="bock/pane" data-p-file="routes/delete.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { redirect } from 'react-router-dom';
 import { deleteProduct } from '../forStorage';</code>
 </div>
-<p>
-	А затем, естественно, пишем нашу
-	функцию <code data-gs="comd/c" data-x>action</code>, которая будет
-	вызывать <code data-gs="comd/c" data-x>deleteProduct</code> по <code data-gs="comd/c" data-x>id</code>,
-	а после удаления перенаправит нас home
-	страничку:
-</p>
+<p>And then, of course, we write our function<code data-gs="comd/c" data-x>action</code>, which will cause<code data-gs="comd/c" data-x>deleteProduct</code>By<code data-gs="comd/c" data-x>id</code>, and after deletion it will redirect us to the main page:</p>
 <div data-p="bock/pane" data-p-file="routes/delete.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function action({ params }) {
 	await deleteProduct(params.productId);
 	return redirect('/');
 }</code>
 </div>
-<p>
-	Нам осталось только открыть <code data-gs="comd/p" data-x>main.jsx</code>.
-	Импортировать наш <code data-gs="comd/c" data-x>action</code>:
+<p>All we have to do is open<code data-gs="comd/p" data-x>main.jsx</code>. Import our<code data-gs="comd/c" data-x>action</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { action as deleteAction } from './routes/delete';</code>
 </div>
-<p>
-	И установить его в качестве значения для
-	метода <code data-gs="comd/c" data-x>action</code> маршрута удаления. Сам
-	объект маршрута мы добавим в конец массива
-	<code data-gs="comd/c" data-x>children</code>:
+<p>And set it as the value for the method<code data-gs="comd/c" data-x>action</code>removal route. We will add the route object itself to the end of the array<code data-gs="comd/c" data-x>children</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{
@@ -124,34 +92,21 @@ import { deleteProduct } from '../forStorage';</code>
 	action: deleteAction,
 },</code>
 </div>
-<p>
-	Теперь мы можем кликнуть по какому-нибудь
-	продукту и удалить его при помощи кнопки
-	удаления. Можете заглянуть в localforage
-	панели разработчика и убедиться в этом.
-</p>
+<p>Now we can click on any product and remove it using the delete button. You can look at the localforage developer panel and see for yourself.</p>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, добавьте кнопку для
-		удаления студента, сделайте новый
-		маршрут для удаления, добавьте его
-		в дочерние маршруты. Убедитесь, что все
-		работает.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, add a button to delete a student, make a new route to delete, and add it to child routes. Make sure everything works.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../delete-storage-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Удаление данных из хранилища">← Удаление данных из хранилища</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../index-route/index.html" class="lesson-nav-btn lesson-nav-next" title="Индексный маршрут">Индексный маршрут →</a>
+      <a href="../delete-storage-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Deleting data from storage">← Deleting data from storage</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../index-route/index.html" class="lesson-nav-btn lesson-nav-next" title="Index route">Index route →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

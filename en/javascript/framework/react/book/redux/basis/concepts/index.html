@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Две базовые идеи в Redux — acteck.off</title>
-  <meta name="description" content="Две базовые идеи в Redux — учебные материалы по программированию.">
+  <title>Two basic ideas in Redux - acteck.off</title>
+  <meta name="description" content="Two basic ideas in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,14 +36,8 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Две базовые идеи в Redux</h1>
-    <p>
-	Прежде, чем начать изучение библиотеки Redux,
-	давайте познакомимся с двумя ее базовыми идеями.
-	Первую идею, касающуюся <dfn data-gs="comd/d" data-x>управления состоянием</dfn>,
-	мы рассмотрим на примере обычного счетчика
-	на стейте в React:
-</p>
+    <h1>Two basic ideas in Redux</h1>
+    <p>Before we start exploring the Redux library, let's get acquainted with its two basic ideas. The first idea regarding<dfn data-gs="comd/d" data-x>state management</dfn>, we will look at the example of a regular counter on a state in React:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Counter() {
 	// State
@@ -63,74 +57,27 @@
 	)
 }</code>
 </div>
-<p>
-	В этом коде мы видим стейт
-	для переменной <code data-gs="comd/c" data-x>count</code> - это
-	источник истины для счетчика. Затем мы видим
-	<dfn data-gs="comd/d" data-x>действие</dfn> (<span data-gs="lang/e" data-x>action</span>) - событие,
-	которое по клику пользователя вызывает
-	обновление стейта. И, наконец,
-	<dfn data-gs="comd/d" data-x>представление</dfn> (<span data-gs="lang/e" data-x>view</span>),
-	с помощью которого мы отображаем
-	пользовательский интерфейс.
-</p>
-<p>
-	Таким образом схема довольно проста:
-	кнопка нажимается - стейт <code data-gs="comd/c" data-x>count</code> (State)
-	по нажатию (Action) изменяется, следовательно
-	изменяется представление (View) - в нашем случае
-	это число на экране.
-</p>
-<p>
-	Однако, все будет сложнее, если у нас множество
-	компонентов, которые должны использовать один
-	и тот же стейт. Можно, конечно, к примеру
-	<a href="../../../prime/concepts/lifting-state-up/index.html">поднять состояние</a>
-	до родительских компонентов,
-	но такое решение не всегда может
-	избавить от проблемы. Redux в этом случае
-	предлагает нам создать <i>одно место в приложении,
-	которое бы содержало глобальное состояние</i>
-	и определенные шаблоны поведения при
-	обновлении этого состояния. Именно в этом
-	и заключается первая базовая идея (!).
-</p>
-<p>
-	Вторая идея связана с <dfn data-gs="comd/d" data-x>иммутабельностью</dfn>,
-	то есть с неизменностью данных. Вы, конечно,
-	помните из JavaScript, что массивы и объекты
-	можно изменять. Изменение данных напрямую
-	в Redux, как и в других фреймворках считается
-	дурным тоном и может приводить к
-	непредсказуемым последствиям. Поэтому
-	в Redux наши первоначальные объекты и массивы
-	должны оставаться
-	<a href="../../../../../../book/supreme/data/immutability/index.html">иммутабельными</a>,
-	а изменять мы можем только их копии.
-</p>
+<p>In this code we see the state for the variable<code data-gs="comd/c" data-x>count</code>is the source of truth for the counter. Then we see<dfn data-gs="comd/d" data-x>action</dfn> (<span data-gs="lang/e" data-x>action</span>) - an event that, when clicked by a user, causes a state update. And finally<dfn data-gs="comd/d" data-x>performance</dfn> (<span data-gs="lang/e" data-x>view</span>), with which we display the user interface.</p>
+<p>Thus, the scheme is quite simple: the button is pressed - state<code data-gs="comd/c" data-x>count</code>(State) when clicked (Action) changes, therefore the view (View) changes - in our case, this is the number on the screen.</p>
+<p>However, things will be more complicated if we have many components that must use the same state. It is possible, of course, for example<a href="../../../prime/concepts/lifting-state-up/index.html">raise your fortune</a>to parent components, but this solution may not always solve the problem. Redux in this case suggests that we create<i>one place in the application that would contain the global state</i>and certain patterns of behavior when updating this state. This is precisely the first basic idea (!).</p>
+<p>The second idea is related to<dfn data-gs="comd/d" data-x>immutability</dfn>, that is, with data immutability. You, of course, remember from JavaScript that arrays and objects can be modified. Changing data directly in Redux, as in other frameworks, is considered bad manners and can lead to unpredictable consequences. Therefore, in Redux, our original objects and arrays must remain<a href="../../../../../../book/supreme/data/immutability/index.html">immutable</a>, and we can only change their copies.</p>
 <div data-w="cont/task">
-	<p>
-		Расскажите, в чем заключается первая
-		базовая идея Redux.
-	</p>
+	<p>Tell us what the first basic idea of ​​Redux is.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, в чем заключается вторая
-		базовая идея Redux.
-	</p>
+	<p>Tell us what the second basic idea of ​​Redux is.</p>
 </div>
     <div class="lesson-nav">
       <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../terminology/index.html" class="lesson-nav-btn lesson-nav-next" title="Основные термины">Основные термины →</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../terminology/index.html" class="lesson-nav-btn lesson-nav-next" title="Basic terms">Basic terms →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

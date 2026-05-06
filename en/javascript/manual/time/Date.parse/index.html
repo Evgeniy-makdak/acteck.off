@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод Date.parse — acteck.off</title>
-  <meta name="description" content="Метод Date.parse — учебные материалы по программированию.">
+  <title>Date.parse method - acteck.off</title>
+  <meta name="description" content="Date.parse method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,86 +36,55 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод Date.parse</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>Date.parse</code> возвращает количество
-	миллисекунд до даты переданной в параметре
-	в виде строки формата ISO.
-	ISO формат выглядит так: <span data-gs="comd/f" data-x>'YYYY-MM-DDTHH:mm:ss.sssZ'</span>,
-	где: <span data-gs="comd/f" data-x>'YYYY-MM-DD'</span> - дата; <span data-gs="comd/f" data-x>'T'</span>
-	- разделитель; <span data-gs="comd/f" data-x>'HH:mm:ss.sss'</span> - время;
-	<span data-gs="comd/f" data-x>'Z'</span> - Временная зона.
-	Не обязательно передавать полный формат,
-	достаточно передать <span data-gs="comd/f" data-x>'YYYY-MM-DD'</span> или
-	просто <span data-gs="comd/f" data-x>YYYY</span>.
+    <h1>Date.parse method</h1>
+    <p>Method<code data-gs="comd/c" data-x>Date.parse</code>returns the number of milliseconds before the date passed in the parameter as an ISO format string. ISO format looks like this:<span data-gs="comd/f" data-x>'YYYY-MM-DDTHH:mm:ss.sssZ'</span>, Where:<span data-gs="comd/f" data-x>'YYYY-MM-DD'</span>- date;<span data-gs="comd/f" data-x>'T'</span>- separator;<span data-gs="comd/f" data-x>'HH:mm:ss.sss'</span>- time;<span data-gs="comd/f" data-x>'Z'</span>- Time zone. It is not necessary to transmit the full format, it is enough to transmit<span data-gs="comd/f" data-x>'YYYY-MM-DD'</span>or just<span data-gs="comd/f" data-x>YYYY</span>.
 </p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">Date.parse('YYYY-MM-DDTHH:mm:ss.sssZ');</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте с помощью метода <code data-gs="comd/c" data-x>Date.parse</code>
-	узнаем сколько миллисекунд прошло с
-	<code data-gs="comd/n" data-x>1</code> января <code data-gs="comd/n" data-x>1970</code> года до <code data-gs="comd/n" data-x>16.11.2016</code>,
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's use the method<code data-gs="comd/c" data-x>Date.parse</code>find out how many milliseconds have passed since<code data-gs="comd/n" data-x>1</code>January<code data-gs="comd/n" data-x>1970</code>year to<code data-gs="comd/n" data-x>16.11.2016</code>,
 	<code data-gs="comd/n" data-x>12:59:59</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = Date.parse('2016-11-16T12:59:59');
 console.log(res);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">1479290399000</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	А теперь давайте выведем количество миллисекунд,
-	указав только год:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's print the number of milliseconds, specifying only the year:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = Date.parse('2016');
 console.log(res);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">1451606400000</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте зададим в параметре метода <code data-gs="comd/c" data-x>Date.parse</code>
-	неправильную дату:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's set in the method parameter<code data-gs="comd/c" data-x>Date.parse</code>wrong date:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = Date.parse('20162016');
 console.log(res);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">NaN</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../getTime/index.html"><code data-gs="comd/c" data-x>getTime</code></a>, <br>
-			который также получает timestamp
-		</li>
-		<li>
-			метод <a href="../Date.now/index.html"><code data-gs="comd/c" data-x>Date.now</code></a>, <br>
-			который также получает timestamp
-		</li>
+		<li>method<a href="../getTime/index.html"><code data-gs="comd/c" data-x>getTime</code></a>, <br>which also gets the timestamp</li>
+		<li>method<a href="../Date.now/index.html"><code data-gs="comd/c" data-x>Date.now</code></a>, <br>which also gets the timestamp</li>
 	</ul>
 </div>
   </section>
@@ -123,7 +92,7 @@ console.log(res);</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод dispatchEvent — acteck.off</title>
-  <meta name="description" content="Метод dispatchEvent — учебные материалы по программированию.">
+  <title>dispatchEvent method - acteck.off</title>
+  <meta name="description" content="dispatchEvent method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,34 +36,17 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод dispatchEvent</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>dispatchEvent</code> позволяет имитировать
-	событие событие на элементе.
-	Зачем это нужно: можно имитировать нажатие
-	пользователя на кнопку, попытку отправки
-	формы и так далее. При этом событие не будет
-	отличаться от настоящего ничем кроме свойства
-	<a href="../isTrusted/index.html"><code data-gs="comd/c" data-x>event.isTrusted</code></a>.
-	Можно даже создавать события с нестандартными
-	(придуманными вами) названиями и затем вызывать
-	их в нужный момент. Метод применяется к элементу, на котором нужно вызвать событие.
-	В параметре метод получает событие (объект), созданное с помощью конструктора
-	<a href="../Event/index.html">new Event</a>.
+    <h1>dispatchEvent method</h1>
+    <p>Method<code data-gs="comd/c" data-x>dispatchEvent</code>allows you to simulate an event on an element. Why is this needed: you can simulate a user clicking a button, trying to submit a form, and so on. In this case, the event will not differ from the present in anything except the property<a href="../isTrusted/index.html"><code data-gs="comd/c" data-x>event.isTrusted</code></a>. You can even create events with non-standard (invented by you) names and then call them at the right time. The method is applied to the element on which the event is to be raised. As a parameter, the method receives an event (object) created using the constructor<a href="../Event/index.html">new Event</a>.
 <p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">элемент.dispatchEvent(event);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть у нас есть кнопка. По нажатию на эту
-	кнопку выводится сообщение. Давайте сделаем
-	там, чтобы при наведении мышкой на кнопку
-	эта кнопка думала, что по ней кликнули:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's say we have a button. Clicking this button displays a message. Let's make it so that when you hover the mouse over a button, this button thinks that it was clicked:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="button"&gt;button&lt;/button&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let button = document.querySelector('#button');
@@ -117,13 +100,8 @@ button.addEventListener('mouseover', function() {
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Можно создавать свои события (со своим названием)
-	и потом в нужный момент вызывать их. Давайте
-	привяжем к кнопке событие <code data-gs="comd/c" data-x>showMessage</code> и по
-	наведению мышкой инициализируем это событие:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>You can create your own events (with your own name) and then call them at the right time. Let's bind an event to the button<code data-gs="comd/c" data-x>showMessage</code>and upon mouse hover we initialize this event:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="button"&gt;кнопка&lt;/button&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let button = document.querySelector('#button');
@@ -157,7 +135,7 @@ button.addEventListener('mouseover', function() {
 	</head>
 	<body>
 		
-		<button id=&quot;button&quot;>кнопка</button>
+		<button id=&quot;button&quot;>button</button>
 		
 		<script>
 			
@@ -181,7 +159,7 @@ button.addEventListener('mouseover', function() {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

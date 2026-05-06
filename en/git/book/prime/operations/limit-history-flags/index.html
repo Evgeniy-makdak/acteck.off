@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Флаги для ограничения вывода истории коммитов в Git — acteck.off</title>
-  <meta name="description" content="Флаги для ограничения вывода истории коммитов в Git — учебные материалы по программированию.">
+  <title>Flags for limiting the output of commit history in Git - acteck.off</title>
+  <meta name="description" content="Flags for limiting the output of commit history in Git - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,69 +36,47 @@
       <a href="../../../../../../en/git/index.html">Git</a>
     </div>
 
-    <h1>Флаги для ограничения вывода истории коммитов в Git</h1>
-    <p>
-	Ограничить вывод истории коммитов можно и
-	с учетом времени, когда они были сделаны.
-	Например, флаг <code data-gs="comd/c" data-x>--since=1day</code> отобразит
-	коммиты, сделанные за <code data-gs="comd/n" data-x>1</code> день.
-	Полный список флагов для ограничения вывода
-	коммитов смотрите ниже:
-</p>
+    <h1>Flags for limiting the output of commit history in Git</h1>
+    <p>You can also limit the output of commit history by taking into account the time when they were made. For example, flag<code data-gs="comd/c" data-x>--since=1day</code>will display the commits made during<code data-gs="comd/n" data-x>1</code>day. For a complete list of flags for limiting the output of commits, see below:</p>
 <table data-w="cont/desc">
 	<tr>
-		<th>Флаг</th>
-		<th>Описание</th>
+		<th>Flag</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>-(n)</code></th>
-		<td>Показывает последние коммиты с учетом указанного числа.</td>
+		<td>Shows the latest commits based on the specified number.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>--since, --after</code>*</th>
-		<td>Отображает коммиты, сделанные после указанной даты.</td>
+		<td>Displays commits made after the specified date.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>--until, --before</code>*</th>
-		<td>Выводят коммиты, сделанные до указанной даты.</td>
+		<td>Commits made before the specified date are displayed.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>--author</code>*</th>
-		<td>Отображает коммиты для файлов с указанным автором.</td>
+		<td>Displays commits for files with the specified author.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>--committer</code>*</th>
-		<td>
-			Выводит коммиты, сделанные указанным коммитером, т.е.
-			пользователем, вносящим изменения. Автор файла и коммитер
-			могут являться разными пользователями.
-		</td>
+		<td>Lists commits made by the specified committer, i.e. the user making the changes. The author of the file and the committer may be different users.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>grep</code></th>
-		<td>
-			Ищет и отображает коммиты, сообщение или примечание
-			которых содержит указанную строку.
-		</td>
+		<td>Finds and displays commits whose message or note contains the specified string.</td>
 	</tr>
 </table>
-<p>
-	К некоторым ограничивающим флагам обязательным
-	требованиям является добавление после их названия знака <code data-gs="comd/s" data-x>=</code>
-	и параметра, по которому мы ограничиваем вывод истории коммитов.
-	Данные флаги отмечены в таблице <code data-gs="comd/c" data-x>*</code>.
+<p>For some restrictive flags, the mandatory requirement is to add a sign after their name<code data-gs="comd/s" data-x>=</code>and a parameter by which we limit the output of the commit history. These flags are marked in the table<code data-gs="comd/c" data-x>*</code>.
 </p>
 
-<h2>Пример <span data-gn="sect"></span>. Вывод последних коммитов</h2>
-<p>
-	Давайте выведем в консоль два последних коммита:
-</p>
+<h2>Example<span data-gn="sect"></span>. Outputting the latest commits</h2>
+<p>Let's print the last two commits to the console:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log -2</code>
 </div>
-<p>
-	После выполнения команды мы увидим:
-</p>
+<p>After executing the command we will see:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit 33498ca885348fba6060ad4c459963d9e756c8b6 (HEAD -&gt; master)
 Author: root &lt;root@node.com&gt;
@@ -113,17 +91,12 @@ Date: Tue Sep 12 10:47:27 2023 +0100
 	text</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span>. Вывод коммитов, сделанных после указанной даты</h2>
-<p>
-	Давайте выведем в консоль коммиты, сделанные после
-	<code data-gs="comd/n" data-x>11</code> сентября <code data-gs="comd/n" data-x>2023</code> года:
-</p>
+<h2>Example<span data-gn="sect"></span>. Output commits made after a specified date</h2>
+<p>Let's output to the console the commits made after<code data-gs="comd/n" data-x>11</code>September<code data-gs="comd/n" data-x>2023</code>year:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log --since="2023-09-11"</code>
 </div>
-<p>
-	После выполнения команды мы увидим:
-</p>
+<p>After executing the command we will see:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit 33498ca885348fba6060ad4c459963d9e756c8b6 (HEAD -&gt; master)
 Author: root &lt;root@node.com&gt;
@@ -138,17 +111,12 @@ Date: Tue Sep 12 10:47:27 2023 +0100
 	text</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span>. Вывод коммитов, сделанных до указанной даты</h2>
-<p>
-	А теперь давайте выведем в консоль коммиты,
-	сделанные до <code data-gs="comd/n" data-x>11</code> сентября <code data-gs="comd/n" data-x>2023</code> года:
-</p>
+<h2>Example<span data-gn="sect"></span>. Output commits made before a specified date</h2>
+<p>Now let's output to the console the commits made before<code data-gs="comd/n" data-x>11</code>September<code data-gs="comd/n" data-x>2023</code>year:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log --until="2023-09-11"</code>
 </div>
-<p>
-	После выполнения команды мы увидим:
-</p>
+<p>After executing the command we will see:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit a99c51a34d6a89be9c56127e18a1e574d6188d61
 Author: root &lt;root@node.com&gt;
@@ -157,17 +125,13 @@ Date: Fri Jun 16 15:20:43 2023 +0100
 initial commit</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span>. Вывод коммитов, сделанные указанным автором файлов</h2>
-<p>
-	Давайте выведем в консоль все коммиты для файлов,
-	созданных пользователем <code data-gs="comd/s" data-x>'user'</code>:
+<h2>Example<span data-gn="sect"></span>. Output commits made by the specified file author</h2>
+<p>Let's output to the console all commits for files created by the user<code data-gs="comd/s" data-x>'user'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log --author="user"</code>
 </div>
-<p>
-	После выполнения команды мы увидим:
-</p>
+<p>After executing the command we will see:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit 9c51a34d188d61a6a89be9c56127e18a1e574d69
 Author: user &lt;user@node.com&gt;
@@ -176,18 +140,13 @@ Date: Fri Jun 10 10:10:23 2022 +0100
 initial commit</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span>. Вывод коммитов, сделанных указанным коммитером</h2>
-<p>
-	А теперь давайте выведем в консоль
-	все коммиты, сделанные
-	пользователем <code data-gs="comd/s" data-x>'root'</code>:
+<h2>Example<span data-gn="sect"></span>. Output commits made by the specified committer</h2>
+<p>Now let's output to the console all the commits made by the user<code data-gs="comd/s" data-x>'root'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log --committer="root"</code>
 </div>
-<p>
-	После выполнения команды мы увидим:
-</p>
+<p>After executing the command we will see:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit 33498ca885348fba6060ad4c459963d9e756c8b6 (HEAD -&gt; master)
 Author: root &lt;root@node.com&gt;
@@ -208,17 +167,13 @@ Date: Fri Jun 16 15:20:43 2023 +0100
 	initial commit</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span>. Вывод коммитов, указанное примечание</h2>
-<p>
-	Давайте выведем в консоль все коммиты,
-	в которых есть строка <code data-gs="comd/s" data-x>'text'</code>:
+<h2>Example<span data-gn="sect"></span>. Output of commits, specified note</h2>
+<p>Let's print to the console all commits that contain the line<code data-gs="comd/s" data-x>'text'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git log --grep "text"</code>
 </div>
-<p>
-	После выполнения команды мы увидим:
-</p>
+<p>After executing the command we will see:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">commit bb6945ff7c73c88981a0b2523c32e30f472fd918
 Author: root &lt;root@node.com&gt;
@@ -227,16 +182,16 @@ Date: Tue Sep 12 10:47:27 2023 +0100
 	text</code>
 </div>
     <div class="lesson-nav">
-      <a href="../history-flags/index.html" class="lesson-nav-btn lesson-nav-prev" title="Флаги для истории коммитов">← Флаги для истории коммитов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../commit-editing/index.html" class="lesson-nav-btn lesson-nav-next" title="Редактирование коммита">Редактирование коммита →</a>
+      <a href="../history-flags/index.html" class="lesson-nav-btn lesson-nav-prev" title="Flags for commit history">← Flags for commit history</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../commit-editing/index.html" class="lesson-nav-btn lesson-nav-next" title="Editing a commit">Editing a commit →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

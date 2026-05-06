@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Цепочки промисов в JavaScript — acteck.off</title>
-  <meta name="description" content="Цепочки промисов в JavaScript — учебные материалы по программированию.">
+  <title>Promise chains in JavaScript - acteck.off</title>
+  <meta name="description" content="Promise chains in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Цепочки промисов в JavaScript</h1>
-    <p>
-	Пусть у нас есть следующий промис:
-</p>
+    <h1>Promise chains in JavaScript</h1>
+    <p>Let's say we have the following promise:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let promise = new Promise(function(resolve, reject) {
 	setTimeout(function() {
@@ -47,10 +45,7 @@
 	}, 3000);
 });</code>
 </div>
-<p>
-	По завершению промиса выведем его результат
-	в консоль:
-</p>
+<p>Upon completion of the promise, we will output its result to the console:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(
 	function(result) {
@@ -58,9 +53,7 @@
 	}
 )</code>
 </div>
-<p>
-	Давайте теперь не будем сразу выводить результат,
-	а как-то изменим его и вернем через <code data-gs="comd/c" data-x>return</code>:
+<p>Let's now not immediately display the result, but somehow change it and return it through<code data-gs="comd/c" data-x>return</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(
@@ -69,13 +62,7 @@
 	}
 );</code>
 </div>
-<p>
-	В этом случае мы можем к результату нашего
-	<code data-gs="comd/c" data-x>then</code> применить еще один <code data-gs="comd/c" data-x>then</code>, создав тем
-	самым <dfn data-gs="comd/d" data-x>цепочку</dfn> методов. При этом в
-	результат следующего метода будет попадать
-	то, что вернул через <code data-gs="comd/c" data-x>return</code> предыдущий:
-</p>
+<p>In this case, we can get the result of our<code data-gs="comd/c" data-x>then</code>apply one more<code data-gs="comd/c" data-x>then</code>, thereby creating<dfn data-gs="comd/d" data-x>chain</dfn>methods. In this case, the result of the next method will include what was returned through<code data-gs="comd/c" data-x>return</code>previous:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(
 	function(result) {
@@ -87,10 +74,7 @@
 	}
 );</code>
 </div>
-<p>
-	Таким образом можно построить цепочку какой-угодно
-	длины:
-</p>
+<p>This way you can build a chain of any length:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(
 	function(result) {
@@ -112,16 +96,16 @@
 </div>
   
     <div class="lesson-nav">
-      <a href="../states/index.html" class="lesson-nav-btn lesson-nav-prev" title="Состояния промиса">← Состояния промиса</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../promise-inside-chain/index.html" class="lesson-nav-btn lesson-nav-next" title="Промисы внутри цепочки">Промисы внутри цепочки →</a>
+      <a href="../states/index.html" class="lesson-nav-btn lesson-nav-prev" title="Promise states">← Promise states</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../promise-inside-chain/index.html" class="lesson-nav-btn lesson-nav-next" title="Promises within a chain">Promises within the chain →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

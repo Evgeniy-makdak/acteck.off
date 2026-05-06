@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Рекурсия и многомерные структуры в JavaScript — acteck.off</title>
-  <meta name="description" content="Рекурсия и многомерные структуры в JavaScript — учебные материалы по программированию.">
+  <title>Recursion and multidimensional structures in JavaScript - acteck.off</title>
+  <meta name="description" content="Recursion and multidimensional structures in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Рекурсия и многомерные структуры в JavaScript</h1>
-    <p>
-	Дан массив многомерный произвольного уровня
-	вложенности, например, такой:
-</p>
+    <h1>Recursion and multidimensional structures in JavaScript</h1>
+    <p>Given a multidimensional array of arbitrary nesting level, for example, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [
 	1,
@@ -52,29 +49,10 @@
 	]
 ];</code>
 </div>
-<p>
-	Как вы видите, данный массив имеет сложную
-	структуру, причем предполагается, что эта
-	структура может быть произвольной и уровни
-	вложенности могут быть сколь угодно глубоко.
-</p>
-<p>
-	Пусть мы хотим вывести в консоль все примитивные
-	(то есть не массивы) элементы нашего массива.
-	В этом случае для перебора такого массива
-	у нас просто не получится использовать циклы,
-	так как массив имеет неправильную структуру
-	и неизвестный уровень вложенности.
-</p>
-<p>
-	Зато для перебора такого массива очень удобно
-	будет использовать рекурсию.
-</p>
-<p>
-	Для начала сделаем функцию, в которую параметром
-	будем передавать наш массив, а в функции
-	сделаем цикл для перебора нашего массива:
-</p>
+<p>As you can see, this array has a complex structure, and it is assumed that this structure can be arbitrary and the nesting levels can be arbitrarily deep.</p>
+<p>Let's say we want to output to the console all the primitive (that is, not arrays) elements of our array. In this case, we simply cannot use loops to iterate through such an array, since the array has an incorrect structure and an unknown level of nesting.</p>
+<p>But to iterate through such an array it will be very convenient to use recursion.</p>
+<p>First, we’ll make a function to which we’ll pass our array as a parameter, and in the function we’ll make a loop to iterate through our array:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(arr) {
 	for (let elem of arr) {
@@ -84,16 +62,9 @@
 
 func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);</code>
 </div>
-<p>
-	Сделанный нами цикл будет перебирать только
-	элементы основного массива. To есть вначале
-	он выведет <code data-gs="comd/c" data-x>1</code>, потом <code data-gs="comd/c" data-x>[2, 7, 8]</code>,
-	а потом <code data-gs="comd/c" data-x>[3, 4, [5, [6, 7]]</code>.
+<p>The loop we made will only iterate over the elements of the main array. That is, first it will output<code data-gs="comd/c" data-x>1</code>, Then<code data-gs="comd/c" data-x>[2, 7, 8]</code>, and then<code data-gs="comd/c" data-x>[3, 4, [5, [6, 7]]</code>.
 </p>
-<p>
-	Давайте теперь будем разделять в цикле элементы-примитивы
-	и элементы-массивы:
-</p>
+<p>Let's now separate primitive and array elements in the loop:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(arr) {
 	for (let elem of arr) {
@@ -108,11 +79,7 @@ func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);</code>
 
 func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);</code>
 </div>
-<p>
-	А теперь сделаем так, чтобы если наш элемент
-	- массив, функция вызывала сама себя, передавая
-	параметром этот массив:
-</p>
+<p>Now let’s make sure that if our element is an array, the function calls itself, passing this array as a parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(arr) {
 	for (let elem of arr) {
@@ -127,47 +94,34 @@ func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);</code>
 func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан многомерный объект произвольного уровня
-		вложенности, например, такой:
-	</p>
+	<p>Given a multidimensional object of an arbitrary nesting level, for example, this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{a: 1, b: {c: 2, d: 3, e: 4}, f: {g: 5, j: 6, k: {l: 7, m: {n: 8, o: 9}}}}</code>
 	</div>
-	<p>
-		С помощью рекурсии выведите все примитивные
-		элементы этого объекта в консоль.
-	</p>
+	<p>Using recursion, print all primitive elements of this object to the console.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан многомерный массив произвольного уровня
-		вложенности, например, такой:
-	</p>
+	<p>Given a multidimensional array of arbitrary nesting level, for example, like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[1, [2, 7, 8], [3, 4, [5, [6, 7]]]]</code>
 	</div>
-	<p>
-		Напишите код, который развернет наш многомерный
-		массив в одномерный. Для приведенного выше
-		массива это будет выглядеть вот так:
-	</p>
+	<p>Write code that will expand our multidimensional array into a one-dimensional one. For the above array it would look like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[1, 2, 7, 8, 3, 4, 5, 6, 7]</code>
 	</div>
 </div>
   
     <div class="lesson-nav">
-      <a href="../array-sum/index.html" class="lesson-nav-btn lesson-nav-prev" title="Сумма элементов массива при рекурсии">← Сумма элементов массива при рекурсии</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../structures-sum/index.html" class="lesson-nav-btn lesson-nav-next" title="Сумма элементов массива">Сумма элементов массива →</a>
+      <a href="../array-sum/index.html" class="lesson-nav-btn lesson-nav-prev" title="Sum of array elements during recursion">← Sum of array elements during recursion</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../structures-sum/index.html" class="lesson-nav-btn lesson-nav-next" title="Sum of array elements">Sum of array elements →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

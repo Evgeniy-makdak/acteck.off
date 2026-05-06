@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ассеты в CSS бандлах в Webpack — acteck.off</title>
-  <meta name="description" content="Ассеты в CSS бандлах в Webpack — учебные материалы по программированию.">
+  <title>Assets in CSS bundles in Webpack - acteck.off</title>
+  <meta name="description" content="Assets in CSS bundles in Webpack - educational materials on programming.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
@@ -15,13 +15,13 @@
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,12 +36,8 @@
       <a href="../../../../en/webpack/index.html">Webpack</a>
     </div>
 
-    <h1>Ассеты в CSS бандлах в Webpack</h1>
-    <p>
-	Давайте теперь сделаем так, чтобы
-	пути к <code data-gs="comd/p" data-x>.png</code> файлам заменялись
-	в CSS файлах при сборке:
-</p>
+    <h1>Assets in CSS bundles in Webpack</h1>
+    <p>Let's now make sure that the paths to<code data-gs="comd/p" data-x>.png</code>files were replaced in CSS files during assembly:</p>
 <div data-p="bock/pane" data-p-file="webpack.config.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
 	entry: './src/index.js',
@@ -69,62 +65,43 @@
 	],
 };</code>
 </div>
-<p>
-	Давайте проверим, как это работает.
-	Подключим к точке входа картинку
-	и файл со стилями:
-</p>
+<p>Let's check how it works. Let's connect an image and a file with styles to the entry point:</p>
 <div data-p="bock/pane" data-p-file="src/index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import './images/img.png';
 import './styles.css';</code>
 </div>
-<p>
-	Пусть у файле со стилями мы используем
-	путь к картинке:
-</p>
+<p>Let us use the path to the image in the style file:</p>
 <div data-p="bock/pane" data-p-file="src/styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">body {
 	background: url('images/img.png');
 }</code>
 </div>
-<p>
-	После сборки в CSS бандле путь
-	к картинке будет изменен на новый:
-</p>
+<p>After assembly in the CSS bundle, the path to the image will be changed to a new one:</p>
 <div data-p="bock/pane" data-p-file="dist/bundle.ec64ceadef9be2621b7f.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">body {
 	background: url('верный путь от корня');
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Задайте в CSS файле фоновую картинку.
-	</p>
+	<p>Set a background image in the CSS file.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Подключите картинку к точке входа.
-	</p>
+	<p>Connect the picture to the entry point.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Выполните сборку и посмотрите,
-		в какой файл скопируется картинка
-		и как будет выглядеть новый
-		путь в CSS бандле.
-	</p>
+	<p>Build it and see what file the image will be copied to and what the new path in the CSS bundle will look like.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../../assets/javascript-bundles/index.html" class="lesson-nav-btn lesson-nav-prev" title="Ассеты в JavaScript бандлах">← Ассеты в JavaScript бандлах</a>
-      <a href="../../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../assets/custom-files-path/index.html" class="lesson-nav-btn lesson-nav-next" title="Кастомизация пути к файлам ассета">Кастомизация пути к файлам ассета →</a>
+      <a href="../../assets/javascript-bundles/index.html" class="lesson-nav-btn lesson-nav-prev" title="Assets in JavaScript bundles">← Assets in JavaScript bundles</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../assets/custom-files-path/index.html" class="lesson-nav-btn lesson-nav-next" title="Customizing the path to asset files">Customizing the path to asset files →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

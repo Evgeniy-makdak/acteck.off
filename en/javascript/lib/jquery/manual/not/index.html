@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод not — acteck.off</title>
-  <meta name="description" content="Метод not — учебные материалы по программированию.">
+  <title>Method not - acteck.off</title>
+  <meta name="description" content="The not method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,45 +36,26 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод not</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>not</code> исключает из
-	набора элементы по заданному селектору.
-</p>
+    <h1>Method not</h1>
+    <p>Method<code data-gs="comd/c" data-x>not</code>excludes elements from a set based on a given selector.</p>
 
-<h2>Синтаксис</h2>
-<p>
-	Исключает из набора те элементы, которые
-	соответствуют селектору:
-</p>
+<h2>Syntax</h2>
+<p>Excludes from the set those elements that match the selector:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.not(селектор);</code>
 </div>
-<p>
-	Фильтрует набор элементов c помощью заданной
-	функции. Эта функция вызывается отдельно,
-	для каждого из выбранных элементов. Если
-	она возвращает <code data-gs="comd/c" data-x>true</code>, то текущий элемент будет
-	исключен из конечного результата. Сами элементы
-	доступны в функции, в переменной <code data-gs="comd/c" data-x>this</code>, а
-	их порядковые номера в наборе — в переменной
-	index.
-</p>
+<p>Filters a set of elements using the specified function. This function is called separately for each of the selected elements. If she returns<code data-gs="comd/c" data-x>true</code>, then the current element will be excluded from the final result. The elements themselves are available in the function, in the variable<code data-gs="comd/c" data-x>this</code>, and their serial numbers in the set are in the index variable.</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.not(function(index, elem));</code>
 </div>
-<p>
-	Параметр также может быть объектом jQuery:
-</p>
+<p>The parameter can also be a jQuery object:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.not(объект jQuery);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте найдем абзацы, у которых классы <b>не</b>
-	<code data-gs="comd/z" data-x>aaa</code> или <code data-gs="comd/z" data-x>bbb</code> и поставим им в
-	конец текста <code data-gs="comd/s" data-x>'!!!'</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's find paragraphs that have classes<b>Not</b>
+	<code data-gs="comd/z" data-x>aaa</code>or<code data-gs="comd/z" data-x>bbb</code>and put it at the end of the text<code data-gs="comd/s" data-x>'!!!'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class='aaa'&gt;text&lt;/p&gt;
@@ -83,9 +64,7 @@
 &lt;p class='ddd'&gt;text&lt;/p&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('p').not('.aaa, .bbb').append('!!!');</code>
 </div>
-<p>
-	HTML код станет выглядеть так:
-</p>
+<p>The HTML code will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class='aaa'&gt;text&lt;/p&gt;
 &lt;p class='bbb'&gt;text&lt;/p&gt;
@@ -93,26 +72,13 @@
 &lt;p class='ddd'&gt;text!!!&lt;/p&gt;</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			селектор <a href="../selector/not/index.html"><code data-gs="comd/z" data-x>not</code></a>, <br>
-			который исключает элементы, соответствующие 
-			заданному селектору
-		</li>
-		<li>
-			метод <a href="../eq/index.html"><code data-gs="comd/c" data-x>eq</code></a>, <br>
-			который получает элемент с определенным номером
-		</li>
-		<li>
-			метод <a href="../first/index.html"><code data-gs="comd/c" data-x>first</code></a>, <br>
-			который получает первый элемент
-		</li>
-		<li>
-			метод <a href="../last/index.html"><code data-gs="comd/c" data-x>last</code></a>, <br>
-			который получает последний элемент
-		</li>
+		<li>selector<a href="../selector/not/index.html"><code data-gs="comd/z" data-x>not</code></a>, <br>which excludes elements matching a given selector</li>
+		<li>method<a href="../eq/index.html"><code data-gs="comd/c" data-x>eq</code></a>, <br>which gets an element with a specific number</li>
+		<li>method<a href="../first/index.html"><code data-gs="comd/c" data-x>first</code></a>, <br>which gets the first element</li>
+		<li>method<a href="../last/index.html"><code data-gs="comd/c" data-x>last</code></a>, <br>which gets the last element</li>
 	</ul>
 </div>
   </section>
@@ -120,7 +86,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

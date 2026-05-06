@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Чеклист на JavaScript — acteck.off</title>
-  <meta name="description" content="Чеклист на JavaScript — учебные материалы по программированию.">
+  <title>Checklist for JavaScript - acteck.off</title>
+  <meta name="description" content="Checklist for JavaScript - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,25 +36,10 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Чеклист на JavaScript</h1>
-    <p>
-	В данном уроке мы реализуем чеклист.
-	Чеклистом называется программа, которая позволяет
-	сделать список планируемых дел, а затем по
-	мере выполнения этим дел отмечать эти дела
-	сделанными.
-</p>
-<p>
-	Давайте сделаем так, чтобы дела можно было
-	добавлять, удалять, редактировать и отмечать
-	сделанными.
-</p>
-<p>
-	Вот образец того, что у нас должно получится
-	(для ввода нового дела введите текст в инпут
-	и нажмите <code data-gs="comd/k" data-x>Enter</code>, для редактирования
-	выполните двойной клик по тексту дела):
-</p>
+    <h1>Checklist for JavaScript</h1>
+    <p>In this tutorial we will implement a checklist. A checklist is a program that allows you to make a list of planned tasks, and then, as these tasks are completed, mark these tasks as done.</p>
+<p>Let's make it so that things can be added, deleted, edited and marked done.</p>
+<p>Here is a sample of what we should get (to enter a new case, enter text in the input and click<code data-gs="comd/k" data-x>Enter</code>, to edit, double click on the case text):</p>
 <div data-p="bock/pane">
 					<div data-w="bock/open" data-m-type="W">
 						<a href="" data-e="link" data-x>
@@ -161,23 +146,15 @@
 					</div>
 				</div>
 
-<h2>Начнем</h2>
-<p>
-	Итак, приступим к реализации описанной задачи.
-</p>
-<p>
-	Для начала напишем HTML код для нашего чеклиста.
-	Пусть новые задачи вводятся с помощью инпута
-	и добавляются в список <code data-gs="comd/c" data-x>ul</code>:
+<h2>Let's get started</h2>
+<p>So, let's start implementing the described task.</p>
+<p>First, let's write the HTML code for our checklist. Let new tasks be entered using input and added to the list<code data-gs="comd/c" data-x>ul</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="input"&gt;
 &lt;ul id="list"&gt;&lt;/ul&gt;</code>
 </div>
-<p>
-	Сразу добавим CSS код, добавляющий некоторую
-	красоту нашему чеклисту:
-</p>
+<p>Let's immediately add some CSS code that adds some beauty to our checklist:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">body {
 	text-align: center;
@@ -190,19 +167,9 @@
 	list-style-type: none;
 }</code>
 </div>
-<p>
-	Как обычно, разобьем сложную задачу на простые
-	этапы.
-</p>
-<p>
-	В качестве первого этапа сделаем так, чтобы
-	в инпут можно было ввести текст, нажать <code data-gs="comd/k" data-x>Enter</code>
-	- и в конец <code data-gs="comd/c" data-x>ul</code> добавилась <code data-gs="comd/c" data-x>li</code>
-	с введенным текстом.
-</p>
-<p>
-	Вот заготовка кода, реализующая описанное:
-</p>
+<p>As usual, let's break down a complex task into simple steps.</p>
+<p>As a first step, we’ll make it so that you can enter text into the input, press<code data-gs="comd/k" data-x>Enter</code>- and at the end<code data-gs="comd/c" data-x>ul</code>added<code data-gs="comd/c" data-x>li</code>with the entered text.</p>
+<p>Here is a piece of code that implements the described:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let input = document.querySelector('#input');
 let list = document.querySelector('#list');
@@ -214,30 +181,23 @@ input.addEventListener('keypress', function(event) {
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Допишите недостающую часть кода для решения
-		описанной задачи.
-	</p>
+	<p>Complete the missing part of the code to solve the described problem.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте предыдущую задачу так, чтобы
-		после нажатия клавиши <code data-gs="comd/k" data-x>Enter</code> происходила
-		очистка текста инпута.
-	</p>
+	<p>Modify the previous task so that after pressing the key<code data-gs="comd/k" data-x>Enter</code>The input text was cleared.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../../game-cities/against-robot/index.html" class="lesson-nav-btn lesson-nav-prev" title="Против робота">← Против робота</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../remove-complete-buttons/index.html" class="lesson-nav-btn lesson-nav-next" title="Кнопки для удаления и завершения">Кнопки для удаления и завершения →</a>
+      <a href="../../game-cities/against-robot/index.html" class="lesson-nav-btn lesson-nav-prev" title="Against the robot">← Against the robot</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../remove-complete-buttons/index.html" class="lesson-nav-btn lesson-nav-next" title="Buttons for deleting and finishing">Buttons for deleting and finishing →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

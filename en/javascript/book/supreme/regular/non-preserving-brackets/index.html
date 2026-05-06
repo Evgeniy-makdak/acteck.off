@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Несохраняющие скобки в регулярках JavaScript — acteck.off</title>
-  <meta name="description" content="Несохраняющие скобки в регулярках JavaScript — учебные материалы по программированию.">
+  <title>Non-preserving parentheses in JavaScript regular expressions - acteck.off</title>
+  <meta name="description" content="Non-preserving parentheses in JavaScript regular expressions - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,64 +36,44 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Несохраняющие скобки в регулярках JavaScript</h1>
-    <p>
-	Скобки <code data-gs="comd/c" data-x>( )</code> выполняют две функции -
-	группировка символов и функцию кармана. А
-	что делать, если нам нужно сгруппировать,
-	но в карман не класть?
-	Для решения такой проблемы придуманы специальные
-	<dfn data-gs="comd/d" data-x>несохраняющие скобки</dfn> <code data-gs="comd/c" data-x>(?: )</code>
-	- они группируют, но не кладут в карман.
-</p>
+    <h1>Non-preserving parentheses in JavaScript regexes</h1>
+    <p>Parentheses<code data-gs="comd/c" data-x>( )</code>perform two functions - symbol grouping and pocket function. What if we need to group it, but not put it in our pocket? To solve this problem, special<dfn data-gs="comd/d" data-x>non-preserving parentheses</dfn> <code data-gs="comd/c" data-x>(?: )</code>- they group, but do not put in a pocket.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	В следующем примере первые скобки нам нужны
-	для группировки, а вторые - для кармана.
-	Однако, и те, и другие скобки сохраняют данные
-	в карман:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>In the following example, we need the first brackets for grouping, and the second ones for pocketing. However, both parentheses save data to the pocket:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'abab123';
 let res = str.match(/(ab)+([1-9]+)/);</code>
 </div>
-<p>
-	В результате в наших карманах будет следующее:
-</p>
+<p>As a result, our pockets will have the following:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(res[0]); // выведет 'abab123'
 console.log(res[1]); // выведет 'ab'
 console.log(res[2]); // выведет '123'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Сделаем так, чтобы первая пара скобок только
-	группировала, но не клала в карман:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's make sure that the first pair of brackets only groups, but does not put in a pocket:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'abab123';
 let res = str.match(/(?:ab)+([1-9]+)/);</code>
 </div>
-<p>
-	В результате в первом кармане будет наше число:
-</p>
+<p>As a result, the first pocket will contain our number:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">console.log(res[1]); // выведет '123'</code>
 </div>
   
     <div class="lesson-nav">
-      <a href="../expression-named-pockets/index.html" class="lesson-nav-btn lesson-nav-prev" title="Именованные карманы внутри выражения">← Именованные карманы внутри выражения</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../look-ahead-behind/index.html" class="lesson-nav-btn lesson-nav-next" title="Позитивный и негативный просмотр">Позитивный и негативный просмотр →</a>
+      <a href="../expression-named-pockets/index.html" class="lesson-nav-btn lesson-nav-prev" title="Named pockets within an expression">← Named pockets within an expression</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../look-ahead-behind/index.html" class="lesson-nav-btn lesson-nav-next" title="Positive and negative viewing">Positive and negative viewing →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

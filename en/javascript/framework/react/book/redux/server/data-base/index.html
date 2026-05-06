@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>База данных для сервера в Redux — acteck.off</title>
-  <meta name="description" content="База данных для сервера в Redux — учебные материалы по программированию.">
+  <title>Database for the server in Redux - acteck.off</title>
+  <meta name="description" content="Database for a server in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,63 +36,23 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>База данных для сервера в Redux</h1>
-    <p>
-	На прошлом занятии мы установили msw,
-	который нам поможет сымитировать работу
-	нашего приложения с сервером. И для начала
-	мы бы хотели подгружать при запуске
-	приложения уже имеющиеся на сервере
-	данные.
-</p>
-<p>
-	Давайте откроем наше приложение с продуктами,
-	а в нем файл <code data-gs="comd/p" data-x>server.js</code>. Здесь у нас уже
-	имеется пара строчек кода с прошлого
-	занятия.
-</p>
-<p>
-	И первое, что мы должны спросить у себя: где
-	обычно хранятся данные? Да, конечно в базе
-	данных, ответим мы не задумываясь. Поэтому
-	давайте используем еще один крутой инструмент,
-	который позволит нам создать модель наших
-	данных, а также сделать так, как будто мы
-	работаем с настоящей SQL-базой.
-</p>
-<p>
-	Инструмент, который нам в этом поможет -
-	это библиотека <a href="https://github.com/mswjs/data">@mswjs/data</a>.
-	Чтобы ее установить, вбейте в терминале
-	следующую команду:
-</p>
+    <h1>Database for server in Redux</h1>
+    <p>In the last lesson, we installed msw, which will help us simulate the operation of our application with the server. And to begin with, we would like to load the data already available on the server when the application starts.</p>
+<p>Let's open our application with products, and in it there is a file<code data-gs="comd/p" data-x>server.js</code>. Here we already have a couple of lines of code from the last lesson.</p>
+<p>And the first thing we have to ask ourselves is: where is the data usually stored? Yes, of course in the database, we will answer without hesitation. So let's use another cool tool that will allow us to create a model of our data and also make it look like we are working with a real SQL database.</p>
+<p>The tool that will help us with this is the library.<a href="https://github.com/mswjs/data">@mswjs/data</a>. To install it, enter the following command in the terminal:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install @mswjs/data --save-dev</code>
 </div>
-<p>
-	Теперь импортируем в файле <code data-gs="comd/p" data-x>server.js</code>
-	нужные нам вещи:
-</p>
+<p>Now we import in the file<code data-gs="comd/p" data-x>server.js</code>things we need:</p>
 <div data-p="bock/pane" data-p-file="api/server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { factory, oneOf, manyOf, primaryKey } from '@mswjs/data'</code>
 </div>
-<p>
-	И создадим нашу импровизировнную базу
-	данных. Для этого мы используем функцию
-	<code data-gs="comd/c" data-x>factory</code>. Сделаем мы это ниже после
-	строчек с импортом и перед экспортом воркера:
-</p>
+<p>And we will create our improvised database. For this we use the function<code data-gs="comd/c" data-x>factory</code>. We will do this below after the lines with import and before exporting the worker:</p>
 <div data-p="bock/pane" data-p-file="api/server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const db = factory({})</code>
 </div>
-<p>
-	А какие данные мы будем в ней хранить?
-	С сервера мы должны получать продукты,
-	продавцов и реакции пользователей. Значит
-	в нашей базе данных мы должны создать
-	три модельки, которые принимает <code data-gs="comd/c" data-x>factory</code>
-	в виде объектов:
-</p>
+<p>What data will we store in it? From the server we must receive products, sellers and user reactions. This means that in our database we must create three models that accept<code data-gs="comd/c" data-x>factory</code>in the form of objects:</p>
 <div data-p="bock/pane" data-p-file="api/server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const db = factory({
 	product: {},
@@ -100,13 +60,7 @@
 	reaction: {},
 })</code>
 </div>
-<p>
-	Как и в настоящей SQL базе данных каждая
-	наша моделька должна иметь <code data-gs="comd/c" data-x>primary key</code>.
-	Традиционно, мы назначим таким полем <code data-gs="comd/c" data-x>id</code>,
-	генерировать который мы будем все той же
-	nanoid библиотекой:
-</p>
+<p>As in a real SQL database, each of our models must have<code data-gs="comd/c" data-x>primary key</code>. Traditionally, we will assign such a field<code data-gs="comd/c" data-x>id</code>, which we will generate using the same nanoid library:</p>
 <div data-p="bock/pane" data-p-file="api/server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const db = factory({
 	product: {
@@ -120,45 +74,28 @@
 	},
 })</code>
 </div>
-<p>
-	Не забудем добавить nanoid в строчках
-	импорта в начале файла:
-</p>
+<p>Don't forget to add nanoid in the import lines at the beginning of the file:</p>
 <div data-p="bock/pane" data-p-file="api/server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { nanoid } from '@reduxjs/toolkit'</code>
 </div>
-<p>
-	На следующем уроке мы дополним наши модели
-	необходимыми полями.
-</p>
+<p>In the next lesson we will add the necessary fields to our models.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Ознакомившись с материалом этого урока,
-		установите @mswjs/data для вашего
-		приложения.
-	</p>
+	<p>Open your application with students. Once you've completed this tutorial, set @mswjs/data for your application.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Далее создайте модель базы данных <code data-gs="comd/c" data-x>db</code> при
-		помощи функции <code data-gs="comd/c" data-x>factory</code>. Передайте ей три
-		объекта (<code data-gs="comd/c" data-x>student</code>, <code data-gs="comd/c" data-x>teacher</code>, <code data-gs="comd/c" data-x>vote</code>) для
-		ваших данных, подобно тому как показано
-		в уроке. 
-	</p>
+	<p>Next create a database model<code data-gs="comd/c" data-x>db</code>using the function<code data-gs="comd/c" data-x>factory</code>. Pass her three objects (<code data-gs="comd/c" data-x>student</code>, <code data-gs="comd/c" data-x>teacher</code>, <code data-gs="comd/c" data-x>vote</code>) for your data, just as shown in the lesson.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../install-msw/index.html" class="lesson-nav-btn lesson-nav-prev" title="Установка msw для работы с сервером">← Установка msw для работы с сервером</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../data-models/index.html" class="lesson-nav-btn lesson-nav-next" title="Создание моделей данных для базы данных">Создание моделей данных для базы данных →</a>
+      <a href="../install-msw/index.html" class="lesson-nav-btn lesson-nav-prev" title="Installing msw to work with the server">← Installing msw to work with the server</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../data-models/index.html" class="lesson-nav-btn lesson-nav-next" title="Creating Data Models for a Database">Creating data models for the database →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

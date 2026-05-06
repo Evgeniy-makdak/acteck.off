@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Особенности возврата нескольких тегов в JSX — acteck.off</title>
-  <meta name="description" content="Особенности возврата нескольких тегов в JSX — учебные материалы по программированию.">
+  <title>Features of returning multiple tags in JSX - acteck.off</title>
+  <meta name="description" content="Features of returning multiple tags in JSX - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,12 +36,8 @@
       <a href="../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Особенности возврата нескольких тегов в JSX</h1>
-    <p>
-	Через <code data-gs="comd/c" data-x>return</code> нельзя возвращать сразу
-	несколько тегов. To есть следующий код работать
-	не будет:
-</p>
+    <h1>Features of returning multiple tags in JSX</h1>
+    <p>Through<code data-gs="comd/c" data-x>return</code>You cannot return multiple tags at once. That is, the following code will not work:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return (
@@ -56,11 +52,7 @@
 	);
 }</code>
 </div>
-<p>
-	Чтобы желаемое заработало, нам придется взять
-	наши теги в какой-нибудь общий тег, например,
-	вот так:
-</p>
+<p>For the desired to work, we will have to take our tags into some common tag, for example, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return (
@@ -77,20 +69,8 @@
 	);
 }</code>
 </div>
-<p>
-	Такой прием сработает, однако, он не без
-	недостатков: в результате рендеринга мы получим
-	дополнительный див, который мы в общем не
-	хотели и ввели исключительно для корректности
-	работы React. Этот див, к примеру, может
-	сломать нам часть верстки.
-</p>
-<p>
-	Для избежания таких проблем в React введен
-	специальный пустой тег,
-	который группирует теги, но в готовую верстку
-	не попадает. Давайте воспользуемся этим тегом:
-</p>
+<p>This technique will work, however, it is not without its drawbacks: as a result of rendering, we will get an additional div, which we generally did not want and introduced solely for the correct operation of React. This div, for example, can break part of our layout.</p>
+<p>To avoid such problems, React introduced a special empty tag that groups tags, but does not appear in the finished layout. Let's use this tag:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return (
@@ -108,9 +88,7 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор следующего кода хочет вернуть сразу
-		два тега <code data-gs="comd/c" data-x>ul</code>:
+	<p>The author of the following code wants to return two tags at once<code data-gs="comd/c" data-x>ul</code>:
 	</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
@@ -126,18 +104,14 @@
 	&lt;/ul&gt;;
 }</code>
 	</div>
-	<p>
-		Код, однако, не работает. Исправьте ошибку
-		автора кода. Предложите два способа решения
-		проблемы.
-	</p>
+	<p>The code, however, doesn't work. Fix the code author's mistake. Suggest two ways to solve the problem.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

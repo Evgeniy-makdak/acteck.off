@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вставка данных в атрибут style из переменных в React — acteck.off</title>
-  <meta name="description" content="Вставка данных в атрибут style из переменных в React — учебные материалы по программированию.">
+  <title>Inserting data into the style attribute from variables in React - acteck.off</title>
+  <meta name="description" content="Inserting data into the style attribute from variables in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,17 +36,9 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Вставка данных в атрибут style из переменных в React</h1>
-    <p>
-	В прошлом уроке мы писали объект прямо в 
-	атрибуте <code data-gs="comd/c" data-x>style</code>. Мы также можем 
-	использовать вставку данных в этот объект 
-	из переменных.
-</p>
-<p>
-	Давайте возьмем наш React компонент
-	без CSS стилей:
-</p>
+    <h1>Inserting data into the style attribute from variables in React</h1>
+    <p>In the last lesson we wrote an object directly in the attribute<code data-gs="comd/c" data-x>style</code>. We can also use data insertion into this object from variables.</p>
+<p>Let's take our React component without CSS styles:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return (
@@ -58,76 +50,42 @@
 	);
 }</code>
 </div>
-<p>
-	Сейчас мы будем создавать переменные и
-	присваивать им значения CSS свойств.
-	Начнем по-порядку со стилей для дива.
-</p>
-<p>
-	В файле компонента перед командой
-	<code data-gs="comd/c" data-x>return</code> создадим переменную
-	<code data-gs="comd/c" data-x>wd1</code> и присвоим ей значение
-	<code data-gs="comd/s" data-x>'200px'</code>:
+<p>Now we will create variables and assign CSS property values ​​to them. Let's start in order with the styles for the diva.</p>
+<p>In the component file before the command<code data-gs="comd/c" data-x>return</code>let's create a variable<code data-gs="comd/c" data-x>wd1</code>and assign it a value<code data-gs="comd/s" data-x>'200px'</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const wd1 = '200px';</code>
 </div>
-<p>
-	Подобным образом создадим переменные
-	для всех значений свойств нашего дива:
-</p>
+<p>In a similar way, we will create variables for all property values ​​of our div:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const wd1 = '200px';
 const br1 = '2px solid brown';
 const pd1 = '10px';
 const ta1 = 'center';</code>
 </div>
-<p>
-	Теперь добавим переменные для
-	первого абзаца:
-</p>
+<p>Now let's add variables for the first paragraph:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const co1 = 'orangered';
 const fw1 = 'bold';</code>
 </div>
-<p>
-	Для второго абзаца:
-</p>
+<p>For the second paragraph:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const fs1 = 'italic';
 const co2 = 'brown';</code>
 </div>
-<p>
-	И, наконец, для последнего. Здесь
-	понадобится только две, а не три
-	переменные. Не имеет смысла повторяться,
-	ведь значение <code data-gs="comd/v" data-x>bold</code> у нас уже
-	есть для первого абзаца:
-</p>
+<p>And finally for the last one. Here you only need two, not three, variables. It makes no sense to repeat myself, because the meaning<code data-gs="comd/v" data-x>bold</code>we already have for the first paragraph:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const bco1 = 'orange';
 const co3 = 'white';</code>
 </div>
-<p> 
-	А сейчас мы подставим переменные
-	со значениями стилей. Давайте,
-	сделаем это для первого абзаца. Вставим
-	переменные <code data-gs="comd/c" data-x>co1</code> и <code data-gs="comd/c" data-x>fw1</code>
-	вместо значений в объекте:
-</p>
+<p>Now we will substitute variables with style values. Let's do this for the first paragraph. Let's insert variables<code data-gs="comd/c" data-x>co1</code>And<code data-gs="comd/c" data-x>fw1</code>instead of values ​​in the object:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p style = {{ color: co1, fontWeight: fw1 }}&gt;
 	text
 &lt;/p&gt;</code>
 </div>
-<p> 
-	Подобным образом поступим с
-	остальными тегами.
-</p>
-<p> 
-	В результате наш код компонента
-	будет выглядеть так:
-</p>
+<p>We will do the same with the rest of the tags.</p>
+<p>As a result, our component code will look like this:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const wd1 = '200px';
@@ -167,15 +125,11 @@ const co3 = 'white';</code>
 }</code>
 </div>	
 <div data-w="cont/task">
-	<p>
-		Модифицируйте код решения задачи к прошлому
-		уроку так, чтобы значения CSS свойств
-		хранились в переменных.
-	</p>
+	<p>Modify the code for solving the problem from the previous lesson so that the values ​​of CSS properties are stored in variables.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../styles-in-style/index.html" class="lesson-nav-btn lesson-nav-prev" title="Работа с CSS стилями в атрибуте style">← Работа с CSS стилями в атрибуте style</a>
-      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../styles-in-style/index.html" class="lesson-nav-btn lesson-nav-prev" title="Working with CSS styles in the style attribute">← Working with CSS styles in the style attribute</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../styled-components/index.html" class="lesson-nav-btn lesson-nav-next" title="Styled Components">Styled Components →</a>
     </div>
   </section>
@@ -183,7 +137,7 @@ const co3 = 'white';</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

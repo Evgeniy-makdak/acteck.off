@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод insertBefore — acteck.off</title>
-  <meta name="description" content="Метод insertBefore — учебные материалы по программированию.">
+  <title>insertBefore method - acteck.off</title>
+  <meta name="description" content="insertBefore method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,26 +36,16 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод insertBefore</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>insertBefore</code> позволяет вставить
-	элемент перед другим элементом. Чаще всего
-	используется после создания элемента с помощью
-	<a href="../createElement/index.html"><code data-gs="comd/c" data-x>createElement</code></a>.
-	Метод применяется к родителю того элемента,
-	перед которым произойдет вставка.
-</p>
+    <h1>insertBefore method</h1>
+    <p>Method<code data-gs="comd/c" data-x>insertBefore</code>allows you to insert an element before another element. Most often used after creating an element using<a href="../createElement/index.html"><code data-gs="comd/c" data-x>createElement</code></a>. The method is applied to the parent of the element before which the insertion will occur.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">родитель.insertBefore(элемент, перед кем вставить);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Создадим абзац и поместим его перед вторым
-	абзацем:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's create a paragraph and place it before the second paragraph:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;p&gt;elem 1&lt;/p&gt;
@@ -70,9 +60,7 @@ p.textContent = '!';
 
 parent.insertBefore(p, before);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;p&gt;elem 1&lt;/p&gt;
@@ -82,12 +70,8 @@ parent.insertBefore(p, before);</code>
 &lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Добавим абзац в начало элемента <code data-gs="comd/z" data-x>#parent</code>.
-	Для этого вставим наш абзац перед первым
-	потомком <code data-gs="comd/z" data-x>#parent</code>. Этого потомка можно
-	найти с помощью <a href="../firstElementChild/index.html"><code data-gs="comd/c" data-x>firstElementChild</code></a>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Add a paragraph to the beginning of the element<code data-gs="comd/z" data-x>#parent</code>. To do this, insert our paragraph before the first child<code data-gs="comd/z" data-x>#parent</code>. This child can be found using<a href="../firstElementChild/index.html"><code data-gs="comd/c" data-x>firstElementChild</code></a>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
@@ -101,9 +85,7 @@ p.textContent = '!';
 
 parent.insertBefore(p, parent.firstElementChild);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;p&gt;!&lt;/p&gt;
@@ -112,16 +94,8 @@ parent.insertBefore(p, parent.firstElementChild);</code>
 &lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	При передаче вторым параметром <code data-gs="comd/c" data-x>null</code> метод
-	<code data-gs="comd/c" data-x>insertBefore</code> срабатывает как <a href="../appendChild/index.html"><code data-gs="comd/c" data-x>appendChild</code></a>.
-	В то же время, если в элементе нет дочерних
-	элементов, <code data-gs="comd/c" data-x>firstElementChild</code> возвращает
-	<code data-gs="comd/c" data-x>null</code>. Следовательно, добавлять в начало элемента
-	можно даже тогда, когда в нем нет дочерних
-	элементов:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>When passing as the second parameter<code data-gs="comd/c" data-x>null</code>method<code data-gs="comd/c" data-x>insertBefore</code>works like<a href="../appendChild/index.html"><code data-gs="comd/c" data-x>appendChild</code></a>. At the same time, if the element has no child elements,<code data-gs="comd/c" data-x>firstElementChild</code>returns<code data-gs="comd/c" data-x>null</code>. Therefore, you can add to the beginning of an element even when it has no child elements:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let parent = document.querySelector('#parent');
@@ -131,34 +105,20 @@ p.textContent = '!';
 
 parent.insertBefore(p, parent.firstChild);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;p&gt;!&lt;/p&gt;
 &lt;/div&gt;</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../prepend/index.html"><code data-gs="comd/c" data-x>prepend</code></a>, <br>
-			который вставляет элементы в начало
-		</li>
-		<li>
-			метод <a href="../appendChild/index.html"><code data-gs="comd/c" data-x>appendChild</code></a>, <br>
-			который вставляет элементы в конец родителя
-		</li>
-		<li>
-			метод <a href="../insertAdjacentElement/index.html"><code data-gs="comd/c" data-x>insertAdjacentElement</code></a>, <br>
-			который вставляет элемент в заданное место
-		</li>
-		<li>
-			метод <a href="../insertAdjacentHTML/index.html"><code data-gs="comd/c" data-x>insertAdjacentHTML</code></a>, <br>
-			который вставляет теги в заданное место
-		</li>
+		<li>method<a href="../prepend/index.html"><code data-gs="comd/c" data-x>prepend</code></a>, <br>which inserts elements at the beginning</li>
+		<li>method<a href="../appendChild/index.html"><code data-gs="comd/c" data-x>appendChild</code></a>, <br>which inserts elements at the end of the parent</li>
+		<li>method<a href="../insertAdjacentElement/index.html"><code data-gs="comd/c" data-x>insertAdjacentElement</code></a>, <br>which inserts an element at a given location</li>
+		<li>method<a href="../insertAdjacentHTML/index.html"><code data-gs="comd/c" data-x>insertAdjacentHTML</code></a>, <br>which inserts tags at a given location</li>
 	</ul>
 </div>
   </section>
@@ -166,7 +126,7 @@ parent.insertBefore(p, parent.firstChild);</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

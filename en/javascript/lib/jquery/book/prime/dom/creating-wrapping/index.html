@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Создание и оборачивание элементов в jQuery — acteck.off</title>
-  <meta name="description" content="Создание и оборачивание элементов в jQuery — учебные материалы по программированию.">
+  <title>Creating and wrapping elements in jQuery - acteck.off</title>
+  <meta name="description" content="Creating and Wrapping Elements in jQuery - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Создание и оборачивание элементов в jQuery</h1>
-    <p>
-	Перед оборачиванием тегом можно предварительно создать
-	элемент в документе. Давайте обернем представленные
-	ниже абзацы в теги <code data-gs="comd/s" data-x>'&lt;div&gt;&lt;/div&gt;'</code>:
+    <h1>Creating and Wrapping Elements in jQuery</h1>
+    <p>Before wrapping a tag, you can first create the element in the document. Let's wrap the paragraphs below in tags<code data-gs="comd/s" data-x>'&lt;div&gt;&lt;/div&gt;'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="www"&gt;text&lt;/p&gt;
@@ -48,54 +45,34 @@
 &lt;p class="www"&gt;text&lt;/p&gt;
 &lt;p&gt;text&lt;/p&gt;</code>
 </div>
-<p>
-	Для этого можно предварительно создать элемент в
-	документе с помощью
-	<code data-gs="comd/c" data-x>document.createElement('div')</code>:
+<p>To do this, you can first create an element in the document using<code data-gs="comd/c" data-x>document.createElement('div')</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('.www').wrap(document.createElement('div'));</code>
 </div>
-<p>
-	Либо:
-</p>
+<p>Or:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div = document.createElement("div");
 $('.www').wrap(div);</code>
 </div>
-<p>
-	Параметром можно передавать не только имя
-	тега, но и такую конструкцию - <code data-gs="comd/s" data-x>'&lt;div&gt;&lt;/div&gt;'</code>
-	- в этом случае эффект будет абсолютно такой же:
-</p>
+<p>As a parameter, you can pass not only the name of the tag, but also the following construction:<code data-gs="comd/s" data-x>'&lt;div&gt;&lt;/div&gt;'</code>- in this case the effect will be exactly the same:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('.www').wrap('&lt;div&gt;&lt;/div&gt;');</code>
 </div>
-<p>
-	HTML код станет выглядеть так:
-</p>
+<p>The HTML code will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;&lt;p class="www"&gt;text&lt;/p&gt;&lt;/div&gt;
 &lt;div&gt;&lt;p class="www"&gt;text&lt;/p&gt;&lt;/div&gt;
 &lt;div&gt;&lt;p class="www"&gt;text&lt;/p&gt;&lt;/div&gt;
 &lt;p&gt;text&lt;/p&gt;</code>
 </div>
-<p>
-	При использовании второго способа, в
-	открывающий тег (в нашем случае <code data-gs="comd/s" data-x>'&lt;div&gt;'</code>)
-	можно писать любые атрибуты, при этом
-	оборачивание будет вместе с этими атрибутами.
-</p>
-<p>
-	Давайте обернем наши абзацы дивом с классом
-	<code data-gs="comd/z" data-x>zzz</code>:
+<p>When using the second method, in the opening tag (in our case<code data-gs="comd/s" data-x>'&lt;div&gt;'</code>) you can write any attributes, and the wrapping will be along with these attributes.</p>
+<p>Let's wrap our paragraphs in a div with a class<code data-gs="comd/z" data-x>zzz</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('.www').wrap('&lt;div class="zzz"&gt;&lt;/div&gt;');</code>
 </div>
-<p>
-	HTML код станет выглядеть так:
-</p>
+<p>The HTML code will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="zzz"&gt;&lt;p class="www"&gt;text&lt;/p&gt;&lt;/div&gt;
 &lt;div class="zzz"&gt;&lt;p class="www"&gt;text&lt;/p&gt;&lt;/div&gt;
@@ -103,22 +80,20 @@ $('.www').wrap(div);</code>
 &lt;p&gt;text&lt;/p&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Оберните каждый <code data-gs="comd/c" data-x>h3</code> в <code data-gs="comd/c" data-x>div</code>
-		с классом <code data-gs="comd/z" data-x>aaa</code>.
+	<p>Wrap each one<code data-gs="comd/c" data-x>h3</code>V<code data-gs="comd/c" data-x>div</code>with class<code data-gs="comd/z" data-x>aaa</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../wrapping/index.html" class="lesson-nav-btn lesson-nav-prev" title="Оборачивание элементов">← Оборачивание элементов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../unwrapping/index.html" class="lesson-nav-btn lesson-nav-next" title="Разворачивание элементов">Разворачивание элементов →</a>
+      <a href="../wrapping/index.html" class="lesson-nav-btn lesson-nav-prev" title="Wrapping elements">← Wrapping elements</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../unwrapping/index.html" class="lesson-nav-btn lesson-nav-next" title="Expanding elements">Expanding elements →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

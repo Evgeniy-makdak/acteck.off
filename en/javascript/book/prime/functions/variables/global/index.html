@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Глобальные переменные в функциях в JavaScript — acteck.off</title>
-  <meta name="description" content="Глобальные переменные в функциях в JavaScript — учебные материалы по программированию.">
+  <title>Global variables in functions in JavaScript - acteck.off</title>
+  <meta name="description" content="Global Variables in Functions in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,14 +36,8 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Глобальные переменные в функциях в JavaScript</h1>
-    <p>
-	В JavaScript (в других языках чаще всего
-	не так) переменные, определенные снаружи
-	функции, будут видны внутри этой функции.
-	Такие переменные называются <dfn data-gs="comd/d" data-x>глобальными</dfn>.
-	Посмотрим на примере:
-</p>
+    <h1>Global Variables in Functions in JavaScript</h1>
+    <p>In JavaScript (not often the case in other languages), variables defined outside a function will be visible inside that function. Such variables are called<dfn data-gs="comd/d" data-x>global</dfn>. Let's look at an example:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1; // переменная снаружи функции
 
@@ -53,10 +47,7 @@ function func() {
 
 func(); // выведет 1</code>
 </div>
-<p>
-	На самом деле переменная должна быть определена
-	не перед определением функции, а перед ее вызовом:
-</p>
+<p>In fact, the variable should not be defined before the function definition, but before it is called:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	console.log(num);
@@ -65,11 +56,7 @@ func(); // выведет 1</code>
 let num = 1; // переменная снаружи функции
 func();      // выведет 1</code>
 </div>
-<p>
-	Если менять значение переменной и после этого
-	каждый раз вызывать функцию - <code data-gs="comd/c" data-x>console.log</code> каждый
-	раз будет выводить разные результаты:
-</p>
+<p>If you change the value of a variable and then call the function each time -<code data-gs="comd/c" data-x>console.log</code>will produce different results each time:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	console.log(num);
@@ -83,11 +70,7 @@ func();  // выведет 1
 num = 2; // задаем значение 2
 func();  // выведет 2</code>
 </div>
-<p>
-	Если у нас несколько функций, то глобальная
-	переменная будет доступна в каждой из этих
-	функций:
-</p>
+<p>If we have several functions, then the global variable will be available in each of these functions:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func1() {
 	console.log(num);
@@ -102,12 +85,7 @@ let num = 1;
 func1(); // выведет 1
 func2(); // выведет 1</code>
 </div>
-<p>
-	Если в одной из функций произойдут изменения
-	с глобальной переменной, то эта переменная
-	поменяется во всех функциях, использующих
-	эту переменную:
-</p>
+<p>If changes occur to a global variable in one of the functions, then this variable will change in all functions that use this variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func1() {
 	console.log(num);
@@ -123,20 +101,9 @@ let num = 1;
 func1(); // выведет 1
 func2(); // выведет 2</code>
 </div>
-<p>
-	Так как любая из функций легко может поменять
-	глобальную переменную, то их использование
-	представляет собой рассадник трудноуловимых
-	ошибок. По этой причине использование глобальных
-	переменных в скрипте нужно сводить к минимуму.
-	Желательно, чтобы их вообще не было или было
-	самое минимальное количество.
-</p>
+<p>Since any of the functions can easily change a global variable, their use is a breeding ground for subtle errors. For this reason, the use of global variables in a script should be kept to a minimum. It is advisable that there should be none at all or a very minimal amount.</p>
 <div data-w="cont/task">
-	<p>
-		Определите, не запуская код, что выведется
-		в консоль:
-	</p>
+	<p>Determine, without running the code, what will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1;
 		
@@ -148,10 +115,7 @@ func();</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Определите, не запуская код, что выведется
-		в консоль:
-	</p>
+	<p>Determine, without running the code, what will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1;
 		
@@ -164,10 +128,7 @@ func();</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Определите, не запуская код, что выведется
-		в консоль:
-	</p>
+	<p>Determine, without running the code, what will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	console.log(num);
@@ -184,16 +145,16 @@ func();</code>
 </div>
   
     <div class="lesson-nav">
-      <a href="../../basis/practicum/index.html" class="lesson-nav-btn lesson-nav-prev" title="Практика на функции">← Практика на функции</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../local/index.html" class="lesson-nav-btn lesson-nav-next" title="Локальные переменные">Локальные переменные →</a>
+      <a href="../../basis/practicum/index.html" class="lesson-nav-btn lesson-nav-prev" title="Practice on functions">← Practice on functions</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../local/index.html" class="lesson-nav-btn lesson-nav-next" title="Local variables">Local variables →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

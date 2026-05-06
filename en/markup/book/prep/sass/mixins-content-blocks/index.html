@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Блоки контента в миксинах в SASS — acteck.off</title>
-  <meta name="description" content="Блоки контента в миксинах в SASS — учебные материалы по программированию.">
+  <title>Content blocks in mixins in SASS - acteck.off</title>
+  <meta name="description" content="Content blocks in mixins in SASS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,18 +33,12 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Блоки контента в миксинах в SASS</h1>
-    <p>
-	Для передачи блока стилей внутри
-	миксина используем директиву <code data-gs="comd/c" data-x>@content</code>,
-	на место которой и встанут нужные нам стили.
-</p>
-<p>
-	Рассмотрим пример:
-</p>
+    <h1>Content blocks in mixins in SASS</h1>
+    <p>To pass a block of styles inside a mixin, we use the directive<code data-gs="comd/c" data-x>@content</code>, in the place of which the styles we need will take place.</p>
+<p>Let's look at an example:</p>
 <div data-p="bock/pane" data-p-file="styles.scss">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin active {
 	* div {
@@ -58,21 +52,13 @@
 	}
 }</code>
 </div>
-<p>
-	Результат компиляции:
-</p>
+<p>Compilation result:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">* div #block {
 	color: red; 
 }</code>
 </div>
-<p>
-	Необходимо знать, что если
-	мы указываем директиву <code data-gs="comd/c" data-x>@content</code>
-	более одного раза или внутри цикла,
-	то столько же раз будет вызываться
-	и блок стилей.
-</p>
+<p>You need to know that if we specify a directive<code data-gs="comd/c" data-x>@content</code>more than once or inside a loop, the style block will be called the same number of times.</p>
 <div data-p="bock/pane" data-p-file="styles.scss">
 		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin active {
 	div {
@@ -91,9 +77,7 @@ navbar {
 	}
 }</code>
 </div>
-<p>
-	После компиляции мы увидим:
-</p>
+<p>After compilation we will see:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">div #block {
 	color: red; 
@@ -110,10 +94,7 @@ navbar button {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.scss">
 		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin super-link {
 	a {
@@ -127,10 +108,7 @@ navbar button {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.scss">
 		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin super-link {
 	a {
@@ -148,32 +126,25 @@ navbar button {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть у вас есть следующий миксин:
-	</p>
+	<p>Let's say you have the following mixin:</p>
 	<div data-p="bock/pane" data-p-file="styles.scss">
 		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@mixin colors {
 	...
 }</code>
 	</div>
-	<p>
-		Используя директиву <code data-gs="comd/c" data-x>@content</code>
-		установите для всех ссылок, относящихся
-		к <code data-gs="comd/z" data-x>#primary</code> синий цвет шрифта
-		и волнистое подчеркивание.
-	</p>
+	<p>Using the directive<code data-gs="comd/c" data-x>@content</code>set for all links related to<code data-gs="comd/z" data-x>#primary</code>blue font color and wavy underline.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../mixins-variables-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Переменные в параметрах">← Переменные в параметрах</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../scope-variables-content-blocks/index.html" class="lesson-nav-btn lesson-nav-next" title="Область видимости переменных и блоков контента">Область видимости переменных и блоков контента →</a>
+      <a href="../mixins-variables-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Variables in parameters">← Variables in parameters</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../scope-variables-content-blocks/index.html" class="lesson-nav-btn lesson-nav-next" title="Scope of Variables and Content Blocks">Scope of variables and content blocks →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

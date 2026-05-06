@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Абстрактные методы в ООП в TypeScript — acteck.off</title>
-  <meta name="description" content="Абстрактные методы в ООП в TypeScript — учебные материалы по программированию.">
+  <title>Abstract methods in OOP in TypeScript - acteck.off</title>
+  <meta name="description" content="Abstract Methods in OOP in TypeScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,30 +36,11 @@
       <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Абстрактные методы в ООП в TypeScript</h1>
-    <p>
-	Бывает такое, что у классов-потомков должен
-	быть общий метод, однако, реализация этого
-	метода зависит от конкретного потомка. В
-	этом случае этот метод можно объявить в
-	абстрактном классе родителя, не написав
-	его реализацию. И тогда потомки будут
-	обязаны реализовать эти методы. Такие
-	методы называются <dfn data-gs="comd/d" data-x>абстрактными</dfn> и
-	также объявляются с помощью ключевого слова
-	<code data-gs="comd/c" data-x>abstract</code>. 
+    <h1>Abstract methods in OOP in TypeScript</h1>
+    <p>It happens that descendant classes must have a common method, however, the implementation of this method depends on the specific descendant. In this case, this method can be declared in the abstract class of the parent without writing its implementation. And then descendants will be required to implement these methods. Such methods are called<dfn data-gs="comd/d" data-x>abstract</dfn>and are also declared using the keyword<code data-gs="comd/c" data-x>abstract</code>. 
 </p>
-<p>
-	Давайте для примера возьмем наш абстрактный
-	класс <code data-gs="comd/c" data-x>User</code>. Пусть наследники этого
-	класса обязательно должны иметь метод <code data-gs="comd/c" data-x>show</code>,
-	выводящий данные объекта. 
-</p>
-<p>
-	Реализация этого метода, однако, будет
-	зависит от потомка. Давайте в классе <code data-gs="comd/c" data-x>User</code>
-	объявим этот метод абстрактным: 
-</p>
+<p>Let's take our abstract class as an example<code data-gs="comd/c" data-x>User</code>. Let the heirs of this class must have a method<code data-gs="comd/c" data-x>show</code>, which displays the object's data.</p>
+<p>The implementation of this method, however, will depend on the child. Let's go to class<code data-gs="comd/c" data-x>User</code>Let's declare this method abstract:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">abstract class User {
 	public name: string;
@@ -71,8 +52,7 @@
 	public abstract show(): string;
 }</code>
 </div>
-<p>
-	Реализуем этот метод в классе-потомке <code data-gs="comd/c" data-x>Student</code>: 
+<p>Let's implement this method in the descendant class<code data-gs="comd/c" data-x>Student</code>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class Student extends User {
@@ -88,8 +68,7 @@
 	}
 }</code>
 </div>
-<p>
-	Реализуем этот метод в классе-потомке <code data-gs="comd/c" data-x>Employee</code>: 
+<p>Let's implement this method in the descendant class<code data-gs="comd/c" data-x>Employee</code>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class Employee extends User {
@@ -106,30 +85,22 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		В абстрактном классе <code data-gs="comd/c" data-x>Figure</code> сделайте
-		абстрактные методы для получения площади
-		и периметра. 
-	</p>
+	<p>In an abstract class<code data-gs="comd/c" data-x>Figure</code>make abstract methods to obtain area and perimeter.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		В классах-потомках <code data-gs="comd/c" data-x>Square</code> и
-		<code data-gs="comd/c" data-x>Rectangle</code> напишите реализацию этих
-		методов. 
-	</p>
+	<p>In descendant classes<code data-gs="comd/c" data-x>Square</code>And<code data-gs="comd/c" data-x>Rectangle</code>write an implementation of these methods.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../abstract-classes/index.html" class="lesson-nav-btn lesson-nav-prev" title="Абстрактные классы">← Абстрактные классы</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../interfaces/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction в интерфейсы">Introduction в интерфейсы →</a>
+      <a href="../abstract-classes/index.html" class="lesson-nav-btn lesson-nav-prev" title="Abstract classes">← Abstract classes</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../interfaces/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction to Interfaces">Introduction to Interfaces →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

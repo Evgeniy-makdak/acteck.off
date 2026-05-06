@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Неявные гриды в CSS — acteck.off</title>
-  <meta name="description" content="Неявные гриды в CSS — учебные материалы по программированию.">
+  <title>Implicit grids in CSS - acteck.off</title>
+  <meta name="description" content="Implicit Grids in CSS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,18 +33,13 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Неявные гриды в CSS</h1>
+    <h1>Implicit grids in CSS</h1>
     <p>
-	<dfn data-gs="comd/d" data-x>Неявный грид</dfn> создается браузером автоматически,
-	когда количество элементов не умещается в явную сетку.
-	Давайте посмотрим, как это происходит.
-</p>
-<p>
-	Пусть у нас есть четыре блока:
-</p>
+	<dfn data-gs="comd/d" data-x>Implicit Grid</dfn>created automatically by the browser when the number of elements does not fit into the explicit grid. Let's see how this happens.</p>
+<p>Let's say we have four blocks:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div id="elem1"&gt;1&lt;/div&gt;
@@ -53,9 +48,7 @@
 	&lt;div id="elem3"&gt;4&lt;/div&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Пусть наша сетка имеет размеры
-	<code data-gs="comd/n" data-x>3</code> на <code data-gs="comd/n" data-x>3</code>:
+<p>Let our grid have dimensions<code data-gs="comd/n" data-x>3</code>on<code data-gs="comd/n" data-x>3</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#parent {
@@ -64,10 +57,7 @@
 	grid-template-rows: 50px 50px 50px;
 }</code>
 </div>
-<p>
-	Разместим три наших блока
-	по сетке:
-</p>
+<p>Let's place our three blocks on the grid:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem1 {
 	grid-row: 1 / 2;
@@ -82,37 +72,16 @@
 	grid-column: 3 / 4;
 }</code>
 </div>
-<p>
-	А четверный блок разместим
-	в четвертом ряду и колонке:
-</p>
+<p>And we will place the quadruple block in the fourth row and column:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem4 {
 	grid-row: 4 / 5;
 	grid-column: 4 / 5;
 }</code>
 </div>
-<p>
-	Так как наша сетка размером
-	<code data-gs="comd/n" data-x>3</code> на <code data-gs="comd/n" data-x>3</code>, то такого
-	четвертого ряда и колонки в этой
-	сетке не будет. Но их не будет в <dfn data-gs="comd/d" data-x>явном</dfn> виде,
-	то есть в заданном нами. Но браузер
-	создаст их <dfn data-gs="comd/d" data-x>неявно</dfn>, то есть сам.
-</p>
-<p>
-	При этом, так размеры мы указали
-	только для явной сетки, то для
-	ячеек вне этой сетки размеры
-	будут рассчитаны браузером.
-	To есть в нашем случае размеры
-	четвертого блока будут заданы
-	браузером автоматически.
-</p>
-<p>
-	Давайте посмотрим, что у нас
-	получится:
-</p>
+<p>Since our grid size is<code data-gs="comd/n" data-x>3</code>on<code data-gs="comd/n" data-x>3</code>, then there will be no such fourth row and column in this grid. But they won't be in<dfn data-gs="comd/d" data-x>explicit</dfn>form, that is, in the form specified by us. But the browser will create them<dfn data-gs="comd/d" data-x>implicitly</dfn>, that is, himself.</p>
+<p>At the same time, since we specified the dimensions only for the explicit grid, then for cells outside this grid the dimensions will be calculated by the browser. That is, in our case, the dimensions of the fourth block will be set automatically by the browser.</p>
+<p>Let's see what we get:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div id="elem1"&gt;1&lt;/div&gt;
@@ -214,23 +183,19 @@
 					</div>
 				</div>
 <div data-w="cont/task">
-	<p>
-		Пусть в вашей сетке <code data-gs="comd/n" data-x>6</code> блоков.
-		Разместите <code data-gs="comd/n" data-x>3</code> блока в явной
-		сетке, а три блока в неявной.
-	</p>
+	<p>Let in your grid<code data-gs="comd/n" data-x>6</code>blocks. Place<code data-gs="comd/n" data-x>3</code>blocks in an explicit grid, and three blocks in an implicit one.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../explicit/index.html" class="lesson-nav-btn lesson-nav-prev" title="Явные гриды">← Явные гриды</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../implicit-sizes/index.html" class="lesson-nav-btn lesson-nav-next" title="Размерны неявных гридов">Размерны неявных гридов →</a>
+      <a href="../explicit/index.html" class="lesson-nav-btn lesson-nav-prev" title="Explicit Grids">← Explicit Grids</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../implicit-sizes/index.html" class="lesson-nav-btn lesson-nav-next" title="Dimensions of implicit grids">Dimensions of implicit grids →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

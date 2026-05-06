@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Статические свойства в TypeScript — acteck.off</title>
-  <meta name="description" content="Статические свойства в TypeScript — учебные материалы по программированию.">
+  <title>Static properties in TypeScript - acteck.off</title>
+  <meta name="description" content="Static Properties in TypeScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,15 +36,9 @@
       <a href="../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Статические свойства в TypeScript</h1>
-    <p>
-	Давайте посмотрим, как обращаться к
-	статическим свойствам внутри объектов. 
-</p>
-<p>
-	Пусть у нас есть следующий класс со
-	статическим свойством: 
-</p>
+    <h1>Static Properties in TypeScript</h1>
+    <p>Let's look at how to access static properties inside objects.</p>
+<p>Let's say we have the following class with a static property:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class User {
 	public name: string;
@@ -55,10 +49,7 @@
 	}
 }</code>
 </div>
-<p>
-	Давайте теперь сделаем метод, выводящий
-	общую зарплату: 
-</p>
+<p>Let's now make a method that prints the total salary:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class User {
 	public name: string;
@@ -73,10 +64,7 @@
 	}
 }</code>
 </div>
-<p>
-	Давайте теперь сделаем метод, изменяющий
-	общую зарплату: 
-</p>
+<p>Let's now make a method that changes the total salary:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class User {
 	public name: string;
@@ -95,50 +83,30 @@
 	}
 }</code>
 </div>
-<p>
-	Статические свойства будут общими для
-	разных объектов. Это значит, что при
-	изменении свойства в одном объекте, оно
-	поменяется в и другом. Проверим это. 
-</p>
-<p>
-	Создадим два объекта нашего класса: 
-</p>
+<p>Static properties will be shared across different objects. This means that when a property changes in one object, it will change in the other. Let's check it out.</p>
+<p>Let's create two objects of our class:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user1: User = new User('john');
 let user2: User = new User('eric');</code>
 </div>
-<p>
-	Давайте поменяем зарплату для первого
-	юзера: 
-</p>
+<p>Let's change the salary for the first user:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">user1.setSalary(2000);</code>
 </div>
-<p>
-	Проверим, что зарплата изменилась и для
-	второго юзера: 
-</p>
+<p>Let's check that the salary has changed for the second user:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">console.log(user2.getSalary()); // 2000</code>
 </div>
-<p>
-	Проверим, что зарплата также изменилась в
-	свойстве самого класса: 
-</p>
+<p>Let's check that the salary has also changed in the property of the class itself:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">console.log(User.salary); // 2000</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		В класс <code data-gs="comd/c" data-x>Student</code> добавьте статическое
-		свойство <code data-gs="comd/c" data-x>university</code>. Выведите данное
-		свойство без объявления объекта. 
-	</p>
+	<p>To class<code data-gs="comd/c" data-x>Student</code>add a static property<code data-gs="comd/c" data-x>university</code>. Print the given property without declaring an object.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -146,7 +114,7 @@ let user2: User = new User('eric');</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

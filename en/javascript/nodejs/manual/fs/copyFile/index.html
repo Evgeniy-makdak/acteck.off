@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод copyFile — acteck.off</title>
-  <meta name="description" content="Метод copyFile — учебные материалы по программированию.">
+  <title>copyFile method - acteck.off</title>
+  <meta name="description" content="The copyFile method is a programming tutorial.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,58 +36,36 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Метод copyFile</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>copyFile</code> копирует содержимое
-	выбранного файла в новый документ. В первом
-	параметре указывается исходный файл, во втором
-	параметре - куда его копируем, в третьем
-	необязательном параметре - режим копирования. В четвертом
-	необязательном параметре задаем коллбэк.
-</p>
+    <h1>copyFile method</h1>
+    <p>Method<code data-gs="comd/c" data-x>copyFile</code>copies the contents of the selected file to a new document. The first parameter specifies the source file, the second parameter specifies where to copy it, and the third optional parameter specifies the copy mode. In the fourth optional parameter we set the callback.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.copyFile(исходный файл, куда копируем, [модификаторы], [коллбэк]);</code>
 </div>
 
-<h2>Режимы копирования</h2>
+<h2>Copy modes</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Режим</th>
-		<th>Описание</th>
+		<th>Mode</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/s" data-x>fs.constants.COPYFILE_EXCL</code></th>
-		<td>
-			Указывает на то, что если имя файла назначения
-			уже существует операция копирования завершится неудачно.
-		</td>
+		<td>Indicates that if the destination file name already exists, the copy operation will fail.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/s" data-x>fs.constants.COPYFILE_FICLONE</code></th>
-		<td>
-			Указывает на то, что при копировании
-			будет сделана попытка создать ссылку копирования-записи.
-			Если платформа не поддерживает копирование при записи,
-			то будет использован механизм резервного копирования.
-		</td>
+		<td>Indicates that the copy will attempt to create a copy-write link. If the platform does not support copy-on-write, then the backup mechanism will be used.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/s" data-x>fs.constants.COPYFILE_FICLONE_FORCE</code></th>
-		<td>
-			Указывает на то, что при копировании
-			будет сделана попытка создать ссылку копирования-записи.
-			Если платформа не поддерживает копирование при записи, то
-			операция завершится неудачно.
-		</td>
+		<td>Indicates that the copy will attempt to create a copy-write link. If the platform does not support copy-on-write, the operation will fail.</td>
 	</tr>
 </table>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте асинхронно скопируем
-	файл через <code data-gs="comd/c" data-x>await</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's copy the file asynchronously via<code data-gs="comd/c" data-x>await</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -100,10 +78,8 @@ try {
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте асинхронно скопируем
-	файл через <code data-gs="comd/c" data-x>then</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's copy the file asynchronously via<code data-gs="comd/c" data-x>then</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -115,11 +91,8 @@ fs.copyFile('file1.txt', 'file2.txt').then(data =&gt; {
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте асинхронно скопируем
-	файл через коллбэк:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's copy the file asynchronously via a callback:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
 
@@ -132,10 +105,8 @@ fs.copyFile('file1.txt', 'file2.txt', function(err, data) {
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь давайте синхронно скопируем
-	файл через <code data-gs="comd/c" data-x>copyFileSync</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's synchronously copy the file via<code data-gs="comd/c" data-x>copyFileSync</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
@@ -148,22 +119,16 @@ try {
 }</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../cp/index.html"><code data-gs="comd/c" data-x>cp</code></a>, <br>
-			который копирует папку
-		</li>
-		<li>
-			метод <a href="../appendFile/index.html"><code data-gs="comd/c" data-x>appendFile</code></a>, <br>
-			который добавляет данные в файл
-		</li>
+		<li>method<a href="../cp/index.html"><code data-gs="comd/c" data-x>cp</code></a>, <br>which copies the folder</li>
+		<li>method<a href="../appendFile/index.html"><code data-gs="comd/c" data-x>appendFile</code></a>, <br>which adds data to the file</li>
 	</ul>
 </div>
         <div class="lesson-nav">
       <a href="../closeSync/index.html" class="lesson-nav-btn lesson-nav-prev" title="closeSync">← closeSync</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../cp/index.html" class="lesson-nav-btn lesson-nav-next" title="cp">cp →</a>
     </div>
   </section>
@@ -171,7 +136,7 @@ try {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

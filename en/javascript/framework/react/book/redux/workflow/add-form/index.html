@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Добавление формы в Redux — acteck.off</title>
-  <meta name="description" content="Добавление формы в Redux — учебные материалы по программированию.">
+  <title>Adding a form to Redux - acteck.off</title>
+  <meta name="description" content="Adding a Form to Redux - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,20 +36,9 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Добавление формы в Redux</h1>
-    <p>
-	На прошлом уроке мы узнали, что для полей
-	ввода формы можно применить стейты, которые
-	будут работать только внутри одного компонента,
-	и создали пустую форму.
-</p>
-<p>
-	Давайте внутри тегов <code data-gs="comd/c" data-x>form</code> разместим верстку
-	для каждого поля, в которое будет вноситься
-	информация. Первый инпут у нас будет отвечать
-	за название продукта и его верстка
-	будет такой:
-</p>
+    <h1>Adding a form to Redux</h1>
+    <p>In the last lesson, we learned that for form input fields you can apply states that will only work inside one component, and we created an empty form.</p>
+<p>Let's inside the tags<code data-gs="comd/c" data-x>form</code>We will place a layout for each field in which information will be entered. Our first input will be responsible for the name of the product and its layout will be like this:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;form&gt;
 	&lt;p&gt;
@@ -63,10 +52,7 @@
 	&lt;/p&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	Вторым у нас будет <code data-gs="comd/c" data-x>textarea</code> для описания
-	продукта:
-</p>
+<p>The second we will have<code data-gs="comd/c" data-x>textarea</code>for product description:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p&gt;
 	&lt;label htmlFor="productDesc"&gt;Description:&lt;/label&gt;
@@ -78,40 +64,22 @@
 	/&gt;
 &lt;/p&gt;</code>
 </div>
-<p>
-	Напишите сами код для двух оставшихся инпутов
-	для цены и количества с айди <code data-gs="comd/z" data-x>productPrice</code> и
-	<code data-gs="comd/z" data-x>productAmount</code> соответственно.
-</p>
-<p>
-	После всех четырех полей ввода перед
-	закрывающим тегом <code data-gs="comd/c" data-x>form</code> добавьте
-	кнопочку для сохранения:
-</p>
+<p>Write the code yourself for the two remaining inputs for price and quantity with ID<code data-gs="comd/z" data-x>productPrice</code>And<code data-gs="comd/z" data-x>productAmount</code>respectively.</p>
+<p>After all four input fields before the closing tag<code data-gs="comd/c" data-x>form</code>add a save button:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;button type="button"&gt;save&lt;/button&gt;</code>
 </div>
-<p>
-	Наш компонент с формой готов. Давайте отобразим
-	его на главной странице. Для этого откроем
-	файл <code data-gs="comd/p" data-x>root.jsx</code>, импортируем в него компонент:
-</p>
+<p>Our form component is ready. Let's display it on the main page. To do this, open the file<code data-gs="comd/p" data-x>root.jsx</code>, import the component into it:</p>
 <div data-p="bock/pane" data-p-file="app/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { NewProductForm } from '../parts/products/NewProductForm'</code>
 </div>
-<p>
-	И вставим его между тегом <code data-gs="comd/c" data-x>hr</code> и
-	компонентом <code data-gs="comd/c" data-x>ProductsList</code> вот так:
-</p>
+<p>And insert it between the tag<code data-gs="comd/c" data-x>hr</code>and component<code data-gs="comd/c" data-x>ProductsList</code>like this:</p>
 <div data-p="bock/pane" data-p-file="app/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;hr&gt;&lt;/hr&gt;
 &lt;NewProductForm /&gt;
 &lt;ProductsList /&gt;</code>
 </div>
-<p>
-	Запустим наше приложение и полюбуемся
-	на форму и список продуктов. Внесем
-	еще стили в <code data-gs="comd/p" data-x>index.css</code>:
+<p>Let's launch our application and admire the form and list of products. Let's add more styles to<code data-gs="comd/p" data-x>index.css</code>:
 </p>
 <div data-p="bock/pane" data-p-file="index.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#main-page {
@@ -136,29 +104,23 @@ form p {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Сделайте верстку для вашей формы, как
-		показано в уроке.
-	</p>
+	<p>Open your application with students. Layout your form as shown in the tutorial.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Добавьте законченный компонент <code data-gs="comd/c" data-x>NewStudentForm</code>
-		home страничку перед <code data-gs="comd/c" data-x>StudentsList</code>
+	<p>Add a Complete Component<code data-gs="comd/c" data-x>NewStudentForm</code>to the main page before<code data-gs="comd/c" data-x>StudentsList</code>
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../local-state/index.html" class="lesson-nav-btn lesson-nav-prev" title="Формы и локальные стейты">← Формы и локальные стейты</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../reducer-and-action/index.html" class="lesson-nav-btn lesson-nav-next" title="Редьюсер и action">Редьюсер и action →</a>
+      <a href="../local-state/index.html" class="lesson-nav-btn lesson-nav-prev" title="Forms and local states">← Forms and local states</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../reducer-and-action/index.html" class="lesson-nav-btn lesson-nav-next" title="Reducer and action">Reducer and action →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

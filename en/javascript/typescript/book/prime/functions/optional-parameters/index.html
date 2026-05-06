@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Необязательные параметры функций в TypeScript — acteck.off</title>
-  <meta name="description" content="Необязательные параметры функций в TypeScript — учебные материалы по программированию.">
+  <title>Optional Function Parameters in TypeScript - acteck.off</title>
+  <meta name="description" content="Optional Function Parameters in TypeScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,33 +36,16 @@
       <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Необязательные параметры функций в TypeScript</h1>
-    <p>
-	Можно сделать так, чтобы функция принимала
-	переменное число параметров. Для этого
-	нужно объявить часть параметров (или все)
-	необязательными. 
-</p>
-<p>
-	Чтобы указать, что параметр является
-	необязательным, после его имени нужно
-	поставить знак вопроса. 
-</p>
-<p>
-	Давайте в нашей функции объявим фамилию
-	необязательным параметром: 
-</p>
+    <h1>Optional Function Parameters in TypeScript</h1>
+    <p>You can make the function take a variable number of parameters. To do this, you need to declare some of the parameters (or all) optional.</p>
+<p>To indicate that a parameter is optional, place a question mark after its name.</p>
+<p>Let's declare last name as an optional parameter in our function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function func(first: string, last?: string) {
 	return first + ' ' + last;
 }</code>
 </div>
-<p>
-	Если при вызове функции необязательный
-	параметр не будет задан, он примет значение
-	<code data-gs="comd/c" data-x>undefined</code>. Давайте модифицируем
-	нашу функцию с учетом этого: 
-</p>
+<p>If an optional parameter is not specified when calling a function, it will take the value<code data-gs="comd/c" data-x>undefined</code>. Let's modify our function to take this into account:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function func(first: string, last?: string) {
 	if (last !== undefined) {
@@ -72,10 +55,7 @@
 	}
 }</code>
 </div>
-<p>
-	Можно упростить, используя короткую форму
-	проверки: 
-</p>
+<p>Can be simplified by using a short form of verification:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function func(first: string, last?: string) {
 	if (last) {
@@ -85,41 +65,28 @@
 	}
 }</code>
 </div>
-<p>
-	Давайте теперь воспользуемся нашей функцией.
-	Вызовем ее с двумя параметрами: 
-</p>
+<p>Let's now use our function. Let's call it with two parameters:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">func('john', 'smit'); // вернет 'john smit'</code>
 </div>
-<p>
-	Вызовем ее с одним параметром: 
-</p>
+<p>Let's call it with one parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">func('john'); // вернет 'john'</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте функцию, которая принимать
-		параметрами день, месяц и год, и возвращать
-		день недели, соответствующий этой дате.
-		Пусть все три параметра будут не обязательными.
-		Если какой-то параметр не передан, он
-		должен принять значение, соответствующее
-		текущей дате. 
-	</p>
+	<p>Make a function that takes day, month, and year as parameters and returns the day of the week corresponding to that date. Let all three parameters be optional. If any parameter is not passed, it must take the value corresponding to the current date.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../parameters-quantity/index.html" class="lesson-nav-btn lesson-nav-prev" title="Количество параметров">← Количество параметров</a>
-      <a href="../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../default-parameters-values/index.html" class="lesson-nav-btn lesson-nav-next" title="Значения параметров по умолчанию">Значения параметров по умолчанию →</a>
+      <a href="../parameters-quantity/index.html" class="lesson-nav-btn lesson-nav-prev" title="Number of parameters">← Number of parameters</a>
+      <a href="../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../default-parameters-values/index.html" class="lesson-nav-btn lesson-nav-next" title="Default Parameter Values">Default parameter values ​​→</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

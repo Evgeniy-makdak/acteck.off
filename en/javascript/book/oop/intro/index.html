@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Introduction в классы и объекты в JavaScript — acteck.off</title>
-  <meta name="description" content="Introduction в классы и объекты в JavaScript — учебные материалы по программированию.">
+  <title>Introduction to Classes and Objects in JavaScript - acteck.off</title>
+  <meta name="description" content="Introduction to Classes and Objects in JavaScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,57 +36,21 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Introduction в классы и объекты в JavaScript</h1>
-    <p>
-	Сейчас мы займемся изучением ООП в
-	JavaScript. Давайте рассмотрим пример из жизни,
-	а потом перенесем его на JavaScript.
-</p>
-<p>
-	В качестве примера возьмем автомобиль. У
-	него есть колеса, цвет, вид кузова, объем
-	двигателя и так далее. Кроме того, водитель
-	может отдавать ему команды: ехать, остановится,
-	повернуть направо, налево и тп.
-</p>
-<p>
-	Можно говорить о том, что существует некоторый
-	<dfn data-gs="comd/d" data-x>класс</dfn> автомобилей, обладающий общими
-	свойствами (у всех есть колеса и всем им
-	можно отдавать команды).
-</p>
-<p>
-	Конкретный автомобиль, стоящий на улице -
-	это представитель этого класса, или, другими
-	словами, <dfn data-gs="comd/d" data-x>объект</dfn> этого класса. У всех
-	объектов этого класса есть <dfn data-gs="comd/d" data-x>свойства</dfn>:
-	количество колес, цвет, вид кузова и <dfn data-gs="comd/d" data-x>методы</dfn>:
-	ехать, остановится, повернуть направо, налево.
-</p>
-<p>
-	Другими словами сам класс - это чертеж, по
-	которым на заводе делаются автомобили. Объект
-	же - это сама машина, сделанная по этим чертежам.
-</p>
-<p>
-	В JavaScript класс создается с помощью ключевого
-	слова <code data-gs="comd/c" data-x>class</code>, за которым следует название
-	этого класса. Давайте сделаем класс <code data-gs="comd/c" data-x>Car</code>:
+    <h1>Introduction to Classes and Objects in JavaScript</h1>
+    <p>Now we will study OOP in JavaScript. Let's look at a real-life example and then transfer it to JavaScript.</p>
+<p>Let's take a car as an example. It has wheels, color, body style, engine size, and so on. In addition, the driver can give him commands: drive, stop, turn right, left, etc.</p>
+<p>It can be said that there is some<dfn data-gs="comd/d" data-x>Class</dfn>cars that have common properties (they all have wheels and commands can be given to all of them).</p>
+<p>A particular car standing on the street is a representative of this class, or, in other words,<dfn data-gs="comd/d" data-x>object</dfn>this class. All objects of this class have<dfn data-gs="comd/d" data-x>properties</dfn>: number of wheels, color, body type and<dfn data-gs="comd/d" data-x>methods</dfn>: drive, stop, turn right, left.</p>
+<p>In other words, the class itself is a drawing according to which cars are made at the factory. The object is the machine itself, made according to these drawings.</p>
+<p>In JavaScript, a class is created using a keyword<code data-gs="comd/c" data-x>class</code>followed by the name of that class. Let's make a class<code data-gs="comd/c" data-x>Car</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class Car {
 	// тут код, то есть JavaScript-чертеж автомобиля
 }</code>
 </div>
-<p>
-	Укажем теперь в нашем чертеже, что любой
-	автомобиль, созданный по этому чертежу, будет
-	иметь свойство для цвета и свойство для количества
-	топлива.
-</p>
-<p>
-	Для этого внутри класса напишем свойство
-	<code data-gs="comd/c" data-x>color</code> и свойство <code data-gs="comd/c" data-x>fuel</code>:
+<p>Let us now indicate in our drawing that any car created according to this drawing will have a property for color and a property for the amount of fuel.</p>
+<p>To do this, we will write a property inside the class<code data-gs="comd/c" data-x>color</code>and property<code data-gs="comd/c" data-x>fuel</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class Car {
@@ -94,16 +58,9 @@
 	fuel;  // количество топлива
 }</code>
 </div>
-<p>
-	Давайте теперь сделаем методы нашего класса.
-	В JavaScript методы похожи на обычные функции,
-	только объявляются без ключевого слова <code data-gs="comd/c" data-x>function</code>.
+<p>Let's now make the methods of our class. In JavaScript, methods are similar to regular functions, only they are declared without a keyword.<code data-gs="comd/c" data-x>function</code>.
 </p>
-<p>
-	Как уже упоминалось выше, наш автомобиль
-	может ехать, может поворачивать, может останавливаться.
-	Сделаем соответствующие методы в нашем классе:
-</p>
+<p>As mentioned above, our car can drive, can turn, and can stop. Let's create the corresponding methods in our class:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class Car {
 	color; // цвет автомобиля
@@ -125,55 +82,25 @@
 	}
 }</code>
 </div>
-<p>
-	Мы с вами сделали чертеж нашего автомобиля.
-	Теперь нужно отправится на завод и сделать
-	объект этого класса (то есть конкретный автомобиль).
-</p>
-<p>
-	В JavaScript это делается с помощью ключевого слова
-	<code data-gs="comd/c" data-x>new</code>, после которого пишется имя класса:
-</p>
+<p>We made a drawing of our car. Now you need to go to the factory and make an object of this class (that is, a specific car).</p>
+<p>In JavaScript this is done using a keyword<code data-gs="comd/c" data-x>new</code>followed by the class name:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">new Car; // командуем заводу сделать автомобиль</code>
 </div>
-<p>
-	Однако, если просто создать объект класса
-	- это ни к чему не приведет (это все равно,
-	что, к примеру, объявить массив и никуда
-	его не записать). Нам нужна переменная для
-	хранения этого объекта.
-</p>
-<p>
-	Пусть эта переменная будет называться <code data-gs="comd/c" data-x>myCar</code>
-	- запишем в нее созданный нами объект:
-</p>
+<p>However, if you simply create an object of a class, it will lead to nothing (it’s the same as, for example, declaring an array and not writing it anywhere). We need a variable to store this object.</p>
+<p>Let this variable be called<code data-gs="comd/c" data-x>myCar</code>- write the object we created into it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let myCar = new Car;</code>
 </div>
-<p>
-	После создания автомобиля можно обращаться
-	к его свойствам. Обращение к ним происходит
-	через точку. Давайте установим
-	свойства нашего объекта:
-</p>
+<p>After creating a car, you can access its properties. They are addressed through a dot. Let's set the properties of our object:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let myCar = new Car; // командуем заводу сделать автомобиль
 
 myCar.color = 'red'; // красим в красный цвет
 myCar.fuel = 50;     // заливаем топливо</code>
 </div>
-<p>
-	Все, наш автомобиль создан, покрашен и заправлен.
-	Теперь мы можем отдавать ему команды через
-	методы этого автомобиля.
-</p>
-<p>
-	Обращение к методам также происходит через
-	точку, но, в отличие от свойства, после
-	имени метода следует писать круглые скобки.
-	Давайте покомандуем нашим объектом:
-</p>
+<p>That's it, our car is created, painted and fueled. Now we can give it commands through the methods of this car.</p>
+<p>Methods are also accessed through a dot, but, unlike a property, parentheses should be written after the method name. Let's command our object:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">myCar.go();
 myCar.turn();
@@ -181,16 +108,16 @@ myCar.stop();</code>
 </div>
   
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../classes-objects/index.html" class="lesson-nav-btn lesson-nav-next" title="Классы и объекты">Классы и объекты →</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../classes-objects/index.html" class="lesson-nav-btn lesson-nav-next" title="Classes and objects">Classes and objects →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

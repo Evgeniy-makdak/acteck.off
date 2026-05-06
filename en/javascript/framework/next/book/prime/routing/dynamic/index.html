@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Динамические роуты в NextJS — acteck.off</title>
-  <meta name="description" content="Динамические роуты в NextJS — учебные материалы по программированию.">
+  <title>Dynamic routes in NextJS - acteck.off</title>
+  <meta name="description" content="Dynamic routes in NextJS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,36 +36,13 @@
       <a href="../../../../../../../../en/next/index.html">Next.js</a>
     </div>
 
-    <h1>Динамические роуты в NextJS</h1>
-    <p>
-	В NextJS можно создавать <dfn data-gs="comd/d" data-x>динамические</dfn>
-	роуты. Такие роуты предполагают,
-	что часть URL может иметь произвольное
-	значение. Для примера возьмем адрес
-	<code data-gs="comd/p" data-x>/users/1</code>, в котором вместо
-	единицы может быть любое число,
-	технически соответствующее id юзера,
-	которого мы хотим вывести.
+    <h1>Dynamic routes in NextJS</h1>
+    <p>In NextJS you can create<dfn data-gs="comd/d" data-x>dynamic</dfn>routes. Such routes assume that part of the URL can have an arbitrary value. For example, let's take the address<code data-gs="comd/p" data-x>/users/1</code>, in which instead of one there can be any number that technically corresponds to the id of the user we want to display.</p>
+<p>This way we don't need to create multiple folders for every possible number. It is enough to declare this part of the address dynamic. In this case, all requests of this type will be processed by a common file<code data-gs="comd/p" data-x>page.jsx</code>.
 </p>
-<p>
-	В этом случае нам не нужно создавать
-	множество папок для каждого возможного
-	числа. Достаточно объявить эту часть
-	адреса динамической. В этом случае
-	все запросы такого вида будет
-	обрабатывать общий файл <code data-gs="comd/p" data-x>page.jsx</code>.
-</p>
-<p>
-	Для того, чтобы сделать динамический
-	параметр, нужно имя соответствующей папки
-	взять в квадратные скобки.
-	В нашем случае это будет следующая
-	структура папок:
-</p>
+<p>In order to make a dynamic parameter, you need to put the name of the corresponding folder in square brackets. In our case, this will be the following folder structure:</p>
 <div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/app/<ul><li data-s-type="D">/users/<ul><li data-s-type="D">/[id]/</li></ul></li></ul></li></ul></div></div>
-<p>
-	Давайте сделаем соответствующий компонент:
-</p>
+<p>Let's make the corresponding component:</p>
 <div data-p="bock/pane" data-p-file="app/users/[id]/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function User() {
 	return &lt;p&gt;
@@ -73,11 +50,7 @@
 	&lt;/p&gt;;
 }</code>
 </div>
-<p>
-	При этом заданный нами параметр будет
-	храниться в специальном объекте <code data-gs="comd/c" data-x>params</code>.
-	Давайте выведем значение этого параметра:
-</p>
+<p>In this case, the parameter we set will be stored in a special object<code data-gs="comd/c" data-x>params</code>. Let's print the value of this parameter:</p>
 <div data-p="bock/pane" data-p-file="app/users/[id]/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function User({ params }) {
 	return &lt;p&gt;
@@ -86,29 +59,14 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте роут, обрабатывающий адреса
-		вида <code data-gs="comd/p" data-x>/city/:name</code>, где вместо <code data-gs="comd/p" data-x>:name</code>
-		может быть любая строка.
-	</p>
+	<p>Make a route that processes addresses like<code data-gs="comd/p" data-x>/city/:name</code>, where instead<code data-gs="comd/p" data-x>:name</code>can be any string.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте роут, обрабатывающий адреса
-		вида <code data-gs="comd/p" data-x>/show/:country/:city</code>,
-		где вместо <code data-gs="comd/p" data-x>:country</code> и <code data-gs="comd/p" data-x>:city</code>
-		могут быть любые строки.
-	</p>
+	<p>Make a route that processes addresses like<code data-gs="comd/p" data-x>/show/:country/:city</code>, where instead<code data-gs="comd/p" data-x>:country</code>And<code data-gs="comd/p" data-x>:city</code>can be any strings.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте роут, обрабатывающий адреса
-		вида <code data-gs="comd/p" data-x>/post/:id</code>, где вместо <code data-gs="comd/p" data-x>:id</code>
-		может быть любое число.
-	</p>
-	<p>
-		Пусть дан следующий массив:
-	</p>
+	<p>Make a route that processes addresses like<code data-gs="comd/p" data-x>/post/:id</code>, where instead<code data-gs="comd/p" data-x>:id</code>can be any number.</p>
+	<p>Let the following array be given:</p>
 	<div data-p="bock/pane" data-p-file="page.jsx">
 		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let posts = [
 	'post1',
@@ -122,21 +80,11 @@ export default function Post() {
 	
 }</code>
 	</div>
-	<p>
-		Сделайте так, чтобы в зависимости от
-		значения параметра <code data-gs="comd/c" data-x>id</code> в верстке
-		компонента выводился соответствующий пост.
-	</p>
+	<p>Make sure that depending on the parameter value<code data-gs="comd/c" data-x>id</code>the corresponding post was displayed in the component layout.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте роут, обрабатывающий адреса
-		вида <code data-gs="comd/p" data-x>/prod/:id</code>, где вместо <code data-gs="comd/p" data-x>:id</code>
-		может быть любое число.
-	</p>
-	<p>
-		Пусть дан следующий массив:
-	</p>
+	<p>Make a route that processes addresses like<code data-gs="comd/p" data-x>/prod/:id</code>, where instead<code data-gs="comd/p" data-x>:id</code>can be any number.</p>
+	<p>Let the following array be given:</p>
 	<div data-p="bock/pane" data-p-file="page.jsx">
 		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let prods = [
 	{
@@ -160,23 +108,19 @@ export default function Prod() {
 	
 }</code>
 	</div>
-	<p>
-		Сделайте так, чтобы в зависимости от
-		значения параметра <code data-gs="comd/c" data-x>id</code> в верстке
-		компонента выводился соответствующий продукт.
-	</p>
+	<p>Make sure that depending on the parameter value<code data-gs="comd/c" data-x>id</code>the corresponding product was displayed in the component layout.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../nested/index.html" class="lesson-nav-btn lesson-nav-prev" title="Вложенные роуты">← Вложенные роуты</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../segments-array/index.html" class="lesson-nav-btn lesson-nav-next" title="Массив сегментов">Массив сегментов →</a>
+      <a href="../nested/index.html" class="lesson-nav-btn lesson-nav-prev" title="Nested routes">← Nested routes</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../segments-array/index.html" class="lesson-nav-btn lesson-nav-next" title="Segment Array">Segment array →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Асинхронная работа с fs через then в NodeJS — acteck.off</title>
-  <meta name="description" content="Асинхронная работа с fs через then в NodeJS — учебные материалы по программированию.">
+  <title>Asynchronous work with fs via then in NodeJS - acteck.off</title>
+  <meta name="description" content="Asynchronous work with fs via then in NodeJS - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,39 +36,23 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Асинхронная работа с fs через then в NodeJS</h1>
-    <p>
-	С методами модуля <code data-gs="comd/c" data-x>fs</code> асинхронно можно
-	работать не только через коллбэки, но и через
-	промисы. Для этого есть специальное свойство
-	<code data-gs="comd/c" data-x>promises</code>, содержащее в себе промисные
-	аналоги методов для работы с файловой системой.
-	К примеру, для метода <code data-gs="comd/c" data-x>fs.readFile</code>
-	его промисный аналог будет <code data-gs="comd/c" data-x>fs.promises.readFile</code>.
+    <h1>Asynchronous work with fs via then in NodeJS</h1>
+    <p>With module methods<code data-gs="comd/c" data-x>fs</code>You can work asynchronously not only through callbacks, but also through promises. There is a special property for this<code data-gs="comd/c" data-x>promises</code>, containing promise analogues of methods for working with the file system. For example, for the method<code data-gs="comd/c" data-x>fs.readFile</code>its promise analogue will be<code data-gs="comd/c" data-x>fs.promises.readFile</code>.
 </p>
 
-<h2>Чтение файлов</h2>
-<p>
-	Давайте выведем в консоль содержимое какого-нибудь
-	файла:
-</p>
+<h2>Reading files</h2>
+<p>Let's output the contents of a file to the console:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.promises.readFile('readme.txt', 'utf8').then(data =&gt; {
 	console.log(data);
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть в файле записано число. Прочитайте
-		этот файл и выведите в консоль сумму цифр
-		этого числа.
-	</p>
+	<p>Let the file contain a number. Read this file and print the sum of the digits of this number to the console.</p>
 </div>
 
-<h2>Обработка исключений</h2>
-<p>
-	Добавим теперь обработку исключительных ситуаций:
-</p>
+<h2>Exception Handling</h2>
+<p>Let's now add exception handling:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.promises.readFile('readme.txt', 'utf8').then(data =&gt; {
 	console.log(data);
@@ -77,19 +61,11 @@
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Попробуйте прочитать несуществующий файл.
-		Убедитесь, что при этом произойдет исключительная
-		ситуация. Допишите ваш код так, чтобы он
-		обрабатывал эту ситуацию.
-	</p>
+	<p>Try reading a non-existent file. Make sure that this throws an exception. Modify your code to handle this situation.</p>
 </div>
 
-<h2>Чтение и запись</h2>
-<p>
-	Можно прочитать файл, что-то сделать с его
-	текстом, а потом записать обратно:
-</p>
+<h2>Read and write</h2>
+<p>You can read a file, do something with its text, and then write it back:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.promises.readFile('readme.txt', 'utf8').then(data =&gt; {
 	return fs.promises.writeFile('readme.txt', data + '!');
@@ -98,39 +74,17 @@
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть в файле через запятую записаны числа.
-		Сделайте скрипт, который запишет каждое из
-		этих чисел в отдельный файл.
-	</p>
+	<p>Let the numbers be written in the file separated by commas. Make a script that will write each of these numbers to a separate file.</p>
 </div>
 
-<h2>Массовая работа</h2>
-<p>
-	Пусть у нас есть несколько файлов. Давайте
-	прочитаем эти файлы, сольем их текст в одну
-	строку и запишем ее в новый файл.
-</p>
-<p>
-	В отличие от коллбэков, в данном случае нам
-	нет нужды выполнять чтение файлов по очереди.
-	При работе с промисами мы можем записать
-	все промисы для чтения файлов в массив, а
-	потом воспользоваться <code data-gs="comd/c" data-x>Promise.all</code>,
-	чтобы осуществить запись в файл только тогда,
-	когда все файлы будут прочитаны.
-</p>
-<p>
-	Давайте сделаем это. Пусть имена файлов у
-	нас есть в виде массива:
-</p>
+<h2>Mass work</h2>
+<p>Let's say we have several files. Let's read these files, merge their text into one line and write it to a new file.</p>
+<p>Unlike callbacks, in this case we do not need to read files one by one. When working with promises, we can write all promises for reading files into an array, and then use<code data-gs="comd/c" data-x>Promise.all</code>to write to a file only when all files have been read.</p>
+<p>Let's do this. Let us have the file names in the form of an array:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let names = ['1.txt', '2.txt', '3.txt'];</code>
 </div>
-<p>
-	Запустим цикл, в котором будем читать файлы,
-	записывая промисы с результатами в массив:
-</p>
+<p>Let's start a loop in which we will read files, writing promises with the results to an array:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let names = ['1.txt', '2.txt', '3.txt'];
 let files = [];
@@ -141,18 +95,13 @@ for (let name of names) {
 
 console.log(files); // массив промисов</code>
 </div>
-<p>
-	Имея такой массив, мы можем вызвать <code data-gs="comd/c" data-x>then</code>
-	только один раз, когда все промисы выполнятся:
-</p>
+<p>Given such an array, we can call<code data-gs="comd/c" data-x>then</code>only once, when all promises are fulfilled:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">Promise.all(files).then(data =&gt; {
 	fs.promises.writeFile('res.txt', data.join(''));
 });</code>
 </div>
-<p>
-	Добавим обработку исключительных ситуаций:
-</p>
+<p>Let's add exception handling:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">Promise.all(files).then(data =&gt; {
 	fs.promises.writeFile('res.txt', data.join(''));
@@ -160,9 +109,7 @@ console.log(files); // массив промисов</code>
 	console.log('что-то пошло не так');
 });</code>
 </div>
-<p>
-	Соберем весь наш код вместе:
-</p>
+<p>Let's put all our code together:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let names = ['1.txt', '2.txt', '3.txt'];
 let files = [];
@@ -178,22 +125,19 @@ Promise.all(files).then(data =&gt; {
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть у вас есть <code data-gs="comd/n" data-x>5</code> файлов с числами.
-		Найдите сумму этих чисел и запишите в новый файл.
-	</p>
+	<p>Let you have<code data-gs="comd/n" data-x>5</code>files with numbers. Find the sum of these numbers and write it to a new file.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../callbacks/index.html" class="lesson-nav-btn lesson-nav-prev" title="Асинхронная работа с fs через коллбэки">← Асинхронная работа с fs через коллбэки</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../async-await/index.html" class="lesson-nav-btn lesson-nav-next" title="Асинхронная работа с fs через async-await">Асинхронная работа с fs через async-await →</a>
+      <a href="../callbacks/index.html" class="lesson-nav-btn lesson-nav-prev" title="Asynchronous work with fs through callbacks">← Asynchronous work with fs through callbacks</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../async-await/index.html" class="lesson-nav-btn lesson-nav-next" title="Asynchronous work with fs via async-await">Asynchronous work with fs via async-await →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

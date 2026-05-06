@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Параметры маршрутов в Express — acteck.off</title>
-  <meta name="description" content="Параметры маршрутов в Express — учебные материалы по программированию.">
+  <title>Route parameters in Express - acteck.off</title>
+  <meta name="description" content="Route Parameters in Express - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Параметры маршрутов в Express</h1>
-    <p>
-	Пусть у нас есть следующий набор маршрутов:
-</p>
+    <h1>Route options in Express</h1>
+    <p>Let's say we have the following set of routes:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/test/1/', function(req, res) {
 	res.send('1');
@@ -53,79 +51,50 @@ app.get('/test/3/', function(req, res) {
 	res.send('3');
 });</code>
 </div>
-<p>
-	Несложно заметить, что эти маршруты строятся
-	по одному шаблону: сначала идет <code data-gs="comd/p" data-x>/test/</code>,
-	а потом некоторое число. Express позволяет
-	группировать такие маршруты с помощью <dfn data-gs="comd/d" data-x>параметров</dfn>.
+<p>It is easy to notice that these routes are built according to the same pattern: first comes<code data-gs="comd/p" data-x>/test/</code>, and then some number. Express allows you to group such routes using<dfn data-gs="comd/d" data-x>parameters</dfn>.
 </p>
-<p>
-	Параметры позволяют положить часть адреса
-	в переменную. В этом случае получится, что наш маршрут
-	будет обрабатывать не один адрес, а целую
-	группу адресов. К примеру, укажем параметр
-	с именем <code data-gs="comd/c" data-x>num</code>:
+<p>Parameters allow you to put part of an address into a variable. In this case, it turns out that our route will process not one address, but a whole group of addresses. For example, let's specify a parameter with the name<code data-gs="comd/c" data-x>num</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/test/:num/', function(req, res) {
 	
 });</code>
 </div>
-<p>
-	Переданные параметры содержатся в свойстве
-	<code data-gs="comd/c" data-x>params</code> объекта запроса. Давайте выведем
-	в консоль значение нашего параметра:
-</p>
+<p>The passed parameters are contained in the property<code data-gs="comd/c" data-x>params</code>request object. Let's print the value of our parameter to the console:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/test/:num/', function(req, res) {
 	console.log(req.params.num);
 });</code>
 </div>
-<p>
-	А теперь давайте отправим полученный параметр
-	назад в браузер:
-</p>
+<p>Now let's send the resulting parameter back to the browser:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/test/:num/', function(req, res) {
 	res.send(req.params.num);
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Передайте в маршруте какое-нибудь число.
-		В качестве ответа верните в браузер квадрат
-		этого числа.
-	</p>
+	<p>Pass some number in the route. As an answer, return the square of this number to the browser.</p>
 </div>
 
-<h2>Несколько параметров маршрута</h2>
-<p>
-	Можно добавить в маршрут не один, а несколько
-	параметров:
-</p>
+<h2>Multiple route options</h2>
+<p>You can add more than one parameter to a route:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/test/:num1/:num2/', function(req, res) {
 	res.send(req.params.num1 + ' ' + req.params.num2);
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Передайте в маршруте два числа. В качестве
-		ответа верните в браузер сумму этих чисел.
-	</p>
+	<p>Pass two numbers in the route. As an answer, return the sum of these numbers to the browser.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Передайте в маршруте три числа. В качестве
-		ответа верните в браузер сумму этих чисел.
-	</p>
+	<p>Pass three numbers in the route. As an answer, return the sum of these numbers to the browser.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

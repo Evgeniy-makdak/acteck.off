@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Однократная работа итераторов в JavaScript — acteck.off</title>
-  <meta name="description" content="Однократная работа итераторов в JavaScript — учебные материалы по программированию.">
+  <title>Making iterators work once in JavaScript - acteck.off</title>
+  <meta name="description" content="Making iterators work once in JavaScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,18 +36,9 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Однократная работа итераторов в JavaScript</h1>
-    <p>
-	Каждый итератор может участвовать в цикле
-	лишь один раз. Это немного неожиданно,
-	но логично - ведь пройденный итератор
-	устанавливает свое <code data-gs="comd/s" data-x>done</code> в <code data-gs="comd/c" data-x>false</code>,
-	а значит не может больше перебираться.
-</p>
-<p>
-	Давайте убедимся в этом.
-	Пусть у нас есть следующий генератор:
-</p>
+    <h1>Iterators work once in JavaScript</h1>
+    <p>Each iterator can loop only once. This is a little unexpected, but logical - after all, the traversed iterator establishes its<code data-gs="comd/s" data-x>done</code>V<code data-gs="comd/c" data-x>false</code>, which means he can no longer move.</p>
+<p>Let's make sure of this. Let us have the following generator:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function *func() {
 	yield 1;
@@ -55,24 +46,17 @@
 	yield 3;
 }</code>
 </div>
-<p>
-	Сделаем итератор:
-</p>
+<p>Let's make an iterator:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let iter = func();</code>
 </div>
-<p>
-	Переберем итератор одним циклом:
-</p>
+<p>Let's go through the iterator in one loop:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of iter) {
 	console.log(elem); // 1, 2, 3
 }</code>
 </div>
-<p>
-	А теперь переберем итератор
-	двумя циклами:
-</p>
+<p>Now let’s iterate through the iterator in two loops:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of iter) {
 	console.log(elem); // 1, 2, 3
@@ -81,10 +65,7 @@ for (let elem of iter) {
 	console.log(elem); // не работает
 }</code>
 </div>
-<p>
-	Для решения проблемы нужно для каждого
-	нового цикла создавать свой итератор:
-</p>
+<p>To solve the problem, you need to create your own iterator for each new loop:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let iter1 = func();
 for (let elem of iter1) {
@@ -96,9 +77,7 @@ for (let elem of iter2) {
 	console.log(elem); // 1, 2, 3
 }</code>
 </div>
-<p>
-	Можем упростить:
-</p>
+<p>We can simplify:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of func()) {
 	console.log(elem); // 1, 2, 3
@@ -109,10 +88,7 @@ for (let elem of func()) {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Исправьте ошибку, допущенную
-		в следующем коде:
-	</p>
+	<p>Correct the error in the following code:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function *func() {
 	for (let i = 1; i &lt;= 3; i++) {
@@ -132,16 +108,16 @@ for (let elem of elems) {
 </div>
   
     <div class="lesson-nav">
-      <a href="../generators-loops/index.html" class="lesson-nav-btn lesson-nav-prev" title="Циклы в генераторах">← Циклы в генераторах</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../object/index.html" class="lesson-nav-btn lesson-nav-next" title="Итератор объекта">Итератор объекта →</a>
+      <a href="../generators-loops/index.html" class="lesson-nav-btn lesson-nav-prev" title="Cycles in generators">← Cycles in generators</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../object/index.html" class="lesson-nav-btn lesson-nav-next" title="Object Iterator">Object Iterator →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

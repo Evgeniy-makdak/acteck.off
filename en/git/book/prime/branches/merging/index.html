@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Слияние веток в Git — acteck.off</title>
-  <meta name="description" content="Слияние веток в Git — учебные материалы по программированию.">
+  <title>Merging branches in Git - acteck.off</title>
+  <meta name="description" content="Merging branches in Git - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,105 +36,49 @@
       <a href="../../../../../../en/git/index.html">Git</a>
     </div>
 
-    <h1>Слияние веток в Git</h1>
-    <p>
-	Как правило новые ветки создаются,
-	как ответвления основной ветки для
-	решения какой-нибудь задачи.
-	После того, как задача будет решена,
-	мы можем <dfn data-gs="comd/d" data-x>влить</dfn> содержимое побочной
-	ветки в основую. Это делается с помощью
-	команды <code data-gs="comd/c" data-x>merge</code>.
+    <h1>Merging branches in Git</h1>
+    <p>As a rule, new branches are created as branches of the main branch to solve some problem. After the problem is solved, we can<dfn data-gs="comd/d" data-x>pour in</dfn>the contents of the side branch into the main one. This is done using the command<code data-gs="comd/c" data-x>merge</code>.
 </p>
-<p>
-	Разберем этот процесс подробнее.
-	Пусть у нас есть ветка <code data-gs="comd/s" data-x>master</code> и
-	ветка <code data-gs="comd/s" data-x>test</code>.
+<p>Let's look at this process in more detail. Let us have a branch<code data-gs="comd/s" data-x>master</code>and branch<code data-gs="comd/s" data-x>test</code>.
 </p>
-<p>
-	Переключимся на ветку <code data-gs="comd/s" data-x>test</code>,
-	сделаем изменения в файле, проиндексируем
-	его и сохраним коммит:
-</p>
+<p>Let's switch to the branch<code data-gs="comd/s" data-x>test</code>, make changes to the file, index it and save the commit:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git switch test
 git add file.txt
 git commit -m 'commit from test'</code>
 </div>
-<p>
-	После этого вернемся в ветку
-	<code data-gs="comd/s" data-x>master</code>:
+<p>After that we will return to the thread<code data-gs="comd/s" data-x>master</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git switch master</code>
 </div>
-<p>
-	Вольем теперь в нашу ветку <code data-gs="comd/s" data-x>master</code>
-	содержимое ветки <code data-gs="comd/s" data-x>test</code>:
+<p>Now let's add it to our thread<code data-gs="comd/s" data-x>master</code>thread content<code data-gs="comd/s" data-x>test</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git merge test</code>
 </div>
-<p>
-	После выполнения этой команды
-	Git попросит нас ввести комментарий
-	к слиянию. После ввода комментария
-	в терминале появится сообщение
-	об успешном слиянии.
-</p>
-<p>
-	При этом после слияния ветка
-	<code data-gs="comd/s" data-x>test</code> не исчезнет. Ее содержимое
-	вольется в основную ветку.
-	Основная ветка изменится после
-	слияния, а вот ветка <code data-gs="comd/s" data-x>test</code>
-	останется такой же. Мы можем дальше
-	продолжить работу с веткой <code data-gs="comd/s" data-x>test</code>,
-	периодически отправляя ее содержимое
-	в основую ветку.
-</p>
-<p>
-	Тут важно обратить внимание на терминологию.
-	В литературе и в жизни мы говорим о том,
-	что <dfn data-gs="comd/d" data-x>сливаем</dfn> две ветки или о <dfn data-gs="comd/d" data-x>слиянии</dfn>
-	веток. И когда мы так говорим, то кажется,
-	что было две разных ветки и они слились
-	в одну - общую. На самом же деле
-	мы не сливаем ветки, а <dfn data-gs="comd/d" data-x>вливаем</dfn>
-	содержимое одной ветки в другую.
-	В жизни так не говорят (и вы не говорите),
-	но всегда понимайте суть процесса
-	- мы вливаем, а не сливаем.
-</p>
+<p>After running this command, Git will ask us to enter a merge comment. After entering the comment, a message indicating a successful merge will appear in the terminal.</p>
+<p>Moreover, after merging the branch<code data-gs="comd/s" data-x>test</code>won't disappear. Its contents will be merged into the main branch. The master branch will change after the merge, but the branch<code data-gs="comd/s" data-x>test</code>will remain the same. We can continue working on the branch<code data-gs="comd/s" data-x>test</code>, periodically pushing its contents to the main branch.</p>
+<p>It is important to pay attention to the terminology here. In literature and in life we ​​talk about<dfn data-gs="comd/d" data-x>drain</dfn>two branches or about<dfn data-gs="comd/d" data-x>merger</dfn>branches. And when we say this, it seems that there were two different branches and they merged into one - a common one. In fact, we are not merging branches, but<dfn data-gs="comd/d" data-x>pour in</dfn>the contents of one branch to another. They don’t say that in life (and you don’t say it), but always understand the essence of the process - we pour in, not drain.</p>
 <div data-w="cont/task">
-	<p>
-		Пусть у вас есть ветка <code data-gs="comd/s" data-x>master</code>.
-		Создайте еще одну ветку <code data-gs="comd/s" data-x>problem</code>.
-		В новой ветке создайте файл,
-		проиндексируйте его и сделайте
-		коммит. Влейте вашу ветку <code data-gs="comd/s" data-x>problem</code>
-		в ветку <code data-gs="comd/s" data-x>master</code>.
+	<p>Suppose you have a branch<code data-gs="comd/s" data-x>master</code>. Create another branch<code data-gs="comd/s" data-x>problem</code>. In a new branch, create a file, index it and commit. Pour in your thread<code data-gs="comd/s" data-x>problem</code>to the thread<code data-gs="comd/s" data-x>master</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Измените в ветке <code data-gs="comd/s" data-x>problem</code> ваш
-		файл. Проиндексируйте его и сделайте
-		коммит. Еще раз влейте вашу ветку
-		<code data-gs="comd/s" data-x>problem</code> в ветку <code data-gs="comd/s" data-x>master</code>.
+	<p>Change in branch<code data-gs="comd/s" data-x>problem</code>your file. Index it and commit it. Repost your thread<code data-gs="comd/s" data-x>problem</code>to the thread<code data-gs="comd/s" data-x>master</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../switching/index.html" class="lesson-nav-btn lesson-nav-prev" title="Переключение веток">← Переключение веток</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../merging-conflict/index.html" class="lesson-nav-btn lesson-nav-next" title="Конфликт при слиянии веток">Конфликт при слиянии веток →</a>
+      <a href="../switching/index.html" class="lesson-nav-btn lesson-nav-prev" title="Switching branches">← Switching branches</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../merging-conflict/index.html" class="lesson-nav-btn lesson-nav-next" title="Conflict when merging branches">Conflict when merging branches →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Добавление информации о продавце в Redux — acteck.off</title>
-  <meta name="description" content="Добавление информации о продавце в Redux — учебные материалы по программированию.">
+  <title>Adding seller information to Redux - acteck.off</title>
+  <meta name="description" content="Adding Vendor Information to Redux - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,21 +36,9 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Добавление информации о продавце в Redux</h1>
-    <p>
-	Мы с вами говорили о том, что наши продукты
-	фактически добавляются в приложение продавцами. Давайте
-	при добавлении нового продукта будем выводить
-	информацию о продавце.
-</p>
-<p>
-	Откроем наше приложение с продуктами,
-	а в нем файл <code data-gs="comd/p" data-x>productsSlice.js</code>. Давайте
-	будем передавать в <code data-gs="comd/c" data-x>prepare</code> еще один
-	параметр, назовем его <code data-gs="comd/c" data-x>sellerId</code> и установим
-	его далее для <code data-gs="comd/c" data-x>payload</code> экшена. Теперь наш
-	кусочек кода для <code data-gs="comd/c" data-x>prepare</code> будет таким:
-</p>
+    <h1>Adding seller information to Redux</h1>
+    <p>We talked about the fact that our products are actually added to the application by sellers. Let's display information about the seller when adding a new product.</p>
+<p>Let's open our application with products, and in it there is a file<code data-gs="comd/p" data-x>productsSlice.js</code>. Let's transfer to<code data-gs="comd/c" data-x>prepare</code>one more parameter, let's call it<code data-gs="comd/c" data-x>sellerId</code>and install it further for<code data-gs="comd/c" data-x>payload</code>action. Now our piece of code for<code data-gs="comd/c" data-x>prepare</code>will be like this:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">prepare(name, desc, price, amount, sellerId) {
 	return {
@@ -65,65 +53,43 @@
 	}
 },</code>
 </div>
-<p>
-	Теперь нам нужно внести ряд изменений в файл
-	с формой для добавления продукта
-	<code data-gs="comd/p" data-x>NewProductForm.jsx</code>. Для начала добавим
-	еще один локальный стейт для id продавца:
-</p>
+<p>Now we need to make a number of changes to the file with the form to add a product<code data-gs="comd/p" data-x>NewProductForm.jsx</code>. First, let's add another local state for the seller id:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [sellerId, setSellerId] = useState('')</code>
 </div>
-<p>
-	Затем после объявления переменной
-	<code data-gs="comd/c" data-x>dispatch</code> для <code data-gs="comd/c" data-x>useDispatch</code>,
-	добавим код для получения слайса продавцов
-	из стейта при помощи хука <code data-gs="comd/c" data-x>useSelector</code>:
+<p>Then after declaring the variable<code data-gs="comd/c" data-x>dispatch</code>For<code data-gs="comd/c" data-x>useDispatch</code>, add code to get a slice of sellers from the state using a hook<code data-gs="comd/c" data-x>useSelector</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const sellers = useSelector((state) =&gt; state.sellers)</code>
 </div>
-<p>
-	В обработчики для полей ввода добавим
-	еще один: 
-</p>
+<p>Let's add one more to the handlers for input fields:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const onSellerChanged = (e) =&gt; setSellerId(e.target.value)</code>
 </div>
-<p>
-	Подправим <code data-gs="comd/c" data-x>onSaveProductClick</code>, добавив для
-	экшена <code data-gs="comd/c" data-x>productAdded</code> еще и <code data-gs="comd/c" data-x>sellerId</code>:
+<p>Let's fix it<code data-gs="comd/c" data-x>onSaveProductClick</code>, adding for action<code data-gs="comd/c" data-x>productAdded</code>also<code data-gs="comd/c" data-x>sellerId</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">dispatch(productAdded(name, desc, price, amount, sellerId))</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Добавьте возможность внесения информации
-		о преподавателе, который добавил студентов.
-		Для этого, изучив материал урока, внесите
-		изменения для функции <code data-gs="comd/c" data-x>prepare</code> в файле
-		<code data-gs="comd/p" data-x>studentsSlice.js</code>.
+	<p>Open your application with students. Add the ability to enter information about the teacher who added the students. To do this, after studying the lesson material, make changes to the function<code data-gs="comd/c" data-x>prepare</code>in the file<code data-gs="comd/p" data-x>studentsSlice.js</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Внесите соответствующие изменения в
-		файл <code data-gs="comd/p" data-x>NewStudentForm.jsx</code>
+	<p>Make the appropriate changes to the file<code data-gs="comd/p" data-x>NewStudentForm.jsx</code>
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../add-slice/index.html" class="lesson-nav-btn lesson-nav-prev" title="Добавление еще одного слайса">← Добавление еще одного слайса</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../add-seller-to-form/index.html" class="lesson-nav-btn lesson-nav-next" title="Внесение изменений в форму">Внесение изменений в форму →</a>
+      <a href="../add-slice/index.html" class="lesson-nav-btn lesson-nav-prev" title="Adding another slice">← Adding another slice</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../add-seller-to-form/index.html" class="lesson-nav-btn lesson-nav-next" title="Making changes to the form">Making changes to the form →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Логи проекта через PM2 на VPS сервере — acteck.off</title>
-  <meta name="description" content="Логи проекта через PM2 на VPS сервере — учебные материалы по программированию.">
+  <title>Project logs via PM2 on a VPS server - acteck.off</title>
+  <meta name="description" content="Project logs via PM2 on a VPS server - educational materials on programming.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,48 +36,30 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Логи проекта через PM2 на VPS сервере</h1>
-    <p>
-	Скрипты, запущенные через PM2, не
-	выводят <code data-gs="comd/c" data-x>console.log</code> в консоль
-	сервера. Также такие скрипты не выводят
-	случившиеся ошибки. Однако, PM2 позволяет
-	настроить вывод всего этого в файлы.
-</p>
-<p>
-	Вот так мы заставим выводится в файл
-	результаты выполнения <code data-gs="comd/c" data-x>console.log</code>:
+    <h1>Project logs via PM2 on VPS server</h1>
+    <p>Scripts launched through PM2 do not output<code data-gs="comd/c" data-x>console.log</code>to the server console. Also, such scripts do not display errors that have occurred. However, PM2 allows you to configure the output of all this to files.</p>
+<p>This is how we will force the execution results to be output to a file<code data-gs="comd/c" data-x>console.log</code>:
 </p>
 <div data-p="bock/pane" data-p-file="/var/www/test.com">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">pm2 start app.js -o output.txt --time</code>
 </div>
-<p>
-	А вот так мы заставим выводится в файл
-	случившиеся ошибки:
-</p>
+<p>And this is how we will force errors that have occurred to be output to a file:</p>
 <div data-p="bock/pane" data-p-file="/var/www/test.com">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">pm2 start app.js -e error.txt --time</code>
 </div>
-<p>
-	А вот так мы будем выводить и то,
-	и другое:
-</p>
+<p>And this is how we will output both:</p>
 <div data-p="bock/pane" data-p-file="/var/www/test.com">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">pm2 start app.js -o output.txt -e error.txt --time</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Запустите ваш тестовый скрипт
-		с выводом сообщений и ошибок
-		в файлы.
-	</p>
+	<p>Run your test script, outputting messages and errors to files.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обновление записей через SQL запрос в NodeJS — acteck.off</title>
-  <meta name="description" content="Обновление записей через SQL запрос в NodeJS — учебные материалы по программированию.">
+  <title>Updating records via SQL query in NodeJS - acteck.off</title>
+  <meta name="description" content="Updating records via SQL query in NodeJS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,34 +36,21 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Обновление записей через SQL запрос в NodeJS</h1>
-    <p>
-	Давайте теперь научимся изменять записи.
-	Это делается с помощью команды <code data-gs="comd/q" data-x>UPDATE</code>.
-	Она имеет следующий синтаксис:
-</p>
+    <h1>Updating records via SQL query in NodeJS</h1>
+    <p>Let's now learn how to change records. This is done using the command<code data-gs="comd/q" data-x>UPDATE</code>. It has the following syntax:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "UPDATE таблица SET полe = значение WHERE условие";</code>
 </div>
 <div data-w="cont/nott">
-	<p>
-		Будьте внимательны, если не указать
-		в запросе блок с <code data-gs="comd/q" data-x>WHERE</code>,
-		то при обновлении все исходные записи
-		заменятся новыми!
-	</p>
+	<p>Be careful if you do not specify a block with<code data-gs="comd/q" data-x>WHERE</code>, then when updating all original records will be replaced with new ones!</p>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте поменяем возраст и зарплату юзера:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's change the user's age and salary:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "UPDATE users SET age=20, salary=800 WHERE id=1";</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">ResultSetHeader {
 	fieldCount: 0,
@@ -76,17 +63,13 @@
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Установим зарплату <code data-gs="comd/n" data-x>400</code> и возраст <code data-gs="comd/n" data-x>24</code>
-	всем юзерам в возрасте <code data-gs="comd/n" data-x>23</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's set the salary<code data-gs="comd/n" data-x>400</code>and age<code data-gs="comd/n" data-x>24</code>to all aged users<code data-gs="comd/n" data-x>23</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "UPDATE users SET age=24, salary=300 WHERE age=23";</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">ResultSetHeader {
 	fieldCount: 0,
@@ -99,31 +82,19 @@
 }</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Используя созданный ранее вами дамп таблицы
-		<code data-gs="comd/s" data-x>users</code> приведите ее в исходное
-		состояние.
+	<p>Using the table dump you created earlier<code data-gs="comd/s" data-x>users</code>bring it back to its original state.</p>
+</div>
+<div data-w="cont/task">
+	<p>To the user with<code data-gs="comd/s" data-x>id</code> <code data-gs="comd/n" data-x>4</code>enter your age<code data-gs="comd/n" data-x>35</code>years.</p>
+</div>
+<div data-w="cont/task">
+	<p>Anyone with a salary<code data-gs="comd/n" data-x>500</code>, do it<code data-gs="comd/n" data-x>700</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Юзеру с <code data-gs="comd/s" data-x>id</code> <code data-gs="comd/n" data-x>4</code> поставьте возраст
-		<code data-gs="comd/n" data-x>35</code> лет.
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		Всем, у кого зарплата <code data-gs="comd/n" data-x>500</code>, сделайте
-		ее <code data-gs="comd/n" data-x>700</code>.
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		Работникам с <code data-gs="comd/s" data-x>id</code> больше <code data-gs="comd/n" data-x>2</code> и
-		меньше <code data-gs="comd/n" data-x>5</code> включительно поставьте возраст
-		<code data-gs="comd/n" data-x>23</code>.
+	<p>Workers with<code data-gs="comd/s" data-x>id</code>more<code data-gs="comd/n" data-x>2</code>and less<code data-gs="comd/n" data-x>5</code>enter age inclusive<code data-gs="comd/n" data-x>23</code>.
 	</p>
 </div>
   </section>
@@ -131,7 +102,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page для продукта в Redux — acteck.off</title>
-  <meta name="description" content="Page для продукта в Redux — учебные материалы по программированию.">
+  <title>Product page in Redux - acteck.off</title>
+  <meta name="description" content="Redux product page - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,66 +36,34 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Page для продукта в Redux</h1>
-    <p>
-	В данном уроке мы сделаем отдельную страницу
-	для вывода информации о конкретном продукте.
-</p>
-<p>
-	Откроем наше приложение с продуктами и в папке
-	<code data-gs="comd/p" data-x>products</code> создадим файл <code data-gs="comd/p" data-x>ProductPage.jsx</code>. Как
-	вы помните, каждый наш продукт имеет уникальный
-	id. Благодаря этому id мы сможем сгенерировать
-	уникальный URL странички для каждого продукта.
-	Традиционно он будет выглядеть как:
-	<code data-gs="comd/p" data-x>/products/id123</code>. И id будет содержаться в
-	его динамической части (самим маршрутом мы займемся
-	несколько позже).
-</p>
-<p>
-	Итак, давайте в <code data-gs="comd/p" data-x>ProductPage.jsx</code> создадим
-	пустой компонент <code data-gs="comd/c" data-x>ProductPage</code>:
+    <h1>Product page in Redux</h1>
+    <p>In this tutorial we will make a separate page to display information about a specific product.</p>
+<p>Let's open our application with products and in the folder<code data-gs="comd/p" data-x>products</code>let's create a file<code data-gs="comd/p" data-x>ProductPage.jsx</code>. As you remember, each of our products has a unique id. Thanks to this id, we will be able to generate a unique page URL for each product. Traditionally it will look like:<code data-gs="comd/p" data-x>/products/id123</code>. And the id will be contained in its dynamic part (we will deal with the route itself a little later).</p>
+<p>So let's in<code data-gs="comd/p" data-x>ProductPage.jsx</code>create an empty component<code data-gs="comd/c" data-x>ProductPage</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const ProductPage = () =&gt; {}</code>
 </div>
-<p>
-	Первое, что мы сделаем здесь - воспользуемся
-	хуком <code data-gs="comd/c" data-x>useParams</code>, чтобы вытянуть динамическую
-	часть URL для странички продукта, на которой
-	мы находимся:
-</p>
+<p>The first thing we'll do here is use a hook<code data-gs="comd/c" data-x>useParams</code>to pull out the dynamic part of the URL for the product page we're on:</p>
 <div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const ProductPage = () =&gt; {
 	let params = useParams()
 	const { productId } = params
 }</code>
 </div>
-<p>
-	Далее по полученному id мы поищем
-	нужный продукт в слайсе <code data-gs="comd/c" data-x>products</code>
-	в store, используя уже знакомый нам
-	хук <code data-gs="comd/c" data-x>useSelector</code>:
+<p>Next, using the received id, we will look for the desired product in the slice<code data-gs="comd/c" data-x>products</code>in store, using a hook already familiar to us<code data-gs="comd/c" data-x>useSelector</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const product = useSelector((state) =&gt;
 	state.products.find((product) =&gt; product.id === productId)
 )</code>
 </div>
-<p>
-	Не забудем импортировать оба хука в файл:
-</p>
+<p>Don't forget to import both hooks into the file:</p>
 <div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'</code>
 </div>
-<p>
-	Если же нужного нам продукта не окажется
-	(к примеру, пользователь ввел некорректный
-	адрес), то мы выведем информацию об этом
-	на экран. На этом шаге код для компонента
-	<code data-gs="comd/c" data-x>ProductPage</code> должен выглядеть так:
-</p>
+<p>If the product we need is not available (for example, the user entered an incorrect address), then we will display information about this on the screen. In this step the code for the component<code data-gs="comd/c" data-x>ProductPage</code>should look like this:</p>
 <div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const ProductPage = () =&gt; {
 	let params = useParams()
@@ -110,10 +78,7 @@ import { useParams } from 'react-router-dom'</code>
 	}
 }</code>
 </div>
-<p>
-	И нам остается только вывести полученные
-	данные продукта в верстке:
-</p>
+<p>And all we have to do is display the received product data in the layout:</p>
 <div data-p="bock/pane" data-p-file="products/ProductPage.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
 	&lt;div&gt;
@@ -125,38 +90,25 @@ import { useParams } from 'react-router-dom'</code>
 )</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		В папке <code data-gs="comd/p" data-x>students</code> создайте файл
-		<code data-gs="comd/p" data-x>StudentPage.jsx</code>, в котором вы будете
-		получать и выводить информацию по
-		выбранному студенту.
-	</p>
+	<p>Open your application with students. In a folder<code data-gs="comd/p" data-x>students</code>create a file<code data-gs="comd/p" data-x>StudentPage.jsx</code>, in which you will receive and display information on the selected student.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		С помощью react-redux хука <code data-gs="comd/c" data-x>useSelector</code>
-		получите необходимую информацию о студенте,
-		как показано в уроке.
-	</p>
+	<p>Using react-redux hook<code data-gs="comd/c" data-x>useSelector</code>get the required information about the student as shown in the lesson.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Выведите в компоненте полученную информацию
-		о студенте на экран.
-	</p>
+	<p>Display the received information about the student on the screen in the component.</p>
 </div>
     <div class="lesson-nav">
       <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../product-page-route/index.html" class="lesson-nav-btn lesson-nav-next" title="Page продукта в браузере">Page продукта в браузере →</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../product-page-route/index.html" class="lesson-nav-btn lesson-nav-next" title="Product page in browser">Product page in browser →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

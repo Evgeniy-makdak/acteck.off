@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Запуск скриптов через npm в JavaScript — acteck.off</title>
-  <meta name="description" content="Запуск скриптов через npm в JavaScript — учебные материалы по программированию.">
+  <title>Running scripts via npm in JavaScript - acteck.off</title>
+  <meta name="description" content="Running scripts via npm in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,36 +36,19 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Запуск скриптов через npm в JavaScript</h1>
-    <p>
-	В файле <code data-gs="comd/p" data-x>package.json</code> существует
-	специальная настройка <code data-gs="comd/s" data-x>scripts</code>,
-	которая позволяет запускать любые
-	команды терминала через npm.
-	Это используется для того, чтобы
-	превратить длинные команды в более
-	приятные.
-</p>
-<p>
-	Давайте посмотрим, как с этим работать.
-	Пусть для примера у нас установлена утилита
-	<a href="https://github.com/flosse/sloc">sloc</a>:
+    <h1>Running scripts via npm in JavaScript</h1>
+    <p>In file<code data-gs="comd/p" data-x>package.json</code>there is a special setting<code data-gs="comd/s" data-x>scripts</code>, which allows you to run any terminal commands via npm. This is used to make long commands more enjoyable.</p>
+<p>Let's see how to work with this. For example, let us have the utility installed<a href="https://github.com/flosse/sloc">sloc</a>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install -D sloc</code>
 </div>
-<p>
-	Пусть нам надо с ее помощью считать
-	содержимое папки <code data-gs="comd/p" data-x>src</code>:
+<p>Suppose we need to use it to read the contents of a folder<code data-gs="comd/p" data-x>src</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npx sloc src</code>
 </div>
-<p>
-	Давайте сделаем более приятной
-	приведенную выше команду.
-	Для начала посмотрим, что у нас
-	сейчас в файле <code data-gs="comd/p" data-x>package.json</code>:
+<p>Let's make the above command nicer. First, let's see what we have in the file now<code data-gs="comd/p" data-x>package.json</code>:
 </p>
 <div data-p="bock/pane" data-p-file="package.json">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{
@@ -74,14 +57,7 @@
 	}
 }</code>
 </div>
-<p>
-	Давайте теперь пропишем в него настройку
-	<code data-gs="comd/s" data-x>scripts</code>. Эта настройка будет представлять
-	собой объект с именами команд и их значениями.
-	Придумаем для команды подсчета какое-нибудь имя,
-	например <code data-gs="comd/c" data-x>count</code>. В качестве значения укажем
-	команду терминала, которую мы хотим запустить:
-</p>
+<p>Let's now write the setting into it<code data-gs="comd/s" data-x>scripts</code>. This setting will be an object with command names and their values. Let's come up with some name for the counting command, for example<code data-gs="comd/c" data-x>count</code>. As the value, we specify the terminal command that we want to run:</p>
 <div data-p="bock/pane" data-p-file="package.json">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{
 	"devDependencies": {
@@ -92,34 +68,25 @@
 	}
 }</code>
 </div>
-<p>
-	Теперь для вызова этой команды
-	мы должны в терминале написать <code data-gs="comd/c" data-x>npm</code>,
-	потом команду <code data-gs="comd/c" data-x>run</code> и потом придуманное
-	нами имя команды:
-</p>
+<p>Now to call this command we must write in the terminal<code data-gs="comd/c" data-x>npm</code>, then the command<code data-gs="comd/c" data-x>run</code>and then the team name we came up with:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm run count</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте свою команду для запуска библиотеки
-		<a href="https://www.npmjs.com/package/cowsay">cowsay</a>
-		с определенным параметром.
-	</p>
+	<p>Make your own command to run the library<a href="https://www.npmjs.com/package/cowsay">cowsay</a>with a certain parameter.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../npx/index.html" class="lesson-nav-btn lesson-nav-prev" title="Инструмент npx">← Инструмент npx</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../yarn/index.html" class="lesson-nav-btn lesson-nav-next" title="Менеджер Yarn">Менеджер Yarn →</a>
+      <a href="../npx/index.html" class="lesson-nav-btn lesson-nav-prev" title="npx tool">← npx tool</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../yarn/index.html" class="lesson-nav-btn lesson-nav-next" title="Yarn Manager">Yarn Manager →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

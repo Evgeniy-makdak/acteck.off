@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Задать формат даты JS — acteck.off</title>
-  <meta name="description" content="Задать формат даты JS — учебные материалы по программированию.">
+  <title>Set JS date format - acteck.off</title>
+  <meta name="description" content="Set Date Format JS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../en/index.html" class="logo">
+      <a href="../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,25 +36,16 @@
       <a href="../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Задать формат даты JS</h1>
-    <h2>Способ 1</h2>
-<p>
-	Задать формат даты в JavaScript можно
-	вручную, путем конкатенации частей даты
-	через нужный разделитель. Для примера
-	выведем дату в формате <span data-gs="comd/f" data-x>день.месяц.год</span>: 
+    <h1>Set JS date format</h1>
+    <h2>Method 1</h2>
+<p>You can set the date format in JavaScript manually by concatenating parts of the date through the desired separator. For example, let's display the date in the format<span data-gs="comd/f" data-x>day.month.year</span>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let d = new Date();
 let res = d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear();
 console.log(formattedDate);</code>
 </div>
-<p>
-	Можно улучшить этот код, сделав так, чтобы
-	к однозначному номеру дня или месяца
-	добавлялся ноль. Для этого сделаем специальную
-	функцию: 
-</p>
+<p>You can improve this code by adding a zero to the unique day or month number. To do this, we will create a special function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">funciton addZero(num) {
 	if (num &lt;= 9) {
@@ -64,41 +55,27 @@ console.log(formattedDate);</code>
 	}
 }</code>
 </div>
-<p>
-	Используем ее: 
-</p>
+<p>Let's use it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let d = new Date();
 let res = addZero(d.getDate()) + '.' + addZero((d.getMonth() + 1) + '.' + d.getFullYear();
 console.log(formattedDate);</code>
 </div>
 
-<h2>Способ 2</h2>
-<p>
-	Задать формат даты в JavaScript можно
-	используя метод <code data-gs="comd/c" data-x>toLocaleDateString</code>
-	объекта <code data-gs="comd/c" data-x>Date</code>. Этот метод принимает
-	строку с форматом даты в качестве аргумента.
-	Например, следующий код выведет текущую
-	дату в формате 'ДД.ММ.ГГГГ': 
-</p>
+<h2>Method 2</h2>
+<p>You can set the date format in JavaScript using the method<code data-gs="comd/c" data-x>toLocaleDateString</code>object<code data-gs="comd/c" data-x>Date</code>. This method takes a date format string as an argument. For example, the following code will output the current date in the format 'DD.MM.YYYY':</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let d = new Date();
 let formattedDate = d.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: '4-digit' });
 console.log(formattedDate);</code>
 </div>
-<p>
-	В этом примере используется локализованный
-	формат даты для русского языка (<code data-gs="comd/s" data-x>'ru-RU'</code>),
-	но вы можете задать любой другой язык или
-	формат, который вам нужен. 
-</p>
+<p>This example uses the localized date format for Russian (<code data-gs="comd/s" data-x>'ru-RU'</code>), but you can specify any other language or format you need.</p>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

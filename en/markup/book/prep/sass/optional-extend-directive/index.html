@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метка !optional в @extend в SASS — acteck.off</title>
-  <meta name="description" content="Метка !optional в @extend в SASS — учебные материалы по программированию.">
+  <title>!optional tag in @extend in SASS - acteck.off</title>
+  <meta name="description" content="The !optional tag in @extend in SASS - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,57 +33,38 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Метка !optional в @extend в SASS</h1>
-    <p>
-	При расширении селектора можно поймать
-	ошибку, когда директива <code data-gs="comd/c" data-x>@extend</code>
-	не сработала корректно. К примеру,
-	если у вас есть следующий код:
-</p>
+    <h1>The !optional tag in @extend in SASS</h1>
+    <p>When expanding a selector, you can catch an error when the directive<code data-gs="comd/c" data-x>@extend</code>didn't work correctly. For example, if you have the following code:</p>
 <div data-p="bock/pane" data-p-file="style.scss">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">a.info {
 	@extend .main;
 }</code>
 </div>
-<p>
-	Если ни один селектор не будет содержать <code data-gs="comd/z" data-x>.main</code>,
-	то при компилировании произойдет ошибка.
-	В таком случае нам нужно объединить
-	последовательности селекторов,
-	для чего мы используем директиву <code data-gs="comd/c" data-x>@extend</code>.
+<p>If no selector contains<code data-gs="comd/z" data-x>.main</code>, then an error will occur during compilation. In this case, we need to combine sequences of selectors, for which we use the directive<code data-gs="comd/c" data-x>@extend</code>.
 </p>
 
-<p>
-	Помимо того,  будет ошибка, если селектор
-	содержащий в себе <code data-gs="comd/z" data-x>.main</code> будет таким:
-	<code data-gs="comd/z" data-x>h1.main</code>, что объясняется конфликтом
-	между <code data-gs="comd/z" data-x>a</code> и <code data-gs="comd/z" data-x>h1</code>.
+<p>In addition, there will be an error if the selector contains<code data-gs="comd/z" data-x>.main</code>will be like this:<code data-gs="comd/z" data-x>h1.main</code>, which is explained by the conflict between<code data-gs="comd/z" data-x>a</code>And<code data-gs="comd/z" data-x>h1</code>.
 </p>
-<p>
-	Поэтому, при необходимости, вы можете
-	разрешить директиве <code data-gs="comd/c" data-x>@extend</code> не создавать
-	новых селекторов при помощи метки необязательности
-	<code data-gs="comd/c" data-x>!optional</code>, записанной после селектора. Например:
-</p>
+<p>Therefore, if necessary, you can allow the directive<code data-gs="comd/c" data-x>@extend</code>do not create new selectors using the optional flag<code data-gs="comd/c" data-x>!optional</code>, written after the selector. For example:</p>
 <div data-p="bock/pane" data-p-file="style.scss">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">a.info {
 	@extend .main !optional;
 }</code>
 </div>
     <div class="lesson-nav">
-      <a href="../combining-selector-sequences-extend-directive/index.html" class="lesson-nav-btn lesson-nav-prev" title="Объединение последовательностей селекторов в @extend">← Объединение последовательностей селекторов в @extend</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../at-root-directive/index.html" class="lesson-nav-btn lesson-nav-next" title="Директива @at-root">Директива @at-root →</a>
+      <a href="../combining-selector-sequences-extend-directive/index.html" class="lesson-nav-btn lesson-nav-prev" title="Combining selector sequences in @extend">← Combining selector sequences in @extend</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../at-root-directive/index.html" class="lesson-nav-btn lesson-nav-next" title="@at-root directive">@at-root directive →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

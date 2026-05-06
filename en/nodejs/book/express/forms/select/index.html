@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Элемент select в Express — acteck.off</title>
-  <meta name="description" content="Элемент select в Express — учебные материалы по программированию.">
+  <title>Select element in Express - acteck.off</title>
+  <meta name="description" content="The select element in Express - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,12 +36,8 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Элемент select в Express</h1>
-    <p>
-	Давайте теперь научимся работать с тегом
-	<a href="../../../../../markup/manual/html/tag/select/index.html"><code data-gs="comd/c" data-x>select</code></a>.
-	Сделаем такой выпадающий список в нашей форме:
-</p>
+    <h1>Select element in Express</h1>
+    <p>Let's now learn how to work with the tag<a href="../../../../../markup/manual/html/tag/select/index.html"><code data-gs="comd/c" data-x>select</code></a>. Let's create a drop-down list like this in our form:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="" method="POST"&gt;
 	&lt;select name="test"&gt;
@@ -52,10 +48,7 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	После отправки формы в <code data-gs="comd/c" data-x>req.data</code> селекта
-	будет содержаться значение выбранного тега
-	<code data-gs="comd/c" data-x>option</code>:
+<p>After submitting the form to<code data-gs="comd/c" data-x>req.data</code>The select will contain the value of the selected tag<code data-gs="comd/c" data-x>option</code>:
 </p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.post('/', function(req, res) {
@@ -63,16 +56,11 @@
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		С помощью выпадающего списка предложите пользователю
-		выбрать страну, в которой он живет.
-	</p>
+	<p>Using a drop-down list, prompt the user to select the country in which he lives.</p>
 </div>
 
-<h2>Атрибут value</h2>
-<p>
-	Давайте для пунктов списка укажем атрибут
-	<code data-gs="comd/c" data-x>value</code>:
+<h2>value attribute</h2>
+<p>Let's specify an attribute for list items<code data-gs="comd/c" data-x>value</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="" method="POST"&gt;
@@ -84,33 +72,22 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	В этом случае на сервер будет отправляться
-	именно значение этого атрибута:
-</p>
+<p>In this case, exactly the value of this attribute will be sent to the server:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.post('/', function(req, res) {
 	console.log(req.body.test); // '1', '2' или '3'
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Объясните, чем удобнее такой подход.
-	</p>
+	<p>Explain why this approach is more convenient.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		С помощью выпадающего списка попросите пользователя
-		выбрать его язык.
-	</p>
+	<p>Use a drop-down list to ask the user to select their language.</p>
 </div>
 
 <!--
-<h2>Сохранение значения после отправки</h2>
-<p>
-	Давайте сделаем так, чтобы выбор пользователя
-	сохранялся после отправки:
-</p>
+<h2>Saving value after sending</h2>
+<p>Let's make sure the user's selection is saved after submitting:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="" method="GET"&gt;
 	&lt;select name="test"&gt;
@@ -134,10 +111,7 @@
 &lt;/form&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте предыдущую задачу так, чтобы
-		выбранное значение не исчезало после отправки.
-	</p>
+	<p>Modify the previous task so that the selected value does not disappear after submission.</p>
 </div>
 -->
   </section>
@@ -145,7 +119,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

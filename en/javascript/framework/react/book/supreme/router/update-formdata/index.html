@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обновление данных с FormData в React Router — acteck.off</title>
-  <meta name="description" content="Обновление данных с FormData в React Router — учебные материалы по программированию.">
+  <title>Updating data from FormData in React Router - acteck.off</title>
+  <meta name="description" content="Updating Data from FormData in React Router - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,51 +36,19 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Обновление данных с FormData в React Router</h1>
-    <p>
-	У нас есть функция <code data-gs="comd/c" data-x>updateProduct</code> для
-	обновления данных продукта в хранилище.
-	Теперь перейдем к данным из нашей
-	формы для редактирования.
-</p>
-<p>
-	При отправке HTML-формы браузер создает
-	объект <code data-gs="comd/c" data-x>FormData</code> с данными и посылает
-	его в теле запроса на сервер. Причем,
-	значение каждого инпута извлекается
-	в объект из атрибута <code data-gs="comd/c" data-x>name</code> (поэтому
-	они и были нужны нам в форме, помните?). Мы
-	теперь знаем, что React Router отправляет
-	запросы не на сервер, а в метод <code data-gs="comd/c" data-x>action</code>
-	нашего маршрута, соответственно, туда
-	попадет и <code data-gs="comd/c" data-x>FormData</code>. Давайте
-	поработаем с этим.
-</p>
-<p>
-	Для начала откроем наш файлик
-	<code data-gs="comd/p" data-x>edit.jsx</code> и импортируем
-	<code data-gs="comd/c" data-x>updateProduct</code>:
+    <h1>Updating data from FormData in React Router</h1>
+    <p>We have a function<code data-gs="comd/c" data-x>updateProduct</code>to update product data in the repository. Now let's move on to the data from our editing form.</p>
+<p>When an HTML form is submitted, the browser creates an object<code data-gs="comd/c" data-x>FormData</code>with data and sends it in the body of the request to the server. Moreover, the value of each input is extracted into the object from the attribute<code data-gs="comd/c" data-x>name</code>(that's why we needed them in uniform, remember?). We now know that React Router sends requests not to the server, but to the method<code data-gs="comd/c" data-x>action</code>our route, accordingly, will get there<code data-gs="comd/c" data-x>FormData</code>. Let's work with this.</p>
+<p>First, let's open our file<code data-gs="comd/p" data-x>edit.jsx</code>and import<code data-gs="comd/c" data-x>updateProduct</code>:
 </p>
 <div data-p="bock/pane" data-p-file="routes/edit.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { updateProduct } from '../forStorage';</code>
 </div>
-<p>
-	Затем мы напишем функцию для <code data-gs="comd/c" data-x>action</code>
-	объекта маршрута, как делали это раньше.
-	Добавим ее сразу после функции <code data-gs="comd/c" data-x>loader</code>.
-	Ей мы будем передавать наш <code data-gs="comd/c" data-x>request</code> и
-	URL параметры:
-</p>
+<p>Then we will write a function for<code data-gs="comd/c" data-x>action</code>route object, as we did before. Let's add it right after the function<code data-gs="comd/c" data-x>loader</code>. We will give ours to her<code data-gs="comd/c" data-x>request</code>and URL parameters:</p>
 <div data-p="bock/pane" data-p-file="routes/edit.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function action({ request, params }) {}</code>
 </div>
-<p>
-	Из запроса мы получим <code data-gs="comd/c" data-x>FormData</code>, затем
-	извлечем из него данные в виде объекта,
-	содержащего пары <span data-gs="comd/f" data-x>ключ: значение</span> и
-	с помощью <code data-gs="comd/c" data-x>updateProduct</code> отправим
-	эти данные в хранилище:
-</p>
+<p>From the request we will get<code data-gs="comd/c" data-x>FormData</code>, then extract data from it in the form of an object containing pairs<span data-gs="comd/f" data-x>key: value</span>and with the help<code data-gs="comd/c" data-x>updateProduct</code>Let's send this data to the storage:</p>
 <div data-p="bock/pane" data-p-file="routes/edit.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function action({ request, params }) {
 	const formData = await request.formData();
@@ -89,11 +57,7 @@
 	return 1;
 }</code>
 </div>
-<p>
-	Осталось только зайти в <code data-gs="comd/p" data-x>main.jsx</code>
-	и добавить функцию <code data-gs="comd/c" data-x>action</code> в объект
-	маршрута редактирования. Импортируем
-	<code data-gs="comd/c" data-x>action</code>:
+<p>All that remains is to go to<code data-gs="comd/p" data-x>main.jsx</code>and add a function<code data-gs="comd/c" data-x>action</code>to the edit route object. We import<code data-gs="comd/c" data-x>action</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import EditProduct, {
@@ -101,10 +65,7 @@
 	action as editAction,
 } from './routes/edit';</code>
 </div>
-<p>
-	И добавим его в объект маршрута
-	редактирования:
-</p>
+<p>And add it to the edit route object:</p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{
 	path: 'products/:productId/edit',
@@ -113,42 +74,21 @@
 	action: editAction,
 },</code>
 </div>
-<p>
-	Запустите теперь приложение, добавьте
-	пару продуктов в список, затем кликая
-	по ним заполняйте форму и нажимайте
-	на кнопку сохранения. Не забудьте зайти
-	в панель разработчика в раздел localforage
-	и обновлять хранилище. Теперь в разделе
-	keyvaluespairs мы можем видеть объекты
-	в массиве <code data-gs="comd/c" data-x>products</code> с нашими
-	внесенными данными.
-</p>
+<p>Now launch the application, add a couple of products to the list, then click on them, fill out the form and click on the save button. Don't forget to go to the developer panel in the localforage section and update the repository. Now in the keyvaluespairs section we can see the objects in the array<code data-gs="comd/c" data-x>products</code>with our entered data.</p>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлому уроку. Пользуясь
-		материалами урока, создайте функцию
-		<code data-gs="comd/c" data-x>action</code> для маршрута редактирования
-		данных студента, добавьте ее в объект
-		маршрута редактирования. Откройте
-		панель разработчика и убедитесь, что
-		при изменениях обновленные данные
-		действительно отображаются на вкладке
-		localforage.
-	</p>
+	<p>Take the application you created in the assignments for the last lesson. Using the lesson materials, create a function<code data-gs="comd/c" data-x>action</code>for a student data edit route, add it to the edit route object. Open the developer panel and make sure that when you make changes, the updated data actually appears in the localforage tab.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../update-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Обновление данных по URL параметрам в хранилище">← Обновление данных по URL параметрам в хранилище</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../redirect/index.html" class="lesson-nav-btn lesson-nav-next" title="Редирект на другой маршрут">Редирект на другой маршрут →</a>
+      <a href="../update-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Updating data using URL parameters in the storage">← Updating data using URL parameters in the storage</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../redirect/index.html" class="lesson-nav-btn lesson-nav-next" title="Redirect to another route">Redirect to another route →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

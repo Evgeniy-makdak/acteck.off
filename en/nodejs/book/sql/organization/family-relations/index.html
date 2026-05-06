@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Родственные связи данных в NodeJS — acteck.off</title>
-  <meta name="description" content="Родственные связи данных в NodeJS — учебные материалы по программированию.">
+  <title>Data Relationships in NodeJS - acteck.off</title>
+  <meta name="description" content="Data Relationships in NodeJS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,35 +36,12 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Родственные связи данных в NodeJS</h1>
-    <p>
-	Пусть перед нами стоит задача хранить отцов
-	и сыновей. Пусть каждый отец может иметь
-	только одного сына, а сын в свою очередь
-	тоже может иметь одного сына.
+    <h1>Data Relationships in NodeJS</h1>
+    <p>Let us be faced with the task of protecting fathers and sons. Let each father have only one son, and the son, in turn, can also have one son.</p>
+<p>We need to figure out how we will store the data. The first idea that might come to mind is to make two tables:<code data-gs="comd/s" data-x>parents</code>for fathers and<code data-gs="comd/s" data-x>sons</code>for sons. Then link these tables with some field:<code data-gs="comd/s" data-x>son_id</code>or<code data-gs="comd/s" data-x>parent_id</code>.
 </p>
-<p>
-	Нужно придумать, как мы будем хранить данные.
-	Первая идея, которая может прийти в голову
-	- сделать две таблицы: <code data-gs="comd/s" data-x>parents</code> для
-	отцов и <code data-gs="comd/s" data-x>sons</code> для сыновей. Затем связать
-	эти таблицы каким-нибудь полем: <code data-gs="comd/s" data-x>son_id</code>
-	или <code data-gs="comd/s" data-x>parent_id</code>.
-</p>
-<p>
-	Однако, это идея не очень хорошая - ведь
-	один и тот же человек может быть одновременно
-	и отцом и сыном - и придется хранить его
-	в обоих таблицах, а это неудобно, занимает
-	больше место и легко приводит к ошибкам.
-</p>
-<p>
-	Более хороший вариант - связать таблицу саму
-	с собой: сделаем таблицу <code data-gs="comd/s" data-x>users</code>, в
-	ней будем хранить всех юзеров и каждому сделаем
-	поле <code data-gs="comd/s" data-x>son_id</code>, в котором будет храниться
-	<code data-gs="comd/s" data-x>id</code> сына из этой же таблицы:
-</p>
+<p>However, this is not a very good idea - after all, the same person can be both father and son at the same time - and you will have to store it in both tables, which is inconvenient, takes up more space and easily leads to errors.</p>
+<p>A better option is to link the table to itself: let's make a table<code data-gs="comd/s" data-x>users</code>, we will store all users in it and make a field for each<code data-gs="comd/s" data-x>son_id</code>, in which it will be stored<code data-gs="comd/s" data-x>id</code>son from the same table:</p>
 <div data-w="bock/stab">
 	<table>
 		<caption>users</caption>
@@ -91,45 +68,29 @@
 	</table>
 </div>
 
-<h2>Запросы</h2>
-<p>
-	Давайте теперь напишем запрос, который достанет
-	юзера вместе с его сыном.
-</p>
-<p>
-	Для начала давайте просто достанем юзеров:
-</p>
+<h2>Requests</h2>
+<p>Let's now write a request that will get the user along with his son.</p>
+<p>First, let's just get the users:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT
 	*
 FROM
 	users</code>
 </div>
-<p>
-	Теперь заджойним к юзерам их сыновей. Джойнить
-	мы будем таблицу саму к себе, поэтому нам
-	нужно выполнить ее переименование:
-</p>
+<p>Now let's join the users of their sons. We will join the table to itself, so we need to rename it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">LEFT JOIN users as sons</code>
 </div>
-<p>
-	Теперь мы можем указать связь основой таблицы
-	и переименованной:
-</p>
+<p>Now we can specify the relationship as the basis of the table and the renamed one:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">LEFT JOIN users as sons ON sons.id=users.son_id</code>
 </div>
-<p>
-	Укажем теперь поля:
-</p>
+<p>Let's now specify the fields:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT
 	users.name as user_name, sons.name as son_name</code>
 </div>
-<p>
-	Соберем все вместе и получим следующий запрос:
-</p>
+<p>Let's put everything together and get the following request:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT
 	users.name as user_name, sons.name as son_name
@@ -138,40 +99,25 @@ FROM
 LEFT JOIN users as sons ON sons.id=users.son_id</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Пусть у нас есть категории. Каждая категория
-		может принадлежать родительской категории,
-		та в свою очередь своей родительской и так
-		далее. Распишите структуру хранения.
-	</p>
+	<p>Let us have categories. Each category can belong to a parent category, which in turn belongs to its parent category, and so on. Describe the storage structure.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Напишите запрос, который достанет категорию
-		вместе с ее родительской категорией.
-	</p>
+	<p>Write a query that retrieves a category along with its parent category.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Напишите запрос, который достанет категорию
-		вместе с ее родителем и прародителем.
-	</p>
+	<p>Write a query that retrieves a category along with its parent and grandparent.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Напишите запрос, который достанет категорию
-		вместе с ее родителем, прародителем и
-		прапрародителем.
-	</p>
+	<p>Write a query that retrieves a category along with its parent, grandparent, and great-grandparent.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

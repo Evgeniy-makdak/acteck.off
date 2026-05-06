@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Пример исключения с JSON в JavaScript — acteck.off</title>
-  <meta name="description" content="Пример исключения с JSON в JavaScript — учебные материалы по программированию.">
+  <title>An example of an exception with JSON in JavaScript - acteck.off</title>
+  <meta name="description" content="JavaScript JSON Exception Example - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,21 +36,14 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Пример исключения с JSON в JavaScript</h1>
-    <p>
-	Пусть к нам откуда-то из внешнего мира приходит
-	JSON с продуктом:
-</p>
+    <h1>Example of exception with JSON in JavaScript</h1>
+    <p>Let JSON with a product come to us from somewhere in the outside world:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = '{"product": "apple", "price": 1000, "amount": 5}';
 let product = JSON.parse(json);
 alert(product.price * product.amount);</code>
 </div>
-<p>
-	Вы уже знаете, что метод <code data-gs="comd/c" data-x>JSON.parse</code> будет
-	выбрасывать исключение, если JSON некорректный.
-	Давайте поймаем это исключение:
-</p>
+<p>You already know that the method<code data-gs="comd/c" data-x>JSON.parse</code>will throw an exception if the JSON is invalid. Let's catch this exception:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
 	let json = '{"product": "apple", "price": 1000, "amount": 5}';
@@ -60,19 +53,11 @@ alert(product.price * product.amount);</code>
 	// как-то реагируем на исключение
 }</code>
 </div>
-<p>
-	Однако, может быть такое, что сам по себе
-	JSON корректный, но не содержит нужных нам
-	полей, например, нет поля с ценой:
-</p>
+<p>However, it may be that the JSON itself is correct, but does not contain the fields we need, for example, there is no field with a price:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = '{"product": "apple", "amount": 5}'; // нет цены</code>
 </div>
-<p>
-	Давайте скажем, что это тоже исключительная
-	ситуация и будем в таком случае выбрасывать
-	свое пользовательское исключение:
-</p>
+<p>Let's say that this is also an exceptional situation and in this case we will throw our own custom exception:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
 	let json = '{"product": "apple", "amount": 5}';
@@ -90,18 +75,9 @@ alert(product.price * product.amount);</code>
 	// как-то реагируем на исключение
 }</code>
 </div>
-<p>
-	Теперь блок <code data-gs="comd/c" data-x>catch</code> будет получать два типа
-	исключений: либо JSON вообще некорректен,
-	и тогда будет исключение типа <code data-gs="comd/c" data-x>SyntaxError</code>,
-	либо JSON корректен, но не содержит нужных
-	нам полей, и тогда будет исключение типа
-	<code data-gs="comd/c" data-x>ProductCostError</code>.
+<p>Now the block<code data-gs="comd/c" data-x>catch</code>will receive two types of exceptions: either the JSON is generally incorrect, in which case there will be an exception like<code data-gs="comd/c" data-x>SyntaxError</code>, or the JSON is correct, but does not contain the fields we need, and then there will be an exception like<code data-gs="comd/c" data-x>ProductCostError</code>.
 </p>
-<p>
-	Давайте в блоке <code data-gs="comd/c" data-x>catch</code> будем отлавливать эти
-	типы исключений:
-</p>
+<p>Let's block<code data-gs="comd/c" data-x>catch</code>We will catch these types of exceptions:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
 	let json = '{"product": "apple", "amount": 5}';
@@ -124,9 +100,7 @@ alert(product.price * product.amount);</code>
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть к вам приходит JSON вот такого вида:
-	</p>
+	<p>Let JSON come to you like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = `[
 	{
@@ -146,26 +120,20 @@ alert(product.price * product.amount);</code>
 	}
 ]`;</code>
 	</div>
-	<p>
-		Проверьте этот JSON на общую корректность
-		при разборе, а после разбора проверьте, что
-		в результате получается массив, а не что-то
-		другое. Если в результате получается не массив
-		- выбросите исключение.
-	</p>
+	<p>Check this JSON for general correctness when parsed, and after parsing, check that the result is an array and not something else. If the result is not an array, throw an exception.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../data-attr-example/index.html" class="lesson-nav-btn lesson-nav-prev" title="Пример исключения с data- атрибутами">← Пример исключения с data- атрибутами</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../probing/index.html" class="lesson-nav-btn lesson-nav-next" title="Проброс исключений">Проброс исключений →</a>
+      <a href="../data-attr-example/index.html" class="lesson-nav-btn lesson-nav-prev" title="Example of an exception with data attributes">← Example of an exception with data attributes</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../probing/index.html" class="lesson-nav-btn lesson-nav-next" title="Forwarding exceptions">Forwarding exceptions →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

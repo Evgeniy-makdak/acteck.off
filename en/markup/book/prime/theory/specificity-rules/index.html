@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Правила специфичности в CSS — acteck.off</title>
-  <meta name="description" content="Правила специфичности в CSS — учебные материалы по программированию.">
+  <title>Specificity rules in CSS - acteck.off</title>
+  <meta name="description" content="Specificity Rules in CSS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,28 +33,15 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Правила специфичности в CSS</h1>
-    <p>
-	В предыдущем примере оба селектора были одинаковыми
-	и имели одинаковый приоритет. Это значит,
-	что побеждало то свойство, которое было написано
-	ниже.
-</p>
-<p>
-	Бывают также ситуации, когда одному элементу
-	страницы соответствуют несколько селекторов.
-	В этом случае при конфликте свойств победит
-	более <dfn data-gs="comd/d" data-x>специфичный</dfn>, то есть более точный
-	селектор. Давайте рассмотрим правила специфичности.
-</p>
+    <h1>Specificity Rules in CSS</h1>
+    <p>In the previous example, both selectors were the same and had the same priority. This means that the property that was written below won.</p>
+<p>There are also situations when several selectors correspond to one page element. In this case, if there is a conflict of properties, more will win<dfn data-gs="comd/d" data-x>specific</dfn>, that is, a more precise selector. Let's look at the rules of specificity.</p>
 
-<h2>Правило первое</h2>
-<p>
-	Класс всегда побеждает селектор тега:
-</p>
+<h2>Rule one</h2>
+<p>The class always wins over the tag selector:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="text"&gt;text&lt;/p&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
@@ -100,10 +87,8 @@
 					</div>
 				</div>
 
-<h2>Правило второе</h2>
-<p>
-	Идентификатор всегда побеждает класс:
-</p>
+<h2>Rule two</h2>
+<p>Identifier always beats class:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="elem" class="text"&gt;text&lt;/p&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.text {
@@ -149,13 +134,8 @@
 					</div>
 				</div>
 
-<h2>Правило третье</h2>
-<p>
-	При равных условиях побеждает тот селектор,
-	у которого больше частей. Например, если
-	у нас два селектора тегов, то победит тот,
-	у которого тегов больше:
-</p>
+<h2>Rule three</h2>
+<p>Under equal conditions, the selector with the most parts wins. For example, if we have two tag selectors, then the one with more tags will win:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
 	&lt;p&gt;text&lt;/p&gt;
@@ -204,11 +184,7 @@ div p {
 </html>"></iframe>
 					</div>
 				</div>
-<p>
-	Если два селектора классов, то победит тот,
-	в котором указано больше классов (если там
-	будут селекторы тегов, то они не влияют):
-</p>
+<p>If there are two class selectors, then the one with more classes will win (if there are tag selectors, they have no effect):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="block"&gt;
 	&lt;p class="text"&gt;text&lt;/p&gt;
@@ -258,16 +234,16 @@ div p {
 					</div>
 				</div>
     <div class="lesson-nav">
-      <a href="../property-conflict-note/index.html" class="lesson-nav-btn lesson-nav-prev" title="Замечание к конфликту свойств">← Замечание к конфликту свойств</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../descendants-selectors-priority/index.html" class="lesson-nav-btn lesson-nav-next" title="Приоритет селекторов потомков">Приоритет селекторов потомков →</a>
+      <a href="../property-conflict-note/index.html" class="lesson-nav-btn lesson-nav-prev" title="Property Conflict Note">← Note on property conflicts</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../descendants-selectors-priority/index.html" class="lesson-nav-btn lesson-nav-next" title="Precedence of descendant selectors">Precedence of descendant selectors →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

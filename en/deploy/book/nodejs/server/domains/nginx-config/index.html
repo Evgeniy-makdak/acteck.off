@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Конфигурирование Nginx для тестовых сайтов — acteck.off</title>
-  <meta name="description" content="Конфигурирование Nginx для тестовых сайтов — учебные материалы по программированию.">
+  <title>Configuring Nginx for test sites - acteck.off</title>
+  <meta name="description" content="Configuring Nginx for test sites - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,15 +36,8 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Конфигурирование Nginx для тестовых сайтов</h1>
-    <p>
-	Давайте с помощью Nginx привяжем
-	домены к нашим тестовым сайтам.
-	Для этого откроем файл конфигурации,
-	удалим оттуда текущее содержимое и
-	разместим там настройки наших двух
-	сайтов по следующей схеме:
-</p>
+    <h1>Configuring Nginx for test sites</h1>
+    <p>Let's use Nginx to bind domains to our test sites. To do this, open the configuration file, delete the current content from there and place the settings of our two sites there according to the following scheme:</p>
 <div data-p="bock/pane" data-p-file="/etc/nginx/sites-available/default">
 	<code data-w="bock/code" data-lo="high" data-m-lang="conf">server {
 	настройки первого сайта
@@ -53,12 +46,7 @@ server {
 	настройки второго сайта
 }</code>
 </div>
-<p>
-	Сделаем настройки для первого сайта,
-	указав ваше доменное имя и
-	ваш порт, на котором запущен
-	скрипт первого сайта:
-</p>
+<p>Let's make settings for the first site, indicating your domain name and your port on which the script of the first site is running:</p>
 <div data-p="bock/pane" data-p-file="/etc/nginx/sites-available/default">
 	<code data-w="bock/code" data-lo="high" data-m-lang="conf">server {
 	listen 80;
@@ -74,12 +62,7 @@ server {
 	}
 }</code>
 </div>
-<p>
-	Ниже в этом же файле сделаем
-	настройки второго сайта,
-	также указав правильный
-	домен и порт:
-</p>
+<p>Below in the same file we will make the settings for the second site, also specifying the correct domain and port:</p>
 <div data-p="bock/pane" data-p-file="/etc/nginx/sites-available/default">
 	<code data-w="bock/code" data-lo="high" data-m-lang="conf">server {
 	listen 80;
@@ -95,59 +78,35 @@ server {
 	}
 }</code>
 </div>
-<p>
-	После этого выполним команду, проверяющую
-	конфигурацию на ошибки:
-</p>
+<p>After this, let’s run the command that checks the configuration for errors:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">nginx -t</code>
 </div>
-<p>
-	Перезагрузим Nginx:
-</p>
+<p>Let's restart Nginx:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">service nginx reload</code>
 </div>
-<p>
-	Рестартанем Nginx:
-</p>
+<p>Restart Nginx:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">service nginx restart</code>
 </div>
-<p>
-	Проверим статус Nginx (должен
-	быть активный, зеленый текст):
-</p>
+<p>Let's check the status of Nginx (should be active, green text):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">service nginx status</code>
 </div>
-<p>
-	Все, теперь можно через браузер
-	зайти на домены и они будут попадать
-	на ваши тестовые сайты. Если этого
-	не происходит, убедитесь, что
-	A-записи доменов ведут на IP вашего
-	сервера, а также что вы не напутали
-	с портами развернутых на NodeJS сайтов.
-</p>
+<p>That's it, now you can access domains through your browser and they will go to your test sites. If this does not happen, make sure that the A-records of the domains point to the IP of your server, and also that you have not confused the ports of sites deployed on NodeJS.</p>
 <div data-w="cont/task">
-	<p>
-		Привяжите домены к вашим текстовым
-		сайтам, выполнив настройку Nginx.
-	</p>
+	<p>Link domains to your text sites by setting up Nginx.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Зайдите на ваши домены через
-		браузер.
-	</p>
+	<p>Login to your domains through a browser.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

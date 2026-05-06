@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Получение группы элементов в JavaScript — acteck.off</title>
-  <meta name="description" content="Получение группы элементов в JavaScript — учебные материалы по программированию.">
+  <title>Getting a group of elements in JavaScript - acteck.off</title>
+  <meta name="description" content="Getting a Group of Elements in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,38 +36,17 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Получение группы элементов в JavaScript</h1>
-    <p>
-	В предыдущих уроках мы с помощью метода
-	<code data-gs="comd/c" data-x>querySelector</code> получали один элемент
-	страницы. Теперь пришло время научится получать
-	группу элементов и проделывать какие-нибудь
-	операции сразу со многими элементами.
-</p>
-<p>
-	Для этого существует метод <code data-gs="comd/c" data-x>querySelectorAll</code>,
-	получающий все теги, подпадающие под CSS
-	селектор, в виде массива элементов. Чтобы
-	сделать что-нибудь с найденными элементами,
-	нужно поработать с полученным массивом, например,
-	перебрать его циклом и в цикле выполнить
-	какую-либо операцию с каждым элементом по
-	отдельности.
-</p>
-<p>
-	Пусть, к примеру, у нас даны абзацы с классом
-	<code data-gs="comd/z" data-x>www</code>:
+    <h1>Getting a group of elements in JavaScript</h1>
+    <p>In previous lessons we used the method<code data-gs="comd/c" data-x>querySelector</code>received one page element. Now it's time to learn how to receive a group of elements and perform some operations with many elements at once.</p>
+<p>There is a method for this<code data-gs="comd/c" data-x>querySelectorAll</code>, which gets all tags that match the CSS selector as an array of elements. To do something with the found elements, you need to work with the resulting array, for example, iterate through it in a loop and perform some operation with each element separately in the loop.</p>
+<p>Let, for example, we have paragraphs with the class<code data-gs="comd/z" data-x>www</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="www"&gt;text1&lt;/p&gt;
 &lt;p class="www"&gt;text2&lt;/p&gt;
 &lt;p class="www"&gt;text3&lt;/p&gt;</code>
 </div>
-<p>
-	Давайте получим массив этих абзацев, переберем
-	их циклом и в цикле выведем тексты найденных
-	абзацев в консоль:
-</p>
+<p>Let's get an array of these paragraphs, go through them in a loop and in a loop we will output the texts of the found paragraphs to the console:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('.www');
 
@@ -75,10 +54,7 @@ for (let elem of elems) {
 	console.log(elem.textContent);
 }</code>
 </div>
-<p>
-	А теперь давайте в конец текста каждого абзаца
-	добавим восклицательный знак:
-</p>
+<p>Now let's add an exclamation point to the end of the text of each paragraph:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('.www');
 
@@ -87,39 +63,27 @@ for (let elem of elems) {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны абзацы и кнопка. По нажатию на кнопку
-		найдите все абзацы, переберите их циклом
-		и установите текст каждого абзаца в значение
-		<code data-gs="comd/s" data-x>'text'</code>.
+	<p>Paragraphs and a button are given. By clicking the button, find all the paragraphs, loop through them and set the text of each paragraph to the value<code data-gs="comd/s" data-x>'text'</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны абзацы с текстом и кнопка. По нажатию
-		на кнопку запишите в конец текста каждого
-		абзаца его порядковый номер.
-	</p>
+	<p>Paragraphs with text and a button are given. By clicking the button, write down its serial number at the end of the text of each paragraph.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны инпуты с числами, абзац и кнопка. По
-		нажатию на кнопку найдите сумму чисел из
-		инпутов и запишите эту сумму в текст абзаца.
-	</p>
+	<p>Inputs with numbers, a paragraph and a button are given. By clicking on the button, find the sum of the numbers from the inputs and write this sum in the text of the paragraph.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../this-advantage/index.html" class="lesson-nav-btn lesson-nav-prev" title="Преимущество this">← Преимущество this</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../loop-named-handlers/index.html" class="lesson-nav-btn lesson-nav-next" title="Именованные обработчики в цикле">Именованные обработчики в цикле →</a>
+      <a href="../this-advantage/index.html" class="lesson-nav-btn lesson-nav-prev" title="Advantage of this">← Advantage this</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../loop-named-handlers/index.html" class="lesson-nav-btn lesson-nav-next" title="Named handlers in a loop">Named handlers in a loop →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

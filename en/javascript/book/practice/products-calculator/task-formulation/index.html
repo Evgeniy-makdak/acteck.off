@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Калькулятор продуктов на JavaScript — acteck.off</title>
-  <meta name="description" content="Калькулятор продуктов на JavaScript — учебные материалы по программированию.">
+  <title>Product calculator in JavaScript - acteck.off</title>
+  <meta name="description" content="JavaScript Product Calculator - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,29 +36,11 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Калькулятор продуктов на JavaScript</h1>
-    <p>
-	В данном разделе мы реализуем калькулятор
-	продуктов. Он будет представлять собой таблицу,
-	в которую пользователь нашего сайта будет
-	вносить свои покупки.
-</p>
-<p>
-	Пусть покупки вносятся с помощью формы. Кроме
-	того, для каждого продукта предусмотрим ссылку
-	на удаление. Сделаем также возможность редактирования
-	названия, цены и количества продукта. Пусть
-	такое редактирование будет происходить по
-	двойному клику по ячейке таблицы.
-</p>
-<p>
-	Пусть под таблицей выводится суммарная стоимость
-	продуктов. Сделаем так, чтобы эта сумма пересчитывалась
-	при удалении и при редактировании продуктов.
-</p>
-<p>
-	Вот образец того, что должно получится:
-</p>
+    <h1>Product calculator in JavaScript</h1>
+    <p>In this section we implement a product calculator. It will be a table into which the user of our site will make his purchases.</p>
+<p>Let purchases be made using the form. In addition, we will provide a deletion link for each product. We will also make it possible to edit the name, price and quantity of the product. Let such editing occur by double clicking on a table cell.</p>
+<p>Let the total cost of products be displayed below the table. Let's make sure that this amount is recalculated when deleting and editing products.</p>
+<p>Here is a sample of what should happen:</p>
 <div data-p="bock/pane">
 					<div data-w="bock/tain">
 						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
@@ -130,18 +112,17 @@
 				<input id=&quot;add&quot; type=&quot;button&quot; value=&quot;добавить&quot;>
 			</div>
 			
-			<h2>Таблица продуктов:</h2>
+			<h2>Products table:</h2>
 			<table id=&quot;table&quot;>
 				<tr>
-					<th>название</th>
-					<th>цена</th>
-					<th>кол-во</th>
-					<th>сумма</th>
-					<th>удалить</th>
+					<th>Name</th>
+					<th>price</th>
+					<th>quantity</th>
+					<th>sum</th>
+					<th>delete</th>
 				</tr>
 			</table>
-			<div id=&quot;result&quot;>
-				общий итог: <span id=&quot;total&quot;>0</span>
+			<div id=&quot;result&quot;>Grand total:<span id=&quot;total&quot;>0</span>
 			</div>
 		</div>
 		
@@ -227,10 +208,7 @@
 </html>"></iframe>
 					</div>
 				</div>
-<p>
-	Вот верстка, которую вы можете использовать
-	при решении задачи:
-</p>
+<p>Here is the layout you can use to solve the problem:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div id="form"&gt;
@@ -300,10 +278,7 @@ h2 {
 	margin-right: 10px;
 }</code>
 </div>
-<p>
-	Сразу давайте получим ссылки на все нужные
-	теги в переменные:
-</p>
+<p>Let's immediately get links to all the necessary tags into variables:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let name   = document.querySelector('#name');
 let price  = document.querySelector('#price');
@@ -313,23 +288,20 @@ let table  = document.querySelector('#table');
 let total  = document.querySelector('#total');</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Скопируйте себе представленные мною заготовки
-		кода.
-	</p>
+	<p>Copy the code templates I presented to you.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../../checklist/final-code/index.html" class="lesson-nav-btn lesson-nav-prev" title="Окончательный код">← Окончательный код</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../purchase-adding/index.html" class="lesson-nav-btn lesson-nav-next" title="Добавление новой покупки">Добавление новой покупки →</a>
+      <a href="../../checklist/final-code/index.html" class="lesson-nav-btn lesson-nav-prev" title="Final code">← Final code</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../purchase-adding/index.html" class="lesson-nav-btn lesson-nav-next" title="Adding a new purchase">Adding a new purchase →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

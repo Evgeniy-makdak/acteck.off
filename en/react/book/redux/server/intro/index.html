@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обмен данными между Redux приложением и сервером — acteck.off</title>
-  <meta name="description" content="Обмен данными между Redux приложением и сервером — учебные материалы по программированию.">
+  <title>Data exchange between Redux application and server - acteck.off</title>
+  <meta name="description" content="Data exchange between the Redux application and the server - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,74 +36,23 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Обмен данными между Redux приложением и сервером</h1>
-    <p>
-	Этот раздел будет для искушенных учеников,
-	которые не остановились на достигнутом в Redux
-	и решили дойти до конца этого учебника. В
-	следующих двух разделах мы затронем работу
-	приложения Redux с асинхронной логикой, свяжем
-	наше приложение	с серверной частью и научим
-	его обмениваться с ней данными.
-</p>
-<p>
-	Из предыдущих разделов мы знаем, что в основе
-	работы Redux приложения лежит синхронный механизм.
-	Основные этапы работы заключаются в отправке
-	экшенов при возникновении какого-то события в
-	приложении, затем обновлении стейта в store
-	функцией-редьюсером, уведомление компонентов
-	приложения об изменении стейта и соответственно
-	отображении нового значения стейта в компонентах.
-</p>
-<p>
-	В реальной жизни часто бывает так, что приложению
-	необходима и асинхронная логика, например при
-	работе с HTTP API запросами и получением данных
-	с какого-то внешнего сервера. Поэтому для того,
-	чтобы наш <code data-gs="comd/s" data-x>'синхронный'</code> Redux store мог работать
-	с такой асинхронной логикой используется так
-	называемое <dfn data-gs="comd/d" data-x>middlware</dfn> - программное обеспечение,
-	являющееся посредником или связкой между
-	store нашего приложения и, к примеру, 
-	сервером, с которым мы начнем работу в этой
-	главе учебника.
-</p>
-<p>
-	Для Redux создано множество таких middleware,
-	однако наиболее широко распространенным среди
-	них и официально рекомендуемым при работе Redux
-	приложений с асинхронной логикой пока еще остается
-	<a href="https://github.com/reduxjs/redux-thunk">Redux Thunk</a>.
-	Это ПО помогает нам использовать обычные
-	функции (или thunks), которые могут содержать
-	в себе асинхронный логику, такую как
-	<code data-gs="comd/c" data-x>setTimeout</code>, <code data-gs="comd/c" data-x>Promises</code>, <code data-gs="comd/c" data-x>async/await</code>,
-	для взаимодействии с нашим store. Что касается
-	самого термина, <dfn data-gs="comd/d" data-x>thunk</dfn> - это код, который
-	делает какую-то отложенную работу.
-</p>
-<p>
-	Теперь, когда мы немного познакомились с тем,
-	как нам работать в Redux с ансинхронной логикой,
-	мы можем приступить к реализации этого этапа
-	в нашем приложении. Нам нужно сделать так, чтобы
-	наше приложение могло взаимодействовать с каким-то
-	внешним сервером, принимая от него и передавая
-	ему данные. Другими словами, впереди нас ожидает
-	захватывающая и очень важная тема. Начнем. 
-</p>
+    <h1>Communication between Redux application and server</h1>
+    <p>This section will be for experienced students who did not stop there with Redux and decided to reach the end of this tutorial. In the next two sections, we'll touch on how a Redux app works with asynchronous logic, connecting our app to the backend and teaching it how to communicate with it.</p>
+<p>From the previous sections, we know that the synchronous mechanism is at the heart of a Redux application. The main stages of work are to send actions when some event occurs in the application, then update the state in the store with a reducer function, notify application components about the state change and, accordingly, display the new state value in the components.</p>
+<p>In real life, it often happens that an application also needs asynchronous logic, for example, when working with HTTP API requests and receiving data from some external server. Therefore, in order for our<code data-gs="comd/s" data-x>'синхронный'</code>Redux store could work with such asynchronous logic using the so-called<dfn data-gs="comd/d" data-x>middlware</dfn>- software that is an intermediary or connection between the store of our application and, for example, the server with which we will begin working in this chapter of the tutorial.</p>
+<p>Many such middleware have been created for Redux, but the most widespread among them and officially recommended when running Redux applications with asynchronous logic is still<a href="https://github.com/reduxjs/redux-thunk">Redux Thunk</a>. This software helps us use regular functions (or thunks) that can contain asynchronous logic such as<code data-gs="comd/c" data-x>setTimeout</code>, <code data-gs="comd/c" data-x>Promises</code>, <code data-gs="comd/c" data-x>async/await</code>, to interact with our store. As for the term itself,<dfn data-gs="comd/d" data-x>thunk</dfn>is code that does some deferred work.</p>
+<p>Now that we've learned a little about how we can work with asynchronous logic in Redux, we can start implementing this step in our application. We need to make sure that our application can interact with some external server, receiving data from it and transmitting it to it. In other words, there is an exciting and very important topic ahead of us. Let's begin.</p>
     <div class="lesson-nav">
-      <a href="../../redux-data/dispatch-action/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отправка action">← Отправка action</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../state-structure-change/index.html" class="lesson-nav-btn lesson-nav-next" title="Изменение структуры стейта">Изменение структуры стейта →</a>
+      <a href="../../redux-data/dispatch-action/index.html" class="lesson-nav-btn lesson-nav-prev" title="Sending an action">← Sending action</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../state-structure-change/index.html" class="lesson-nav-btn lesson-nav-next" title="Changing the state structure">Changing the state structure →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

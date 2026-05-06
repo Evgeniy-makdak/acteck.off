@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Редактирование записи в БД на NodeJS — acteck.off</title>
-  <meta name="description" content="Редактирование записи в БД на NodeJS — учебные материалы по программированию.">
+  <title>Editing a database record on NodeJS - acteck.off</title>
+  <meta name="description" content="Editing a database record on NodeJS - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,17 +36,9 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Редактирование записи в БД на NodeJS</h1>
-    <p>
-	Давайте теперь реализуем редактирование
-	данных об юзере. Для этого нам понадобится страница
-	<code data-gs="comd/p" data-x>edit.hbs</code>, на которой будет размещаться
-	форма для редактирования.
-</p>
-<p>
-	Для начала на странице <code data-gs="comd/p" data-x>edit.hbs</code> сделаем
-	форму:
-</p>
+    <h1>Editing a database record on NodeJS</h1>
+    <p>Let's now implement editing user data. For this we need a page<code data-gs="comd/p" data-x>edit.hbs</code>, on which the form for editing will be placed.</p>
+<p>To start on the page<code data-gs="comd/p" data-x>edit.hbs</code>let's make a form:</p>
 <div data-p="bock/pane" data-p-file="views/edit.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;form action="" method="POST"&gt;
 	{{#each results}}
@@ -56,12 +48,7 @@
 	{{/each}}
 &lt;/form&gt;</code>
 </div>
-<p>
-	В эту форму будут загружаться текущие данные
-	юзера из БД. Пусть <code data-gs="comd/s" data-x>id</code> юзера
-	для редактирования передается в
-	параметре GET маршрута:
-</p>
+<p>Current user data from the database will be loaded into this form. Let<code data-gs="comd/s" data-x>id</code>user for editing is passed in the GET parameter of the route:</p>
 <div data-p="bock/pane" data-p-file="app.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/edit/:id', async function(req, res) {
 	let id = req.params.id;
@@ -71,11 +58,7 @@
 	res.render('edit', {results: results});
 });</code>
 </div>
-<p>
-	В файле представления выведем
-	данные об юзере, указав из в атрибуте
-	<code data-gs="comd/c" data-x>value</code> каждого инпута:
-</p>
+<p>In the presentation file we will display data about the user, indicating from in the attribute<code data-gs="comd/c" data-x>value</code>each input:</p>
 <div data-p="bock/pane" data-p-file="views/edit.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;form action="" method="POST"&gt;
 	{{#each results}}
@@ -86,16 +69,7 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	Теперь создадим POST маршрут для обработки формы.
-	Все данные об имени, возрасте и зарплате
-	юзера разложим по соответствующим переменным.
-	А в SQL запросе введем эти переменные
-	для редактирования записи. После отправки
-	данных пусть POST запрос редиректится на ту же
-	страницу, где редактировали
-	данные юзера. Для этого передадим в строку запроса
-	переменную <code data-gs="comd/c" data-x>id</code>:
+<p>Now let's create a POST route to process the form. We will decompose all data about the user’s name, age and salary into the corresponding variables. And in the SQL query we will enter these variables to edit the record. After sending the data, let the POST request be redirected to the same page where the user data was edited. To do this, we will pass the variable to the query string<code data-gs="comd/c" data-x>id</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.post('/edit/:id', async function(req, res) {
@@ -110,17 +84,10 @@
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Реализуйте страницу <code data-gs="comd/p" data-x>edit.hbs</code> для редактирования
-		юзера.
-	</p>
+	<p>Implement the page<code data-gs="comd/p" data-x>edit.hbs</code>to edit the user.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		На странице <code data-gs="comd/p" data-x>index.hbs</code> выведите на
-		экран список юзеров так, чтобы для каждого
-		юзера была ссылка для его редактирования:
-	</p>
+	<p>On the page<code data-gs="comd/p" data-x>index.hbs</code>display a list of users so that for each user there is a link to edit it:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li&gt;user1 &lt;a href="/edit/1"&gt;edit&lt;/a&gt;&lt;/li&gt;
@@ -134,7 +101,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

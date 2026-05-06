@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Контекст в Handlebars Express — acteck.off</title>
-  <meta name="description" content="Контекст в Handlebars Express — учебные материалы по программированию.">
+  <title>Context in Handlebars Express - acteck.off</title>
+  <meta name="description" content="Context in Handlebars Express - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Контекст в Handlebars Express</h1>
-    <p>
-	Пусть в представление передается объект с
-	юзером и некоторая переменная <code data-gs="comd/c" data-x>name</code>:
+    <h1>Context in Handlebars Express</h1>
+    <p>Let an object with a user and some variable be passed to the view<code data-gs="comd/c" data-x>name</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/', function(req, res) {
@@ -49,9 +47,7 @@
 	});
 });</code>
 </div>
-<p>
-	Давайте выведем переданные данные в представлении:
-</p>
+<p>Let's display the passed data in a view:</p>
 <div data-p="bock/pane" data-p-file="views/page.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">имя из переменной: {{name}}
 
@@ -59,26 +55,14 @@
 	имя из юзера: {{name}}
 {{/with}}</code>
 </div>
-<p>
-	Как вы видите, имя переменной <code data-gs="comd/c" data-x>name</code>
-	совпадает с ключом. Пусть мы хотим вывести
-	в конструкции <code data-gs="comd/c" data-x>with</code> как имя из переменной,
-	так и имя из объекта с юзером. Так просто
-	это сделать не получится, ведь команды на
-	вывод будут совпадать:
-</p>
+<p>As you can see the variable name is<code data-gs="comd/c" data-x>name</code>matches the key. Suppose we want to output in a design<code data-gs="comd/c" data-x>with</code>both the name from the variable and the name from the object with the user. It won’t be possible to do this so easily, because the output commands will be the same:</p>
 <div data-p="bock/pane" data-p-file="views/page.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">{{#with user}}
 	имя из юзера: {{name}}
 	имя из переменной: {{name}} - выведет имя юзера
 {{/with}}</code>
 </div>
-<p>
-	Для того, чтобы вывести именно имя из переменой,
-	мы должны сказать шаблонизатору, что хотим
-	взять значение <code data-gs="comd/c" data-x>name</code> из внешнего <dfn data-gs="comd/d" data-x>контекста</dfn>.
-	Для этого перед именем переменной следует
-	написать <code data-gs="comd/c" data-x>../</code>:
+<p>In order to derive exactly the name from a variable, we must tell the template engine that we want to take the value<code data-gs="comd/c" data-x>name</code>from outside<dfn data-gs="comd/d" data-x>context</dfn>. To do this, before the variable name you should write<code data-gs="comd/c" data-x>../</code>:
 </p>
 <div data-p="bock/pane" data-p-file="views/page.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">{{#with user}}
@@ -87,9 +71,7 @@
 {{/with}}</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть в представление передаются следующие данные:
-	</p>
+	<p>Let the following data be passed to the view:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">res.render('page', {
 	amount: 10,
@@ -101,9 +83,7 @@
 	}
 });</code>
 	</div>
-	<p>
-		Выведите данные продукта в конструкции <code data-gs="comd/c" data-x>with</code>.
-		Там же выведите значение переменной <code data-gs="comd/c" data-x>amount</code>.
+	<p>Output product data in designs<code data-gs="comd/c" data-x>with</code>. Print the value of the variable there<code data-gs="comd/c" data-x>amount</code>.
 	</p>
 </div>
   </section>
@@ -111,7 +91,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

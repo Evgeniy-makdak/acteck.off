@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Работа с каналами в NodeJS — acteck.off</title>
-  <meta name="description" content="Работа с каналами в NodeJS — учебные материалы по программированию.">
+  <title>Working with channels in NodeJS - acteck.off</title>
+  <meta name="description" content="Working with channels in NodeJS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,82 +36,52 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Работа с каналами в NodeJS</h1>
-    <p>
-	Ситуация, в которой нам нужно прочитать данные
-	из одного потока и записать их в другой,
-	является достаточно распространенной. Для
-	упрощения такой операции придуманы <dfn data-gs="comd/d" data-x>каналы</dfn>
+    <h1>Working with Channels in NodeJS</h1>
+    <p>The situation in which we need to read data from one thread and write it to another is quite common. To simplify this operation, we have invented<dfn data-gs="comd/d" data-x>channels</dfn>
 	(<span data-gs="lang/e" data-x>pipes</span>).
 </p>
-<p>
-	Давайте посмотрим, как это делается. Пусть
-	у нас есть поток чтения и поток записи:
-</p>
+<p>Let's see how it's done. Let's say we have a read thread and a write thread:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let readableStream  = fs.createReadStream('readme.txt', 'utf8');
 let writeableStream = fs.createWriteStream('writeme.txt');</code>
 </div>
-<p>
-	Сделаем так, чтобы поток чтения сразу перенаправлялся
-	в поток записи. Для этого у потоков чтения
-	существует метод <code data-gs="comd/c" data-x>pipe</code>:
+<p>Let's make sure that the reading stream is immediately redirected to the writing stream. For this purpose, reading threads have a method<code data-gs="comd/c" data-x>pipe</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">readableStream.pipe(writeableStream);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		С помощью канала прочитайте файл и запишите
-		его данные в другой файл.
-	</p>
+	<p>Use a pipe to read a file and write its data to another file.</p>
 </div>
 
-<h2>Цепочки</h2>
-<p>
-	Методы <code data-gs="comd/c" data-x>pipe</code> можно вызывать цепочкой
-	друг за другом. При этом каждый вызов метода
-	в цепочке позволяет выполнять над данными
-	некоторые операции:
-</p>
+<h2>Chains</h2>
+<p>Methods<code data-gs="comd/c" data-x>pipe</code>can be called in a chain one after another. Moreover, each method call in the chain allows you to perform certain operations on the data:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">readableStream.pipe(операция).pipe(операция).pipe(операция);</code>
 </div>
-<p>
-	Для примера давайте выполним архивацию файла.
-	Для этого нам надо сначала считать файл,
-	затем сжать данные и в конце записать сжатые
-	данные в файл-архив. В этом нам поможет встроенная
-	в NodeJS библиотека <code data-gs="comd/c" data-x>zlib</code>:
+<p>For example, let's archive a file. To do this, we need to first read the file, then compress the data and finally write the compressed data to an archive file. The library built into NodeJS will help us with this.<code data-gs="comd/c" data-x>zlib</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import { createGzip } from 'zlib';</code>
 </div>
-<p>
-	Теперь с помощью цепочки методов сначала
-	заархивируем поток чтения, а потом запишем
-	в поток записи:
-</p>
+<p>Now, using a chain of methods, we will first archive the reading stream, and then write to the writing stream:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">readableStream.pipe(createGzip()).pipe(writeableStream);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны <code data-gs="comd/n" data-x>10</code> файлов. Напишите код, который
-		заархивирует каждый из этих файлов в свой архив.
-	</p>
+	<p>Dans<code data-gs="comd/n" data-x>10</code>files. Write code that will archive each of these files into its own archive.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../streams/index.html" class="lesson-nav-btn lesson-nav-prev" title="Потоки">← Потоки</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../server/deploy/index.html" class="lesson-nav-btn lesson-nav-next" title="Разворачивание сервера">Разворачивание сервера →</a>
+      <a href="../streams/index.html" class="lesson-nav-btn lesson-nav-prev" title="Streams">← Streams</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../server/deploy/index.html" class="lesson-nav-btn lesson-nav-next" title="Server deployment">Server deployment →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

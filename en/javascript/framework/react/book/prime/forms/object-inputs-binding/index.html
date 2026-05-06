@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Привязка инпутов к объекту в React — acteck.off</title>
-  <meta name="description" content="Привязка инпутов к объекту в React — учебные материалы по программированию.">
+  <title>Binding inputs to an object in React - acteck.off</title>
+  <meta name="description" content="Binding inputs to an object in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Привязка инпутов к объекту в React</h1>
-    <p>
-	Пусть в стейте хранится объект:
-</p>
+    <h1>Binding inputs to an object in React</h1>
+    <p>Let the state store an object:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initObj = {
 	prop1: 'value1',
@@ -55,10 +53,7 @@ function App() {
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Давайте выведем каждое свойство нашего объекта
-	в отдельном инпуте:
-</p>
+<p>Let's output each property of our object in a separate input:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [obj, setObj] = useState(initObj);
@@ -73,11 +68,7 @@ function App() {
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Давайте теперь к каждому инпуту привяжем
-	событие <code data-gs="comd/c" data-x>onChange</code>. В качестве обработчика
-	назначим одну общую функцию:
-</p>
+<p>Let's now attach an event to each input<code data-gs="comd/c" data-x>onChange</code>. Let's assign one common function as a handler:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [obj, setObj] = useState(initObj);
@@ -92,14 +83,8 @@ function App() {
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Как вы видите, функция <code data-gs="comd/c" data-x>handleChange</code>
-	первым параметром принимает имя соответствующего
-	свойства объекта.
-</p>
-<p>
-	Давайте напишем реализацию нашей функции:
-</p>
+<p>As you can see, the function<code data-gs="comd/c" data-x>handleChange</code>The first parameter takes the name of the corresponding property of the object.</p>
+<p>Let's write the implementation of our function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function handleChange(prop, event) {
 	const copy = Object.assign({}, obj);
@@ -107,19 +92,13 @@ function App() {
 	setObj(copy);
 }</code>
 </div>
-<p>
-	Данная реализация рабочая, но ее можно упростить,
-	если воспользоваться вычисляемыми именами
-	свойств объекта:
-</p>
+<p>This implementation is working, but it can be simplified if you use calculated object property names:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function handleChange(prop, event) {
 	setObj({...obj, ...{[prop]: event.target.value}});
 }</code>
 </div>
-<p>
-	Давайте соберем весь код вместе:
-</p>
+<p>Let's put all the code together:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [obj, setObj] = useState(initObj);
@@ -139,9 +118,7 @@ function App() {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть в стейте хранится объект с датой:
-	</p>
+	<p>Let the state store an object with a date:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initDate = {
 	year:  2025,
@@ -149,21 +126,14 @@ function App() {
 	day:   31,
 }</code>
 	</div>
-	<p>
-		Выведите в абзаце год, месяц и день из даты,
-		хранящейся в стейте, а также день недели,
-		соответствующий ей.
-	</p>
+	<p>Print in a paragraph the year, month and day from the date stored in the state, as well as the day of the week corresponding to it.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте предыдущую задачу, добавив
-		три инпута для редактирования даты.
-	</p>
+	<p>Modify the previous task by adding three inputs for editing the date.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../array-inputs-binding/index.html" class="lesson-nav-btn lesson-nav-prev" title="Привязка инпутов к массиву">← Привязка инпутов к массиву</a>
-      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../array-inputs-binding/index.html" class="lesson-nav-btn lesson-nav-prev" title="Binding inputs to an array">← Linking inputs to an array</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../../data/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
     </div>
   </section>
@@ -171,7 +141,7 @@ function App() {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

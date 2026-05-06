@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Подготовка данных для объекта action в Redux — acteck.off</title>
-  <meta name="description" content="Подготовка данных для объекта action в Redux — учебные материалы по программированию.">
+  <title>Preparing data for the action object in Redux - acteck.off</title>
+  <meta name="description" content="Preparing data for the action object in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,69 +36,26 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Подготовка данных для объекта action в Redux</h1>
-    <p>
-	Недавно мы говорили с вами о том, что
-	функция <code data-gs="comd/c" data-x>createSlice</code> ожидает один
-	аргумент при создании <code data-gs="comd/c" data-x>action.payload</code>.
-	С одной стороны это упрощает ее использование,
-	с другой же может потребовать дополнительных
-	движений для подготовки содержимого
-	объекта action.
-</p>
-<p>
-	Давайте откроем наше приложение с
-	продуктами, а в нем файл <code data-gs="comd/p" data-x>NewProductForm.jsx</code>.
-	Обратите внимание на следующую строчку кода:
-</p>
+    <h1>Preparing data for the action object in Redux</h1>
+    <p>We recently talked to you about the fact that the function<code data-gs="comd/c" data-x>createSlice</code>expects one argument upon creation<code data-gs="comd/c" data-x>action.payload</code>. On the one hand, this simplifies its use, on the other hand, it may require additional steps to prepare the contents of the action object.</p>
+<p>Let's open our application with products, and in it there is a file<code data-gs="comd/p" data-x>NewProductForm.jsx</code>. Pay attention to the following line of code:</p>
 <div data-p="bock/pane" data-p-file="NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">dispatch(productAdded({
 	id: nanoid(), name, desc, price, amount
 }))</code>
 </div>
-<p>
-	Здесь мы собираем <code data-gs="comd/c" data-x>payload</code> объект
-	прямо в React компоненте и передаем его в
-	экшен <code data-gs="comd/c" data-x>productAdded</code>. А что если нам
-	придется отправлять такой же экшен из
-	нескольких компонентов или логика для
-	сборки окажется сложной? По идее нашему
-	компоненту должно быть все равно как
-	выглядит объект в <code data-gs="comd/c" data-x>payload</code> для данного
-	action. К тому же нас не устраивает
-	постоянное дублирование кода.
-</p>
-<p>
-	Эти проблемы нам снова может помочь
-	решить наш знаменитый <code data-gs="comd/c" data-x>createSlice</code>,
-	поскольку при написании редьюсера он
-	позволяет нам использовать callback-функцию
-	<code data-gs="comd/c" data-x>prepare</code>, в которой можно писать различную
-	логику, генерировать случайные числа и прочее. В
-	таком случае значение для поля редьюсера может
-	быть представлено в виде следующего объекта:
-</p>
+<p>Here we collect<code data-gs="comd/c" data-x>payload</code>object directly in the React component and passing it to the action<code data-gs="comd/c" data-x>productAdded</code>. What if we have to send the same action from several components or the logic for assembly turns out to be complex? In theory, our component should not care what the object looks like in<code data-gs="comd/c" data-x>payload</code>for a given action. In addition, we are not happy with the constant duplication of code.</p>
+<p>Our famous<code data-gs="comd/c" data-x>createSlice</code>, because when writing a reducer it allows us to use a callback function<code data-gs="comd/c" data-x>prepare</code>, in which you can write various logic, generate random numbers, etc. In this case, the value for the reducer field can be represented as the following object:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{reducer, prepare}</code>
 </div>
-<p>
-	Давайте откроем наш файл <code data-gs="comd/p" data-x>productsSlice.js</code>
-	и изменим код для редьюсера <code data-gs="comd/c" data-x>productAdded</code>.
-	Теперь этот кусочек кода:
-</p>
+<p>Let's open our file<code data-gs="comd/p" data-x>productsSlice.js</code>and change the code for the reducer<code data-gs="comd/c" data-x>productAdded</code>. Now this piece of code:</p>
 <div data-p="bock/pane" data-p-file="products/ProductSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">productAdded(state, action) {
 	state.push(action.payload)
 },</code>
 </div>
-<p>
-	Мы поменяем на следующий, в котором
-	функция <code data-gs="comd/c" data-x>reducer</code> будет заниматься
-	обновлением стейта в store, а <code data-gs="comd/c" data-x>prepare</code> -
-	возвращать объект <code data-gs="comd/c" data-x>payload</code> со
-	сгенерированным id и другими нашими
-	данными:
-</p>
+<p>We will change to the following one, in which the function<code data-gs="comd/c" data-x>reducer</code>will update the state in the store, and<code data-gs="comd/c" data-x>prepare</code>- return object<code data-gs="comd/c" data-x>payload</code>with the generated id and our other data:</p>
 <div data-p="bock/pane" data-p-file="products/ProductSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">productAdded: {
 	reducer(state, action) {
@@ -117,66 +74,38 @@
 	},
 },</code>
 </div>
-<p>
-	Так как теперь мы будем генерировать id
-	здесь, а не в компоненте, давайте
-	добавим nanoid в импорт:
-</p>
+<p>Since we will now be generating the id here and not in the component, let's add nanoid to the import:</p>
 <div data-p="bock/pane" data-p-file="products/ProductSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { createSlice, nanoid } from '@reduxjs/toolkit'</code>
 </div>
-<p>
-	Напоследок внесем изменения в
-	<code data-gs="comd/p" data-x>NewProductForm.jsx</code>. Вместо
-	строчки:
-</p>
+<p>Finally, let's make changes to<code data-gs="comd/p" data-x>NewProductForm.jsx</code>. Instead of the line:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">dispatch(productAdded({
 	id: nanoid(), name, desc, price, amount
 }))</code>
 </div>
-<p>
-	У нас будет такая, в которой мы просто
-	через запятую передадим необходимые нам
-	данные (не забудьте в этом файле убрать
-	<code data-gs="comd/p" data-x>nanoid</code> из импорта):
-</p>
+<p>We will have one in which we will simply pass the data we need, separated by commas (don’t forget to remove<code data-gs="comd/p" data-x>nanoid</code>from import):</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">dispatch(productAdded(name, desc, price, amount))</code>
 </div>
-<p>
-	Запустим приложение, затем создадим новый
-	продукт и убедимся, что мы ничего не
-	поломали.
-</p>
+<p>Let's launch the application, then create a new product and make sure we don't break anything.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		В файле <code data-gs="comd/p" data-x>StudentsSlice.js</code> перепишите
-		ваш редьюсер <code data-gs="comd/c" data-x>studentAdded</code> таким образом,
-		чтобы он был в виде объекта <code data-gs="comd/c" data-x>{reducer, prepare}</code>,
-		как показано в уроке.
-	</p>
+	<p>Open your application with students. In file<code data-gs="comd/p" data-x>StudentsSlice.js</code>rewrite your reducer<code data-gs="comd/c" data-x>studentAdded</code>so that it is in the form of an object<code data-gs="comd/c" data-x>{reducer, prepare}</code>, as shown in the lesson.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Внесите соответствующие изменения в
-		файл <code data-gs="comd/p" data-x>NewStudentForm.jsx</code>, как показано
-		в уроке. Запустите приложение и убедитесь,
-		что все работает как и прежде.
-	</p>
+	<p>Make the appropriate changes to the file<code data-gs="comd/p" data-x>NewStudentForm.jsx</code>, as shown in the lesson. Launch the application and make sure everything works as before.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../edit-form-route/index.html" class="lesson-nav-btn lesson-nav-prev" title="Page редактирования продукта в браузере">← Page редактирования продукта в браузере</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../add-slice/index.html" class="lesson-nav-btn lesson-nav-next" title="Добавление еще одного слайса">Добавление еще одного слайса →</a>
+      <a href="../edit-form-route/index.html" class="lesson-nav-btn lesson-nav-prev" title="Product edit page in browser">← Product editing page in the browser</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../add-slice/index.html" class="lesson-nav-btn lesson-nav-next" title="Adding another slice">Adding another slice →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

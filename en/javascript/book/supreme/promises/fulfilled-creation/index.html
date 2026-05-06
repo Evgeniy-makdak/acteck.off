@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Создание сработавших промисов в JavaScript — acteck.off</title>
-  <meta name="description" content="Создание сработавших промисов в JavaScript — учебные материалы по программированию.">
+  <title>Creating triggered promises in JavaScript - acteck.off</title>
+  <meta name="description" content="Making Promises Work in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,23 +36,9 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Создание сработавших промисов в JavaScript</h1>
-    <p>
-	Иногда вам может понадобится создать уже
-	выполненный промис. Для этого существуют
-	два метода: метод <code data-gs="comd/c" data-x>Promise.resolve</code>
-	создает выполненный успешно промис, <code data-gs="comd/c" data-x>Promise.reject</code>
-	создает отклоненный промис. Параметром эти
-	методы получают то, что станет результатом
-	или ошибкой промиса соответственно.
-</p>
-<p>
-	Когда нам может понадобится уже выполненный
-	промис? Давайте посмотрим на примере. Пусть
-	у нас есть некоторая функция, которая параметром
-	принимает число, что-то с ним делает асинхронно
-	и возвращает промис с результатом:
-</p>
+    <h1>Creating Triggered Promises in JavaScript</h1>
+    <p>Sometimes you may need to create a promise that has already been fulfilled. There are two methods for this: the method<code data-gs="comd/c" data-x>Promise.resolve</code>creates a successful promise,<code data-gs="comd/c" data-x>Promise.reject</code>creates a rejected promise. These methods receive as a parameter what will be the result or error of the promise, respectively.</p>
+<p>When might we need a promise that has already been fulfilled? Let's look at an example. Let us have some function that takes a number as a parameter, does something with it asynchronously and returns a promise with the result:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(num) {
 	return new Promise(function(resolve) {
@@ -62,21 +48,13 @@
 	});
 }</code>
 </div>
-<p>
-	Мы будем пользоваться нашей функцией следующим
-	образом:
-</p>
+<p>We will use our function as follows:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">func(5).then(function(res) {
 	console.log(res); // выведет 25
 });</code>
 </div>
-<p>
-	Пусть теперь мы решили, что нашу асинхронную
-	операцию мы будем совершать, только если
-	передано число больше нуля. В противном случае
-	результатом функции должен быть ноль:
-</p>
+<p>Let us now decide that we will perform our asynchronous operation only if a number greater than zero is passed. Otherwise, the result of the function must be zero:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(num) {
 	if (num &gt; 0) {
@@ -90,20 +68,13 @@
 	}
 }</code>
 </div>
-<p>
-	Однако, теперь получается, что функция возвращает
-	или промис, или число. Из-за этого мы больше
-	не можем применить метод <code data-gs="comd/c" data-x>then</code> к результату
-	функции, так как в случае возврата функцией
-	числа мы получим ошибку:
-</p>
+<p>However, now it turns out that the function returns either a promise or a number. Because of this we can no longer apply the method<code data-gs="comd/c" data-x>then</code>to the function result, since if the function returns a number, we will receive an error:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">func(0).then(function(res) { // ошибка, применяем метод then к нулю
 	
 });</code>
 </div>
-<p>
-	Исправить проблему нам поможет <code data-gs="comd/c" data-x>Promise.resolve</code>:
+<p>Help us fix the problem<code data-gs="comd/c" data-x>Promise.resolve</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(num) {
@@ -118,11 +89,7 @@
 	}
 }</code>
 </div>
-<p>
-	Пусть теперь мы решили, что для переданного
-	нуля мы должны вернуть ноль, а для чисел
-	меньше нуля - исключение. В этом нам поможет
-	метод <code data-gs="comd/c" data-x>Promise.reject</code>:
+<p>Let us now decide that for the passed zero we must return zero, and for numbers less than zero we must return an exception. The method will help us with this<code data-gs="comd/c" data-x>Promise.reject</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(num) {
@@ -141,16 +108,16 @@
 </div>
   
     <div class="lesson-nav">
-      <a href="../arrays/index.html" class="lesson-nav-btn lesson-nav-prev" title="Работа с массивами промисов">← Работа с массивами промисов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../promisification/index.html" class="lesson-nav-btn lesson-nav-next" title="Промисификация асинхронного кода">Промисификация асинхронного кода →</a>
+      <a href="../arrays/index.html" class="lesson-nav-btn lesson-nav-prev" title="Working with arrays of promises">← Working with arrays of promises</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../promisification/index.html" class="lesson-nav-btn lesson-nav-next" title="Promising asynchronous code">Promisification of asynchronous code →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

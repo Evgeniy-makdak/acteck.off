@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свойство border-collapse — acteck.off</title>
-  <meta name="description" content="Свойство border-collapse — учебные материалы по программированию.">
+  <title>border-collapse property - acteck.off</title>
+  <meta name="description" content="The border-collapse property - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,67 +33,42 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Свойство border-collapse</h1>
-    <p>
-	Свойство <code data-gs="comd/c" data-x>border-collapse</code> заставляет
-	двойные границы между ячейками <a href="../../../html/tag/td/index.html"><code data-gs="comd/c" data-x>td</code></a>
-	или ячейками <a href="../../../html/tag/th/index.html"><code data-gs="comd/c" data-x>th</code></a>
-	HTML <a href="../../../html/tag/table/index.html">таблицы</a>
-	(и между границей ячейки и самой таблицы)
-	схлопнуться и выглядеть как одна.
-</p>
-<p>
-	Данное свойство применяется только для таблиц
-	и для элементов с <a href="../display/index.html"><code data-gs="comd/c" data-x>display</code></a>
-	в значении <code data-gs="comd/v" data-x>table</code> или <code data-gs="comd/v" data-x>inline-table</code>. Для обычных
-	блочных элементов оно, к большому сожалению,
-	работать не будет. Учтите, что применять
-	следует для таблицы, а не для ее ячеек.
-</p>
+    <h1>border-collapse property</h1>
+    <p>Property<code data-gs="comd/c" data-x>border-collapse</code>forces double borders between cells<a href="../../../html/tag/td/index.html"><code data-gs="comd/c" data-x>td</code></a>or cells<a href="../../../html/tag/th/index.html"><code data-gs="comd/c" data-x>th</code></a>
+	HTML <a href="../../../html/tag/table/index.html">tables</a>(and between the cell border and the table itself) collapse and look like one.</p>
+<p>This property applies only to tables and elements with<a href="../display/index.html"><code data-gs="comd/c" data-x>display</code></a>in meaning<code data-gs="comd/v" data-x>table</code>or<code data-gs="comd/v" data-x>inline-table</code>. Unfortunately, it will not work for ordinary block elements. Please note that this should be applied to the table, not its cells.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
 	border-collapse: collapse | separate;
 }</code>
 </div>
 
-<h2>Значения</h2>
+<h2>Values</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Значение</th>
-		<th>Описание</th>
+		<th>Meaning</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>collapse</code></th>
-		<td>
-			Двойные границы будут выглядеть как одна.
-			Есть побочные эффекты: перестанет работать свойство
-			<a href="../border-spacing/index.html"><code data-gs="comd/c" data-x>border-spacing</code></a>
-			и атрибут <a href="../../../html/attr/cellspacing/index.html"><code data-gs="comd/c" data-x>cellspacing</code></a>.
+		<td>Double borders will appear as one. There are side effects: the property will stop working<a href="../border-spacing/index.html"><code data-gs="comd/c" data-x>border-spacing</code></a>and attribute<a href="../../../html/attr/cellspacing/index.html"><code data-gs="comd/c" data-x>cellspacing</code></a>.
 		</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>separate</code></th>
-		<td>
-			Каждая ячейка таблицы будет иметь свою границу
-			(поэтому в некоторых местах границы будут двойными,
-			если промежуток между ячейками нулевой).
-		</td>
+		<td>Each table cell will have its own border (so in some places the borders will be double if the space between cells is zero).</td>
 	</tr>
 </table>
-<p>
-	Значение по умолчанию: <code data-gs="comd/v" data-x>separate</code>.
+<p>Default value:<code data-gs="comd/v" data-x>separate</code>.
 </p>
 
-<h2>Пример <span data-gn="sect"></span>. Значение separate</h2>
-<p>
-	Сейчас в таблице все границы двойные (граница
-	задана и ячейкам, и самой таблице):
-</p>
+<h2>Example<span data-gn="sect"></span>. Meaning of separate</h2>
+<p>Now all the borders in the table are double (the border is given to both the cells and the table itself):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
 	&lt;tr&gt;
@@ -179,13 +154,8 @@ td {
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение separate</h2>
-<p>
-	А сейчас граница задана ячейкам, но самой
-	таблице не задана. Там, где две ячейки имеют
-	общую границу, - границы будут двойные, в
-	остальных местах - одиночные:
-</p>
+<h2>Example<span data-gn="sect"></span>. Meaning of separate</h2>
+<p>And now the border is given to the cells, but not to the table itself. Where two cells have a common border, the borders will be double, in other places - single:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
 	&lt;tr&gt;
@@ -269,12 +239,8 @@ td {
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение collapse</h2>
-<p>
-	Сейчас в таблице все границы схлопнутся и
-	станут выглядеть толщиной в <code data-gs="comd/u" data-x>1px</code>, как
-	и хотелось бы:
-</p>
+<h2>Example<span data-gn="sect"></span>. Meaning of collapse</h2>
+<p>Now all the borders in the table will collapse and begin to look as thick as<code data-gs="comd/u" data-x>1px</code>, as we would like:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
 	&lt;tr&gt;
@@ -359,7 +325,7 @@ td {
 				</div>
     <div class="lesson-nav">
       <a href="../border-bottom-width/index.html" class="lesson-nav-btn lesson-nav-prev" title="border-bottom-width">← border-bottom-width</a>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list">☰</a>
       <a href="../border-color/index.html" class="lesson-nav-btn lesson-nav-next" title="border-color">border-color →</a>
     </div>
   </section>
@@ -367,7 +333,7 @@ td {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Маршрут без пути в React Router — acteck.off</title>
-  <meta name="description" content="Маршрут без пути в React Router — учебные материалы по программированию.">
+  <title>Route without a path in React Router - acteck.off</title>
+  <meta name="description" content="Pathless Route in React Router - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,38 +36,12 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Маршрут без пути в React Router</h1>
-    <p>
-	На этом уроке мы рассмотрим еще
-	одно полезное свойство маршрута без
-	пути.
+    <h1>Route without path in React Router</h1>
+    <p>In this lesson, we'll look at another useful property of a route without a path.</p>
+<p>You know that for every route object you can add a property<code data-gs="comd/c" data-x>errorElement</code>and set the value to the element that you want to display when an error occurs.</p>
+<p>But what if we have<code data-gs="comd/c" data-x>errorElement</code>will it be the same for all routes? You can, of course, write the same thing for everyone, or you can use a route without a path and wrap the child routes that interest us in it. Then, if an error occurs on one of them, our route without a path will catch them and display its<code data-gs="comd/c" data-x>errorElement</code>.
 </p>
-<p>
-	Вы знаете, что для каждого объекта
-	маршрута вы можете добавить свойство
-	<code data-gs="comd/c" data-x>errorElement</code> и в качестве значения
-	установить тот элемент, который
-	хотите отображать при возникновении
-	ошибки.
-</p>
-<p>
-	Но что если у нас <code data-gs="comd/c" data-x>errorElement</code>
-	будет одинаковым для всех маршрутов? Можно,
-	конечно наляпать одно и тоже для каждого,
-	а можно воспользоваться маршрутом без пути,
-	обернуть в него интересующие нас дочерние
-	маршруты. Toгда в случае возникновения
-	ошибки на одном из них, наш маршрут
-	без пути будет их отлавливать и
-	отображать свой <code data-gs="comd/c" data-x>errorElement</code>.
-</p>
-<p>
-	Зайдем в <code data-gs="comd/p" data-x>main.jsx</code> файл и обернем
-	в маршрут без пути все наши дочерние маршруты,
-	сделав их дочерними для него (в свою очередь
-	этот маршрут станет дочерним для
-	корневого), не забудем добавить ему также
-	свойство <code data-gs="comd/c" data-x>errorElement</code>:
+<p>Let's go to<code data-gs="comd/p" data-x>main.jsx</code>file and wrap all our child routes in a route without a path, making them children of it (in turn, this route will become a child of the root one), don’t forget to add the property<code data-gs="comd/c" data-x>errorElement</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([
@@ -103,16 +77,7 @@
 	},
 ]);</code>
 </div>
-<p>
-	Как проверить теперь работу этого кода?
-	Можно добавить строчку с выбрасыванием
-	ошибки (не забудьте потом ее убрать,
-	когда проверите). Давайте, к примеру,
-	добавим ее первой строчкой в функцию
-	<code data-gs="comd/c" data-x>action</code> для маршрута удаления
-	продукта, тогда при попытке удалить
-	продукт мы увидим ошибку:
-</p>
+<p>How can I test this code now? You can add a line throwing out the error (don’t forget to remove it later when you check it). Let's, for example, add it as the first line to the function<code data-gs="comd/c" data-x>action</code>for the product removal route, then when we try to remove the product we will see the error:</p>
 <div data-p="bock/pane" data-p-file="delete.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function action({ params }) {
 	throw new Error('error');
@@ -120,23 +85,13 @@
 	return redirect('/');
 }</code>
 </div>
-<p>
-	Теперь попробуйте удалить какой-нибудь
-	продукт.		
-</p>
+<p>Now try to remove any product.</p>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, оберните ваши
-		дочерние маршруты в маршрут без пути
-		со свойством <code data-gs="comd/c" data-x>errorElement</code> и проверьте,
-		что это работает.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Using the tutorial, wrap your child routes in a route without a path with the property<code data-gs="comd/c" data-x>errorElement</code>and check that it works.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../index-route/index.html" class="lesson-nav-btn lesson-nav-prev" title="Индексный маршрут">← Индексный маршрут</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../index-route/index.html" class="lesson-nav-btn lesson-nav-prev" title="Index route">← Index route</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -144,7 +99,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

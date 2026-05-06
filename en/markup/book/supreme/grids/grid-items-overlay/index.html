@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Наложение элементов CSS грида — acteck.off</title>
-  <meta name="description" content="Наложение элементов CSS грида — учебные материалы по программированию.">
+  <title>Overlaying CSS grid elements - acteck.off</title>
+  <meta name="description" content="Overlaying CSS Grid Elements - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,26 +33,14 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Наложение элементов CSS грида</h1>
-    <p>
-	В системе грид предусмотрена возможность
-	наложения одних элементов на другие при
-	пересечении грид областей или указании
-	отрицательных внешних отступов.
-	Наложение может происходить по умолчанию,
-	но также для каждого элемента можно задать его в определенном порядке
-	посредством свойств <code data-gs="comd/c" data-x>z-index</code> и <code data-gs="comd/c" data-x>order</code>,
-	а также их комбинации.
-</p>
+    <h1>Overlaying CSS Grid Elements</h1>
+    <p>The grid system provides the ability to overlay some elements on others when crossing grid areas or specifying negative margins. Overlay can occur by default, but you can also set it in a specific order for each element using properties<code data-gs="comd/c" data-x>z-index</code>And<code data-gs="comd/c" data-x>order</code>, as well as their combinations.</p>
 
-<h2>Наложение элементов в гриде по умолчанию</h2>
-<p>
-	Пусть у нас есть таблица, в которой
-	элементы перекрываются друг другом:
-</p>
+<h2>Default Grid Overlay</h2>
+<p>Let's say we have a table in which the elements overlap each other:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div id="elem1"&gt;1&lt;/div&gt;
@@ -148,11 +136,8 @@
 					</div>
 				</div>
 
-<h2>Изменение порядка наложения элементов с помощью свойства <code data-gs="comd/c" data-x>order</code></h2>
-<p>
-	Теперь применим свойство <code data-gs="comd/c" data-x>order</code>,
-	задав его в каждом дочернем элементе:
-</p>
+<h2>Changing the stacking order of elements using a property<code data-gs="comd/c" data-x>order</code></h2>
+<p>Now let's apply the property<code data-gs="comd/c" data-x>order</code>by setting it in each child element:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div id="elem1"&gt;1&lt;/div&gt;
@@ -254,11 +239,8 @@
 					</div>
 				</div>
 
-<h2>Порядок наложения элементов с помощью свойства <code data-gs="comd/c" data-x>z-index</code></h2>
-<p>
-	Теперь применим свойство <code data-gs="comd/c" data-x>z-index</code>,
-	которое позволяет настраивать порядок
-	размещения элементов вдоль <code data-gs="comd/s" data-x>z-оси</code>:
+<h2>Layering order of elements using property<code data-gs="comd/c" data-x>z-index</code></h2>
+<p>Now let's apply the property<code data-gs="comd/c" data-x>z-index</code>, which allows you to customize the order in which elements are placed along<code data-gs="comd/s" data-x>z-оси</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
@@ -360,21 +342,10 @@
 </html>"></iframe>
 					</div>
 				</div>
-<p>
-	Как видно из полученного результа,
-	самое высокое значение свойства <code data-gs="comd/c" data-x>z-index</code>
-	задает элементу расположение поверх других
-	элементов с более низкими значениями.
-</p>
+<p>As can be seen from the result obtained, the highest value of the property<code data-gs="comd/c" data-x>z-index</code>sets the element to be placed on top of other elements with lower values.</p>
 
-<h2>Совмещение наложения элементов с помощью свойств <code data-gs="comd/c" data-x>order</code> и <code data-gs="comd/c" data-x>z-index</code></h2>
-<p>
-	Если мы изменили порядок для элементов
-	с помощью <code data-gs="comd/c" data-x>z-index</code> и <code data-gs="comd/c" data-x>order</code>, то
-	приорет останется за <code data-gs="comd/c" data-x>z-index</code>.
-	Благодаря чему можно менять порядок элементов,
-	но при этом не потерять контроля над их наложением:
-</p>
+<h2>Combine overlapping elements using properties<code data-gs="comd/c" data-x>order</code>And<code data-gs="comd/c" data-x>z-index</code></h2>
+<p>If we changed the order for the elements with<code data-gs="comd/c" data-x>z-index</code>And<code data-gs="comd/c" data-x>order</code>, then priority will remain with<code data-gs="comd/c" data-x>z-index</code>. Thanks to this, you can change the order of elements, but still not lose control over their overlay:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div id="elem1"&gt;1&lt;/div&gt;
@@ -482,11 +453,9 @@
 					</div>
 				</div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Пусть в нашем гриде есть четыре элемента:
-	</p>
+	<p>Let our grid have four elements:</p>
 	<div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div id="elem1"&gt;1&lt;/div&gt;
@@ -519,10 +488,7 @@
 	background-color: lightblue;
 }</code>
 	</div>
-	<p>
-		Разместите все элементы в
-		соответствии со следующим примером,
-		используя свойство <code data-gs="comd/c" data-x>order</code>:
+	<p>Place all elements according to the following example using the property<code data-gs="comd/c" data-x>order</code>:
 	</p>
 	<div data-p="bock/pane">
 					<div data-w="bock/tain">
@@ -593,15 +559,11 @@
 				</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		А теперь для решения предыдущей задачи
-		примените свойство <code data-gs="comd/c" data-x>z-index</code>.
+	<p>Now, to solve the previous problem, use the property<code data-gs="comd/c" data-x>z-index</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть в нашем гриде есть четыре элемента:
-	</p>
+	<p>Let our grid have four elements:</p>
 	<div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div id="elem1"&gt;1&lt;/div&gt;
@@ -634,10 +596,7 @@
 	background-color: lightblue;
 }</code>
 	</div>
-	<p>
-		Разместите все элементы в
-		соответствии со следующим примером,
-		используя свойство <code data-gs="comd/c" data-x>order</code>:
+	<p>Place all elements according to the following example using the property<code data-gs="comd/c" data-x>order</code>:
 	</p>
 	<div data-p="bock/pane">
 					<div data-w="bock/tain">
@@ -708,22 +667,20 @@
 				</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		А теперь для решения предыдущей задачи
-		примените свойство <code data-gs="comd/c" data-x>z-index</code>.
+	<p>Now, to solve the previous problem, use the property<code data-gs="comd/c" data-x>z-index</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../element-alignment-shorthand/index.html" class="lesson-nav-btn lesson-nav-prev" title="Элемент сокращение">← Элемент сокращение</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../nested/index.html" class="lesson-nav-btn lesson-nav-next" title="Вложенные гриды">Вложенные гриды →</a>
+      <a href="../element-alignment-shorthand/index.html" class="lesson-nav-btn lesson-nav-prev" title="Element abbreviation">← Element abbreviation</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../nested/index.html" class="lesson-nav-btn lesson-nav-next" title="Nested Grids">Nested Grids →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

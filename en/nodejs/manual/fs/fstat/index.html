@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод fstat — acteck.off</title>
-  <meta name="description" content="Метод fstat — учебные материалы по программированию.">
+  <title>fstat method - acteck.off</title>
+  <meta name="description" content="fstat method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,44 +36,29 @@
       <a href="../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Метод fstat</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>fstat</code> возвращает статистику
-	о файловом дескрипторе в виде объекта.
-	В первом параметре метода указывается нужный
-	нам файловый дескриптор, во втором и третьем
-	необязательных параметрах -
-	объект с опциями и коллбэк.
-</p>
+    <h1>fstat method</h1>
+    <p>Method<code data-gs="comd/c" data-x>fstat</code>returns statistics about a file descriptor as an object. The first parameter of the method specifies the file descriptor we need, the second and third optional parameters indicate an object with options and a callback.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.fstat(файловый дескриптор, [опции], [коллбэк]);</code>
 </div>
 
-<h2>Объект с опциями</h2>
+<h2>Object with options</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Опция</th>
-		<th>Описание</th>
+		<th>Option</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/s" data-x>bigint</code></th>
-		<td>
-			Если <code data-gs="comd/c" data-x>true</code>, задает отображение числовых
-			значений в формате <code data-gs="comd/s" data-x>bigint</code>. Значение по умолчанию
-			<code data-gs="comd/c" data-x>false</code>.
+		<td>If<code data-gs="comd/c" data-x>true</code>, specifies the display of numeric values ​​in the format<code data-gs="comd/s" data-x>bigint</code>. Default value<code data-gs="comd/c" data-x>false</code>.
 		</td>
 	</tr>
 </table>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте асинхронно
-	узнаем статистическую информацию
-	о файловом дескрипторе
-	через коллбэк:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's asynchronously find out statistical information about the file descriptor through a callback:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
 
@@ -88,12 +73,8 @@ fs.fstat(fileDescriptor, function(err, data) {
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте синхронно прочитаем
-	статистическую информацию о
-	файловом дескрипторе через
-	<code data-gs="comd/c" data-x>fstatSync</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's synchronously read the statistical information about the file descriptor via<code data-gs="comd/c" data-x>fstatSync</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
@@ -108,22 +89,16 @@ try {
 }</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../../../../javascript/nodejs/manual/fs/stat/index.html"><code data-gs="comd/c" data-x>stat</code></a>, <br>
-			который возвращает статистику о файле или папки
-		</li>
-		<li>
-			метод <a href="../../../../javascript/nodejs/manual/fs/lstat/index.html"><code data-gs="comd/c" data-x>lstat</code></a>, <br>
-			который возвращает статистическую информацию о файлах, папки, символической ссылке
-		</li>
+		<li>method<a href="../../../../javascript/nodejs/manual/fs/stat/index.html"><code data-gs="comd/c" data-x>stat</code></a>, <br>which returns statistics about a file or folder</li>
+		<li>method<a href="../../../../javascript/nodejs/manual/fs/lstat/index.html"><code data-gs="comd/c" data-x>lstat</code></a>, <br>which returns statistical information about files, folders, symbolic links</li>
 	</ul>
 </div>
     <div class="lesson-nav">
       <a href="../fchown/index.html" class="lesson-nav-btn lesson-nav-prev" title="fchown">← fchown</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../ftruncate/index.html" class="lesson-nav-btn lesson-nav-next" title="ftruncate">ftruncate →</a>
     </div>
   </section>
@@ -131,7 +106,7 @@ try {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

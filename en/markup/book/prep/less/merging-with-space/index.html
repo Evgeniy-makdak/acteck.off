@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Объединение через пробел в LESS — acteck.off</title>
-  <meta name="description" content="Объединение через пробел в LESS — учебные материалы по программированию.">
+  <title>Joining via space in LESS - acteck.off</title>
+  <meta name="description" content="Split-Space Joining in LESS - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,22 +33,13 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Объединение через пробел в LESS</h1>
-    <p>
-	Бывают свойства, значения которых нужно объединять
-	не через запятую, а через пробел. Для таких
-	объединений существует специальный оператор
-	<code data-gs="comd/c" data-x>+_</code>.
+    <h1>Joining via space in LESS</h1>
+    <p>There are properties whose values ​​need to be combined not through a comma, but through a space. There is a special operator for such unions<code data-gs="comd/c" data-x>+_</code>.
 </p>
-<p>
-	Давайте посмотрим на его работу на примере
-	свойства <code data-gs="comd/c" data-x>transform</code>. Сделаем функции
-	<code data-gs="comd/c" data-x>.rotate</code> и <code data-gs="comd/c" data-x>.skew</code>, задающие соответствующие
-	трансформации:
-</p>
+<p>Let's look at how it works using the property example<code data-gs="comd/c" data-x>transform</code>. Let's make functions<code data-gs="comd/c" data-x>.rotate</code>And<code data-gs="comd/c" data-x>.skew</code>, defining the corresponding transformations:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">.rotate(@r) {
 	transform+_: rotate(@r);
@@ -57,18 +48,14 @@
 	transform+_: skew(@s);
 }</code>
 </div>
-<p>
-	Воспользуемся нашими функциями:
-</p>
+<p>Let's use our functions:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
 	.rotate(10deg);
 	.skew(10deg);
 }</code>
 </div>
-<p>
-	В результате компиляции наши трансформации
-	объединятся в одном свойстве <code data-gs="comd/c" data-x>transform</code>:
+<p>As a result of compilation, our transformations will be combined into one property<code data-gs="comd/c" data-x>transform</code>:
 </p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
@@ -76,28 +63,22 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Реализуйте аналогичную функцию <code data-gs="comd/c" data-x>scale</code>,
-		задающую соответствующую трансформацию.
-	</p>
+	<p>Implement a similar function<code data-gs="comd/c" data-x>scale</code>, which specifies the corresponding transformation.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Реализуйте аналогичную функцию <code data-gs="comd/c" data-x>translate</code>,
-		задающую соответствующую трансформацию.
-	</p>
+	<p>Implement a similar function<code data-gs="comd/c" data-x>translate</code>, which specifies the corresponding transformation.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../merging-with-comma/index.html" class="lesson-nav-btn lesson-nav-prev" title="Объединение через запятую">← Объединение через запятую</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../variable-code-block/index.html" class="lesson-nav-btn lesson-nav-next" title="Блок кода в переменной">Блок кода в переменной →</a>
+      <a href="../merging-with-comma/index.html" class="lesson-nav-btn lesson-nav-prev" title="Concatenation separated by commas">← Concatenation separated by commas</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../variable-code-block/index.html" class="lesson-nav-btn lesson-nav-next" title="Block of code in a variable">Block of code in a variable →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

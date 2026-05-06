@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>API memo в React — acteck.off</title>
-  <meta name="description" content="API memo в React — учебные материалы по программированию.">
+  <title>API memo in React - acteck.off</title>
+  <meta name="description" content="API memo in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,20 +36,9 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>API memo в React</h1>
-    <p>
-	Прежде чем мы рассмотрим следующий хук,
-	необходимо упомянуть и о полезном API
-	<code data-gs="comd/c" data-x>memo</code>, который помогает нам
-	избегать повторного рендеринга компонента,
-	если его пропсы остаются неизменными. 
-</p>
-<p>
-	Давайте разберем это на примере. Создадим
-	комопонент <code data-gs="comd/c" data-x>App</code>, в котором будет два
-	инпута, в которые, предположим, вводятся
-	имя и фамилия:
-</p>	
+    <h1>API memo in React</h1>
+    <p>Before we look at the next hook, there's a useful API to mention:<code data-gs="comd/c" data-x>memo</code>, which helps us avoid re-rendering a component if its props remain unchanged.</p>
+<p>Let's look at this with an example. Let's create a component<code data-gs="comd/c" data-x>App</code>, in which there will be two inputs, into which, suppose, the first and last name are entered:</p>	
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
 	&lt;div&gt;
@@ -65,68 +54,33 @@
 	&lt;/div&gt;
 );</code>
 </div>
-<p>
-	Добавим в начало компонента
-	стейты для них:
-</p>
+<p>Let's add states for them to the beginning of the component:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [name, setName] = useState('');
 const [surn, setSurn] = useState('');</code>
 </div>
-<p>
-	Сделаем еще и дочерний компонент
-	<code data-gs="comd/p" data-x>Child.js</code>, пусть он выводит
-	приветствие, в котором будет отображаться
-	вводимое имя. Также в консоли будет выводится
-	строка <code data-gs="comd/s" data-x>'child render'</code> при
-	каждом рендеринге этого компонента:
-</p>
+<p>Let's also create a child component<code data-gs="comd/p" data-x>Child.js</code>, have it print a greeting message that displays the name you entered. The console will also display the line<code data-gs="comd/s" data-x>'child render'</code>every time this component is rendered:</p>
 <div data-p="bock/pane" data-p-file="Child.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Child({ name }) {
 	console.log('child render');
 	return &lt;h3&gt;Hello {name}!&lt;/h3&gt;;
 }</code>
 </div>
-<p>
-	Добавим <code data-gs="comd/c" data-x>Child</code> в верстку основного
-	компонента после последнего инпута
-	и будем в качестве пропса передавать
-	ему имя:
-</p>
+<p>Let's add<code data-gs="comd/c" data-x>Child</code>into the layout of the main component after the last input and we will pass its name as a prop:</p>
 	<div data-p="bock/pane" data-p-file="App.jsx">
 		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;Child name={name} /&gt;</code>
 </div>
-<p>
-	Импортируем его в основной комопонент:
-</p>
+<p>We import it into the main component:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Child from './Child';</code>
 </div>
-<p>
-	А теперь откроем консоль и будем в
-	поля ввода вбивать имя и фамилию. Здесь
-	мы увидим, что даже при вводе символов в
-	поле для фамилии, наш дочерний компонент
-	будет каждый раз перерисовываться. Никаких
-	проблем, ведь у нас небольшой компонент.
-	Но представьте, если бы этот компонент
-	отображал большое количество данных
-	и при этом, каждый раз перерисовывался.		
-</p>	
-<p>
-	А сейчас давайте обернем дочерний
-	компонент в <code data-gs="comd/c" data-x>memo</code>, и посмотрим,
-	как изменится рендеринг. Для начала
-	импортируем в него <code data-gs="comd/c" data-x>memo</code>:
+<p>Now let’s open the console and enter the first and last name into the input fields. Here we will see that even when we enter characters in the last name field, our child component will be redrawn every time. No problem, because we have a small component. But imagine if this component displayed a large amount of data and at the same time was redrawn every time.</p>	
+<p>Now let's wrap the child component in<code data-gs="comd/c" data-x>memo</code>, and see how the rendering changes. First, let's import it into<code data-gs="comd/c" data-x>memo</code>:
 </p>
 <div data-p="bock/pane" data-p-file="Child.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { memo } from 'react';</code>
 </div>
-<p>
-	Затем создадим новую переменную и
-	присвоим ей наш <code data-gs="comd/c" data-x>Child</code>, обернутый
-	в <code data-gs="comd/c" data-x>memo</code>. У нас получится следующее
-	<a href="../../../../../../book/prime/functions/types/declaration-types/index.html">функциональное выражение</a>:  
+<p>Then we will create a new variable and assign our<code data-gs="comd/c" data-x>Child</code>, wrapped in<code data-gs="comd/c" data-x>memo</code>. We will get the following<a href="../../../../../../book/prime/functions/types/declaration-types/index.html">functional expression</a>:  
 </p>
 <div data-p="bock/pane" data-p-file="Child.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const Child = memo( function Child({ name }) {
@@ -134,58 +88,28 @@ const [surn, setSurn] = useState('');</code>
 	return &lt;h3&gt;Hello {name}!&lt;/h3&gt;;
 });</code>
 </div>
-<p>
-	Откроем консоль и будем снова 
-	вводить имя и фамилию в поля. Сейчас
-	мы видим, что при введении фамилии,
-	наш дочерний компонент не
-	перерисовывается.
-</p>
-<p>
-	Нужно помнить, что это не будет работать,
-	если при неизменных пропсах будут меняться
-	стейты, задействованные комопонентом или
-	контекст, использующий изменения. 
-</p>
+<p>Let's open the console and enter the first and last name into the fields again. Now we see that when we enter a last name, our child component is not redrawn.</p>
+<p>It must be remembered that this will not work if, while the props are unchanged, the states involved by the component or the context that uses the changes change.</p>
 <div data-w="cont/task">
-	<p>
-		Возьмите код компонента <code data-gs="comd/c" data-x>App</code>,
-		который мы делали на этом уроке, оставьте
-		в нем только первый инпут. Создайте React
-		компонент <code data-gs="comd/c" data-x>Text</code>, содержащий абзац
-		с текстом <code data-gs="comd/s" data-x>'long text'</code>, и
-		разместите его в <code data-gs="comd/c" data-x>App</code> после инпута.
-	</p>
+	<p>Take the component code<code data-gs="comd/c" data-x>App</code>, which we did in this lesson, leave only the first input in it. Create a React Component<code data-gs="comd/c" data-x>Text</code>containing a paragraph with text<code data-gs="comd/s" data-x>'long text'</code>, and place it in<code data-gs="comd/c" data-x>App</code>after input.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		В компоненте <code data-gs="comd/c" data-x>Text</code> добавьте
-		строчку <code data-gs="comd/c" data-x>console.log('text render');</code>.
-		Убедитесь, что при вводе символов
-		в инпут компонент <code data-gs="comd/c" data-x>Text</code>
-		перерисовывается каждый раз.
-	</p>
+	<p>In component<code data-gs="comd/c" data-x>Text</code>add a line<code data-gs="comd/c" data-x>console.log('text render');</code>. Make sure that when entering characters into the input component<code data-gs="comd/c" data-x>Text</code>redraws every time.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		А теперь оберните компонент
-		<code data-gs="comd/c" data-x>Text</code> в <code data-gs="comd/c" data-x>memo</code>. Убедитесь,
-		что при вводе символов в инпут
-		компонент <code data-gs="comd/c" data-x>Text</code> не перерисовывается
-		повторно.
-	</p>
+	<p>Now wrap the component<code data-gs="comd/c" data-x>Text</code>V<code data-gs="comd/c" data-x>memo</code>. Make sure that when entering characters into the input component<code data-gs="comd/c" data-x>Text</code>is not redrawn again.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../use-memo/index.html" class="lesson-nav-btn lesson-nav-prev" title="Хук производительности useMemo">← Хук производительности useMemo</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../use-callback/index.html" class="lesson-nav-btn lesson-nav-next" title="Хук производительности useCallback">Хук производительности useCallback →</a>
+      <a href="../use-memo/index.html" class="lesson-nav-btn lesson-nav-prev" title="useMemo performance hook">← UseMemo performance hook</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../use-callback/index.html" class="lesson-nav-btn lesson-nav-next" title="useCallback performance hook">useCallback performance hook →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Роутеры в React Router — acteck.off</title>
-  <meta name="description" content="Роутеры в React Router — учебные материалы по программированию.">
+  <title>Routers in React Router - acteck.off</title>
+  <meta name="description" content="Routers in React Router - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,32 +36,11 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Роутеры в React Router</h1>
-    <p>
-	Прежде всего для создания маршрутизации
-	нужно начать с <dfn data-gs="comd/d" data-x>роутера</dfn> (<span data-gs="lang/a" data-x>Router</span>). Это
-	компонент верхнего уровня, благодаря которому,
-	работают все остальные компоненты и хуки.
+    <h1>Routers in React Router</h1>
+    <p>First of all, to create routing you need to start with<dfn data-gs="comd/d" data-x>router</dfn> (<span data-gs="lang/a" data-x>Router</span>). This is the top-level component, thanks to which all other components and hooks work.</p>
+<p>There are several types of routers. Most web applications use<code data-gs="comd/c" data-x>BrowserRouter</code>. If for some reason you cannot use the full URL, then<code data-gs="comd/c" data-x>HashRouter</code>. Very convenient for testing components<code data-gs="comd/c" data-x>MemoryRouter</code>. Router<code data-gs="comd/c" data-x>NativeRouter</code>, as the name suggests, is used for native development. Select<code data-gs="comd/c" data-x>StaticRouter</code>, if you want to use a data router for rendering on your server, for example on<a href="../../../../../../nodejs/book/prime/index.html">NodeJS</a>.
 </p>
-<p>
-	Роутеры бывают нескольких типов. Большинство
-	веб-приложений используют <code data-gs="comd/c" data-x>BrowserRouter</code>.
-	Если  же по каким-то причинам нельзя использовать
-	полный URL, то <code data-gs="comd/c" data-x>HashRouter</code>. Для
-	тестирования компонентов очень удобен
-	<code data-gs="comd/c" data-x>MemoryRouter</code>. Роутер <code data-gs="comd/c" data-x>NativeRouter</code>, как
-	видно по названию, используется для нативных
-	разработок. Выберите <code data-gs="comd/c" data-x>StaticRouter</code>, если
-	вы хотите использовать маршрутизатор данных
-	для рендеринга на своем сервере, к примеру на
-	<a href="../../../../../../nodejs/book/prime/index.html">NodeJS</a>.
-</p>
-<p>
-	Для использования одного из этих роутеров
-	нужно просто обернуть код в выбранный
-	компонент следущим образом, например,
-	для <code data-gs="comd/c" data-x>HashRouter</code> это:
-</p>
+<p>To use one of these routers you just need to wrap the code in the selected component like this, for example:<code data-gs="comd/c" data-x>HashRouter</code>This:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return (
@@ -71,29 +50,20 @@
 	);
 }</code>
 </div>
-<p>
-	Правда этот синтаксис уже считается немного
-	устаревшим. Для того, чтобы в дальнейшем
-	у нас был доступ к новым API (к примеру,
-	некоторым хукам и различным полезным свойствам),
-	которые постоянно обновляются и добавляются,
-	рекомендуется использовать более современный
-	синтаксис для создания роутеров, то есть вместо
-	вышуказанных компонентов нужно использовать
-	<code data-gs="comd/c" data-x>createBrowserRouter</code>, <code data-gs="comd/c" data-x>createMemoryRouter</code>,
-	<code data-gs="comd/c" data-x>createHashRouter</code> и <code data-gs="comd/c" data-x>createStaticRouter</code>.
+<p>True, this syntax is already considered a little outdated. In order for us to have access to new APIs in the future (for example, some hooks and various useful properties), which are constantly updated and added, it is recommended to use a more modern syntax for creating routers, that is, instead of the above components, we need to use<code data-gs="comd/c" data-x>createBrowserRouter</code>, <code data-gs="comd/c" data-x>createMemoryRouter</code>,
+	<code data-gs="comd/c" data-x>createHashRouter</code>And<code data-gs="comd/c" data-x>createStaticRouter</code>.
 </p>
     <div class="lesson-nav">
-      <a href="../install-framework/index.html" class="lesson-nav-btn lesson-nav-prev" title="Установка фреймворка">← Установка фреймворка</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../add-router/index.html" class="lesson-nav-btn lesson-nav-next" title="Добавление роутера">Добавление роутера →</a>
+      <a href="../install-framework/index.html" class="lesson-nav-btn lesson-nav-prev" title="Installing the framework">← Installing the framework</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../add-router/index.html" class="lesson-nav-btn lesson-nav-next" title="Adding a router">Adding a router →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

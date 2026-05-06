@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Много элементов с кнопками показа на JavaScript — acteck.off</title>
-  <meta name="description" content="Много элементов с кнопками показа на JavaScript — учебные материалы по программированию.">
+  <title>Many elements with show buttons in JavaScript - acteck.off</title>
+  <meta name="description" content="Many elements with show buttons in JavaScript - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,41 +36,24 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Много элементов с кнопками показа на JavaScript</h1>
-    <p>
-	Пусть теперь у нас есть много абзацев и у
-	каждого своя кнопка для сокрытия:
-</p>
+    <h1>Many elements with show buttons in JavaScript</h1>
+    <p>Suppose now we have many paragraphs and each has its own button for hiding:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;1&lt;/p&gt;&lt;button&gt;toggle&lt;/button&gt;
 &lt;p&gt;2&lt;/p&gt;&lt;button&gt;toggle&lt;/button&gt;
 &lt;p&gt;3&lt;/p&gt;&lt;button&gt;toggle&lt;/button&gt;</code>
 </div>
-<p>
-	Сделаем так, чтобы по клику на кнопку скрывался
-	или показывался соответствующий ей абзац.
-</p>
-<p>
-	Для этого нам каким-то образом нужно связать
-	кнопки с нашими абзацами. Для этого существует
-	несколько способов.
-</p>
+<p>Let's make it so that when you click on a button, the paragraph corresponding to it is hidden or shown.</p>
+<p>To do this, we need to somehow associate the buttons with our paragraphs. There are several ways to do this.</p>
 
-<h2>Первый способ</h2>
-<p>
-	Свяжем кнопки и абзацы следующим образом:
-</p>
+<h2>First way</h2>
+<p>Let's connect the buttons and paragraphs as follows:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="elem1"&gt;1&lt;/p&gt;&lt;button data-elem="elem1"&gt;toggle&lt;/button&gt;
 &lt;p id="elem2"&gt;2&lt;/p&gt;&lt;button data-elem="elem2"&gt;toggle&lt;/button&gt;
 &lt;p id="elem3"&gt;3&lt;/p&gt;&lt;button data-elem="elem3"&gt;toggle&lt;/button&gt;</code>
 </div>
-<p>
-	Теперь по клику на любую кнопку мы будем
-	читать содержимое ее атрибута data-elem и
-	искать абзац с таким id. Его и будем тоглить.
-	Реализуем описанное:
-</p>
+<p>Now, by clicking on any button, we will read the contents of its data-elem attribute and look for a paragraph with that id. We will drown him. Let's implement the described:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let buttons = document.querySelectorAll('button');
 
@@ -82,22 +65,12 @@ for (let button of buttons) {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Изучите мое решение, а затем самостоятельно,
-		не подсматривая в мой код, решите эту задачу.
-	</p>
+	<p>Study my solution, and then solve this problem yourself, without looking at my code.</p>
 </div>
 
-<h2>Второй способ</h2>
-<p>
-	Расставлять id и data-атрибуты не очень удобно.
-	Давайте сделаем так, чтобы связь была по
-	порядковому номеру: пусть первая кнопка скрывает
-	первый абзац, вторая кнопка - второй и так далее.
-</p>
-<p>
-	Реализуем описанное:
-</p>
+<h2>Second way</h2>
+<p>Arranging id and data attributes is not very convenient. Let's make sure that the connection is by serial number: let the first button hide the first paragraph, the second button hide the second, and so on.</p>
+<p>Let's implement the described:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let buttons = document.querySelectorAll('button');
 let elems   = document.querySelectorAll('p');
@@ -109,18 +82,11 @@ for (let i = 0; i &lt; buttons.length; i++) {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Изучите мое решение, а затем самостоятельно,
-		не подсматривая в мой код, решите эту задачу.
-	</p>
+	<p>Study my solution, and then solve this problem yourself, without looking at my code.</p>
 </div>
 
-<h2>Третий способ</h2>
-<p>
-	Как можно увидеть, абзац, связанный с кнопкой,
-	является ее соседом слева. Можно это использовать
-	в качестве связи:
-</p>
+<h2>Third way</h2>
+<p>As you can see, the paragraph associated with the button is its neighbor to the left. You can use this as a connection:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let buttons = document.querySelectorAll('button');
 
@@ -131,23 +97,20 @@ for (let button of buttons) {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Изучите мое решение, а затем самостоятельно,
-		не подсматривая в мой код, решите эту задачу.
-	</p>
+	<p>Study my solution, and then solve this problem yourself, without looking at my code.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../hide-show-button/index.html" class="lesson-nav-btn lesson-nav-prev" title="Кнопки для скрытия и показа элемента">← Кнопки для скрытия и показа элемента</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../elements-activations/index.html" class="lesson-nav-btn lesson-nav-next" title="Активация элементов">Активация элементов →</a>
+      <a href="../hide-show-button/index.html" class="lesson-nav-btn lesson-nav-prev" title="Buttons to hide and show an element">← Buttons for hiding and showing an element</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../elements-activations/index.html" class="lesson-nav-btn lesson-nav-next" title="Activating elements">Activation of elements →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

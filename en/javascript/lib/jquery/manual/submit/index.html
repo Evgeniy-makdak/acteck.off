@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод submit — acteck.off</title>
-  <meta name="description" content="Метод submit — учебные материалы по программированию.">
+  <title>submit method - acteck.off</title>
+  <meta name="description" content="submit method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,69 +36,30 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод submit</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>submit</code> позволяет нам работать с JavaScript
-	событием <code data-gs="comd/c" data-x>submit</code>. Он позволяет нам привязывать
-	обработчик к JavaScript событию <code data-gs="comd/c" data-x>submit</code> или
-	запускать это событие на элементе.
-</p>
+    <h1>submit method</h1>
+    <p>Method<code data-gs="comd/c" data-x>submit</code>allows us to work with JavaScript event<code data-gs="comd/c" data-x>submit</code>. It allows us to bind a handler to a JavaScript event<code data-gs="comd/c" data-x>submit</code>or fire this event on the element.</p>
 
-<h2>Синтаксис</h2>
-<p>
-	Мы можем передать методу функцию-обработчик,
-	которая будет срабатывать каждый раз при
-	появлении события, в которую в свою очередь
-	может передаваться объект события:
-</p>
+<h2>Syntax</h2>
+<p>We can pass a handler function to the method, which will be triggered every time an event occurs, to which an event object can in turn be passed:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.submit(функция-обработчик);</code>
 </div>
-<p>
-	В этом случае метод будет работать аналогично
-	конструкции <code data-gs="comd/c" data-x>.on('submit', handler)</code> метода
-	<a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>.
+<p>In this case, the method will work similarly to the design<code data-gs="comd/c" data-x>.on('submit', handler)</code>method<a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>.
 </p>
-<p>
-	Также необязательным параметром мы можем передать
-	методу объект с данными, которые будут передаваться
-	в функцию-обработчик:
-</p>
+<p>We can also use an optional parameter to pass the method an object with data that will be passed to the handler function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.submit([данные события], функция-обработчик);</code>
 </div>
-<p>
-	А можно не передавать никаких параметров, тогда
-	метод будет работать аналогично <code data-gs="comd/c" data-x>.trigger('submit')</code>
-	метода <a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>:
+<p>Or you can not pass any parameters, then the method will work similarly<code data-gs="comd/c" data-x>.trigger('submit')</code>method<a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.submit();</code>
 </div>
-<p>
-	Событие <code data-gs="comd/c" data-x>submit</code> возникает на элементе, когда
-	пользователь, к примеру, нажимает на кнопку
-	<code data-gs="comd/s" data-x>'submit'</code> на форме. Это событие может быть
-	прикреплено только к элементам тега <code data-gs="comd/c" data-x>form</code>.
-	Событие <code data-gs="comd/c" data-x>submit</code> возникает на элементе, когда
-	пользователь, к примеру, нажимает на кнопку
-	<code data-gs="comd/s" data-x>'submit'</code> на форме. Это событие может быть
-	прикреплено только к элементам тега <code data-gs="comd/c" data-x>form</code>.
+<p>Event<code data-gs="comd/c" data-x>submit</code>occurs on an element when the user, for example, clicks on a button<code data-gs="comd/s" data-x>'submit'</code>on the form. This event can only be attached to tag elements<code data-gs="comd/c" data-x>form</code>. Event<code data-gs="comd/c" data-x>submit</code>occurs on an element when the user, for example, clicks on a button<code data-gs="comd/s" data-x>'submit'</code>on the form. This event can only be attached to tag elements<code data-gs="comd/c" data-x>form</code>.
 </p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	В следующем примере у нас есть простая форма,
-	к которой мы привяжем обработчик событий при помощи
-	метода <code data-gs="comd/c" data-x>submit</code>, с текстовым полем и
-	кнопкой - инпутом с типом <code data-gs="comd/v" data-x>submit</code>. Давайте
-	будем вводит текст в текстовое поле, а при нажатии на
-	кнопку проверять этот текст. Если мы введем
-	<code data-gs="comd/s" data-x>'jQuery'</code>, то в спане покажем текст
-	<code data-gs="comd/s" data-x>'Good!'</code>, с помощью методов
-	<a href="../text/index.html"><code data-gs="comd/c" data-x>text</code></a> и
-	<a href="../show/index.html"><code data-gs="comd/c" data-x>show</code></a>,
-	а если что-то другое, то - <code data-gs="comd/s" data-x>'Bad...'</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>In the following example, we have a simple form to which we will attach an event handler using the method<code data-gs="comd/c" data-x>submit</code>, with a text field and a button - input with type<code data-gs="comd/v" data-x>submit</code>. Let's enter text into a text field, and when the button is clicked, check this text. If we enter<code data-gs="comd/s" data-x>'jQuery'</code>, then we will show the text in the span<code data-gs="comd/s" data-x>'Good!'</code>, using methods<a href="../text/index.html"><code data-gs="comd/c" data-x>text</code></a>And<a href="../show/index.html"><code data-gs="comd/c" data-x>show</code></a>, and if something else, then -<code data-gs="comd/s" data-x>'Bad...'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;jQuery&lt;/p&gt;
@@ -121,19 +82,11 @@
 });</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>, <br>
-			который позволяет запустить все обработчики событий,
-			привязанные к элементу для событий заданного типа
-		</li>
-		<li>
-			метод <a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>, <br>
-			который позволяет привязать обработчик событий
-			к элементу
-		</li>
+		<li>method<a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>, <br>which allows you to run all event handlers bound to an element for events of a given type</li>
+		<li>method<a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>, <br>which allows you to bind an event handler to an element</li>
 	</ul>
 </div>
   </section>
@@ -141,7 +94,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

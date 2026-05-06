@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Добавление данных в хранилище в React Router — acteck.off</title>
-  <meta name="description" content="Добавление данных в хранилище в React Router — учебные материалы по программированию.">
+  <title>Adding data to storage in React Router - acteck.off</title>
+  <meta name="description" content="Adding Data to Storage in React Router - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,62 +36,35 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Добавление данных в хранилище в React Router</h1>
-    <p>
-	В этом уроке мы займемся добавлением
-	продукта в хранилище. Для начала нам
-	нужна функция <code data-gs="comd/c" data-x>createProduct</code> для
-	создания продукта, добавим ее в
-	<code data-gs="comd/p" data-x>forStorage.js</code> после функции
-	<code data-gs="comd/c" data-x>getProducts</code>:
+    <h1>Adding data to storage in React Router</h1>
+    <p>In this tutorial we will be adding a product to the repository. First we need a function<code data-gs="comd/c" data-x>createProduct</code>to create a product, add it to<code data-gs="comd/p" data-x>forStorage.js</code>after function<code data-gs="comd/c" data-x>getProducts</code>:
 </p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function createProduct() {}</code>
 </div>
-<p>
-	Сначала снова добавляем <code data-gs="comd/c" data-x>someNetwork</code>:
+<p>First we add again<code data-gs="comd/c" data-x>someNetwork</code>:
 </p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function createProduct() {
 	await someNetwork();
 }</code>
 </div>
-<p>
-	А вот далее нам понадобится
-	<a href="../../../prime/id/intro/index.html">уникальный id</a>
-	для каждого продукта, вы уже
-	встречались с этим в учебнике React.
-	Воспользуемся для этого библиотекой
-	<a href="https://github.com/ai/nanoid">nanoid</a>.
-	Введем в терминале следующую команду:
-</p>
+<p>But next we need<a href="../../../prime/id/intro/index.html">unique id</a>for each product, you've already seen this in the React tutorial. Let's use the library for this<a href="https://github.com/ai/nanoid">nanoid</a>. Enter the following command in the terminal:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install --save nanoid</code>
 </div>
-<p>
-	Импортируем в <code data-gs="comd/p" data-x>forStorage.js</code>
-	библиотеку:
-</p>
+<p>We import to<code data-gs="comd/p" data-x>forStorage.js</code>library:</p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import { nanoid } from 'nanoid'</code>
 </div>
-<p>
-	Пусть у нас будут <code data-gs="comd/c" data-x>id</code> по
-	<code data-gs="comd/n" data-x>6</code> символов:
-</p>
+<p>Let us have<code data-gs="comd/c" data-x>id</code>By<code data-gs="comd/n" data-x>6</code>characters:</p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function createProduct() {
 	await someNetwork();
 	let id = nanoid(6);
 }</code>
 </div>
-<p>
-	Изначально при создании продукта у нас
-	будут в объекте только <code data-gs="comd/c" data-x>id</code>. Вызовем
-	<code data-gs="comd/c" data-x>getProducts</code>, добавим сгенерированный
-	продукт и обновим список наших продуктов
-	в хранилище. Готово:
-</p>
+<p>Initially, when creating a product, we will only have in the object<code data-gs="comd/c" data-x>id</code>. Let's call<code data-gs="comd/c" data-x>getProducts</code>, add the generated product and update the list of our products in the repository. Ready:</p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function createProduct() {
 	await someNetwork();
@@ -103,11 +76,7 @@
 	return product;
 }</code>
 </div>
-<p>
-	Функция для обновления списка в хранилище
-	будет следующей (мы будет вносить в него
-	продукты под ключиком <code data-gs="comd/c" data-x>products</code>),
-	расположим ее после функции <code data-gs="comd/c" data-x>createProduct</code>:
+<p>The function for updating the list in the repository will be as follows (we will add products to it under the key<code data-gs="comd/c" data-x>products</code>), place it after the function<code data-gs="comd/c" data-x>createProduct</code>:
 </p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function setProducts(products) {
@@ -115,26 +84,19 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, напишите в
-		<code data-gs="comd/p" data-x>forStorage.js</code> функцию
-		<code data-gs="comd/c" data-x>createStudent</code> и <code data-gs="comd/c" data-x>setStudents</code>
-		для добавления данных студентов в хранилище.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, write to<code data-gs="comd/p" data-x>forStorage.js</code>function<code data-gs="comd/c" data-x>createStudent</code>And<code data-gs="comd/c" data-x>setStudents</code>to add student data to the repository.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../adding-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Добавление данных">← Добавление данных</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../add-data-action/index.html" class="lesson-nav-btn lesson-nav-next" title="Добавление данных с методом action">Добавление данных с методом action →</a>
+      <a href="../adding-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Adding data">← Adding data</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../add-data-action/index.html" class="lesson-nav-btn lesson-nav-next" title="Adding data with the action method">Adding data with the action method →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

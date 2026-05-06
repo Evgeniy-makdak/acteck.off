@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Реактивное удаление компонентов в Vue — acteck.off</title>
-  <meta name="description" content="Реактивное удаление компонентов в Vue — учебные материалы по программированию.">
+  <title>Reactive removal of components in Vue - acteck.off</title>
+  <meta name="description" content="Reactive Component Removal in Vue - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,22 +36,10 @@
       <a href="../../index.html">Vue</a>
     </div>
 
-    <h1>Реактивное удаление компонентов в Vue</h1>
-    <p>
-	Давайте научимся реактивно удалять
-	дочерние компоненты из списка.
-	Сделаем для этого в каждом дочернем
-	компоненте специальную кнопку.
-	По нажатию на эту кнопку будет
-	испускаться событие и в родительском
-	компоненте будет удаляться заданный
-	дочерний компонент по его <code data-gs="comd/c" data-x>id</code>.
+    <h1>Reactive Component Removal in Vue</h1>
+    <p>Let's learn how to reactively remove child components from a list. Let's create a special button for this in each child component. When this button is clicked, an event will be emitted and the specified child component will be deleted in the parent component by its<code data-gs="comd/c" data-x>id</code>.
 </p>
-<p>
-	Приступим к реализации.
-	Пусть в родительском компоненте
-	дан следующий массив объектов:
-</p>
+<p>Let's start implementation. Let the parent component be given the following array of objects:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
 	return {
@@ -75,9 +63,7 @@
 	}
 }</code>
 </div>
-<p>
-	Напишем в родительском компоненте
-	метод удаления юзера по его <code data-gs="comd/c" data-x>id</code>:
+<p>Let's write in the parent component a method for deleting a user by his<code data-gs="comd/c" data-x>id</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
@@ -88,11 +74,7 @@
 	}
 }</code>
 </div>
-<p>
-	Создадим компоненты в цикле, передав
-	им параметром имя, фамилию, <code data-gs="comd/c" data-x>id</code>
-	и метод для удаления:
-</p>
+<p>Let's create components in a loop, passing them first name, last name,<code data-gs="comd/c" data-x>id</code>and the method to remove:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;User
@@ -106,9 +88,7 @@
 	/&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Пропишем входящие данные в настройке <code data-gs="comd/c" data-x>props</code> 
-	и испускаемое событие в настройке <code data-gs="comd/c" data-x>emits</code>:
+<p>Let's enter the incoming data in the settings<code data-gs="comd/c" data-x>props</code>and emitted event in setup<code data-gs="comd/c" data-x>emits</code>:
 </p>
 <div data-p="bock/pane" data-p-file="components/User.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">props: {
@@ -118,29 +98,15 @@
 },
 emits: ['remove'],</code>
 </div>
-<p>
-	Выведем в представлении компонента
-	имя и фамилию юзера:
-</p>
+<p>Let's display the user's first and last name in the component view:</p>
 <div data-p="bock/pane" data-p-file="components/User.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	{{ name }}
 	{{ surn }}
 &lt;/template&gt;</code>
 </div>
-<p>
-	А теперь сделаем кнопку, по нажатию
-	на которую будет испускаться событие
-	для удаления. Параметром этого события
-	будет передаваться <code data-gs="comd/c" data-x>id</code> компонента.
-	Родительский компонент при получении
-	события удалит данного юзера из массива
-	объектов и он реактивно исчезнет
-	из списка юзеров.
-</p>
-<p>
-	Итак, реализуем эту кнопку:
-</p>
+<p>Now let’s make a button, when clicked, an event for deletion will be emitted. The parameter of this event will be transmitted<code data-gs="comd/c" data-x>id</code>component. When the parent component receives an event, it will remove this user from the array of objects and it will reactively disappear from the list of users.</p>
+<p>So, let's implement this button:</p>
 <div data-p="bock/pane" data-p-file="components/User.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	{{ name }}
@@ -152,23 +118,19 @@ emits: ['remove'],</code>
 &lt;/template&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Выведите в цикле компоненты <code data-gs="comd/c" data-x>Employee</code>.
-		Сделайте в каждом компоненте кнопку
-		для его удаления.
-	</p>
+	<p>Loop the components<code data-gs="comd/c" data-x>Employee</code>. Make a button for each component to remove it.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../attribute-emitting/index.html" class="lesson-nav-btn lesson-nav-prev" title="Испускание события в атрибуте">← Испускание события в атрибуте</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../reactive-editing/index.html" class="lesson-nav-btn lesson-nav-next" title="Реактивное редактирование компонентов">Реактивное редактирование компонентов →</a>
+      <a href="../attribute-emitting/index.html" class="lesson-nav-btn lesson-nav-prev" title="Emitting an event on an attribute">← Emission of an event in an attribute</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../reactive-editing/index.html" class="lesson-nav-btn lesson-nav-next" title="Reactive component editing">Reactive component editing →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

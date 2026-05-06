@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Передача группы DOM элементов параметрами функций — acteck.off</title>
-  <meta name="description" content="Передача группы DOM элементов параметрами функций — учебные материалы по программированию.">
+  <title>Passing a group of DOM elements as function parameters - acteck.off</title>
+  <meta name="description" content="Passing a group of DOM elements as function parameters - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,12 +36,8 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Передача группы DOM элементов параметрами функций</h1>
-    <p>
-	Пусть теперь наша функция <code data-gs="comd/c" data-x>setText</code>
-	первым параметром будем принимать ссылку
-	не на один элемент, а сразу набор элементов:
-</p>
+    <h1>Passing a group of DOM elements as function parameters</h1>
+    <p>Let now our function<code data-gs="comd/c" data-x>setText</code>The first parameter will accept a link not to one element, but to a set of elements at once:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function setText(elems, text) {
 	for (let elem of elems) {
@@ -49,10 +45,7 @@
 	}
 }</code>
 </div>
-<p>
-	Давайте опробуем нашу функцию на практике.
-	Пусть у нас есть следующие абзацы:
-</p>
+<p>Let's try our function in practice. Let's say we have the following paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="elem"&gt;&lt;/p&gt;
 &lt;p class="elem"&gt;&lt;/p&gt;
@@ -60,54 +53,34 @@
 &lt;p class="elem"&gt;&lt;/p&gt;
 &lt;p class="elem"&gt;&lt;/p&gt;</code>
 </div>
-<p>
-	Давайте с помощью нашей функции установим
-	всем этим абзацам какой-нибудь текст:
-</p>
+<p>Let's use our function to set some text for all these paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('.elem');
 setText(elems, 'text');</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте функцию <code data-gs="comd/c" data-x>appendText</code>, которая
-		первым параметром будет принимать массив
-		DOM элементов, а вторым - текст. Сделайте
-		так, чтобы данная функция добавляла текст
-		в конец переданных элементов.
+	<p>Make a function<code data-gs="comd/c" data-x>appendText</code>, which will take an array of DOM elements as the first parameter, and text as the second. Make this function append text to the end of the passed elements.</p>
+</div>
+<div data-w="cont/task">
+	<p>Make a function<code data-gs="comd/c" data-x>appendElem</code>, which as the first parameter will take a link to the DOM object in which the tag lies<code data-gs="comd/c" data-x>ul</code>, and the second is the text. Make this function create a new one<code data-gs="comd/c" data-x>li</code>with the transmitted text and added it to the end of the transmitted tag<code data-gs="comd/c" data-x>ul</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте функцию <code data-gs="comd/c" data-x>appendElem</code>, которая
-		первым параметром будет принимать ссылку на
-		DOM объект, в котором лежит тег <code data-gs="comd/c" data-x>ul</code>,
-		а вторым - текст. Сделайте так, чтобы данная
-		функция создавала новую <code data-gs="comd/c" data-x>li</code> с переданным
-		текстом и добавляла ее в конец переданного
-		тега <code data-gs="comd/c" data-x>ul</code>.
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		Дан массив и <code data-gs="comd/c" data-x>ul</code>. С помощью функции
-		<code data-gs="comd/c" data-x>appendElem</code>, созданной в предыдущей
-		задаче, запишите каждый элемент массива в
-		отдельную <code data-gs="comd/c" data-x>li</code> в этом <code data-gs="comd/c" data-x>ul</code>.
+	<p>Given an array and<code data-gs="comd/c" data-x>ul</code>. Using the function<code data-gs="comd/c" data-x>appendElem</code>created in the previous task, write each element of the array into a separate<code data-gs="comd/c" data-x>li</code>in this<code data-gs="comd/c" data-x>ul</code>.
 	</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../passing-element-as-parameter/index.html" class="lesson-nav-btn lesson-nav-prev" title="Передача элемента параметром функции">← Передача элемента параметром функции</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../tables-creating-function/index.html" class="lesson-nav-btn lesson-nav-next" title="Функция для создания HTML таблиц">Функция для создания HTML таблиц →</a>
+      <a href="../passing-element-as-parameter/index.html" class="lesson-nav-btn lesson-nav-prev" title="Passing an element as a function parameter">← Passing an element as a function parameter</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../tables-creating-function/index.html" class="lesson-nav-btn lesson-nav-next" title="Function for creating HTML tables">Function for creating HTML tables →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

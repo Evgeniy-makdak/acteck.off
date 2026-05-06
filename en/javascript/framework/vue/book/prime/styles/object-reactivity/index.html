@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Реактивность объекта с CSS классами в Vue — acteck.off</title>
-  <meta name="description" content="Реактивность объекта с CSS классами в Vue — учебные материалы по программированию.">
+  <title>Object reactivity with CSS classes in Vue - acteck.off</title>
+  <meta name="description" content="Object reactivity with CSS classes in Vue - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,15 +36,8 @@
       <a href="../../index.html">Vue</a>
     </div>
 
-    <h1>Реактивность объекта с CSS классами в Vue</h1>
-    <p>
-	Объект с CSS классами предназначен
-	для того, чтобы удобно было реактивно
-	назначать классы элементам. 
-	Давайте посмотрим, как это делается.
-	Пусть у нас есть следующий
-	объект с классами:
-</p>
+    <h1>Object reactivity with CSS classes in Vue</h1>
+    <p>An object with CSS classes is designed to make it convenient to reactively assign classes to elements. Let's see how it's done. Let us have the following object with classes:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
 	return {
@@ -54,36 +47,26 @@
 	}
 }</code>
 </div>
-<p>
-	Привяжем этот объект к тегу:
-</p>
+<p>Let's bind this object to the tag:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;p :class="styles"&gt;text&lt;/p&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Пусть наличие класса <code data-gs="comd/v" data-x>done</code>
-	перечеркивает текст тега:
-</p>
+<p>Let the presence of a class<code data-gs="comd/v" data-x>done</code>crosses out the tag text:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">p.done {
 	text-decoration: line-through;
 }</code>
 </div>
-<p>
-	Сделаем кнопку, нажатие на которую
-	будет изменять объект со стилями,
-	включая класс <code data-gs="comd/v" data-x>done</code>:
+<p>Let's make a button, clicking on which will change the object with styles, including the class<code data-gs="comd/v" data-x>done</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;button @click="setDone"&gt;hide&lt;/button&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Напишем соответствующий метод:
-</p>
+<p>Let's write the corresponding method:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
 	setDone: function() {
@@ -92,10 +75,7 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий объект
-		с CSS классами:
-	</p>
+	<p>Given the following object with CSS classes:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
 	return {
@@ -105,50 +85,34 @@
 	}
 }</code>
 	</div>
-	<p>
-		Пусть наличие этого класса
-		прячет элемент:
-	</p>
+	<p>Let the presence of this class hide the element:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">p.hidden {
 	display: none;
 }</code>
 	</div>
-	<p>
-		Примените объект с классами
-		к какому-нибудь тегу с текстом.
-	</p>
+	<p>Apply an object with classes to some tag with text.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте кнопку, нажатие на которую
-		будет показывать элемент.
-	</p>
+	<p>Make a button that, when clicked, will show the element.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте кнопку, нажатие на которую
-		будет прятать элемент.
-	</p>
+	<p>Make a button that, when clicked, will hide the element.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте кнопку, нажатие на которую
-		будет тогглить элемент (показывать,
-		если скрыт; скрывать, если показан).
-	</p>
+	<p>Make a button that, when clicked, will toggle the element (show if hidden; hide if shown).</p>
 </div>
     <div class="lesson-nav">
-      <a href="../class-object/index.html" class="lesson-nav-btn lesson-nav-prev" title="Объект с CSS классами">← Объект с CSS классами</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../inline-object/index.html" class="lesson-nav-btn lesson-nav-next" title="Инлайн объект с CSS классами">Инлайн объект с CSS классами →</a>
+      <a href="../class-object/index.html" class="lesson-nav-btn lesson-nav-prev" title="Object with CSS classes">← Object with CSS classes</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../inline-object/index.html" class="lesson-nav-btn lesson-nav-next" title="Inline object with CSS classes">Inline object with CSS classes →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

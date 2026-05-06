@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обобщенные классы в TypeScript — acteck.off</title>
-  <meta name="description" content="Обобщенные классы в TypeScript — учебные материалы по программированию.">
+  <title>Generic classes in TypeScript - acteck.off</title>
+  <meta name="description" content="Generic Classes in TypeScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,17 +36,9 @@
       <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Обобщенные классы в TypeScript</h1>
-    <p>
-	Помимо обобщенных интерфейсов в TypeScript
-	можно делать и обобщенные классы. 
-</p>
-<p>
-	Давайте создадим класс <code data-gs="comd/c" data-x>User</code> обобщенного
-	типа. Напишем также свойство <code data-gs="comd/c" data-x>value</code>
-	обобщенного типа и сделаем соответствующий
-	конструктор: 
-</p>
+    <h1>Generic Classes in TypeScript</h1>
+    <p>In addition to generic interfaces, you can also create generic classes in TypeScript.</p>
+<p>Let's create a class<code data-gs="comd/c" data-x>User</code>generalized type. Let us also write the property<code data-gs="comd/c" data-x>value</code>generic type and make the corresponding constructor:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">class User &lt;T&gt; {
 	value: T;
@@ -55,59 +47,42 @@
 	}
 }</code>
 </div>
-<p>
-	Теперь сделаем объект данного класса и
-	пропишем ему в свойство строчное значение: 
-</p>
+<p>Now let’s create an object of this class and assign a string value to its property:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user = new User('john');
 console.log(user.value); // 'john'</code>
 </div>
-<p>
-	Однако, если мы уже задали объекту при его
-	вызове строковое значение, у нас не получится
-	перезаписать это значение в другой тип: 
-</p>
+<p>However, if we have already given the object a string value when calling it, we will not be able to overwrite this value into another type:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user = new User('john');
 user.value = 35;</code>
 </div>
-<p>
-	При попытке запустить код мы увидим следующую
-	ошибку: 
-</p>
+<p>When we try to run the code we will see the following error:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">Type 'number' is not assignable to type 'string'.</code>
 </div>
-<p>
-	Но в то же время мы можем перезаписать
-	строковое значение: 
-</p>
+<p>But at the same time we can overwrite the string value:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let user = new User('john');
 user.value = 'alex';
 console.log(user.value); // 'alex'</code>
 </div>
-<p>
-	Заметьте, что перезаписать свойство того
-	же самого объекта в другой тип мы не можем,
-	но можем создать просто другой объект: 
-</p>
+<p>Note that we cannot overwrite a property of the same object into another type, but we can simply create another object:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let newUser = new User(35);
 console.log(newUser.value); // 35</code>
 </div>
     <div class="lesson-nav">
-      <a href="../interface/index.html" class="lesson-nav-btn lesson-nav-prev" title="Интерфейс обобщенные типы">← Интерфейс обобщенные типы</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../limitations/index.html" class="lesson-nav-btn lesson-nav-next" title="Ограничения обобщений">Ограничения обобщений →</a>
+      <a href="../interface/index.html" class="lesson-nav-btn lesson-nav-prev" title="Interface generic types">← Interface generic types</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../limitations/index.html" class="lesson-nav-btn lesson-nav-next" title="Limitations of Generalizations">Limitations of generalizations →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

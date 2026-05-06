@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Проблемы с новыми id в React — acteck.off</title>
-  <meta name="description" content="Проблемы с новыми id в React — учебные материалы по программированию.">
+  <title>Problems with new ids in React - acteck.off</title>
+  <meta name="description" content="Problems with new ids in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Проблемы с новыми id в React</h1>
-    <p>
-	Пусть из базы данных нам пришел следующий
-	массив объектов:
-</p>
+    <h1>Problems with new ids in React</h1>
+    <p>Suppose we received the following array of objects from the database:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const prods = [
 	{id: 1, name: 'product1', cost: 100},
@@ -48,44 +45,21 @@
 	{id: 3, name: 'product3', cost: 300},
 ];</code>
 </div>
-<p>
-	Как вы видите, <code data-gs="comd/c" data-x>id</code> нумеруются по порядку.
-	Однако, нам следует учитывать, что числа
-	могут иметь пропуски, к примеру, после <code data-gs="comd/n" data-x>3</code>-го
-	может сразу идти <code data-gs="comd/n" data-x>5</code>-тый или <code data-gs="comd/n" data-x>6</code>-той.
-	Из-за этого наш клиентский скрипт не может
-	знать, какой будет следующий <code data-gs="comd/c" data-x>id</code> (в
-	нашем случае это не обязательно <code data-gs="comd/n" data-x>4</code>).
+<p>As you can see,<code data-gs="comd/c" data-x>id</code>are numbered in order. However, we should take into account that numbers may have gaps, for example after<code data-gs="comd/n" data-x>3</code>-go can go right away<code data-gs="comd/n" data-x>5</code>-th or<code data-gs="comd/n" data-x>6</code>-that one. Because of this, our client script cannot know what the next one will be<code data-gs="comd/c" data-x>id</code>(in our case this is not necessary<code data-gs="comd/n" data-x>4</code>).
 </p>
-<p>
-	Новые <code data-gs="comd/c" data-x>id</code> создаются базой данных сервера.
-	Это может вызвать некоторые проблемы при
-	работе на клиенте. Суть в следующем: представим,
-	что с помощью формы мы добавили новый элемент
-	в наш массив. Однако, мы не можем просто
-	взять и добавить данные из формы - ведь мы
-	не знаем какой <code data-gs="comd/c" data-x>id</code> будет у нового элемента!
-</p>
-<p>
-	Нам нужно будет отправить запрос на сервер,
-	чтобы он дал нам следующий по порядку <code data-gs="comd/c" data-x>id</code>,
-	и только затем добавить элемент в наш массив
-	объектов. Это вызовет задержку с отображением
-	данных на экране: пока данные придут на сервер,
-	пока сервер пришлет нам их обратно - пройдет
-	некоторое время.
-</p>
+<p>New<code data-gs="comd/c" data-x>id</code>are created by the server database. This may cause some problems when running on the client. The point is this: imagine that using the form we added a new element to our array. However, we can’t just take and add data from the form - because we don’t know which one<code data-gs="comd/c" data-x>id</code>the new element will have!</p>
+<p>We will need to send a request to the server so that it gives us the following in order<code data-gs="comd/c" data-x>id</code>, and only then add the element to our array of objects. This will cause a delay in displaying the data on the screen: it will take some time until the data arrives to the server and until the server sends it back to us.</p>
     <div class="lesson-nav">
-      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Обсуждение">← Обсуждение</a>
-      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../random-strings/index.html" class="lesson-nav-btn lesson-nav-next" title="Случайные строки для id">Случайные строки для id →</a>
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Discussion">← Discussion</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../random-strings/index.html" class="lesson-nav-btn lesson-nav-next" title="Random strings for id">Random strings for id →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

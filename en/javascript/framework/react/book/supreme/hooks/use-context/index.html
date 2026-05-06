@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Хук контекста useContext в React — acteck.off</title>
-  <meta name="description" content="Хук контекста useContext в React — учебные материалы по программированию.">
+  <title>The useContext hook in React is acteck.off</title>
+  <meta name="description" content="UseContext context hook in React - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,13 +36,8 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Хук контекста useContext в React</h1>
-    <p>
-	В этом уроке мы продолжим работу с
-	контекстом. Теперь построим дерево
-	компонентов. Для начала в отдельном
-	файле создадим React компонент
-	<code data-gs="comd/c" data-x>BigBox</code>:
+    <h1>useContext context hook in React</h1>
+    <p>In this lesson we will continue working with context. Now let's build a component tree. First, let's create a React component in a separate file.<code data-gs="comd/c" data-x>BigBox</code>:
 </p>
 <div data-p="bock/pane" data-p-file="BigBox.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function BigBox() {
@@ -51,9 +46,7 @@
 	);
 }</code>
 </div>
-<p>
-	Импортируем его и разместим в нашем
-	главном компоненте <code data-gs="comd/c" data-x>App</code>:
+<p>Let's import it and place it in our main component<code data-gs="comd/c" data-x>App</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import BigBox from './BigBox';
@@ -64,11 +57,7 @@ function App() {
 	);
 }</code>
 </div>
-<p>
-	Для большей наглядности немного
-	<a href="../../../prime/styling/intro/index.html">стилизуем</a>
-	дивы. Для этого создадим файл
-	<code data-gs="comd/p" data-x>styles.css</code>:
+<p>For greater clarity, a little<a href="../../../prime/styling/intro/index.html">stylize</a>divas. To do this, let's create a file<code data-gs="comd/p" data-x>styles.css</code>:
 </p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
@@ -78,16 +67,12 @@ function App() {
 	max-width: 300px;
 }</code>
 </div>
-<p>
-	Не забудем импортировать его
-	в <code data-gs="comd/p" data-x>App.js</code>:
+<p>Let's not forget to import it into<code data-gs="comd/p" data-x>App.js</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import './styles.css';</code>
 </div>
-<p>
-	Теперь в отдельном файле создадим
-	компонент <code data-gs="comd/c" data-x>MiddleBox</code>:
+<p>Now let’s create a component in a separate file<code data-gs="comd/c" data-x>MiddleBox</code>:
 </p>
 <div data-p="bock/pane" data-p-file="MiddleBox.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function MiddleBox() {
@@ -96,9 +81,7 @@ function App() {
 	);
 }</code>
 </div>
-<p>
-	И положим его в большую
-	коробку <code data-gs="comd/c" data-x>BigBox</code>:
+<p>And put it in a big box<code data-gs="comd/c" data-x>BigBox</code>:
 </p>
 <div data-p="bock/pane" data-p-file="BigBox.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import MiddleBox from './MiddleBox';
@@ -111,9 +94,7 @@ function BigBox() {
 	);
 }</code>
 </div>
-<p>
-	Проделаем все тоже самое с маленькой
-	коробочкой <code data-gs="comd/c" data-x>SmallBox</code>:
+<p>Let's do the same with a small box.<code data-gs="comd/c" data-x>SmallBox</code>:
 </p>
 <div data-p="bock/pane" data-p-file="SmallBox.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function SmallBox() {
@@ -122,9 +103,7 @@ function BigBox() {
 	);
 }</code>
 </div>
-<p>
-	Разместим две таких коробочки в
-	<code data-gs="comd/c" data-x>MiddleBox</code>: 
+<p>Let's place two such boxes in<code data-gs="comd/c" data-x>MiddleBox</code>: 
 </p>
 <div data-p="bock/pane" data-p-file="MiddleBox.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import SmallBox from './SmallBox';
@@ -138,31 +117,9 @@ function MiddleBox() {
 	);
 }</code>
 </div>
-<p>
-	Дерево мы построили. А теперь мы
-	хотим от нашего <code data-gs="comd/c" data-x>App</code> передать,
-	предположим, в <code data-gs="comd/c" data-x>SmallBox</code> строковое
-	значение <code data-gs="comd/s" data-x>'small box :)'</code>, не
-	используя пропсы, а пользуясь
-	контекстом (вдруг наше коробочное
-	приложение разрастется до огромных
-	размеров). 
-</p>
-<p>
-	Файл с контекстом <code data-gs="comd/p" data-x>MyContext.js</code> мы
-	уже создали и подключили на прошлом уроке.
-</p>
-<p>
-	Следующий шаг, который мы сделаем - обернем
-	<code data-gs="comd/c" data-x>BigBox</code> в <dfn data-gs="comd/d" data-x>провайдер контекста</dfn>,
-	который является свойством нашего объекта
-	контекста <code data-gs="comd/c" data-x>MyContext</code>. Теперь все
-	компоненты, заключенные в данную конструкцию
-	(а это и все коробочки, вложенные в
-	<code data-gs="comd/c" data-x>BigBox</code>) смогут получить доступ и
-	подписаться на изменения контекста. В качестве
-	значения контекста мы передаем желаемое
-	<code data-gs="comd/s" data-x>'small box :)'</code>:
+<p>We built the tree. And now we want from our<code data-gs="comd/c" data-x>App</code>transfer, suppose, to<code data-gs="comd/c" data-x>SmallBox</code>string value<code data-gs="comd/s" data-x>'small box :)'</code>, not using props, but using the context (suddenly our boxed application grows to enormous sizes).</p>
+<p>Context file<code data-gs="comd/p" data-x>MyContext.js</code>we have already created and connected in the last lesson.</p>
+<p>The next step we will take is to wrap<code data-gs="comd/c" data-x>BigBox</code>V<dfn data-gs="comd/d" data-x>context provider</dfn>, which is a property of our context object<code data-gs="comd/c" data-x>MyContext</code>. Now all the components enclosed in this design (and these are all the boxes enclosed in<code data-gs="comd/c" data-x>BigBox</code>) will be able to access and subscribe to context changes. We pass what we want as the context value<code data-gs="comd/s" data-x>'small box :)'</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
@@ -173,20 +130,13 @@ function MiddleBox() {
 	);
 }</code>
 </div>
-<p>
-	А теперь осталось прочитать значение
-	контекста. Мы хотели использовать его в
-	<code data-gs="comd/c" data-x>SmallBox</code>, значит импортируем
-	туда файл контекста <code data-gs="comd/p" data-x>MyContext.js</code>
-	и хук <code data-gs="comd/c" data-x>useContext</code>:
+<p>Now all that remains is to read the meaning of the context. We wanted to use it in<code data-gs="comd/c" data-x>SmallBox</code>, which means we import the context file there<code data-gs="comd/p" data-x>MyContext.js</code>and hook<code data-gs="comd/c" data-x>useContext</code>:
 </p>
 <div data-p="bock/pane" data-p-file="SmallBox.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useContext } from 'react';
 import { MyContext } from './MyContext.js';</code>
 </div>
-<p>
-	Прочитаем с помощью <code data-gs="comd/c" data-x>useContext</code>
-	значение контекста в переменную <code data-gs="comd/c" data-x>name</code>:
+<p>Let's read with<code data-gs="comd/c" data-x>useContext</code>context value into variable<code data-gs="comd/c" data-x>name</code>:
 </p>
 <div data-p="bock/pane" data-p-file="SmallBox.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function SmallBox() {
@@ -199,15 +149,8 @@ import { MyContext } from './MyContext.js';</code>
 	);
 }</code>
 </div>
-<p>
-	Мы подписали <code data-gs="comd/c" data-x>SmallBox</code> на данный
-	контекст и, если он изменится, этот
-	компонент также будет обновлен.
-</p>
-<p>
-	И, наконец, подставляем значение переменной
-	<code data-gs="comd/c" data-x>name</code> вместо многоточия:
-</p>
+<p>We signed<code data-gs="comd/c" data-x>SmallBox</code>to the given context and if it changes, this component will also be updated.</p>
+<p>And finally, we substitute the value of the variable<code data-gs="comd/c" data-x>name</code>instead of an ellipsis:</p>
 <div data-p="bock/pane" data-p-file="SmallBox.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function SmallBox() {
 	const name = useContext(MyContext);
@@ -220,35 +163,24 @@ import { MyContext } from './MyContext.js';</code>
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		В пустом компоненте <code data-gs="comd/c" data-x>App</code> создайте
-		компонент <code data-gs="comd/c" data-x>Parent</code>, а в нем компонент
-		<code data-gs="comd/c" data-x>Daughter</code>, а в <code data-gs="comd/c" data-x>Daughter</code> компонент
-		<code data-gs="comd/c" data-x>Grandson</code>. Используя контекст,
-		передайте из <code data-gs="comd/c" data-x>App</code> значение
-		возраста <code data-gs="comd/n" data-x>42</code>, а с помощью
-		<code data-gs="comd/c" data-x>useContext</code> выведите его в
-		компоненте <code data-gs="comd/c" data-x>Daughter</code>.
+	<p>In an empty component<code data-gs="comd/c" data-x>App</code>create a component<code data-gs="comd/c" data-x>Parent</code>, and in it the component<code data-gs="comd/c" data-x>Daughter</code>, and in<code data-gs="comd/c" data-x>Daughter</code>component<code data-gs="comd/c" data-x>Grandson</code>. Using context, pass from<code data-gs="comd/c" data-x>App</code>age value<code data-gs="comd/n" data-x>42</code>, and with the help<code data-gs="comd/c" data-x>useContext</code>display it in the component<code data-gs="comd/c" data-x>Daughter</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		А теперь в компоненте <code data-gs="comd/c" data-x>Grandson</code>
-		выведите значение возраста,
-		но поделенное на <code data-gs="comd/n" data-x>2</code>.
+	<p>And now in the component<code data-gs="comd/c" data-x>Grandson</code>print the age value divided by<code data-gs="comd/n" data-x>2</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../context/index.html" class="lesson-nav-btn lesson-nav-prev" title="Контекст">← Контекст</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../context-update/index.html" class="lesson-nav-btn lesson-nav-next" title="Обновление контекста">Обновление контекста →</a>
+      <a href="../context/index.html" class="lesson-nav-btn lesson-nav-prev" title="Context">← Context</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../context-update/index.html" class="lesson-nav-btn lesson-nav-next" title="Updating the context">Context update →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

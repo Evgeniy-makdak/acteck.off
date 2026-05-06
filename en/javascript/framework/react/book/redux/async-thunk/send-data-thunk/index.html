@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отправка данных с помощью thunk в Redux — acteck.off</title>
-  <meta name="description" content="Отправка данных с помощью thunk в Redux — учебные материалы по программированию.">
+  <title>Sending data using thunk in Redux - acteck.off</title>
+  <meta name="description" content="Sending Data with Thunk in Redux - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,40 +36,22 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Отправка данных с помощью thunk в Redux</h1>
-    <p>
-	На прошлом занятии мы разобрались с обработкой
-	POST-запроса на нашем фейковом сервере. Давайте
-	теперь напишем thunk-функцию, которая будет
-	отправлять запрос на сервер.
-</p>
-<p>
-	Откроем наше приложение с продуктами, а в
-	нем файл <code data-gs="comd/p" data-x>productsSlice.js</code>. Теперь после
-	thunk <code data-gs="comd/c" data-x>fetchProducts</code> мы с помощью
-	<code data-gs="comd/c" data-x>createAsyncThunk</code> создадим thunk
-	<code data-gs="comd/c" data-x>addProduct</code>:
+    <h1>Sending data using thunk in Redux</h1>
+    <p>In the last lesson, we figured out how to process a POST request on our fake server. Let's now write a thunk function that will send a request to the server.</p>
+<p>Let's open our application with products, and in it there is a file<code data-gs="comd/p" data-x>productsSlice.js</code>. Now after thunk<code data-gs="comd/c" data-x>fetchProducts</code>we are using<code data-gs="comd/c" data-x>createAsyncThunk</code>let's create a thunk<code data-gs="comd/c" data-x>addProduct</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const addProduct = createAsyncThunk()</code>
 </div>
-<p>
-	Первым параметром мы передадим в <code data-gs="comd/c" data-x>createAsyncThunk</code>
-	<code data-gs="comd/s" data-x>'products/addProduct'</code>, а вторым асинхронный
-	callback, который будет принимать объект с
-	данными нового продукта:
-</p>
+<p>The first parameter we will pass to<code data-gs="comd/c" data-x>createAsyncThunk</code>
+	<code data-gs="comd/s" data-x>'products/addProduct'</code>, and the second is an asynchronous callback that will receive an object with new product data:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const addProduct = createAsyncThunk(
 	'products/addProduct',
 	async (newProduct) =&gt; {}
 )</code>
 </div>
-<p>
-	В коде этого колбэка мы вызовем клиента,
-	передав ему параметрами путь и объект с
-	продуктом, а затем вернем данные ответа:
-</p>
+<p>In the code of this callback we will call the client, passing it the path and the object with the product as parameters, and then return the response data:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const addProduct = createAsyncThunk(
 	'products/addProduct',
@@ -79,65 +61,31 @@
 	}
 )</code>
 </div>
-<p>
-	Теперь ниже в коде посмотрим на поле <code data-gs="comd/c" data-x>reducers</code>
-	для <code data-gs="comd/c" data-x>productsSlice</code>. Раньше мы добавляли
-	новый продукт с помощью редьюсера
-	<code data-gs="comd/c" data-x>productAdded</code>, в котором у нас были методы
-	<code data-gs="comd/c" data-x>reducer</code> и <code data-gs="comd/c" data-x>prepare</code>. Теперь мы генерируем
-	необходимые данные на сервере и работаем
-	с thunk, поэтому уберем здесь полностью
-	редьюсер <code data-gs="comd/c" data-x>productAdded</code> из кода. А затем внесем в
-	в метод <code data-gs="comd/c" data-x>extraReducers</code> (в конец его кода) еще один
-	дополнительный редьюсер, который в случае
-	успешного запроса будет добавлять в слайс
-	<code data-gs="comd/c" data-x>products</code> новый продукт прямо из <code data-gs="comd/c" data-x>payload</code>
-	экшена (помним, что такой код возможен
-	только благодаря неповторимому <code data-gs="comd/c" data-x>createSlice</code>):
+<p>Now let's look at the field below in the code<code data-gs="comd/c" data-x>reducers</code>For<code data-gs="comd/c" data-x>productsSlice</code>. Previously, we added a new product using a reducer<code data-gs="comd/c" data-x>productAdded</code>, in which we had methods<code data-gs="comd/c" data-x>reducer</code>And<code data-gs="comd/c" data-x>prepare</code>. Now we generate the necessary data on the server and work with thunk, so we will completely remove the reducer here<code data-gs="comd/c" data-x>productAdded</code>from code. And then we add in to the method<code data-gs="comd/c" data-x>extraReducers</code>(at the end of his code) another additional reducer, which, if the request is successful, will be added to the slice<code data-gs="comd/c" data-x>products</code>new product straight from<code data-gs="comd/c" data-x>payload</code>action (remember that such code is only possible thanks to the unique<code data-gs="comd/c" data-x>createSlice</code>):
 </p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">.addCase(addProduct.fulfilled, (state, action) =&gt; {
 	state.products.push(action.payload)
 })</code>
 </div>
-<p>
-	Да, кстати, не забудьте убрать nanoid из
-	строчек с импортом, а <code data-gs="comd/c" data-x>productAdded</code> из экспорта
-	экшенов в конце файла.
-</p>
+<p>Oh, by the way, don’t forget to remove nanoid from the import lines, and<code data-gs="comd/c" data-x>productAdded</code>from the action export at the end of the file.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Откройте в нем файл <code data-gs="comd/p" data-x>studentsSlice.js</code>. При
-		помощи <code data-gs="comd/c" data-x>createAsyncThunk</code> создайте еще один
-		thunk <code data-gs="comd/c" data-x>addStudent</code>, который будет отправлять
-		POST-запрос на сервер, чтобы добавить нового
-		студента, как показано в уроке.
-	</p>
+	<p>Open your application with students. Open the file in it<code data-gs="comd/p" data-x>studentsSlice.js</code>. With the help<code data-gs="comd/c" data-x>createAsyncThunk</code>create another thunk<code data-gs="comd/c" data-x>addStudent</code>which will send a POST request to the server to add a new student as shown in the tutorial.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Далее ниже внесите изменения
-		для <code data-gs="comd/c" data-x>studentsSlice</code>: уберите полностью
-		редьюсер <code data-gs="comd/c" data-x>studentAdded</code> в свойстве <code data-gs="comd/c" data-x>reducers</code>.
-		А в поле <code data-gs="comd/c" data-x>extraReducers</code> добавьте дополнительный
-		редьюсер, который будет добавлять
-		нового студента в слайс <code data-gs="comd/c" data-x>students</code> из
-		<code data-gs="comd/c" data-x>payload</code> экшена в случае успешного запроса,
-		как показано уроке.
-	</p>
+	<p>Further below make changes for<code data-gs="comd/c" data-x>studentsSlice</code>: remove the reducer completely<code data-gs="comd/c" data-x>studentAdded</code>in property<code data-gs="comd/c" data-x>reducers</code>. And in the field<code data-gs="comd/c" data-x>extraReducers</code>add an additional reducer that will add a new student to the slice<code data-gs="comd/c" data-x>students</code>from<code data-gs="comd/c" data-x>payload</code>action in case of a successful request, as shown in the lesson.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../send-data-server/index.html" class="lesson-nav-btn lesson-nav-prev" title="Обработка запроса, отправленного с помощью thunk">← Обработка запроса, отправленного с помощью thunk</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../thunk-results-component/index.html" class="lesson-nav-btn lesson-nav-next" title="Вывод результатов работы в компоненте">Вывод результатов работы в компоненте →</a>
+      <a href="../send-data-server/index.html" class="lesson-nav-btn lesson-nav-prev" title="Processing a request sent using thunk">← Processing a request sent using thunk</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../thunk-results-component/index.html" class="lesson-nav-btn lesson-nav-next" title="Outputting the results of work in the component">Output of work results in the component →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

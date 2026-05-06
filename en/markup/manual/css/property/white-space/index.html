@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свойство white-space — acteck.off</title>
-  <meta name="description" content="Свойство white-space — учебные материалы по программированию.">
+  <title>white-space property - acteck.off</title>
+  <meta name="description" content="White-space property - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,88 +33,52 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Свойство white-space</h1>
-    <p>
-	Свойство <code data-gs="comd/c" data-x>white-space</code> устанавливает
-	как переносить текст на новую строку, а также
-	как отображать пробелы между словами и переносы
-	строк (места, где был нажат <code data-gs="comd/k" data-x>Enter</code> при наборе
-	кода).
-</p>
+    <h1>white-space property</h1>
+    <p>Property<code data-gs="comd/c" data-x>white-space</code>sets how to wrap text on a new line, as well as how to display spaces between words and line breaks (places where you pressed<code data-gs="comd/k" data-x>Enter</code>when dialing the code).</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
 	white-space: nowrap | pre | pre-line | pre-wrap | normal;
 }</code>
 </div>
 
-<h2>Значения</h2>
+<h2>Values</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Значение</th>
-		<th>Описание</th>
+		<th>Meaning</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>nowrap</code></th>
-		<td>
-			Запрещает тексту переносится на другую строку, даже если он не помещается
-			в ширину контейнера (в этом случае текст просто вылезет за его границы). 
-			Однако, добавление тега <a href="../../../html/tag/br/index.html"><code data-gs="comd/c" data-x>br</code></a>
-			заставит текст перенестись на новую строку.
-		</td>
+		<td>Prevents text from wrapping onto another line, even if it does not fit into the width of the container (in this case, the text will simply extend beyond its borders). However, adding a tag<a href="../../../html/tag/br/index.html"><code data-gs="comd/c" data-x>br</code></a>will cause the text to wrap to a new line.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>pre</code></th>
-		<td>
-			Текст показывается так, как был набран в блокноте при верстке сайта: со всеми пробелами и
-			enter-ами (если в коде набрано несколько пробелов - на экране тоже будет несколько).
-			При этом браузер не будет переносить текст на новую строку, если он не помещается
-			в контейнер - текст просто вылезет за его границы.
-			<hr>
-			Аналог <a href="../../../html/tag/pre/index.html">тега pre</a>, но в отличие от него не меняет
-			шрифт на моноширинный (про моноширинный шрифт см. свойство
-			<a href="../font-family/index.html"><code data-gs="comd/c" data-x>font-family</code></a>.
+		<td>The text is shown as it was typed in notepad when laying out the site: with all spaces and enters (if several spaces are typed in the code, there will also be several on the screen). In this case, the browser will not wrap the text on a new line if it does not fit into the container - the text will simply fall outside its boundaries.<hr>Analogue<a href="../../../html/tag/pre/index.html">pre tag</a>, but unlike it does not change the font to monospace (for monospace font, see the property<a href="../font-family/index.html"><code data-gs="comd/c" data-x>font-family</code></a>.
 		</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>pre-wrap</code></th>
-		<td>
-			To же самое, что и pre, отличие в том, что если текст
-			слишком длинный и не влазит в контейнер - 
-			браузер перенесет его на другую строку.
-		</td>
+		<td>The same as pre, the difference is that if the text is too long and does not fit into the container, the browser will move it to another line.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>pre-line</code></th>
-		<td>
-			Browser учитывает только Enter-ы в HTML коде и игнорирует
-			все остальное (несколько пробелов будут выглядеть как один,
-			браузер сам расставляет разрывы строк).
-		</td>
+		<td>The browser only takes into account Enters in the HTML code and ignores everything else (several spaces will look like one, the browser itself places line breaks).</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>normal</code></th>
-		<td>
-			Стандартное поведение: браузер сам расставляет разрывы
-			строки так, чтобы слова поместились в контейнер.
-			Несколько пробелов в коде будут выглядеть
-			как один на экране.
-		</td>
+		<td>Standard behavior: the browser itself places line breaks so that the words fit into the container. Multiple spaces in the code will appear as one on the screen.</td>
 	</tr>
 </table>
-<p>
-	Значение по умолчанию: <code data-gs="comd/v" data-x>normal</code>.
+<p>Default value:<code data-gs="comd/v" data-x>normal</code>.
 </p>
 
-<h2>Пример <span data-gn="sect"></span>. Значение nowrap</h2>
-<p>
-	В данном примере текст не поместится в контейнер
-	и вылезет за его границы, так как задано
-	значение <code data-gs="comd/v" data-x>nowrap</code>:
+<h2>Example<span data-gn="sect"></span>. Meaning of nowrap</h2>
+<p>In this example, the text will not fit into the container and will extend beyond its boundaries, since the value is set<code data-gs="comd/v" data-x>nowrap</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
@@ -163,11 +127,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение nowrap и тег br</h2>
-<p>
-	Если добавить тег <code data-gs="comd/c" data-x>br</code> - текст перенесется
-	на новую строку (именно в том месте,
-	где стоит <code data-gs="comd/c" data-x>br</code>):
+<h2>Example<span data-gn="sect"></span>. Nowrap meaning and br tag</h2>
+<p>If you add a tag<code data-gs="comd/c" data-x>br</code>- the text will be moved to a new line (exactly in the place where it stands<code data-gs="comd/c" data-x>br</code>):
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
@@ -216,13 +177,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение pre</h2>
-<p>
-	В данном примере текст показывается так,
-	как был набран в редакторе HTML кода (со
-	всеми отступами клавишей <code data-gs="comd/k" data-x>Tab</code>, с <code data-gs="comd/k" data-x>Enter</code> и так
-	далее):
-</p>
+<h2>Example<span data-gn="sect"></span>. Pre value</h2>
+<p>In this example, the text is shown as it was typed in the HTML code editor (with all indentations using the<code data-gs="comd/k" data-x>Tab</code>, With<code data-gs="comd/k" data-x>Enter</code>and so on):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum
@@ -274,12 +230,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение pre-wrap</h2>
-<p>
-	А сейчас текст показывается так, как был
-	набран в редакторе HTML кода, однако, вылезающие
-	части переносятся на новую строку:
-</p>
+<h2>Example<span data-gn="sect"></span>. Pre-wrap meaning</h2>
+<p>And now the text is shown as it was typed in the HTML code editor, however, the parts that appear are moved to a new line:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum
@@ -331,35 +283,19 @@
 					</div>
 				</div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			свойства <a href="../word-break/index.html"><code data-gs="comd/c" data-x>word-break</code></a>
-			и <a href="../overflow-wrap/index.html"><code data-gs="comd/c" data-x>overflow-wrap</code></a>, <br>
-			которые позволяют перенести буквы длинного слова на новую строку
-		</li>
-		<li>
-			свойство <a href="../tab-size/index.html"><code data-gs="comd/c" data-x>tab-size</code></a>, <br>
-			которое устанавливает размер отступа, созданного клавишей Tab
-		</li>
-		<li>
-			свойство <a href="../hyphens/index.html"><code data-gs="comd/c" data-x>hyphens</code></a>, <br>
-			которое включает переносы слов по слогам
-		</li>
-		<li>
-			свойство <a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>, <br>
-			которое обрезает вылезающие за границу блока части
-		</li>
-		<li>
-			тег <a href="../../../html/tag/pre/index.html"><code data-gs="comd/c" data-x>pre</code></a>, <br>
-			который показывает текст так, как он был набран в редакторе HTML кода
-		</li>
+		<li>properties<a href="../word-break/index.html"><code data-gs="comd/c" data-x>word-break</code></a>And<a href="../overflow-wrap/index.html"><code data-gs="comd/c" data-x>overflow-wrap</code></a>, <br>which allow you to move the letters of a long word to a new line</li>
+		<li>property<a href="../tab-size/index.html"><code data-gs="comd/c" data-x>tab-size</code></a>, <br>which sets the size of the indent created by the Tab key</li>
+		<li>property<a href="../hyphens/index.html"><code data-gs="comd/c" data-x>hyphens</code></a>, <br>which includes hyphenation of words by syllables</li>
+		<li>property<a href="../overflow/index.html"><code data-gs="comd/c" data-x>overflow</code></a>, <br>which cuts off parts that extend beyond the block boundary</li>
+		<li>tag<a href="../../../html/tag/pre/index.html"><code data-gs="comd/c" data-x>pre</code></a>, <br>which shows the text as it was typed in the HTML code editor</li>
 	</ul>
 </div>
     <div class="lesson-nav">
       <a href="../visibility/index.html" class="lesson-nav-btn lesson-nav-prev" title="visibility">← visibility</a>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list">☰</a>
       <a href="../width/index.html" class="lesson-nav-btn lesson-nav-next" title="width">width →</a>
     </div>
   </section>
@@ -367,7 +303,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

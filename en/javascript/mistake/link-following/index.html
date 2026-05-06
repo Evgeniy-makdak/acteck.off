@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ошибка перехода по ссылке в JavaScript — acteck.off</title>
-  <meta name="description" content="Ошибка перехода по ссылке в JavaScript — учебные материалы по программированию.">
+  <title>Error following link in JavaScript - acteck.off</title>
+  <meta name="description" content="Link Error in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../en/index.html" class="logo">
+      <a href="../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,75 +36,34 @@
       <a href="../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Ошибка перехода по ссылке в JavaScript</h1>
-    <p>
-	Давайте разберем ошибку, связанную с
-	неожиданным переходом по ссылке.
-	Пусть для примера дана следующая
-	ссылка:
-</p>
+    <h1>Error following link in JavaScript</h1>
+    <p>Let's look at the error associated with an unexpected link click. Let the following link be given as an example:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;a href=""&gt;link&lt;/a&gt;</code>
 </div>
-<p>
-	Получим нашу ссылку в переменную:
-</p>
+<p>Let's get our link into a variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let link = document.querySelector('a');</code>
 </div>
-<p>
-	Привяжем к нашей ссылке обработчик
-	клика:
-</p>
+<p>Let's attach a click handler to our link:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">link.addEventListener('click', function() {
 	console.log(this.textContent);
 });</code>
 </div>
-<p>
-	И вот здесь нас ждет сюрприз. Код написан
-	верно, однако, вывод в консоли не появляется.
-	Дело в том, что при клике происходит переход
-	по ссылке. Так как в атрибуте <code data-gs="comd/c" data-x>href</code> ничего
-	не указано, то ссылка просто ведет
-	на текущую страницу.
-</p>
-<p>
-	Это значит, что клик на ссылку приводит
-	к перезагрузке страницы. To есть наши данные
-	выводятся в консоль, затем страница перезагружается,
-	и консоль становится пустой.
-</p>
-<p>
-	Если внимательно присмотреться, то
-	можно увидеть, как в момент клика
-	данные появляются в консоли на мгновение,
-	а затем пропадают. Это и есть характерный
-	признак данной ошибки.
-</p>
-<p>
-	Давайте посмотрим, как можно решить
-	данную проблему.
-</p>
+<p>And here a surprise awaits us. The code is written correctly, however, the output does not appear in the console. The fact is that when clicked, a link is followed. Since in the attribute<code data-gs="comd/c" data-x>href</code>nothing is specified, the link simply leads to the current page.</p>
+<p>This means that clicking on the link causes the page to reload. That is, our data is output to the console, then the page is reloaded and the console becomes empty.</p>
+<p>If you look closely, you can see how, at the moment of clicking, the data appears in the console for a moment and then disappears. This is a characteristic sign of this error.</p>
+<p>Let's see how we can solve this problem.</p>
 
-<h2>Решение первое</h2>
-<p>
-	В <code data-gs="comd/c" data-x>href</code> ссылки нужно поставить
-	решетку. Это приведет к тому, что
-	ссылка будет указывать на определенное
-	место текущей страницы и при клике
-	на ссылку перезагрузки не будет.
-	Сделаем это:
-</p>
+<h2>Solution one</h2>
+<p>IN<code data-gs="comd/c" data-x>href</code>links need to be grilled. This will cause the link to point to a specific location on the current page and will not reload when you click on the link. Let's do this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;a href="#"&gt;link&lt;/a&gt;</code>
 </div>
 
-<h2>Решение второе</h2>
-<p>
-	Более продвинутым способом является отмена действия
-	по умолчанию с помощью метода
-	<a href="../../book/prime/dom/object-Event/cancel-default-action/index.html">preventDefault</a>:
+<h2>Solution two</h2>
+<p>A more advanced way is to override the default action using the method<a href="../../book/prime/dom/object-Event/cancel-default-action/index.html">preventDefault</a>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">link.addEventListener('click', function(event) {
@@ -117,7 +76,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

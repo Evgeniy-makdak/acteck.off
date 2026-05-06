@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Режимы работы через стейты компонентов-потомков в React — acteck.off</title>
-  <meta name="description" content="Режимы работы через стейты компонентов-потомков в React — учебные материалы по программированию.">
+  <title>Modes of operation through states of descendant components in React - acteck.off</title>
+  <meta name="description" content="Modes of operation through states of descendant components in React - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Режимы работы через стейты компонентов-потомков в React</h1>
-    <p>
-	Пусть наш массив с продуктами теперь выглядит
-	следующим образом:
-</p>
+    <h1>Modes of operation through states of descendant components in React</h1>
+    <p>Let our array of products now look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initProds = [
 	{id: id(), name: 'prod1', cost: 'cost1', catg: 'catg1'},
@@ -48,35 +45,11 @@
 	{id: id(), name: 'prod3', cost: 'cost3', catg: 'catg3'},
 ];</code>
 </div>
-<p>
-	Давайте выведем эти продукты в виде HTML
-	таблицы. При этом сделаем так, чтобы по нажатию
-	на любую ячейку таблицы в этой ячейке появлялся
-	инпут для редактирования. Для решения задачи
-	сделаем <code data-gs="comd/n" data-x>3</code> компонента.
+<p>Let's output these products as an HTML table. At the same time, we will make it so that when you click on any table cell, an input for editing appears in this cell. To solve the problem we will do<code data-gs="comd/n" data-x>3</code>component.</p>
+<p>Component<code data-gs="comd/c" data-x>Products</code>will store state with products and use components<code data-gs="comd/c" data-x>Product</code>to display products. Component<code data-gs="comd/c" data-x>Product</code>in turn will also use the components<code data-gs="comd/c" data-x>ProductField</code>to display a specific product field (name, price, category).</p>
+<p>Component<code data-gs="comd/c" data-x>ProductField</code>will either show the text of the field or an input for editing it. In this case, the editing or display mode let<i>regulated by the state of this component</i>.
 </p>
-<p>
-	Компонент <code data-gs="comd/c" data-x>Products</code> будет хранить стейт
-	с продуктами и использовать компоненты <code data-gs="comd/c" data-x>Product</code>
-	для вывода продуктов. Компонент <code data-gs="comd/c" data-x>Product</code>
-	в свою очередь также будет использовать компоненты
-	<code data-gs="comd/c" data-x>ProductField</code> для вывода определенного
-	поля продукта (названия, цены, категории).
-</p>
-<p>
-	Компонент <code data-gs="comd/c" data-x>ProductField</code> будет либо
-	показывать текст поля, либо инпут для его
-	редактирования. При этом режим редактирования
-	или показа пусть <i>регулируется стейтом
-	данного компонента</i>.
-</p>
-<p>
-	To есть мы не будем хранить режим в родительском
-	стейте. Там это было бы очень неудобно, так
-	как нам пришлось бы указывать режим для каждого
-	поля продукта, что превратило бы наш стейт
-	в нечто подобное:
-</p>
+<p>That is, we will not store the mode in the parent state. This would be very inconvenient there, since we would have to specify the mode for each product field, which would turn our state into something like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initProds = [
 	[
@@ -96,25 +69,11 @@
 	],
 ]</code>
 </div>
-<p>
-	Мы, однако, не будем делать такой стейт,
-	а оставим тот, который был. Просто каждый
-	экземпляр компонента <code data-gs="comd/c" data-x>ProductField</code>
-	с помощью своего стейта будет регулировать
-	режим: либо редактирование, либо показ.
-</p>
-<p>
-	Таким образом получится, что родительский
-	компонент будет хранить стейт с данными,
-	а наш внучатый компонент будет получать эти
-	данные через пропсы и при этом будет иметь
-	свой стейт для изменения своего режима.
-</p>
-<p>
-	Итак, давайте реализуем описанное.
-</p>
+<p>We, however, will not make such a state, but will leave the one that was. Just each component instance<code data-gs="comd/c" data-x>ProductField</code>with the help of its state it will regulate the mode: either editing or display.</p>
+<p>Thus, it turns out that the parent component will store a state with data, and our grandchild component will receive this data through props and at the same time will have its own state to change its mode.</p>
+<p>So, let's implement the described.</p>
 
-<h2>Компонент Products</h2>
+<h2>Products Component</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Products() {
 	const [prods, setProds] = useState(initProds);
@@ -150,7 +109,7 @@
 }</code>
 </div>
 
-<h2>Компонент Product</h2>
+<h2>Product Component</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, catg, changeField }) {
 	return &lt;tr&gt;
@@ -161,7 +120,7 @@
 }</code>
 </div>
 
-<h2>Компонент ProductField</h2>
+<h2>ProductField Component</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function ProductField({ id, text, type, changeField }) {
 	const [isEdit, setIsEdit] = useState(false);
@@ -180,20 +139,16 @@
 }</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Проделайте аналогичные операции с компонентами
-		<code data-gs="comd/c" data-x>Users</code> и <code data-gs="comd/c" data-x>User</code>, созданными вами
-		в предыдущих уроках.
-	</p>
+	<p>Perform similar operations with the components<code data-gs="comd/c" data-x>Users</code>And<code data-gs="comd/c" data-x>User</code>, created by you in previous lessons.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

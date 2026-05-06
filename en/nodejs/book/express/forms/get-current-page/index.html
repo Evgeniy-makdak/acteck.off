@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отправка формы методом GET на текущую страницу в Express — acteck.off</title>
-  <meta name="description" content="Отправка формы методом GET на текущую страницу в Express — учебные материалы по программированию.">
+  <title>Sending a form using the GET method to the current page in Express - acteck.off</title>
+  <meta name="description" content="Submitting a form using the GET method to the current page in Express - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,12 +36,8 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Отправка формы методом GET на текущую страницу в Express</h1>
-    <p>
-	Давайте теперь сделаем так, чтобы форма отправлялась
-	на текущую страницу. Для этого сделаем пустой
-	<code data-gs="comd/c" data-x>action</code> или уберем его совсем:
-</p>
+    <h1>Submitting a form using the GET method to the current page in Express</h1>
+    <p>Let's now make the form submit to the current page. To do this, let's make it empty<code data-gs="comd/c" data-x>action</code>or remove it completely:</p>
 <div data-p="bock/pane" data-p-file="form.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;form action="" method="GET"&gt;
 	&lt;input name="test1"&gt;
@@ -49,43 +45,24 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	Пусть наша форма и показывается, и отправляется
-	на следующий обработчик:
-</p>
+<p>Let our form be shown and sent to the following handler:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
 	res.render('form');
 });</code>
 </div>
-<p>
-	Давайте выведем в консоль данные отправленной
-	формы:
-</p>
+<p>Let's output the submitted form data to the console:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
 	console.log(req.query);
 	res.render('form');
 });</code>
 </div>
-<p>
-	Наш обработчик выполнится два раза. Первый
-	раз мы зайдем на страницу и увидим форму.
-	В этом случае в консоль выведется пустой
-	объект с данными формы. Во второй раз мы
-	попадем на обработчик после отправки формы
-	и увидим в консоли введенные данные.
-</p>
+<p>Our handler will be executed twice. The first time we go to the page and see the form. In this case, an empty object with form data will be displayed in the console. The second time we will get to the handler after submitting the form and see the entered data in the console.</p>
 
-<h2>Выводим результат около формы</h2>
-<p>
-	Давайте для примера при первом заходе покажем
-	форму, а при втором заходе форму, а под ней
-	- сумму введенных чисел.
-</p>
-<p>
-	Сделаем обработчик:
-</p>
+<h2>We display the result near the form</h2>
+<p>For example, let's show the form on the first entry, and on the second entry the form, and under it - the sum of the entered numbers.</p>
+<p>Let's create a handler:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
 	res.render('form', {
@@ -93,9 +70,7 @@
 	});
 });</code>
 </div>
-<p>
-	Доработаем код файла с формой:
-</p>
+<p>Let's modify the code of the file with the form:</p>
 <div data-p="bock/pane" data-p-file="form.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;form action="" method="GET"&gt;
 	&lt;input name="test1"&gt;
@@ -112,7 +87,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Границы слов в регулярках JavaScript — acteck.off</title>
-  <meta name="description" content="Границы слов в регулярках JavaScript — учебные материалы по программированию.">
+  <title>Word Boundaries in JavaScript Regulars - acteck.off</title>
+  <meta name="description" content="JavaScript regular expression word boundaries - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,87 +36,63 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Границы слов в регулярках JavaScript</h1>
-    <p>
-	С помощью команды <code data-gs="comd/s" data-x>'\b'</code> можно обратиться
-	границе слова, а с помощью команды <code data-gs="comd/s" data-x>'\B'</code> -
-	не к границе. Давайте посмотрим работу этих
-	команд на примерах.
-</p>
+    <h1>Word Boundaries in JavaScript Regulars</h1>
+    <p>Using the command<code data-gs="comd/s" data-x>'\b'</code>you can refer to a word boundary, and using the command<code data-gs="comd/s" data-x>'\B'</code>- not to the border. Let's see how these commands work using examples.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте обернем каждое слово
-	в символ <code data-gs="comd/s" data-x>'!'</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's wrap each word in a symbol<code data-gs="comd/s" data-x>'!'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aaa aaa aaa';
 let res = str.replace(/\b/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'!aaa! !aaa! !aaa!'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте добавим символ <code data-gs="comd/s" data-x>'!'</code> в промежутки
-	между буквами:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's add a symbol<code data-gs="comd/s" data-x>'!'</code>in the spaces between letters:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aaa aaa aaa';
 let res = str.replace(/\B/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'a!a!a a!a!a a!a!a'</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'abc def xyz';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая сделает
-		из этой строки следующую:
-	</p>
+	<p>Write a regular expression that turns this line into the following:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'#abc# #def# #xyz#';</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'abc def xyz';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая сделает
-		из этой строки следующую:
-	</p>
+	<p>Write a regular expression that turns this line into the following:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'a+b+c d+e+f x+y+z';</code>
 	</div>
 </div>
   
     <div class="lesson-nav">
-      <a href="../line-boundary/index.html" class="lesson-nav-btn lesson-nav-prev" title="Start и конец строки">← Start и конец строки</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../multiline/index.html" class="lesson-nav-btn lesson-nav-next" title="Многострочность">Многострочность →</a>
+      <a href="../line-boundary/index.html" class="lesson-nav-btn lesson-nav-prev" title="Start and end of line">← Start and end of line</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../multiline/index.html" class="lesson-nav-btn lesson-nav-next" title="Multi-line">Multi-line →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

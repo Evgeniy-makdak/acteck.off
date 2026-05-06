@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Проблема необязательности фигурных скобок в if-else — acteck.off</title>
-  <meta name="description" content="Проблема необязательности фигурных скобок в if-else — учебные материалы по программированию.">
+  <title>Problem with optional curly braces in if-else - acteck.off</title>
+  <meta name="description" content="The problem with optional curly braces in if-else - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,24 +36,15 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Проблема необязательности фигурных скобок в if-else</h1>
-    <p>
-	Не смотря на то, что JavaScript допускает
-	показанные выше сокращения с фигурными скобками,
-	я в общем-то не рекомендую так делать, так
-	как это рассадник трудноуловимых ошибок.
-	Пусть к примеру есть следующий код:
-</p>
+    <h1>Problem with optional curly braces in if-else</h1>
+    <p>Although JavaScript allows the curly brace abbreviations shown above, I generally don't recommend doing so, as it is a breeding ground for subtle errors. For example, let's say you have the following code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = 3;
 
 if (test &gt; 0)
 	console.log(test);</code>
 </div>
-<p>
-	Пусть теперь мы решили в том случае, если
-	условие выполняется, выводить еще и второе
-	сообщение с текстом <code data-gs="comd/s" data-x>'+++'</code>:
+<p>Let us now decide, if the condition is met, to also display a second message with the text<code data-gs="comd/s" data-x>'+++'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = 3;
@@ -62,15 +53,8 @@ if (test &gt; 0)
 	console.log(test);
 	console.log('+++');</code>
 </div>
-<p>
-	Однако, без фигурных скобок внутри условия
-	находится только первое сообщение.
-	To есть первая строка будет срабатывать
-	при верном условии, а вторая - всегда.
-</p>
-<p>
-	Фактически наш код эквивалентен такому:
-</p>
+<p>However, without the curly braces, only the first message is inside the condition. That is, the first line will fire if the condition is true, and the second line will always fire.</p>
+<p>In fact, our code is equivalent to this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = 3;
 
@@ -80,9 +64,7 @@ if (test &gt; 0) {
 
 console.log('+++'); // эта строка оказалась снаружи условия</code>
 </div>
-<p>
-	А мы бы хотели такой код:
-</p>
+<p>And we would like this code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = 3;
 
@@ -91,23 +73,19 @@ if (test &gt; 0) {
 	console.log('+++'); // эта строка внутри условия
 }</code>
 </div>
-<p>
-	Именно поэтому рекомендуется всегда выполнять
-	расстановку фигурных скобок, дабы не попадать
-	в такого рода ошибки.
-</p>
+<p>This is why it is recommended to always place curly braces in order to avoid such errors.</p>
   
     <div class="lesson-nav">
-      <a href="../braces-optionality/index.html" class="lesson-nav-btn lesson-nav-prev" title="Необязательность фигурных скобок">← Необязательность фигурных скобок</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../else-if/index.html" class="lesson-nav-btn lesson-nav-next" title="Конструкция else if">Конструкция else if →</a>
+      <a href="../braces-optionality/index.html" class="lesson-nav-btn lesson-nav-prev" title="Curly braces are optional">← Optionality of curly braces</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../else-if/index.html" class="lesson-nav-btn lesson-nav-next" title="else if construct">else if construct →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

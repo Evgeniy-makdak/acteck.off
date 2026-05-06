@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Основной принцип работы фреймворка NextJS — acteck.off</title>
-  <meta name="description" content="Основной принцип работы фреймворка NextJS — учебные материалы по программированию.">
+  <title>The basic operating principle of the NextJS framework is acteck.off</title>
+  <meta name="description" content="The main operating principle of the NextJS framework is programming educational materials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,81 +36,35 @@
       <a href="../../../../../../../../en/next/index.html">Next.js</a>
     </div>
 
-    <h1>Основной принцип работы фреймворка NextJS</h1>
-    <p>
-	В предыдущих уроках мы установили
-	фреймворк NextJS и познакомились
-	с его базовой структурой.
-	Пришло время заняться основной работой.
+    <h1>The basic principle of operation of the NextJS framework</h1>
+    <p>In previous lessons, we installed the NextJS framework and became familiar with its basic structure. It's time to do the main work.</p>
+<p>The main part of NextJS is<dfn data-gs="comd/d" data-x>routing</dfn>. Routing works like this: when a user types a URL into the address bar of the browser, the NextJS framework will send a specific file corresponding to this URL to the browser.</p>
+<p>Routing in NextJS is designed in a special way. Its essence is that each requested URL corresponds to a certain folder inside<code data-gs="comd/p" data-x>src/app</code>.
 </p>
-<p>
-	Основной частью NextJS является <dfn data-gs="comd/d" data-x>роутинг</dfn>.
-	Роутинг работает так: когда пользователь
-	вбивает в адресную строку браузера
-	какой-то URL, фреймворк NextJS будет
-	отдавать в браузер определенный файл,
-	соответствующий этому URL.
-</p>
-<p>
-	Роутинг в NextJS устроен особым образом.
-	Его суть заключается в том, что каждому
-	запрошенному URL соответствует некая
-	папка внутри <code data-gs="comd/p" data-x>src/app</code>.
-</p>
-<p>
-	При этом внутри папки должен быть
-	файл с названием <code data-gs="comd/p" data-x>page.jsx</code>.
-	Именно этот файл и будет отдаваться
-	в браузер. Причем в этом файле мы
-	будем писать код на JSX, а в браузер
-	будет отправляться готовый HTML код страницы.
-</p>
-<p>
-	Давайте посмотрим на примере.
-	Пусть мы хотим, чтобы по URL <code data-gs="comd/p" data-x>/test/</code>
-	отдавался некоторый текст.
-</p>
-<p>
-	Создадим соответствующую папку: <code data-gs="comd/p" data-x>src/app/test</code>.
-	Внутри этой папки сделаем файл <code data-gs="comd/p" data-x>page.jsx</code>
-	со следующим содержимым:
-</p>
+<p>In this case, inside the folder there should be a file called<code data-gs="comd/p" data-x>page.jsx</code>. It is this file that will be sent to the browser. Moreover, in this file we will write code in JSX, and the finished HTML code of the page will be sent to the browser.</p>
+<p>Let's look at an example. Let's say we want to by URL<code data-gs="comd/p" data-x>/test/</code>some text was given.</p>
+<p>Let's create the corresponding folder:<code data-gs="comd/p" data-x>src/app/test</code>. Inside this folder we will create a file<code data-gs="comd/p" data-x>page.jsx</code>with the following content:</p>
 <div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Test() {
 	return &lt;h1&gt;hello, user!&lt;/h1&gt;;
 }</code>
 </div>
-<p>
-	Откройте в браузере наш URL:
-	<a href="http://localhost:3000/test">/test</a>.
-	И вы увидите текст, написанный нами внутри
-	JSX файла.
-</p>
-<p>
-	Попробуйте поменяйте текст и сохраните
-	файл. После этого текст автоматически
-	поменяется и в браузере. Так работает
-	NextJS в режиме разработки.
-</p>
+<p>Open our URL in your browser:<a href="http://localhost:3000/test">/test</a>. And you will see the text we wrote inside the JSX file.</p>
+<p>Try changing the text and saving the file. After this, the text will automatically change in the browser. This is how NextJS works in development mode.</p>
 <div data-w="cont/task">
-	<p>
-		Сделайте так, чтобы при обращении на адрес
-		<code data-gs="comd/p" data-x>/about</code> в браузер выводилось
-		сообщение с вашим именем и
-		фамилией.
-	</p>
+	<p>Make sure that when you contact the address<code data-gs="comd/p" data-x>/about</code>A message with your first and last name was displayed in the browser.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../file-structure/index.html" class="lesson-nav-btn lesson-nav-prev" title="Файловая структура">← Файловая структура</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../server-components/index.html" class="lesson-nav-btn lesson-nav-next" title="Серверные компоненты">Серверные компоненты →</a>
+      <a href="../file-structure/index.html" class="lesson-nav-btn lesson-nav-prev" title="File structure">← File structure</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../server-components/index.html" class="lesson-nav-btn lesson-nav-next" title="Server components">Server components →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

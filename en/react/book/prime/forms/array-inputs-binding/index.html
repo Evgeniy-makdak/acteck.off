@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Привязка инпутов к массиву в React — acteck.off</title>
-  <meta name="description" content="Привязка инпутов к массиву в React — учебные материалы по программированию.">
+  <title>Binding inputs to an array in React - acteck.off</title>
+  <meta name="description" content="Binding inputs to an array in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Привязка инпутов к массиву в React</h1>
-    <p>
-	Пусть в стейте <code data-gs="comd/c" data-x>notes</code> хранится массив:
-</p>
+    <h1>Binding inputs to an array in React</h1>
+    <p>Let it be in the state<code data-gs="comd/c" data-x>notes</code>the array is stored:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [notes, setNotes] = useState([1, 2, 3]);
@@ -49,10 +47,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Пусть у нас также есть вспомогательная функция,
-	находящая сумму элементов массива:
-</p>
+<p>Let us also have a helper function that finds the sum of the array elements:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function getSum(arr) {
 	let sum = 0;
@@ -68,11 +63,7 @@ function App() {
 	...
 }</code>
 </div>
-<p>
-	Давайте найдем и выведем сумму элементов
-	нашего массива из стейта, использовав для
-	этого нашу вспомогательную функцию:
-</p>
+<p>Let's find and output the sum of the elements of our array from the state using our helper function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [notes, setNotes] = useState([1, 2, 3]);
@@ -82,10 +73,7 @@ function App() {
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Давайте теперь сделаем три инпута и в <code data-gs="comd/c" data-x>value</code>
-	каждого инпута запишем один из элементов массива:
-</p>
+<p>Let's now make three inputs and<code data-gs="comd/c" data-x>value</code>For each input we write down one of the array elements:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [notes, setNotes] = useState([1, 2, 3]);
@@ -99,11 +87,7 @@ function App() {
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Давайте теперь добавим событие <code data-gs="comd/c" data-x>onChange</code>
-	нашим инпутам. При этом сделаем <i>одну общую
-	функцию-обработчик</i> этого события:
-</p>
+<p>Let's now add an event<code data-gs="comd/c" data-x>onChange</code>to our inputs. At the same time we will<i>one common handler function</i>of this event:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [notes, setNotes] = useState([1, 2, 3]);
@@ -121,32 +105,16 @@ function App() {
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Как вы видите, функция <code data-gs="comd/c" data-x>changeHandler</code>
-	первым параметром принимает номер того элемента
-	массива, который редактирует данный инпут.
-</p>
-<p>
-	По этому номеру мы можем заменить элемент
-	массива на содержимое инпута.
-</p>
-<p>
-	Сделаем это:
-</p>
+<p>As you can see, the function<code data-gs="comd/c" data-x>changeHandler</code>the first parameter takes the number of the array element that edits this input.</p>
+<p>Using this number, we can replace the array element with the contents of the input.</p>
+<p>Let's do this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function changeHandler(index, event) {
 	setNotes([...notes.slice(0, index), event.target.value, ...notes.slice(index + 1)]);
 }</code>
 </div>
-<p>
-	Теперь можно будет поредактировать любой
-	инпут, при этом реактивно будет изменяться
-	массив и, соответственно, пересчитываться
-	сумма его элементов.
-</p>
-<p>
-	Давайте соберем весь наш код вместе:
-</p>
+<p>Now it will be possible to edit any input, while the array will be reactively changed and, accordingly, the sum of its elements will be recalculated.</p>
+<p>Let's put all our code together:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [notes, setNotes] = useState([1, 2, 3]);
@@ -164,10 +132,7 @@ function App() {
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Можно сделать так, чтобы
-	инпуты формировались в цикле:
-</p>
+<p>You can make inputs generated in a loop:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [notes, setNotes] = useState([1, 2, 3]);
@@ -191,24 +156,18 @@ function App() {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий массив:
-	</p>
+	<p>Given the following array:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">[1, 2, 3, 4, 5, 6, 7, 8, 9]</code>
 	</div>
-	<p>
-		Выведите на экран среднее арифметическое
-		элементов этого массива. В цикле сделайте
-		инпуты для редактирования элементов.
-	</p>
+	<p>Display the arithmetic mean of the elements of this array. In the loop, make inputs for editing elements.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

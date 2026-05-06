@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Привязка CSS стилей в Angular — acteck.off</title>
-  <meta name="description" content="Привязка CSS стилей в Angular — учебные материалы по программированию.">
+  <title>Binding CSS styles in Angular - acteck.off</title>
+  <meta name="description" content="Binding CSS styles in Angular - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,68 +36,43 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Привязка CSS стилей в Angular</h1>
-    <p>
-	В Angular также можно непосредственно
-	Добавлять стили для блока. Это делается с
-	помощью атрибута тега, написанного в
-	следующем формате: 
-</p>
+    <h1>Binding CSS Styles in Angular</h1>
+    <p>In Angular you can also directly add styles to a block. This is done using a tag attribute written in the following format:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">[style.styleProperty]="property value"</code>
 </div>
-<p>
-	При этом имена CSS свойств, которые имеют
-	внутри себя дефис, в нашем случае будут
-	писаться в <a href="../../../../../../../theory/glossary/camel-case/index.html">camelCase</a>.
-	Давайте посмотрим на примерах, как это
-	работает. 
-</p>
+<p>In this case, the names of CSS properties that have a hyphen inside them, in our case, will be written in<a href="../../../../../../../theory/glossary/camel-case/index.html">camelCase</a>. Let's look at examples of how this works.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Зададим фон элементу: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's set the background to the element:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div [style.backgroundColor]="'blue'"&gt;
 	text
 &lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть у нас есть некоторое свойство,
-	содержащее цвет фона: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's say we have some property containing the background color:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	public value: string = 'red';
 }</code>
 </div>
-<p>
-	Применим это свойство в качестве значения
-	для стиля: 
-</p>
+<p>Let's use this property as a value for the style:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div [style.backgroundColor]="value"&gt;
 	text
 &lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть у нас есть некоторое булево свойство: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let us have some Boolean property:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	public isActive: boolean = true;
 }</code>
 </div>
-<p>
-	Будем привязывать различные значения CSS
-	свойству в зависимости от содержимого
-	булевого свойства. Используем для этого
-	<a href="../../../../../../book/prime/conditions/ternary-operator/index.html">тернарный оператор</a>: 
+<p>We will bind different CSS property values ​​depending on the contents of the boolean property. We use for this<a href="../../../../../../book/prime/conditions/ternary-operator/index.html">ternary operator</a>: 
 </p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div [style.backgroundColor]="isActive ? 'blue' : 'red'"&gt;
@@ -105,32 +80,24 @@
 &lt;/div&gt;</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Дан блок. Сделайте так, чтобы первый клик
-		на блок красил его в красный цвет, а второй
-		клик - в зеленый. 
-	</p>
+	<p>Given a block. Make the first click on a block color it red, and the second click turn it green.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан блок. Дана кнопка. Сделайте так, чтобы
-		нажатие на кнопку увеличивало ширину блока
-		в два раза. 
-	</p>
+	<p>Given a block. A button is given. Make sure that pressing a button doubles the width of the block.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../set-element-classes/index.html" class="lesson-nav-btn lesson-nav-prev" title="Массовая привязка CSS классов">← Массовая привязка CSS классов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../set-element-styles/index.html" class="lesson-nav-btn lesson-nav-next" title="Массовая привязка CSS стилей">Массовая привязка CSS стилей →</a>
+      <a href="../set-element-classes/index.html" class="lesson-nav-btn lesson-nav-prev" title="Bulk binding of CSS classes">← Bulk binding of CSS classes</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../set-element-styles/index.html" class="lesson-nav-btn lesson-nav-next" title="Bulk binding of CSS styles">Bulk binding of CSS styles →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

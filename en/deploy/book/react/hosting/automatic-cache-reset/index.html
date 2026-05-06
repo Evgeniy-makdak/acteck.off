@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Автоматический сброс кеша в билде React — acteck.off</title>
-  <meta name="description" content="Автоматический сброс кеша в билде React — учебные материалы по программированию.">
+  <title>Automatic cache reset in React build - acteck.off</title>
+  <meta name="description" content="Automatic cache reset in React build - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,69 +36,31 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Автоматический сброс кеша в билде React</h1>
-    <p>
-	Вы уже должны знать, что в браузерах
-	существует проблема кеша статики.
-	Суть проблемы в том, что для повышения
-	быстродействия браузер кеширует
-	файлы стилей, скриптов и изображений.
-</p>
-<p>
-	Это значит, что если на хостинге вы поменяете
-	что-то в ваших скриптах или стилях,
-	то изменения появятся только у новых
-	посетителей сайта. Старые посетители,
-	которые уже были на сайте ранее,
-	будут видеть закешированную
-	версию кода. Это, конечно же,
-	неприемлимо.
-</p>
-<p>
-	К счастью, в React эта проблема решается
-	автоматически. Ее решение состоит в том,
-	что файлы билда, помимо имени и расширения,
-	имеют случайную строку, которая называется
-	<dfn data-gs="comd/d" data-x>хеш</dfn>. Этот хеш соответствует содержимому
-	файла. Это значит, что при изменении
-	кода в файле, будет меняться и хеш в его имени.
-	Таким образом, браузер будет думать,
-	что это новый файл и скачает его себе.
-</p>
-<p>
-	Мы можем наблюдать хеши файлов
-	при их подключении в <code data-gs="comd/p" data-x>index.html</code>:
+    <h1>Automatic cache reset in React build</h1>
+    <p>You should already know that there is a static cache problem in browsers. The essence of the problem is that to improve performance, the browser caches style files, scripts and images.</p>
+<p>This means that if you change something in your scripts or styles on your hosting, the changes will only appear for new site visitors. Old visitors who have already been to the site before will see a cached version of the code. This is, of course, unacceptable.</p>
+<p>Luckily, React solves this problem automatically. Her solution is that the build files, in addition to the name and extension, have a random string called<dfn data-gs="comd/d" data-x>hash</dfn>. This hash matches the contents of the file. This means that when the code in the file changes, the hash in its name will also change. Thus, the browser will think that this is a new file and download it for itself.</p>
+<p>We can observe the hashes of files when they are connected to<code data-gs="comd/p" data-x>index.html</code>:
 </p>
 <div data-p="bock/pane" data-p-file="index.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;script defer="defer" src="/static/js/main.3dd63bcb.js"&gt;&lt;/script&gt;
 &lt;link href="/static/css/main.f855e6bc.css" rel="stylesheet"&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Выполните сборку проекта. Изучите,
-		какие хеши стоят у файлов в сборке.
-	</p>
+	<p>Build the project. Study what hashes the files in the assembly have.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не изменяя код вашего проекта
-		выполните сборку. Убедитесь,
-		что хеши файлов не изменятся.
-	</p>
+	<p>Build without changing your project code. Make sure that the file hashes will not change.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Измените код вашего проекта.
-		Выполните сборку. Убедитесь,
-		что хеши файлов изменятся.
-	</p>
+	<p>Change your project code. Complete the build. Make sure the file hashes change.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

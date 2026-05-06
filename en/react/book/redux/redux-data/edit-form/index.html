@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Форма для редактирования данных в Redux — acteck.off</title>
-  <meta name="description" content="Форма для редактирования данных в Redux — учебные материалы по программированию.">
+  <title>Form for editing data in Redux - acteck.off</title>
+  <meta name="description" content="Form for editing data in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,52 +36,13 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Форма для редактирования данных в Redux</h1>
-    <p>
-	Теперь у нас есть редьюсер для изменения
-	данных в store. В этом уроке мы создадим
-	форму, с помощью которой мы сможем
-	редактировать данные продукта.
+    <h1>Form for editing data in Redux</h1>
+    <p>Now we have a reducer for changing data in the store. In this tutorial we will create a form with which we can edit product data.</p>
+<p>Let's open our products app and create in the folder<code data-gs="comd/p" data-x>products</code>file<code data-gs="comd/p" data-x>EditProductForm.jsx</code>. Creating a Component<code data-gs="comd/c" data-x>EditProductForm</code>it will be similar<code data-gs="comd/c" data-x>NewProductForm</code>, with the exception of some differences, which we will dwell on. So copy the entire code<code data-gs="comd/p" data-x>NewProductForm.jsx</code>and paste it into the created file<code data-gs="comd/p" data-x>EditProductForm.jsx</code>. Now let's start in order.</p>
+<p>Remove nanoid from import, we don’t need to generate id here. Replace import<code data-gs="comd/c" data-x>productAdded</code>on<code data-gs="comd/c" data-x>productUpdated</code>, because here we will use action to update, and not to add a product.</p>
+<p>Next, let's change the name of our component's function from<code data-gs="comd/c" data-x>NewProductForm</code>on<code data-gs="comd/c" data-x>EditProductForm</code>.
 </p>
-<p>
-	Давайте откроем наше приложение с продуктами
-	и создадим в папке <code data-gs="comd/p" data-x>products</code> файл
-	<code data-gs="comd/p" data-x>EditProductForm.jsx</code>. Создание компонента
-	<code data-gs="comd/c" data-x>EditProductForm</code> будет аналогично
-	<code data-gs="comd/c" data-x>NewProductForm</code>, за исключением некоторых
-	отличий, на которых мы будем останавливаться. Поэтому
-	скопируйте полностью код <code data-gs="comd/p" data-x>NewProductForm.jsx</code>
-	и вставьте его в созданный файл
-	<code data-gs="comd/p" data-x>EditProductForm.jsx</code>. Теперь начнем по порядку.
-</p>
-<p>
-	Уберите из импорта nanoid, здесь нам не
-	нужно генерировать id. Замените импорт
-	<code data-gs="comd/c" data-x>productAdded</code> на <code data-gs="comd/c" data-x>productUpdated</code>, ведь
-	здесь мы будем использовать action
-	для обновления, а не для добавления
-	продукта.
-</p>
-<p>
-	Далее поменяем название функции нашего
-	компонента с <code data-gs="comd/c" data-x>NewProductForm</code> на
-	<code data-gs="comd/c" data-x>EditProductForm</code>.
-</p>
-<p>
-	Перед тем, как мы заведем локальные
-	стейты в функции <code data-gs="comd/c" data-x>EditProductForm</code> для
-	<code data-gs="comd/c" data-x>name</code>, <code data-gs="comd/c" data-x>desc</code>, <code data-gs="comd/c" data-x>price</code> и
-	<code data-gs="comd/c" data-x>amount</code>, давайте вставим еще несколько
-	строчек кода. Как мы уже упомянали ранее,
-	здесь нам не нужно генерировать id. Теперь
-	наша задача получить его из данных изменяемого
-	продукта. Мы уже так делали при создании
-	отдельной странички для продукта. Итак,
-	получим id при помощи хука <code data-gs="comd/c" data-x>useParams</code>,
-	а затем найдем нужный нам продукт,
-	используя хук <code data-gs="comd/c" data-x>useSelector</code> (не забудьте
-	импортировать оба хука в начале файла):
-</p>
+<p>Before we add local states to functions<code data-gs="comd/c" data-x>EditProductForm</code>For<code data-gs="comd/c" data-x>name</code>, <code data-gs="comd/c" data-x>desc</code>, <code data-gs="comd/c" data-x>price</code>And<code data-gs="comd/c" data-x>amount</code>, let's insert a few more lines of code. As we mentioned earlier, we don't need to generate id here. Now our task is to get it from the data of the product being changed. We already did this when creating a separate page for the product. So, let's get the id using a hook<code data-gs="comd/c" data-x>useParams</code>, and then find the product we need using the hook<code data-gs="comd/c" data-x>useSelector</code>(don't forget to import both hooks at the beginning of the file):</p>
 <div data-p="bock/pane" data-p-file="products/EditProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let params = useParams()
 const { productId } = params
@@ -90,44 +51,19 @@ const product = useSelector((state) =&gt;
 	state.products.find((product) =&gt; product.id === productId)
 )</code>
 </div>
-<p>
-	После этого поменяем блок с объявлением
-	локальных стейтов. Теперь нам нужно 
-	в качестве начального значения задавать
-	им полученные из store данные продукта.
-	Вот так будет выглядеть первый стейт,
-	переделайте три оставшихся сами:
-</p>
+<p>After that, we will change the block with the declaration of local states. Now we need to set the product data received from the store as the initial value. This is what the first state will look like, redo the remaining three yourself:</p>
 <div data-p="bock/pane" data-p-file="products/EditProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [name, setName] = useState(product.name)</code>
 </div>
-<p>
-	После назначения переменной для <code data-gs="comd/c" data-x>useDispatch</code>
-	давайте внесем еще одну строчку кода
-	на этот раз для хука <code data-gs="comd/c" data-x>useNavigate</code>. Мы будем
-	его использовать для возврата на страницу
-	с продуктом, когда пользователь сохранит
-	внесенные в форме изменения:
-</p>
+<p>After assigning a variable to<code data-gs="comd/c" data-x>useDispatch</code>let's add another line of code this time for the hook<code data-gs="comd/c" data-x>useNavigate</code>. We will use it to return to the product page when the user saves the changes made to the form:</p>
 <div data-p="bock/pane" data-p-file="products/EditProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const navigate = useNavigate()</code>
 </div>
-<p>
-	Также импортируем этот хук в начале файла:
-</p>
+<p>We also import this hook at the beginning of the file:</p>
 <div data-p="bock/pane" data-p-file="products/EditProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useNavigate, useParams } from 'react-router-dom'</code>
 </div>
-<p>
-	Далее у нас идут обработчики для
-	полей ввода. А после них нам необходимо
-	подправить функцию <code data-gs="comd/c" data-x>onSaveProductClick</code>.
-	Теперь в ней при клике мы будем отправлять
-	экшен <code data-gs="comd/c" data-x>productUpdated</code> с полученным id
-	и измененными данными в виде объекта.
-	После добавим наш <code data-gs="comd/c" data-x>navigate</code>, для перехода
-	на страничку измененного продукта:
-</p>
+<p>Next we have handlers for input fields. And after them we need to correct the function<code data-gs="comd/c" data-x>onSaveProductClick</code>. Now, when clicked, we will send an action<code data-gs="comd/c" data-x>productUpdated</code>with the received id and modified data in the form of an object. Then we will add our<code data-gs="comd/c" data-x>navigate</code>, to go to the page of the changed product:</p>
 <div data-p="bock/pane" data-p-file="products/EditProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const onSaveProductClick = () =&gt; {
 	if (name && desc && price && amount) {
@@ -145,38 +81,28 @@ const product = useSelector((state) =&gt;
 	}
 }</code>
 </div>
-<p>
-	Осталось только в нашей возвращаемой
-	верстке найти строчку:
-</p>
+<p>All that remains is to find the line in our returned layout:</p>
 <div data-p="bock/pane" data-p-file="products/EditProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;h2&gt;Add a New Product&lt;/h2&gt;</code>
 </div>
-<p>
-	И заменить ее на:
-</p>
+<p>And replace it with:</p>
 <div data-p="bock/pane" data-p-file="products/EditProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;h2&gt;Edit Product&lt;/h2&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Создайте файл <code data-gs="comd/p" data-x>EditStudentForm.jsx</code> по
-		аналогии с <code data-gs="comd/p" data-x>NewStudentForm.jsx</code>. Внесите
-		в него изменения, как показано в уроке.
-	</p>
+	<p>Open your application with students. Create a file<code data-gs="comd/p" data-x>EditStudentForm.jsx</code>by analogy with<code data-gs="comd/p" data-x>NewStudentForm.jsx</code>. Make changes to it as shown in the lesson.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../edit-product/index.html" class="lesson-nav-btn lesson-nav-prev" title="Изменение данных продукта в store">← Изменение данных продукта в store</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../edit-form-route/index.html" class="lesson-nav-btn lesson-nav-next" title="Page редактирования продукта в браузере">Page редактирования продукта в браузере →</a>
+      <a href="../edit-product/index.html" class="lesson-nav-btn lesson-nav-prev" title="Changing product data in store">← Changing product data in store</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../edit-form-route/index.html" class="lesson-nav-btn lesson-nav-next" title="Product edit page in browser">Product editing page in the browser →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

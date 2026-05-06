@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Единицы измерения в атрибуте style в JavaScript — acteck.off</title>
-  <meta name="description" content="Единицы измерения в атрибуте style в JavaScript — учебные материалы по программированию.">
+  <title>Units of measurement in the style attribute in JavaScript - acteck.off</title>
+  <meta name="description" content="Units of measurement in the style attribute in JavaScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,89 +36,62 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Единицы измерения в атрибуте style в JavaScript</h1>
-    <p>
-	При указании значений свойств
-	через атрибут <code data-gs="comd/c" data-x>style</code> мы должны
-	указывать единицы измерения:
-</p>
+    <h1>Units of measurement in the style attribute in JavaScript</h1>
+    <p>When specifying property values ​​through an attribute<code data-gs="comd/c" data-x>style</code>we must indicate the units of measurement:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">elem.style.width = '100px';</code>
 </div>
-<p>
-	При чтении значений они также
-	будут получаться с единицами
-	измерений:
-</p>
+<p>When reading values ​​they will also be returned with units:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let width = elem.style.width;
 console.log(width); // выведет '100px';</code>
 </div>
-<p>
-	При необходимости мы можем избавиться
-	от единиц измерения с помощью <code data-gs="comd/c" data-x>parseInt</code>:
+<p>If necessary, we can get rid of units of measurement using<code data-gs="comd/c" data-x>parseInt</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let width = elem.style.width;
 console.log(parseInt(width)); // выведет 100</code>
 </div>
-<p>
-	Если предполагаются дробные значения,
-	можно воспользоваться функцией <code data-gs="comd/c" data-x>parseFloat</code>:
+<p>If fractional values ​​are expected, you can use the function<code data-gs="comd/c" data-x>parseFloat</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let width = elem.style.width;
 console.log(parseFloat(width));</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан див и кнопка. По нажатию на кнопку
-		задайте диву ширину в <code data-gs="comd/u" data-x>400px</code>,
-		а высоту в <code data-gs="comd/u" data-x>300px</code>.
+	<p>Given a div and a button. By clicking the button, set the width to<code data-gs="comd/u" data-x>400px</code>, and the height is<code data-gs="comd/u" data-x>300px</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан див:
-	</p>
+	<p>Dan div:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem" style="width: 300px; height: 200px;"&gt;
 	text
 &lt;/div&gt;</code>
 	</div>
-	<p>
-		Дана также кнопка. По клику на кнопку
-		выведите ширину и высоту дива без
-		единиц измерения.
-	</p>
+	<p>A button is also given. By clicking on the button, display the width and height of the div without units of measurement.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан див:
-	</p>
+	<p>Dan div:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem" style="font-size: 1.5em;"&gt;
 	text
 &lt;/div&gt;</code>
 	</div>
-	<p>
-		Дана также кнопка. По клику на кнопку
-		выведите размер шрифта дива без единиц
-		измерения.
-	</p>
+	<p>A button is also given. By clicking on the button, display the div font size without units of measurement.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../style-attribute/index.html" class="lesson-nav-btn lesson-nav-prev" title="Стилизация через атрибут style">← Стилизация через атрибут style</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../units-mistakes/index.html" class="lesson-nav-btn lesson-nav-next" title="Ошибки с единицами измерения">Ошибки с единицами измерения →</a>
+      <a href="../style-attribute/index.html" class="lesson-nav-btn lesson-nav-prev" title="Styling via the style attribute">← Styling via the style attribute</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../units-mistakes/index.html" class="lesson-nav-btn lesson-nav-next" title="Errors with units of measurement">Errors with units of measurement →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Функция для создания HTML таблиц на JavaScript — acteck.off</title>
-  <meta name="description" content="Функция для создания HTML таблиц на JavaScript — учебные материалы по программированию.">
+  <title>Function for creating HTML tables in JavaScript - acteck.off</title>
+  <meta name="description" content="Function for creating HTML tables in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,45 +36,25 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Функция для создания HTML таблиц на JavaScript</h1>
-    <p>
-	Давайте теперь сделаем функцию <code data-gs="comd/c" data-x>createTable</code>,
-	которая будет будет создавать таблицу заданного
-	размера и добавлять ее в конец заданного элемента.
-</p>
-<p>
-	Пусть первым параметром наша функция принимает
-	количество рядов, вторым параметром - количество
-	колонок, а третьим - ссылку на DOM элемент, внутри
-	которого будет создаваться наша таблица.
-</p>
-<p>
-	Давайте посмотрим, как мы будем пользоваться
-	описанной функцией, когда она будет создана.
-	Пусть, к примеру, у нас дан вот такой див:
-</p>
+    <h1>Function for creating HTML tables in JavaScript</h1>
+    <p>Let's now make a function<code data-gs="comd/c" data-x>createTable</code>, which will create a table of the given size and append it to the end of the given element.</p>
+<p>Let our function take the number of rows as the first parameter, the number of columns as the second parameter, and the third parameter as a link to the DOM element within which our table will be created.</p>
+<p>Let's see how we will use the described function once it is created. Let, for example, we have the following div:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;&lt;/div&gt;</code>
 </div>
-<p>
-	Давайте сделаем внутри этого дива таблицу
-	<code data-gs="comd/n" data-x>3</code> на <code data-gs="comd/n" data-x>4</code>:
+<p>Let's make a table inside this div<code data-gs="comd/n" data-x>3</code>on<code data-gs="comd/n" data-x>4</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div = document.querySelector('#elem');
 createTable(3, 4, div);</code>
 </div>
-<p>
-	Пусть теперь у нас даны два дива:
-</p>
+<p>Let us now have two divas:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;&lt;/div&gt;
 &lt;div id="elem2"&gt;&lt;/div&gt;</code>
 </div>
-<p>
-	Давайте сделаем свою таблицу в каждом из
-	этих дивов:
-</p>
+<p>Let's make our own table in each of these divs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div1 = document.querySelector('#elem1');
 createTable(3, 4, div1);
@@ -82,11 +62,7 @@ createTable(3, 4, div1);
 let div2 = document.querySelector('#elem2');
 createTable(5, 6, div2);</code>
 </div>
-<p>
-	Для того, чтобы создаваемые таблицы сразу
-	были видны, можно добавить какой-нибудь CSS,
-	например, такой:
-</p>
+<p>To make the created tables immediately visible, you can add some CSS, for example, this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">td {
 	width: 50px;
@@ -95,9 +71,7 @@ createTable(5, 6, div2);</code>
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Вот заготовка описанной функции:
-	</p>
+	<p>Here is a prototype of the described function:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function createTable(rows, cols, parent) {
 	let table = document.createElement('table');
@@ -112,23 +86,20 @@ createTable(5, 6, div2);</code>
 	parent.appendChild(table);
 }</code>
 	</div>
-	<p>
-		Допишите код представленной выше заготовки
-		функции. Потестируйте работу готовой функции.
-	</p>
+	<p>Add the code for the function template presented above. Test the finished function.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../passing-group-as-parameter/index.html" class="lesson-nav-btn lesson-nav-prev" title="Передача группы элементов параметрами">← Передача группы элементов параметрами</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../returning-table/index.html" class="lesson-nav-btn lesson-nav-next" title="Возврат таблицы из функции">Возврат таблицы из функции →</a>
+      <a href="../passing-group-as-parameter/index.html" class="lesson-nav-btn lesson-nav-prev" title="Passing a group of elements as parameters">← Passing a group of elements as parameters</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../returning-table/index.html" class="lesson-nav-btn lesson-nav-next" title="Returning a table from a function">Returning a table from a function →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

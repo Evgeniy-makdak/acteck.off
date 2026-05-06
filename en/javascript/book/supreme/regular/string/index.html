@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Строка с регуляркой в JavaScript — acteck.off</title>
-  <meta name="description" content="Строка с регуляркой в JavaScript — учебные материалы по программированию.">
+  <title>Regular string in JavaScript - acteck.off</title>
+  <meta name="description" content="Regular string in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,61 +36,36 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Строка с регуляркой в JavaScript</h1>
-    <p>
-	Регулярные выражения можно представлять
-	в виде строк. Это удобно в том случае,
-	если вам необходимо делать вставки
-	переменных в регулярки, либо формировать
-	их динамически.
-</p>
-<p>
-	Давайте посмотрим на примере.
-	Пусть у нас есть следующая строка:
-</p>
+    <h1>Regular string in JavaScript</h1>
+    <p>Regular expressions can be represented as strings. This is convenient if you need to insert variables into regular expressions or create them dynamically.</p>
+<p>Let's look at an example. Let's say we have the following line:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'img.png';</code>
 </div>
-<p>
-	Пусть к этой строке мы применяем
-	следующее регулярное выражение:
-</p>
+<p>Let us apply the following regular expression to this string:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let reg = /\.(png|jpg)$/;
 let res = str.match(reg);</code>
 </div>
-<p>
-	Давайте перепишем это регулярное выражение
-	в виде строки. Это делается с помощью
-	специального объекта <code data-gs="comd/c" data-x>RegExp</code>:
+<p>Let's rewrite this regular expression as a string. This is done using a special object<code data-gs="comd/c" data-x>RegExp</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let reg = new RegExp('\.(png|jpg)$');
 let res = str.match(reg);</code>
 </div>
-<p>
-	Давайте теперь вынесем часть регулярки
-	в переменную и вставим ее с помощью
-	конкатенации:
-</p>
+<p>Let's now put part of the regular expression into a variable and insert it using concatenation:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let pat = 'png|jpg';
 let reg = new RegExp('\.(' + pat + ')$');
 let res = str.match(reg);</code>
 </div>
-<p>
-	А теперь вставим переменную с помощью
-	шаблонных строк:
-</p>
+<p>Now let’s insert a variable using template lines:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let pat = 'png|jpg';
 let reg = new RegExp(`\.(${pat})$`);
 let res = str.match(reg);</code>
 </div>
-<p>
-	А теперь сформируем часть регулярки
-	из массива:
-</p>
+<p>Now let’s form part of the regular sequence from the array:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let exts = ['png', 'jpg'];
 let pat  = exts.join('|')
@@ -98,39 +73,32 @@ let reg  = new RegExp(`\.(${pat})$`);
 let res  = str.match(reg);</code>
 </div>
 
-    <h2>Практические задачи</h2>
+    <h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Вынесите названия доменных зон
-		в отдельную переменную:
-	</p>
+	<p>Place the names of domain zones in a separate variable:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let reg = /^[a-z]+\.(ru|by|ua)$/;
 let res = reg.test(str);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте предыдущую задачу с учетом
-		того, что доменные зоны хранятся
-		в виде массива:
-	</p>
+	<p>Modify the previous task taking into account that domain zones are stored as an array:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['ru', 'by', 'ua'];</code>
 	</div>
 </div>
   
     <div class="lesson-nav">
-      <a href="../look-ahead-behind/index.html" class="lesson-nav-btn lesson-nav-prev" title="Позитивный и негативный просмотр">← Позитивный и негативный просмотр</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../string-flags/index.html" class="lesson-nav-btn lesson-nav-next" title="Флаги для строк">Флаги для строк →</a>
+      <a href="../look-ahead-behind/index.html" class="lesson-nav-btn lesson-nav-prev" title="Positive and negative viewing">← Positive and negative views</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../string-flags/index.html" class="lesson-nav-btn lesson-nav-next" title="Flags for strings">Flags for strings →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

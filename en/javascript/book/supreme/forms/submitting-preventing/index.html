@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Запрет отправки формы в JavaScript — acteck.off</title>
-  <meta name="description" content="Запрет отправки формы в JavaScript — учебные материалы по программированию.">
+  <title>Preventing form submission in JavaScript - acteck.off</title>
+  <meta name="description" content="Preventing Form Submissions in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,16 +36,9 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Запрет отправки формы в JavaScript</h1>
-    <p>
-	При необходимости можно запретить отправку
-	формы. Делается это через уже известный вам
-	<a href="../../../../manual/event/preventDefault/index.html"><code data-gs="comd/c" data-x>preventDefault</code></a>.
-	Давайте посмотрим на примере.
-</p>
-<p>
-	Пусть у нас есть следующая форма:
-</p>
+    <h1>Preventing form submission in JavaScript</h1>
+    <p>If necessary, you can prevent the form from being submitted. This is done through what is already known to you<a href="../../../../manual/event/preventDefault/index.html"><code data-gs="comd/c" data-x>preventDefault</code></a>. Let's look at an example.</p>
+<p>Let us have the following form:</p>
 <div data-p="bock/pane" data-p-file="public/form.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="/handler/" method="POST"&gt;
 	&lt;input name="test1"&gt;
@@ -53,49 +46,38 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	Получим ссылку на нее в переменную:
-</p>
+<p>Let's get a link to it in a variable:</p>
 <div data-p="bock/pane" data-p-file="public/script.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let form = document.querySelector('form');</code>
 </div>
-<p>
-	Отправку формы можно поймать через событие
-	<code data-gs="comd/c" data-x>submit</code>:
+<p>Submitting a form can be caught via an event<code data-gs="comd/c" data-x>submit</code>:
 </p>
 <div data-p="bock/pane" data-p-file="public/script.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">form.addEventListener('submit', function() {
 	
 });</code>
 </div>
-<p>
-	Давайте теперь запретим отправку формы:
-</p>
+<p>Let's now prevent the form from being submitted:</p>
 <div data-p="bock/pane" data-p-file="public/script.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">form.addEventListener('submit', function(event) {
 	event.preventDefault();
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана форма с инпутом. При попытке отправки
-		проверьте то, что в инпут введен корректный
-		email. Если это не так - запретите отправку
-		формы и выведете сообщение об этом.
-	</p>
+	<p>A form with an input is given. When you try to send, make sure that the correct email is entered in the input. If this is not the case, disable submitting the form and display a message about this.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../submitting-via-javascript/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отправка форм через JavaScript">← Отправка форм через JavaScript</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../FormData/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction в FormData">Introduction в FormData →</a>
+      <a href="../submitting-via-javascript/index.html" class="lesson-nav-btn lesson-nav-prev" title="Submitting forms via JavaScript">← Submitting forms via JavaScript</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../FormData/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction to FormData">Introduction to FormData →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

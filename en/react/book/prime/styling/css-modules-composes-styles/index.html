@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Команда composes для классов в CSS modules в React — acteck.off</title>
-  <meta name="description" content="Команда composes для классов в CSS modules в React — учебные материалы по программированию.">
+  <title>Composes command for classes in CSS modules in React - acteck.off</title>
+  <meta name="description" content="Composes command for classes in CSS modules in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,16 +36,9 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Команда composes для классов в CSS modules в React</h1>
-    <p>
-	В этом уроке мы рассмотрим очень полезный 
-	прием для переиспользования CSS стилей одного 
-	класса в другом в CSS modules.
-</p>
-<p>
-	Вернемся к приложению <code data-gs="comd/c" data-x>buttons</code>, которое 
-	мы делали на прошлых уроках. Заглянем в файл 
-	<code data-gs="comd/p" data-x>Buttons.module.css</code>:
+    <h1>Composes command for classes in CSS modules in React</h1>
+    <p>In this tutorial we will look at a very useful technique for reusing CSS styles from one class in another in CSS modules.</p>
+<p>Back to the application<code data-gs="comd/c" data-x>buttons</code>which we did in previous lessons. Let's look at the file<code data-gs="comd/p" data-x>Buttons.module.css</code>:
 </p>
 <div data-p="bock/pane" data-p-file="Buttons.module.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.btn1 {
@@ -66,31 +59,14 @@
 	color: orange;
 }</code>
 </div>
-<p>
-	Предполжим, мы хотим, чтобы у всех
-	кнопочек было одинаковое скругление
-	и размер шрифта. Можно было бы, конечно,
-	наплодить в каждом классе одинаковые
-	свойства. Но благодаря команде <code data-gs="comd/c" data-x>composes</code>
-	из CSS modules, мы будем действовать
-	по-другому.
-</p>
-<p>
-	Для начала создадим еще один класс, к примеру 
-	<code data-gs="comd/z" data-x>common-btn</code>, в который поместим 
-	эти одинаковые свойства. А чтобы применить
-	свойства из этого класса в других, нужно
-	использовать в них синтаксис:
-</p>
+<p>Let's say we want all buttons to have the same rounding and font size. It would, of course, be possible to create identical properties in each class. But thanks to the team<code data-gs="comd/c" data-x>composes</code>from CSS modules, we will do things differently.</p>
+<p>First, let's create another class, for example<code data-gs="comd/z" data-x>common-btn</code>, into which we place these identical properties. And to apply properties from this class to others, you need to use the syntax in them:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
 	composes: название класса;
 }</code>
 </div>
-<p>
-	Теперь код нашего <code data-gs="comd/p" data-x>Buttons.module.css</code>
-	будет выглядеть так:
-</p>
+<p>Now our code<code data-gs="comd/p" data-x>Buttons.module.css</code>will look like this:</p>
 <div data-p="bock/pane" data-p-file="Buttons.module.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.common-btn {
 	font-size: 16px;
@@ -119,23 +95,14 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Возьмите свое React приложение <code data-gs="comd/s" data-x>inputs</code>,
-		которое вы делали в задачах к прошлым
-		урокам. Добавьте для всех инпутов парочку
-		одинаковых CSS стилей с одинаковыми
-		значениями. Создайте дополнительный класс,
-		в котором будут написаны эти стили. С
-		помощью <code data-gs="comd/c" data-x>composes</code> растиражируйте
-		их по всем остальным классам для инпутов.
-	</p>
+	<p>Take your React application<code data-gs="comd/s" data-x>inputs</code>which you did in the problems for previous lessons. Add a couple of identical CSS styles with the same values ​​for all inputs. Create an additional class in which these styles will be written. By using<code data-gs="comd/c" data-x>composes</code>replicate them across all other classes for inputs.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

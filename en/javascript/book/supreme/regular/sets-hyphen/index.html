@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дефис внутри наборов в регулярках JavaScript — acteck.off</title>
-  <meta name="description" content="Дефис внутри наборов в регулярках JavaScript — учебные материалы по программированию.">
+  <title>Hyphen inside sets in JavaScript regular expressions - acteck.off</title>
+  <meta name="description" content="Hyphens inside sets in JavaScript regular expressions - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,185 +36,116 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Дефис внутри наборов в регулярках JavaScript</h1>
-    <p>
-	Дефис - тоже спецсимвол внутри <code data-gs="comd/c" data-x>[ ]</code>
-	(а вот снаружи - нет). Если вам нужен сам
-	дефис как символ - то поставьте его там,
-	где он <span data-gs="comd/r" data-x>не будет воспринят как разделитель
-	группы</span>.
+    <h1>Hyphen inside sets in JavaScript regular expressions</h1>
+    <p>The hyphen is also a special character inside<code data-gs="comd/c" data-x>[ ]</code>(but outside - no). If you need the hyphen itself as a symbol, then put it where it is<span data-gs="comd/r" data-x>will not be interpreted as a group separator</span>.
 </p>
-<p>
-	Почему это важно: вы можете сделать группу
-	символов, сами не заметив этого. К примеру,
-	вот так - <code data-gs="comd/s" data-x>'[:-@]'</code> - вы думаете, что
-	выбираете двоеточие, дефис и собаку, а на
-	самом деле получается группа символов между
-	<code data-gs="comd/c" data-x>:</code> и <code data-gs="comd/c" data-x>@</code>. В эту группу входят
-	следующие символы: <code data-gs="comd/c" data-x>? < = > : ;</code>
+<p>Why this is important: You can make a group of symbols without noticing. For example, like this -<code data-gs="comd/s" data-x>'[:-@]'</code>- you think you are choosing a colon, a hyphen and a dog, but in fact you get a group of characters between<code data-gs="comd/c" data-x>:</code>And<code data-gs="comd/c" data-x>@</code>. This group includes the following symbols:<code data-gs="comd/c" data-x>? < = > : ;</code>
 </p>
-<p>
-	Откуда они взялись? Из таблицы <a href="http://www.asciitable.com/">ASCII</a>
-	- двоеточие имеет номер меньше, чем собака
-	- и получается группа. To есть все группы
-	получаются по таблице ASCII (при желании
-	этим можно пользоваться).
+<p>Where did they come from? From the table<a href="http://www.asciitable.com/">ASCII</a>- the colon has a number less than the dog - and the group is obtained. That is, all groups are obtained from the ASCII table (you can use this if you wish).</p>
+<p>How to deal with this: place the hyphen character where it will definitely not be perceived as a group character, for example, at the beginning or end (that is, after<code data-gs="comd/c" data-x>[</code>or before<code data-gs="comd/c" data-x>]</code>).
 </p>
-<p>
-	Как с этим бороться: поставьте символ дефиса
-	там, где он точно не будет воспринят как
-	символ группы, например, в начале или в конце
-	(то есть после <code data-gs="comd/c" data-x>[</code>или перед <code data-gs="comd/c" data-x>]</code>).
-</p>
-<p>
-	Можно также заэкранировать дефис - тогда
-	он будет обозначать сам себя независимо от
-	позиции. Например, вместо <code data-gs="comd/c" data-x>[:-@]</code> написать
-	<code data-gs="comd/c" data-x>[:\-@]</code> - и группы уже не будет, а
-	будут три символа - двоеточие, дефис и собака
-	<code data-gs="comd/c" data-x>@</code>.
+<p>You can also escape the hyphen - then it will represent itself regardless of position. For example, instead of<code data-gs="comd/c" data-x>[:-@]</code>write<code data-gs="comd/c" data-x>[:\-@]</code>- and the group will no longer exist, but there will be three characters - a colon, a hyphen and a dog<code data-gs="comd/c" data-x>@</code>.
 </p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	В следующем примере шаблон поиска такой:
-	<span data-gs="comd/r" data-x>цифра <code data-gs="comd/n" data-x>1</code>, затем буква от <code data-gs="comd/s" data-x>'a'</code>
-	до <code data-gs="comd/s" data-x>'z'</code>, затем цифра <code data-gs="comd/n" data-x>2</code></span>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>In the following example, the search pattern is:<span data-gs="comd/r" data-x>number<code data-gs="comd/n" data-x>1</code>, then the letter from<code data-gs="comd/s" data-x>'a'</code>to<code data-gs="comd/s" data-x>'z'</code>, then a number<code data-gs="comd/n" data-x>2</code></span>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '1a2 1-2 1c2 1z2';
 let res = str.replace(/1[a-z]2/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! 1-2 ! !'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте теперь заэкранируем дефис. В результате
-	шаблон поиска такой: <span data-gs="comd/r" data-x>цифра <code data-gs="comd/n" data-x>1</code>, затем
-	буква <code data-gs="comd/s" data-x>'a'</code>, или дефис, или буква <code data-gs="comd/s" data-x>'z'</code>,
-	затем цифра <code data-gs="comd/n" data-x>2</code></span>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's now escape the hyphen. The resulting search pattern is:<span data-gs="comd/r" data-x>number<code data-gs="comd/n" data-x>1</code>, then the letter<code data-gs="comd/s" data-x>'a'</code>, or hyphen, or letter<code data-gs="comd/s" data-x>'z'</code>, then a number<code data-gs="comd/n" data-x>2</code></span>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '1a2 1-2 1c2 1z2';
 let res = str.replace(/1[a\-z]2/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! 1c2 !'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Можно просто переставить дефис, не экранируя его:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>You can simply rearrange the hyphen without escaping it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '1a2 1-2 1c2 1z2';
 let res = str.replace(/1[az-]2/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! 1c2 !'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	В следующем примере шаблон поиска такой:
-	<span data-gs="comd/r" data-x>первый символ - это маленькие буквы или
-	дефис <code data-gs="comd/s" data-x>'-'</code>, потом две буквы <code data-gs="comd/s" data-x>'x'</code></span>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>In the following example, the search pattern is:<span data-gs="comd/r" data-x>the first character is small letters or a hyphen<code data-gs="comd/s" data-x>'-'</code>, then two letters<code data-gs="comd/s" data-x>'x'</code></span>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'axx Axx -xx @xx';
 let res = str.replace(/[a-z-]xx/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! Axx ! @xx'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	В следующем примере шаблон поиска такой:
-	<span data-gs="comd/r" data-x>первый символ - это маленькие, большие
-	буквы или дефис <code data-gs="comd/s" data-x>'-'</code>, потом две буквы
-	<code data-gs="comd/s" data-x>'x'</code></span>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>In the following example, the search pattern is:<span data-gs="comd/r" data-x>the first character is small, capital letters or a hyphen<code data-gs="comd/s" data-x>'-'</code>, then two letters<code data-gs="comd/s" data-x>'x'</code></span>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'axx Axx -xx @xx';
 let res = str.replace(/[a-zA-Z-]xx/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! ! @xx'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Можно расположить дефис между двумя группами
-	- там он точно еще не сделает еще одну группу:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>You can place a hyphen between two groups - there it definitely won’t create another group:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'axx 9xx -xx @xx';
 let res = str.replace(/[a-z-0-9]xx/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! ! @xx'</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'xaz xBz xcz x-z x@z';</code>
 	</div>
-	<p>
-		Найдите все строки по следующему шаблону:
-		<span data-gs="comd/r" data-x>буква <code data-gs="comd/s" data-x>'x'</code>, большая или маленькая
-		буква или дефис, буква <code data-gs="comd/s" data-x>'z'</code></span>.
+	<p>Find all lines using the following pattern:<span data-gs="comd/r" data-x>letter<code data-gs="comd/s" data-x>'x'</code>, capital or small letter or hyphen, letter<code data-gs="comd/s" data-x>'z'</code></span>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'xaz x$z x-z xcz x+z x%z x*z';</code>
 	</div>
-	<p>
-		Найдите все строки по следующему шаблону:
-		<span data-gs="comd/r" data-x>буква <code data-gs="comd/s" data-x>'x'</code>, затем или доллар, или
-		дефис или плюс, потом буква <code data-gs="comd/s" data-x>'z'</code></span>.
+	<p>Find all lines using the following pattern:<span data-gs="comd/r" data-x>letter<code data-gs="comd/s" data-x>'x'</code>, then either a dollar, or a hyphen or a plus, then a letter<code data-gs="comd/s" data-x>'z'</code></span>.
 	</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../sets-hat/index.html" class="lesson-nav-btn lesson-nav-prev" title="Символ шляпки внутри наборов">← Символ шляпки внутри наборов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../case-ignore/index.html" class="lesson-nav-btn lesson-nav-next" title="Игнорирование регистра">Игнорирование регистра →</a>
+      <a href="../sets-hat/index.html" class="lesson-nav-btn lesson-nav-prev" title="Hat symbol inside sets">← Hat symbol inside sets</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../case-ignore/index.html" class="lesson-nav-btn lesson-nav-next" title="Ignoring case">Ignoring case →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

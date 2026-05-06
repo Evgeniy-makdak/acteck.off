@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Добавление редьюсера в Redux приложение — acteck.off</title>
-  <meta name="description" content="Добавление редьюсера в Redux приложение — учебные материалы по программированию.">
+  <title>Adding a reducer to a Redux application - acteck.off</title>
+  <meta name="description" content="Adding a reducer to a Redux application - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,58 +36,29 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Добавление редьюсера в Redux приложение</h1>
-    <p>
-	В прошлом уроке мы создали компонент
-	<code data-gs="comd/c" data-x>UserReaction</code> для того, чтобы у каждого
-	продукта были еще и реакции пользователей.
-	Теперь нам нужно написать редьюсер,
-	который будет обрабатывать счетчик
-	реакций при клике пользователем по
-	кнопке той или иной реакции.
-</p>
-<p>
-	Давайте откроем наше приложение с продуктами,
-	а в нем файл <code data-gs="comd/p" data-x>productsSlice.js</code> со всеми
-	редьюсерами. Теперь в свойстве <code data-gs="comd/c" data-x>reducers</code>
-	создадим еще один редьюсер <code data-gs="comd/c" data-x>reactionClicked</code>
-	(можем поставить его первым - перед <code data-gs="comd/c" data-x>productAdded</code>,
-	хотя это без разницы). Как обычно, передадим
-	ему параметрами <code data-gs="comd/c" data-x>state</code> и <code data-gs="comd/c" data-x>action</code>:
+    <h1>Adding a reducer to a Redux application</h1>
+    <p>In the last lesson we created a component<code data-gs="comd/c" data-x>UserReaction</code>so that each product also has user reactions. Now we need to write a reducer that will process the reaction counter when the user clicks on a button for a particular reaction.</p>
+<p>Let's open our application with products, and in it there is a file<code data-gs="comd/p" data-x>productsSlice.js</code>with all reducers. Now in property<code data-gs="comd/c" data-x>reducers</code>let's create another reducer<code data-gs="comd/c" data-x>reactionClicked</code>(we can put it first - before<code data-gs="comd/c" data-x>productAdded</code>, although it makes no difference). As usual, we’ll pass it the parameters<code data-gs="comd/c" data-x>state</code>And<code data-gs="comd/c" data-x>action</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">reactionClicked(state, action) {},</code>
 </div>
-<p>
-	А теперь внутри фигурных скобок, которые мы
-	оставили пустыми на предыдущем шаге, напишем
-	для него код. Во-первых мы извлечем id продукта
-	из <code data-gs="comd/c" data-x>payload</code> объекта <code data-gs="comd/c" data-x>action</code>  и
-	название реакции:
-</p>
+<p>Now, inside the curly braces that we left empty in the previous step, we will write the code for it. Firstly we will extract the product id from<code data-gs="comd/c" data-x>payload</code>object<code data-gs="comd/c" data-x>action</code>and the name of the reaction:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const { productId, reaction } = action.payload</code>
 </div>
-<p>
-	Затем из переданного стейта получим нужный
-	продукт:
-</p>
+<p>Then from the transferred state we get the desired product:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const currentProduct = state.find(product =&gt; product.id === productId)</code>
 </div>
-<p>
-	И если такой продукт имеется, то увеличим
-	значение переданной реакции на <code data-gs="comd/n" data-x>1</code>:
+<p>And if such a product exists, then we increase the value of the transmitted reaction by<code data-gs="comd/n" data-x>1</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">if (currentProduct) {
 	currentProduct.reactions[reaction]++
 }</code>
 </div>
-<p>
-	Вот и все, наш код для
-	<code data-gs="comd/c" data-x>reactionClicked</code> готов:
-</p>
+<p>That's it, our code for<code data-gs="comd/c" data-x>reactionClicked</code>ready:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">reactionClicked(state, action) {
 	const { productId, reaction } = action.payload
@@ -97,10 +68,7 @@
 	}
 },</code>
 </div>
-<p>
-	Давайте в конце файла добавим экспорт
-	полученного action creator:
-</p>
+<p>Let's add an export of the resulting action creator at the end of the file:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const {
 	reactionClicked,
@@ -108,58 +76,27 @@
 	productUpdated
 } = productsSlice.actions</code>
 </div>
-<p>
-	Тут необходимо отметить два важных момента.
-	Как вы помните из предыдущих уроков - обновлять
-	вот так напрямую значение в коде редьюсера
-	нельзя (посмотрите на эту строку:
-	<code data-gs="comd/c" data-x>reactions[reaction]++</code>),
-	но нам сойдет это с рук, потому что мы это делаем
-	внутри <code data-gs="comd/c" data-x>createSlice</code>, который использует
-	библиотеку Immer. Она и позаботится о том, чтобы
-	переделать наш код в "безопасное" обновление
-	значения. Это позволяет нам писать сложные
-	вещи более простым способом.
-</p>
-<p>
-	Следующее, что необходимо помнить - объект
-	<code data-gs="comd/c" data-x>action</code> должен содержать минимально возможное
-	количество информации - только для того чтобы
-	указать что произошло. Не стоит делать в нем
-	какие-либо вычисления. Все вычисления для
-	обновления стейта стоит делать в редьюсере,
-	здесь можно написать для этого столько логики,
-	сколько потребуется.
-</p>
+<p>There are two important points to note here. As you remember from previous lessons, you cannot directly update a value in the reducer code like this (look at this line:<code data-gs="comd/c" data-x>reactions[reaction]++</code>), but we can get away with it because we do it internally<code data-gs="comd/c" data-x>createSlice</code>, which uses the Immer library. She will take care of converting our code into a “safe” value update. This allows us to write complex things in a simpler way.</p>
+<p>The next thing to remember is the object<code data-gs="comd/c" data-x>action</code>should contain the minimum possible amount of information - just to indicate what happened. You should not do any calculations in it. All calculations for updating the state should be done in the reducer; here you can write as much logic for this as needed.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами
-		и в файле <code data-gs="comd/p" data-x>studentsSlice.js</code> добавьте
-		еще один редьюсер <code data-gs="comd/c" data-x>voteClicked</code> в
-		поле <code data-gs="comd/c" data-x>reducers</code>, как показано в уроке.
-		Напишите код для него. Задача вашего
-		редьюсера - при клике увеличивать значение
-		<code data-gs="comd/c" data-x>vote</code> (или голоса), по которому кликнули,
-		для данного студента, на <code data-gs="comd/n" data-x>1</code>.
+	<p>Open your application with students and in the file<code data-gs="comd/p" data-x>studentsSlice.js</code>add another reducer<code data-gs="comd/c" data-x>voteClicked</code>in the field<code data-gs="comd/c" data-x>reducers</code>, as shown in the lesson. Write some code for it. Your reducer's job is to increase the value when clicked.<code data-gs="comd/c" data-x>vote</code>(or voices) clicked on, for a given student, on<code data-gs="comd/n" data-x>1</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		В конце файла не забудьте экспортировать
-		полученный action creator <code data-gs="comd/c" data-x>voteClicked</code>.
+	<p>At the end of the file, do not forget to export the resulting action creator<code data-gs="comd/c" data-x>voteClicked</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../additional-logic/index.html" class="lesson-nav-btn lesson-nav-prev" title="Добавление дополнительной логики">← Добавление дополнительной логики</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../dispatch-action/index.html" class="lesson-nav-btn lesson-nav-next" title="Отправка action">Отправка action →</a>
+      <a href="../additional-logic/index.html" class="lesson-nav-btn lesson-nav-prev" title="Adding Additional Logic">← Adding additional logic</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../dispatch-action/index.html" class="lesson-nav-btn lesson-nav-next" title="Sending an action">Sending action →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

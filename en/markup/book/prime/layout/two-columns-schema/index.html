@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Схема двухколоночного макета сайта в CSS — acteck.off</title>
-  <meta name="description" content="Схема двухколоночного макета сайта в CSS — учебные материалы по программированию.">
+  <title>Scheme for a two-column website layout in CSS - acteck.off</title>
+  <meta name="description" content="Two Column Website Layout Diagram in CSS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,14 +33,11 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Схема двухколоночного макета сайта в CSS</h1>
-    <p>
-	Давайте сделаем двухколоночный макет следующего
-	вида:
-</p>
+    <h1>Two-column website layout in CSS</h1>
+    <p>Let's make a two-column layout like this:</p>
 <div data-p="bock/pane">
 					<div data-w="bock/open" data-m-type="P">
 						<a href="" data-e="link" data-x>
@@ -119,9 +116,7 @@
 						</a>
 					</div>
 				</div>
-<p>
-	Для начала создадим основную структуру страницы:
-</p>
+<p>First, let's create the basic structure of the page:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="wrapper"&gt;
 	&lt;div id="header"&gt;
@@ -140,10 +135,7 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Теперь назначим стили врапперу, выровняв
-	его по центру экрана:
-</p>
+<p>Now let's style the wrapper, aligning it to the center of the screen:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#wrapper {
 	width: 1000px;
@@ -151,9 +143,7 @@
 	border: 1px solid black;
 }</code>
 </div>
-<p>
-	Зададим теперь стили хедера и футера:
-</p>
+<p>Now let’s set the header and footer styles:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#header {
 	height: 200px;
@@ -164,23 +154,9 @@
 	border: 1px solid black;
 }</code>
 </div>
-<p>
-	Как вы видите, мы задаем хедеру и футеру
-	высоту. Мы делаем это, как как в нашей схеме
-	у них нет содержимого. При наличии содержимого
-	высоту блокам задавать не стоит - она будет
-	формироваться их содержимым.
-</p>
-<p>
-	Обратите также внимание на то, что мы не
-	задаем им ширину. Дело в том, что хедер и
-	футер - блочные элементы и их ширина будет
-	автоматически равна ширине враппера.
-</p>
-<p>
-	Давайте теперь зададим им <code data-gs="comd/c" data-x>padding</code>, чтобы
-	текст не прилипал к границам:
-</p>
+<p>As you can see, we are giving the header and footer a height. We do this like in our schema they don't have any content. If there is content, the height of the blocks should not be set - it will be formed by their content.</p>
+<p>Also note that we don't give them a width. The fact is that the header and footer are block elements and their width will automatically be equal to the width of the wrapper.</p>
+<p>Let's now ask them<code data-gs="comd/c" data-x>padding</code>to prevent text from sticking to borders:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#header {
 	height: 200px;
@@ -193,32 +169,19 @@
 	border: 1px solid black;
 }</code>
 </div>
-<p>
-	Наличие <code data-gs="comd/c" data-x>padding</code>а, однако, плохо повлияет
-	на размеры блоков - они станут больше, чем
-	указано. Давайте изменим поведение всех блоков
-	так, чтобы <code data-gs="comd/c" data-x>padding</code> и границы не расширяли
-	наши блоки:
-</p>
+<p>Availability<code data-gs="comd/c" data-x>padding</code>but, however, it will have a bad effect on the size of the blocks - they will become larger than indicated. Let's change the behavior of all blocks so that<code data-gs="comd/c" data-x>padding</code>and our blocks did not expand the borders:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">* {
 	box-sizing: border-box;
 }</code>
 </div>
-<p>
-	Теперь нам нужно поставить контент и сайдбар
-	в один ряд. Сделаем это с помощью флексов:
-</p>
+<p>Now we need to put the content and sidebar in one row. Let's do this using flexes:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#container {
 	display: flex;
 }</code>
 </div>
-<p>
-	Укажем контенту и сайдбару их ширину. При
-	этом сумма их ширин должна быть равна ширине
-	враппера:
-</p>
+<p>Let's set the content and sidebar to their width. In this case, the sum of their widths should be equal to the width of the wrapper:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#content {
 	width: 800px;
@@ -227,14 +190,7 @@
 	width: 200px;
 }</code>
 </div>
-<p>
-	Пусть мы хотим сделать отступ между сайдбаром
-	и контентом. В этом случае сайдбару нужно
-	поставить <code data-gs="comd/c" data-x>margin</code>. При этом нам придется
-	от кого-то отщипнуть ширину для этого <code data-gs="comd/c" data-x>margin</code>.
-	Отщипнем от контента, соответственно уменьшив
-	его ширину:
-</p>
+<p>Let's say we want to make a space between the sidebar and the content. In this case, the sidebar needs to be set<code data-gs="comd/c" data-x>margin</code>. In this case, we will have to pinch off the width from someone for this<code data-gs="comd/c" data-x>margin</code>. Let's pinch off the content, reducing its width accordingly:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#content {
 	width: 780px;
@@ -244,13 +200,7 @@
 	margin-right: 20px;
 }</code>
 </div>
-<p>
-	Давайте теперь добавим высоту, так как наши
-	элементы не содержат содержимого. Достаточно
-	добавить высоту только одному элементу, ведь
-	второй флекс элемент подстроится по высоте
-	(почему?). Давайте зададим высоту контенту:
-</p>
+<p>Let's now add height since our elements don't contain content. It is enough to add height to only one element, because the second flex element will adjust in height (why?). Let's set the height of the content:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#content {
 	width: 780px;
@@ -261,10 +211,7 @@
 	margin-right: 20px;
 }</code>
 </div>
-<p>
-	Давайте добавим контенту и сайдбару остальные
-	стили:
-</p>
+<p>Let's add the rest of the styles to the content and sidebar:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#content {
 	width: 780px;
@@ -279,9 +226,7 @@
 	border: 1px solid black;
 }</code>
 </div>
-<p>
-	Все, наш макет готов. Соберем весь код вместе:
-</p>
+<p>That's it, our layout is ready. Let's put all the code together:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="wrapper"&gt;
 	&lt;div id="header"&gt;
@@ -495,16 +440,16 @@
 				</div>
 </div>
     <div class="lesson-nav">
-      <a href="../page-structure/index.html" class="lesson-nav-btn lesson-nav-prev" title="Структурные блоки сайта">← Структурные блоки сайта</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../three-columns-schema/index.html" class="lesson-nav-btn lesson-nav-next" title="Схема трехколоночного макета сайта">Схема трехколоночного макета сайта →</a>
+      <a href="../page-structure/index.html" class="lesson-nav-btn lesson-nav-prev" title="Structural blocks of the site">← Structural blocks of the site</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../three-columns-schema/index.html" class="lesson-nav-btn lesson-nav-next" title="Three-column website layout diagram">Three-column website layout diagram →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

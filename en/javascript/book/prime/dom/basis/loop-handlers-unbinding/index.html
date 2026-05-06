@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отвязывание обработчиков событий в цикле в JavaScript — acteck.off</title>
-  <meta name="description" content="Отвязывание обработчиков событий в цикле в JavaScript — учебные материалы по программированию.">
+  <title>Unbinding event handlers in a loop in JavaScript - acteck.off</title>
+  <meta name="description" content="Unbinding Event Handlers in a Loop in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,19 +36,14 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Отвязывание обработчиков событий в цикле в JavaScript</h1>
-    <p>
-	Пусть теперь у нас есть не один элемент,
-	а несколько. Например, несколько абзацев:
-</p>
+    <h1>Unbinding event handlers in a loop in JavaScript</h1>
+    <p>Let us now have not one element, but several. For example, a few paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text1&lt;/p&gt;
 &lt;p&gt;text2&lt;/p&gt;
 &lt;p&gt;text3&lt;/p&gt;</code>
 </div>
-<p>
-	Давайте к каждому из этих абзацев обработчиком
-	клика привяжем функцию <code data-gs="comd/c" data-x>func</code>:
+<p>Let's bind a function to each of these paragraphs as a click handler<code data-gs="comd/c" data-x>func</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');
@@ -61,21 +56,8 @@ function func() {
 	console.log(this.textContent);
 }</code>
 </div>
-<p>
-	Давайте теперь переделаем код так, чтобы
-	каждый абзац реагировал только на первое
-	нажатие на него. Для этого при клике на абзац
-	будем отвязывать от него привязанный обработчик.
-	При этом отвязывание будет конкретно от этого
-	абзаца, никак не затрагивая остальных.
-</p>
-<p>
-	Как вы уже знаете, элемент, в котором произошло
-	событие, можно получить в функции-обработчике
-	через <code data-gs="comd/c" data-x>this</code>. Это значит, что нужно
-	выполнять отвязывание обработчика от <code data-gs="comd/c" data-x>this</code>,
-	вот так:
-</p>
+<p>Let's now rework the code so that each paragraph only responds to the first click on it. To do this, when you click on a paragraph, we will untie the attached handler from it. In this case, the unbinding will be specifically from this paragraph, without affecting the rest in any way.</p>
+<p>As you already know, the element in which the event occurred can be obtained in the handler function via<code data-gs="comd/c" data-x>this</code>. This means that you need to unbind the handler from<code data-gs="comd/c" data-x>this</code>, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');
 
@@ -89,25 +71,20 @@ function func() {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны абзацы. По нажатию на любой из абзацев
-		добавьте ему в конец восклицательный знак.
-		Сделайте так, чтобы это добавление происходило
-		лишь по первому нажатию.
-	</p>
+	<p>Paragraphs are given. When you click on any paragraph, add an exclamation point to the end. Make sure that this addition occurs only on the first click.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../handlers-unbinding/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отвязывание обработчиков событий">← Отвязывание обработчиков событий</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../anonymous-handlers-unbinding/index.html" class="lesson-nav-btn lesson-nav-next" title="Отвязывание анонимных обработчиков">Отвязывание анонимных обработчиков →</a>
+      <a href="../handlers-unbinding/index.html" class="lesson-nav-btn lesson-nav-prev" title="Unbinding event handlers">← Unbinding event handlers</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../anonymous-handlers-unbinding/index.html" class="lesson-nav-btn lesson-nav-next" title="Unbinding anonymous handlers">Unbinding anonymous handlers →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

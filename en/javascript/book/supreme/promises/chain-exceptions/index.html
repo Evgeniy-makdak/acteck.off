@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Исключения в цепочках промисов в JavaScript — acteck.off</title>
-  <meta name="description" content="Исключения в цепочках промисов в JavaScript — учебные материалы по программированию.">
+  <title>Exceptions in promise chains in JavaScript - acteck.off</title>
+  <meta name="description" content="Exceptions in Promise Chains in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Исключения в цепочках промисов в JavaScript</h1>
-    <p>
-	Пусть по каким-то причинам наш промис
-	завершится с ошибкой:
-</p>
+    <h1>Exceptions in Promise Chains in JavaScript</h1>
+    <p>Let our promise fail for some reason with an error:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let promise = new Promise(function(resolve, reject) {
 	setTimeout(function() {
@@ -48,15 +45,8 @@
 	}, 3000);
 });</code>
 </div>
-<p>
-	В этом случае выполнение кода сразу перейдет
-	к тому <code data-gs="comd/c" data-x>then</code>, в котором есть функция-обработчик
-	ошибки, либо в первому <code data-gs="comd/c" data-x>catch</code>, смотря
-	что встретится раньше.
-</p>
-<p>
-	Вот пример первой ситуации:
-</p>
+<p>In this case, code execution will immediately go to that<code data-gs="comd/c" data-x>then</code>, in which there is an error handler function, or in the first<code data-gs="comd/c" data-x>catch</code>, depending on what comes first.</p>
+<p>Here is an example of the first situation:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(
 	function(result) {
@@ -75,9 +65,7 @@
 	}
 );</code>
 </div>
-<p>
-	Вот пример второй ситуации:
-</p>
+<p>Here is an example of the second situation:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(
 	function(result) {
@@ -97,22 +85,8 @@
 	}
 );</code>
 </div>
-<p>
-	Функция-обработчик имеет два варианта действий:
-	если она справилась с исключительной ситуацией,
-	то может вернуть результат через <code data-gs="comd/c" data-x>return</code>
-	и выполнение продолжится дальше по цепочке.
-	Если же она не справилась с ошибкой, то может
-	или ничего не возвращать, или выбросить исключение
-	через <code data-gs="comd/c" data-x>throw</code>. В этом случае выполнение
-	перейдет к следующему перехватчику ошибки
-	(в <code data-gs="comd/c" data-x>then</code> или <code data-gs="comd/c" data-x>catch</code> - что встретится
-	раньше).
-</p>
-<p>
-	Как правило, все ошибки цепочки перехватываются
-	в одном месте: в конце цепочки размещается
-	<code data-gs="comd/c" data-x>catch</code>:
+<p>The handler function has two options: if it handles the exception, it can return the result via<code data-gs="comd/c" data-x>return</code>and execution will continue further down the chain. If it fails to cope with the error, it can either return nothing or throw an exception via<code data-gs="comd/c" data-x>throw</code>. In this case, execution will move to the next error interceptor (in<code data-gs="comd/c" data-x>then</code>or<code data-gs="comd/c" data-x>catch</code>- whichever comes first).</p>
+<p>As a rule, all errors in a chain are caught in one place: at the end of the chain a<code data-gs="comd/c" data-x>catch</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(
@@ -129,11 +103,7 @@
 	}
 );</code>
 </div>
-<p>
-	При этом исключение может возникнуть в самом
-	промисе, либо выброшено через <code data-gs="comd/c" data-x>throw</code>
-	в любом звене цепочки:
-</p>
+<p>In this case, the exception can occur in the promise itself, or it can be thrown through<code data-gs="comd/c" data-x>throw</code>at any link in the chain:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(
 	function(result) {
@@ -158,15 +128,7 @@
 	}
 );</code>
 </div>
-<p>
-	Учтите, что <code data-gs="comd/c" data-x>catch</code> нужен именно для
-	диагностики ошибки: она решаема или нет.
-	Если ошибка решаема, то <code data-gs="comd/c" data-x>catch</code> должен
-	передать ее решение следующему за собой <code data-gs="comd/c" data-x>then</code>.
-	А если не решаема (или данный <code data-gs="comd/c" data-x>catch</code>
-	просто не знает как ее решить), то мы должны
-	или ничего не вернуть или бросить исключение:
-</p>
+<p>Please note that<code data-gs="comd/c" data-x>catch</code>is needed specifically to diagnose the error: is it solvable or not. If the error is solvable, then<code data-gs="comd/c" data-x>catch</code>must pass on its decision to those following him<code data-gs="comd/c" data-x>then</code>. And if it is not solvable (or this<code data-gs="comd/c" data-x>catch</code>just doesn’t know how to solve it), then we must either return nothing or throw an exception:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">promise.then(
 	function(result) {
@@ -192,16 +154,16 @@
 </div>
   
     <div class="lesson-nav">
-      <a href="../promise-inside-chain/index.html" class="lesson-nav-btn lesson-nav-prev" title="Промисы внутри цепочки">← Промисы внутри цепочки</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../arrays/index.html" class="lesson-nav-btn lesson-nav-next" title="Работа с массивами промисов">Работа с массивами промисов →</a>
+      <a href="../promise-inside-chain/index.html" class="lesson-nav-btn lesson-nav-prev" title="Promises within a chain">← Promises within a chain</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../arrays/index.html" class="lesson-nav-btn lesson-nav-next" title="Working with arrays of promises">Working with arrays of promises →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

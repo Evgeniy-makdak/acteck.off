@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Аккордеон на JavaScript — acteck.off</title>
-  <meta name="description" content="Аккордеон на JavaScript — учебные материалы по программированию.">
+  <title>Accordion in JavaScript - acteck.off</title>
+  <meta name="description" content="Accordion in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,16 +36,9 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Аккордеон на JavaScript</h1>
-    <p>
-	Давайте теперь реализуем аккордеон. Он похож
-	на вкладки, перевернутые на бок. При этом
-	в аккордеоне можно закрыть текущую вкладку,
-	если нажать на активную ссылку.
-</p>
-<p>
-	Вот образец:
-</p>
+    <h1>Accordion in JavaScript</h1>
+    <p>Let's now implement the accordion. It looks like tabs turned on their side. At the same time, in the accordion you can close the current tab if you click on the active link.</p>
+<p>Here's a sample:</p>
 <div data-p="bock/pane">
 					<div data-w="bock/tain">
 						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
@@ -96,27 +89,21 @@
 		<div id=&quot;parent&quot;>
 			<div class=&quot;tab active&quot;>
 				<div class=&quot;link&quot;>
-					<a href=&quot;#&quot; >вкладка 1</a>
+					<a href=&quot;#&quot; >tab 1</a>
 				</div>
-				<div class=&quot;text&quot;>
-					текст вкладки 1
-				</div>
+				<div class=&quot;text&quot;>Tab text 1</div>
 			</div>
 			<div class=&quot;tab&quot;>
 				<div class=&quot;link&quot;>
-					<a href=&quot;#&quot; >вкладка 2</a>
+					<a href=&quot;#&quot; >tab 2</a>
 				</div>
-				<div class=&quot;text&quot;>
-					текст вкладки 2
-				</div>
+				<div class=&quot;text&quot;>Tab text 2</div>
 			</div>
 			<div class=&quot;tab&quot;>
 				<div class=&quot;link&quot;>
-					<a href=&quot;#&quot; >вкладка 3</a>
+					<a href=&quot;#&quot; >tab 3</a>
 				</div>
-				<div class=&quot;text&quot;>
-					текст вкладки 3
-				</div>
+				<div class=&quot;text&quot;>Tab text 3</div>
 			</div>
 		</div>
 		
@@ -146,10 +133,7 @@
 </html>"></iframe>
 					</div>
 				</div>
-<p>
-	Изучите также верстку, на которой мы будем
-	решать задачу:
-</p>
+<p>Also study the layout on which we will solve the problem:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div class="tab active"&gt;
@@ -210,48 +194,26 @@
 }</code>
 </div>
 
-<h2>Обсуждение</h2>
-<p>
-	Технически HTML код аккордеона удобнее, чем
-	код вкладок: в нем ссылки расположены непосредственно
-	над спойлером, который они открывают и закрывают.
-	Кроме того, класс <code data-gs="comd/z" data-x>active</code> в нашей верстки
-	дается общему родителю ссылки и спойлера.
-</p>
-<p>
-	Это значит, что при нажатии на ссылку нужно
-	просто деактивировать старую вкладку и активировать
-	новую. Чтобы деактивировать старую вкладку
-	нужно найти вкладку с классом <code data-gs="comd/z" data-x>active</code>
-	и удалить из нее этот класс.
-</p>
-<p>
-	Чтобы активировать новую вкладку нужно по
-	клику на ссылку найти вкладку-родителя этой
-	ссылки и дать ей класс <code data-gs="comd/z" data-x>active</code>. Технически
-	такой поиск можно сделать так: просто найти
-	ближайшего родителя ссылки, имеющего класс
-	<code data-gs="comd/z" data-x>tab</code>.
+<h2>Discussion</h2>
+<p>Technically, the accordion HTML code is more convenient than the tab code: in it, the links are located directly above the spoiler, which they open and close. In addition, class<code data-gs="comd/z" data-x>active</code>in our layout a common parent is given links and spoilers.</p>
+<p>This means that when you click on a link, you just need to deactivate the old tab and activate the new one. To deactivate the old tab you need to find the tab with the class<code data-gs="comd/z" data-x>active</code>and remove this class from it.</p>
+<p>To activate a new tab, you need to click on the link to find the parent tab of this link and give it a class<code data-gs="comd/z" data-x>active</code>. Technically, such a search can be done like this: simply find the closest parent of the link that has the class<code data-gs="comd/z" data-x>tab</code>.
 </p>
 <div data-w="cont/task">
-	<p>
-		Скопируйте себе приведенный HTML и CSS коды.
-		Реализуйте аккордеон согласно описанному
-		алгоритму.
-	</p>
+	<p>Copy the given HTML and CSS codes for yourself. Implement the accordion according to the described algorithm.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../tabs/index.html" class="lesson-nav-btn lesson-nav-prev" title="Вкладки">← Вкладки</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../game-cities/task-formulation/index.html" class="lesson-nav-btn lesson-nav-next" title="Постановка задачи">Постановка задачи →</a>
+      <a href="../tabs/index.html" class="lesson-nav-btn lesson-nav-prev" title="Tabs">← Tabs</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../game-cities/task-formulation/index.html" class="lesson-nav-btn lesson-nav-next" title="Statement of the problem">Statement of the problem →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

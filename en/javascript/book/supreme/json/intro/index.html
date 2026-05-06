@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Introduction в формат JSON в JavaScript — acteck.off</title>
-  <meta name="description" content="Introduction в формат JSON в JavaScript — учебные материалы по программированию.">
+  <title>Introduction to JSON in JavaScript - acteck.off</title>
+  <meta name="description" content="Introduction to JSON in JavaScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,37 +36,15 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Introduction в формат JSON в JavaScript</h1>
-    <p>
-	Иногда бывает нужно преобразовать некую структуру
-	данных, например, массив или объект, в строку.
-	Это может понадобится, например, чтобы отправить
-	эту структуру через интернет или сохранить
-	в какое-то хранилище.
-</p>
-<p>
-	Для этого в JavaScript был придуман специальный
-	формат JSON.
-</p>
-<p>
-	Формат JSON может содержать одну из двух
-	структур: или массив, или объект с парами
-	<span data-gs="comd/f" data-x>ключ-значение</span>. Массивы и объекты строятся
-	так же, как и в JavaScript, но имеют ограничение:
-	все строки и строковые ключи объектов должны
-	быть взяты в двойные кавычки.
-</p>
-<p>
-	Давайте, например, сделаем строку, содержащую
-	массив в формате JSON:
-</p>
+    <h1>Introduction to JSON Format in JavaScript</h1>
+    <p>Sometimes you need to convert a data structure, such as an array or an object, into a string. This may be needed, for example, to send this structure over the Internet or save it to some kind of storage.</p>
+<p>For this purpose, a special JSON format was invented in JavaScript.</p>
+<p>The JSON format can contain one of two structures: either an array or an object with pairs<span data-gs="comd/f" data-x>key-value</span>. Arrays and objects are constructed in the same way as in JavaScript, but have the limitation that all strings and object string keys must be enclosed in double quotes.</p>
+<p>Let's for example make a string containing an array in JSON format:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = '[1, 2, 3, 4, 5, "a", "b"]';</code>
 </div>
-<p>
-	А теперь сделаем строку, содержащую объект
-	в формате JSON:
-</p>
+<p>Now let's make a string containing an object in JSON format:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = `{
 	"a": "aaa",
@@ -75,9 +53,7 @@
 	"111": "ddd"
 }`;</code>
 </div>
-<p>
-	Можно комбинировать эти структуры в любом порядке:
-</p>
+<p>You can combine these structures in any order:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = `[
 	{
@@ -90,39 +66,26 @@
 	}
 ]`;</code>
 </div>
-<p>
-	В отличие от структур JavaScript, в JSON
-	не разрешены запятые после последних элементов
-	массивов и объектов:
-</p>
+<p>Unlike JavaScript structures, JSON does not allow commas after the last elements of arrays and objects:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = '[1, 2, 3, 4, 5,]'; // неверно
 let json = '[1, 2, 3, 4, 5]';  // верно</code>
 </div>
-<p>
-	Кроме чисел и строк в качестве элементов
-	могут выступать также значения <code data-gs="comd/c" data-x>true</code>,
-	<code data-gs="comd/c" data-x>false</code> и <code data-gs="comd/c" data-x>null</code>:
+<p>In addition to numbers and strings, values ​​can also serve as elements<code data-gs="comd/c" data-x>true</code>,
+	<code data-gs="comd/c" data-x>false</code>And<code data-gs="comd/c" data-x>null</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let json = '[null, true, false]';</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан массив:
-	</p>
+	<p>Given an array:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3, 'a', 'b', 'c'];</code>
 	</div>
-	<p>
-		Вручную преобразуйте этот массив в строку
-		в формате JSON.
-	</p>
+	<p>Manually convert this array to a string in JSON format.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан объект:
-	</p>
+	<p>Given object:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj = {
 	a: 1,
@@ -131,15 +94,10 @@ let json = '[1, 2, 3, 4, 5]';  // верно</code>
 	d: true,
 };</code>
 	</div>
-	<p>
-		Вручную преобразуйте этот объект в строку
-		в формате JSON.
-	</p>
+	<p>Manually convert this object to a JSON string.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан объект:
-	</p>
+	<p>Given object:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj = {
 	a: ['a', 'b', 'c',],
@@ -147,23 +105,20 @@ let json = '[1, 2, 3, 4, 5]';  // верно</code>
 	c: 'eee',
 };</code>
 	</div>
-	<p>
-		Вручную преобразуйте этот объект в строку
-		в формате JSON.
-	</p>
+	<p>Manually convert this object to a JSON string.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../../iterators/dom-elems-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Получение данных DOM элементов">← Получение данных DOM элементов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../to-structure/index.html" class="lesson-nav-btn lesson-nav-next" title="JSON в данные">JSON в данные →</a>
+      <a href="../../iterators/dom-elems-data/index.html" class="lesson-nav-btn lesson-nav-prev" title="Retrieving DOM element data">← Retrieving DOM element data</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../to-structure/index.html" class="lesson-nav-btn lesson-nav-next" title="JSON to data">JSON to data →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Чекбокс в Express — acteck.off</title>
-  <meta name="description" content="Чекбокс в Express — учебные материалы по программированию.">
+  <title>Checkbox in Express - acteck.off</title>
+  <meta name="description" content="Checkbox in Express - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,12 +36,8 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Чекбокс в Express</h1>
-    <p>
-	Давайте теперь научимся работать с флажками
-	<a href="../../../../../markup/manual/html/tag/input/checkbox/index.html"><code data-gs="comd/c" data-x>checkbox</code></a>.
-	Сделаем такой флажок в нашей форме:
-</p>
+    <h1>Checkbox in Express</h1>
+    <p>Let's now learn how to work with checkboxes<a href="../../../../../markup/manual/html/tag/input/checkbox/index.html"><code data-gs="comd/c" data-x>checkbox</code></a>. Let's create a checkbox like this in our form:</p>
 <div data-p="bock/pane" data-p-file="form.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="" method="POST"&gt;
 	&lt;input type="checkbox" name="flag"&gt;
@@ -49,21 +45,13 @@
 	&lt;input type="submit" name="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	После отправки формы в в данных флажка будет
-	содержаться строка <code data-gs="comd/s" data-x>'on'</code>, если флажок
-	был отмечен и <code data-gs="comd/c" data-x>undefined</code>, если нет:
-</p>
+<p>After submitting the form, the checkbox data will contain the string<code data-gs="comd/s" data-x>'on'</code>, if the checkbox was checked and<code data-gs="comd/c" data-x>undefined</code>if not:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.post('/', function(req, res) {
 	console.log(req.body.flag);  // 'on' или undefined
 });</code>
 </div>
-<p>
-	Давайте выведем что-нибудь на экран в зависимости
-	от того, был отмечен флажок или нет. Для
-	этого отправим данные нашей формы в представление:
-</p>
+<p>Let's display something on the screen depending on whether the checkbox was checked or not. To do this, let's send our form data to the view:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.post('/', function(req, res) {
 	res.render('form', {
@@ -71,11 +59,7 @@
 	});
 });</code>
 </div>
-<p>
-	В представлении проверим, был ли отмечен
-	флажок или нет и выведем соответствующее
-	сообщение об этом:
-</p>
+<p>In the view, we will check whether the checkbox has been checked or not and display the corresponding message about this:</p>
 <div data-p="bock/pane" data-p-file="form.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">{{#if body.submit}}
 	{{#if body.flag}}
@@ -86,35 +70,16 @@
 {{/if}}</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте форму с инпутом и флажком. С помощью
-		инпута спросите у пользователя имя. После
-		отправки формы, если флажок был отмечен,
-		поприветствуйте пользователя, а если не был
-		отмечен - попрощайтесь.
-	</p>
+	<p>Make a form with an input and a checkbox. Using input, ask the user for a name. After submitting the form, if the box was checked, welcome the user, and if it was not checked, say goodbye.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		С помощью флажка спросите у пользователя,
-		есть ему уже <code data-gs="comd/n" data-x>18</code> лет или нет. Если
-		есть, разрешите ему доступ на сайт, а если
-		нет - не разрешите.
-	</p>
+	<p>Use the checkbox to ask the user if he already has<code data-gs="comd/n" data-x>18</code>years or not. If there is, allow him access to the site, but if not, do not allow him.</p>
 </div>
 
 <!--
-<h2>Сохранение значения после отправки</h2>
-<p>
-	Давайте теперь сделаем так, чтобы значение
-	чекбокса сохранялось после отправки. Для
-	этого проверим, что <code data-gs="comd/c" data-x>$_GET['flag']</code>
-	существует (то есть была отправка формы)
-	и равен единице (то есть флажок отмечен).
-</p>
-<p>
-	Если эти два условия выполняются, то выведем
-	в чекбоксе атрибут <code data-gs="comd/c" data-x>checked</code>:
+<h2>Saving value after sending</h2>
+<p>Let's now make sure that the checkbox value is saved after sending. To do this, let's check that<code data-gs="comd/c" data-x>$_GET['flag']</code>exists (that is, the form was submitted) and is equal to one (that is, the checkbox is checked).</p>
+<p>If these two conditions are met, then we will display the attribute in the checkbox<code data-gs="comd/c" data-x>checked</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="" method="GET"&gt;
@@ -129,19 +94,9 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	Проверку можно упростить, если мы точно знаем,
-	что скрытый инпут передает <code data-gs="comd/n" data-x>0</code>. В таком
-	случае, если чекбокс не отмечен, то в <code data-gs="comd/c" data-x>$_GET['flag']</code>
-	будет лежать <code data-gs="comd/s" data-x>'0'</code>, а если отправки
-	формы еще не было, то будет лежать <code data-gs="comd/c" data-x>null</code>.
+<p>The verification can be simplified if we know exactly what the hidden input conveys<code data-gs="comd/n" data-x>0</code>. In this case, if the checkbox is not checked, then<code data-gs="comd/c" data-x>$_GET['flag']</code>will lie<code data-gs="comd/s" data-x>'0'</code>, and if the form has not been submitted yet, it will lie<code data-gs="comd/c" data-x>null</code>.
 </p>
-<p>
-	В обоих этих случаях мы не должны выводить
-	<code data-gs="comd/c" data-x>checked</code>. И оба этих случая мы можем
-	поймать функцией <code data-gs="comd/c" data-x>empty</code>. Таким образом
-	мы можем проверить, что <code data-gs="comd/c" data-x>$_GET['flag']</code>
-	не пуст, и только в этом случае вывести <code data-gs="comd/c" data-x>checked</code>:
+<p>In both of these cases we should not output<code data-gs="comd/c" data-x>checked</code>. And we can catch both of these cases with the function<code data-gs="comd/c" data-x>empty</code>. This way we can check that<code data-gs="comd/c" data-x>$_GET['flag']</code>is not empty, and only in this case print<code data-gs="comd/c" data-x>checked</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="" method="GET"&gt;
@@ -156,10 +111,7 @@
 &lt;/form&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте три чекбокса, которые будут сохранять
-		свое значение после отправки.
-	</p>
+	<p>Make three checkboxes that will retain their value after sending.</p>
 </div>
 -->
   </section>
@@ -167,7 +119,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

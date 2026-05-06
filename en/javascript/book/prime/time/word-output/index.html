@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вывод частей даты словом в JavaScript — acteck.off</title>
-  <meta name="description" content="Вывод частей даты словом в JavaScript — учебные материалы по программированию.">
+  <title>Printing date parts as words in JavaScript - acteck.off</title>
+  <meta name="description" content="Printing date parts by word in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,56 +36,27 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Вывод частей даты словом в JavaScript</h1>
-    <p>
-	Вы уже умеете выводить день недели в виде
-	числа с помощью метода <code data-gs="comd/c" data-x>getDay</code>. Зачастую,
-	однако, нам нужен не номер дня недели, а
-	его текстовое название. Давайте напишем код,
-	который будет преобразовывать числа, возвращаемые
-	методом <code data-gs="comd/c" data-x>getDay</code>, в соответствующие
-	названия дней недели.
-</p>
-<p>
-	Для начала напишем код, который будет выводить
-	номер текущего дня недели:
-</p>
+    <h1>Printing date parts as words in JavaScript</h1>
+    <p>You already know how to display the day of the week as a number using the method<code data-gs="comd/c" data-x>getDay</code>. Often, however, we do not need the number of the day of the week, but its text name. Let's write code that will convert the numbers returned by the method<code data-gs="comd/c" data-x>getDay</code>, in the corresponding names of the days of the week.</p>
+<p>First, let's write the code that will display the number of the current day of the week:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let date = new Date();
 let day = date.getDay();
 
 console.log(day);</code>
 </div>
-<p>
-	А теперь доработаем этот код так, чтобы на
-	экран выводился не номер дня недели, а его
-	название (для краткости воскресенье будет
-	<code data-gs="comd/s" data-x>'вс'</code>, понедельник <code data-gs="comd/s" data-x>'пн'</code> и так далее).
-</p>
-<p>
-	Для решения задачи составим массив дней недели
-	<code data-gs="comd/c" data-x>days</code> и начнем его с воскресенья (так
-	как это нулевой день):
-</p>
+<p>Now let’s modify this code so that the screen displays not the number of the day of the week, but its name (for brevity, Sunday will be<code data-gs="comd/s" data-x>'вс'</code>, Monday<code data-gs="comd/s" data-x>'пн'</code>and so on).</p>
+<p>To solve the problem, let's create an array of days of the week<code data-gs="comd/c" data-x>days</code>and start it from Sunday (since it is day zero):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];</code>
 </div>
-<p>
-	Как с помощью этого массива вывести на экран,
-	к примеру, <code data-gs="comd/s" data-x>'вт'</code>? Нужно передать в
-	квадратных скобках номер этого дня (вторник
-	имеет номер <code data-gs="comd/n" data-x>2</code>):
+<p>How to use this array to display, for example,<code data-gs="comd/s" data-x>'вт'</code>? You need to pass the number of this day in square brackets (Tuesday has the number<code data-gs="comd/n" data-x>2</code>):
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
 console.log(days[2]); // выведет 'вт'</code>
 </div>
-<p>
-	Однако, мы не хотим передавать день недели
-	вручную, а хотим, чтобы JavaScript сам определил
-	текущий день и вывел его название. Для этого
-	нужно совместить то, что возвращает метод
-	<code data-gs="comd/c" data-x>getDay</code>, и наш массив <code data-gs="comd/c" data-x>days</code>:
+<p>However, we don't want to pass the day of the week manually, but rather let JavaScript determine the current day and display its name. To do this, you need to combine what the method returns<code data-gs="comd/c" data-x>getDay</code>, and our array<code data-gs="comd/c" data-x>days</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let date = new Date();
@@ -95,32 +66,27 @@ let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
 console.log(days[day]);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть дан следующий массив:
-	</p>
+	<p>Let the following array be given:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let months = [
 	'янв', 'фев', 'мар', 'апр', 'май', 'июн',
 	'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'
 ];</code>
 	</div>
-	<p>
-		Выведите с помощью этого массива название
-		текущего месяца.
-	</p>
+	<p>Use this array to print the name of the current month.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../weekday-getting/index.html" class="lesson-nav-btn lesson-nav-prev" title="Получение дня недели">← Получение дня недели</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../time-setting/index.html" class="lesson-nav-btn lesson-nav-next" title="Установка времени">Установка времени →</a>
+      <a href="../weekday-getting/index.html" class="lesson-nav-btn lesson-nav-prev" title="Getting the day of the week">← Getting the day of the week</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../time-setting/index.html" class="lesson-nav-btn lesson-nav-next" title="Setting the time">Setting the time →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

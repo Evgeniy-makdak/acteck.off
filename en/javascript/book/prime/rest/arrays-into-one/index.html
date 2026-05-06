@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Функция, сливающая массивы в один в JavaScript — acteck.off</title>
-  <meta name="description" content="Функция, сливающая массивы в один в JavaScript — учебные материалы по программированию.">
+  <title>Function that merges arrays into one in JavaScript - acteck.off</title>
+  <meta name="description" content="Function that merges arrays into one in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,24 +36,14 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Функция, сливающая массивы в один в JavaScript</h1>
-    <p>
-	Давайте теперь реализуем функцию <code data-gs="comd/c" data-x>merge</code>,
-	параметрами принимающую произвольное количество
-	массивов и сливающую их элементы в один массив.
-</p>
-<p>
-	Вот пример работы нашей функции:
-</p>
+    <h1>Function that merges arrays into one in JavaScript</h1>
+    <p>Let's now implement the function<code data-gs="comd/c" data-x>merge</code>, which takes an arbitrary number of arrays as parameters and merges their elements into one array.</p>
+<p>Here is an example of our function working:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = merge([1, 2, 3], [4, 5, 6], [7, 8, 9]);
 console.log(result); // выведет [1, 2, 3, 4, 5, 6, 7, 8, 9]</code>
 </div>
-<p>
-	Приступим к реализации. Давайте для начала
-	получим переданные массивы в виде одного
-	двухмерного:
-</p>
+<p>Let's start implementation. Let's first get the passed arrays in the form of one two-dimensional one:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">merge([1, 2, 3], [4, 5, 6], [7, 8, 9]);
 
@@ -61,19 +51,14 @@ function merge(...arrs){
 	console.log(arrs); // выведет  [ [1, 2, 3,] [4, 5, 6], [7, 8, 9] ]
 }</code>
 </div>
-<p>
-	Давайте теперь сольем этот двухмерный массив
-	в одномерный. Используем для этого метод
-	<code data-gs="comd/c" data-x>concat</code> и оператор spread:
-</p>
+<p>Let's now merge this two-dimensional array into a one-dimensional one. For this we use the method<code data-gs="comd/c" data-x>concat</code>and the spread operator:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arrs   = [ [1, 2, 3,], [4, 5, 6], [7, 8, 9] ];
 
 let result = [].concat(...arrs);
 console.log(result); // выведет [1, 2, 3, 4, 5, 6, 7, 8, 9]</code>
 </div>
-<p>
-	Давайте добавим этот код в нашу функцию <code data-gs="comd/c" data-x>merge</code>:
+<p>Let's add this code to our function<code data-gs="comd/c" data-x>merge</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function merge(...arrs) {
@@ -83,22 +68,19 @@ console.log(result); // выведет [1, 2, 3, 4, 5, 6, 7, 8, 9]</code>
 let result = merge([1, 2, 3], [4, 5, 6], [7, 8, 9]);
 console.log(result); // выведет [1, 2, 3, 4, 5, 6, 7, 8, 9]</code>
 </div>
-<p>
-	Как вы видите, эта функция также получилась
-	очень лаконичной.
-</p>
+<p>As you can see, this function also turned out to be very concise.</p>
   
     <div class="lesson-nav">
-      <a href="../arrays-two-dimensional/index.html" class="lesson-nav-btn lesson-nav-prev" title="Массивы в двухмерный">← Массивы в двухмерный</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../destructuring/arrays/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Деструктуризация массивов">Деструктуризация массивов →</a>
+      <a href="../arrays-two-dimensional/index.html" class="lesson-nav-btn lesson-nav-prev" title="Arrays in 2D">← Arrays in two dimensions</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../destructuring/arrays/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Destructuring Arrays">Array destructuring →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

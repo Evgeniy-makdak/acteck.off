@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ограничения обобщений в TypeScript — acteck.off</title>
-  <meta name="description" content="Ограничения обобщений в TypeScript — учебные материалы по программированию.">
+  <title>Limitations of Generics in TypeScript - acteck.off</title>
+  <meta name="description" content="Limitations of Generics in TypeScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,75 +36,42 @@
       <a href="../../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Ограничения обобщений в TypeScript</h1>
-    <p>
-	В одном из предыдущих уроков мы создавали
-	функцию обобщенного типа, которая должна
-	была выводить длину переданного в нее
-	параметра. Однако при компиляции нам
-	выдалась ошибка, поскольку не все типы
-	могут иметь длину: 
-</p>
+    <h1>Limitations of Generics in TypeScript</h1>
+    <p>In one of the previous lessons, we created a generic function that was supposed to print the length of the parameter passed to it. However, during compilation we received an error because not all types can have a length:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function myFunc &lt; T &gt; (data: T): T {
 	console.log(data.length); // ошибка
 	return data;
 }</code>
 </div>
-<p>
-	В том случае мы исправили ситуацию, изменив
-	обобщенный тип на тип обобщенного массива.
-	Но в TypeScript есть возможность создать
-	ограничения обобщений. Для этого в угловых
-	скобках, после переменной <code data-gs="comd/c" data-x>T</code> пишем
-	ключевое слово <code data-gs="comd/c" data-x>extends</code>. После него
-	в фигурных скобках записываем новую
-	переменную <code data-gs="comd/c" data-x>str</code> строкового типа.
-	Остальной код функции останется без
-	изменений: 
-</p>
+<p>In that case, we corrected the situation by changing the generic type to a generic array type. But TypeScript has the ability to create generic constraints. To do this, in angle brackets, after the variable<code data-gs="comd/c" data-x>T</code>write the keyword<code data-gs="comd/c" data-x>extends</code>. After it, we write a new variable in curly braces<code data-gs="comd/c" data-x>str</code>string type. The rest of the function code will remain unchanged:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function myFunc &lt;T extends {str: string}&gt; (data: T): void {
 	console.log(data.str.length);
 }</code>
 </div>
-<p>
-	Выходит, что обобщенный тип наследует тип
-	переменной <code data-gs="comd/c" data-x>str</code>, указанной в фигурных
-	скобках. Теперь давайте проверим работу
-	нашей функции и создадим переменную <code data-gs="comd/c" data-x>myStr</code>,
-	ссылающуюся на тип <code data-gs="comd/c" data-x>str</code>, и зададим
-	ей значение в фигурных скобках: 
-</p>
+<p>It turns out that the generic type inherits the type of the variable<code data-gs="comd/c" data-x>str</code>, indicated in curly braces. Now let's test our function and create a variable<code data-gs="comd/c" data-x>myStr</code>, referring to the type<code data-gs="comd/c" data-x>str</code>, and give it a value in curly braces:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let myStr: {str: string} = {str: 'abcde'};</code>
 </div>
-<p>
-	Давайте вызовем функцию <code data-gs="comd/c" data-x>myFunc</code>, не
-	забывая снова указать ее тип и передадим
-	переменную <code data-gs="comd/c" data-x>myStr</code> как параметр: 
-</p>
+<p>Let's call the function<code data-gs="comd/c" data-x>myFunc</code>, not forgetting to specify its type again and pass the variable<code data-gs="comd/c" data-x>myStr</code>as parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">myFunc &lt;{str: string}&gt; (myStr);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		На основе примера, рассмотренного в уроке,
-		задайте функцию для нахождения длины
-		числового массива. 
-	</p>
+	<p>Based on the example discussed in the lesson, define a function to find the length of a numeric array.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../classes/index.html" class="lesson-nav-btn lesson-nav-prev" title="Обобщенные классы">← Обобщенные классы</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../parametres-types-limitations/index.html" class="lesson-nav-btn lesson-nav-next" title="Использование типовых параметров в ограничениях дженериков">Использование типовых параметров в ограничениях дженериков →</a>
+      <a href="../classes/index.html" class="lesson-nav-btn lesson-nav-prev" title="Generic classes">← Generalized classes</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../parametres-types-limitations/index.html" class="lesson-nav-btn lesson-nav-next" title="Using Generic Parameters in Generic Constraints">Using generic parameters in generic constraints →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

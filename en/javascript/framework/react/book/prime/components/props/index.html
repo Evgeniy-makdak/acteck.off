@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Пропсы компонентов в React — acteck.off</title>
-  <meta name="description" content="Пропсы компонентов в React — учебные материалы по программированию.">
+  <title>Component props in React - acteck.off</title>
+  <meta name="description" content="Component props in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Пропсы компонентов в React</h1>
-    <p>
-	В предыдущем уроке мы вывели несколько
-	экземпляров продуктов:
-</p>
+    <h1>Component Props in React</h1>
+    <p>In the previous lesson, we displayed several instances of products:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return &lt;div&gt;
@@ -50,28 +47,10 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Пока каждый вызов тега с продуктом выводит
-	на экран одно и тоже. Давайте теперь сделаем
-	каждый продукт уникальным.
-</p>
-<p>
-	Пусть, к примеру, каждый продукт должен иметь
-	название и цену. Сделаем так, чтобы каждый
-	вызов тега с продуктом выводил продукт со
-	своим именем и ценой, оформленными в нужную
-	нам верстку.
-</p>
-<p>
-	Для этого нам необходимо проделать несколько
-	шагов.
-</p>
-<p>
-	Для начала при вызове тега с продуктом мы
-	в этот тег будем писать два атрибута: атрибут
-	<code data-gs="comd/c" data-x>name</code> с названием продукта и атрибут 
-	<code data-gs="comd/c" data-x>cost</code> с ценой, вот так:
-</p>
+<p>So far, each call to a tag with a product displays the same thing on the screen. Let's now make each product unique.</p>
+<p>Let, for example, each product have a name and price. Let's make sure that each call to a tag with a product displays a product with its own name and price, formatted in the layout we need.</p>
+<p>To do this we need to take several steps.</p>
+<p>To begin with, when calling a tag with a product, we will write two attributes into this tag: attribute<code data-gs="comd/c" data-x>name</code>with product name and attribute<code data-gs="comd/c" data-x>cost</code>with the price, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return &lt;div&gt;
@@ -81,10 +60,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Имена и значения этих атрибутов будут попадать
-	в виде объекта в первый параметр функции-конструктора
-	нашего компонента <code data-gs="comd/c" data-x>Product</code>:
+<p>The names and values ​​of these attributes will appear as an object in the first parameter of our component’s constructor function<code data-gs="comd/c" data-x>Product</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product(props) {
@@ -95,23 +71,9 @@
 	&lt;/p&gt;;
 }</code>
 </div>
-<p>
-	Имя параметра может быть каким угодно, но
-	в React принято называть его <code data-gs="comd/c" data-x>props</code>.
-	Фактически это не просто имя параметра, а
-	важная концепция React.
-</p>
-<p>
-	Суть этой концепции в следующем: при вызове
-	тега компонента в этот тег можно записывать
-	атрибуты с данными. Эти данные будут попадать
-	в <dfn data-gs="comd/d" data-x>пропсы</dfn> компонента. Затем компонент
-	может использовать эти данные, например,
-	для создания нужной верстки.
-</p>
-<p>
-	Давайте сделаем это:
-</p>
+<p>The parameter name can be anything, but in React it is common to call it<code data-gs="comd/c" data-x>props</code>. In fact, it is not just a parameter name, but an important concept in React.</p>
+<p>The essence of this concept is as follows: when you call a component tag, you can write attributes with data to this tag. This data will go to<dfn data-gs="comd/d" data-x>props</dfn>component. The component can then use this data, for example, to create the desired layout.</p>
+<p>Let's do this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product(props) {
 	return &lt;p&gt;
@@ -120,11 +82,7 @@
 	&lt;/p&gt;;
 }</code>
 </div>
-<p>
-	Более удобно и более принято не пользоваться
-	объектом <code data-gs="comd/c" data-x>props</code>, а сразу выполнять <a href="../../../../../../book/prime/destructuring/arrays/function-result/index.html">дестуктуризацию</a>
-	пропсов прямо в параметрах функции:
-</p>
+<p>It is more convenient and more accepted not to use the object<code data-gs="comd/c" data-x>props</code>, and immediately execute<a href="../../../../../../book/prime/destructuring/arrays/function-result/index.html">destructurization</a>props directly in the function parameters:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ name, cost }) {
 	return &lt;p&gt;
@@ -134,26 +92,19 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте компонент <code data-gs="comd/c" data-x>Employee</code>, выводящий
-		данные работника на экран. Пусть этими данными
-		будут фамилия, имя, отчество и зарплата.
-		Оформите эти данные в нужную вам верстку.
-		Выведите в компоненте <code data-gs="comd/c" data-x>App</code> трех работников
-		с разными данными.
-	</p>
+	<p>Make a component<code data-gs="comd/c" data-x>Employee</code>, displaying employee data on the screen. Let these data be your last name, first name, patronymic and salary. Arrange this data in the layout you need. Output in component<code data-gs="comd/c" data-x>App</code>three workers with different data.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../multiple-instances/index.html" class="lesson-nav-btn lesson-nav-prev" title="Несколько экземляров компонента">← Несколько экземляров компонента</a>
-      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../child/index.html" class="lesson-nav-btn lesson-nav-next" title="Дочерние компоненты">Дочерние компоненты →</a>
+      <a href="../multiple-instances/index.html" class="lesson-nav-btn lesson-nav-prev" title="Multiple instances of a component">← Multiple instances of a component</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../child/index.html" class="lesson-nav-btn lesson-nav-next" title="Child components">Child components →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

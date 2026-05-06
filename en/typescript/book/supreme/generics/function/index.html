@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Функцию обобщенного типа в TypeScript — acteck.off</title>
-  <meta name="description" content="Функцию обобщенного типа в TypeScript — учебные материалы по программированию.">
+  <title>Generic type function in TypeScript - acteck.off</title>
+  <meta name="description" content="Generic Type Function in TypeScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,20 +36,9 @@
       <a href="../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Функцию обобщенного типа в TypeScript</h1>
-    <p>
-	В предыдущих уроках мы сделали функцию-тождество,
-	которая принимала параметры обобщенного
-	типа. Теперь мы научимся описывать тип
-	такой функции и создавать обобщенные
-	интерфейсы. 
-</p>
-<p>
-	Функцию обобщенного типа можно также
-	записать и в виде стрелочной. Давайте
-	объявим переменную <code data-gs="comd/c" data-x>func</code>, у которой
-	будет тип обобщенной функции: 
-</p>
+    <h1>Generic type function in TypeScript</h1>
+    <p>In previous lessons, we made an identity function that took parameters of a generic type. Now we will learn how to describe the type of such a function and create generic interfaces.</p>
+<p>A generic function can also be written as an arrow function. Let's declare a variable<code data-gs="comd/c" data-x>func</code>, which will have a generic function type:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function myFunc &lt;T&gt; (data: T): T {
 	return data;
@@ -57,11 +46,7 @@
 
 let func: &lt;T&gt; (data: T) =&gt; T = myFunc;</code>
 </div>
-<p>
-	Можно задать и другой символ для обобщенного
-	типа такой переменной. Главное следить,
-	чтобы имена типов не конфликтовали: 
-</p>
+<p>You can also specify another symbol for the generic type of such a variable. The main thing is to ensure that type names do not conflict:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function myFunc &lt;T&gt; (data: T): T {
 	return data;
@@ -69,11 +54,7 @@ let func: &lt;T&gt; (data: T) =&gt; T = myFunc;</code>
 
 let func: &lt;U&gt; (data: U) =&gt; U = myFunc;</code>
 </div>
-<p>
-	Обобщенный тип можно записать, заключив
-	сигнатуру вызова и тип функции в фигурные
-	скобки: 
-</p>
+<p>A generic type can be written by enclosing the call signature and the function type in curly braces:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function myFunc &lt; T &gt; (data: T): T {
 	return data;
@@ -82,15 +63,11 @@ let func: &lt;U&gt; (data: U) =&gt; U = myFunc;</code>
 let func: {&lt;U&gt; (data: U): U} = myFunc;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Напишите функцию для определения длины
-		массива обобщенного типа в вариантах,
-		описанных в данном уроке. 
-	</p>
+	<p>Write a function to determine the length of a generic array using the options described in this lesson.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -98,7 +75,7 @@ let func: {&lt;U&gt; (data: U): U} = myFunc;</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

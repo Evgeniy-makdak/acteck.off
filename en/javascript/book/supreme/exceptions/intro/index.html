@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Introduction в исключительные ситуации в JavaScript — acteck.off</title>
-  <meta name="description" content="Introduction в исключительные ситуации в JavaScript — учебные материалы по программированию.">
+  <title>Introduction to Exceptions in JavaScript - acteck.off</title>
+  <meta name="description" content="Introduction to Exceptions in JavaScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,109 +36,29 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Introduction в исключительные ситуации в JavaScript</h1>
-    <p>
-	Сейчас мы будем рассматривать исключительные
-	ситуации в JavaScript. Для начала я сделаю
-	некоторое введение, в котором будут примеры
-	исключительных ситуаций вообще для любых
-	языков программирования, а потом разберемся,
-	как дело обстоит в JavaScript.
-</p>
-<p>
-	Когда мы пишем наши программы, мы неявно
-	рассчитываем на то, что все программно-технические
-	механизмы, используемые нами, будут работать
-	корректно.
-</p>
-<p>
-	Это, однако, не всегда так. При передаче
-	данных по сети происходит обрыв связи и данные
-	приходят к нам в некорректном виде, или вообще
-	не приходят. При записи файла оказывается,
-	что выделенное нам место на жестком диске
-	закончилось, и файл не может записаться.
-	При чтении файла оказывается, что такого
-	файла не существует и нам не откуда читать.
-	При печати данных на принтере происходит
-	обрыв кабеля, соединяющего принтер и компьютер.
-</p>
-<p>
-	Все описанные ситуации имеют общую суть:
-	происходит некий сбой, который приводит к
-	невозможности или бессмысленности завершения
-	запланированной операции.
-</p>
-<p>
-	Бывают также ситуации, в которой происходит
-	некая ошибка, не являющаяся сбоем. Например,
-	вы спрашиваете у пользователя его email,
-	и он вводит email в некорректном формате.
-	Понятно, что наша программа не может продолжить
-	обрабатывать email, так как он не корректен.
-	Но, тем не менее это - не исключительная
-	ситуация. Наша программа может сама исправить
-	ситуацию: она выведет сообщение об ошибке
-	и пользователь повторит свой ввод.
-</p>
-<p>
-	На самом деле разница между сбоем и не сбоем
-	весьма расплывчата. Событие, которое одна
-	программа может трактовать как исключительную
-	ситуацию, другая программа может трактовать
-	как некую ошибку, с которой она может справится.
-</p>
-<p>
-	Критерий тут следующий: если при возникновении
-	проблемы ваша программа может продолжать
-	выполнять то, для чего она предназначена,
-	то это не исключительная ситуация, а если
-	не может - то да, это исключение.
-</p>
-<p>
-	Например, у нас есть программа, которая должна
-	спросить email пользователя. Если пользователь
-	ввел email в некорректном формате - это не
-	сбой. Это ожидаемая проблема и наша программа
-	будет спрашивать у пользователя email столько
-	раз, пока он не введет его корректно.
-</p>
-<p>
-	Пусть наша программа, которая спрашивает
-	email, должна также отправить этот корректный
-	email через интернет. При этом оказывается,
-	что интернет не работает. Вот это уже проблема:
-	программа никак не сможет отправить данные
-	через интернет, если интернет не работает.
-	Программа, тем не менее, может продолжить
-	свое выполнение: она может вывести информацию
-	о проблеме, повторить попытку отправки через
-	некоторое время, и так далее. Но эти действия
-	уже не совсем то, для чего программа была
-	предназначена, так как основное действие
-	- отправка email программа сделать не сможет.
-</p>
-<p>
-	Очень часто то, исключительная ситуация или
-	нет, зависит от языка программирования. Во
-	многих языках, если вдруг произошло деление
-	на ноль - это считается исключением (так
-	как на ноль делить нельзя), но в JavaScript
-	- не считается (в JavaScript на ноль делить
-	можно).
-</p>
+    <h1>Introduction to Exceptions in JavaScript</h1>
+    <p>Now we will look at exception situations in JavaScript. To begin with, I will make some introduction, which will contain examples of exception situations in general for any programming languages, and then we will figure out how things work in JavaScript.</p>
+<p>When we write our programs, we implicitly expect that all the software and hardware mechanisms we use will work correctly.</p>
+<p>This, however, is not always the case. When transmitting data over the network, the connection is broken and the data comes to us in an incorrect form or does not arrive at all. When writing a file, it turns out that the space allocated to us on the hard drive has run out and the file cannot be written. When reading the file, it turns out that such a file does not exist and we have no place to read from. When printing data on the printer, the cable connecting the printer and the computer breaks.</p>
+<p>All the situations described have a common essence: some kind of failure occurs, which makes it impossible or pointless to complete the planned operation.</p>
+<p>There are also situations in which some error occurs that is not a failure. For example, you ask a user for his email, and he enters the email in an incorrect format. It is clear that our program cannot continue processing the email, since it is not correct. But, nevertheless, this is not an exceptional situation. Our program can correct the situation itself: it will display an error message and the user will repeat his input.</p>
+<p>In fact, the difference between crashing and not crashing is quite vague. An event that one program may treat as an exception may be treated by another program as some kind of error that it can handle.</p>
+<p>The criterion here is this: if, when a problem occurs, your program can continue to do what it was designed to do, then it is not an exception, and if it cannot, then yes, it is an exception.</p>
+<p>For example, we have a program that needs to ask for the user's email. If the user entered an email in an incorrect format, this is not a failure. This is an expected problem and our program will ask the user for an email so many times until he enters it correctly.</p>
+<p>Let our program, which asks for an email, also have to send this correct email over the Internet. It turns out that the Internet does not work. This is already a problem: the program will not be able to send data via the Internet if the Internet does not work. The program, however, can continue to execute: it can display information about the problem, retry sending after a while, and so on. But these actions are no longer exactly what the program was intended for, since the program cannot do the main action - sending an email.</p>
+<p>Very often, whether an exception occurs or not depends on the programming language. In many languages, if a division by zero suddenly occurs, this is considered an exception (since you cannot divide by zero), but in JavaScript it is not considered (in JavaScript you can divide by zero).</p>
   
     <div class="lesson-nav">
-      <a href="../../regular/string-backslash/index.html" class="lesson-nav-btn lesson-nav-prev" title="Обратный слеш в строках">← Обратный слеш в строках</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../emerging-types/index.html" class="lesson-nav-btn lesson-nav-next" title="Виды возникающих ситуаций">Виды возникающих ситуаций →</a>
+      <a href="../../regular/string-backslash/index.html" class="lesson-nav-btn lesson-nav-prev" title="Backslash in strings">← Backslash in strings</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../emerging-types/index.html" class="lesson-nav-btn lesson-nav-next" title="Types of situations that arise">Types of situations that arise →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

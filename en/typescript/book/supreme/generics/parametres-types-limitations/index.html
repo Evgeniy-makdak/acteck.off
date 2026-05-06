@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Использование типовых параметров в ограничениях дженериков в TypeScript — acteck.off</title>
-  <meta name="description" content="Использование типовых параметров в ограничениях дженериков в TypeScript — учебные материалы по программированию.">
+  <title>Using generic parameters in generic constraints in TypeScript - acteck.off</title>
+  <meta name="description" content="Using Generic Parameters in Generic Constraints in TypeScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,43 +36,22 @@
       <a href="../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Использование типовых параметров в ограничениях дженериков в TypeScript</h1>
-    <p>
-	Также в TypeScript есть возможность
-	объявления одного типового параметра,
-	который будет ограничен другим типовым
-	параметром. Это необходимо, когда приходится
-	копировать свойства из одного объекта в
-	другой, при этом застраховаться от того,
-	что мы не передадим лишнее свойство. 
-</p>
-<p>
-	Давайте рассмотрим следующий пример. Снова
-	вернемся к функция <code data-gs="comd/c" data-x>myFunc</code>, определяющей
-	длину переменной: 
-</p>
+    <h1>Using Generic Parameters in Generic Constraints in TypeScript</h1>
+    <p>TypeScript also allows you to declare one type parameter that will be constrained by another type parameter. This is necessary when we have to copy properties from one object to another, while ensuring that we do not transfer an extra property.</p>
+<p>Let's look at the following example. Let's go back to the function<code data-gs="comd/c" data-x>myFunc</code>, which determines the length of the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function myFunc &lt;T&gt; (data: T): T {
 	console.log(data.length); // ошибка
 	return data;
 }</code>
 </div>
-<p>
-	Однако теперь мы хотим, чтобы данная функция
-	работала только с теми типами, у которых
-	есть свойство <code data-gs="comd/c" data-x>length</code>. Для этого сделаем
-	интерфейс <code data-gs="comd/c" data-x>ILength</code>, которому зададим
-	свойство <code data-gs="comd/c" data-x>length</code> числового типа: 
-</p>
+<p>However, now we want this function to only work on types that have the property<code data-gs="comd/c" data-x>length</code>. For this we will create an interface<code data-gs="comd/c" data-x>ILength</code>, to which we will set the property<code data-gs="comd/c" data-x>length</code>numeric type:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">interface ILength {
 	length: number;
 }</code>
 </div>
-<p>
-	Далее в нашей функции зададим обобщенный
-	тип, который наследует от <code data-gs="comd/c" data-x>ILength</code>
-	через ключевое слово <code data-gs="comd/c" data-x>extends</code>: 
+<p>Next, in our function we will define a generic type that inherits from<code data-gs="comd/c" data-x>ILength</code>via keyword<code data-gs="comd/c" data-x>extends</code>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">function myFunc &lt;T extends ILength&gt; (data: T): T {
@@ -80,9 +59,7 @@
 	return data;
 }</code>
 </div>
-<p>
-	Вот так выглядит наш полный код: 
-</p>
+<p>This is what our complete code looks like:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">interface ILength {
 	length: number;
@@ -93,36 +70,27 @@ function myFunc &lt;T extends ILength&gt; (data: T): T {
 	return data;
 }</code>
 </div>
-<p>
-	Давайте проверим работу нашей функции и
-	найдем длину строки: 
-</p>
+<p>Let's test our function and find the length of the string:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">console.log(myFunc('abcde'));</code>
 </div>
-<p>
-	Результат выполненного кода: 
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">5
 'abcde'</code>
 </div>
-<p>
-	А теперь передадим в параметр массив: 
-</p>
+<p>Now let’s pass an array to the parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">console.log(myFunc(['a', 'b', 'c']));</code>
 </div>
-<p>
-	Результат выполненного кода: 
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">3
 [ 'a', 'b', 'c' ]</code>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -130,7 +98,7 @@ function myFunc &lt;T extends ILength&gt; (data: T): T {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

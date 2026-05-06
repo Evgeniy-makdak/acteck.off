@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Тег meta — acteck.off</title>
-  <meta name="description" content="Тег meta — учебные материалы по программированию.">
+  <title>Meta tag - acteck.off</title>
+  <meta name="description" content="Meta tag - educational materials on programming.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,143 +33,82 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Тег meta</h1>
-    <p>
-	Тег <code data-gs="comd/c" data-x>meta</code> задает некоторые служебные
-	команды браузеру или поисковым системам:
-	кодировку страницы, описание страницы для
-	поисковиков, автора страницы и так далее.
+    <h1>meta tag</h1>
+    <p>Tag<code data-gs="comd/c" data-x>meta</code>sets some service commands to the browser or search engines: page encoding, page description for search engines, page author, and so on.</p>
+<p>The principle of operation of the tag is as follows (with some exceptions): the command name is specified (in the attribute<code data-gs="comd/c" data-x>name</code>or in the attribute<code data-gs="comd/c" data-x>http-equiv</code>), and the command value is specified in the attribute<code data-gs="comd/c" data-x>content</code>. Essentially, this tag contains a group of tags (commands), the general name of which is<dfn data-gs="comd/d" data-x>meta tags</dfn>
 </p>
-<p>
-	Принцип работы тега такой (за некоторым исключением):
-	задается имя команды (в атрибуте <code data-gs="comd/c" data-x>name</code>
-	или в атрибуте <code data-gs="comd/c" data-x>http-equiv</code>), а значение
-	команды задается в атрибуте <code data-gs="comd/c" data-x>content</code>.
-	По сути данный тег содержит в себе группу
-	тегов (команд), общее название которым <dfn data-gs="comd/d" data-x>мета-теги</dfn>
-</p>
-<p>
-	Тег <code data-gs="comd/c" data-x>meta</code> не требует закрывающего тега.
-</p>
-<p>
-	Тег <code data-gs="comd/c" data-x>meta</code> следует использовать внутри
-	тега <a href="../head/index.html"><code data-gs="comd/c" data-x>head</code></a>.
+<p>Tag<code data-gs="comd/c" data-x>meta</code>does not require a closing tag.</p>
+<p>Tag<code data-gs="comd/c" data-x>meta</code>should be used inside a tag<a href="../head/index.html"><code data-gs="comd/c" data-x>head</code></a>.
 </p>
 
-<h2>Популярные примеры использования</h2>
+<h2>Popular use cases</h2>
 
-<h3>Кодировка документа</h3>
-<p>
-	В настоящее время стандартом кодировки является
-	<code data-gs="comd/c" data-x>utf-8</code>. Теоретически явно (через тег
-	<code data-gs="comd/c" data-x>meta</code>) кодировку можно и не задавать
-	- браузер должен вас понять. На практике
-	я бы не советовал так поступать - кодировка
-	может сбиться и вместо русского текста вы
-	увидите крокозябры.
-</p>
-<p>
-	В HTML5 кодировка задается в упрощенном виде:
-</p>
+<h3>Document encoding</h3>
+<p>The current encoding standard is<code data-gs="comd/c" data-x>utf-8</code>. Theoretically, explicitly (via the tag<code data-gs="comd/c" data-x>meta</code>) you don’t have to specify the encoding - the browser must understand you. In practice, I would not recommend doing this - the encoding may go wrong and instead of the Russian text you will see crocodiles.</p>
+<p>In HTML5, the encoding is specified in a simplified form:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meta charset="utf-8"&gt;</code>
 </div>
-<p>
-	Раньше кодировка задавалась так (сейчас так
-	делать не стоит, устарело, можете встретить
-	в устаревающих учебниках):
-</p>
+<p>Previously, the encoding was set like this (now you shouldn’t do this, it’s outdated, you can find it in outdated textbooks):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;</code>
 </div>
 
-<h3>Описание документа</h3>
-<p>
-	Мета-описание документа предназначено
-	для поисковиков, в нем должно лежать краткое
-	описание страницы. Из этого описания при
-	некоторых условиях поисковик может сделать
-	<dfn data-gs="comd/d" data-x>сниппет</dfn> страницы сайта. Сниппет
-	- это короткое описание страницы сайта при
-	поиске. Соответственно <i>мета-описание страницы
-	следует делать таким, каким вы хотите видеть
-	сниппет страницы на поиске</i> и для каждой
-	страницы сайта свое.
-</p>
-<p>
-	Пользоваться следует так:
-</p>
+<h3>Description of the document</h3>
+<p>The meta description of the document is intended for search engines; it should contain a brief description of the page. From this description, under certain conditions, a search engine can make<dfn data-gs="comd/d" data-x>snippet</dfn>site pages. A snippet is a short description of a site page during a search. Respectively<i>The meta description of the page should be made the way you want to see the page snippet in search</i>and for each page of the site there is one.</p>
+<p>It should be used like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meta name="description" content="Эта страница рассказывает от мета-тегах."&gt;</code>
 </div>
 
-<h3>Ключевые слова документа </h3>
-<p>
-	Мета-keywords (ключевые слова) предназначены
-	для поисковиков, чтобы указать самые главные
-	слова, по которым будут искать страницу.
-	В настоящее время из-за злоупотреблений со
-	стороны веб-мастеров поисковики не придают
-	значения этому мета-тегу.
-</p>
-<p>
-	Пользоваться следует так (ключевые слова
-	и фразы перечисляются через запятую):
-</p>
+<h3>Document Keywords</h3>
+<p>Meta-keywords (keywords) are intended for search engines to indicate the most important words by which a page will be searched. Currently, due to abuse by webmasters, search engines do not attach importance to this meta tag.</p>
+<p>You should use it like this (keywords and phrases are listed separated by commas):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meta name="keywords" content="Метатег, Мета-описание, HTML редирект" &gt;</code>
 </div>
 
-<h3>Редирект (перебрасывание на другую страницу)</h3>
-<p>
-	Можно сделать, чтобы при заходе на некоторую
-	страницу пользователя автоматически перебрасывало
-	на другую (например, если страница переехала).
-	Пользоваться так (5 - это количество секунд,
-	через которые произойдет переброс):
-</p>
+<h3>Redirect (tossing to another page)</h3>
+<p>You can make sure that when entering a certain page, the user is automatically redirected to another (for example, if the page has moved). Use it like this (5 is the number of seconds after which the transfer will occur):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;meta http-equiv="refresh" content="5; url=http://www.example.com/"&gt;</code>
 </div>
 
-<h3>Больше примеров</h3>
-<p>
-	Больше примеров вы можете найти по <a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%D0%B0%D1%82%D0%B5%D0%B3%D0%B8"
-	target="_blank">данной ссылке</a>.
+<h3>More examples</h3>
+<p>You can find more examples at<a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%D0%B0%D1%82%D0%B5%D0%B3%D0%B8"
+	target="_blank">this link</a>.
 </p>
 
-<h2>Возможные атрибуты</h2>
+<h2>Possible attributes</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Атрибут</th>
-		<th>Описание</th>
+		<th>Attribute</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>name</code></th>
-		<td>Имя мета-тега. Значение мета-тега с данным именем задается атрибутом <code data-gs="comd/c" data-x>content</code>.</td>
+		<td>Meta tag name. The value of a meta tag with this name is specified by the attribute<code data-gs="comd/c" data-x>content</code>.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>http-equiv</code></th>
-		<td>
-			Позволяет устанавливать <a href="../../../../../internet/protocol/http/headers/index.html">HTTP Headers</a>, для отправки их в браузер. 
-			Задает имя заголовка. Значение заголовка задается атрибутом <code data-gs="comd/c" data-x>content</code>.
+		<td>Allows you to install<a href="../../../../../internet/protocol/http/headers/index.html">HTTP headers</a>, to send them to the browser. Specifies the title name. The header value is specified by the attribute<code data-gs="comd/c" data-x>content</code>.
 		</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>content</code></th>
-		<td>Устанавливает значение атрибута, заданного с помощью атрибута <code data-gs="comd/c" data-x>name</code> или <code data-gs="comd/c" data-x>http-equiv</code>. </td>
+		<td>Sets the value of an attribute specified by attribute<code data-gs="comd/c" data-x>name</code>or<code data-gs="comd/c" data-x>http-equiv</code>. </td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>charset</code></th>
-		<td>Задает кодировку документа. В настоящее время стандартом является <code data-gs="comd/c" data-x>utf-8</code>.</td>
+		<td>Specifies the document encoding. Currently the standard is<code data-gs="comd/c" data-x>utf-8</code>.</td>
 	</tr>
 </table>
     <div class="lesson-nav">
       <a href="../mark/index.html" class="lesson-nav-btn lesson-nav-prev" title="mark">← mark</a>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list">☰</a>
       <a href="../meter/index.html" class="lesson-nav-btn lesson-nav-next" title="meter">meter →</a>
     </div>
   </section>
@@ -177,7 +116,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

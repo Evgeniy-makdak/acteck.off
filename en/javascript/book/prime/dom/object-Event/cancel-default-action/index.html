@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отмена действия по умолчанию в JavaScript — acteck.off</title>
-  <meta name="description" content="Отмена действия по умолчанию в JavaScript — учебные материалы по программированию.">
+  <title>Override default action in JavaScript - acteck.off</title>
+  <meta name="description" content="Overriding a Default Action in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,35 +36,14 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Отмена действия по умолчанию в JavaScript</h1>
-    <p>
-	Иногда с помощью JavaScript требуется отменить
-	действие тега по умолчанию. К примеру, по
-	нажатию на ссылку отменить переход по этой
-	ссылке. Как правило такое требуется в том
-	случае, если эту ссылку мы используем просто
-	для запуска какого-либо кода. В этом случае
-	то, что при клике на ссылку произойдет переход
-	по ней, нам совсем не нужно.
-</p>
-<p>
-	Отмена действия по умолчанию производится
-	с помощью объекта <code data-gs="comd/c" data-x>Event</code>. Для этого
-	у него есть специальный метод <code data-gs="comd/c" data-x>preventDefault()</code>,
-	который следует вызвать в любом месте обработчика
-	события.
-</p>
-<p>
-	Попробуем на практике. Пусть у нас есть вот
-	такая ссылка:
-</p>
+    <h1>Overriding a default action in JavaScript</h1>
+    <p>Sometimes using JavaScript you want to override the default action of a tag. For example, by clicking on a link, you can cancel following that link. As a rule, this is required if we simply use this link to run some code. In this case, we don’t really need the fact that when you click on a link it will be followed.</p>
+<p>Overriding the default action is done using the object<code data-gs="comd/c" data-x>Event</code>. He has a special method for this<code data-gs="comd/c" data-x>preventDefault()</code>, which should be called anywhere in the event handler.</p>
+<p>Let's try it in practice. Let us have this link:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;a href="/" id="elem"&gt;ссылка&lt;/a&gt;</code>
 </div>
-<p>
-	Давайте сделаем так, чтобы по клику на ссылку
-	не происходило перехода на другую страницу:
-</p>
+<p>Let's make sure that clicking on a link does not lead to another page:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
 
@@ -74,32 +53,23 @@ elem.addEventListener('click', function(event) {
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны ссылки. Сделайте так, чтобы по клику
-		на ссылку ей в конец записывался ее href,
-		а перехода по ссылке не происходило.
-	</p>
+	<p>Links are provided. Make sure that when you click on a link, its href is written at the end, and the link is not followed.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны два инпута, абзац и ссылка. Пусть в
-		инпуты вводятся числа. Сделайте так, чтобы
-		по клику на ссылку в абзац записалась сумма
-		введенных чисел.
-	</p>
+	<p>Two inputs are given, a paragraph and a link. Let numbers be entered into the inputs. Make sure that when you click on the link, the sum of the entered numbers is written into the paragraph.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../keys-modifiers/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отслеживание клавиш-модификаторов">← Отслеживание клавиш-модификаторов</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../events-bubbling/index.html" class="lesson-nav-btn lesson-nav-next" title="Всплытие событий">Всплытие событий →</a>
+      <a href="../keys-modifiers/index.html" class="lesson-nav-btn lesson-nav-prev" title="Tracking modifier keys">← Tracking modifier keys</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../events-bubbling/index.html" class="lesson-nav-btn lesson-nav-next" title="Bubbling Events">Bubbling Events →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

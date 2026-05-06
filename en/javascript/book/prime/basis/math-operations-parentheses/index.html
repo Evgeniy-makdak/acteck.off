@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Группирующие скобки в JavaScript — acteck.off</title>
-  <meta name="description" content="Группирующие скобки в JavaScript — учебные материалы по программированию.">
+  <title>Grouping brackets in JavaScript - acteck.off</title>
+  <meta name="description" content="Grouping Parentheses in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,116 +36,71 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Группирующие скобки в JavaScript</h1>
-    <p>
-	При желании вы можете указывать приоритет
-	операций с помощью круглых скобок. Давайте,
-	например, переделаем наш код так, чтобы вначале
-	выполнилось сложение, а уже потом умножение:
-</p>
+    <h1>Grouping brackets in JavaScript</h1>
+    <p>If desired, you can indicate the precedence of operations using parentheses. Let's, for example, rewrite our code so that the addition is performed first, and only then the multiplication:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = 2 * (2 + 3);
 alert(a); // выведет 10 (результат 2 * 5)</code>
 </div>
-<p>
-	Примечание: скобок может быть любое количество,
-	в том числе и вложенных друг в друга:
-</p>
+<p>Note: there can be any number of brackets, including nested ones:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = 2 * (2 + 4 * (3 + 1));
 alert(a);</code>
 </div>
-<p>
-	В скобки можно заключить операции, обладающие
-	приоритетом - это не будет ошибкой. Например,
-	заключим в скобки произведение чисел:
-</p>
+<p>You can enclose operations that have priority in brackets - this will not be an error. For example, let's put the product of numbers in brackets:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = (2 * 2) + 3;
 alert(a); // выведет 7 (результат 4 + 3)</code>
 </div>
-<p>
-	В данном случае скобки получаются лишними
-	(у умножения ведь и так приоритет), но код
-	является допустимым.
-</p>
-<p>
-	Иногда такую группировку используют в тех
-	местах, где приоритет операций не очевиден.
-	Для примера рассмотрим следующий код:
-</p>
+<p>In this case, the parentheses are superfluous (multiplication already has priority), but the code is valid.</p>
+<p>Sometimes such a grouping is used in places where the priority of operations is not obvious. For example, consider the following code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = 8 / 2 * 4;
 alert(a);</code>
 </div>
-<p>
-	Как вы уже знаете, в нем вначале выполнится
-	деление, а потом умножение. Но с первого
-	взгляда это может быть не очевидно.
-</p>
-<p>
-	Можно использовать группирующие скобки, чтобы
-	явно показать приоритет:
-</p>
+<p>As you already know, it will first perform division and then multiplication. But this may not be obvious at first glance.</p>
+<p>You can use grouping brackets to explicitly show precedence:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = (8 / 2) * 4;
 alert(a);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = (2 + 3) * (2 + 3);
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = (2 + 3) * 2 + 3;
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = 2 * (2 + 4 * (3 + 1));
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = 2 * 8 / 4;
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = (2 * 8) / 4;
 alert(a);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		на экран:
-	</p>
+	<p>Without running the code, determine what will be displayed on the screen:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let a = 2 * (8 / 4);
 alert(a);</code>
@@ -153,16 +108,16 @@ alert(a);</code>
 </div>
   
     <div class="lesson-nav">
-      <a href="../math-operations-equal/index.html" class="lesson-nav-btn lesson-nav-prev" title="Равный приоритет">← Равный приоритет</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../fractions/index.html" class="lesson-nav-btn lesson-nav-next" title="Дроби">Дроби →</a>
+      <a href="../math-operations-equal/index.html" class="lesson-nav-btn lesson-nav-prev" title="Equal priority">← Equal priority</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../fractions/index.html" class="lesson-nav-btn lesson-nav-next" title="Fractions">Fractions →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Загрузчик данных для маршрута в React Router — acteck.off</title>
-  <meta name="description" content="Загрузчик данных для маршрута в React Router — учебные материалы по программированию.">
+  <title>Route data loader in React Router - acteck.off</title>
+  <meta name="description" content="React Router Route Data Loader - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,52 +36,26 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Загрузчик данных для маршрута в React Router</h1>
-    <p>
-	На прошлом уроке мы извлекли данные
-	продуктов из хранилища. Теперь эти
-	данные нужно загрузить в элемент
-	маршрута. Для этого используется
-	функция загрузчика (<span data-gs="lang/e" data-x>loader</span>). Сейчас
-	мы ее создадим.
-</p>
-<p>
-	Откроем <code data-gs="comd/p" data-x>root.jsx</code>, добавим
-	сюда строчку импорта <code data-gs="comd/p" data-x>getProducts</code>
-	из <code data-gs="comd/p" data-x>forStorage.js</code>:
+    <h1>Route data loader in React Router</h1>
+    <p>In the last lesson, we retrieved product data from the warehouse. Now this data needs to be loaded into the route element. To do this, use the bootloader function (<span data-gs="lang/e" data-x>loader</span>). Now we will create it.</p>
+<p>Let's open<code data-gs="comd/p" data-x>root.jsx</code>, add an import line here<code data-gs="comd/p" data-x>getProducts</code>from<code data-gs="comd/p" data-x>forStorage.js</code>:
 </p>
 <div data-p="bock/pane" data-p-file="routes/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { getProducts } from '../forStorage'</code>
 </div>
-<p>
-	Сразу после строчек импорта и перед функцией
-	<code data-gs="comd/c" data-x>Root</code> напишем код функции <code data-gs="comd/c" data-x>loader</code>,
-	которая через <code data-gs="comd/c" data-x>getProducts</code> будет
-	возвращать нам данные с продуктами из
-	хранилища. Вообще такие функции надо писать
-	в отдельном файле, но мы немного
-	поленимся, так что не обращайте внимание на
-	предупреждение:
-</p>
+<p>Immediately after the import lines and before the function<code data-gs="comd/c" data-x>Root</code>let's write the function code<code data-gs="comd/c" data-x>loader</code>, which is through<code data-gs="comd/c" data-x>getProducts</code>will return us data with products from the storage. In general, such functions should be written in a separate file, but we’ll be a little lazy, so don’t pay attention to the warning:</p>
 <div data-p="bock/pane" data-p-file="routes/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function loader() {
 	const products = await getProducts();
 	return { products };
 }</code>
 </div>
-<p>
-	Давайте теперь добавим импорт нашего
-	загрузчика в <code data-gs="comd/p" data-x>main.jsx</code>. Этот
-	загрузчик у нас будет для
-	корня, поэтому назовем его
-	<code data-gs="comd/c" data-x>rootLoader</code>:
+<p>Let's now add our bootloader import to<code data-gs="comd/p" data-x>main.jsx</code>. We will have this loader for the root, so let's call it<code data-gs="comd/c" data-x>rootLoader</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Root, { loader as rootLoader } from './routes/root';</code>
 </div>
-<p>
-	И добавим его в наш объект маршрута
-	в свойство <code data-gs="comd/c" data-x>loader</code>:
+<p>And add it to our route object as a property<code data-gs="comd/c" data-x>loader</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([
@@ -100,18 +74,11 @@
 ]);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, напишите в файле
-		<code data-gs="comd/p" data-x>root.jsx</code> функцию <code data-gs="comd/c" data-x>loader</code>
-		для загрузки данных студентов и добавьте
-		ее в объект маршрута в main.jsx.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, write in the file<code data-gs="comd/p" data-x>root.jsx</code>function<code data-gs="comd/c" data-x>loader</code>to load student data and add it to the route object in main.jsx.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -119,7 +86,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

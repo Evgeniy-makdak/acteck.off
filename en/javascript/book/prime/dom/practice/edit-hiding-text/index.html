@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Прячем текст при редактировании элемента на JavaScript — acteck.off</title>
-  <meta name="description" content="Прячем текст при редактировании элемента на JavaScript — учебные материалы по программированию.">
+  <title>Hiding text when editing an element in JavaScript - acteck.off</title>
+  <meta name="description" content="Hiding text when editing an element in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,22 +36,10 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Прячем текст при редактировании элемента на JavaScript</h1>
-    <p>
-	Давайте теперь сделаем так, чтобы при редактировании
-	инпут появлялся в самом абзаце - вместо текста
-	этого абзаца. Пусть затем при окончании редактирования
-	инпут будет убираться, а вместо него опять
-	появляться текст абзаца.
-</p>
-<p>
-	Приступим к реализации.
-</p>
-<p>
-	Для начала давайте сделаем так, чтобы по
-	клику на абзац ему в конец добавлялся инпут
-	с текстом этого абзаца:
-</p>
+    <h1>Hiding text when editing an element in JavaScript</h1>
+    <p>Let's now make sure that when editing, the input appears in the paragraph itself - instead of the text of this paragraph. Let then, when editing is completed, the input will be removed, and the text of the paragraph will appear in its place again.</p>
+<p>Let's start implementation.</p>
+<p>First, let's make sure that when you click on a paragraph, an input with the text of this paragraph is added to the end:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
 
@@ -62,46 +50,13 @@ elem.addEventListener('click', function() {
 	elem.appendChild(input);
 });</code>
 </div>
-<p>
-	Наш код, однако, очень несовершенен - каждый
-	раз по клику на абзац в него будет добавляться
-	новый инпут.
-</p>
-<p>
-	При этом, если в первом инпуте будет стоять
-	текст абзаца, то во втором инпуте уже будет
-	стоять текст абзаца вместе с первым инпутом,
-	а третьем инпуте уже будет стоять текст абзаца
-	вместе с двумя инпутами и так далее.
-</p>
-<p>
-	Обратите также внимание на то, что клик по
-	добавленному инпуту будет расцениваться как
-	клик по абзацу: дело в том, что инпут находится
-	в абзаце, и клик по инпуту просто всплывет
-	выше к этому абзацу.
-</p>
-<p>
-	Это приведет к тому, что после появления
-	первого инпута при попытке нажать на него
-	для того, чтобы начать редактирование, мы
-	автоматически сделаем клик по абзацу со всеми
-	вытекающими последствиями.
-</p>
-<p>
-	Итак, проблема обрисована. Давайте теперь
-	ее исправим.
-</p>
-<p>
-	Для этого просто при появлении инпута отвяжем
-	от абзаца обработчик клика. В этом случае
-	только первый клик по абзацу будет приводить
-	к появлению инпута, а остальные клики, сделанные
-	после появления инпута, будут проигнорированы.
-</p>
-<p>
-	Реализуем:
-</p>
+<p>Our code, however, is very imperfect - every time you click on a paragraph, a new input will be added to it.</p>
+<p>Moreover, if the first input contains the text of a paragraph, then the second input will already contain the text of the paragraph along with the first input, and the third input will already contain the text of the paragraph along with two inputs, and so on.</p>
+<p>Please also note that clicking on the added input will be regarded as a click on the paragraph: the fact is that the input is located in the paragraph, and clicking on the input will simply pop up higher to this paragraph.</p>
+<p>This will lead to the fact that after the first input appears, when we try to click on it in order to start editing, we will automatically click on the paragraph with all the ensuing consequences.</p>
+<p>So, the problem is outlined. Let's fix it now.</p>
+<p>To do this, simply when the input appears, we will unbind the click handler from the paragraph. In this case, only the first click on the paragraph will result in the input appearing, and other clicks made after the input appears will be ignored.</p>
+<p>We implement:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
 
@@ -114,12 +69,7 @@ elem.addEventListener('click', function func() {
 	elem.removeEventListener('click', func); // отвяжем событие
 });</code>
 </div>
-<p>
-	Давайте теперь сделаем так, чтобы при появлении
-	инпута, текст самого абзаца исчезал. Для этого
-	перед вставкой инпута <code data-gs="comd/c" data-x>textContent</code> абзаца
-	присвоим пустой строке:
-</p>
+<p>Let's now make sure that when the input appears, the text of the paragraph itself disappears. To do this, before inserting the input<code data-gs="comd/c" data-x>textContent</code>assign the paragraph to an empty line:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
 
@@ -133,11 +83,7 @@ elem.addEventListener('click', function func() {
 	elem.removeEventListener('click', func);
 });</code>
 </div>
-<p>
-	Давайте теперь сделаем так, чтобы при потери
-	фокуса в инпуте текст этого инпута записывался
-	в абзац:
-</p>
+<p>Let's now make sure that when an input loses focus, the text of that input is written into a paragraph:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
 
@@ -155,30 +101,10 @@ elem.addEventListener('click', function func() {
 	elem.removeEventListener('click', func);
 });</code>
 </div>
-<p>
-	Обратите внимание на то, что нам не нужно
-	удалять инпут - он удаляет сам себя, когда
-	записывает свой текст в абзац: так как инпут
-	является частью текста абзаца, то запись
-	какого-то текста в этот абзац просто удаляет
-	наш инпут, и все.
-</p>
-<p>
-	У нас, однако, есть еще одна проблема: текст
-	абзаца будет редактироваться лишь первый
-	раз. После первого редактирования повторное
-	нажатие на текст абзаца ни к чему не приведет.
-</p>
-<p>
-	Дело в том, что в момент появления инпута
-	мы отвязали событие от абзаца по описанным
-	выше причинам. Теперь нам необходимо в момент
-	окончания редактирования привязать событие
-	обратно.
-</p>
-<p>
-	Сделаем это:
-</p>
+<p>Please note that we don't need to delete the input - it deletes itself when it writes its text into a paragraph: since the input is part of the text of the paragraph, writing some text into this paragraph simply deletes our input, that's all.</p>
+<p>We have one more problem, however: the paragraph text will only be edited the first time. After the first edit, clicking on the paragraph text again will do nothing.</p>
+<p>The fact is that at the moment the input appears, we untied the event from the paragraph for the reasons described above. Now we need to bind the event back when editing is completed.</p>
+<p>Let's do this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
 
@@ -198,23 +124,20 @@ elem.addEventListener('click', function func() {
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Самостоятельно, не подсматривая в мой код,
-		решите описанную задачу.
-	</p>
+	<p>Solve the described problem yourself, without looking at my code.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../single-element-editing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Редактирование отдельного элемента">← Редактирование отдельного элемента</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../elements-group-editing/index.html" class="lesson-nav-btn lesson-nav-next" title="Редактирование в наборе элементов">Редактирование в наборе элементов →</a>
+      <a href="../single-element-editing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Editing a Single Element">← Editing a single element</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../elements-group-editing/index.html" class="lesson-nav-btn lesson-nav-next" title="Editing in a stencil">Editing in a stencil →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

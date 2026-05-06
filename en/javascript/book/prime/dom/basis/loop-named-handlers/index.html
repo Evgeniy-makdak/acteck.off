@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Добавление обработчиков в цикле в JavaScript — acteck.off</title>
-  <meta name="description" content="Добавление обработчиков в цикле в JavaScript — учебные материалы по программированию.">
+  <title>Adding loop handlers in JavaScript - acteck.off</title>
+  <meta name="description" content="Adding Loop Handlers in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,29 +36,20 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Добавление обработчиков в цикле в JavaScript</h1>
-    <p>
-	Давайте теперь научимся массово добавлять
-	обработчики событий элементам. Пусть, к примеру,
-	у нас есть абзацы:
-</p>
+    <h1>Adding loop handlers in JavaScript</h1>
+    <p>Let's now learn how to bulk add event handlers to elements. Let, for example, we have paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text1&lt;/p&gt;
 &lt;p&gt;text2&lt;/p&gt;
 &lt;p&gt;text3&lt;/p&gt;</code>
 </div>
-<p>
-	Пусть у нас также есть функция:
-</p>
+<p>Let us also have a function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	console.log('!');
 }</code>
 </div>
-<p>
-	Давайте переберем наши абзацы в цикле и каждому
-	абзацу добавим в качестве обработчика клика
-	функцию <code data-gs="comd/c" data-x>func</code>:
+<p>Let's loop through our paragraphs and add a function to each paragraph as a click handler<code data-gs="comd/c" data-x>func</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');
@@ -67,59 +58,37 @@ for (let elem of elems) {
 	elem.addEventListener('click', func);
 }</code>
 </div>
-<p>
-	Давайте пойдем дальше и сделаем так, чтобы
-	по клику на любой абзац выводился
-	текст этого абзаца. Есть, однако, проблема:
-	абзацев много, а функция-обработчик одна.
-	Как же нам отличить наши абзацы внутри функции-обработчика?
-</p>
-<p>
-	В этом нам поможет объект <code data-gs="comd/c" data-x>this</code> - при
-	вызове функции в момент события этот объект
-	будет указывать на тот элемент, где это событие
-	случилось. Переделаем код нашей функции <code data-gs="comd/c" data-x>func</code>
-	в соответствии со сказанным:
-</p>
+<p>Let's go further and make sure that when you click on any paragraph, the text of that paragraph is displayed. There is, however, a problem: there are many paragraphs, but only one handler function. How can we distinguish our paragraphs inside the handler function?</p>
+<p>The object will help us with this<code data-gs="comd/c" data-x>this</code>- when calling a function at the time of an event, this object will point to the element where this event occurred. Let's rework the code of our function<code data-gs="comd/c" data-x>func</code>in accordance with what has been said:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	console.log(this.textContent); // выводим текст абзаца
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана следующая функция:
-	</p>
+	<p>Given the following function:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	this.value = Number(this.value) + 1;
 }</code>
 	</div>
-	<p>
-		Даны также инпуты. Сделайте так, чтобы по
-		потери фокуса в любом из наших инпутов выполнялась
-		приведенная выше функция.
-	</p>
+	<p>Inputs are also given. Make sure that when we lose focus in any of our inputs, the above function will be executed.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны абзацы с числами. Сделайте так, чтобы
-		по клику на любой абзац его число в нем возводилось
-		в квадрат.
-	</p>
+	<p>Paragraphs with numbers are given. Make it so that when you click on any paragraph, its number in it is squared.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../elements-group-getting/index.html" class="lesson-nav-btn lesson-nav-prev" title="Получение группы элементов">← Получение группы элементов</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../loop-anonymous-handlers/index.html" class="lesson-nav-btn lesson-nav-next" title="Анонимные обработчики в цикле">Анонимные обработчики в цикле →</a>
+      <a href="../elements-group-getting/index.html" class="lesson-nav-btn lesson-nav-prev" title="Getting a group of elements">← Getting a group of elements</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../loop-anonymous-handlers/index.html" class="lesson-nav-btn lesson-nav-next" title="Anonymous handlers in a loop">Anonymous handlers in a loop →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

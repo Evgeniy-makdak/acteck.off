@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Просмотр данных из БД в NodeJS — acteck.off</title>
-  <meta name="description" content="Просмотр данных из БД в NodeJS — учебные материалы по программированию.">
+  <title>Viewing data from a database in NodeJS - acteck.off</title>
+  <meta name="description" content="Viewing data from a database in NodeJS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,13 +36,8 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Просмотр данных из БД в NodeJS</h1>
-    <p>
-	Давайте сделаем страницу <code data-gs="comd/p" data-x>show.hbs</code> для
-	просмотра информации о конкретном
-	юзере, которая будет оформлена
-	в следующей верстке:
-</p>
+    <h1>Viewing data from a database in NodeJS</h1>
+    <p>Let's make a page<code data-gs="comd/p" data-x>show.hbs</code>to view information about a specific user, which will be formatted in the following format:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
 	&lt;h1&gt;user1&lt;/h1&gt;
@@ -52,12 +47,7 @@
 	&lt;/p&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Пусть <code data-gs="comd/s" data-x>id</code> нужного юзера
-	передается через
-	параметр маршрута. Получим его
-	и запишем в переменную
-	<code data-gs="comd/c" data-x>id</code>:
+<p>Let<code data-gs="comd/s" data-x>id</code>the desired user is passed through the route parameter. Let's get it and write it to a variable<code data-gs="comd/c" data-x>id</code>:
 </p>
 <div data-p="bock/pane" data-p-file="app.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/show/:id', async function(req, res) {
@@ -66,9 +56,7 @@
 	res.render('show');
 });</code>
 </div>
-<p>
-	Сформируем запрос на получение этого юзера:
-</p>
+<p>Let's create a request to receive this user:</p>
 <div data-p="bock/pane" data-p-file="app.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/show/:id', async function(req, res) {
 	let id = req.params.id;
@@ -79,19 +67,11 @@
 	res.render('show');
 });</code>
 </div>
-<p>
-	В переменной <code data-gs="comd/c" data-x>results</code>
-	будет храниться массив, состоящий
-	только из одного объекта, поскольку
-	из БД выбирается один юзер:
-</p>
+<p>In variable<code data-gs="comd/c" data-x>results</code>An array consisting of only one object will be stored, since one user is selected from the database:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[ {id: 1, name: 'user1', age: 23, salary: 400} ]</code>
 </div>
-<p>
-	Для удобства объявим переменную <code data-gs="comd/c" data-x>result</code>, в которую передадим
-	первый и единственный объект из массива:
-</p>
+<p>For convenience, let's declare a variable<code data-gs="comd/c" data-x>result</code>, into which we will transfer the first and only object from the array:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/show/:id', async function(req, res) {
 	let id = req.params.id;
@@ -102,12 +82,7 @@
 		res.render('show', {result: result});
 });</code>
 </div>
-<p>
-	Далее передадим переменную <code data-gs="comd/c" data-x>result</code>
-	в представление <code data-gs="comd/p" data-x>show.hbs</code>,
-	при этом ключи объекта запишем
-	через точку:
-</p>
+<p>Next we will pass the variable<code data-gs="comd/c" data-x>result</code>into submission<code data-gs="comd/p" data-x>show.hbs</code>, and write the object keys separated by a dot:</p>
 <div data-p="bock/pane" data-p-file="views/show.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
 	&lt;h1&gt;{{ result.name }}&lt;/h1&gt;
@@ -118,10 +93,7 @@
 &lt;/div&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Реализуйте просмотр юзера с помощью следующей
-		верстки:
-	</p>
+	<p>Implement user viewing using the following layout:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
 	&lt;p&gt;
@@ -135,10 +107,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		На странице <code data-gs="comd/p" data-x>index.hbs</code> реализуйте вывод
-		ссылок на просмотр каждого из юзеров:
-	</p>
+	<p>On the page<code data-gs="comd/p" data-x>index.hbs</code>implement the display of links to view each user:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;a href="/show/1"&gt;user1&lt;/a&gt;
 &lt;a href="/show/2"&gt;user2&lt;/a&gt;
@@ -150,7 +119,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

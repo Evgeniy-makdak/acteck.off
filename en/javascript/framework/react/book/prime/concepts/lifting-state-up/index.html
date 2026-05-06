@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Подъем состояний в React — acteck.off</title>
-  <meta name="description" content="Подъем состояний в React — учебные материалы по программированию.">
+  <title>Raising states in React - acteck.off</title>
+  <meta name="description" content="Raising State in React - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,24 +36,10 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Подъем состояний в React</h1>
-    <p>
-	Часто несколько компонентов должны отражать
-	одни и те же изменяющиеся данные. В React
-	рекомендовано поднимать общее состояние до
-	ближайшего общего предка. Давайте посмотрим
-	на примере.
-</p>
-<p>
-	Пусть мы хотим сделать калькулятор температуры
-	воды. Он будет представлять собой инпут,
-	в который пользователь будет вводить температуру,
-	и абзац, в который будет выводится вердикт:
-	вода жидкая, вода твердая, вода газообразная.
-</p>
-<p>
-	Пусть наш калькулятор представляет собой
-	компонент-контейнер <code data-gs="comd/c" data-x>Calculator</code>:
+    <h1>Raising states in React</h1>
+    <p>Often multiple components need to reflect the same changing data. In React, it is recommended to raise shared state to the nearest common ancestor. Let's look at an example.</p>
+<p>Let's say we want to make a water temperature calculator. It will be an input in which the user will enter the temperature, and a paragraph in which the verdict will be displayed: liquid water, solid water, gaseous water.</p>
+<p>Let our calculator be a container component<code data-gs="comd/c" data-x>Calculator</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Calculator() {
@@ -62,10 +48,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Вынесем инпут для ввода температуры в компонент
-	<code data-gs="comd/c" data-x>TempInp</code>, а абзац с вердиктом - в компонент
-	<code data-gs="comd/c" data-x>Verdict</code>:
+<p>Let's add an input for entering temperature into the component<code data-gs="comd/c" data-x>TempInp</code>, and the paragraph with the verdict - into the component<code data-gs="comd/c" data-x>Verdict</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Calculator() {
@@ -75,25 +58,9 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Легко понять, что и <code data-gs="comd/c" data-x>TempInp</code>, и <code data-gs="comd/c" data-x>Verdict</code> должны
-	иметь стейт с температурой. При этом логично,
-	что это должна быть одна и та же температура:
-	по мере ввода данных в инпут должен
-	отображаться вердикт.
-<p>
-<p>
-	В таком случае рекомендовано использовать прием,
-	называемый <dfn data-gs="comd/d" data-x>подъем состояния</dfn>: состояние,
-	общее для двух (и более) компонентов поднимается
-	вверх до их общего родителя.
-<p>
-<p>
-	В нашем случае получится, что стейт с температурой
-	должен принадлежать компоненту <code data-gs="comd/c" data-x>Calculator</code>,
-	который будет передавать его в <code data-gs="comd/c" data-x>TempInp</code> и
-	<code data-gs="comd/c" data-x>Verdict</code> в качестве пропсов:
-<p>
+<p>It is easy to understand that<code data-gs="comd/c" data-x>TempInp</code>, And<code data-gs="comd/c" data-x>Verdict</code>must have a state with temperature. At the same time, it is logical that this should be the same temperature: as data is entered into the input, the verdict should be displayed.<p>
+<p>In this case, it is recommended to use a technique called<dfn data-gs="comd/d" data-x>rise in fortune</dfn>: state shared by two (or more) components is lifted up to their common parent.<p>
+<p>In our case, it turns out that the state with temperature should belong to the component<code data-gs="comd/c" data-x>Calculator</code>, which will transmit it to<code data-gs="comd/c" data-x>TempInp</code>And<code data-gs="comd/c" data-x>Verdict</code>as props:<p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Calculator() {
 	const [temp, setTemp] = useState(0);
@@ -104,15 +71,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	В компоненте <code data-gs="comd/c" data-x>TempInp</code> должен быть инпут
-	для изменения температуры. Но, так как эта
-	температура является пропсом данного компонента,
-	то непосредственно в <code data-gs="comd/c" data-x>TempInp</code> изменять
-	его нельзя. Правильно будет передать из компонента
-	<code data-gs="comd/c" data-x>Calculator</code> специальную функцию для
-	изменения температуры:
-</p>
+<p>In component<code data-gs="comd/c" data-x>TempInp</code>there must be an input to change the temperature. But, since this temperature is the props of this component, then directly in<code data-gs="comd/c" data-x>TempInp</code>it cannot be changed. It would be correct to pass from the component<code data-gs="comd/c" data-x>Calculator</code>special function for changing temperature:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Calculator() {
 	const [temp, setTemp] = useState(0);
@@ -127,9 +86,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Можно, кстати, не вводить новую функцию,
-	а передать в дочерний компонент функцию <code data-gs="comd/c" data-x>setTemp</code>:
+<p>By the way, you can not introduce a new function, but pass the function to the child component<code data-gs="comd/c" data-x>setTemp</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Calculator() {
@@ -142,29 +99,23 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Напишите реализацию компонентов <code data-gs="comd/c" data-x>TempInp</code>
-		и <code data-gs="comd/c" data-x>Verdict</code>.
+	<p>Write the implementation of the components<code data-gs="comd/c" data-x>TempInp</code>And<code data-gs="comd/c" data-x>Verdict</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Придумайте <code data-gs="comd/n" data-x>3</code> задачи, в которых нужно
-		использовать подъем состояния. Напишите решения
-		этих задач.
-	</p>
+	<p>Come up with<code data-gs="comd/n" data-x>3</code>problems in which it is necessary to use state lifting. Write solutions to these problems.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../data-flow/index.html" class="lesson-nav-btn lesson-nav-prev" title="Однонаправленный поток данных">← Однонаправленный поток данных</a>
-      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../truth-one-source/index.html" class="lesson-nav-btn lesson-nav-next" title="Один источник истины">Один источник истины →</a>
+      <a href="../data-flow/index.html" class="lesson-nav-btn lesson-nav-prev" title="Unidirectional data flow">← Unidirectional data flow</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../truth-one-source/index.html" class="lesson-nav-btn lesson-nav-next" title="One source of truth">One source of truth →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

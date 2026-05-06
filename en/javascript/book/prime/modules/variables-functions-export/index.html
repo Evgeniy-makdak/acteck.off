@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Экспорт переменных и функций в модулях через замыкания в JavaScript — acteck.off</title>
-  <meta name="description" content="Экспорт переменных и функций в модулях через замыкания в JavaScript — учебные материалы по программированию.">
+  <title>Exporting variables and functions in modules via closures in JavaScript - acteck.off</title>
+  <meta name="description" content="Exporting Variables and Functions in Modules via Closures in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,13 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Экспорт переменных и функций в модулях через замыкания в JavaScript</h1>
-    <p>
-	Иногда нужно сделать так, чтобы некоторые
-	переменные и функции модуля были доступны
-	снаружи. Давайте посмотрим, как это делается.
-	Пусть у нас есть следующий модуль:
-</p>
+    <h1>Exporting Variables and Functions in Modules via Closures in JavaScript</h1>
+    <p>Sometimes you need to make some module variables and functions available externally. Let's see how it's done. Let's say we have the following module:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function() {
 	let str = 'переменная модуля';
@@ -52,10 +47,7 @@
 	}
 })();</code>
 </div>
-<p>
-	Давайте экпортируем нашу функцию <code data-gs="comd/c" data-x>func</code>.
-	Для этого запишем ее в свойство встроенного
-	в браузер объекта <code data-gs="comd/c" data-x>window</code>:
+<p>Let's export our function<code data-gs="comd/c" data-x>func</code>. To do this, write it to the property of the object built into the browser<code data-gs="comd/c" data-x>window</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function() {
@@ -68,10 +60,7 @@
 	window.func = func;
 })();</code>
 </div>
-<p>
-	Теперь мы можем вызвать нашу функцию снаружи
-	модуля:
-</p>
+<p>Now we can call our function from outside the module:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function() {
 	let str = 'переменная модуля';
@@ -85,9 +74,7 @@
 
 window.func(); // выведет 'функция модуля'</code>
 </div>
-<p>
-	При этом не обязательно вызывать функцию
-	как свойство объекта <code data-gs="comd/c" data-x>window</code>:
+<p>In this case, it is not necessary to call the function as a property of the object<code data-gs="comd/c" data-x>window</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function() {
@@ -103,9 +90,7 @@ window.func(); // выведет 'функция модуля'</code>
 func(); // выведет 'функция модуля'</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий модуль:
-	</p>
+	<p>The following module is given:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function() {
 	let str1 = 'переменная модуля';
@@ -123,23 +108,20 @@ func(); // выведет 'функция модуля'</code>
 	}
 })();</code>
 	</div>
-	<p>
-		Экспортируйте наружу одну из переменных и
-		две любые функции.
-	</p>
+	<p>Export one of the variables and any two functions externally.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../passing-settings-default-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Параметры по умолчанию">← Параметры по умолчанию</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../variables-functions-export-object/index.html" class="lesson-nav-btn lesson-nav-next" title="Экспорт объекта в модулях через замыкания">Экспорт объекта в модулях через замыкания →</a>
+      <a href="../passing-settings-default-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Default Settings">← Default parameters</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../variables-functions-export-object/index.html" class="lesson-nav-btn lesson-nav-next" title="Exporting an object in modules via closures">Exporting an object in modules via closures →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Разная ширина элементов и сжимаемость флекс блоков в CSS — acteck.off</title>
-  <meta name="description" content="Разная ширина элементов и сжимаемость флекс блоков в CSS — учебные материалы по программированию.">
+  <title>Different widths of elements and compressibility of flex blocks in CSS - acteck.off</title>
+  <meta name="description" content="Different element widths and flex block compressibility in CSS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,72 +33,43 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Разная ширина элементов и сжимаемость флекс блоков в CSS</h1>
-    <p>
-	Пусть теперь наши элементы имеют разную ширину.
-	В этом случае отщепляемый кусочек будет пропорционален
-	ширине этого элемента и будет вычисляться
-	по следующей формуле: <i>отриц. св. пространство
-	* (ширина элемента / сумма всех ширин элементов)</i>.
+    <h1>Different widths of elements and compressibility of flex blocks in CSS</h1>
+    <p>Let now our elements have different widths. In this case, the chipped piece will be proportional to the width of this element and will be calculated using the following formula:<i>neg. St. space * (element width / sum of all element widths)</i>.
 </p>
-<p>
-	Пусть у нас есть <code data-gs="comd/n" data-x>4</code> элемента. Пусть
-	ширина первого элемента равна <code data-gs="comd/u" data-x>400px</code>,
-	ширина остальных элементов - <code data-gs="comd/u" data-x>200px</code>,
-	а ширина родителя <code data-gs="comd/u" data-x>900px</code>.
+<p>Let us have<code data-gs="comd/n" data-x>4</code>element. Let the width of the first element be<code data-gs="comd/u" data-x>400px</code>, the width of the remaining elements is<code data-gs="comd/u" data-x>200px</code>, and the width of the parent<code data-gs="comd/u" data-x>900px</code>.
 </p>
-<p>
-	Суммарная ширина элементов равна:
-</p>
+<p>The total width of the elements is:</p>
 <div data-w="cont/formula">
 	 <code data-gs="comd/e" data-x><code data-gs="comd/u" data-x>400px</code> + <code data-gs="comd/n" data-x>3</code> * <code data-gs="comd/u" data-x>200px</code> = <code data-gs="comd/u" data-x>1000px</code></code>
 </div>
-<p>
-	Toгда отрицательное свободное пространство
-	будет равно:
-</p>
+<p>Then the negative free space will be equal to:</p>
 <div data-w="cont/formula">
 	<code data-gs="comd/e" data-x><code data-gs="comd/u" data-x>1000px</code> - <code data-gs="comd/u" data-x>900px</code> = <code data-gs="comd/u" data-x>100px</code></code>
 </div>
-<p>
-	Найдем сколько отщипнется первого элемента:
-</p>
+<p>Let's find how much of the first element will be plucked off:</p>
 <div data-w="cont/formula">
 	<code data-gs="comd/e" data-x><code data-gs="comd/u" data-x>100px</code> * (<code data-gs="comd/u" data-x>400px</code> / <code data-gs="comd/u" data-x>1000px</code>) = <code data-gs="comd/u" data-x>40px</code></code>
 </div>
-<p>
-	To есть его ширина будет равна:
-</p>
+<p>That is, its width will be equal to:</p>
 <div data-w="cont/formula">
 	<code data-gs="comd/e" data-x><code data-gs="comd/u" data-x>400px</code> - <code data-gs="comd/u" data-x>40px</code> = <code data-gs="comd/u" data-x>360px</code></code>
 </div>
-<p>
-	Найдем сколько от каждого из остальных элементов:
-</p>
+<p>Let's find how much from each of the remaining elements:</p>
 <div data-w="cont/formula">
 	<code data-gs="comd/e" data-x><code data-gs="comd/u" data-x>100px</code> * (<code data-gs="comd/u" data-x>200px</code> / <code data-gs="comd/u" data-x>1000px</code>) = <code data-gs="comd/u" data-x>20px</code></code>
 </div>
-<p>
-	To есть ширина этих элементов будет равна:
-</p>
+<p>That is, the width of these elements will be equal to:</p>
 <div data-w="cont/formula">
 	<code data-gs="comd/e" data-x><code data-gs="comd/u" data-x>200px</code> - <code data-gs="comd/u" data-x>20px</code> = <code data-gs="comd/u" data-x>180px</code></code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Реализуйте описанные блоки и проверьте измерением,
-		что ширина элементов будет действительно
-		равна рассчитанной нами.
-	</p>
+	<p>Implement the described blocks and check by measurement that the width of the elements will actually be equal to what we calculated.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Рассчитайте ширину блоков, а затем проверьте
-		расчеты измерением:
-	</p>
+	<p>Calculate the width of the blocks, and then check the calculations by measuring:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
 	&lt;div class="child elem1"&gt;1&lt;/div&gt;
@@ -127,16 +98,16 @@
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../shrink-factor/index.html" class="lesson-nav-btn lesson-nav-prev" title="Фактор сжимаемости флекс блоков">← Фактор сжимаемости флекс блоков</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../shrink-factor-control/index.html" class="lesson-nav-btn lesson-nav-next" title="Регулирование сжатия">Регулирование сжатия →</a>
+      <a href="../shrink-factor/index.html" class="lesson-nav-btn lesson-nav-prev" title="Compressibility factor of flex blocks">← Compressibility factor of flex blocks</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../shrink-factor-control/index.html" class="lesson-nav-btn lesson-nav-next" title="Compression adjustment">Compression adjustment →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

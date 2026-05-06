@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Директива for в Angular — acteck.off</title>
-  <meta name="description" content="Директива for в Angular — учебные материалы по программированию.">
+  <title>The for directive in Angular is acteck.off</title>
+  <meta name="description" content="The for directive in Angular - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,31 +36,19 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Директива for в Angular</h1>
-    <p>
-	Пусть у нас есть массив: 
-</p>
+    <h1>for directive in Angular</h1>
+    <p>Let's say we have an array:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	public arr: string[] = ['a', 'b', 'c', 'd'];
 }</code>
 </div>
-<p>
-	Давайте переберем этот массив циклом в
-	файле темплейта. Для этого предназначена
-	директива <code data-gs="comd/c" data-x>*ngFor</code>. Она может перебрать
-	массив и вывести каждый его элемент в
-	отдельном теге. 
-</p>
-<p>
-	Для начала эту директиву нужно импортировать: 
-</p>
+<p>Let's loop through this array in the template file. This is what the directive is for.<code data-gs="comd/c" data-x>*ngFor</code>. It can iterate through an array and display each element in a separate tag.</p>
+<p>First, you need to import this directive:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import {NgFor} from "@angular/common";</code>
 </div>
-<p>
-	И добавить ее в раздел импортов в декораторе: 
-</p>
+<p>And add it to the imports section in the decorator:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">@Component({
 	.....
@@ -68,22 +56,14 @@
 	....
 })</code>
 </div>
-<p>
-	Теперь можно ей пользоваться. Давайте
-	посмотрим, как это делается. Пусть у нас
-	есть список <code data-gs="comd/c" data-x>ul</code>: 
+<p>Now you can use it. Let's see how it's done. Let us have a list<code data-gs="comd/c" data-x>ul</code>: 
 </p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	
 &lt;/ul&gt;</code>
 </div>
-<p>
-	Сделаем так, чтобы наш массив перебрался
-	в цикле и его каждый элемент вывелся в
-	тегах <code data-gs="comd/c" data-x>li</code>. Это делается следующим
-	образом: 
-</p>
+<p>Let's make sure that our array is looped through and each element is displayed in tags<code data-gs="comd/c" data-x>li</code>. This is done as follows:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li *ngFor="let el of arr"&gt;
@@ -92,37 +72,28 @@
 &lt;/ul&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан массив: 
-	</p>
+	<p>Given an array:</p>
 	<div data-p="bock/pane" data-p-file="app/app.component.ts">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	public arr: number[] = [1, 2, 3, 4, 5];
 }</code>
 	</div>
-	<p>
-		Выведите каждый элемент этого массива в
-		отдельном абзаце. 
-	</p>
+	<p>Print each element of this array in a separate paragraph.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте предыдущую задачу так, чтобы
-		в абзацы выводились квадраты элементов
-		нашего массива. 
-	</p>
+	<p>Modify the previous problem so that the squares of the elements of our array are displayed in paragraphs.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../../conditions/ng-template-tag/index.html" class="lesson-nav-btn lesson-nav-prev" title="Тег ng-template">← Тег ng-template</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../for-construction/index.html" class="lesson-nav-btn lesson-nav-next" title="Конструкция for">Конструкция for →</a>
+      <a href="../../conditions/ng-template-tag/index.html" class="lesson-nav-btn lesson-nav-prev" title="ng-template tag">← Tag ng-template</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../for-construction/index.html" class="lesson-nav-btn lesson-nav-next" title="The for construct">for construct →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

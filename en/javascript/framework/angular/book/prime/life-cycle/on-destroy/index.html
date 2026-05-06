@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Хук ngOnDestroy в Angular — acteck.off</title>
-  <meta name="description" content="Хук ngOnDestroy в Angular — учебные материалы по программированию.">
+  <title>ngOnDestroy hook in Angular - acteck.off</title>
+  <meta name="description" content="ngOnDestroy Hook in Angular - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,44 +36,22 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Хук ngOnDestroy в Angular</h1>
-    <p>
-	Хук <code data-gs="comd/c" data-x>ngOnDestroy</code> срабатывает при
-	удалении компонента. В этом хуке можно
-	освободить ресурсы, удалить подписку на
-	события элементов, оставить таймеры и т.п. 
-</p>
-<p>
-	Созадние и удаление компонента в Angular
-	происходит, когда он реактивно показыватеся
-	и скрывается с помощью условия <code data-gs="comd/c" data-x>if</code>.
-	To есть Angular не просто прячет компоненты,
-	а удаляет их и возвращает обратно. 
-</p>
-<p>
-	Также компоненты создаются и удаляются,
-	когда они реактивно перебираются в циклах.
-	В этом случае Angular также создает и
-	удаляет компоненты. 
-</p>
-<p>
-	Давайте попробуем на практике. Импортируем
-	интерфейс <code data-gs="comd/c" data-x>OnDestroy</code>: 
+    <h1>ngOnDestroy hook in Angular</h1>
+    <p>Hook<code data-gs="comd/c" data-x>ngOnDestroy</code>Fires when a component is removed. In this hook you can release resources, remove subscriptions to element events, leave timers, etc.</p>
+<p>Hiding and deleting a component in Angular occurs when it is reactively shown and hidden using a condition<code data-gs="comd/c" data-x>if</code>. That is, Angular does not just hide components, but removes them and returns them back.</p>
+<p>Also, components are created and deleted as they are reactively iterated through loops. In this case, Angular also creates and deletes components.</p>
+<p>Let's try it in practice. Importing the interface<code data-gs="comd/c" data-x>OnDestroy</code>: 
 </p>
 <div data-p="bock/pane" data-p-file="app/user/user.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { OnDestroy } from '@angular/core';</code>
 </div>
-<p>
-	Подключим его к классу: 
-</p>
+<p>Let's connect it to the class:</p>
 <div data-p="bock/pane" data-p-file="app/user/user.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class UserComponent implements OnDestroy {
 	
 }</code>
 </div>
-<p>
-	А теперь напишем наш хук: 
-</p>
+<p>Now let's write our hook:</p>
 <div data-p="bock/pane" data-p-file="app/user/user.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class UserComponent implements OnDestroy {
 	constructor() {
@@ -86,36 +64,22 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте реактивный <code data-gs="comd/c" data-x>if</code> с помощью
-		которого будет показываться дочерний
-		компонент. Проверьте работу изученного
-		хука. 
-	</p>
+	<p>Make it reactive<code data-gs="comd/c" data-x>if</code>with which the child component will be displayed. Check the operation of the hook you learned.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		В родительском компоненте дан массив имен
-		юзеров. Сделайте дочерний компонент с
-		юзером. Переберите массив циклом и выведите
-		компоненты с юзерами. Сделайте кнопку, по
-		нажатию на которую будут удаляться элементы
-		из массива. Проверьте, что в дочерних
-		компонентах будет срабатывать хук на
-		удаление. 
-	</p>
+	<p>The parent component contains an array of user names. Make a child component with a user. Loop through the array and print out the components with users. Make a button that, when clicked, will remove elements from the array. Check that the deletion hook will fire in the child components.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../on-init/index.html" class="lesson-nav-btn lesson-nav-prev" title="Хук ngOnInit">← Хук ngOnInit</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../several-hooks/index.html" class="lesson-nav-btn lesson-nav-next" title="Несколько хуков">Несколько хуков →</a>
+      <a href="../on-init/index.html" class="lesson-nav-btn lesson-nav-prev" title="ngOnInit hook">← Hook ngOnInit</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../several-hooks/index.html" class="lesson-nav-btn lesson-nav-next" title="Several hooks">Several hooks →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

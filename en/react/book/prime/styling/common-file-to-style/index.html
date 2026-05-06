@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вставка данных в атрибут style из отдельного файла в React — acteck.off</title>
-  <meta name="description" content="Вставка данных в атрибут style из отдельного файла в React — учебные материалы по программированию.">
+  <title>Inserting data into the style attribute from a separate file in React - acteck.off</title>
+  <meta name="description" content="Inserting data into the style attribute from a separate file in React - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,18 +36,9 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Вставка данных в атрибут style из отдельного файла в React</h1>
-    <p>
-	Мы можем не писать объекты со стилями
-	в файле с компонентом, как в прошлом
-	уроке, а создать отдельный файл с
-	нашими объектами стилей и импортировать
-	их в нужный компонент.
-</p>
-<p>
-	Итак, возьмем наш компонент
-	без CSS стилей:
-</p>
+    <h1>Inserting data into the style attribute from a separate file in React</h1>
+    <p>We can not write objects with styles in the file with the component, as in the last lesson, but create a separate file with our style objects and import them into the desired component.</p>
+<p>So, let's take our component without CSS styles:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return (
@@ -59,12 +50,7 @@
 	);
 }</code>
 </div>
-<p>
-	Давайте создадим в папке <code data-gs="comd/p" data-x>src</code>
-	отдельный файл <code data-gs="comd/p" data-x>styles.js</code>, в
-	котором пропишем наши объекты со
-	стилями:
-</p>	
+<p>Let's create in a folder<code data-gs="comd/p" data-x>src</code>separate file<code data-gs="comd/p" data-x>styles.js</code>, in which we will write our objects with styles:</p>	
 <div data-p="bock/pane" data-p-file="styles.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">const class1 = {
 	width: '200px',
@@ -89,10 +75,7 @@ const class4 = {
 	color: 'white',
 };</code>
 </div>
-<p>
-	Не забудем внизу файла <code data-gs="comd/p" data-x>styles.js</code>
-	экспортировать наши объекты одним объектом
-	<code data-gs="comd/c" data-x>styles</code>:
+<p>Let's not forget at the bottom of the file<code data-gs="comd/p" data-x>styles.js</code>export our objects as one object<code data-gs="comd/c" data-x>styles</code>:
 </p>
 <div data-p="bock/pane" data-p-file="styles.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export const styles = {
@@ -102,31 +85,17 @@ const class4 = {
 	class4: class4
 };</code>
 </div>
-<p>
-	Теперь импортируем объект <code data-gs="comd/c" data-x>styles</code>
-	в наш компонент:
-</p>
+<p>Now let's import the object<code data-gs="comd/c" data-x>styles</code>to our component:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { styles } from "./styles";			 </code>
 </div>
-<p>
-	Теперь мы можем применять нужный нам
-	объект с CSS стилями из общего объекта
-	<code data-gs="comd/c" data-x>styles</code> к нашим тегам. Применим
-	к первому абзацу стили из объекта
-	<code data-gs="comd/c" data-x>class2</code>:
+<p>Now we can apply the object we need with CSS styles from the common object<code data-gs="comd/c" data-x>styles</code>to our tags. Apply styles from the object to the first paragraph<code data-gs="comd/c" data-x>class2</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p style={styles.class2}&gt;text&lt;/p&gt;</code>
 </div>
-<p>
-	Подобным образом добавим стили из 
-	объектов остальным тегам.
-</p>
-<p>
-	В результате, код компонента будет
-	выглядеть следующим образом:
-</p>
+<p>Similarly, we will add styles from objects to the remaining tags.</p>
+<p>As a result, the component code will look like this:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return (
@@ -139,21 +108,14 @@ const class4 = {
 }  </code>
 </div> 
 <div data-w="cont/task">
-	<p>
-		Возьмите React компонент, который вы 
-		делали в задаче к прошлому уроку. Создайте
-		отдельный файл <code data-gs="comd/p" data-x>styles.js</code>, в котором
-		будут объекты CSS стилей для ваших тегов,
-		экспортируйет их как один объект, примените
-		стили к вашему React компоненту.
-	</p>
+	<p>Take the React component that you made in the task for the last lesson. Create a separate file<code data-gs="comd/p" data-x>styles.js</code>, which will contain CSS styling objects for your tags, export them as one object, apply the styles to your React component.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Проброс исключений в JavaScript — acteck.off</title>
-  <meta name="description" content="Проброс исключений в JavaScript — учебные материалы по программированию.">
+  <title>Forwarding exceptions in JavaScript - acteck.off</title>
+  <meta name="description" content="Throwing exceptions in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Проброс исключений в JavaScript</h1>
-    <p>
-	Рассмотрим блок <code data-gs="comd/c" data-x>catch</code> задачи с JSON продукта:
-</p>
+    <h1>Forwarding exceptions in JavaScript</h1>
+    <p>Consider the block<code data-gs="comd/c" data-x>catch</code>tasks with product JSON:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">catch (error) {
 	if (error.name == 'SyntaxError') {
@@ -49,34 +47,10 @@
 	}
 }</code>
 </div>
-<p>
-	Как вы видите, мы ловим два запланированных
-	нами исключения и как-то реагируем на это.
-	Но что будет, если возникнет непредусмотренное
-	нами исключение другого типа? В этом случае
-	оно тоже попадет в блок <code data-gs="comd/c" data-x>catch</code>, но
-	никакой реакции на это не последует, так
-	как исключение с другим типом просто не попадет
-	ни в один из наших ифов.
-</p>
-<p>
-	Когда я говорю, что не будет никакой реакции,
-	то имею ввиду, что реально никакой: даже
-	не будет вываливания ошибки в консоль. Наш
-	код просто молча не будет работать.
-</p>
-<p>
-	Поэтому существует следующее правило: ваш
-	код должен ловить только те исключения, с
-	которыми знает, как справится. Если исключение
-	не известное, то его нужно <dfn data-gs="comd/d" data-x>пробросить</dfn>
-	дальше с помощью <code data-gs="comd/c" data-x>throw</code>. В этом случае
-	выше его поймает кто-то более осведомленный
-	либо исключение вывалится ошибкой в консоль.
-</p>
-<p>
-	Давайте поправим наш код:
-</p>
+<p>As you can see, we catch the two exceptions we planned and react to it somehow. But what happens if an exception of a different type that we did not anticipate occurs? In this case, it will also end up in the block<code data-gs="comd/c" data-x>catch</code>, but no reaction to this will follow, since an exception with a different type simply will not get into any of our ifs.</p>
+<p>When I say that there will be no reaction, I mean that there really is no reaction: there will not even be an error thrown into the console. Our code simply won't work silently.</p>
+<p>Therefore, the following rule is: your code should only catch exceptions that it knows how to handle. If the exception is not known, then it is needed<dfn data-gs="comd/d" data-x>forward</dfn>further with the help<code data-gs="comd/c" data-x>throw</code>. In this case, someone more knowledgeable will catch it above, or the exception will appear as an error in the console.</p>
+<p>Let's fix our code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">catch (error) {
 	if (error.name == 'SyntaxError') {
@@ -89,9 +63,7 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий код:
-	</p>
+	<p>The following code is given:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
 	let arr = JSON.parse(json);
@@ -109,23 +81,20 @@
 	}
 }</code>
 	</div>
-	<p>
-		Что не так с этим кодом? Исправьте его на
-		более удачный.
-	</p>
+	<p>What's wrong with this code? Correct it to something better.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../json-structure-example/index.html" class="lesson-nav-btn lesson-nav-prev" title="Пример исключения с JSON">← Пример исключения с JSON</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../asynchrony/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Синхронный и асинхронный код">Синхронный и асинхронный код →</a>
+      <a href="../json-structure-example/index.html" class="lesson-nav-btn lesson-nav-prev" title="Exception example with JSON">← Exception example with JSON</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../asynchrony/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Synchronous and asynchronous code">Synchronous and asynchronous code →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

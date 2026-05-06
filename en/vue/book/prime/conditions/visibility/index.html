@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Показ по условию в Vue — acteck.off</title>
-  <meta name="description" content="Показ по условию в Vue — учебные материалы по программированию.">
+  <title>Display by condition in Vue - acteck.off</title>
+  <meta name="description" content="Conditional Display in Vue - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,32 +36,15 @@
       <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
     </div>
 
-    <h1>Показ по условию в Vue</h1>
-    <p>
-	Следующая директива, которую мы изучим, называется
-	<code data-gs="comd/c" data-x>v-if</code>. С ее помощью можно показывать
-	или скрывать элементы. Как эта директива
-	работает: параметром она принимает любое
-	свойство объекта <code data-gs="comd/c" data-x>data</code>. Если это свойство
-	имеет значение <code data-gs="comd/c" data-x>true</code> - то элемент будет
-	показан, а если <code data-gs="comd/c" data-x>false</code> - то скрыт.
-</p>
-<p>
-	Давайте посмотрим на примере.
-	Пусть у нас есть абзац с атрибутом <code data-gs="comd/c" data-x>v-if</code>.
-	Значением этого атрибута пусть служит свойство
-	<code data-gs="comd/c" data-x>visible</code>, вот так:
-</p>
+    <h1>Display by condition in Vue</h1>
+    <p>The next directive we'll study is called<code data-gs="comd/c" data-x>v-if</code>. It can be used to show or hide elements. How this directive works: it takes any property of an object as a parameter<code data-gs="comd/c" data-x>data</code>. If this property has a value<code data-gs="comd/c" data-x>true</code>- then the element will be shown, and if<code data-gs="comd/c" data-x>false</code>- something hidden.</p>
+<p>Let's look at an example. Let's say we have a paragraph with an attribute<code data-gs="comd/c" data-x>v-if</code>. Let the value of this attribute be the property<code data-gs="comd/c" data-x>visible</code>, like this:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;p v-if="visible"&gt;text&lt;/p&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Давайте установим значение нашего свойства
-	в <code data-gs="comd/c" data-x>true</code>. В этом случае
-	абзац будет показан:
-</p>
+<p>Let's set our property value to<code data-gs="comd/c" data-x>true</code>. In this case the paragraph will be shown:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
 	return {
@@ -69,10 +52,7 @@
 	}
 }</code>
 </div>
-<p>
-	А вот если <code data-gs="comd/c" data-x>visible</code> поставить в значение
-	<code data-gs="comd/c" data-x>false</code>, то абзац будет скрыт:
-</p>
+<p>But if<code data-gs="comd/c" data-x>visible</code>put in value<code data-gs="comd/c" data-x>false</code>, then the paragraph will be hidden:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
 	return {
@@ -81,13 +61,7 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть в <code data-gs="comd/c" data-x>data</code> хранится свойство <code data-gs="comd/c" data-x>visible</code>.
-		Пусть у вас также есть два абзаца. Сделайте
-		так, чтобы первый абзац был показан на экране,
-		если свойство <code data-gs="comd/c" data-x>visible</code> равно <code data-gs="comd/c" data-x>true</code>,
-		а второй абзац, наоборот, показан, если свойство
-		<code data-gs="comd/c" data-x>visible</code> равно <code data-gs="comd/c" data-x>false</code>.
+	<p>Let in<code data-gs="comd/c" data-x>data</code>property is stored<code data-gs="comd/c" data-x>visible</code>. Let's also say you have two paragraphs. Make the first paragraph show on screen if the property<code data-gs="comd/c" data-x>visible</code>equals<code data-gs="comd/c" data-x>true</code>, and the second paragraph, on the contrary, is shown if the property<code data-gs="comd/c" data-x>visible</code>equals<code data-gs="comd/c" data-x>false</code>.
 	</p>
 </div>
   </section>
@@ -95,7 +69,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

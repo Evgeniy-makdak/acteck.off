@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Адаптивная плиточка без отступов в CSS — acteck.off</title>
-  <meta name="description" content="Адаптивная плиточка без отступов в CSS — учебные материалы по программированию.">
+  <title>Responsive tile without padding in CSS - acteck.off</title>
+  <meta name="description" content="Responsive tiles without padding in CSS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,16 +33,11 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Адаптивная плиточка без отступов в CSS</h1>
-    <p>
-	Давайте сделаем плиточку, которая будет иметь
-	различное количество блоков в ряду в зависимости
-	от ширины экрана. Вот пример того, что у
-	нас должно получится:
-</p>
+    <h1>Responsive tile without padding in CSS</h1>
+    <p>Let's make a tile that will have a different number of blocks in a row depending on the width of the screen. Here is an example of what we should get:</p>
 <div data-p="bock/pane">
 					<div data-w="bock/open" data-m-type="W">
 						<a href="" data-e="link" data-x>
@@ -118,9 +113,7 @@
 						</a>
 					</div>
 				</div>
-<p>
-	Напишем сначала HTML код:
-</p>
+<p>Let's first write the HTML code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
 	&lt;div class="child"&gt;1&lt;/div&gt;
@@ -137,9 +130,7 @@
 	&lt;div class="child"&gt;12&lt;/div&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Давайте теперь добавим стили родителю блоков:
-</p>
+<p>Let's now add styles to the block's parent:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
 	display: flex;
@@ -148,10 +139,7 @@
 	margin: 50px auto;
 }</code>
 </div>
-<p>
-	Теперь зададим стили самим блокам, не задавая
-	им ширину:
-</p>
+<p>Now let’s style the blocks themselves without giving them width:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.child {
 	box-sizing: border-box;
@@ -160,18 +148,8 @@
 	border: 1px solid green;
 }</code>
 </div>
-<p>
-	Очевидно, что ширина блоков должна быть в
-	процентах, чтобы при изменении экрана блоки
-	плавно меняли свою ширину. При этом в определенных
-	точках экрана мы должны менять ширину блоков
-	так, чтобы в ряд помещалось определенное
-	количество этих блоков.
-</p>
-<p>
-	Давайте напишем код, который поставит четыре
-	блока в ряд:
-</p>
+<p>Obviously, the width of the blocks should be in percentages, so that when the screen changes, the blocks smoothly change their width. At the same time, at certain points on the screen we must change the width of the blocks so that a certain number of these blocks fit in a row.</p>
+<p>Let's write some code that will put four blocks in a row:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 1000px) {
 	.child {
@@ -179,9 +157,7 @@
 	}
 }</code>
 </div>
-<p>
-	А теперь поставим три блока в ряд:
-</p>
+<p>Now let’s put three blocks in a row:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 700px) and (max-width: 1000px) {
 	.child {
@@ -189,9 +165,7 @@
 	}
 }</code>
 </div>
-<p>
-	А теперь поставим два блока в ряд:
-</p>
+<p>Now let’s put two blocks in a row:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 400px) and (max-width: 700px) {
 	.child {
@@ -199,9 +173,7 @@
 	}
 }</code>
 </div>
-<p>
-	Один блок в ряд:
-</p>
+<p>One block in a row:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (max-width: 400px) {
 	.child {
@@ -209,9 +181,7 @@
 	}
 }</code>
 </div>
-<p>
-	Давайте соберем весь код вместе:
-</p>
+<p>Let's put all the code together:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
 	display: flex;
@@ -248,38 +218,26 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Переделайте мой код так, чтобы ширина блоков
-		вычислялась через функцию <code data-gs="comd/c" data-x>calc</code>.
+	<p>Change my code so that the width of the blocks is calculated using the function<code data-gs="comd/c" data-x>calc</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте плитку, которая при уменьшении экрана
-		будет сначала четыре элемента в ряд, потом
-		два элемента в ряд, а потом один
-		элемент в ряд.
-	</p>
+	<p>Make a tile that, when the screen is reduced, will first have four elements in a row, then two elements in a row, and then one element in a row.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте плитку, которая при уменьшении экрана
-		будет сначала шесть элементов в ряд, потом
-		три элемента в ряд, а потом один
-		элемент в ряд.
-	</p>
+	<p>Make a tile that, when the screen is reduced, will first have six elements in a row, then three elements in a row, and then one element in a row.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../blocks-rebuilding/index.html" class="lesson-nav-btn lesson-nav-prev" title="Перестроение блоков">← Перестроение блоков</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../tiles-gap/index.html" class="lesson-nav-btn lesson-nav-next" title="Плиточка с отступами">Плиточка с отступами →</a>
+      <a href="../blocks-rebuilding/index.html" class="lesson-nav-btn lesson-nav-prev" title="Rebuilding blocks">← Rebuilding blocks</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../tiles-gap/index.html" class="lesson-nav-btn lesson-nav-next" title="Tiles with indents">Tiles with indents →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

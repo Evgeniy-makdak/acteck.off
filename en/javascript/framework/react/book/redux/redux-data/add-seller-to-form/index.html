@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Внесение изменений в форму в Redux — acteck.off</title>
-  <meta name="description" content="Внесение изменений в форму в Redux — учебные материалы по программированию.">
+  <title>Making changes to a form in Redux - acteck.off</title>
+  <meta name="description" content="Making Form Changes in Redux - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,20 +36,9 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Внесение изменений в форму в Redux</h1>
-    <p>
-	На этом занятии мы закончим работу
-	по выводу информации о продавце в форме
-	для добавления продукта. Для этого нам
-	осталось немного изменить верстку формы.
-</p>
-<p>
-	Откроем наше приложение с продуктами,
-	а в нем файл <code data-gs="comd/p" data-x>NewProductForm.jsx</code>. Давайте
-	перед командой <code data-gs="comd/c" data-x>return</code> добавим кусочек кода
-	для верстки выпадающего списка, в котором
-	мы будем выбирать продавца. Реализуем его через
-	стандартный способ с <code data-gs="comd/c" data-x>map</code>:
+    <h1>Making changes to a form in Redux</h1>
+    <p>In this lesson we will finish the work of displaying information about the seller in the form for adding a product. To do this, we just need to slightly change the layout of the form.</p>
+<p>Let's open our application with products, and in it there is a file<code data-gs="comd/p" data-x>NewProductForm.jsx</code>. Let's go in front of the team<code data-gs="comd/c" data-x>return</code>Let's add a piece of code to layout a drop-down list in which we will select a seller. We implement it using the standard method with<code data-gs="comd/c" data-x>map</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const sellersList = sellers.map((seller) =&gt; (
@@ -58,13 +47,7 @@
 	&lt;/option&gt;
 ))</code>
 </div>
-<p>
-	И теперь внесем изменения в саму верстку.
-	Для этого в форме между первым и вторым
-	абзацами (между блоками верстки для названия
-	и описания продукта) вставим абзац со
-	следующей версткой:
-</p>
+<p>And now let’s make changes to the layout itself. To do this, in the form between the first and second paragraphs (between the layout blocks for the name and description of the product), insert a paragraph with the following layout:</p>
 <div data-p="bock/pane" data-p-file="products/NewProductForm.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p&gt;
 	&lt;label htmlFor="prodSeller"&gt;Seller:&lt;/label&gt;
@@ -74,55 +57,28 @@
 	&lt;/select&gt;
 &lt;/p&gt;</code>
 </div>
-<p>
-	Сейчас мы можем запустить наше приложение.
-	В форме для добавления у нас появился
-	список с продавцами. Попробуем заполнить
-	форму данными, выбрать одного из них и
-	кликнуть по кнопке сохранения. Теперь,
-	если мы заглянем в Redux DevTools, мы
-	увидим изменения - в новом добавленном
-	продукте у нас появилось свойство
-	<code data-gs="comd/c" data-x>seller</code> с id выбранного продавца в
-	качестве значения. Также во вкладке
-	State теперь отображается два слайса
-	<code data-gs="comd/c" data-x>products</code> и <code data-gs="comd/c" data-x>sellers</code>.
+<p>Now we can run our application. In the add form we have a list of sellers. Let's try to fill out the form with data, select one of them and click on the save button. Now, if we look into Redux DevTools, we will see changes - in the new added product we now have the property<code data-gs="comd/c" data-x>seller</code>with the id of the selected seller as the value. Also, the State tab now displays two slices<code data-gs="comd/c" data-x>products</code>And<code data-gs="comd/c" data-x>sellers</code>.
 </p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		В файле <code data-gs="comd/p" data-x>NewStudentForm.jsx</code> создайте
-		выпадающий список <code data-gs="comd/c" data-x>teachersList</code> с
-		помощью <code data-gs="comd/c" data-x>map</code>, в котором будут ФИО
-		преподавателей, как показано в уроке.
-	</p>
+	<p>Open your application with students. In file<code data-gs="comd/p" data-x>NewStudentForm.jsx</code>create a dropdown list<code data-gs="comd/c" data-x>teachersList</code>by using<code data-gs="comd/c" data-x>map</code>, which will contain the full names of teachers, as shown in the lesson.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Внесите изменения в верстку, добавив
-		еще один блок для вывода выпадающего
-		списка с преподавателями.
-	</p>
+	<p>Make changes to the layout by adding another block to display a drop-down list with teachers.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Запустите ваше приложение. В форме
-		для добавления студента у вас должен
-		появиться выпадающий список с преподавателями,
-		который вы делали в предыдущих задачах.
-	</p>
+	<p>Launch your application. In the form for adding a student, you should have a drop-down list with teachers, which you did in previous tasks.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../add-seller-to-product/index.html" class="lesson-nav-btn lesson-nav-prev" title="Добавление информации о продавце">← Добавление информации о продавце</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../multiple-data-output/index.html" class="lesson-nav-btn lesson-nav-next" title="Многократное использование данных из слайса">Многократное использование данных из слайса →</a>
+      <a href="../add-seller-to-product/index.html" class="lesson-nav-btn lesson-nav-prev" title="Adding seller information">← Adding information about the seller</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../multiple-data-output/index.html" class="lesson-nav-btn lesson-nav-next" title="Reusing data from a slice">Reusing data from a slice →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

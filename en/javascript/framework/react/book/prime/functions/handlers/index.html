@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Навешивание событий в JSX — acteck.off</title>
-  <meta name="description" content="Навешивание событий в JSX — учебные материалы по программированию.">
+  <title>Event hanging in JSX - acteck.off</title>
+  <meta name="description" content="Event Hangment in JSX - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,17 +36,9 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Навешивание событий в JSX</h1>
-    <p>
-	Давайте теперь изучим работу с событиями
-	на React. К примеру, сделаем так, чтобы по
-	клику на блок выводился <code data-gs="comd/c" data-x>alert</code> с некоторым текстом.
-</p>
-<p>
-	Пусть у нас есть функция <code data-gs="comd/c" data-x>showMess</code>,
-	которая выводит <code data-gs="comd/c" data-x>alert</code> с сообщением, а в HTML
-	коде есть кнопка, по клику на которую нам
-	и хотелось бы видеть этот <code data-gs="comd/c" data-x>alert</code>:
+    <h1>Event Hinging in JSX</h1>
+    <p>Let's now learn how to work with events in React. For example, let’s make it so that when you click on a block, it will display<code data-gs="comd/c" data-x>alert</code>with some text.</p>
+<p>Let us have a function<code data-gs="comd/c" data-x>showMess</code>, which outputs<code data-gs="comd/c" data-x>alert</code>with a message, and in the HTML code there is a button, upon clicking on which we would like to see this<code data-gs="comd/c" data-x>alert</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
@@ -59,15 +51,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Давайте привяжем к нашей кнопке событие <code data-gs="comd/c" data-x>onclick</code>
-	так, чтобы по клику на этот див срабатывала
-	функция <code data-gs="comd/c" data-x>showMess</code>. Для этого нужно
-	добавить атрибут <code data-gs="comd/c" data-x>onClick</code> (именно в
-	camelCase, то есть <code data-gs="comd/c" data-x>onClick</code>, а не <code data-gs="comd/c" data-x>onclick</code>),
-	а в нем указать функцию, которая выполнится
-	по этому событию:
-</p>
+<p>Let's bind an event to our button<code data-gs="comd/c" data-x>onclick</code>so that when you click on this div the function is triggered<code data-gs="comd/c" data-x>showMess</code>. To do this you need to add the attribute<code data-gs="comd/c" data-x>onClick</code>(exactly in camelCase, that is<code data-gs="comd/c" data-x>onClick</code>, not<code data-gs="comd/c" data-x>onclick</code>), and in it indicate the function that will be executed on this event:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	function showMess() {
@@ -79,16 +63,9 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Таким образом и происходит работа с событиями:
-	добавляется атрибут (к примеру, <code data-gs="comd/c" data-x>onClick</code>
-	или <code data-gs="comd/c" data-x>onFocus</code>), значением атрибута указывается
-	метод, который будет вызван по этому событию.
-</p>
+<p>This is how events work: adding an attribute (for example,<code data-gs="comd/c" data-x>onClick</code>or<code data-gs="comd/c" data-x>onFocus</code>), the attribute value specifies the method that will be called on this event.</p>
 <div data-w="cont/task">
-	<p>
-		Дан следующий код:
-	</p>
+	<p>The following code is given:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	function show1() {
@@ -105,23 +82,19 @@
 	&lt;/div&gt;;
 }</code>
 	</div>
-	<p>
-		Сделайте так, чтобы по клику на первую кнопку
-		срабатывала первая функция, а по клику на
-		вторую кнопку - вторая функция.
-	</p>
+	<p>Make it so that clicking the first button triggers the first function, and clicking the second button triggers the second function.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../tags-calling/index.html" class="lesson-nav-btn lesson-nav-prev" title="Вызов функций внутри тегов">← Вызов функций внутри тегов</a>
-      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../handlers-params/index.html" class="lesson-nav-btn lesson-nav-next" title="Параметры обработчиков">Параметры обработчиков →</a>
+      <a href="../tags-calling/index.html" class="lesson-nav-btn lesson-nav-prev" title="Calling functions inside tags">← Calling functions inside tags</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../handlers-params/index.html" class="lesson-nav-btn lesson-nav-next" title="Handler parameters">Handler parameters →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

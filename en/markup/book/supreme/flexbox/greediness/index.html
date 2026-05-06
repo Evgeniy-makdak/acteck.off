@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Жадность флекс элементов в CSS — acteck.off</title>
-  <meta name="description" content="Жадность флекс элементов в CSS — учебные материалы по программированию.">
+  <title>Greedy flex elements in CSS - acteck.off</title>
+  <meta name="description" content="Greedy flex elements in CSS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,14 +33,11 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Жадность флекс элементов в CSS</h1>
-    <p>
-	Пусть сейчас у нас есть два флекс-блока,
-	выстроенных в ряд. Этим блокам задана ширина
-	в <code data-gs="comd/u" data-x>100px</code>, а их родителю - <code data-gs="comd/u" data-x>300px</code>:
+    <h1>Greedy flex elements in CSS</h1>
+    <p>Let us now have two flex blocks lined up in a row. These blocks are given a width of<code data-gs="comd/u" data-x>100px</code>, and to their parent -<code data-gs="comd/u" data-x>300px</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
@@ -102,64 +99,20 @@
 </html>"></iframe>
 					</div>
 				</div>
-<p>
-	Как вы видите, суммарная ширина наших элементов
-	меньше ширины родителя, поэтому справа остается
-	пустое пространство.
-</p>
-<p>
-	При желании это пустое пространство можно
-	пропорционально разделить между нашими элементами.
-	Это делается с помощью свойства <code data-gs="comd/c" data-x>flex-grow</code>,
-	задаваемого флекс-элементам. Значением этого
-	свойства служит безразмерное число.
-</p>
-<p>
-	Давайте посмотрим на практике, как работает
-	это свойство.
-</p>
+<p>As you can see, the total width of our elements is less than the width of the parent, so there is empty space on the right.</p>
+<p>If desired, this empty space can be proportionally divided between our elements. This is done using the property<code data-gs="comd/c" data-x>flex-grow</code>, given to flex elements. The value of this property is a dimensionless number.</p>
+<p>Let's see in practice how this property works.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Сейчас у нас два флекс-блока с шириной в
-	<code data-gs="comd/u" data-x>100px</code>. Их суммарная ширина элементов
-	<code data-gs="comd/u" data-x>200px</code>, а ширина родителя - <code data-gs="comd/u" data-x>300px</code>.
-	Получается, что остается свободное пространство
-	в <code data-gs="comd/u" data-x>100px</code>.
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now we have two flex blocks with a width of<code data-gs="comd/u" data-x>100px</code>. Their total width of elements<code data-gs="comd/u" data-x>200px</code>, and the width of the parent is<code data-gs="comd/u" data-x>300px</code>. It turns out that there is free space left in<code data-gs="comd/u" data-x>100px</code>.
 </p>
-<p>
-	Если элементам не задан <code data-gs="comd/c" data-x>flex-grow</code>,
-	то мы просто увидим это свободное пространство.
-	Если же он им задан, то реальная ширина элементов
-	будет больше заданной - они пропорционально
-	поделят свободное пространство между собой
-	и добавят его к своей ширине.
+<p>If the elements are not given<code data-gs="comd/c" data-x>flex-grow</code>, then we'll just see this free space. If it is given to them, then the actual width of the elements will be greater than the specified one - they will proportionally divide the free space among themselves and add it to their width.</p>
+<p>Let, for example, the first element<code data-gs="comd/c" data-x>flex-grow</code>equals<code data-gs="comd/n" data-x>1</code>, and the second -<code data-gs="comd/n" data-x>3</code>. Let's calculate how much free space each element will receive.</p>
+<p>First you need to get the total number of units<code data-gs="comd/c" data-x>flex-grow</code>all our elements. For the first element it is equal<code data-gs="comd/n" data-x>1</code>, and in the second -<code data-gs="comd/n" data-x>3</code>. This means that in total it is equal to<code data-gs="comd/n" data-x>4</code>.
 </p>
-<p>
-	Пусть для примера у первого элемента <code data-gs="comd/c" data-x>flex-grow</code>
-	равен <code data-gs="comd/n" data-x>1</code>, а у второго - <code data-gs="comd/n" data-x>3</code>. Давайте
-	вычислим, какую часть свободного пространства
-	получит каждый элемент.
+<p>Let's divide now<code data-gs="comd/u" data-x>100px</code>free space on<code data-gs="comd/n" data-x>4</code>and we get that<code data-gs="comd/u" data-x>25px</code>accounts for one unit<code data-gs="comd/c" data-x>flex-grow</code>. It turns out that one unit will be added to the first element<code data-gs="comd/c" data-x>flex-grow</code>, that is<code data-gs="comd/u" data-x>25px</code>, and to the second - three units, that is<code data-gs="comd/u" data-x>75px</code>.
 </p>
-<p>
-	Для начала нужно получить суммарное количество
-	единиц <code data-gs="comd/c" data-x>flex-grow</code> всех наших элементов.
-	У первого элемента он равен <code data-gs="comd/n" data-x>1</code>, а в
-	у второго - <code data-gs="comd/n" data-x>3</code>. Это значит, что в сумме
-	он равен <code data-gs="comd/n" data-x>4</code>.
-</p>
-<p>
-	Поделим теперь <code data-gs="comd/u" data-x>100px</code> свободного пространства
-	на <code data-gs="comd/n" data-x>4</code> и получим, что <code data-gs="comd/u" data-x>25px</code> приходится
-	на одну единицу <code data-gs="comd/c" data-x>flex-grow</code>. Получится,
-	что к первому элементу добавится одна единица
-	<code data-gs="comd/c" data-x>flex-grow</code>, то есть <code data-gs="comd/u" data-x>25px</code>, а
-	ко второму - три единицы, то
-	есть <code data-gs="comd/u" data-x>75px</code>.
-</p>
-<p>
-	Ширина первого элемента получится <code data-gs="comd/u" data-x>125px</code>,
-	а второго - <code data-gs="comd/u" data-x>175px</code>:
+<p>The width of the first element will be<code data-gs="comd/u" data-x>125px</code>, and the second -<code data-gs="comd/u" data-x>175px</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
@@ -236,28 +189,11 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть теперь ширина родителя равна <code data-gs="comd/u" data-x>400px</code>,
-	ширина первого элемента <code data-gs="comd/u" data-x>200px</code>, а ширина
-	второго элемента - <code data-gs="comd/u" data-x>100px</code>. Получится,
-	что свободное пространство опять
-	равно <code data-gs="comd/u" data-x>100px</code>.
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let now the width of the parent be<code data-gs="comd/u" data-x>400px</code>, width of the first element<code data-gs="comd/u" data-x>200px</code>, and the width of the second element is<code data-gs="comd/u" data-x>100px</code>. It turns out that the free space is again equal to<code data-gs="comd/u" data-x>100px</code>.
 </p>
-<p>
-	Давайте каждому элементу зададим <code data-gs="comd/c" data-x>flex-grow</code>,
-	равный <code data-gs="comd/n" data-x>1</code>. В сумме получится <code data-gs="comd/n" data-x>2</code>,
-	то есть <code data-gs="comd/u" data-x>100px</code> свободного пространства
-	нужно разделить на <code data-gs="comd/n" data-x>2</code>. Получится, что
-	<code data-gs="comd/u" data-x>50px</code> приходится на одну
-	единицу жадности.
-</p>
-<p>
-	Так как у всех элементов одинаковое значение
-	<code data-gs="comd/c" data-x>flex-grow</code>, то ко всем элементам добавится
-	одинаковое значение в <code data-gs="comd/u" data-x>50px</code>. Это значит,
-	что первый элемент станет <code data-gs="comd/u" data-x>250px</code>, и
-	а второй станет <code data-gs="comd/u" data-x>150px</code>:
+<p>Let's set each element<code data-gs="comd/c" data-x>flex-grow</code>, equal<code data-gs="comd/n" data-x>1</code>. In total it will be<code data-gs="comd/n" data-x>2</code>, that is<code data-gs="comd/u" data-x>100px</code>free space must be divided into<code data-gs="comd/n" data-x>2</code>. It turns out that<code data-gs="comd/u" data-x>50px</code>per unit of greed.</p>
+<p>Since all elements have the same meaning<code data-gs="comd/c" data-x>flex-grow</code>, then the same value will be added to all elements in<code data-gs="comd/u" data-x>50px</code>. This means that the first element will become<code data-gs="comd/u" data-x>250px</code>, and the second one will become<code data-gs="comd/u" data-x>150px</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
@@ -334,23 +270,12 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть опять ширина родителя равна <code data-gs="comd/u" data-x>400px</code>,
-	ширина первого элемента <code data-gs="comd/u" data-x>200px</code>, а ширина
-	второго элемента - <code data-gs="comd/u" data-x>100px</code>.
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let again the width of the parent be<code data-gs="comd/u" data-x>400px</code>, width of the first element<code data-gs="comd/u" data-x>200px</code>, and the width of the second element is<code data-gs="comd/u" data-x>100px</code>.
 </p>
-<p>
-	Давайте теперь первому элементу установим
-	<code data-gs="comd/c" data-x>flex-grow</code> в значение <code data-gs="comd/n" data-x>3</code>, а второму
-	- в значении <code data-gs="comd/n" data-x>1</code>. Получится, что жадность
-	в сумме равна <code data-gs="comd/n" data-x>4</code>. Toгда одна единица
-	жадности равна <code data-gs="comd/e" data-x><code data-gs="comd/u" data-x>100px</code> / <code data-gs="comd/n" data-x>4</code> = <code data-gs="comd/u" data-x>25px</code></code>.
+<p>Let's now set the first element<code data-gs="comd/c" data-x>flex-grow</code>in meaning<code data-gs="comd/n" data-x>3</code>, and the second - in the meaning<code data-gs="comd/n" data-x>1</code>. It turns out that greed in total is equal to<code data-gs="comd/n" data-x>4</code>. Then one unit of greed is equal to<code data-gs="comd/e" data-x><code data-gs="comd/u" data-x>100px</code> / <code data-gs="comd/n" data-x>4</code> = <code data-gs="comd/u" data-x>25px</code></code>.
 </p>
-<p>
-	К первому элементу добавится <code data-gs="comd/u" data-x>75px</code>,
-	и он станет <code data-gs="comd/u" data-x>275px</code>, а ко второму -
-	<code data-gs="comd/u" data-x>25px</code>, он станет <code data-gs="comd/u" data-x>125px</code>:
+<p>It will be added to the first element<code data-gs="comd/u" data-x>75px</code>and he will become<code data-gs="comd/u" data-x>275px</code>, and to the second -<code data-gs="comd/u" data-x>25px</code>, he will become<code data-gs="comd/u" data-x>125px</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
@@ -427,16 +352,8 @@
 					</div>
 				</div>
 
-<h2>Практические задачи</h2>
-<p>
-	Во всех задачах ниже вам будет представлен
-	некоторый код с флекс-элементами, имеющими
-	ширину и <code data-gs="comd/c" data-x>flex-grow</code>. По представленному
-	коду рассчитайте, какие размеры будет иметь
-	каждый из элементов. Затем запустите код
-	и проверьте ваши расчеты, измерив реальные
-	ширины элементов.
-</p>
+<h2>Practical problems</h2>
+<p>In all the problems below you will be presented with some code with flex elements having width and<code data-gs="comd/c" data-x>flex-grow</code>. Using the code presented, calculate what dimensions each element will have. Then run the code and check your calculations by measuring the actual widths of the elements.</p>
 <div data-w="cont/task">
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
@@ -567,16 +484,16 @@
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../element-size/index.html" class="lesson-nav-btn lesson-nav-prev" title="Размер флекс элемента вдоль главной оси">← Размер флекс элемента вдоль главной оси</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../zero-greediness/index.html" class="lesson-nav-btn lesson-nav-next" title="Нулевая жадность флекс элементов">Нулевая жадность флекс элементов →</a>
+      <a href="../element-size/index.html" class="lesson-nav-btn lesson-nav-prev" title="Flex element size along the main axis">← Flex element size along the main axis</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../zero-greediness/index.html" class="lesson-nav-btn lesson-nav-next" title="Zero greed flex items">Zero greed of flex elements →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Основы работы с fetch в AJAX — acteck.off</title>
-  <meta name="description" content="Основы работы с fetch в AJAX — учебные материалы по программированию.">
+  <title>Basics of working with fetch in AJAX - acteck.off</title>
+  <meta name="description" content="AJAX fetch basics - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,71 +36,41 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Основы работы с fetch в AJAX</h1>
-    <p>
-	Давайте теперь посмотрим, как подгрузить
-	часть страницы с помощью AJAX. Пусть на нашей
-	странице <code data-gs="comd/p" data-x>index.html</code> будет расположен
-	див и кнопка (здесь показано содержимое <code data-gs="comd/c" data-x>body</code>):
+    <h1>Basics of working with fetch in AJAX</h1>
+    <p>Let's now see how to load part of a page using AJAX. Let on our page<code data-gs="comd/p" data-x>index.html</code>a div and a button will be located (the content is shown here<code data-gs="comd/c" data-x>body</code>):
 </p>
 <div data-p="bock/pane" data-p-file="public/index.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;&lt;/div&gt;
 &lt;button&gt;click me&lt;/button&gt;</code>
 </div>
-<p>
-	Пусть у нас также есть страница <code data-gs="comd/p" data-x>ajax.html</code>,
-	на которой расположены три абзаца (без тегов
-	страницы, просто абзацы):
-</p>
+<p>Let us also have a page<code data-gs="comd/p" data-x>ajax.html</code>, which contains three paragraphs (no page tags, just paragraphs):</p>
 <div data-p="bock/pane" data-p-file="public/ajax.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;1&lt;/p&gt;
 &lt;p&gt;2&lt;/p&gt;
 &lt;p&gt;3&lt;/p&gt;</code>
 </div>
-<p>
-	Давайте сделаем так, чтобы по клику на кнопку
-	на странице <code data-gs="comd/p" data-x>index.html</code> в див подгрузилось
-	содержимое страницы <code data-gs="comd/p" data-x>ajax.html</code>.
+<p>Let's make it so that when you click on a button on the page<code data-gs="comd/p" data-x>index.html</code>the contents of the page were loaded into the div<code data-gs="comd/p" data-x>ajax.html</code>.
 </p>
-<p>
-	Для этого для начала получим в переменные
-	ссылки на наши элементы:
-</p>
+<p>To do this, first we’ll get variable references to our elements:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let div    = document.querySelector('div');
 let button = document.querySelector('button');</code>
 </div>
-<p>
-	Давайте навесим на кнопку обработчик клика:
-</p>
+<p>Let's attach a click handler to the button:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	// тут будем выполнять AJAX запрос
 });</code>
 </div>
-<p>
-	Давайте теперь выполним AJAX запрос. Для
-	этого используется функция <code data-gs="comd/c" data-x>fetch</code>,
-	параметром получающая адрес страницы, содержимое
-	которой мы хотим получить. Укажем адрес страницы
-	<code data-gs="comd/p" data-x>ajax.html</code> на нашем сервере:
-</p>
+<p>Let's now execute the AJAX request. To do this, use the function<code data-gs="comd/c" data-x>fetch</code>, which takes as a parameter the address of the page whose contents we want to receive. We will indicate the page address<code data-gs="comd/p" data-x>ajax.html</code>on our server:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	let result = fetch('/ajax.html'); 
 });</code>
 </div>
-<p>
-	Своим результатом <code data-gs="comd/c" data-x>fetch</code> вернет <a
-	href="../../promises/intro/index.html">промис</a>.
-	Дело в том, что запрос страницы через AJAX
-	- это асинхронная операция, ведь пройдет
-	некоторое время, через которое страница нам
-	ответит.
-</p>
-<p>
-	Давайте получим результат промиса:
-</p>
+<p>By its result<code data-gs="comd/c" data-x>fetch</code>will return<a
+	href="../../promises/intro/index.html">promise</a>. The fact is that requesting a page via AJAX is an asynchronous operation, because some time will pass before the page responds to us.</p>
+<p>Let's get the result of the promise:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	let promise = fetch('/ajax.html'); 
@@ -110,9 +80,7 @@ let button = document.querySelector('button');</code>
 	});
 });</code>
 </div>
-<p>
-	Упростим, избавившись от лишней переменной:
-</p>
+<p>Let's simplify by getting rid of the extra variable:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	fetch('/ajax.html').then(function(response) {
@@ -120,9 +88,7 @@ let button = document.querySelector('button');</code>
 	});
 });</code>
 </div>
-<p>
-	Упростим, воспользовавшись стрелочной функцией:
-</p>
+<p>Let's simplify by using the arrow function:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	fetch('/ajax.html').then(response =&gt; {
@@ -130,9 +96,7 @@ let button = document.querySelector('button');</code>
 	});
 });</code>
 </div>
-<p>
-	Представим в более читаемом виде:
-</p>
+<p>Let's present it in a more readable form:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	fetch('/ajax.html').then(
@@ -142,9 +106,7 @@ let button = document.querySelector('button');</code>
 	);
 });</code>
 </div>
-<p>
-	В переменной <code data-gs="comd/c" data-x>response</code> содержится достаточно
-	сложный объект класса <code data-gs="comd/c" data-x>Response</code>:
+<p>In variable<code data-gs="comd/c" data-x>response</code>contains a rather complex class object<code data-gs="comd/c" data-x>Response</code>:
 </p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
@@ -153,14 +115,7 @@ let button = document.querySelector('button');</code>
 	});
 });</code>
 </div>
-<p>
-	Глубоко этот объект мы будем изучать в следующих
-	уроках, а пока нам нужно самое простое -
-	получить текст запрошенной страницы. Для
-	этого в этом объекте существует метод <code data-gs="comd/c" data-x>text</code>.
-	Этот метод, однако, возвращает не текст страницы,
-	а промис с ее текстом:
-</p>
+<p>We will study this object in depth in the following lessons, but for now we need the simplest thing - to get the text of the requested page. For this purpose, there is a method in this object<code data-gs="comd/c" data-x>text</code>. This method, however, does not return the page text, but a promise with its text:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	fetch('/ajax.html').then(
@@ -170,11 +125,7 @@ let button = document.querySelector('button');</code>
 	);
 });</code>
 </div>
-<p>
-	Чтобы добраться до текста страницы, необходимо
-	промис, полученный из <code data-gs="comd/c" data-x>response.text</code>,
-	обработать еще раз:
-</p>
+<p>To get to the page text, you need a promise derived from<code data-gs="comd/c" data-x>response.text</code>, process again:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	fetch('/ajax.html').then(
@@ -188,11 +139,7 @@ let button = document.querySelector('button');</code>
 	);
 });</code>
 </div>
-<p>
-	Итак, мы наконец получили текст запрошенной
-	страницы и можем, например, записать его
-	в наш див:
-</p>
+<p>So, we finally have the text of the requested page and we can, for example, write it into our div:</p>
 <div data-p="bock/pane" data-p-file="public/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">button.addEventListener('click', function() {
 	fetch('/ajax.html').then(
@@ -207,32 +154,23 @@ let button = document.querySelector('button');</code>
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны три кнопки и див. На сервере даны три
-		страницы. Сделайте так, чтобы каждая из кнопок
-		подгружала в див соответствующую страницу.
-	</p>
+	<p>Three buttons and a div are given. There are three pages on the server. Make sure that each button loads the corresponding page into the div.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть на сервере есть пять страниц. Пусть
-		первое нажатие на кнопку подгружает первую
-		страницу, второе нажатие - вторую, и так
-		далее, пока страницы не закончатся.
-	</p>
+	<p>Let there be five pages on the server. Let the first click on the button load the first page, the second click load the second, and so on until there are no more pages.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction в AJAX">← Introduction в AJAX</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../response-code/index.html" class="lesson-nav-btn lesson-nav-next" title="Код HTTP ответа">Код HTTP ответа →</a>
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction to AJAX">← Introduction to AJAX</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../response-code/index.html" class="lesson-nav-btn lesson-nav-next" title="HTTP response code">HTTP response code →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

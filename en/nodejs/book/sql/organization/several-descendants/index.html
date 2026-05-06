@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Несколько потомков в родственных связях в NodeJS — acteck.off</title>
-  <meta name="description" content="Несколько потомков в родственных связях в NodeJS — учебные материалы по программированию.">
+  <title>Multiple descendants in sibling relationships in NodeJS - acteck.off</title>
+  <meta name="description" content="Multiple Related Descendants in NodeJS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,22 +36,10 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Несколько потомков в родственных связях в NodeJS</h1>
-    <p>
-	В предыдущем уроке отец мог иметь только
-	одного сына. Это достигалось за счет того,
-	что у отца была связь <code data-gs="comd/s" data-x>son_id</code>.
+    <h1>Multiple children in sibling relationships in NodeJS</h1>
+    <p>In the previous lesson, a father could only have one son. This was achieved due to the fact that the father had a connection<code data-gs="comd/s" data-x>son_id</code>.
 </p>
-<p>
-	Пусть теперь отец может иметь несколько сыновей.
-	В этом случае мы по-прежнему можем сделать
-	только одну таблицу, которая будет связана
-	сама с собой. Toлько в поле связи будем хранить
-	не <code data-gs="comd/s" data-x>id</code> сына, а <code data-gs="comd/s" data-x>id</code> отца. В этом
-	случае несколько юзеров смогут сослаться
-	на своего отца - и тем самым отец будет иметь
-	несколько сыновей:
-</p>
+<p>Let now a father can have several sons. In this case, we can still only make one table that is related to itself. We will only store in the communication field not<code data-gs="comd/s" data-x>id</code>son, and<code data-gs="comd/s" data-x>id</code>father. In this case, several users will be able to refer to their father - and thus the father will have several sons:</p>
 <div data-w="bock/stab">
 	<table>
 		<caption>users</caption>
@@ -82,10 +70,7 @@
 		</tr>
 	</table>
 </div>
-<p>
-	Получить юзера вместе с его отцом можно следующим
-	образом:
-</p>
+<p>You can get a user along with his father as follows:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT
 	users.name as user_name,
@@ -95,23 +80,17 @@ FROM
 LEFT JOIN users as fathers ON fathers.id=users.father_id</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть у нас есть юзеры. Каждый юзер имеет
-		отца и мать. Распишите структуру хранения.
-	</p>
+	<p>Let us have users. Every user has a father and mother. Describe the storage structure.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Напишите запрос, который достанет юзера вместе
-		с его отцом и матерью.
-	</p>
+	<p>Write a request that will reach the user along with his father and mother.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

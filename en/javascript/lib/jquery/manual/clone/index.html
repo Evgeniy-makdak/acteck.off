@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод clone — acteck.off</title>
-  <meta name="description" content="Метод clone — учебные материалы по программированию.">
+  <title>clone method - acteck.off</title>
+  <meta name="description" content="The clone method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,65 +36,31 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод clone</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>clone</code> создает глубокие копии
-	выбранных элементов страницы и возвращает
-	их в виде объекта jQuery.
-	Элементы копируются вместе со всеми содержащимися
-	внутри них элементами. Необязательный параметры
-	регулируют, нужно ли копировать обработчики
-	событий, привязанные к этим элементам (по
-	умолчанию <code data-gs="comd/c" data-x>false</code> - не копировать).
-</p>
+    <h1>clone method</h1>
+    <p>Method<code data-gs="comd/c" data-x>clone</code>creates deep copies of selected page elements and returns them as a jQuery object. The elements are copied along with all the elements they contain. Optional parameters control whether event handlers bound to these elements should be copied (default<code data-gs="comd/c" data-x>false</code>- do not copy).</p>
 
-<h2>Синтаксис</h2>
-<p>
-	В метод можно передать два необязательных параметра,
-	которые могут принимать значения <code data-gs="comd/c" data-x>true</code> или <code data-gs="comd/c" data-x>false</code> 
-	(<code data-gs="comd/c" data-x>false</code> по умолчанию). Для первого параметра в значении 
-	<code data-gs="comd/c" data-x>true</code> - обработчики событий и данные для элемента будут 
-	также скопированы, при <code data-gs="comd/c" data-x>false</code> - нет. Для второго параметра
-	в значении <code data-gs="comd/c" data-x>true</code> - обработчики событий и данные для 
-	всех потомков клонированного элемента будут также 
-	скопированы, при <code data-gs="comd/c" data-x>false</code> - нет.
-</p>
+<h2>Syntax</h2>
+<p>You can pass two optional parameters to the method, which can take values<code data-gs="comd/c" data-x>true</code>or<code data-gs="comd/c" data-x>false</code> 
+	(<code data-gs="comd/c" data-x>false</code>default). For the first parameter in the value<code data-gs="comd/c" data-x>true</code>- event handlers and data for the element will also be copied, when<code data-gs="comd/c" data-x>false</code>- No. For the second parameter in the value<code data-gs="comd/c" data-x>true</code>- event handlers and data for all descendants of the cloned element will also be copied, when<code data-gs="comd/c" data-x>false</code>- No.</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.clone([флаг1], [флаг2]);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте после абзаца вставим еще один такой 
-	же, используя метод <code data-gs="comd/c" data-x>clone</code> и метод 
-	<a href="../insertAfter/index.html"><code data-gs="comd/c" data-x>insertAfter</code></a>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's insert another one after the paragraph using the method<code data-gs="comd/c" data-x>clone</code>and method<a href="../insertAfter/index.html"><code data-gs="comd/c" data-x>insertAfter</code></a>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="www"&gt;text&lt;/p&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('.www').clone().insertAfter('.www');</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../after/index.html"><code data-gs="comd/c" data-x>after</code></a>, <br>
-			который добавляет содержимое после заданного элемента
-		</li>
-		<li>
-			метод <a href="../before/index.html"><code data-gs="comd/c" data-x>before</code></a>, <br>
-			который добавляет содержимое перед заданным элементом
-		</li>
-		<li>
-			метод <a href="../remove/index.html"><code data-gs="comd/c" data-x>remove</code></a>, <br>
-			который удаляет элементы без возможности
-			их восстановления
-		</li>
-		<li>
-			метод <a href="../detach/index.html"><code data-gs="comd/c" data-x>detach</code></a>, <br>
-			который удаляет элементы с возможностью их
-			восстановления
-		</li>
+		<li>method<a href="../after/index.html"><code data-gs="comd/c" data-x>after</code></a>, <br>which adds content after a given element</li>
+		<li>method<a href="../before/index.html"><code data-gs="comd/c" data-x>before</code></a>, <br>which adds content before a given element</li>
+		<li>method<a href="../remove/index.html"><code data-gs="comd/c" data-x>remove</code></a>, <br>which deletes items without the possibility of their recovery</li>
+		<li>method<a href="../detach/index.html"><code data-gs="comd/c" data-x>detach</code></a>, <br>which deletes items with the ability to restore them</li>
 	</ul>
 </div>
   </section>
@@ -102,7 +68,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

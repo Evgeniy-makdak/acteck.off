@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Introduction в навигацию в NextJS — acteck.off</title>
-  <meta name="description" content="Introduction в навигацию в NextJS — учебные материалы по программированию.">
+  <title>Introduction to Navigation in NextJS - acteck.off</title>
+  <meta name="description" content="Introduction to Navigation in NextJS - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,152 +36,44 @@
       <a href="../../../../../../en/next/index.html">Next.js</a>
     </div>
 
-    <h1>Introduction в навигацию в NextJS</h1>
-    <p>
-	В данном разделе учебника мы поговорим
-	о работе ссылок в NextJS.
-</p>
-<p>
-	Для начала давайте обсудим, что такого
-	особенного в ссылках. Посмотрим
-	на них в различных подходах
-	к созданию сайта.
-</p>
+    <h1>Introduction to Navigation in NextJS</h1>
+    <p>In this section of the tutorial we will talk about how links work in NextJS.</p>
+<p>First, let's discuss what's so special about links. Let's look at them in different approaches to creating a website.</p>
 
-<h2>Сайт на React</h2>
-<p>
-	Пусть у вас есть сайт на React.
-	Как известно, React представлят собой SPA -
-	сайт, в котором пользователь всегда остается
-	на одной странице. Вы можете подключить
-	<a href="../../../../../javascript/framework/react/book/supreme/router/intro/index.html">React Router</a>
-	и пользователь будет думать, что ходит
-	по разным страницам, при этом физически оставаясь
-	на одном файле.
-</p>
-<p>
-	При этом пользователь будет кликать
-	по ссылкам, ему будет казаться, что он попадает
-	на другую страницу, но страница сайта
-	в браузере не будет перезагружаться -
-	React динамически будет формировать то,
-	что пользователь видит на экране.
-</p>
-<p>
-	В такой схеме пользователь получает
-	макет сайта при первом заходе на страницу,
-	а затем части сайта просто меняются
-	через JavaScript. При этом сайт
-	может запрашивать данные с сервера
-	через AJAX.
-</p>
-<p>
-	Такой подход снижает нагрузку на хостинг
-	(ресурсы которого стоят наших денег),
-	а также нагрузку на интернет-канал юзера.
-</p>
-<p>
-	Но у такого подхода есть недостаток - проблема с SEO.
-	Вроде у сайта и есть набор ссылок, и в адресной
-	строке что-то меняется, и можно даже скинуть
-	ссылку на определенную страницу сайта через
-	месседжер. Однако, содержимое страницы
-	формируется динамически на клиенте и поисковики
-	не способны такое обработать. Поэтому такой
-	сайт продвигаться не будет.
-</p>
-<p>
-	Не все сайта, однако, предназначены для
-	продвижения в поисковиках. И если ваш не предназначен,
-	то данная схема вполне рабочая для вас.
-</p>
+<h2>React website</h2>
+<p>Let's say you have a website in React. As you know, React is an SPA - a site in which the user always remains on the same page. You can connect<a href="../../../../../javascript/framework/react/book/supreme/router/intro/index.html">React Router</a>and the user will think that he is walking through different pages, while physically remaining on the same file.</p>
+<p>In this case, the user will click on the links, it will seem to him that he is going to another page, but the site page in the browser will not be reloaded - React will dynamically form what the user sees on the screen.</p>
+<p>In this scheme, the user receives a layout of the site when they first visit the page, and then parts of the site are simply changed via JavaScript. In this case, the site can request data from the server via AJAX.</p>
+<p>This approach reduces the load on the hosting (whose resources cost our money), as well as the load on the user’s Internet channel.</p>
+<p>But this approach has a drawback - an SEO problem. It seems that the site has a set of links, and something changes in the address bar, and you can even send a link to a specific page of the site through the messenger. However, the page content is generated dynamically on the client and search engines are not able to process this. Therefore, such a site will not be promoted.</p>
+<p>Not all sites, however, are designed for search engine promotion. And if yours is not intended, then this scheme is quite working for you.</p>
 
-<h2>Сайт на бэке</h2>
-<p>
-	Пусть ваш сайт сделан на
-	одном из языков бэка.
-	Например, на PHP.
-</p>
-<p>
-	В этом случае, когда пользователь будет
-	кликать по ссылкам, страница сайта будет
-	каждый раз загружаться целиком.
-</p>
-<p>
-	Проблема в том, что существенная часть страницы
-	уже есть у юзера. Ведь, как вы уже знаете,
-	на странице обычно меняется только контент
-	и метаданные, а все остальное остается
-	неизменным.
-</p>
-<p>
-	Зачем же нам скачивать остальное, если поменялся
-	только контент? Это создает повышенную
-	нагрузку на сервер и интернет-канал.
-</p>
-<p>
-	Есть еще проблема. Пусть на странице,
-	которую мы получаем, в контенте расположен
-	список продуктов, как в интернет магазине.
-	Очевидно, что каждый продукт имеет одинаковую
-	верстку. Более оптимально было бы скачать
-	только данные продуктов, и шаблон вывода
-	продукта. И затем на клиенте вывести каждый
-	продукт в этом шаблоне. Но мы скачиваем
-	продукты вместе повторяющейся версткой продукта.
-</p>
-<p>
-	Резюмируя, если у нас сайт на чистом бэке,
-	мы гоняем по сети много лишних данных.
-</p>
-<p>
-	Однако, в этом случае мы не имеем
-	проблемы с SEO. По запрошенному
-	URL всегда отдается статическое
-	содержимое, понятное поисковикам.
-</p>
+<h2>Website on back</h2>
+<p>Let your site be made in one of the back-end languages. For example, in PHP.</p>
+<p>In this case, when the user clicks on the links, the site page will load in its entirety each time.</p>
+<p>The problem is that the user already has a significant part of the page. After all, as you already know, usually only the content and metadata change on a page, while everything else remains unchanged.</p>
+<p>Why do we need to download the rest if only the content has changed? This creates an increased load on the server and Internet channel.</p>
+<p>There is still a problem. Let the page we receive contain a list of products in the content, like in an online store. Obviously, each product has the same layout. It would be more optimal to download only the product data and the product output template. And then display each product in this template on the client. But we download products along with repeating product layout.</p>
+<p>To summarize, if we have a site on a clean back, we drive a lot of unnecessary data around the network.</p>
+<p>However, in this case we do not have an SEO problem. The requested URL always returns static content that is understandable to search engines.</p>
 
-<h2>Сайт на NextJS</h2>
-<p>
-	NextJS комбинирует оба подхода.
-	Когда пользователь вбивает URL прямо в адресную
-	строку, то ему в ответ приходит статическое
-	содержимое страницы.
-</p>
-<p>
-	Когда же пользователь начинает кликать
-	по ссылкам на нашем сайте, то страница
-	сайта не обновляется целиком, а через
-	AJAX подгружается нужные юзеру данные.
-</p>
-<p>
-	Когда поисковик ходит по нашему сайту,
-	он видит нужное ему статическое содержимое.
-	А когда юзер ходит по нашему сайту,
-	наш сайт начинает вести себя подобно SPA.
-</p>
-<p>
-	И, самое главное, NextJS проделывает
-	все это автоматически! Нам не нужно
-	заботиться об этом - он все сделает сам.
-	Красота!
-</p>
-<p>
-	В следующих уроках мы будем разбираться,
-	как NextJS заставить работать описанным
-	образом.
-</p>
+<h2>Website on NextJS</h2>
+<p>NextJS combines both approaches. When a user types a URL directly into the address bar, he receives static page content in response.</p>
+<p>When the user starts clicking on links on our site, the site page is not updated as a whole, but the data the user needs is loaded through AJAX.</p>
+<p>When a search engine navigates our site, it sees the static content it needs. And when a user navigates our site, our site begins to behave like an SPA.</p>
+<p>And best of all, NextJS does it all automatically! We don't need to worry about it - he will do everything himself. Beauty!</p>
+<p>In the following lessons we will figure out how to make NextJS work in the described way.</p>
         <div class="lesson-nav">
-      <a href="../../layouts/nested-layouts/index.html" class="lesson-nav-btn lesson-nav-prev" title="Вложенные макеты">← Вложенные макеты</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../menu-component/index.html" class="lesson-nav-btn lesson-nav-next" title="Компонент для меню">Компонент для меню →</a>
+      <a href="../../layouts/nested-layouts/index.html" class="lesson-nav-btn lesson-nav-prev" title="Nested Layouts">← Nested Layouts</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../menu-component/index.html" class="lesson-nav-btn lesson-nav-next" title="Component for menu">Component for menu →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

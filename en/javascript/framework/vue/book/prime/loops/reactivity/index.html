@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Реактивность массивов в Vue — acteck.off</title>
-  <meta name="description" content="Реактивность массивов в Vue — учебные материалы по программированию.">
+  <title>Array reactivity in Vue - acteck.off</title>
+  <meta name="description" content="Array Reactivity in Vue - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,19 +36,9 @@
       <a href="../../index.html">Vue</a>
     </div>
 
-    <h1>Реактивность массивов в Vue</h1>
-    <p>
-	Реактивность срабатывает даже при изменениях
-	массивов, выводимых через <code data-gs="comd/c" data-x>v-for</code>.
-	Давайте для примера сделаем так, чтобы
-	по нажатию на кнопку в массив реактивно
-	добавлялся новый элемент и изменения
-	мгновенно происходили и на экране.
-</p>
-<p>
-	Давайте реализуем описанное.
-	Пусть у нас в есть массив:
-</p>
+    <h1>Array reactivity in Vue</h1>
+    <p>Reactivity is triggered even when there are changes to arrays output via<code data-gs="comd/c" data-x>v-for</code>. For example, let’s make sure that when you click a button, a new element is reactively added to the array and the changes instantly occur on the screen.</p>
+<p>Let's implement what is described. Let us have an array:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
 	return {
@@ -56,10 +46,7 @@
 	}
 }</code>
 </div>
-<p>
-	Выведем элементы этого
-	массива в цикле:
-</p>
+<p>Let's display the elements of this array in a loop:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;p v-for="elem in arr"&gt;
@@ -67,10 +54,7 @@
 	&lt;/p&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Сделаем кнопку, по нажатию на которую
-	в массив будет добавляться новый элемент:
-</p>
+<p>Let's make a button that, when clicked, will add a new element to the array:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;p v-for="elem in arr"&gt;
@@ -79,9 +63,7 @@
 	&lt;button @click="add"&gt;add&lt;/button&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Реализуем соответствующий метод:
-</p>
+<p>Let's implement the corresponding method:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
 	add: function() {
@@ -90,76 +72,41 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана кнопка. Дан массив. Выведите элементы
-		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
-		так, чтобы по нажатию на кнопку в конец этого
-		списка добавился новый пункт.
-	</p>
+	<p>A button is given. Given an array. Print the elements of this array as a list<code data-gs="comd/c" data-x>ul</code>. Make sure that when you click a button, a new item is added to the end of this list.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана кнопка. Дан массив. Выведите элементы
-		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
-		так, чтобы каждый раз по нажатию на кнопку
-		списка удалялся первый пункт.
-	</p>
+	<p>A button is given. Given an array. Print the elements of this array as a list<code data-gs="comd/c" data-x>ul</code>. Make sure that every time you click on the list button, the first item is deleted.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана кнопка. Дан массив. Выведите элементы
-		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
-		так, чтобы каждый раз по нажатию на кнопку
-		списка удалялся последний пункт.
-	</p>
+	<p>A button is given. Given an array. Print the elements of this array as a list<code data-gs="comd/c" data-x>ul</code>. Make sure that each time you click on the list button, the last item is deleted.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана кнопка. Дан массив. Выведите элементы
-		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
-		так, чтобы каждый раз по нажатию на кнопку
-		списка удалялся предпоследний пункт.
-	</p>
+	<p>A button is given. Given an array. Print the elements of this array as a list<code data-gs="comd/c" data-x>ul</code>. Make sure that every time you click on the list button, the penultimate item is deleted.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана кнопка. Дан массив. Выведите элементы
-		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
-		так, чтобы по нажатию на кнопку
-		пункты списка отсортировались.
-	</p>
+	<p>A button is given. Given an array. Print the elements of this array as a list<code data-gs="comd/c" data-x>ul</code>. Make sure that the list items are sorted by pressing a button.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана кнопка. Дан массив. Выведите элементы
-		этого массива в виде списка <code data-gs="comd/c" data-x>ul</code>. Сделайте
-		так, чтобы по нажатию на кнопку
-		пункты списка выстроились
-		в обратном порядке.
-	</p>
+	<p>A button is given. Given an array. Print the elements of this array as a list<code data-gs="comd/c" data-x>ul</code>. Make sure that when you press a button, the list items are arranged in reverse order.</p>
 </div>
 
-<h2>Исключения</h2>
+<h2>Exceptions</h2>
 <div data-w="cont/nott">
-	<p>
-		Из-за ограничений JavaScript, Vue не способен
-		заметить следующие изменения в массиве: прямую
-		установку элемента по индексу: <code data-gs="comd/c" data-x>items[ключ]
-		= новоеЗначение</code> и явное изменение длины
-		массива, например: <code data-gs="comd/c" data-x>items.length = новаяДлина</code>.
+	<p>Due to JavaScript limitations, Vue is unable to detect the following changes to an array: directly setting an element by index:<code data-gs="comd/c" data-x>items[ключ]
+		= новоеЗначение</code>and explicitly changing the length of the array, for example:<code data-gs="comd/c" data-x>items.length = новаяДлина</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../key-attribute/index.html" class="lesson-nav-btn lesson-nav-prev" title="Атрибут key">← Атрибут key</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../styles/component/index.html" class="lesson-nav-btn lesson-nav-next" title="Стилизация компонента">Стилизация компонента →</a>
+      <a href="../key-attribute/index.html" class="lesson-nav-btn lesson-nav-prev" title="key attribute">← Key attribute</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../styles/component/index.html" class="lesson-nav-btn lesson-nav-next" title="Component styling">Component styling →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

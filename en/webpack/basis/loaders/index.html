@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Лоадеры в Webpack — acteck.off</title>
-  <meta name="description" content="Лоадеры в Webpack — учебные материалы по программированию.">
+  <title>Loaders in Webpack - acteck.off</title>
+  <meta name="description" content="Loaders in Webpack - programming tutorials.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../en/index.html" class="logo">
+      <a href="../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,43 +36,19 @@
       <a href="../../../../en/webpack/index.html">Webpack</a>
     </div>
 
-    <h1>Лоадеры в Webpack</h1>
-    <p>
-	Для расширения возможностей Webpack
-	также используются <dfn data-gs="comd/d" data-x>лоадеры</dfn>.
-	Они позволяют брать файлы определенного
-	типа и производить с ними определенные
-	операции.
-</p>
-<p>
-	Например, можно взять все файлы с расширением
-	<code data-gs="comd/p" data-x>.less</code>, преобразовать их текст в CSS,
-	затем полученный CSS минимизировать
-	и сохранить в один общий файл.
-</p>
-<p>
-	Давайте посмотрим общую схему
-	работы с лоадером на примере
-	двух воображаемых лоадеров.
-</p>
-<p>
-	Давайте установим первый лоадер:
-</p>
+    <h1>Loaders in Webpack</h1>
+    <p>Webpack is also used to extend the capabilities of<dfn data-gs="comd/d" data-x>loaders</dfn>. They allow you to take files of a certain type and perform certain operations with them.</p>
+<p>For example, you can take all files with the extension<code data-gs="comd/p" data-x>.less</code>, convert their text to CSS, then minify the resulting CSS and save it into one common file.</p>
+<p>Let's look at the general scheme of working with a loader using the example of two imaginary loaders.</p>
+<p>Let's install the first loader:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install test-loader1 --save-dev</code>
 </div>
-<p>
-	Давайте установим второй лоадер:
-</p>
+<p>Let's install the second loader:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install test-loader2 --save-dev</code>
 </div>
-<p>
-	После установки лоадеров мы можем
-	воспользоваться ими в файле конфигурации
-	(импортировать их не нужно).
-	Смотрите синтаксис:
-</p>
+<p>After installing the loaders, we can use them in the configuration file (there is no need to import them). See syntax:</p>
 <div data-p="bock/pane" data-p-file="webpack.config.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
 	entry: './src/index.js',
@@ -86,10 +62,7 @@
 	},
 };</code>
 </div>
-<p>
-	Можно элементы массива записать не в строку,
-	а в столбик:
-</p>
+<p>You can write array elements not in a row, but in a column:</p>
 <div data-p="bock/pane" data-p-file="webpack.config.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
 	entry: './src/index.js',
@@ -106,10 +79,7 @@
 	},
 };</code>
 </div>
-<p>
-	Для разных типов файлов можно писать
-	разные правила:
-</p>
+<p>You can write different rules for different file types:</p>
 <div data-p="bock/pane" data-p-file="webpack.config.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
 	entry: './src/index.js',
@@ -134,25 +104,19 @@
 };</code>
 </div>
 <div data-w="cont/nott">
-	<p>
-		Лоадеры выполняются по очереди.
-		При этом очередь начинается с конца массива.
-		To есть первым выполняется лоадер,
-		указанный последним элементом массива,
-		потом предпоследим и так далее.
-	</p>
+	<p>Loaders are executed one by one. In this case, the queue starts from the end of the array. That is, the loader specified by the last element of the array is executed first, then the next one is executed, and so on.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../../basis/plugins/index.html" class="lesson-nav-btn lesson-nav-prev" title="Плагины">← Плагины</a>
-      <a href="../../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../mode/types/index.html" class="lesson-nav-btn lesson-nav-next" title="Виды режимов сборки">Виды режимов сборки →</a>
+      <a href="../../basis/plugins/index.html" class="lesson-nav-btn lesson-nav-prev" title="Plugins">← Plugins</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../mode/types/index.html" class="lesson-nav-btn lesson-nav-next" title="Types of build modes">Types of build modes →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

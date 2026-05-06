@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Получение данных продавцов в Redux — acteck.off</title>
-  <meta name="description" content="Получение данных продавцов в Redux — учебные материалы по программированию.">
+  <title>Retrieving seller data in Redux - acteck.off</title>
+  <meta name="description" content="Getting Vendor Data in Redux - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,53 +36,26 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Получение данных продавцов в Redux</h1>
-    <p>
-	Давайте запустим наше приложение с
-	продуктами. Мы видим, что в карточках с продуктами
-	не отображаются продавцы. Давайте получим их
-	с сервера и выведем эти данные. Для этого
-	нам придется осуществить уже знакомую
-	последовательность действий.
-</p>
-<p>
-	Для начала откроем файл <code data-gs="comd/p" data-x>server.js</code>. Найдем
-	массив <code data-gs="comd/c" data-x>handlers</code> и добавим в него еще одну
-	обработку GET-запроса (после обработки
-	GET для продуктов). Как видите она практически
-	идентична:
-</p>
+    <h1>Retrieving seller data in Redux</h1>
+    <p>Let's launch our product app. We see that sellers are not displayed in product cards. Let's get them from the server and output this data. To do this, we will have to carry out the already familiar sequence of actions.</p>
+<p>First, let's open the file<code data-gs="comd/p" data-x>server.js</code>. Let's find the array<code data-gs="comd/c" data-x>handlers</code>and add another GET request processing to it (after GET processing for products). As you can see, it is almost identical:</p>
 <div data-p="bock/pane" data-p-file="api/server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">http.get('/fakeServer/sellers', async () =&gt; {
 	await delay(ARTIFICIAL_DELAY_MS)
 	return HttpResponse.json(db.seller.getAll())
 }),</code>
 </div>
-<p>
-	Запрос на сервере мы обработали. Следующим
-	этапом мы в файле <code data-gs="comd/p" data-x>sellersSlice.js</code> должны
-	написать thunk для получения данных с
-	сервера. Для это импортируем в него <code data-gs="comd/c" data-x>client</code>
-	и <code data-gs="comd/c" data-x>createAsyncThunk</code>:
+<p>We processed the request on the server. The next step is in the file<code data-gs="comd/p" data-x>sellersSlice.js</code>must write a thunk to get data from the server. To do this, we import into it<code data-gs="comd/c" data-x>client</code>And<code data-gs="comd/c" data-x>createAsyncThunk</code>:
 </p>
 <div data-p="bock/pane" data-p-file="sellers/sellersSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { client } from '../../api/client'</code>
 </div>
-<p>
-	Теперь мы будем получать продавцов с сервера,
-	поэтому уберем их из <code data-gs="comd/c" data-x>initialState</code>, оставив
-	просто пустые скобки:
-</p>
+<p>Now we will receive sellers from the server, so we will remove them from<code data-gs="comd/c" data-x>initialState</code>, leaving just empty parentheses:</p>
 <div data-p="bock/pane" data-p-file="sellers/sellersSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initialState = []</code>
 </div>
-<p>
-	А далее перед функцией <code data-gs="comd/c" data-x>sellersSlice</code>
-	создадим наш thunk <code data-gs="comd/c" data-x>fetchSellers</code>. Клиенту
-	мы передадим путь, указанный нами на
-	сервере:
-</p>
+<p>And then before the function<code data-gs="comd/c" data-x>sellersSlice</code>let's create our thunk<code data-gs="comd/c" data-x>fetchSellers</code>. We will pass to the client the path we specified on the server:</p>
 <div data-p="bock/pane" data-p-file="sellers/sellersSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const fetchSellers = createAsyncThunk(
 	'sellers/fetchSellers',
@@ -92,12 +65,7 @@ import { client } from '../../api/client'</code>
 	}
 )</code>
 </div>
-<p>
-	Нам осталось только для <code data-gs="comd/c" data-x>sellersSlice</code>
-	создать дополнительный редьюсер. Ограничимся
-	здесь обработкой успешного запроса. Все экшены,
-	генерируемые <code data-gs="comd/c" data-x>fetchSellers</code>, будут идентичны
-	экшенам <code data-gs="comd/c" data-x>fetchProducts</code>:
+<p>All we have left is for<code data-gs="comd/c" data-x>sellersSlice</code>create an additional reducer. Here we will limit ourselves to processing a successful request. All actions generated<code data-gs="comd/c" data-x>fetchSellers</code>, will be identical to the actions<code data-gs="comd/c" data-x>fetchProducts</code>:
 </p>
 <div data-p="bock/pane" data-p-file="sellers/sellersSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const sellersSlice = createSlice({
@@ -111,52 +79,29 @@ import { client } from '../../api/client'</code>
 	},
 })</code>
 </div>
-<p>
-	Напомню, что в прошлый раз при получении продуктов
-	мы изменяли текущее значение стейта. Здесь мы
-	воспользовались несколько иным путем и просто
-	вернули новое значение, так в <code data-gs="comd/c" data-x>createSlice</code>
-	тоже можно. Тем самым мы добились двух целей.
-	Во-первых, мы получили данные, а во-вторых, теперь
-	у нас есть гарантия, что в списке продавцов не
-	появится что-то еще, ведь мы полностью
-	переписали слайс значением <code data-gs="comd/c" data-x>action.payload</code>.
+<p>Let me remind you that the last time we received products, we changed the current state value. Here we took a slightly different route and simply returned the new value, so in<code data-gs="comd/c" data-x>createSlice</code>It's also possible. Thus, we achieved two goals. Firstly, we received the data, and secondly, now we have a guarantee that nothing else will appear in the list of sellers, because we have completely rewritten the slice with the value<code data-gs="comd/c" data-x>action.payload</code>.
 </p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Откройте в нем файл <code data-gs="comd/p" data-x>server.js</code>, добавьте
-		в массив <code data-gs="comd/c" data-x>handlers</code> еще один обработчик
-		для GET-запроса преподавателей.
+	<p>Open your application with students. Open the file in it<code data-gs="comd/p" data-x>server.js</code>, add to array<code data-gs="comd/c" data-x>handlers</code>another handler for teachers' GET request.</p>
+</div>
+<div data-w="cont/task">
+	<p>Now open the file<code data-gs="comd/p" data-x>teachersSlice.js</code>. Do<code data-gs="comd/c" data-x>initialState</code>an empty array, as shown in the lesson. Before the function<code data-gs="comd/c" data-x>studentsSlice</code>write thunk<code data-gs="comd/c" data-x>fetchTeachers</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		А теперь откройте файл <code data-gs="comd/p" data-x>teachersSlice.js</code>.
-		Сделайте <code data-gs="comd/c" data-x>initialState</code> пустым массивом,
-		как показано в уроке. Перед функцией
-		<code data-gs="comd/c" data-x>studentsSlice</code> напишите thunk
-		<code data-gs="comd/c" data-x>fetchTeachers</code>.
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		В функции <code data-gs="comd/c" data-x>createSlice</code> допишите
-		дополнительный редьюсер, ограничьтесь
-		обработкой успешного запроса.
-	</p>
+	<p>In function<code data-gs="comd/c" data-x>createSlice</code>add an additional reducer and limit yourself to processing a successful request.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../request-status/index.html" class="lesson-nav-btn lesson-nav-prev" title="Применение статуса запроса">← Применение статуса запроса</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../direct-thunk-dispatch/index.html" class="lesson-nav-btn lesson-nav-next" title="Прямая отправка thunk">Прямая отправка thunk →</a>
+      <a href="../request-status/index.html" class="lesson-nav-btn lesson-nav-prev" title="Applying request status">← Applying request status</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../direct-thunk-dispatch/index.html" class="lesson-nav-btn lesson-nav-next" title="Direct send thunk">Direct send thunk →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

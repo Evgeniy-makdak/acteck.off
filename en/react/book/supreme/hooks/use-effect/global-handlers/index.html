@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Глобальные обработчики через useEffect в React — acteck.off</title>
-  <meta name="description" content="Глобальные обработчики через useEffect в React — учебные материалы по программированию.">
+  <title>Global handlers via useEffect in React - acteck.off</title>
+  <meta name="description" content="Global handlers via useEffect in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,23 +36,10 @@
       <a href="../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Глобальные обработчики через useEffect в React</h1>
-    <p>
-	Предположим, что теперь мы хотим, чтобы
-	цвет у нас менялся не только по клику
-	на кнопку, но и по нажатию <code data-gs="comd/k" data-x>Enter</code>
-	на клавиатуре. В обычной React жизни
-	прослушивать глобальный объект <code data-gs="comd/c" data-x>window</code>
-	использовав
-	<a href="../../../../../../javascript/manual/dom/addEventListener/index.html"><code data-gs="comd/c" data-x>addEventListener</code></a>
-	нельзя. Для этого у нас есть эффекты. Давайте
-	добавим это действие с помощью <code data-gs="comd/c" data-x>useEffect</code>.
+    <h1>Global handlers via useEffect in React</h1>
+    <p>Suppose that now we want the color to change not only when the button is clicked, but also when pressed<code data-gs="comd/k" data-x>Enter</code>on the keyboard. In normal React life, listen to the global object<code data-gs="comd/c" data-x>window</code>using<a href="../../../../../../javascript/manual/dom/addEventListener/index.html"><code data-gs="comd/c" data-x>addEventListener</code></a>it is forbidden. For this we have effects. Let's add this action with<code data-gs="comd/c" data-x>useEffect</code>.
 </p>
-<p>
-	Напишем функцию обработчика
-	по клику на <code data-gs="comd/k" data-x>Enter</code>. Пусть цвет
-	в этом случае меняется на красный:
-</p>
+<p>Let's write a click handler function<code data-gs="comd/k" data-x>Enter</code>. Let the color in this case change to red:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function handleEnter(event) {
 	if (event.keyCode === 13) {
@@ -60,9 +47,7 @@
 	}
 }</code>
 </div>
-<p>
-	Привяжем теперь прослушивание событий
-	к <code data-gs="comd/c" data-x>window</code> в хуке <code data-gs="comd/c" data-x>useEffect</code>:
+<p>Let's now bind event listening to<code data-gs="comd/c" data-x>window</code>in the hook<code data-gs="comd/c" data-x>useEffect</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">useEffect(() =&gt; {
@@ -71,15 +56,7 @@
 	window.addEventListener('keydown', handleEnter);
 }, [color]);</code>
 </div>
-<p>
-	Если у нас есть какая-то установочная
-	функция, то нам всегда нужно в <code data-gs="comd/c" data-x>useEffect</code>
-	возвращать код очистки или отписки, чтобы
-	избежать проблем в дальнейшем. В данном
-	случае нам нужно после прикрепления
-	<code data-gs="comd/c" data-x>addEventListener</code> вернуть его
-	удаление:
-</p>
+<p>If we have some kind of installation function, then we always need to<code data-gs="comd/c" data-x>useEffect</code>return a cleanup or unsubscribe code to avoid problems in the future. In this case, we need after attaching<code data-gs="comd/c" data-x>addEventListener</code>return its removal:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">useEffect(() =&gt; {
 	document.body.style.color = color;
@@ -92,24 +69,14 @@
 }, [color]);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан компонент. Сделайте так, чтобы по клику
-		на любое место страницы фон этого компонента
-		менял цвет.
-	</p>
+	<p>Component is given. Make sure that when you click anywhere on the page, the background of this component changes color.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте ссылку, по нажатию на которую
-		будет появляться блок.
-		Сделайте так, чтобы по нажатию
-		в любое место окна браузера
-		наш блок скрывался.
-	</p>
+	<p>Create a link that, when clicked, will cause a block to appear. Make sure that when you click anywhere in the browser window, our block will be hidden.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -117,7 +84,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вывод объектов в Handlebars в Express — acteck.off</title>
-  <meta name="description" content="Вывод объектов в Handlebars в Express — учебные материалы по программированию.">
+  <title>Displaying objects in Handlebars in Express - acteck.off</title>
+  <meta name="description" content="Displaying Objects in Handlebars in Express - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,20 +36,15 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Вывод объектов в Handlebars в Express</h1>
-    <p>
-	Пусть у нас рендерится некоторая страница
-	<code data-gs="comd/p" data-x>page.hbs</code>:
+    <h1>Displaying objects in Handlebars in Express</h1>
+    <p>Let us render some page<code data-gs="comd/p" data-x>page.hbs</code>:
 </p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/', function(req, res) {
 	res.render('page');
 });</code>
 </div>
-<p>
-	Пусть на эту страницу передается объект с
-	некоторыми данными:
-</p>
+<p>Let an object with some data be passed to this page:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/', function(req, res) {
 	res.render('page', {
@@ -57,10 +52,7 @@
 	});
 });</code>
 </div>
-<p>
-	Давайте выведем имя и возраст юзера в файле
-	представления:
-</p>
+<p>Let's display the user's name and age in the view file:</p>
 <div data-p="bock/pane" data-p-file="views/page.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
 	{{user.name}}
@@ -68,25 +60,21 @@
 &lt;/div&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий объект:
-	</p>
+	<p>Given the following object:</p>
 	<div data-p="bock/pane" data-p-file="index.js">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let product = {
 	name: 'prod',
 	cost: 1000
 }</code>
 	</div>
-	<p>
-		Выведите данные этого объекта в представлении.
-	</p>
+	<p>Display this object's data in a view.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

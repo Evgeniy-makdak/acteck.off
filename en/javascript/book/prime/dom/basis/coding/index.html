@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Советы по написанию кода на примере DOM в JavaScript — acteck.off</title>
-  <meta name="description" content="Советы по написанию кода на примере DOM в JavaScript — учебные материалы по программированию.">
+  <title>Tips for writing code using the DOM in JavaScript as an example - acteck.off</title>
+  <meta name="description" content="Tips for writing code using the DOM in JavaScript as an example - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,33 +36,11 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Советы по написанию кода на примере DOM в JavaScript</h1>
-    <p>
-	Пусть перед вами стоит задача достаточной
-	сложности, для реализации которой нужно
-	написать некоторое количество строк кода.
-</p>
-<p>
-	Неправильным подходом будет пытаться
-	написать весь код решения целиком,
-	а потом начать его проверять.
-	В этом случае высока вероятность,
-	что у вас ничего не заработает,
-	а ошибку придется искать в большом
-	количестве кода.
-</p>
-<p>
-	Правильным подходом является разбиение
-	задачи на маленькие элементарные шаги,
-	которые вы будете реализовывать и сразу проверять
-	их правильность. В этом случае, даже если
-	вы где-то ошибетесь, вы сразу заметите
-	проблему и исправите ее.
-</p>
-<p>
-	Давайте попробуем на практике.
-	Пусть у вас есть абзацы:
-</p>
+    <h1>Tips for writing code using the DOM in JavaScript as an example</h1>
+    <p>Suppose you are faced with a task of sufficient complexity, for the implementation of which you need to write a number of lines of code.</p>
+<p>The wrong approach would be to try to write the entire solution code and then start testing it. In this case, there is a high probability that nothing will work for you, and you will have to look for the error in a large amount of code.</p>
+<p>The correct approach is to break down the task into small, elementary steps that you will implement and immediately check their correctness. In this case, even if you make a mistake somewhere, you will immediately notice the problem and correct it.</p>
+<p>Let's try it in practice. Let's say you have paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;1&lt;/p&gt;
 &lt;p&gt;2&lt;/p&gt;
@@ -71,28 +49,13 @@
 &lt;p&gt;5&lt;/p&gt;
 &lt;p&gt;6&lt;/p&gt;</code>
 </div>
-<p>
-	Пусть перед вами стоит задача найти
-	абзацы с числами, кратными <code data-gs="comd/n" data-x>3</code>,
-	и найти сумму их чисел.
-</p>
-<p>
-	Первым маленьким шагом я бы предложил
-	получить наши абзацы в виде массива
-	и вывести этот массив в консоль,
-	чтобы посмотреть, что мы все
-	правильно получили. Сделаем это:
-</p>
+<p>Let your task be to find paragraphs with numbers that are multiples of<code data-gs="comd/n" data-x>3</code>, and find the sum of their numbers.</p>
+<p>The first small step I would suggest is to get our paragraphs as an array and print this array to the console to see that we got everything right. Let's do this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');
 console.log(elems);</code>
 </div>
-<p>
-	Следующим маленьким шагом нужно
-	перебрать наши абзацы циклом
-	и вывести каждый из них
-	в консоль по отдельности:
-</p>
+<p>The next small step is to loop through our paragraphs and output each of them to the console individually:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');
 
@@ -100,10 +63,7 @@ for (let elem of elems) {
 	console.log(elem);
 }</code>
 </div>
-<p>
-	А теперь в цикле выведем тексты
-	наших абзацев:
-</p>
+<p>Now let’s display the texts of our paragraphs in a loop:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');
 
@@ -111,9 +71,7 @@ for (let elem of elems) {
 	console.log(elem.textContent);
 }</code>
 </div>
-<p>
-	Теперь давайте выведем тексты
-	тех абзацев, чье число делится на <code data-gs="comd/c" data-x>3</code>:
+<p>Now let's print the texts of those paragraphs whose number is divisible by<code data-gs="comd/c" data-x>3</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');
@@ -126,11 +84,7 @@ for (let elem of elems) {
 	}
 }</code>
 </div>
-<p>
-	Убедившись, что мы получаем правильные
-	абзацы, можно приступать к суммированию
-	их чисел:
-</p>
+<p>After making sure that we get the correct paragraphs, we can start summing their numbers:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');
 let sum = 0;
@@ -146,9 +100,7 @@ for (let elem of elems) {
 console.log(sum);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан список с годами:
-	</p>
+	<p>Here is a list over the years:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li&gt;2000&lt;/li&gt;
@@ -159,24 +111,20 @@ console.log(sum);</code>
 	&lt;li&gt;2031&lt;/li&gt;
 &lt;/ul&gt;</code>
 	</div>
-	<p>
-		Получите года, сумма цифр которых
-		равна <code data-gs="comd/n" data-x>6</code>. Найдите сумму полученных
-		годов.
-	</p>
+	<p>Get the years whose sum of digits is equal to<code data-gs="comd/n" data-x>6</code>. Find the sum of the years obtained.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../anonymous-handlers-unbinding/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отвязывание анонимных обработчиков">← Отвязывание анонимных обработчиков</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../mistakes/index.html" class="lesson-nav-btn lesson-nav-next" title="Практика на поиск ошибок">Практика на поиск ошибок →</a>
+      <a href="../anonymous-handlers-unbinding/index.html" class="lesson-nav-btn lesson-nav-prev" title="Unbinding anonymous handlers">← Unbinding anonymous handlers</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../mistakes/index.html" class="lesson-nav-btn lesson-nav-next" title="Practice finding errors">Practice finding errors →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обновление данных по URL параметрам в хранилище в React Router — acteck.off</title>
-  <meta name="description" content="Обновление данных по URL параметрам в хранилище в React Router — учебные материалы по программированию.">
+  <title>Updating data by URL parameters in storage in React Router - acteck.off</title>
+  <meta name="description" content="Updating data using URL parameters in storage in React Router - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,31 +36,15 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Обновление данных по URL параметрам в хранилище в React Router</h1>
-    <p>
-	На прошлом уроке мы добавили еще
-	один маршрут и страничку с формой для
-	редактирования данных. Нам осталось
-	сохранить данные, внесенные в нашу форму.
-</p>
-<p>
-	Для начала добавим функцию для обновления
-	данных продукта <code data-gs="comd/c" data-x>updateProduct</code> в
-	<code data-gs="comd/p" data-x>forStorage.js</code>. Нам нужно передать
-	в нее <code data-gs="comd/c" data-x>id</code> продукта и измененные
-	данные:
-</p>
+    <h1>Updating data by URL parameters in storage in React Router</h1>
+    <p>In the last lesson, we added another route and a page with a form for editing data. All we have to do is save the data entered into our form.</p>
+<p>First, let's add a function to update product data<code data-gs="comd/c" data-x>updateProduct</code>V<code data-gs="comd/p" data-x>forStorage.js</code>. We need to pass it<code data-gs="comd/c" data-x>id</code>product and changed data:</p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function updateProduct(id, updates) {
 	await someNetwork();
 }</code>
 </div>
-<p>
-	Далее из хранилища по ключу <code data-gs="comd/s" data-x>'products'</code>
-	получим продукты и найдем тот, который
-	мы изменяем по его <code data-gs="comd/c" data-x>id</code>. В случае неудачи
-	кинем ошибку:
-</p>
+<p>Next from the repository by key<code data-gs="comd/s" data-x>'products'</code>we will receive the products and find the one that we change according to it<code data-gs="comd/c" data-x>id</code>. In case of failure, we will throw an error:</p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function updateProduct(id, updates) {
 	await someNetwork();
@@ -69,11 +53,7 @@
 	if (!product) throw new Error('No product found for this', id);				
 }</code>
 </div>
-<p>
-	Затем нам останется внести изменения
-	в найденный продукт и перезаписать
-	обновленный список в хранилище с помощью
-	нашей функции <code data-gs="comd/c" data-x>setProducts</code>:
+<p>Then all we have to do is make changes to the found product and overwrite the updated list in the repository using our function<code data-gs="comd/c" data-x>setProducts</code>:
 </p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function updateProduct(id, updates) {
@@ -87,26 +67,19 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, добавьте в файл
-		<code data-gs="comd/p" data-x>forStorage.js</code> функцию
-		<code data-gs="comd/c" data-x>updateStudent</code> для обновления
-		данных студента в хранилище.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, add to the file<code data-gs="comd/p" data-x>forStorage.js</code>function<code data-gs="comd/c" data-x>updateStudent</code>to update student data in the storage.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../data-edit-route/index.html" class="lesson-nav-btn lesson-nav-prev" title="Создание маршрута для редактирования данных">← Создание маршрута для редактирования данных</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../update-formdata/index.html" class="lesson-nav-btn lesson-nav-next" title="Обновление данных с FormData">Обновление данных с FormData →</a>
+      <a href="../data-edit-route/index.html" class="lesson-nav-btn lesson-nav-prev" title="Creating a route for editing data">← Creating a route for editing data</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../update-formdata/index.html" class="lesson-nav-btn lesson-nav-next" title="Updating data with FormData">Updating data from FormData →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

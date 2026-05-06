@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Проблема promise hell в JavaScript — acteck.off</title>
-  <meta name="description" content="Проблема promise hell в JavaScript — учебные материалы по программированию.">
+  <title>Promise hell problem in JavaScript - acteck.off</title>
+  <meta name="description" content="Promise hell problem in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,21 +36,11 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Проблема promise hell в JavaScript</h1>
-    <p>
-	Вы уже знаете, что промисы были созданы для
-	того, чтобы решить проблему callback hell.
-	Однако, со временем оказалось, что промисы
-	также способны породить сложный код. Эта
-	проблема по аналогии была названа <dfn data-gs="comd/d" data-x>promise
+    <h1>JavaScript promise hell problem</h1>
+    <p>You already know that promises were created to solve the callback hell problem. However, over time it turned out that promises can also generate complex code. This problem was named by analogy<dfn data-gs="comd/d" data-x>promise
 	hell</dfn>.
 </p>
-<p>
-	Давайте рассмотрим эту проблему на примерах
-	кода. Пусть у нас есть функция <code data-gs="comd/c" data-x>getSmth</code>,
-	получающая параметр и возвращающая результат
-	в зависимости от этого параметра:
-</p>
+<p>Let's look at this problem using code examples. Let us have a function<code data-gs="comd/c" data-x>getSmth</code>, which receives a parameter and returns a result depending on this parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getSmth(num) {
 	return new Promise((resolve, reject) =&gt; {
@@ -58,17 +48,8 @@
 	});
 }</code>
 </div>
-<p>
-	В данном случае мы имитируем некоторую полезную
-	операцию (например, получения данных с сервера).
-	В качестве имитации мы просто параметром
-	передаем число и через секунду возвращаем
-	квадрат этого числа.
-</p>
-<p>
-	Давайте теперь воспользуемся нашей функцией
-	<code data-gs="comd/c" data-x>getSmth</code> внутри другой функции:
-</p>
+<p>In this case, we simulate some useful operation (for example, receiving data from the server). As a simulation, we simply pass a number as a parameter and after a second we return the square of this number.</p>
+<p>Let's now use our function<code data-gs="comd/c" data-x>getSmth</code>inside another function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	getSmth(2).then(res =&gt; {
@@ -79,11 +60,8 @@
 func();</code>
 </div>
 
-<h2>Первая проблема</h2>
-<p>
-	Множество следующих друг за другом конструкций
-	<code data-gs="comd/c" data-x>then</code> затрудняют понимание кода:
-</p>
+<h2>First problem</h2>
+<p>Many successive designs<code data-gs="comd/c" data-x>then</code>make the code difficult to understand:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(){
 	getSmth(2).then(res1 =&gt; {
@@ -104,13 +82,8 @@ func();</code>
 func();</code>
 </div>
 
-<h2>Вторая проблема</h2>
-<p>
-	Есть проблема и другого плана. Пусть теперь
-	мы хотим воспользоваться нашей функцией два
-	раза, затем просуммировать результаты. В результате
-	у нас получится вот такой код:
-</p>
+<h2>Second problem</h2>
+<p>There is a problem of another kind. Suppose now we want to use our function twice, then sum the results. As a result, we will get the following code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	getSmth(2).then(res1 =&gt; {
@@ -122,11 +95,7 @@ func();</code>
 
 func();</code>
 </div>
-<p>
-	Уже напоминает callback hell, не так ли?
-	Добавим еще один вызов функции - код станет
-	еще хуже:
-</p>
+<p>Already resembles callback hell, doesn’t it? Let's add another function call - the code gets even worse:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	getSmth(2).then(res1 =&gt; {
@@ -140,8 +109,7 @@ func();</code>
 
 func();</code>
 </div>
-<p>
-	Можно, конечно же, воспользоваться <code data-gs="comd/c" data-x>Promise.all</code>:
+<p>You can, of course, use<code data-gs="comd/c" data-x>Promise.all</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
@@ -152,15 +120,7 @@ func();</code>
 
 func();</code>
 </div>
-<p>
-	Однако, получили ли мы то же самое? Нет!
-	В первом случае каждая новая функция ожидает
-	завершения предыдущего промиса, а во втором
-	случае - все промисы выполняются одновременно.
-	Эта разница будет существенна в том случае,
-	когда мы в следующую функцию захотим передать
-	вызов предыдущей:
-</p>
+<p>However, did we get the same thing? No! In the first case, each new function waits for the previous promise to complete, and in the second case, all promises are executed simultaneously. This difference will be significant when we want to pass a call to the previous one into the next function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	getSmth(2).then(res1 =&gt; {
@@ -176,16 +136,16 @@ func();</code>
 </div>
   
     <div class="lesson-nav">
-      <a href="../promisification/index.html" class="lesson-nav-btn lesson-nav-prev" title="Промисификация асинхронного кода">← Промисификация асинхронного кода</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../sync-style/index.html" class="lesson-nav-btn lesson-nav-next" title="Промисы в синхронном стиле">Промисы в синхронном стиле →</a>
+      <a href="../promisification/index.html" class="lesson-nav-btn lesson-nav-prev" title="Promising asynchronous code">← Promisification of asynchronous code</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../sync-style/index.html" class="lesson-nav-btn lesson-nav-next" title="Promises in synchronous style">Promises in synchronous style →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

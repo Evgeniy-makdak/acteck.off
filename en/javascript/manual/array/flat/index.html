@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод flat — acteck.off</title>
-  <meta name="description" content="Метод flat — учебные материалы по программированию.">
+  <title>Flat method - acteck.off</title>
+  <meta name="description" content="The flat method - programming educational materials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,80 +36,55 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод flat</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>flat</code> уменьшает уровень
-	вложенности многомерного массива.
-	Может либо делать массив одномерным,
-	либо уменьшать мерность на заданное
-	значение.
-</p>
+    <h1>flat method</h1>
+    <p>Method<code data-gs="comd/c" data-x>flat</code>reduces the nesting level of a multidimensional array. Can either make the array one-dimensional or reduce the dimension by a given value.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let newArray = массив.flat(уровень подъема);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте получим новый массив, не указывая в
-	параметре никакого значения:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's get a new array without specifying any value in the parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['a', 'b', ['c', 'd']];
 let res = arr.flat();
 
 console.log(res);</code>
 </div>
-<p>
-	В результате выполнения кода
-	мы увидим, что подмассивы поднялись
-	на один уровень:
-</p>
+<p>As a result of executing the code, we will see that the subarrays have moved up one level:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['a', 'b', 'c', 'd']</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	А теперь давайте применим метод
-	<code data-gs="comd/c" data-x>flat</code> к массиву с двумя уровнями
-	вложенности:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's apply the method<code data-gs="comd/c" data-x>flat</code>to an array with two levels of nesting:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['a', 'b', ['c', 'd', ['e', 'f']]];
 let res = arr.flat();
 
 console.log(res);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['a', 'b', 'c', 'd', ['e', 'f']]</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте укажем уровень вложенности:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's indicate the nesting level:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['a', 'b', ['c', 'd', ['e', 'f']]];
 let res = arr.flat(2);
 
 console.log(res);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">['a', 'b', 'c', 'd', 'e', 'f']</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Если мы хотим не заморачиваться с уровнем вложенности,
-	а объединить весь массив, то используем параметр <code data-gs="comd/c" data-x>Infinity</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>If we don’t want to bother with the nesting level, but want to combine the entire array, then we use the parameter<code data-gs="comd/c" data-x>Infinity</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = ['a', 'b', ['c', 'd', ['e', 'f', ['g', 'h', ['i']]]]];
@@ -117,9 +92,7 @@ let res = arr.flat(Infinity);
 
 console.log(res);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[
 	'a', 'b', 'c',
@@ -128,13 +101,10 @@ console.log(res);</code>
 ]</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../flatMap/index.html"><code data-gs="comd/c" data-x>flatMap</code></a>, <br>
-			который возвращает массив из элементов после применения функции
-		</li>
+		<li>method<a href="../flatMap/index.html"><code data-gs="comd/c" data-x>flatMap</code></a>, <br>which returns an array of elements after applying the function</li>
 	</ul>
 </div>
   </section>
@@ -142,7 +112,7 @@ console.log(res);</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

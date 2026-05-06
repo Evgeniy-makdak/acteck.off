@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Передача настроек модуля через замыкания в JavaScript — acteck.off</title>
-  <meta name="description" content="Передача настроек модуля через замыкания в JavaScript — учебные материалы по программированию.">
+  <title>Passing module settings through closures in JavaScript - acteck.off</title>
+  <meta name="description" content="Passing module settings through closures in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Передача настроек модуля через замыкания в JavaScript</h1>
-    <p>
-	Пусть у нас есть следующий модуль:
-</p>
+    <h1>Passing module settings via closures in JavaScript</h1>
+    <p>Let's say we have the following module:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function(root, type, amount) {
 	let parent = document.querySelector(root);
@@ -50,14 +48,8 @@
 	}
 })('#parent', 'p', 5);</code>
 </div>
-<p>
-	Как вы видите, в этот модуль передаются три
-	настройки: селектор родительского элемента,
-	тип элемента для создания и количество элементов.
-</p>
-<p>
-	Как правило такие настройки делают в виде объекта:
-</p>
+<p>As you can see, three settings are passed to this module: the parent element selector, the type of element to create, and the number of elements.</p>
+<p>Typically, such settings are made in the form of an object:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let config = {
 	root:  '#parent',
@@ -65,9 +57,7 @@
 	amount: 5
 }</code>
 </div>
-<p>
-	Давайте передадим параметром модуля наш объект:
-</p>
+<p>Let's pass our object as a module parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function(config) {
 	let parent = document.querySelector(config.root);
@@ -78,10 +68,7 @@
 	}
 })(config);</code>
 </div>
-<p>
-	Более принято выполнять деструктуризацию
-	объекта с настройками:
-</p>
+<p>It is more common to perform object destructuring with settings:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function({root, type, amount}) {
 	let parent = document.querySelector(root);
@@ -94,16 +81,16 @@
 </div>
   
     <div class="lesson-nav">
-      <a href="../passing-parent-elements/index.html" class="lesson-nav-btn lesson-nav-prev" title="Передача родительского элемента">← Передача родительского элемента</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../passing-settings-default-parameters/index.html" class="lesson-nav-btn lesson-nav-next" title="Параметры по умолчанию">Параметры по умолчанию →</a>
+      <a href="../passing-parent-elements/index.html" class="lesson-nav-btn lesson-nav-prev" title="Passing the parent element">← Passing parent element</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../passing-settings-default-parameters/index.html" class="lesson-nav-btn lesson-nav-next" title="Default Settings">Default settings →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

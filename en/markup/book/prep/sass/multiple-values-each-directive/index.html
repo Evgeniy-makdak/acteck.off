@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Множественные значения в директиве @each в SASS — acteck.off</title>
-  <meta name="description" content="Множественные значения в директиве @each в SASS — учебные материалы по программированию.">
+  <title>Multiple values ​​in @each directive in SASS - acteck.off</title>
+  <meta name="description" content="Multiple Values ​​in the @each Directive in SASS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,21 +33,12 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Множественные значения в директиве @each в SASS</h1>
-    <p>
-	Директиву <code data-gs="comd/c" data-x>@each</code> можно
-	применять для составления
-	более сложных списков стилей.
-	Для этого прописываем несколько
-	переменных, а в списке элементов
-	добавляем дополнительные значения.
-</p>
-<p>
-	Рассмотрим следующий пример:
-</p>
+    <h1>Multiple values ​​in @each directive in SASS</h1>
+    <p>Directive<code data-gs="comd/c" data-x>@each</code>can be used to create more complex style lists. To do this, we register several variables and add additional values ​​to the list of elements.</p>
+<p>Consider the following example:</p>
 <div data-p="bock/pane" data-p-file="styles.scss">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@each $picture, $color, $padding in
 	(winter, blue, 10px),
@@ -61,9 +52,7 @@
 		}
 	}</code>
 </div>
-<p>
-	Результат компиляции:
-</p>
+<p>Compilation result:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">img .winter {
 	background-image: url("/images/winter.png");
@@ -89,10 +78,7 @@ img .autumn {
 	padding: 16px;
 }</code>
 </div>
-<p>
-	Так же используя множественное присваивание
-	можно добавлять в список пары значений:
-</p>
+<p>You can also add pairs of values ​​to a list using multiple assignment:</p>
 <div data-p="bock/pane" data-p-file="styles.scss">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@each $elem, $font-size in (div: 14px, p: 12px) {
 	#{elem} {
@@ -100,9 +86,7 @@ img .autumn {
 	}
 }</code>
 </div>
-<p>
-	Теперь посмотрим на получившийся результат:
-</p>
+<p>Now let's look at the resulting result:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">div {
 	font-size: 14px;
@@ -113,10 +97,7 @@ p {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.scss">
 		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@each $elem, $size, $color in 
 (navbar: 14px blue, link: 12px red, span: 10px green) {
@@ -128,24 +109,19 @@ p {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Измените условия предыдущей задачи, чтобы у элементов
-		<code data-gs="comd/z" data-x>navbar</code>, <code data-gs="comd/z" data-x>link</code> и <code data-gs="comd/z" data-x>span</code> появилось
-		соответственно нижнее, пунктирное и волнистое
-		подчеркивание текста.
-	</p>
+	<p>Change the conditions of the previous task so that the elements<code data-gs="comd/z" data-x>navbar</code>, <code data-gs="comd/z" data-x>link</code>And<code data-gs="comd/z" data-x>span</code>lower, dotted and wavy underlining of the text appeared, respectively.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../each-directive/index.html" class="lesson-nav-btn lesson-nav-prev" title="Директива @each">← Директива @each</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../while-directive/index.html" class="lesson-nav-btn lesson-nav-next" title="Директива @while">Директива @while →</a>
+      <a href="../each-directive/index.html" class="lesson-nav-btn lesson-nav-prev" title="@each directive">← @each directive</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../while-directive/index.html" class="lesson-nav-btn lesson-nav-next" title="@while directive">@while directive →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

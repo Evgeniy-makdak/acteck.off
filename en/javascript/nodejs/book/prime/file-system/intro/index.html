@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Подключение модуля fs в NodeJS — acteck.off</title>
-  <meta name="description" content="Подключение модуля fs в NodeJS — учебные материалы по программированию.">
+  <title>Connecting the fs module in NodeJS - acteck.off</title>
+  <meta name="description" content="Connecting the fs module in NodeJS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,85 +36,35 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Подключение модуля fs в NodeJS</h1>
-    <p>
-	Сейчас мы научимся работать с файловой системой.
-	За это в NodeJS отвечает встроенный модуль
-	<code data-gs="comd/c" data-x>fs</code>, который необходимо импортировать:
-</p>
+    <h1>Connecting the fs module in NodeJS</h1>
+    <p>Now we will learn how to work with the file system. A built-in module is responsible for this in NodeJS<code data-gs="comd/c" data-x>fs</code>which needs to be imported:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';</code>
 </div>
-<p>
-	Каждый метод модуля <code data-gs="comd/c" data-x>fs</code> существует
-	в двух вариантах: в синхронном и в асинхронном.
-</p>
+<p>Each module method<code data-gs="comd/c" data-x>fs</code>exists in two versions: synchronous and asynchronous.</p>
 
-<h2>Синхронный вариант</h2>
-<p>
-	Синхронный вариант работы проще, однако он
-	блокирует весь скрипт на время своего выполнения.
-	К примеру, если у вас выполняется чтение
-	файла, то весь остальной код будет ожидать,
-	пока файл не прочитается.
-</p>
-<p>
-	При этом при чтении файла в основном загружается
-	жесткий диск, а не процессор. To есть процессор
-	мог бы выполнять наш код дальше, но вынужден
-	ожидать загрузки файла.
-</p>
-<p>
-	Это имеет значение, когда у вас на NodeJS
-	в интернете развернут сайт, на который заходят
-	посетители.
-</p>
-<p>
-	Предположим, что при каждом заходе любого
-	пользователя на наш сайт мы должны открыть
-	некоторый файл. Если мы будем делать это
-	синхронно, то при открытии одного файла <i>все
-	остальные пользователи</i> нашего сайта будут
-	ожидать пока этот файл откроется и только
-	потом выполнение скрипта продолжится для
-	них дальше.
-</p>
-<p>
-	В связи с этим синхронный вариант работы
-	используется очень редко, в основном в тех
-	случаях, когда вы делаете какой-то локальный
-	скрипт, разворачиваемый на компьютере пользователя.
-</p>
+<h2>Synchronous option</h2>
+<p>The synchronous version is simpler, but it blocks the entire script for the duration of its execution. For example, if you are reading a file, then all other code will wait until the file is read.</p>
+<p>In this case, when reading a file, the hard drive is mainly loaded, not the processor. That is, the processor could continue to execute our code, but is forced to wait for the file to load.</p>
+<p>This matters when you have a website deployed on the Internet using NodeJS that visitors visit.</p>
+<p>Let's assume that every time any user visits our site, we must open a certain file. If we do this synchronously, then when opening one file<i>all other users</i>our site will wait until this file opens and only then will the script continue for them.</p>
+<p>In this regard, the synchronous version of work is used very rarely, mainly in cases where you are creating some kind of local script that is deployed on the user’s computer.</p>
 
-<h2>Асинхронный вариант</h2>
-<p>
-	Работать с асинхронным вариантом сложнее,
-	но его преимуществом является то, что он
-	не блокирует скрипт.
-</p>
-<p>
-	Это значит, что пока с жесткого диска будет
-	скачиваться файл, наш скрипт сможет выполнять
-	другие операции, что существенно повышает
-	быстродействие скрипта.
-</p>
-<p>
-	Асинхронный стиль в целом характерен для
-	NodeJS, не только при работе с файлами. Данный
-	подход позволяет существенно повысить быстродействие
-	скриптов.
-</p>
+<h2>Asynchronous option</h2>
+<p>Working with the asynchronous option is more difficult, but its advantage is that it does not block the script.</p>
+<p>This means that while a file is being downloaded from the hard drive, our script will be able to perform other operations, which significantly increases the performance of the script.</p>
+<p>The asynchronous style is characteristic of NodeJS in general, not only when working with files. This approach can significantly improve the performance of scripts.</p>
     <div class="lesson-nav">
-      <a href="../../basis/modules/index.html" class="lesson-nav-btn lesson-nav-prev" title="Модули">← Модули</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../sync/index.html" class="lesson-nav-btn lesson-nav-next" title="Синхронная работа с fs">Синхронная работа с fs →</a>
+      <a href="../../basis/modules/index.html" class="lesson-nav-btn lesson-nav-prev" title="Modules">← Modules</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../sync/index.html" class="lesson-nav-btn lesson-nav-next" title="Synchronous work with fs">Synchronous work with fs →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Частичные шаблоны Handlebars Express — acteck.off</title>
-  <meta name="description" content="Частичные шаблоны Handlebars Express — учебные материалы по программированию.">
+  <title>Handlebars Express partial templates - acteck.off</title>
+  <meta name="description" content="Handlebars Express Partial Templates - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,27 +36,11 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Частичные шаблоны Handlebars Express</h1>
-    <p>
-	Часто удобно разбить страницу на части, которые
-	будут вынесены в отдельные файлы. Такие блоки
-	называются <dfn data-gs="comd/d" data-x>виджеты</dfn> или в терминах
-	Handlebars <dfn data-gs="comd/d" data-x>частичные шаблоны</dfn> (<span data-gs="lang/e" data-x>partials</span>).
+    <h1>Handlebars Express Partial Templates</h1>
+    <p>It is often convenient to split the page into parts, which will be placed in separate files. Such blocks are called<dfn data-gs="comd/d" data-x>widgets</dfn>or in terms of Handlebars<dfn data-gs="comd/d" data-x>partial templates</dfn> (<span data-gs="lang/e" data-x>partials</span>).
 </p>
-<p>
-	К примеру, можно вынести текст хедера, футера,
-	сайдбара. Это удобно, во-первых тем, что
-	текст этих блоков не будет захламлять макет
-	сайта, делая его структуру более прозрачной
-	и понятной для восприятия. Во-вторых, на
-	сайте могут быть несколько шаблонов. В этом
-	случае можно будет блок использовать сразу
-	в нескольких шаблонах.
-</p>
-<p>
-	Давайте попробуем на практике. Пусть у нас
-	есть следующий макет сайта:
-</p>
+<p>For example, you can include the text of the header, footer, and sidebar. This is convenient, firstly, because the text of these blocks will not clutter up the site layout, making its structure more transparent and understandable. Secondly, there may be several templates on the site. In this case, it will be possible to use the block in several templates at once.</p>
+<p>Let's try it in practice. Let's say we have the following site layout:</p>
 <div data-p="bock/pane" data-p-file="views/layouts/main.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -80,9 +64,7 @@
 	&lt;/body&gt;
 &lt;/html&gt;</code>
 </div>
-<p>
-	Вынесем содержимое хедера в отдельный файл
-	в папке <code data-gs="comd/p" data-x>partials</code>:
+<p>Let's put the contents of the header into a separate file in the folder<code data-gs="comd/p" data-x>partials</code>:
 </p>
 <div data-p="bock/pane" data-p-file="views/partials/header.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;nav&gt;
@@ -91,9 +73,7 @@
 	&lt;a href="/contacts"&gt;контакты&lt;/a&gt;
 &lt;/nav&gt;</code>
 </div>
-<p>
-	В файле с макетом подключим наш хедер с помощью
-	специальной команды <code data-gs="comd/c" data-x>{{></code>:
+<p>In the file with the layout we will connect our header using a special command<code data-gs="comd/c" data-x>{{></code>:
 </p>
 <div data-p="bock/pane" data-p-file="views/layouts/main.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;!DOCTYPE html&gt;
@@ -115,27 +95,14 @@
 &lt;/html&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Возьмите макет сайта и вынесите в отдельные
-		виджеты хедер, футер, и сайдбар.
-	</p>
+	<p>Take the website layout and place the header, footer, and sidebar into separate widgets.</p>
 </div>
 
-<h2>Подпапки</h2>
-<p>
-	В папке <code data-gs="comd/p" data-x>partials</code> можно размещать подпапки,
-	раскладывая <code data-gs="comd/p" data-x>hbs</code> файлы в них. В этом
-	случае в команде подключения виджета нужно
-	будет кроме имени файла указать и подпапку.
-</p>
-<p>
-	Давайте посмотрим на примере. Пусть у вас
-	есть вот такая структура:
-</p>
+<h2>Subfolders</h2>
+<p>In a folder<code data-gs="comd/p" data-x>partials</code>you can place subfolders by laying out<code data-gs="comd/p" data-x>hbs</code>files in them. In this case, in the widget connection command you will need to specify a subfolder in addition to the file name.</p>
+<p>Let's look at an example. Let's say you have this structure:</p>
 <div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">views/<ul><li data-s-type="D">partials/<ul><li data-s-type="D">header/<ul><li data-s-type="F">menu.hbs</li><li data-s-type="F">logo.hbs</li></ul></li><li data-s-type="D">footer<ul><li data-s-type="F">contacts.hbs</li><li data-s-type="F">form.hbs</li></ul></li></ul></li></ul></li></ul></div></div>
-<p>
-	Подключим наши виджеты в файле макета:
-</p>
+<p>Let's connect our widgets in the layout file:</p>
 <div data-p="bock/pane" data-p-file="views/layouts/main.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -163,7 +130,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

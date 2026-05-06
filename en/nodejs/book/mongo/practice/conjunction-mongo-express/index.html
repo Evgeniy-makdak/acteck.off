@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Соединение MongoDB и Express — acteck.off</title>
-  <meta name="description" content="Соединение MongoDB и Express — учебные материалы по программированию.">
+  <title>Connecting MongoDB and Express - acteck.off</title>
+  <meta name="description" content="Connecting MongoDB and Express - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,13 +36,8 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Соединение MongoDB и Express</h1>
-    <p>
-	Давайте теперь объединим работу с
-	базой данных и маршруты нашего сайта.
-	Вспомним, какой код у нас запускает
-	подключение к базе данных:
-</p>
+    <h1>Connecting MongoDB and Express</h1>
+    <p>Let's now combine the work with the database and the routes of our site. Let's remember what code we have that starts the connection to the database:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">mongoClient.connect(async function(error, mongo) {
 	if (!error) {
@@ -53,11 +48,7 @@
 	}
 });</code>
 </div>
-<p>
-	Внутри этого кода при успешном подключении
-	мы можем создать любое количество
-	маршрутов Express:
-</p>
+<p>Inside this code, upon successful connection, we can create any number of Express routes:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">mongoClient.connect(async function(error, mongo) {
 	if (!error) {
@@ -73,12 +64,7 @@
 	}
 });</code>
 </div>
-<p>
-	Для примера давайте напишем код,
-	который по запросу к определенному
-	маршруту выведет в консоль сервера
-	список всех юзеров из коллекции:
-</p>
+<p>For example, let's write a code that, upon request to a specific route, will display a list of all users from the collection in the server console:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/users', async function(req, res) {
 	let users = await coll.find().toArray();
@@ -86,17 +72,14 @@
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте маршрут, который выведет
-		все продукты из коллекции с продуктами.
-	</p>
+	<p>Make a route that will bring out all the products from the collection with products.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

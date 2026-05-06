@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Получение данных DOM элементов в JavaScript — acteck.off</title>
-  <meta name="description" content="Получение данных DOM элементов в JavaScript — учебные материалы по программированию.">
+  <title>Retrieving DOM element data in JavaScript - acteck.off</title>
+  <meta name="description" content="Retrieving DOM element data in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,62 +36,42 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Получение данных DOM элементов в JavaScript</h1>
-    <p>
-	Деструктуризация позволяет нам получать
-	текст и значения атрибутов DOM прямо
-	в цикле. Давайте разберемся, как это
-	работает. Пусть у нас есть следующие
-	абзацы:
-</p>
+    <h1>Retrieving DOM element data in JavaScript</h1>
+    <p>Destructuring allows us to retrieve text and DOM attribute values ​​directly in a loop. Let's figure out how it works. Let's say we have the following paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="id1"&gt;text1&lt;/p&gt;
 &lt;p id="id2"&gt;text2&lt;/p&gt;
 &lt;p id="id3"&gt;text3&lt;/p&gt;</code>
 </div>
-<p>
-	Давайте получим коллекцию этих
-	абзацев в переменную:
-</p>
+<p>Let's get a collection of these paragraphs into a variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');</code>
 </div>
-<p>
-	Переберем элементы циклом, отделив
-	номера и сами элементы:
-</p>
+<p>Let's go through the elements in a loop, separating the numbers and the elements themselves:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let [key, elem] of elems.entries()) {
 	console.log(key, elem);
 }</code>
 </div>
-<p>
-	А теперь давайте выполним деструктуризацию
-	элементов, получив из них их <code data-gs="comd/c" data-x>id</code> и
-	тексты:
-</p>
+<p>Now let's destructure the elements, getting them from them<code data-gs="comd/c" data-x>id</code>and texts:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let [key, {id, textContent}] of elems.entries()){
 	console.log(key, id, textContent);
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий код:
-	</p>
+	<p>The following code is given:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="id1" value="111"&gt;
 &lt;input id="id2" value="222"&gt;
 &lt;input id="id3" value="333"&gt;</code>
 	</div>
-	<p>
-		Получите номера, <code data-gs="comd/c" data-x>id</code> и <code data-gs="comd/c" data-x>value</code> инпутов.
-	</p>
+	<p>Get the numbers<code data-gs="comd/c" data-x>id</code>And<code data-gs="comd/c" data-x>value</code>inputs</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../dom-elems-numbers/index.html" class="lesson-nav-btn lesson-nav-prev" title="Нумерация DOM элементов">← Нумерация DOM элементов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../dom-elems-numbers/index.html" class="lesson-nav-btn lesson-nav-prev" title="Numbering of DOM elements">← Numbering of DOM elements</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../../json/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
     </div>
   </section>
@@ -99,7 +79,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

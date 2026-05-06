@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сложные комбинации селектора потомков и классов в CSS — acteck.off</title>
-  <meta name="description" content="Сложные комбинации селектора потомков и классов в CSS — учебные материалы по программированию.">
+  <title>Complex combinations of descendant selector and classes in CSS - acteck.off</title>
+  <meta name="description" content="Complex child selector and class combinations in CSS - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,13 +33,11 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Сложные комбинации селектора потомков и классов в CSS</h1>
-    <p>
-	Пусть теперь у нас есть следующий код:
-</p>
+    <h1>Complex combinations of descendant selector and classes in CSS</h1>
+    <p>Let's now have the following code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="block"&gt;
 	&lt;h2 class="header"&gt;Title h2&lt;/h2&gt;
@@ -70,27 +68,15 @@
 	&lt;/p&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Давайте найдем все элементы с классом <code data-gs="comd/z" data-x>header</code>,
-	находящиеся внутри элемента с классом <code data-gs="comd/z" data-x>block</code>,
-	и зададим им шрифт <code data-gs="comd/v" data-x>Arial</code>:
+<p>Let's find all elements with class<code data-gs="comd/z" data-x>header</code>, located inside an element with a class<code data-gs="comd/z" data-x>block</code>, and give them a font<code data-gs="comd/v" data-x>Arial</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.block .header {
 	font-family: Arial;
 }</code>
 </div>
-<p>
-	Как видно в HTML коде, внутри элемента с
-	классом <code data-gs="comd/z" data-x>block</code> элементы с классом <code data-gs="comd/z" data-x>header</code>
-	могут быть как заголовками <code data-gs="comd/c" data-x>h2</code>, так
-	и заголовками <code data-gs="comd/c" data-x>h3</code>. Давайте напишем
-	селекторы, отличающие эти заголовки, и что-нибудь
-	сделаем с этими заголовками.
-</p>
-<p>
-	Давайте выберем все <code data-gs="comd/c" data-x>h2</code> с классом <code data-gs="comd/z" data-x>header</code>,
-	находящиеся внутри элемента с классом <code data-gs="comd/z" data-x>block</code>:
+<p>As you can see in the HTML code, inside the element with the class<code data-gs="comd/z" data-x>block</code>elements with class<code data-gs="comd/z" data-x>header</code>can be like headings<code data-gs="comd/c" data-x>h2</code>, and headers<code data-gs="comd/c" data-x>h3</code>. Let's write selectors that differentiate these headers and do something with these headers.</p>
+<p>Let's select everything<code data-gs="comd/c" data-x>h2</code>with class<code data-gs="comd/z" data-x>header</code>, located inside an element with a class<code data-gs="comd/z" data-x>block</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.block h2.header {
@@ -98,10 +84,7 @@
 	color: red;
 }</code>
 </div>
-<p>
-	А теперь выберем все <code data-gs="comd/c" data-x>h3</code> с классом
-	<code data-gs="comd/z" data-x>header</code>, находящиеся внутри элемента
-	с классом <code data-gs="comd/z" data-x>block</code>:
+<p>Now let's select everything<code data-gs="comd/c" data-x>h3</code>with class<code data-gs="comd/z" data-x>header</code>, located inside an element with a class<code data-gs="comd/z" data-x>block</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.block h3.header {
@@ -109,9 +92,7 @@
 	color: green;
 }</code>
 </div>
-<p>
-	Давайте соберем весь наш CSS вместе:
-</p>
+<p>Let's put all our CSS together:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.block .header {
 	font-family: Arial;
@@ -125,9 +106,7 @@
 	color: green;
 }</code>
 </div>
-<p>
-	Применим его к нашему HTML коду:
-</p>
+<p>Let's apply it to our HTML code:</p>
 <div data-p="bock/pane">
 					<div data-w="bock/open" data-m-type="W">
 						<a href="" data-e="link" data-x>
@@ -196,11 +175,7 @@
 					</div>
 				</div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, что выбирает селектор в приведенном
-		ниже коде. Затем напишите HTML код, подходящий
-		под этот селектор. Вот код с селектором:
-	</p>
+	<p>Tell us what the selector in the code below selects. Then write HTML code that matches this selector. Here is the code with the selector:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">.eee .bbb {
 	color: red;
@@ -208,11 +183,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, что выбирает селектор в приведенном
-		ниже коде. Затем напишите HTML код, подходящий
-		под этот селектор. Вот код с селектором:
-	</p>
+	<p>Tell us what the selector in the code below selects. Then write HTML code that matches this selector. Here is the code with the selector:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">.eee h2 {
 	color: red;
@@ -220,11 +191,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, что выбирает селектор в приведенном
-		ниже коде. Затем напишите HTML код, подходящий
-		под этот селектор. Вот код с селектором:
-	</p>
+	<p>Tell us what the selector in the code below selects. Then write HTML code that matches this selector. Here is the code with the selector:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">.eee h2.bbb {
 	color: red;
@@ -232,11 +199,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, что выбирает селектор в приведенном
-		ниже коде. Затем напишите HTML код, подходящий
-		под этот селектор. Вот код с селектором:
-	</p>
+	<p>Tell us what the selector in the code below selects. Then write HTML code that matches this selector. Here is the code with the selector:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">.eee h3.bbb {
 	color: red;
@@ -244,11 +207,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, что выбирает селектор в приведенном
-		ниже коде. Затем напишите HTML код, подходящий
-		под этот селектор. Вот код с селектором:
-	</p>
+	<p>Tell us what the selector in the code below selects. Then write HTML code that matches this selector. Here is the code with the selector:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">.eee p.bbb {
 	color: red;
@@ -256,11 +215,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, что выбирает селектор в приведенном
-		ниже коде. Затем напишите HTML код, подходящий
-		под этот селектор. Вот код с селектором:
-	</p>
+	<p>Tell us what the selector in the code below selects. Then write HTML code that matches this selector. Here is the code with the selector:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">.eee .bbb .kkk {
 	color: red;
@@ -268,16 +223,16 @@
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../descendant-selector-classes/index.html" class="lesson-nav-btn lesson-nav-prev" title="Селектор потомков и классы">← Селектор потомков и классы</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../descendant-selector-mistake/index.html" class="lesson-nav-btn lesson-nav-next" title="Ошибка новичков в селекторе потомков">Ошибка новичков в селекторе потомков →</a>
+      <a href="../descendant-selector-classes/index.html" class="lesson-nav-btn lesson-nav-prev" title="Descendant selector and classes">← Descendant selector and classes</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../descendant-selector-mistake/index.html" class="lesson-nav-btn lesson-nav-next" title="Newbie error in descendant selector">Newbie mistake in descendant selector →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

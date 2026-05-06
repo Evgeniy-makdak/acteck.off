@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Переименование поля в NodeJS — acteck.off</title>
-  <meta name="description" content="Переименование поля в NodeJS — учебные материалы по программированию.">
+  <title>Renaming a field in NodeJS - acteck.off</title>
+  <meta name="description" content="Renaming a Field in NodeJS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,27 +36,15 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Переименование поля в NodeJS</h1>
-    <p>
-	Бывают ситуации, когда нужно при выводе записей
-	переименовать их исходные поля. В таких случаях применяется
-	SQL команда <code data-gs="comd/q" data-x>AS</code>. Она задает новое имя полям
-	или таблицам при выборке из базы, при этом
-	в самой базе изменения не происходят.
-</p>
+    <h1>Renaming a field in NodeJS</h1>
+    <p>There are situations when you need to rename their original fields when displaying records. In such cases, the SQL command is used<code data-gs="comd/q" data-x>AS</code>. It assigns a new name to fields or tables when selecting from the database, while no changes occur in the database itself.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Выберем из нашей таблицы <code data-gs="comd/s" data-x>users</code> имена всех
-	юзеров и зададим данному полю
-	другое название:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's choose from our table<code data-gs="comd/s" data-x>users</code>names of all users and give this field a different name:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "SELECT name as user_name FROM users";</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[
 	{ user_name: 'user1' },
@@ -68,17 +56,12 @@
 ]</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Можно переименовать только одно
-	поле из выборки:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>You can only rename one field from a selection:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "SELECT id, age as user_age FROM users";</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[
 	{ id: 1, user_age: 23 },
@@ -90,43 +73,28 @@
 ]</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Для переименования таблицы нужно
-	применить команду <code data-gs="comd/q" data-x>AS</code> справа
-	от ее имени:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>To rename a table you need to use the command<code data-gs="comd/q" data-x>AS</code>to the right of her name:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let query = "SELECT id, age as user_age FROM users as users_table";</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Восстановите все записи в таблице
-		из сохраненного вами дампа.
-	</p>
+	<p>Restore all records in the table from the dump you saved.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Переименуйте поле зарплаты
-		юзеров при выводе их в
-		консоль.
-	</p>
+	<p>Rename the user salary field when outputting it to the console.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Выведите имя, возраст и зарплату
-		юзеров, при этом переименуйте
-		их имена и возраст.
-	</p>
+	<p>Display the name, age and salary of users, while renaming their names and ages.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

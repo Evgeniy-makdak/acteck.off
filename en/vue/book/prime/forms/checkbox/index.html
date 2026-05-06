@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Работа с checkbox в Vue — acteck.off</title>
-  <meta name="description" content="Работа с checkbox в Vue — учебные материалы по программированию.">
+  <title>Working with checkboxes in Vue - acteck.off</title>
+  <meta name="description" content="Working with checkboxes in Vue - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,22 +36,14 @@
       <a href="../../../../../../en/vue/book/prime/index.html">Vue</a>
     </div>
 
-    <h1>Работа с checkbox в Vue</h1>
-    <p>
-	Давайте теперь посмотрим, как происходит
-	работа с <a href="../../../../../markup/manual/html/tag/input/checkbox/index.html"><code data-gs="comd/c" data-x>checkbox</code></a>.
-	Пусть у нас есть
-	следующий переключатель:
-</p>
+    <h1>Working with checkboxes in Vue</h1>
+    <p>Let's now see how it works with<a href="../../../../../markup/manual/html/tag/input/checkbox/index.html"><code data-gs="comd/c" data-x>checkbox</code></a>. Let's say we have the following switch:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;input type="checkbox"&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Сделаем свойство <code data-gs="comd/c" data-x>checked</code>,
-	которое будет управлять работой
-	этого <code data-gs="comd/c" data-x>checkbox</code>:
+<p>Let's make a property<code data-gs="comd/c" data-x>checked</code>, which will control the operation of this<code data-gs="comd/c" data-x>checkbox</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
@@ -60,31 +52,21 @@
 	}
 }</code>
 </div>
-<p>
-	Привяжем это свойство через <code data-gs="comd/c" data-x>v-model</code>:
+<p>Let's bind this property via<code data-gs="comd/c" data-x>v-model</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;input type="checkbox" v-model="checked"&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Если <code data-gs="comd/c" data-x>checkbox</code> отмечен - свойство <code data-gs="comd/c" data-x>checked</code>
-	будет иметь значение <code data-gs="comd/c" data-x>true</code>, а если
-	не отмечен - то <code data-gs="comd/c" data-x>false</code>. Чтобы убедится
-	в этом, можно вывести значение
-	свойства на экран, вот так:
-</p>
+<p>If<code data-gs="comd/c" data-x>checkbox</code>marked - property<code data-gs="comd/c" data-x>checked</code>will matter<code data-gs="comd/c" data-x>true</code>, and if not marked, then<code data-gs="comd/c" data-x>false</code>. To verify this, you can display the property value on the screen, like this:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;input type="checkbox" v-model="checked"&gt;
 	&lt;p&gt;{{ checked }}&lt;/p&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	С помощью тернарного оператора можно
-	выводить что-нибудь более осмысленное:
-</p>
+<p>Using the ternary operator, you can output something more meaningful:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;input type="checkbox" v-model="checked"&gt;
@@ -92,19 +74,14 @@
 &lt;/template&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан <code data-gs="comd/c" data-x>checkbox</code>. Дан абзац. С помощью директивы
-		<code data-gs="comd/c" data-x>v-if</code> сделайте следующее: если <code data-gs="comd/c" data-x>checkbox</code>
-		отмечен - абзац должен быть показан, а если
-		не отмечен - то скрыт.
-	</p>
+	<p>Dan<code data-gs="comd/c" data-x>checkbox</code>. A paragraph is given. Using a directive<code data-gs="comd/c" data-x>v-if</code>do the following: if<code data-gs="comd/c" data-x>checkbox</code>checked - the paragraph should be shown, and if not marked, it should be hidden.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

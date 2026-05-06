@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ошибка при группировке сложных CSS селекторов — acteck.off</title>
-  <meta name="description" content="Ошибка при группировке сложных CSS селекторов — учебные материалы по программированию.">
+  <title>Error when grouping complex CSS selectors - acteck.off</title>
+  <meta name="description" content="Error when grouping complex CSS selectors - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,18 +33,12 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Ошибка при группировке сложных CSS селекторов</h1>
-    <p>
-	Все, что разделено запятой при группировке,
-	должно представлять собой полноценный селектор.
-	Давайте посмотрим, где здесь можно ошибиться.
-</p>
-<p>
-	Пусть у нас есть вот такой код:
-</p>
+    <h1>Error when grouping complex CSS selectors</h1>
+    <p>Anything separated by a comma when grouped should be a full selector. Let's see where we can go wrong here.</p>
+<p>Let's say we have this code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2 {
 	color: red;
@@ -53,31 +47,19 @@
 	color: red;
 }</code>
 </div>
-<p>
-	Давайте сгруппируем два селектора в один.
-	Вот правильный вариант группировки:
-</p>
+<p>Let's group the two selectors into one. Here is the correct grouping option:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2, #block h3 {
 	color: red;
 }</code>
 </div>
-<p>
-	А вот неправильный вариант группировки:
-</p>
+<p>Here is the wrong grouping option:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2, h3 {
 	color: red;
 }</code>
 </div>
-<p>
-	В этом неправильном варианте группировки
-	новичкам почему-то кажется, что <code data-gs="comd/z" data-x>#block</code>
-	относится и к <code data-gs="comd/c" data-x>h2</code>, и к <code data-gs="comd/c" data-x>h3</code>, стоящему
-	после запятой. Но селекторы не действуют
-	через запятую и фактически этот неправильный
-	вариант группировки можно переписать вот так:
-</p>
+<p>In this incorrect variant of grouping, for some reason it seems to beginners that<code data-gs="comd/z" data-x>#block</code>also applies to<code data-gs="comd/c" data-x>h2</code>, and to<code data-gs="comd/c" data-x>h3</code>, after the decimal point. But selectors do not work separated by commas, and in fact this incorrect grouping can be rewritten like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2 {
 	color: red;
@@ -86,10 +68,7 @@ h3 {
 	color: red;
 }</code>
 </div>
-<p>
-	Сравните с изначальным вариантом, который
-	мы начали сокращать:
-</p>
+<p>Compare with the original version, which we began to shorten:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h2 {
 	color: red;
@@ -99,9 +78,7 @@ h3 {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Упростите код, используя группировку селекторов:
-	</p>
+	<p>Simplify your code by using selector grouping:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h1 {
 	text-align: center;
@@ -118,9 +95,7 @@ h3 {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Упростите код, используя группировку селекторов:
-	</p>
+	<p>Simplify your code by using selector grouping:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">#block h1.eee {
 	text-align: center;
@@ -133,9 +108,7 @@ h3 {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Упростите код, используя группировку селекторов:
-	</p>
+	<p>Simplify your code by using selector grouping:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">.xxx .kkk {
 	text-align: center;
@@ -149,9 +122,7 @@ h3 {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Упростите код, используя группировку селекторов:
-	</p>
+	<p>Simplify your code by using selector grouping:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="css">.eee h2.zzz {
 	text-align: center;
@@ -162,16 +133,16 @@ h3 {
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../complex-selectors-grouping/index.html" class="lesson-nav-btn lesson-nav-prev" title="Группировка сложных селекторов">← Группировка сложных селекторов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../selectors-combination-training/index.html" class="lesson-nav-btn lesson-nav-next" title="Тренировка на комбинации селекторов">Тренировка на комбинации селекторов →</a>
+      <a href="../complex-selectors-grouping/index.html" class="lesson-nav-btn lesson-nav-prev" title="Grouping complex selectors">← Grouping complex selectors</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../selectors-combination-training/index.html" class="lesson-nav-btn lesson-nav-next" title="Selector combination training">Training on selector combinations →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Добавление слайса в Redux — acteck.off</title>
-  <meta name="description" content="Добавление слайса в Redux — учебные материалы по программированию.">
+  <title>Adding a slice to Redux - acteck.off</title>
+  <meta name="description" content="Adding a Slice to Redux - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,50 +36,15 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Добавление слайса в Redux</h1>
-    <p>
-	Мы подготовили основные инструменты для
-	создания нашего Redux приложения, теперь
-	мы можем перейти непосредственно к
-	реализации его компонентов.
-</p>
-<p>
-	На этом занятии мы начнем с понятия
-	<dfn data-gs="comd/d" data-x>слайсов</dfn> (<span data-gs="lang/e" data-x>slices</span>).
-	Redux приложение имеет один глобальный
-	стейт, который хранится в store. Этот
-	стейт расщепляется на слайсы. Фактически,
-	слайс - это кусочек хранилища, содержащий
-	исходный стейт, логику редьюсера и экшенов
-	для определенной части приложения.
-</p>
-<p>
-	В нашем приложении будут фигурировать
-	продукты, соответственно первый слайс,
-	который мы сделаем, будет содержать информацию
-	о продуктах. Также при создании слайса
-	необходимо добавить редьюсер, который
-	знает, как обрабатывать эту информацию.
-</p>
-<p>
-	Давайте зайдем в папку <code data-gs="comd/p" data-x>src</code> и создадим
-	папку <code data-gs="comd/p" data-x>parts</code>, а затем в ней папку
-	<code data-gs="comd/p" data-x>products</code> - сюда мы будем складывать
-	все файлы с кодом, относящимся к продуктам. В
-	папке <code data-gs="comd/p" data-x>products</code> мы создадим файл
-	<code data-gs="comd/p" data-x>productsSlice.js</code>, а затем импортируем
-	в него из RTK функцию <code data-gs="comd/c" data-x>createSlice</code>, с помощью
-	которой мы и будем создавать слайсы:
-</p>
+    <h1>Adding a slice in Redux</h1>
+    <p>We have prepared the basic tools for creating our Redux application, now we can move directly to implementing its components.</p>
+<p>In this lesson we will start with the concept<dfn data-gs="comd/d" data-x>slices</dfn> (<span data-gs="lang/e" data-x>slices</span>). A Redux application has one global state, which is stored in the store. This state is split into slices. In fact, a slice is a piece of storage containing the source state, reducer logic and actions for a specific part of the application.</p>
+<p>Our application will feature products, so the first slice we make will contain information about the products. Also, when creating a slice, you need to add a reducer that knows how to process this information.</p>
+<p>Let's go to the folder<code data-gs="comd/p" data-x>src</code>and create a folder<code data-gs="comd/p" data-x>parts</code>, and then a folder in it<code data-gs="comd/p" data-x>products</code>- here we will put all files with code related to the products. In a folder<code data-gs="comd/p" data-x>products</code>we will create a file<code data-gs="comd/p" data-x>productsSlice.js</code>, and then import the RTK function into it<code data-gs="comd/c" data-x>createSlice</code>, with which we will create slices:</p>
 <div data-p="bock/pane" data-p-file="parts/products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { createSlice } from '@reduxjs/toolkit'</code>
 </div>
-<p>
-	Теперь давайте создадим слайс для продуктов
-	и назовем его <code data-gs="comd/s" data-x>'products'</code>. Для
-	свойства <code data-gs="comd/c" data-x>reducers</code> мы пока оставим
- 		пустые фигурные скобки:
-</p>
+<p>Now let's create a slice for the products and call it<code data-gs="comd/s" data-x>'products'</code>. For property<code data-gs="comd/c" data-x>reducers</code>We'll leave the empty curly braces for now:</p>
 <div data-p="bock/pane" data-p-file="parts/products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const productsSlice = createSlice({
 	name: 'products',
@@ -87,17 +52,7 @@
 	reducers: {}
 })</code>
 </div>
-<p>
-	Также нам необходимо определить
-	<code data-gs="comd/c" data-x>initialState</code> - начальное состояние слайса
-	стейта, которое будет загружено при первом
-	запуске приложения. Напишем его сразу
-	после импорта и перед созданием слайса.
-	Пусть это будет массив из пары
-	объектов, содержащих данные продуктов.
-	Укажем для каждого продукта <code data-gs="comd/c" data-x>id</code>,
-	название, описание, цену и количество:
-</p>
+<p>We also need to determine<code data-gs="comd/c" data-x>initialState</code>- the initial state of the state slice, which will be loaded when the application is first launched. Let's write it immediately after import and before creating the slice. Let this be an array of a pair of objects containing product data. We will indicate for each product<code data-gs="comd/c" data-x>id</code>, name, description, price and quantity:</p>
 <div data-p="bock/pane" data-p-file="parts/products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initialState = [
 	{
@@ -116,50 +71,30 @@
 	},
 ]</code>
 </div>
-<p>
-	В конце кода файла мы из результата работы функции
-	<code data-gs="comd/c" data-x>createSlice</code> возьмем сгенерированный ею
-	reducer и экспортируем его. Он пригодится
-	нам в других файлах приложения:
-</p>
+<p>At the end of the file code we have the result of the function<code data-gs="comd/c" data-x>createSlice</code>Let's take the reducer generated by it and export it. It will be useful to us in other application files:</p>
 <div data-p="bock/pane" data-p-file="parts/products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default productsSlice.reducer</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение для студентов.
-		Создайте в нем файл <code data-gs="comd/p" data-x>studentsSlice.js</code>,
-		как описано в уроке. Создайте в нем при
-		помощи <code data-gs="comd/c" data-x>createSlice</code> слайс <code data-gs="comd/c" data-x>students</code>. В
-		качестве начального значения слайса пусть у
-		вас будет массив из пары объектов, содержащих
-		данные студентов.
-	</p>
+	<p>Open your student application. Create a file in it<code data-gs="comd/p" data-x>studentsSlice.js</code>, as described in the lesson. Create in it using<code data-gs="comd/c" data-x>createSlice</code>slice<code data-gs="comd/c" data-x>students</code>. As the initial value of the slice, let's say you have an array of a pair of objects containing student data.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Для каждого студента сделайте поля: <code data-gs="comd/c" data-x>id</code>,
-		имя, фамилия, возраст и специальность.
-	</p>
+	<p>For each student, make the following fields:<code data-gs="comd/c" data-x>id</code>, first name, last name, age and specialty.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		В конце файла <code data-gs="comd/p" data-x>studentsSlice.js</code>
-		экспортируйте полученный reducer, как
-		описано	в уроке.
-	</p>
+	<p>At the end of the file<code data-gs="comd/p" data-x>studentsSlice.js</code>export the resulting reducer as described in the tutorial.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../../tools/install-router/index.html" class="lesson-nav-btn lesson-nav-prev" title="Установка React Router">← Установка React Router</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../reducers/index.html" class="lesson-nav-btn lesson-nav-next" title="Редьюсеры">Редьюсеры →</a>
+      <a href="../../tools/install-router/index.html" class="lesson-nav-btn lesson-nav-prev" title="Installing React Router">← Installing React Router</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../reducers/index.html" class="lesson-nav-btn lesson-nav-next" title="Reducers">Reducers →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

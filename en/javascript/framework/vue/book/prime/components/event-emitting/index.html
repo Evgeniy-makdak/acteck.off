@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Испускание событий в Vue — acteck.off</title>
-  <meta name="description" content="Испускание событий в Vue — учебные материалы по программированию.">
+  <title>Emitting Events in Vue - acteck.off</title>
+  <meta name="description" content="Emitting Events in Vue - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,19 +36,9 @@
       <a href="../../index.html">Vue</a>
     </div>
 
-    <h1>Испускание событий в Vue</h1>
-    <p>
-	Как вы уже знаете, данные движутся
-	от родительских компонентов к дочерним.
-	Давайте посмотрим теперь, как дочерние
-	компоненты могут общаться с родительскими.
-	Это делается с помощью испускания
-	событий. Давайте посмотрим на практике.
-</p>
-<p>
-	Пусть в родительском компоненте
-	есть некоторый метод:
-</p>
+    <h1>Emitting Events in Vue</h1>
+    <p>As you already know, data moves from parent components to child components. Let's see now how child components can communicate with parent components. This is done using event emission. Let's see in practice.</p>
+<p>Let there be some method in the parent component:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
 	func() {
@@ -56,18 +46,13 @@
 	}
 }</code>
 </div>
-<p>
-	Передадим этот метод параметром
-	в дочерний компонент:
-</p>
+<p>Let's pass this method as a parameter to the child component:</p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;User @show="func" /&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Пропишем испускаемое событие в 
-	настройке <code data-gs="comd/c" data-x>emits</code>:
+<p>Let's register the emitted event in the settings<code data-gs="comd/c" data-x>emits</code>:
 </p>
 <div data-p="bock/pane" data-p-file="components/User.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
@@ -79,19 +64,13 @@
 	}
 }</code>
 </div>
-<p>
-	Давайте теперь в дочернем компоненте
-	сделаем кнопку, которая будет
-	обрабатывать клик по ней:
-</p>
+<p>Let's now make a button in the child component that will process a click on it:</p>
 <div data-p="bock/pane" data-p-file="components/User.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;button @click="handle"&gt;btn&lt;/button&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Сделаем обработчик клика:
-</p>
+<p>Let's create a click handler:</p>
 <div data-p="bock/pane" data-p-file="components/User.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
 	handle() {
@@ -99,14 +78,7 @@
 	}
 }</code>
 </div>
-<p>
-	Давайте теперь в обработчике клика
-	заставим вызваться родительскую
-	функцию. Для этого испустим
-	событие с помощью функции <code data-gs="comd/c" data-x>$emit</code>,
-	ее параметром указав имя испускаемого 
-	события:
-</p>
+<p>Let's now force the parent function to be called in the click handler. To do this, let's emit an event using the function<code data-gs="comd/c" data-x>$emit</code>, specifying the name of the emitted event as its parameter:</p>
 <div data-p="bock/pane" data-p-file="components/User.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">methods: {
 	handle() {
@@ -115,25 +87,19 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Передайте в дочерний компонент
-		две функции. Сделайте в дочернем
-		компоненте две кнопки, каждая
-		из которых будет вызывать
-		одну из переданных функций.
-	</p>
+	<p>Pass two functions to the child component. Make two buttons in the child component, each of which will call one of the passed functions.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../unidirectional-data-flow/index.html" class="lesson-nav-btn lesson-nav-prev" title="Однонаправленный поток данных">← Однонаправленный поток данных</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../events-parameters/index.html" class="lesson-nav-btn lesson-nav-next" title="Параметры событий">Параметры событий →</a>
+      <a href="../unidirectional-data-flow/index.html" class="lesson-nav-btn lesson-nav-prev" title="Unidirectional data flow">← Unidirectional data flow</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../events-parameters/index.html" class="lesson-nav-btn lesson-nav-next" title="Event Settings">Event settings →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

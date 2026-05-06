@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Иключения в асинхронных коллбэках в JavaScript — acteck.off</title>
-  <meta name="description" content="Иключения в асинхронных коллбэках в JavaScript — учебные материалы по программированию.">
+  <title>Exceptions in asynchronous callbacks in JavaScript - acteck.off</title>
+  <meta name="description" content="Exceptions in Asynchronous Callbacks in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,16 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Иключения в асинхронных коллбэках в JavaScript</h1>
-    <p>
-	Пусть, если параметром <code data-gs="comd/c" data-x>make</code> передан
-	номер несуществующего элемента массива -
-	это исключительная ситуация. Как вы уже знаете,
-	исключения, возникшие внутри асинхронной
-	функции, не могут быть пойманы через <code data-gs="comd/c" data-x>try-catch</code>.
-	В нашем случае исключение, возникшее внутри
-	<code data-gs="comd/c" data-x>make</code> или коллбэка, не будет поймано:
-</p>
+    <h1>Exceptions in asynchronous callbacks in JavaScript</h1>
+    <p>Let, if the parameter<code data-gs="comd/c" data-x>make</code>the number of a non-existent array element is passed - this is an exceptional situation. As you already know, exceptions thrown inside an asynchronous function cannot be caught via<code data-gs="comd/c" data-x>try-catch</code>. In our case, the exception that occurred inside<code data-gs="comd/c" data-x>make</code>or callback will not be caught:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
 	make(10, function(res) {
@@ -55,13 +47,7 @@
 	// не поймается
 }</code>
 </div>
-<p>
-	В коллбэк-подходе с исключениями работают
-	следующим образом: в первый параметр коллбэка
-	отправляют результат, а во второй - ошибку.
-	В этом случае обработка ошибок происходит
-	следующим образом:
-</p>
+<p>In the callback approach, exceptions are handled as follows: the result is sent to the first parameter of the callback, and the error is sent to the second parameter. In this case, error handling occurs as follows:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">make(10, function(res, err) {
 	if (!err) {
@@ -71,10 +57,7 @@
 	}
 });</code>
 </div>
-<p>
-	Давайте переделаем код нашей функции
-	<code data-gs="comd/c" data-x>make</code> в соответствии с описанным:
-</p>
+<p>Let's rewrite our function code<code data-gs="comd/c" data-x>make</code>as described:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function make(num, callback) {
 	setTimeout(function() {
@@ -93,16 +76,16 @@
 </div>
   
     <div class="lesson-nav">
-      <a href="../passing-arguments/index.html" class="lesson-nav-btn lesson-nav-prev" title="Передача параметров в асинхронный коллбэк">← Передача параметров в асинхронный коллбэк</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../images-loading/index.html" class="lesson-nav-btn lesson-nav-next" title="Загрузка картинок">Загрузка картинок →</a>
+      <a href="../passing-arguments/index.html" class="lesson-nav-btn lesson-nav-prev" title="Passing parameters to an asynchronous callback">← Passing parameters to an asynchronous callback</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../images-loading/index.html" class="lesson-nav-btn lesson-nav-next" title="Uploading pictures">Uploading images →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

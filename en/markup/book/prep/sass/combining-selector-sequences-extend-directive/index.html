@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Объединение последовательностей селекторов в @extend в SASS — acteck.off</title>
-  <meta name="description" content="Объединение последовательностей селекторов в @extend в SASS — учебные материалы по программированию.">
+  <title>Combining selector sequences into @extend in SASS - acteck.off</title>
+  <meta name="description" content="Combining Selector Sequences with @extend in SASS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,18 +33,13 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Объединение последовательностей селекторов в @extend в SASS</h1>
-    <p>
-	Если нам нужно объединить
-	последовательности селекторов,
-	то мы также используем директиву <code data-gs="comd/c" data-x>@extend</code>:
+    <h1>Combining selector sequences into @extend in SASS</h1>
+    <p>If we need to combine sequences of selectors, then we also use the directive<code data-gs="comd/c" data-x>@extend</code>:
 </p>
-<p>
-	Рассмотрим следующий пример:
-</p>
+<p>Consider the following example:</p>
 <div data-p="bock/pane" data-p-file="style.scss">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">#main .list p {
 	font-weight: bold;
@@ -53,27 +48,14 @@
 	@extend p;
 }</code>
 </div>
-<p>
-	Обратите внимание на скомплированный код
-	в файле <code data-gs="comd/p" data-x>css</code>, при объединении двух
-	последовательностей, у которых нет общих
-	селекторов, то автоматически образуются
-	новые селекторы: один с первой последовательностью
-	перед вторым и один со второй последовательностью
-	перед первым:
-</p>
+<p>Note the compiled code in the file<code data-gs="comd/p" data-x>css</code>, when combining two sequences that do not have common selectors, new selectors are automatically formed: one with the first sequence before the second and one with the second sequence before the first:</p>
 <div data-p="bock/pane" data-p-file="style.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#main .list p,
 #main .list #sub .resume .link, #sub .resume #main .list .link {
 	font-weight: bold;
 }</code>
 </div>
-<p>
-	В случае, когда у последовательностей
-	есть общий селектор, то они будут объединены
-	вместе и чередоваться будут только различия
-	(если таковые существуют). В следующем примере
-	обе последовательности имеют идентификатор <code data-gs="comd/z" data-x>#main</code>:
+<p>In the case where sequences have a common selector, they will be merged together and only the differences (if any) will be alternated. In the following example, both sequences have an ID<code data-gs="comd/z" data-x>#main</code>:
 </p>
 <div data-p="bock/pane" data-p-file="style.scss">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">#main .list p {
@@ -83,10 +65,7 @@
 	@extend p;
 }</code>
 </div>
-<p>
-	В результате компиляции эти два идентификатора
-	будут объединены:
-</p>
+<p>As a result of compilation, these two identifiers will be combined:</p>
 <div data-p="bock/pane" data-p-file="style.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#main .list p,
 #main .list #sub .resume .link, #sub .resume #main .list .link {
@@ -94,10 +73,7 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.scss">
 		<code data-w="bock/code" data-lo="high" data-m-lang="scss">div p {
 	font-size: 12px;
@@ -109,16 +85,16 @@ link button #card-title {
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../selector-sequence-extend-directive/index.html" class="lesson-nav-btn lesson-nav-prev" title="Последовательность селекторов в @extend">← Последовательность селекторов в @extend</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../optional-extend-directive/index.html" class="lesson-nav-btn lesson-nav-next" title="Метка !optional в @extend">Метка !optional в @extend →</a>
+      <a href="../selector-sequence-extend-directive/index.html" class="lesson-nav-btn lesson-nav-prev" title="Sequence of selectors in @extend">← Sequence of selectors in @extend</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../optional-extend-directive/index.html" class="lesson-nav-btn lesson-nav-next" title="The !optional tag in @extend">The !optional tag in @extend →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

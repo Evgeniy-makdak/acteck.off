@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод setInterval — acteck.off</title>
-  <meta name="description" content="Метод setInterval — учебные материалы по программированию.">
+  <title>setInterval method - acteck.off</title>
+  <meta name="description" content="setInterval Method - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,31 +36,16 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Метод setInterval</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>setInterval</code> устанавливает
-	интервал выполнение коллбэка в миллисекундах.
-	В первом параметре метода указываем
-	коллбэк, во втором параметре - время
-	задержки его выполнения в миллисекундах.
-	В третьем необязательном параметре
-	можно передать значения для
-	параметров коллбэка. Необходимо применить
-	метод <a href="../clearInterval/index.html"><code data-gs="comd/c" data-x>clearInterval</code></a>,
-	чтобы коллбэк не выполнялся бесконечно.
-</p>
+    <h1>setInterval method</h1>
+    <p>Method<code data-gs="comd/c" data-x>setInterval</code>sets the callback execution interval in milliseconds. In the first parameter of the method we indicate the callback, in the second parameter - the delay time for its execution in milliseconds. The third optional parameter can be used to pass values ​​for callback parameters. Method must be applied<a href="../clearInterval/index.html"><code data-gs="comd/c" data-x>clearInterval</code></a>so that the callback does not execute indefinitely.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">setInterval(коллбэк, время задержки, [параметры коллбэка]);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте с помощью метода <code data-gs="comd/c" data-x>setInterval</code>
-	установим выполнение коллбэка с задержкой
-	<code data-gs="comd/c" data-x>1000</code> миллисекунд:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's use the method<code data-gs="comd/c" data-x>setInterval</code>set the callback to be executed with a delay<code data-gs="comd/c" data-x>1000</code>milliseconds:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let i = 0;
 let timer = setInterval(function() {
@@ -72,12 +57,8 @@ let timer = setInterval(function() {
 }, 1000);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	А теперь давайте установим выполнение коллбэка
-	с задержкой <code data-gs="comd/c" data-x>1000</code> миллисекунд
-	через промис:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's set the callback to be executed with a delay<code data-gs="comd/c" data-x>1000</code>milliseconds via promise:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let i = 0;
 
@@ -89,12 +70,8 @@ for await (let el of setInterval(1000, i)) {
 console.log(i++);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте установим выполнение коллбэка, у которого в параметрах
-	задано два числа <code data-gs="comd/n" data-x>2</code> и <code data-gs="comd/n" data-x>3</code>. Пусть сумма данных чисел
-	выводится только три раза:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's set up the execution of a callback that has two numbers specified in its parameters<code data-gs="comd/n" data-x>2</code>And<code data-gs="comd/n" data-x>3</code>. Let the sum of these numbers be displayed only three times:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let i = 0;
 let timer = setInterval(
@@ -108,22 +85,16 @@ let timer = setInterval(
 	}, 1000, 2, 3);</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../setImmediate/index.html"><code data-gs="comd/c" data-x>setImmediate</code></a>, <br>
-			который устанавливает немедленное выполнение коллбэка
-		</li>
-		<li>
-			метод <a href="../clearInterval/index.html"><code data-gs="comd/c" data-x>clearInterval</code></a>, <br>
-			который отменяет выполнение коллбэка
-		</li>
+		<li>method<a href="../setImmediate/index.html"><code data-gs="comd/c" data-x>setImmediate</code></a>, <br>which sets the callback to execute immediately</li>
+		<li>method<a href="../clearInterval/index.html"><code data-gs="comd/c" data-x>clearInterval</code></a>, <br>which cancels the execution of the callback</li>
 	</ul>
 </div>
         <div class="lesson-nav">
       <a href="../setImmediate/index.html" class="lesson-nav-btn lesson-nav-prev" title="setImmediate">← setImmediate</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../setTimeout/index.html" class="lesson-nav-btn lesson-nav-next" title="setTimeout">setTimeout →</a>
     </div>
   </section>
@@ -131,7 +102,7 @@ let timer = setInterval(
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

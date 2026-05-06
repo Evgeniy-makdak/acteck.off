@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Изменение данных продукта в Redux store — acteck.off</title>
-  <meta name="description" content="Изменение данных продукта в Redux store — учебные материалы по программированию.">
+  <title>Changing product data in Redux store - acteck.off</title>
+  <meta name="description" content="Changing Product Data in Redux Store - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,25 +36,9 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Изменение данных продукта в Redux store</h1>
-    <p>
-	Мы научились добавлять продукты, а что
-	если мы захотим изменить информацию
-	о продукте? Давайте рассмотрим как это
-	сделать в этом и последующих уроках. 
-</p>
-<p>
-	Откроем наше приложение с продуктами
-	и зайдем в файл <code data-gs="comd/p" data-x>productsSlice.js</code>. Начнем
-	с того, что нам нужно для слайса <code data-gs="comd/c" data-x>products</code>
-	написать еще один reducer, который
-	будет запускаться при обновлении продукта.
-	Назовем его <code data-gs="comd/c" data-x>productUpdated</code> и добавим в поле
-	<code data-gs="comd/c" data-x>reducers</code> после редьюсера <code data-gs="comd/c" data-x>productAdded</code>. Также
-	передадим ему сразу параметрами <code data-gs="comd/c" data-x>state</code> и
-	<code data-gs="comd/c" data-x>action</code>, на основе которых, как мы помним,
-	работает редьюсер:
-</p>
+    <h1>Changing product data in Redux store</h1>
+    <p>We've learned how to add products, but what if we want to change the product information? Let's look at how to do this in this and subsequent lessons.</p>
+<p>Let's open our application with products and go to the file<code data-gs="comd/p" data-x>productsSlice.js</code>. Let's start with what we need for the slice<code data-gs="comd/c" data-x>products</code>write another reducer that will be launched when the product is updated. Let's call him<code data-gs="comd/c" data-x>productUpdated</code>and add it to the field<code data-gs="comd/c" data-x>reducers</code>after the reducer<code data-gs="comd/c" data-x>productAdded</code>. We will also immediately pass it the parameters<code data-gs="comd/c" data-x>state</code>And<code data-gs="comd/c" data-x>action</code>, on the basis of which, as we remember, the reducer works:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">reducers: {
 	productAdded(state, action) {
@@ -63,52 +47,27 @@
 	productUpdated(state, action) {},
 },</code>
 </div>
-<p>
-	Теперь давайте подумаем, какие данные нам
-	понадобятся для обновления продукта. Прежде
-	всего - это <code data-gs="comd/c" data-x>id</code>, по нему мы сможем найти
-	интересующий нас продукт в store. Остальные
-	данные - название, описание, цена и количество
-	будут у нас для изменения. Все эти значения
-	мы получим из свойства <code data-gs="comd/c" data-x>payload</code> объекта action,
-	который нам придет, и, если бы мы писали
-	его руками, то он бы выглядел так, как показано
-	ниже. Заметьте, что ожидаемое значение
-	свойства <code data-gs="comd/c" data-x>payload</code> - один аргумент, поэтому мы будем
-	передавать сюда объект (об этом мы поговорим в
-	дальнейшем):
-</p>
+<p>Now let's think about what data we need to update the product. First of all - this<code data-gs="comd/c" data-x>id</code>, using it we can find the product we are interested in in the store. The rest of the data - name, description, price and quantity will be with us for change. We will get all these values ​​from the property<code data-gs="comd/c" data-x>payload</code>action object that will come to us, and if we wrote it by hand, it would look like the one shown below. Note that the expected value of the property is<code data-gs="comd/c" data-x>payload</code>- one argument, so we will pass an object here (we will talk about this later):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{
 	type: 'products/productUpdated',
 	payload: {id, name, desc, price, amount}
 }</code>
 </div>
-<p>
-	Выяснив основные моменты, теперь мы можем
-	написать в фигурных скобках код для
-	<code data-gs="comd/c" data-x>productUpdated</code>. Сначала получим из
-	объекта <code data-gs="comd/c" data-x>action</code> измененные данные:
-</p>
+<p>With the basics out of the way, we can now write the code in curly braces to<code data-gs="comd/c" data-x>productUpdated</code>. First we get from the object<code data-gs="comd/c" data-x>action</code>changed data:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">productUpdated(state, action) {
 	const { id, name, desc, price, amount } = action.payload
 },</code>
 </div>
-<p>
-	Теперь мы найдем по полученному <code data-gs="comd/c" data-x>id</code> продукт,
-	который нужно изменить:
-</p>
+<p>Now we will find from the received<code data-gs="comd/c" data-x>id</code>product to change:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">productUpdated(state, action) {
 	const { id, name, desc, price, amount } = action.payload
 	const desiredProduct = state.find(product =&gt; product.id === id)
 },</code>
 </div>
-<p>
-	Если такой продукт нашелся в store, то
-	мы заменим его данные новыми значениями:
-</p>
+<p>If such a product is found in the store, then we will replace its data with new values:</p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">productUpdated(state, action) {
 	const { id, name, desc, price, amount } = action.payload
@@ -121,49 +80,33 @@
 	}
 },</code>
 </div>
-<p>
-	Нам остается только экспортировать action
-	creator для использования в компоненте,
-	который любезно создаст за нас <code data-gs="comd/c" data-x>createSlice</code>.
-	Давайте добавим его к экспорту в конце файла,
-	наряду с существующим <code data-gs="comd/c" data-x>productAdded</code>:
+<p>All we have to do is export the action creator for use in the component, which will kindly create for us<code data-gs="comd/c" data-x>createSlice</code>. Let's add it to the export at the end of the file, along with the existing one<code data-gs="comd/c" data-x>productAdded</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/productsSlice.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const { productAdded, productUpdated } = productsSlice.actions</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Изучив материал урока, в файле <code data-gs="comd/p" data-x>studentsSlice.js</code>
-		допишите еще один reducer для <code data-gs="comd/c" data-x>productsSlice</code>,
-		который будет обновлять данные студента в
-		store в случае их изменения пользователем.
-		Назовите его <code data-gs="comd/c" data-x>studentUpdated</code>.
+	<p>Open your application with students. After studying the lesson material, in the file<code data-gs="comd/p" data-x>studentsSlice.js</code>add another reducer for<code data-gs="comd/c" data-x>productsSlice</code>, which will update the student’s data in the store if it is changed by the user. Name it<code data-gs="comd/c" data-x>studentUpdated</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		А как бы выглядел в этом случае ваш
-		объект action? Пришлите его код в ответе.
-	</p>
+	<p>What would your action object look like in this case? Please send the code in your reply.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		В конце файла экспортируйте полученный
-		action creator <code data-gs="comd/c" data-x>studentUpdated</code>.
+	<p>At the end of the file, export the resulting action creator<code data-gs="comd/c" data-x>studentUpdated</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../product-page-route/index.html" class="lesson-nav-btn lesson-nav-prev" title="Page продукта в браузере">← Page продукта в браузере</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../edit-form/index.html" class="lesson-nav-btn lesson-nav-next" title="Форма для редактирования данных">Форма для редактирования данных →</a>
+      <a href="../product-page-route/index.html" class="lesson-nav-btn lesson-nav-prev" title="Product page in browser">← Product page in browser</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../edit-form/index.html" class="lesson-nav-btn lesson-nav-next" title="Data editing form">Form for editing data →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page продукта в браузере в Redux — acteck.off</title>
-  <meta name="description" content="Page продукта в браузере в Redux — учебные материалы по программированию.">
+  <title>Product page in browser in Redux - acteck.off</title>
+  <meta name="description" content="Product page in browser in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,44 +36,16 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Page продукта в браузере в Redux</h1>
-    <p>
-	На прошлом занятии мы сделали отдельную
-	страничку для продукта. Теперь нам надо
-	сделать так, чтобы при нажатии на
-	какую-нибудь кнопку наша страничка
-	появлялась в браузере.
-</p>
-<p>
-	Для начала прицепим для нее адрес, по которому
-	она будет отображаться. Откроем файл <code data-gs="comd/p" data-x>App.jsx</code>,
-	в котором мы прописываем маршруты, и добавим
-	в <code data-gs="comd/c" data-x>children</code> еще один дочерний маршрут (не
-	забудьте импортировать <code data-gs="comd/p" data-x>ProductPage.jsx</code>).
-	Укажем путь и компонент, который будем
-	выводить:
-</p>
+    <h1>Product page in browser in Redux</h1>
+    <p>In the last lesson we made a separate page for the product. Now we need to make sure that when you click on a button, our page appears in the browser.</p>
+<p>First, let's attach an address to it where it will be displayed. Let's open the file<code data-gs="comd/p" data-x>App.jsx</code>, in which we register the routes, and add to<code data-gs="comd/c" data-x>children</code>another child route (don't forget to import<code data-gs="comd/p" data-x>ProductPage.jsx</code>). Let's indicate the path and component that we will output:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{
 	path: '/products/:productId',
 	element: &lt;ProductPage /&gt;,
 },</code>
 </div>
-<p>
-	Теперь давайте откроем <code data-gs="comd/p" data-x>ProductsList.jsx</code> в
-	папке <code data-gs="comd/p" data-x>products</code> и немного изменим код для
-	<code data-gs="comd/c" data-x>dispProducts</code>. Теперь у нас есть отдельная
-	страничка с полной информацией о каждом
-	продукте. Значит в списке продуктов мы
-	будем отображать только название продукта
-	и сокращенный текст описания. Также мы
-	добавим ссылочку в виде элемента навигации
-	<code data-gs="comd/c" data-x>Link</code> из библиотеки роутера, при нажатии
-	на которую можно будет попасть на страничку
-	продукта. Добавим также диву класс
-	<code data-gs="comd/z" data-x>product-excerpt</code>, чтобы разлепить продукты.
-	Теперь наш код для <code data-gs="comd/c" data-x>dispProducts</code> будет таким:
-</p>
+<p>Now let's open<code data-gs="comd/p" data-x>ProductsList.jsx</code>in a folder<code data-gs="comd/p" data-x>products</code>and change the code a little for<code data-gs="comd/c" data-x>dispProducts</code>. Now we have a separate page with complete information about each product. This means that in the list of products we will display only the product name and abbreviated description text. We will also add a link as a navigation element<code data-gs="comd/c" data-x>Link</code>from the router library, when clicked you will be taken to the product page. Let's also add a diva class<code data-gs="comd/z" data-x>product-excerpt</code>to unstick the products. Now our code for<code data-gs="comd/c" data-x>dispProducts</code>will be like this:</p>
 <div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const dispProducts = products.map((product) =&gt; (
 	&lt;div key={product.id} className="product-excerpt"&gt;
@@ -85,15 +57,12 @@
 	&lt;/div&gt;
 ))</code>
 </div>
-<p>
-	Импортируем <code data-gs="comd/c" data-x>Link</code>:
+<p>We import<code data-gs="comd/c" data-x>Link</code>:
 </p>
 <div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { Link } from 'react-router-dom'</code>
 </div>
-<p>
-	И добавим стилей для классов <code data-gs="comd/z" data-x>link-btn</code> и
-	<code data-gs="comd/z" data-x>product-excerpt</code> в <code data-gs="comd/p" data-x>index.css</code>:
+<p>And add styles for classes<code data-gs="comd/z" data-x>link-btn</code>And<code data-gs="comd/z" data-x>product-excerpt</code>V<code data-gs="comd/p" data-x>index.css</code>:
 </p>
 <div data-p="bock/pane" data-p-file="index.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.product-excerpt {
@@ -111,85 +80,44 @@
 	padding: 1px 12px 1px 12px;
 }</code>
 </div>
-<p>
-	Напоследок, давайте сделаем также рабочей
-	ссылку в меню слева, ведущую на страницу
-	со списком продуктов, чтобы мы смогли
-	попасть в него с любого другого места.
-	Для этого откроем наш <code data-gs="comd/p" data-x>root.jsx</code> и
-	заменим эту строку кода:
-</p>
+<p>Finally, let's also make a working link in the menu on the left, leading to the page with the product list, so that we can get to it from any other place. To do this, let's open our<code data-gs="comd/p" data-x>root.jsx</code>and replace this line of code:</p>
 <div data-p="bock/pane" data-p-file="app/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;a&gt;Products&lt;/a&gt;</code>
 </div>
-<p>
-	На следующую:
-</p>
+<p>To the next one:</p>
 <div data-p="bock/pane" data-p-file="app/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;NavLink to="/products" end&gt;
 	Products
 &lt;/NavLink&gt;</code>
 </div>
-<p>
-	Также не забудем импортировать <code data-gs="comd/c" data-x>NavLink</code>
-	из библиотеки для React роутера:
-</p>
+<p>Also, don't forget to import<code data-gs="comd/c" data-x>NavLink</code>from the library for React router:</p>
 <div data-p="bock/pane" data-p-file="app/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { Outlet, NavLink } from 'react-router-dom'</code>
 </div>
-<p>
-	Запустим наше приложение. Теперь мы можем
-	выходить на страницу информации о любом
-	продукте, нажав на кнопку просмотра.
-	Попробуйте теперь добавить новый продукт
-	и посмотрите информацию о нем на отдельной
-	странице нажав кнопочку просмотра. Также
-	теперь, чтобы вернуться к списку продуктов
-	достаточно кликнуть на <code data-gs="comd/s" data-x>'Products'</code> в меню
-	слева. Находясь на разных страничках,
-	посмотрите как меняется URL в адресной
-	строке браузера.
-</p>
+<p>Let's launch our application. Now we can go to the information page about any product by clicking on the view button. Now try adding a new product and look at information about it on a separate page by clicking the view button. Also now, to return to the list of products, just click on<code data-gs="comd/s" data-x>'Products'</code>in the menu on the left. While on different pages, look at how the URL changes in the address bar of your browser.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		В файле <code data-gs="comd/p" data-x>App.jsx</code> создайте еще один
-		дочерний маршрут для странички студента.
-	</p>
+	<p>Open your application with students. In file<code data-gs="comd/p" data-x>App.jsx</code>create another child route for the student page.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		В файле <code data-gs="comd/p" data-x>StudentsList.jsx</code> внесите в код
-		изменения для <code data-gs="comd/c" data-x>dispStudents</code>, как показано
-		в уроке.
-	</p>
+	<p>In file<code data-gs="comd/p" data-x>StudentsList.jsx</code>make changes to the code for<code data-gs="comd/c" data-x>dispStudents</code>, as shown in the lesson.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте так, чтобы ссылка <code data-gs="comd/s" data-x>'Students'</code> в
-		левом меню вела на страницу со списком
-		студентов. Проверьте, что все заработало.
-	</p>
+	<p>Make sure the link<code data-gs="comd/s" data-x>'Students'</code>in the left menu led to a page with a list of students. Check that everything works.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Посмотрите как будет меняться значение
-		в адресной строке браузера, в зависимости
-		от того	на какой страничке вы сейчас
-		находитесь.
-	</p>
+	<p>See how the value in the browser's address bar changes, depending on what page you are currently on.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../product-page/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отдельная страница для продукта">← Отдельная страница для продукта</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../edit-product/index.html" class="lesson-nav-btn lesson-nav-next" title="Изменение данных продукта в store">Изменение данных продукта в store →</a>
+      <a href="../product-page/index.html" class="lesson-nav-btn lesson-nav-prev" title="Separate product page">← Separate page for the product</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../edit-product/index.html" class="lesson-nav-btn lesson-nav-next" title="Changing product data in store">Changing product data in store →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

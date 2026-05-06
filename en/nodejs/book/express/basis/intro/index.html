@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Introduction в Express — acteck.off</title>
-  <meta name="description" content="Introduction в Express — учебные материалы по программированию.">
+  <title>Introduction to Express - acteck.off</title>
+  <meta name="description" content="Introduction to Express - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,60 +36,35 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Introduction в Express</h1>
-    <p>
-	Express представляет собой фреймворк, позволяющий
-	существенно упростить разворачивание NodeJS
-	сервера, разбивание макета сайта на части,
-	шаблонизацию, роутинг. Как правило, в настоящее
-	время работа с NodeJS происходит именно через
-	Express. Давайте с ним разбираться.
-</p>
+    <h1>Introduction to Express</h1>
+    <p>Express is a framework that allows you to significantly simplify the deployment of a NodeJS server, breaking the site layout into parts, templating, and routing. As a rule, currently working with NodeJS occurs through Express. Let's deal with him.</p>
 
-<h2>Установка и запуск</h2>
-<p>
-	Для установки библиотеки следует выполнить
-	команду:
-</p>
+<h2>Installation and launch</h2>
+<p>To install the library, run the command:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install express</code>
 </div>
-<p>
-	После этого в вашем файле следует выполнить
-	импорт библиотеки:
-</p>
+<p>After this, you should import the library in your file:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import express from 'express';</code>
 </div>
-<p>
-	Затем нужно создать объект с Express приложением:
-</p>
+<p>Then you need to create an object with an Express application:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let app = express();</code>
 </div>
-<p>
-	После этого с помощью специальной команды
-	<code data-gs="comd/c" data-x>app.get</code> мы можем обрабатывать запрошенные
-	урлы. Для примера отдадим для главной страницы
-	какой-нибудь текст:
-</p>
+<p>After this, using a special command<code data-gs="comd/c" data-x>app.get</code>we can process the requested URLs. For example, let’s give some text for the main page:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
 	res.send('hello world');
 });</code>
 </div>
-<p>
-	Развернем наше приложение на каком-нибудь порту:
-</p>
+<p>Let's deploy our application on some port:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.listen(3000, function() {
 	console.log('running');
 });</code>
 </div>
-<p>
-	Итоговый код нашего сервера будет выглядеть
-	следующим образом:
-</p>
+<p>The final code for our server will look like this:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import express from 'express';
 let app = express();
@@ -103,17 +78,11 @@ app.listen(3000, function() {
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Установите Express и проверьте его работу
-		с помощью описанного выше кода.
-	</p>
+	<p>Install Express and test it using the code above.</p>
 </div>
 
-<h2>Обработка многих урлов</h2>
-<p>
-	С помощью <code data-gs="comd/c" data-x>app.get</code> можно обрабатывать
-	любое количество урлов. Смотрите пример:
-</p>
+<h2>Processing many URLs</h2>
+<p>By using<code data-gs="comd/c" data-x>app.get</code>You can process any number of URLs. See example:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/1/', function(req, res) {
 	res.send('page1');
@@ -128,45 +97,26 @@ app.get('/3/', function(req, res) {
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте пять различных урлов, по которым
-		будет отдаваться какой-нибудь текст.
-	</p>
+	<p>Make five different URLs that will display some text.</p>
 </div>
 
-<h2>Объекты запроса и ответа</h2>
-<p>
-	Посмотрите внимательно на коллбэк, который
-	мы передаем в <code data-gs="comd/c" data-x>app.get</code>:
+<h2>Request and Response Objects</h2>
+<p>Look closely at the callback we pass to<code data-gs="comd/c" data-x>app.get</code>:
 </p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/', function(req, res) {
 	
 });</code>
 </div>
-<p>
-	Как вы видите, у нас есть две переменные.
-	В первую переменную Express положит специальный
-	объект, содержащий данные запроса браузера,
-	а во вторую переменную - специальный объект
-	для управлением ответом сервера на этот запрос.
-</p>
-<p>
-	Конечно же, названия этих переменных могут
-	быть любыми, но принято называть их <code data-gs="comd/c" data-x>req</code>
-	(сокращенное от "request") и <code data-gs="comd/c" data-x>res</code>
-	(сокращенное от "responce").
-</p>
-<p>
-	В следующих уроках мы подробно разберемся
-	с возможностями этих специальных объектов.
-</p>
+<p>As you can see, we have two variables. Express will put a special object containing the browser request data into the first variable, and a special object to control the server's response to this request into the second variable.</p>
+<p>Of course, the names of these variables can be anything, but it is customary to call them<code data-gs="comd/c" data-x>req</code>(short for "request") and<code data-gs="comd/c" data-x>res</code>(short for "response").</p>
+<p>In the following lessons we will take a closer look at the capabilities of these special objects.</p>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

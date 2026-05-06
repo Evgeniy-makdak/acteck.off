@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Варианты синтаксиса MongoDB — acteck.off</title>
-  <meta name="description" content="Варианты синтаксиса MongoDB — учебные материалы по программированию.">
+  <title>MongoDB syntax options - acteck.off</title>
+  <meta name="description" content="MongoDB Syntax Options - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,34 +36,17 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Варианты синтаксиса MongoDB</h1>
-    <p>
-	Работа с MongoDB, как и все остальное в NodeJS,
-	имеет несколько вариантов синтаксиса:
-	через <code data-gs="comd/c" data-x>async-await</code>, через <code data-gs="comd/c" data-x>then</code>
-	и через коллбэки.
-</p>
-<p>
-	Вы можете столкнутся с любым из этих
-	вариантов, поэтому в этом уроке я
-	покажу все синтаксисы. Но в следующих
-	уроках я буду пользоваться первым
-	вариантом, как более современным.
-</p>
+    <h1>MongoDB syntax options</h1>
+    <p>Working with MongoDB, like everything else in NodeJS, has several syntax options: via<code data-gs="comd/c" data-x>async-await</code>, through<code data-gs="comd/c" data-x>then</code>and through callbacks.</p>
+<p>You may encounter any of these options, so in this tutorial I will show all the syntaxes. But in the following lessons I will use the first option, as it is more modern.</p>
 
-<h2>Первый синтаксис</h2>
-<p>
-	Первый синтаксис получения данных
-	вы уже знаете из предыдущего урока:
-</p>
+<h2>First syntax</h2>
+<p>You already know the first syntax for getting data from the previous lesson:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = await coll.find().toArray();
 console.log(res);</code>
 </div>
-<p>
-	Неплохо будет добавить обработку исключительных ситуаций.
-	Сделаем это:
-</p>
+<p>It would be a good idea to add exception handling. Let's do this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
 	let res = await coll.find().toArray();
@@ -73,18 +56,14 @@ console.log(res);</code>
 }</code>
 </div>
 
-<h2>Второй синтаксис</h2>
-<p>
-	Вот второй вариант промисного синтаксиса:
-</p>
+<h2>Second syntax</h2>
+<p>Here is the second version of the promise syntax:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">coll.find().toArray().then(res =&gt; {
 	console.log(res);
 });</code>
 </div>
-<p>
-	Добавим обработку исключений:
-</p>
+<p>Let's add exception handling:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">coll.find().toArray().then(res =&gt; {
 	console.log(res);
@@ -93,18 +72,14 @@ console.log(res);</code>
 });</code>
 </div>
 
-<h2>Третий синтаксис</h2>
-<p>
-	Вот третий вариант через коллбэки:
-</p>
+<h2>Third syntax</h2>
+<p>Here is the third option via callbacks:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">coll.find().toArray((error, res) =&gt; {
 	console.log(res);
 });</code>
 </div>
-<p>
-	Добавим обработку исключений:
-</p>
+<p>Let's add exception handling:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">coll.find().toArray((error, res) =&gt; {
 	if (!error) {
@@ -115,24 +90,19 @@ console.log(res);</code>
 });</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Попробуйте все три варианта синтаксиса.
-	</p>
+	<p>Try all three syntax options.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите достоинства и недостатки
-		каждого из видов синтаксиса.
-	</p>
+	<p>Explain the advantages and disadvantages of each type of syntax.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Способы стилизации React компонентов — acteck.off</title>
-  <meta name="description" content="Способы стилизации React компонентов — учебные материалы по программированию.">
+  <title>Ways to style React components - acteck.off</title>
+  <meta name="description" content="Ways to style React components - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,82 +36,27 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Способы стилизации React компонентов</h1>
-    <p>
-	Существует множество различных способов 
-	стилизации React компонентов. Здесь 
-	мы рассмотрим некоторые основные из них.
-</p>
-<p>
-	Стандартный подход, который мы можем применить, 
-	как и при обычной стилизации веб-страниц - это 
-	использование <dfn data-gs="comd/d" data-x>глобального CSS</dfn>. Тут 
-	мы создаем один внешний общий CSS файл со стилями. 
-	При таком подходе, все имена классов находятся 
-	в глобальной области видимости, что 
-	может приводить к конфликтам между ними. Также 
-	можно сделать множество маленьких CSS файлов. Этот 
-	подход малоэффективен при создании больших 
-	масштабируемых приложений. 
-</p>
-<p>
-	Следующий подход - <dfn data-gs="comd/d" data-x>инлайновая стилизация</dfn>, 
-	используя его, мы можем добавить CSS стили инлайн, 
-	подобно тому, как это делается в обычном HTML. В 
-	этом случае мы будем работать с атрибутом 
-	<code data-gs="comd/c" data-x>style</code>, передавая ему необходимые 
-	CSS свойства. Применение такой стилизации 
-	считается плохим тоном и рекомендуется 
-	только для добавления динамически 
-	вычисляемых во время рендеринга стилей. Этот 
-	способ хорош для быстрого прототипирования 
-	интерфейса отдельного компонента. 
-</p>
-<p>
-	Следующие пара способов, которые мы рассмотрим 
-	- современные, набирающие популярность, эффективные 
-	способы стилизации. Это именно те способы, которые 
-	рекомендуется применять для стилизации больших 
-	масштабируемых React приложений.
-</p>
-<p>
-	Первый из них - применение библиотеки 
-	<a href="https://styled-components.com/">Styled 
-	Components</a>, которая использует для стилизации 
-	шаблонные строки. Этот метод позволяет нам 
-	писать обычный CSS в JS коде, используя весь 
-	его функционал. 
-</p>
-<p>
-	Второй способ - применение CSS модулей. В данном 
-	случае, CSS модуль - это такой CSS файл, в котором 
-	по умолчанию все названия классов и анимаций 
-	находятся в локальной области видимости, 
-	то есть доступны только внутри компонента, 
-	который его использует.   
-</p>
-<p>
-	В этих двух последних способах мы можем не бояться 
-	конфликтов между именами классов, ведь они 
-	уникальны - используется концепция локальной 
-	области видимости. Также при их использовании 
-	отпадает необходимость в методологии БЭМ.
-</p>
-<p>
-	В следующих уроках мы рассмотрим все приведенные 
-	здесь способы подробнее. 
-</p>
+    <h1>Ways to style React components</h1>
+    <p>There are many different ways to style React components. Here we will look at some of the main ones.</p>
+<p>The standard approach that we can apply, as with conventional web page styling, is to use<dfn data-gs="comd/d" data-x>global CSS</dfn>. Here we create one external common CSS file with styles. With this approach, all class names are in the global scope, which can lead to conflicts between them. You can also make a lot of small CSS files. This approach is ineffective when creating large, scalable applications.</p>
+<p>Next approach -<dfn data-gs="comd/d" data-x>inline styling</dfn>Using it, we can add CSS styles inline, just like we do in regular HTML. In this case we will work with the attribute<code data-gs="comd/c" data-x>style</code>, passing it the necessary CSS properties. This style of styling is considered bad manners and is only recommended for adding styles that are dynamically calculated during rendering. This method is good for quickly prototyping the interface of a single component.</p>
+<p>The next couple of methods that we will consider are modern, increasingly popular, effective methods of styling. These are exactly the methods that are recommended for styling large, scalable React applications.</p>
+<p>The first one is using the library<a href="https://styled-components.com/">Styled 
+	Components</a>, which uses template strings for styling. This method allows us to write regular CSS in JS code, using all its functionality.</p>
+<p>The second way is to use CSS modules. In this case, a CSS module is a CSS file in which, by default, all class names and animations are in the local scope, that is, available only inside the component that uses it.</p>
+<p>In these last two methods, we do not have to worry about conflicts between class names, because they are unique - the concept of local scope is used. Also, when using them, there is no need for BEM methodology.</p>
+<p>In the following lessons we will look at all the methods given here in more detail.</p>
     <div class="lesson-nav">
-      <a href="../../concepts/truth-one-source/index.html" class="lesson-nav-btn lesson-nav-prev" title="Один источник истины">← Один источник истины</a>
-      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../global-css/index.html" class="lesson-nav-btn lesson-nav-next" title="Глобальный CSS">Глобальный CSS →</a>
+      <a href="../../concepts/truth-one-source/index.html" class="lesson-nav-btn lesson-nav-prev" title="One source of truth">← One source of truth</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../global-css/index.html" class="lesson-nav-btn lesson-nav-next" title="Global CSS">Global CSS →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Регулярные выражения в маршрутах Express — acteck.off</title>
-  <meta name="description" content="Регулярные выражения в маршрутах Express — учебные материалы по программированию.">
+  <title>Regular expressions in Express routes - acteck.off</title>
+  <meta name="description" content="Regular Expressions in Express Routes - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,25 +36,17 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Регулярные выражения в маршрутах Express</h1>
-    <p>
-	В маршрутах разрешено использовать некоторые
-	символы регулярных выражений: <code data-gs="comd/c" data-x>+</code>, <code data-gs="comd/c" data-x>*</code>,
+    <h1>Regular expressions in Express routes</h1>
+    <p>Some regular expression characters are allowed in routes:<code data-gs="comd/c" data-x>+</code>, <code data-gs="comd/c" data-x>*</code>,
 	<code data-gs="comd/c" data-x>?</code>, <code data-gs="comd/c" data-x>()</code>.
 </p>
-<p>
-	Давайте посмотрим на примере. Пусть у нас
-	есть следующий маршрут:
-</p>
+<p>Let's look at an example. Let's say we have the following route:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/username', function(req, res) {
 	
 });</code>
 </div>
-<p>
-	Сделаем так, чтобы к этому маршруту можно
-	было обратиться как по адресу <code data-gs="comd/p" data-x>/username</code>,
-	так и по адресу <code data-gs="comd/p" data-x>/user</code>:
+<p>Let's make it so that this route can be accessed at the address<code data-gs="comd/p" data-x>/username</code>, and by address<code data-gs="comd/p" data-x>/user</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/user(name)?', function(req, res) {
@@ -62,36 +54,25 @@
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Попробуйте описанный функционал.
-	</p>
+	<p>Try the described functionality.</p>
 </div>
 
-<h2>Полная поддержка регулярных выражений</h2>
-<p>
-	В маршрутах разрешено использовать не все
-	команды регулярок, а только перечисленные
-	выше. Иногда вам могут потребоваться все
-	возможности регулярок. В этом случае в качестве
-	параметра метода <code data-gs="comd/c" data-x>get</code> нужно передать
-	не строку, а регулярное выражение:
-</p>
+<h2>Full support for regular expressions</h2>
+<p>Not all regular season teams are allowed to be used in routes, but only those listed above. Sometimes you may need all the features of a regular program. In this case, as a method parameter<code data-gs="comd/c" data-x>get</code>You need to pass not a string, but a regular expression:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get(/admin|user(name)?/, function(req, res) {
 	
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Попробуйте описанный функционал.
-	</p>
+	<p>Try the described functionality.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toчка с запятой для безопасности в IIFE — acteck.off</title>
-  <meta name="description" content="Toчка с запятой для безопасности в IIFE — учебные материалы по программированию.">
+  <title>Semicolon for safety in IIFE - acteck.off</title>
+  <meta name="description" content="Semicolon for Security in IIFE - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,21 +36,14 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Toчка с запятой для безопасности в IIFE</h1>
-    <p>
-	Пусть теперь наша вызывающаяся на месте функция
-	будет не с плюсом в начале, а обернута круглыми
-	скобками, вот так:
-</p>
+    <h1>Semicolon for safety in IIFE</h1>
+    <p>Let's now let our in-place function be called not with a plus at the beginning, but wrapped in parentheses, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">(function() {
 	console.log(1); // выведет 1
 })();</code>
 </div>
-<p>
-	Пусть переменная <code data-gs="comd/c" data-x>num</code> задается снаружи
-	функции:
-</p>
+<p>Let the variable<code data-gs="comd/c" data-x>num</code>is specified outside the function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1; // точка с запятой стоит
 
@@ -58,9 +51,7 @@
 	console.log(num); // выведет 1
 })();</code>
 </div>
-<p>
-	Пусть теперь мы забыли поставить точку с запятой:
-</p>
+<p>Suppose now we forgot to put a semicolon:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1
 
@@ -68,16 +59,8 @@
 	console.log(num); //!! выдаст ошибку
 })();</code>
 </div>
-<p>
-	Получается, что такой код выдаст ошибку,
-	так как JavaScript воспринимает нашу функцию
-	как продолжение команды первой строки.
-</p>
-<p>
-	Чтобы избежать таких проблем, перед вызовом
-	функции на месте всегда необходимо ставить
-	точку с запятой, вот так:
-</p>
+<p>It turns out that such code will generate an error, since JavaScript perceives our function as a continuation of the first line command.</p>
+<p>To avoid such problems, you should always use a semicolon before calling a function in place, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 1
 
@@ -85,36 +68,16 @@
 	console.log(num); // выведет 1
 })();</code>
 </div>
-<p>
-	Кажется, что проблема несколько надуманна.
-	На самом деле, это не так. Может быть такая
-	ситуация, что у вас на странице подключаются
-	несколько скриптов из отдельных файлов. В
-	этом случае в конце одного файла может быть
-	опущена точка с запятой и это автоматически
-	приведет к проблеме, если второй файл начинается
-	с вызова функции на месте.
-</p>
-<p>
-	Поэтому, всегда-всегда ставьте точку с запятой
-	перед вызовом функции на месте, даже если
-	вы на данный момент уверены, что проблем
-	не будет. Они могут возникнуть потом.
-</p>
-<p>
-	Применим сказанное выше и вызовем функцию
-	на месте, поставив в начале точку с запятой:
-</p>
+<p>It seems that the problem is somewhat far-fetched. In fact, this is not true. There may be a situation where you have several scripts from separate files connected to your page. In this case, a semicolon may be omitted at the end of one file and this will automatically cause a problem if the second file begins with an in-place function call.</p>
+<p>Therefore, always, always put a semicolon before calling a function in place, even if you are currently confident that there will be no problems. They may arise later.</p>
+<p>Let's apply the above and call the function in place, prefixed with a semicolon:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">;(function() {
 	console.log(1); // выведет 1
 })();</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Определите, не запуская код, что выведется
-		в консоль:
-	</p>
+	<p>Determine, without running the code, what will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'str';
 
@@ -124,10 +87,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Определите, не запуская код, что выведется
-		в консоль:
-	</p>
+	<p>Determine, without running the code, what will be output to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'str'
 
@@ -138,16 +98,16 @@
 </div>
   
     <div class="lesson-nav">
-      <a href="../pitfalls/index.html" class="lesson-nav-btn lesson-nav-prev" title="Подводные камни">← Подводные камни</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../closures/index.html" class="lesson-nav-btn lesson-nav-next" title="Замыкания и IIFE">Замыкания и IIFE →</a>
+      <a href="../pitfalls/index.html" class="lesson-nav-btn lesson-nav-prev" title="Pitfalls">← Pitfalls</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../closures/index.html" class="lesson-nav-btn lesson-nav-next" title="Closures and IIFE">Closures and IIFE →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дочерние маршруты в Angular — acteck.off</title>
-  <meta name="description" content="Дочерние маршруты в Angular — учебные материалы по программированию.">
+  <title>Child routes in Angular - acteck.off</title>
+  <meta name="description" content="Child Routes in Angular - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,53 +36,26 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Дочерние маршруты в Angular</h1>
-    <p>
-	Может такое быть, что в компоненте, который
-	уже задействован в роутинге, также есть
-	дочерние компоненты. Можно сделать так,
-	чтобы эти дочерние компоненты также
-	показывались через роутинг. 
-</p>
-<p>
-	Для примера пусть у нас есть компонент <code data-gs="comd/c" data-x>Aaaa</code>.
-	Мы обращаемся к нему через урл <code data-gs="comd/p" data-x>/aaaa/</code>.
-	Сделаем еще два дочерних компонента: <code data-gs="comd/c" data-x>Chix</code>
-	и <code data-gs="comd/c" data-x>Chiy</code>. Будем их показывать внутри
-	представления компонента <code data-gs="comd/c" data-x>Aaaa</code>. У
-	<code data-gs="comd/c" data-x>Aaaa</code> будет собственный тег
-	<code data-gs="comd/c" data-x>router-outlet</code>, в котором в зависимости
-	от URL будет показываться или один, или
-	второй дочерний компонент. 
-</p>
-<p>
-	Итак, давайте реализуем описанное. 
-</p>
-<p>
-	Создадим первый дочерний компонент: 
-</p>
+    <h1>Child routes in Angular</h1>
+    <p>It may happen that a component that is already involved in routing also has child components. You can make sure that these child components are also shown through routing.</p>
+<p>For example, let's say we have a component<code data-gs="comd/c" data-x>Aaaa</code>. We access it via URL<code data-gs="comd/p" data-x>/aaaa/</code>. Let's create two more child components:<code data-gs="comd/c" data-x>Chix</code>And<code data-gs="comd/c" data-x>Chiy</code>. We will show them inside the component view<code data-gs="comd/c" data-x>Aaaa</code>. U<code data-gs="comd/c" data-x>Aaaa</code>will have its own tag<code data-gs="comd/c" data-x>router-outlet</code>, in which, depending on the URL, either one or a second child component will be shown.</p>
+<p>So, let's implement the described.</p>
+<p>Let's create the first child component:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">ng generate component chix</code>
 </div>
-<p>
-	Создадим второй дочерний компонент: 
-</p>
+<p>Let's create a second child component:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">ng generate component chiy</code>
 </div>
-<p>
-	Напишем отдельные дочерние маршруты: 
-</p>
+<p>Let's write separate child routes:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let childRoutes: Routes = [
 	{ path: 'chix', component: ChixComponent },
 	{ path: 'chiy', component: ChiyComponent },
 ];</code>
 </div>
-<p>
-	Добавим их к маршруту компонента <code data-gs="comd/c" data-x>Aaaa</code>
-	в качестве дочерних: 
-</p>
+<p>Let's add them to the component route<code data-gs="comd/c" data-x>Aaaa</code>as children:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">const appRoutes: Routes = [
 	{
@@ -92,23 +65,13 @@
 	},
 ];</code>
 </div>
-<p>
-	Путь из маршрута родительского компонента
-	будет началом пути дочернего. Это значит,
-	что дочерние компоненты будут доступны по
-	следующим урлам: <code data-gs="comd/p" data-x>/aaaa/chix</code> и
-	<code data-gs="comd/p" data-x>/aaaa/chiy</code>. 
+<p>The path from the parent component's route will be the beginning of the child's path. This means that child components will be available at the following URLs:<code data-gs="comd/p" data-x>/aaaa/chix</code>And<code data-gs="comd/p" data-x>/aaaa/chiy</code>. 
 </p>
-<p>
-	Давайте теперь настроим компонент <code data-gs="comd/c" data-x>Aaaa</code>.
-	Импортируем тег для роутинга: 
-</p>
+<p>Let's now configure the component<code data-gs="comd/c" data-x>Aaaa</code>. Import the routing tag:</p>
 <div data-p="bock/pane" data-p-file="app/aaaa/aaaa.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { RouterOutlet } from '@angular/router';</code>
 </div>
-<p>
-	Пропишем его в декораторе: 
-</p>
+<p>Let's write it in the decorator:</p>
 <div data-p="bock/pane" data-p-file="app/aaaa/aaaa.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">@Component({
 	......
@@ -116,41 +79,29 @@
 	......
 })</code>
 </div>
-<p>
-	Вставим тег в представление: 
-</p>
+<p>Insert the tag into the view:</p>
 <div data-p="bock/pane" data-p-file="app/aaaa/aaaa.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;it works&lt;/p&gt;
 &lt;router-outlet&gt;&lt;/router-outlet&gt;</code>
 </div>
-<p>
-	Теперь можно будет обращаться к дочерним
-	компонентам по их урлам и эти компоненты
-	будут показываться. Попробуйте! 
-</p>
+<p>Now you can access child components by their URLs and these components will be shown. Try it!</p>
 <div data-w="cont/task">
-	<p>
-		Реализуйте описанную работу дочерних
-		компонентов. 
-	</p>
+	<p>Implement the described operation of child components.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте ссылки, по которым будут переключаться
-		дочерние компоненты. 
-	</p>
+	<p>Make links that child components will switch to.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../redirects/index.html" class="lesson-nav-btn lesson-nav-prev" title="Переадресация">← Переадресация</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../../../../react/book/prime/project/checklist/index.html" class="lesson-nav-btn lesson-nav-next" title="Чеклист">Чеклист →</a>
+      <a href="../redirects/index.html" class="lesson-nav-btn lesson-nav-prev" title="Forwarding">← Forwarding</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../../../../react/book/prime/project/checklist/index.html" class="lesson-nav-btn lesson-nav-next" title="Checklist">Checklist →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

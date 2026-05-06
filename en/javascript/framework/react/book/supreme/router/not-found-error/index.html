@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обработка ошибки Not Found в React Router — acteck.off</title>
-  <meta name="description" content="Обработка ошибки Not Found в React Router — учебные материалы по программированию.">
+  <title>Handling Not Found error in React Router - acteck.off</title>
+  <meta name="description" content="Handling Not Found Error in React Router - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,23 +36,9 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Обработка ошибки Not Found в React Router</h1>
-    <p>
-	При создании приложения нужно обратить
-	внимание и на появление различных ошибок
-	в процессе его дальнейшего использования.
-	В этом уроке мы научимся работать с ошибкой
-	<code data-gs="comd/s" data-x>'Not Found'</code>. Такая ошибка может выскочить,
-	к примеру, если пользователь кликнет по
-	ссылке, ведущей на несуществующую страницу.
-</p>   
-<p>
-	Для начала давайте откроем наше приложение,
-	которое мы делали на прошлых уроках, и
-	заменим верстку компонента <code data-gs="comd/c" data-x>Root</code>. Теперь
-	при запуске приложения у нас будет
-	отображаться список из двух продуктов:
-</p>
+    <h1>Handling Not Found error in React Router</h1>
+    <p>When creating an application, you need to pay attention to the appearance of various errors during its further use. In this lesson we will learn how to work with an error<code data-gs="comd/s" data-x>'Not Found'</code>. This error can occur, for example, if the user clicks on a link leading to a non-existent page.</p>   
+<p>First, let's open our application, which we did in previous lessons, and replace the layout of the component<code data-gs="comd/c" data-x>Root</code>. Now, when we launch the application, we will display a list of two products:</p>
 <div data-p="bock/pane" data-p-file="routes/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Root() {
 	return (
@@ -65,8 +51,7 @@
 
 export default Root;</code>
 </div>
-<p>
-	Добавим немного стилей в <code data-gs="comd/p" data-x>index.css</code>:
+<p>Let's add some styles to<code data-gs="comd/p" data-x>index.css</code>:
 </p>
 <div data-p="bock/pane" data-p-file="index.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">body {
@@ -84,29 +69,10 @@ a {
 	color: blue;
 }</code>
 </div>
-<p>
-	А сейчас покликайте по ссылкам. Поскольку
-	у нас нет макетов страничек для наших
-	продуктов, то ссылки приведут нас только
-	на экран с ошибкой <code data-gs="comd/s" data-x>'404 Not Found'</code> и
-	упреком в том, что мы могли бы придумать
-	сами что-то покрасивей и поинтересней,
-	чем то, что React Router отобразил нам
-	по умолчанию.
+<p>Now click on the links. Since we don't have page layouts for our products, the links will only take us to an error screen<code data-gs="comd/s" data-x>'404 Not Found'</code>and a reproach that we could come up with something more beautiful and interesting ourselves than what React Router displayed to us by default.</p>
+<p>Let's make our own page that will be displayed if a 404 error occurs. To do this, in the folder<code data-gs="comd/p" data-x>src</code>let's create a file<code data-gs="comd/p" data-x>error-page-404.jsx</code>.  
 </p>
-<p>
-	Давайте сделаем нашу собственную страничку,
-	которая будет отображаться в случае
-	появления ошибки 404. Для этого в папке
-	<code data-gs="comd/p" data-x>src</code> создадим файлик
-	<code data-gs="comd/p" data-x>error-page-404.jsx</code>.  
-</p>
-<p>
-	Внутри React компонента <code data-gs="comd/c" data-x>ErrorPage404</code> мы
-	воспользуемся хуком <code data-gs="comd/c" data-x>useRouteError</code> для
-	отлавливания ошибки, которую мы будем
-	выводить в консоль:
-</p>
+<p>Inside a React component<code data-gs="comd/c" data-x>ErrorPage404</code>we will use a hook<code data-gs="comd/c" data-x>useRouteError</code>to catch the error that we will print to the console:</p>
 <div data-p="bock/pane" data-p-file="error-page-404.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useRouteError } from 'react-router-dom';
 
@@ -118,17 +84,7 @@ function ErrorPage404() {
 
 export default ErrorPage404;</code>
 </div>
-<p>
-	Далее в верстке компонента <code data-gs="comd/c" data-x>ErrorPage404</code>
-	мы будем отображать пару заголовков,
-	сообщающих об ошибке и выведем такие
-	свойства объекта <code data-gs="comd/c" data-x>error</code>, как
-	<code data-gs="comd/c" data-x>statusText</code> и <code data-gs="comd/c" data-x>data</code> (объект
-	<code data-gs="comd/c" data-x>error</code> и его свойства
-	вы также можете увидеть, если откроете
-	консоль и начнете кликать по нашим
-	ссылкам в приложении).
-</p>
+<p>Next in the component layout<code data-gs="comd/c" data-x>ErrorPage404</code>we will display a couple of headers indicating the error and display the following properties of the object<code data-gs="comd/c" data-x>error</code>, How<code data-gs="comd/c" data-x>statusText</code>And<code data-gs="comd/c" data-x>data</code>(object<code data-gs="comd/c" data-x>error</code>and you can also see its properties if you open the console and start clicking on our links in the application).</p>
 <div data-p="bock/pane" data-p-file="error-page-404.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
 	&lt;div&gt;
@@ -143,21 +99,12 @@ export default ErrorPage404;</code>
 	&lt;/div&gt;
 );</code>
 </div>
-<p>
-	Обязательно не забудьте открыть файл
-	<code data-gs="comd/p" data-x>main.jsx</code> и добавить еще одну строчку
-	импорта с <code data-gs="comd/c" data-x>ErrorPage404</code>:
+<p>Be sure to remember to open the file<code data-gs="comd/p" data-x>main.jsx</code>and add another import line with<code data-gs="comd/c" data-x>ErrorPage404</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import ErrorPage404 from './error-page-404';</code>
 </div>
-<p>
-	А также добавьте еще одно свойство
-	<code data-gs="comd/c" data-x>errorElement</code> в объект
-	<code data-gs="comd/c" data-x>Router</code> - этот элемент выводится,
-	когда на данном маршруте возникает
-	ошибка. Значением элемента ошибки будет
-	наш компонент <code data-gs="comd/c" data-x>ErrorPage404</code>:
+<p>And also add one more property<code data-gs="comd/c" data-x>errorElement</code>to object<code data-gs="comd/c" data-x>Router</code>- this element is displayed when an error occurs on this route. The value of the error element will be our component<code data-gs="comd/c" data-x>ErrorPage404</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([
@@ -169,40 +116,22 @@ export default ErrorPage404;</code>
 ]);</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		задании к прошлому уроку. Добавьте на
-		главную страницу список, состоящий из
-		пары ссылок, как это показано в уроке.
-		Пусть значениями <code data-gs="comd/c" data-x>href</code> ссылок будут - 
-		<code data-gs="comd/s" data-x>/students/1</code> и <code data-gs="comd/s" data-x>/students/2</code>,
-		а текстом ссылок - <code data-gs="comd/s" data-x>'Student1'</code>
-		и <code data-gs="comd/s" data-x>'Student2'</code> соответсвенно.
-		Убедитесь, что при клике по ссылкам
-		у вас появляется экран с ошибкой, которую
-		React Router выводит по умолчанию.
-	</p>
+	<p>Take the application you created in the assignment for the last lesson. Add a list of a couple of links to your home page, as shown in the tutorial. Let the values<code data-gs="comd/c" data-x>href</code>there will be links -<code data-gs="comd/s" data-x>/students/1</code>And<code data-gs="comd/s" data-x>/students/2</code>, and the link text is<code data-gs="comd/s" data-x>'Student1'</code>And<code data-gs="comd/s" data-x>'Student2'</code>accordingly. Make sure that when you click on links you get the error screen that React Router displays by default.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		А теперь создайте свою отдельную страничку
-		с ошибкой <code data-gs="comd/n" data-x>404</code>, можете вывести на ней то,
-		что хотите. Подключите ее, как показано
-		в уроке. А теперь убедитесь, что при клике
-		по ссылкам вы попадаете именно на нее.
-	</p>
+	<p>Now create your own separate error page<code data-gs="comd/n" data-x>404</code>, you can display what you want on it. Connect it as shown in the tutorial. Now make sure that when you click on the links you are taken to it.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../root-route/index.html" class="lesson-nav-btn lesson-nav-prev" title="Создание корневого маршрута">← Создание корневого маршрута</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../add-new-route/index.html" class="lesson-nav-btn lesson-nav-next" title="Добавление ещё одного маршрута">Добавление ещё одного маршрута →</a>
+      <a href="../root-route/index.html" class="lesson-nav-btn lesson-nav-prev" title="Creating a Root Route">←Creating a root route</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../add-new-route/index.html" class="lesson-nav-btn lesson-nav-next" title="Adding another route">Adding another route →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

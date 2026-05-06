@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Карманы в самой регулярке в JavaScript — acteck.off</title>
-  <meta name="description" content="Карманы в самой регулярке в JavaScript — учебные материалы по программированию.">
+  <title>Pockets in the most regular format in JavaScript - acteck.off</title>
+  <meta name="description" content="Pockets in JavaScript itself - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,125 +36,74 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Карманы в самой регулярке в JavaScript</h1>
-    <p>
-	Содержимое карманов доступно не только в
-	строке замены, но в и самой регулярке: мы
-	можем положить что-нибудь в карман, а затем
-	прямо в регулярке сказать, что здесь должно
-	стоять содержимое этого кармана.
-</p>
-<p>
-	Содержимое карманов доступно по их номерам,
-	перед которыми стоит обратный слеш. Например,
-	первый карман будет доступен вот так: <code data-gs="comd/c" data-x>\1</code>,
-	второй карман вот так - <code data-gs="comd/c" data-x>\2</code>, третий
-	- <code data-gs="comd/c" data-x>\3</code> и так далее.
-</p>
-<p>
-	Уверен, что все написанное выше пока весьма
-	туманно для вас. Это не удивительно, так
-	как карманы - самое малопонятное место
-	регулярок. Давайте будем разбираться на примерах.
-</p>
+    <h1>Pockets in the regex itself in JavaScript</h1>
+    <p>The contents of pockets are available not only in the replacement line, but also in the regex itself: we can put something in a pocket, and then directly in the regex say that the contents of this pocket should go here.</p>
+<p>The contents of pockets are identified by their numbers, preceded by a backslash. For example, the first pocket will be accessible like this:<code data-gs="comd/c" data-x>\1</code>, second pocket like this -<code data-gs="comd/c" data-x>\2</code>, third -<code data-gs="comd/c" data-x>\3</code>and so on.</p>
+<p>I am sure that everything written above is still very vague for you. This is not surprising, since pockets are the most obscure place in regulars. Let's look at examples.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть у нас есть вот такая строка:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's say we have this line:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aa bb cd ef';</code>
 </div>
-<p>
-	Давайте найдем в ней все места, в которых
-	стоят две любые одинаковые буквы подряд.
-	Для решения задачи будем искать любую букву,
-	класть ее в карман, а затем проверять, идет
-	ли следующем символом содержимое этого кармана:
-</p>
+<p>Let's find all the places in it where any two identical letters appear in a row. To solve the problem, we will look for any letter, put it in a pocket, and then check whether the next symbol matches the contents of this pocket:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = str.replace(/([a-z])\1/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! cd ef'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть у нас есть вот такая строка:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's say we have this line:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'asxca buzxb csgd';</code>
 </div>
-<p>
-	Давайте найдем в ней все слова, в которых
-	одинаковы первая и последняя буквы. Для решения
-	задачи напишем следующий шаблон: <span data-gs="comd/r" data-x>буква,
-	затем еще одна или более букв, а затем такая
-	же буква как первая</span>:
+<p>Let's find all the words in it in which the first and last letters are the same. To solve the problem, we will write the following template:<span data-gs="comd/r" data-x>a letter, then one or more letters, and then the same letter as the first</span>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res = str.replace(/([a-z])[a-z]+\1/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! csgd'</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aaa bbb ccc xyz';</code>
 	</div>
-	<p>
-		Найдите все подстроки, в которых есть три
-		одинаковые буквы подряд.
-	</p>
+	<p>Find all substrings that contain three identical letters in a row.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'a aa aaa aaaa aaaaa';</code>
 	</div>
-	<p>
-		Найдите все подстроки, в которых есть две
-		и более одинаковые буквы подряд.
-	</p>
+	<p>Find all substrings that contain two or more identical letters in a row.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'aaa aaa bbb bbb ccc ddd';</code>
 	</div>
-	<p>
-		Найдите все подстроки, в которых есть два
-		одинаковых слова подряд.
-	</p>
+	<p>Find all substrings that contain two identical words in a row.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../replace-default-pockets/index.html" class="lesson-nav-btn lesson-nav-prev" title="Карманы по умолчанию в методе replace">← Карманы по умолчанию в методе replace</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../named-pockets/index.html" class="lesson-nav-btn lesson-nav-next" title="Именованные карманы">Именованные карманы →</a>
+      <a href="../replace-default-pockets/index.html" class="lesson-nav-btn lesson-nav-prev" title="Default pockets in replace method">← Default pockets in replace method</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../named-pockets/index.html" class="lesson-nav-btn lesson-nav-next" title="Named pockets">Named pockets →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

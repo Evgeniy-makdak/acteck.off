@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Форматирование дат с помощью каналов в Angular — acteck.off</title>
-  <meta name="description" content="Форматирование дат с помощью каналов в Angular — учебные материалы по программированию.">
+  <title>Formatting Dates Using Channels in Angular - acteck.off</title>
+  <meta name="description" content="Formatting Dates Using Channels in Angular - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,18 +36,13 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Форматирование дат с помощью каналов в Angular</h1>
-    <p>
-	С помощью канала <code data-gs="comd/c" data-x>DatePipe</code> мы можем
-	задать определенный формат выводимой дате.
-	Этот канал может принимать следующие
-	параметры для формата отображения даты: 
-</p>
+    <h1>Formatting Dates Using Channels in Angular</h1>
+    <p>Using the channel<code data-gs="comd/c" data-x>DatePipe</code>we can set a specific format for the displayed date. This channel can accept the following parameters for the date display format:</p>
 <table data-w="cont/desc">
 	<tr>
-		<th>Формат</th>
-		<th>Эквивалент</th>
-		<th>Пример (для en-US локали)</th>
+		<th>Format</th>
+		<th>Equivalent</th>
+		<th>Example (for en-US locale)</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/s" data-x>'short'</code></th>
@@ -111,128 +106,96 @@
 	</tr>
 </table>
 
-<h2>Примеры</h2>
-<p>
-	Давайте посмотрим работу канала на примерах.
-	Для этого в классе компонента зададим
-	свойство <code data-gs="comd/c" data-x>myDate</code>, в которое запишем
-	дату: 
-</p>
+<h2>Examples</h2>
+<p>Let's see how the channel works with examples. To do this, in the component class we set the property<code data-gs="comd/c" data-x>myDate</code>, in which we write the date:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	public myDate: number = Date.parse('2025-12-31');
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте выведем нашу дату, не передавая в
-	канал никаких параметров: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's output our date without passing any parameters to the channel:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
 	{{ myDate | date }}
 &lt;/div&gt;</code>
 </div>
-<p>
-	Результат выполненного кода: 
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;Dec 31, 2025&lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь отобразим краткий вывод даты: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's display a short date output:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
 	{{ myDate | date:'shortDate' }}
 &lt;/div&gt;</code>
 </div>
-<p>
-	Результат выполненного кода: 
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;12/31/25&lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте выведем нашу дату и заодно узнаем
-	на какой день недели она приходится: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's display our date and at the same time find out what day of the week it falls on:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;
 	{{ myDate | date:'fullDate' }}
 &lt;/div&gt;</code>
 </div>
-<p>
-	Результат выполненного кода: 
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;Wednesday, December 31, 2025&lt;/div&gt;</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Дана дата: 
-	</p>
+	<p>Date given:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">public myDate: number = Date.parse('2025-01-02');</code>
 	</div>
-	<p>
-		Отформатируйте ее в следующем виде: 
-	</p>
+	<p>Format it as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'Jan 2, 2025'</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Отформатируйте дату из предыдущего задания
-		в следующем виде: 
-	</p>
+	<p>Format the date from the previous assignment as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'1/2/25, 3:00 AM'</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Отформатируйте дату в следующем виде: 
-	</p>
+	<p>Format the date as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'1/2/25'</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Отформатируйте дату в следующем виде: 
-	</p>
+	<p>Format the date as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'January 2, 2025 at 3:00:00 AM GMT+3'</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Отформатируйте дату в следующем виде: 
-	</p>
+	<p>Format the date as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'Thursday, January 2, 2025'</code>
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../string-slicing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Обрезание строки">← Обрезание строки</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../numbers/index.html" class="lesson-nav-btn lesson-nav-next" title="Форматирование чисел">Форматирование чисел →</a>
+      <a href="../string-slicing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Trimming a line">← Trimming a line</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../numbers/index.html" class="lesson-nav-btn lesson-nav-next" title="Formatting numbers">Number formatting →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

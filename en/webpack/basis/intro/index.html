@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Принцип работы сборщика Webpack — acteck.off</title>
-  <meta name="description" content="Принцип работы сборщика Webpack — учебные материалы по программированию.">
+  <title>How the Webpack builder works - acteck.off</title>
+  <meta name="description" content="How the Webpack bundler works - programming tutorials.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../en/index.html" class="logo">
+      <a href="../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,86 +36,39 @@
       <a href="../../../../en/webpack/index.html">Webpack</a>
     </div>
 
-    <h1>Принцип работы сборщика Webpack</h1>
-    <p>
-	Как правило, при разработке у нас
-	получается много JavaScript файлов,
-	содержащих различные кусочки кода.
-	Это могут быть части нашего кода,
-	либо сторонние библиотеки.
-	Получается, что каждый такой файл
-	мы должны подключить к HTML файлу
-	через тег <code data-gs="comd/c" data-x>script</code>.
+    <h1>How the Webpack bundler works</h1>
+    <p>As a rule, during development we end up with a lot of JavaScript files containing various pieces of code. These can be parts of our code, or third-party libraries. It turns out that we must connect each such file to the HTML file via the tag<code data-gs="comd/c" data-x>script</code>.
 </p>
-<p>
-	Это не очень хорошо, так как много
-	подключенных файлов замедляют скорость
-	загрузки сайта. Поэтому для ускорения
-	загрузки необходимо весь код сложить
-	в один файл.
+<p>This is not very good, since many connected files slow down the loading speed of the site. Therefore, to speed up loading, you need to put all the code into one file.</p>
+<p>However, developing code in one common file is also not very convenient. Therefore, the following approach is currently practiced: the code is developed in separate files, and then, using an assembler, it is assembled into one common file, which is connected to the HTML file.</p>
+<p>The individual files are<a href="../../../javascript/book/supreme/modules/intro/index.html">ES modules</a>. These modules are connected to other files via the command<code data-gs="comd/c" data-x>import</code>.
 </p>
-<p>
-	Однако, разрабатывать код в одном общем
-	файле тоже не очень удобно. Поэтому
-	в настоящее время практикуется следующий
-	подход: код разрабатывается в отдельных
-	файлах, а затем с помощью сборщика
-	собирается в один общий файл,
-	который и подключается к HTML файлу.
+<p>Usually they create a certain main file to which other files are connected. This file is called<dfn data-gs="comd/d" data-x>entry point</dfn>.
 </p>
-<p>
-	Отдельные файлы представляют собой
-	<a href="../../../javascript/book/supreme/modules/intro/index.html">ES модули</a>.
-	Эти модули подключаются к другим файлам через
-	команду <code data-gs="comd/c" data-x>import</code>.
+<p>The assembler enters the entry point and looks at what modules are connected to it. Other modules can also be connected to these modules. The collector follows all connections and collects all the code into one file. This file is called<dfn data-gs="comd/d" data-x>bundle</dfn>.
 </p>
-<p>
-	Обычно создают некий основной файл,
-	к которому подключаются остальные
-	файлы. Этот файл называется
-	<dfn data-gs="comd/d" data-x>точка входа</dfn>.
-</p>
-<p>
-	Сборщик заходит в точку входа,
-	смотрит какие модули подключены
-	к ней. К этим модулям также могут
-	быть подключены другие модули.
-	Сборщик следует по всем подключениям
-	и собирает весь код в один файл.
-	Этот файл называется <dfn data-gs="comd/d" data-x>бандл</dfn>.
-</p>
-<p>
-	Как правило, код, который пишет
-	программист, располагается в папке
-	<code data-gs="comd/p" data-x>src</code>, а собранный код помещается
-	в папку <code data-gs="comd/p" data-x>dist</code>.
+<p>As a rule, the code that a programmer writes is located in the folder<code data-gs="comd/p" data-x>src</code>, and the collected code is placed in the folder<code data-gs="comd/p" data-x>dist</code>.
 </p>
 <div data-w="cont/task">
-	<p>
-		Расскажите, что такое бандл.
-	</p>
+	<p>Tell us what a bundle is.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, что такое точка входа.
-	</p>
+	<p>Tell us what an entry point is.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, какие есть режимы сборки.
-	</p>
+	<p>Tell us what build modes there are.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../basis/cache-problem/index.html" class="lesson-nav-btn lesson-nav-next" title="Проблема кеша">Проблема кеша →</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../basis/cache-problem/index.html" class="lesson-nav-btn lesson-nav-next" title="Cache problem">Cache problem →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

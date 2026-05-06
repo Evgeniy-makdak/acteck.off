@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обход ограничения на количество БД на хостинге — acteck.off</title>
-  <meta name="description" content="Обход ограничения на количество БД на хостинге — учебные материалы по программированию.">
+  <title>Bypassing restrictions on the number of databases on hosting - acteck.off</title>
+  <meta name="description" content="Bypassing the limitation on the number of databases on hosting - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,86 +33,29 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/deploy/index.html">Деплой</a>
+      <a href="../../../../../../en/deploy/index.html">Deploy</a>
     </div>
 
-    <h1>Обход ограничения на количество БД на хостинге</h1>
-    <p>
-	Как вы уже знаете, количество баз данных
-	на виртуальном хостинге обычно ограничено.
-	Как правило оно равно количеству сайтов.
+    <h1>Bypassing the limitation on the number of databases on hosting</h1>
+    <p>As you already know, the number of databases on shared hosting is usually limited. As a rule, it is equal to the number of sites.</p>
+<p>However, there are situations when we need more databases. Let's discuss what these situations are and how to bypass the limitation on the number of databases.</p>
+<p>So. Let us have the cheapest tariff, in which we can make only one website and, accordingly, one database.</p>
+<p>However, we can make one website<b>second</b>level, but any number of subdomains. For example, we can have an online store on the main domain, and a forum on the subdomain.</p>
+<p>It turns out that we need two databases. And only because of this we will have to take a more expensive tariff. But there is a workaround.</p>
+<p>The essence of the workaround is as follows. Both of our sites will live in the same database. But to prevent table names from conflicting, we will give them prefixes.</p>
+<p>For example, we will start the names of the store tables with<code data-gs="comd/s" data-x>shop_</code>, and the names of the forum tables are on<code data-gs="comd/s" data-x>forum_</code>. However, usually for brevity prefixes are made with two letters, in our case it could be<code data-gs="comd/s" data-x>sh_</code>And<code data-gs="comd/s" data-x>fr_</code>.
 </p>
-<p>
-	Однако, бывают ситуации, когда нам нужно
-	больше баз данных. Давайте обсудим,
-	что это за ситуации и как обойти
-	ограничение на количество БД.
-</p>
-<p>
-	Итак. Пусть у нас самый дешевый тариф, в котором
-	мы можем сделать только один
-	сайт и соответственно одну базу данных.
-</p>
-<p>
-	Однако, мы можем сделать один сайт
-	<b>второго</b> уровня, но любое количество
-	поддоменов. К примеру, на основном
-	домене у нас может быть интернет-магазин,
-	а на поддомене - форум.
-</p>
-<p>
-	Получается, нам нужно две базы данных.
-	И только из-за этого нам придется брать
-	более дорогой тариф. Но есть обходной путь.
-</p>
-<p>
-	Суть обходного пути в следующем. Оба наших сайта
-	будут жить в одной базе данных.
-	Но, чтобы имена таблиц не конфликтовали,
-	мы будем давать им префиксы.
-</p>
-<p>
-	К примеру,
-	имена таблиц магазина мы будем начинать
-	на <code data-gs="comd/s" data-x>shop_</code>, а имена таблиц
-	форума на <code data-gs="comd/s" data-x>forum_</code>.
-	Однако, обычно для краткости
-	префиксы делают двухбуквенными,
-	в нашем случае это может быть
-	<code data-gs="comd/s" data-x>sh_</code> и <code data-gs="comd/s" data-x>fr_</code>.
-</p>
-<p>
-	Конечно, смена имен таблиц во всем
-	коде может доставить некоторые неудобства.
-	Поэтому, разрабатывая сайт, лучше сразу
-	предвидеть возможность такой ситуации
-	и не хардкодить имена таблиц,
-	а хранить их где-то в одном месте,
-	чтобы их легко было поменять.
-</p>
-<p>
-	Либо сразу предусмотреть в нашем коде
-	наличие префикса и везде в SQL запросах
-	перед именем таблицы добавлять
-	еще и префикс. Сам префикс будет
-	хранится где-то в одном месте -
-	в конфигурации нашего сайта.
-	Таким образом мы сможем легко
-	его исправить на нужный нам.
-</p>
+<p>Of course, changing table names throughout your code can cause some inconvenience. Therefore, when developing a website, it is better to immediately anticipate the possibility of such a situation and not hardcode table names, but store them somewhere in one place so that they can be easily changed.</p>
+<p>Or we can immediately provide for the presence of a prefix in our code and add a prefix before the table name everywhere in SQL queries. The prefix itself will be stored somewhere in one place - in the configuration of our site. This way we can easily fix it to the one we need.</p>
 <div data-w="cont/task">
-	<p>
-		Обдумайте код, который вы
-		напишете в вашем проекте для поддержки префиксов
-		таблиц.
-	</p>
+	<p>Consider the code you will write in your project to support table prefixes.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

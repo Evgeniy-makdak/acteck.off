@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод normalize — acteck.off</title>
-  <meta name="description" content="Метод normalize — учебные материалы по программированию.">
+  <title>Normalize method - acteck.off</title>
+  <meta name="description" content="Normalize Method - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,83 +36,60 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Метод normalize</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>normalize</code> нормализует
-	заданный путь к файлу, преобразуя
-	<code data-gs="comd/s" data-x>'..'</code> и <code data-gs="comd/s" data-x>'.'</code>
-	в слеши, характерные для используемой платформы
-	(Windows или POSIX).
-</p>
+    <h1>normalize method</h1>
+    <p>Method<code data-gs="comd/c" data-x>normalize</code>normalizes the given file path, transforming<code data-gs="comd/s" data-x>'..'</code>And<code data-gs="comd/s" data-x>'.'</code>into slashes specific to the platform used (Windows or POSIX).</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">path.normalize(путь к файлу);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте нормализуем путь к файлу
-	на платформе Windows:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's normalize the file path on the Windows platform:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import path from 'path';
 
 console.log(path.normalize('C:\\folder\\\\dir\\file\\..\\'));</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'C:\folder\dir\'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте нормализуем путь к файлу
-	на платформе Windows <code data-gs="comd/n" data-x>32</code>bit:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's normalize the file path on the Windows platform<code data-gs="comd/n" data-x>32</code>bit:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import path from 'path';
 
 console.log(path.win32.normalize('C:////folder\\\\/\\/\\/dir/file'));</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'C:\folder\dir\file'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	А теперь давайте нормализуем путь к файлу
-	на платформе POSIX:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's normalize the file path on the POSIX platform:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import path from 'path';
 
 console.log(path.normalize('/folder/dir1//dir2/file/test/..'));</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'/folder/dir1/dir2/file'</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../relative/index.html"><code data-gs="comd/c" data-x>relative</code></a>, <br>
-			который возвращает относительный путь от заданного к другому пути
-		</li>
+		<li>method<a href="../relative/index.html"><code data-gs="comd/c" data-x>relative</code></a>, <br>which returns the relative path from the given one to another path</li>
 	</ul>
 </div>
         <div class="lesson-nav">
       <a href="../join/index.html" class="lesson-nav-btn lesson-nav-prev" title="join">← join</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../parse/index.html" class="lesson-nav-btn lesson-nav-next" title="parse">parse →</a>
     </div>
   </section>
@@ -120,7 +97,7 @@ console.log(path.normalize('/folder/dir1//dir2/file/test/..'));</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

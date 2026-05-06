@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Получение данных из связанных таблиц в NodeJS — acteck.off</title>
-  <meta name="description" content="Получение данных из связанных таблиц в NodeJS — учебные материалы по программированию.">
+  <title>Retrieving data from related tables in NodeJS - acteck.off</title>
+  <meta name="description" content="Retrieving Data from Related Tables in NodeJS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,82 +36,45 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Получение данных из связанных таблиц в NodeJS</h1>
-    <p>
-	Давайте сделаем запрос, который достанет
-	всех юзеров вместе с их городами. Для этого понадобится команда
-	<a href="../../../../../../sql/manual/left-join/index.html"><code data-gs="comd/q" data-x>LEFT JOIN</code></a>:
+    <h1>Retrieving data from related tables in NodeJS</h1>
+    <p>Let's make a query that will get all users along with their cities. To do this you will need a command<a href="../../../../../../sql/manual/left-join/index.html"><code data-gs="comd/q" data-x>LEFT JOIN</code></a>:
 </p>
-<p>
-	Ее синтаксис выглядит следующим образом:
-</p>
+<p>Its syntax is as follows:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT поля FROM имя_таблицы
 	LEFT JOIN имя_связанной_таблицы ON условие_связи
 WHERE условие_выборки</code>
 </div>
-<p>
-	Давайте разберем отдельные части синтаксиса
-	этой команды.
-</p>
+<p>Let's look at the individual parts of the syntax for this command.</p>
 
-<h2>Поля</h2>
-<p>
-	Так как выборка идет из нескольких таблиц,
-	то выборка всех полей через <code data-gs="comd/c" data-x>*</code> не будет
-	работать. Следующий запрос выберет поля только
-	из основной таблицы, но не из связанной:
-</p>
+<h2>Fields</h2>
+<p>Since the selection comes from several tables, the selection of all fields via<code data-gs="comd/c" data-x>*</code>won't work. The following query will select fields only from the main table, but not from the related one:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT *</code>
 </div>
-<p>
-	Для того, чтобы данные выбирались из всех
-	таблиц, нужно перед <code data-gs="comd/c" data-x>*</code> указать имя
-	таблицы для выборки:
-</p>
+<p>In order for data to be selected from all tables, you need to<code data-gs="comd/c" data-x>*</code>specify the table name for the selection:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT users.*, cities.*</code>
 </div>
-<p>
-	Либо можно перечислить нужные нам поля с
-	указанием имени таблицы перед ними:
-</p>
+<p>Or we can list the fields we need, indicating the table name in front of them:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT users.name, cities.name</code>
 </div>
-<p>
-	Эти два способа имеют проблему. Дело в том,
-	что если поля в таблицах имеют одинаковые
-	имена, то в массиве произойдет конфликт
-	имен и победит только одно поле, а второго
-	не будет.
-</p>
-<p>
-	Для решения проблемы нужно конфликтные имена
-	переименовывать через команду <code data-gs="comd/q" data-x>as</code>:
+<p>These two methods have a problem. The fact is that if the fields in the tables have the same names, then a name conflict will occur in the array and only one field will win, and the second will not.</p>
+<p>To solve the problem, you need to rename conflicting names using the command<code data-gs="comd/q" data-x>as</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT users.name, cities.name as city_name</code>
 </div>
 
-<h2>Связь</h2>
-<p>
-	После команды <code data-gs="comd/q" data-x>ON</code> мы должны указать
-	поля из двух таблиц, по которым осуществляется
-	связь. В нашем случае это будет поле <code data-gs="comd/c" data-x>id</code>
-	из таблицы с городами и поле <code data-gs="comd/c" data-x>city_id</code>
-	из таблицы с юзерами:
-</p>
+<h2>Connection</h2>
+<p>After the command<code data-gs="comd/q" data-x>ON</code>we must indicate the fields from the two tables through which the connection is carried out. In our case this will be the field<code data-gs="comd/c" data-x>id</code>from a table with cities and a field<code data-gs="comd/c" data-x>city_id</code>from the table with users:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">ON cities.id=users.city_id</code>
 </div>
 
-<h2>Запрос</h2>
-<p>
-	В итоге запрос, который достанет юзеров вместе
-	с их городами будет выглядеть следующим образом:
-</p>
+<h2>Request</h2>
+<p>As a result, the request that will retrieve users along with their cities will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT
 	users.name, cities.name as city_name
@@ -120,21 +83,16 @@ FROM
 LEFT JOIN cities ON cities.id=users.city_id</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Пусть у вас есть таблица с товарами и таблица
-		с их категориями. Напишите запрос, который
-		достанет названия товаров вместе с их
-		категориями.
-	</p>
+	<p>Let's say you have a table with products and a table with their categories. Write a query that will retrieve product names along with their categories.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

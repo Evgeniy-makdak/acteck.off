@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Динамическая передача метаданных из контента в NextJS — acteck.off</title>
-  <meta name="description" content="Динамическая передача метаданных из контента в NextJS — учебные материалы по программированию.">
+  <title>Dynamically passing metadata from content to NextJS - acteck.off</title>
+  <meta name="description" content="Dynamically passing metadata from content to NextJS - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,22 +36,9 @@
       <a href="../../../../../../../../en/next/index.html">Next.js</a>
     </div>
 
-    <h1>Динамическая передача метаданных из контента в NextJS</h1>
-    <p>
-	В предыдущем уроке мы научились задавать
-	метаданные в контенте сайта. Этот способ
-	хорош, но применим не всегда.
-	Дело в том, что метаданные страницы
-	могут меняться в зависимости от параметра
-	динамического роута.
-</p>
-<p>
-	Давайте посмотрим на примере.
-	Пусть у нас есть файл с конентом
-	для показа юзера по его <code data-gs="comd/c" data-x>id</code>.
-	Пусть в этом файле есть
-	массив с юзерами:
-</p>
+    <h1>Dynamically passing metadata from content to NextJS</h1>
+    <p>In the previous lesson, we learned how to set metadata in the site content. This method is good, but not always applicable. The fact is that page metadata can change depending on the dynamic route parameter.</p>
+<p>Let's look at an example. Suppose we have a file with content to show the user by his<code data-gs="comd/c" data-x>id</code>. Let this file contain an array with users:</p>
 <div data-p="bock/pane" data-p-file="app/users/[id]/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let users = [
 	'user1',
@@ -61,10 +48,7 @@
 	'user5',
 ];</code>
 </div>
-<p>
-	Давайте выведем данные юзера,
-	соответствующего переданному параметру:
-</p>
+<p>Let's display the data of the user corresponding to the passed parameter:</p>
 <div data-p="bock/pane" data-p-file="app/users/[id]/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function User({ params }) {
 	return &lt;&gt;
@@ -75,19 +59,8 @@
 	&lt;/&gt;;
 }</code>
 </div>
-<p>
-	Перейдем теперь к нашей проблеме.
-	Так как мы показываем разных юзеров,
-	то и метаданные для них должны быть разными.
-	Мы должны формировать их динамически,
-	в зависимости от значения параметра.
-</p>
-<p>
-	Это делается с помощью специальной
-	функции <code data-gs="comd/c" data-x>generateMetadata</code>,
-	которую мы должны экспортировать
-	из нашего компонента:
-</p>
+<p>Let's move on now to our problem. Since we are showing different users, the metadata for them should be different. We must generate them dynamically, depending on the value of the parameter.</p>
+<p>This is done using a special function<code data-gs="comd/c" data-x>generateMetadata</code>, which we must export from our component:</p>
 <div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const generateMetadata = () =&gt; {
 	return {
@@ -96,19 +69,13 @@
 	};
 };</code>
 </div>
-<p>
-	В этой функции нам доступны параметры
-	роута:
-</p>
+<p>In this function we have access to the route parameters:</p>
 <div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const generateMetadata = ({params}) =&gt; {
 	console.log(params);
 };</code>
 </div>
-<p>
-	Давайте будем отдавать нужные метаданные
-	в зависимости от значения параметра:
-</p>
+<p>Let's provide the necessary metadata depending on the parameter value:</p>
 <div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export const generateMetadata = ({params}) =&gt; {
 	return {
@@ -118,14 +85,8 @@
 };</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте роут, обрабатывающий адреса
-		вида <code data-gs="comd/p" data-x>/post/:id</code>, где вместо <code data-gs="comd/p" data-x>:id</code>
-		может быть любое число.
-	</p>
-	<p>
-		Пусть дан следующий массив:
-	</p>
+	<p>Make a route that processes addresses like<code data-gs="comd/p" data-x>/post/:id</code>, where instead<code data-gs="comd/p" data-x>:id</code>can be any number.</p>
+	<p>Let the following array be given:</p>
 	<div data-p="bock/pane" data-p-file="page.jsx">
 		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let posts = [
 	{
@@ -152,24 +113,19 @@ export default function Post() {
 	
 }</code>
 	</div>
-	<p>
-		Сделайте так, чтобы по заданному айди
-		выводилась верстка нужного поста,
-		а также устанавливался правильный тайтл
-		и метаописание.
-	</p>
+	<p>Make sure that the layout of the desired post is displayed based on the given ID, and the correct title and meta description are set.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../static-content-metadata/index.html" class="lesson-nav-btn lesson-nav-prev" title="Статические метаданные из контента">← Статические метаданные из контента</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../parts/index.html" class="lesson-nav-btn lesson-nav-next" title="Части сайта">Части сайта →</a>
+      <a href="../static-content-metadata/index.html" class="lesson-nav-btn lesson-nav-prev" title="Static metadata from content">← Static metadata from content</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../parts/index.html" class="lesson-nav-btn lesson-nav-next" title="Site parts">Parts of the site →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

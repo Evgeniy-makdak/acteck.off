@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод Object.assign — acteck.off</title>
-  <meta name="description" content="Метод Object.assign — учебные материалы по программированию.">
+  <title>Object.assign method - acteck.off</title>
+  <meta name="description" content="Object.assign Method - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,41 +36,28 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод Object.assign</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>Object.assign</code> копирует свойства и значения исходного объекта,
-	возвращая при этом новый объект. В первом параметре метода
-	мы задаем целевой объект, в который копируем,
-	а во втором - указываем объекты, которые нужно скопировать.
-</p>
+    <h1>Object.assign method</h1>
+    <p>Method<code data-gs="comd/c" data-x>Object.assign</code>copies the properties and values ​​of the original object while returning a new object. In the first parameter of the method we specify the target object to which we are copying, and in the second we indicate the objects that need to be copied.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">Object.assign(куда копировать, объекты);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте получим новый объект из исходного:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's get a new object from the original one:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj = {'a': 1, 'b': 2, 'c': 3};
 let newObj = Object.assign({}, obj);
 console.log(newObj);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{a: 1, b: 2, c: 3}</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	А теперь получим новый объект
-	из нескольких исходных, перечисляя их в
-	параметре через запятую:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now we’ll get a new object from several original ones, listing them in a parameter separated by commas:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj1 = {'a': 1, 'b': 2};
 let obj2 = {'c': 3, 'd': 4};
@@ -78,68 +65,42 @@ let obj2 = {'c': 3, 'd': 4};
 let newObj = Object.assign({}, obj1, obj2);
 console.log(newObj);</code>
 </div>
-<p>
-	После выполнения кода мы увидим,
-	что два исходных объекта слились в
-	один новый объект:
-</p>
+<p>After executing the code, we will see that the two original objects have been merged into one new object:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">{a: 1, b: 2, c: 3, d: 4}</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Также метод <code data-gs="comd/c" data-x>Object.assign</code>
-	можно применять для получения нового массива,
-	поскольку массив по своему типу также относится к объектам.
-	Давайте сделаем новый массив, скопировав элементы из
-	исходного:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Also method<code data-gs="comd/c" data-x>Object.assign</code>can be used to obtain a new array, since an array is also an object by its type. Let's make a new array by copying the elements from the original one:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3, 4];
 let newArr = Object.assign([], arr);
 
 console.log(newArr);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[1, 2, 3, 4]</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	При использовании метода <code data-gs="comd/c" data-x>Object.assign</code>
-	нужно внимательно придерживаться синтаксиса.
-	К примеру, если не добавить
-	в первый параметр целевой объект, а оставить
-	только копируемый объект, то он и вернется обратно:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>When using the method<code data-gs="comd/c" data-x>Object.assign</code>you need to carefully adhere to the syntax. For example, if you do not add the target object to the first parameter, but leave only the object being copied, then it will be returned:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj = {1:'a', 2: 'b', 3: 'c'};
 let newObj = Object.assign(obj);
 
 console.log(newObj === obj);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">true</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../Object.keys/index.html"><code data-gs="comd/c" data-x>Object.keys</code></a>, <br>
-			который возвращает массив из свойств объекта
-		</li>
-		<li>
-			метод <a href="../Object.values/index.html"><code data-gs="comd/c" data-x>Object.values</code></a>, <br>
-			который возвращает массив из значений объекта
-		</li>
+		<li>method<a href="../Object.keys/index.html"><code data-gs="comd/c" data-x>Object.keys</code></a>, <br>which returns an array of object properties</li>
+		<li>method<a href="../Object.values/index.html"><code data-gs="comd/c" data-x>Object.values</code></a>, <br>which returns an array of object values</li>
 	</ul>
 </div>
   </section>
@@ -147,7 +108,7 @@ console.log(newObj === obj);</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Цепочка связанных таблиц в NodeJS — acteck.off</title>
-  <meta name="description" content="Цепочка связанных таблиц в NodeJS — учебные материалы по программированию.">
+  <title>Chain of linked tables in NodeJS - acteck.off</title>
+  <meta name="description" content="Chaining linked tables in NodeJS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,21 +36,9 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Цепочка связанных таблиц в NodeJS</h1>
-    <p>
-	Пусть теперь юзеры живут в определенных городах,
-	а эти города расположены в разных странах.
-	В таком случае для хранения нам понадобятся
-	уже три таблицы: юзеры будут связаны с городами,
-	а города - со странами. При этом нам не нужно
-	будет поле связи юзеров со странами - ведь
-	юзеры и так будут связаны со странами через
-	связь городов и стран.
-</p>
-<p>
-	Давайте посмотрим на наши таблицы. Таблица
-	со странами:
-</p>
+    <h1>Chain of linked tables in NodeJS</h1>
+    <p>Let now users live in certain cities, and these cities are located in different countries. In this case, we will need three tables for storage: users will be associated with cities, and cities will be associated with countries. At the same time, we will not need a field for connecting users with countries - after all, users will already be connected with countries through the connection of cities and countries.</p>
+<p>Let's look at our tables. Table with countries:</p>
 <div data-w="bock/stab">
 	<table>
 		<caption>countries</caption>
@@ -68,9 +56,7 @@
 		</tr>
 	</table>
 </div>
-<p>
-	Таблица с городами:
-</p>
+<p>Table with cities:</p>
 <div data-w="bock/stab">
 	<table>
 		<caption>cities</caption>
@@ -97,9 +83,7 @@
 		</tr>
 	</table>
 </div>
-<p>
-	Таблица с юзерами останется неизменной:
-</p>
+<p>The table with users will remain unchanged:</p>
 <div data-w="bock/stab">
 	<table>
 		<caption>users</caption>
@@ -141,13 +125,8 @@
 	</table>
 </div>
 
-<h2>Запросы</h2>
-<p>
-	Для того, чтобы достать юзеров вместе с их
-	городами и странами, нам придется сделать
-	два джоина: первый присоединит города к юзерам,
-	а второй - страны к городам:
-</p>
+<h2>Requests</h2>
+<p>In order to get users along with their cities and countries, we will have to make two joins: the first will connect cities to users, and the second will connect countries to cities:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="sql">SELECT
 	users.name,
@@ -159,33 +138,22 @@ LEFT JOIN cities ON cities.id=users.city_id
 LEFT JOIN countries ON countries.id=cities.country_id</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Пусть товары принадлежат определенной подкатегории,
-		а подкатегории принадлежат определенной категории.
-		Распишите структуру хранения.
-	</p>
+	<p>Let products belong to a certain subcategory, and subcategories belong to a certain category. Describe the storage structure.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Напишите запрос, который достанет товары,
-		вместе с их подкатегориями и
-		категориями.
-	</p>
+	<p>Write a query that will retrieve the products, along with their subcategories and categories.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Напишите запрос, который достанет подкатегории
-		вместе с их категориями.
-	</p>
+	<p>Write a query that retrieves subcategories along with their categories.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

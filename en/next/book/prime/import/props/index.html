@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Пропсы компонентов в NextJS — acteck.off</title>
-  <meta name="description" content="Пропсы компонентов в NextJS — учебные материалы по программированию.">
+  <title>Component props in NextJS - acteck.off</title>
+  <meta name="description" content="Component props in NextJS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,18 +36,10 @@
       <a href="../../../../../../en/next/index.html">Next.js</a>
     </div>
 
-    <h1>Пропсы компонентов в NextJS</h1>
-    <p>
-	В NextJS так же, как и в React, данные
-	из родительских компонентов в дочерние
-	можно передавать через
-	<a href="../../../../../javascript/framework/react/book/prime/components/props/index.html">пропсы</a>.
+    <h1>Component props in NextJS</h1>
+    <p>In NextJS, just like in React, data from parent components to child components can be passed through<a href="../../../../../javascript/framework/react/book/prime/components/props/index.html">props</a>.
 </p>
-<p>
-	Давайте посмотрим, как это делается на практике.
-	Пусть наш дочерний компонент может
-	принимать пропсы:
-</p>
+<p>Let's see how this is done in practice. Let our child component be able to accept props:</p>
 <div data-p="bock/pane" data-p-file="src/comp/child/child.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Child({text1, text2}) {
 	return &lt;p&gt;
@@ -55,10 +47,7 @@
 	&lt;/p&gt;;
 }</code>
 </div>
-<p>
-	Давайте выведем их в верстке
-	компонента:
-</p>
+<p>Let's display them in the component's layout:</p>
 <div data-p="bock/pane" data-p-file="src/comp/child/child.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export default function Child({text1, text2}) {
 	return &lt;p&gt;
@@ -68,10 +57,7 @@
 	&lt;/p&gt;;
 }</code>
 </div>
-<p>
-	Пусть в родительском компоненте
-	подключается наш дочерний компонент:
-</p>
+<p>Let our child component be connected in the parent component:</p>
 <div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Child from '@/comp/child/child.jsx';
 
@@ -82,10 +68,7 @@ export default function Test() {
 	&lt;/&gt;;
 }</code>
 </div>
-<p>
-	Давайте передадим в дочерний
-	компонент данные из родительского:
-</p>
+<p>Let's pass data from the parent component to the child component:</p>
 <div data-p="bock/pane" data-p-file="src/app/test/page.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Child from '@/comp/child/child.jsx';
 
@@ -97,17 +80,10 @@ export default function Test() {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте дочерний компонент <code data-gs="comd/c" data-x>Product</code>
-		для вывода продукта. Пусть пропсами
-		передаются название и цена продукта.
-	</p>
+	<p>Make a child component<code data-gs="comd/c" data-x>Product</code>to display the product. Let props convey the name and price of the product.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть дан следующий массив
-		с продуктами:
-	</p>
+	<p>Let the following array with products be given:</p>
 	<div data-p="bock/pane" data-p-file="prods.js">
 		<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let prods = [
 	{
@@ -127,22 +103,20 @@ export default function Test() {
 	},
 ];</code>
 	</div>
-	<p>
-		Выведите в цикле данные продуктов,
-		используя дочерний компонент <code data-gs="comd/c" data-x>Product</code>.
+	<p>Loop product data using a child component<code data-gs="comd/c" data-x>Product</code>.
 	</p>
 </div>
         <div class="lesson-nav">
-      <a href="../components/index.html" class="lesson-nav-btn lesson-nav-prev" title="Импорт компонентов">← Импорт компонентов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../layouts/driver/index.html" class="lesson-nav-btn lesson-nav-next" title="Движок сайта">Движок сайта →</a>
+      <a href="../components/index.html" class="lesson-nav-btn lesson-nav-prev" title="Importing components">← Import of components</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../layouts/driver/index.html" class="lesson-nav-btn lesson-nav-next" title="Site engine">Website engine →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

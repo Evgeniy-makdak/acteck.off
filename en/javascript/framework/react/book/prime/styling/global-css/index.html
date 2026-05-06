@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Использовании глобального CSS при стилизации в React — acteck.off</title>
-  <meta name="description" content="Использовании глобального CSS при стилизации в React — учебные материалы по программированию.">
+  <title>Using global CSS when styling in React - acteck.off</title>
+  <meta name="description" content="Using global CSS when styling in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,12 +36,8 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Использовании глобального CSS при стилизации в React</h1>
-    <p>
-	Предположим, у нас есть React компонент
-	<code data-gs="comd/c" data-x>App</code>, в котором есть див, а внутри
-	дива - три абзаца:
-</p>
+    <h1>Using global CSS when styling in React</h1>
+    <p>Let's say we have a React component<code data-gs="comd/c" data-x>App</code>, in which there is a div, and inside the div there are three paragraphs:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return (
@@ -53,17 +49,8 @@
 	);
 }</code>
 </div>
-<p>
-	Давайте стилизуем этот компонент. Для
-	этого, в той же папке <code data-gs="comd/p" data-x>src</code> с нашим 
-	компонентом создадим обычный CSS файл
-	со стилями <code data-gs="comd/p" data-x>styles.css</code> для наших
-	тегов.
-</p>
-<p>
-	В этом файле для дива создадим класс 
-	<code data-gs="comd/z" data-x>class1</code> со стилями:
-</p>
+<p>Let's style this component. For this, in the same folder<code data-gs="comd/p" data-x>src</code>with our component we will create a regular CSS file with styles<code data-gs="comd/p" data-x>styles.css</code>for our tags.</p>
+<p>In this file we will create a class for the div<code data-gs="comd/z" data-x>class1</code>with styles:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.class1 {
 	width: 200px;
@@ -72,30 +59,21 @@
 	text-align: center;
 }</code>
 </div>
-<p>
-	Теперь добавим класс <code data-gs="comd/z" data-x>class2</code> со 
-	стилями для первого абзаца:
-</p>
+<p>Now let's add the class<code data-gs="comd/z" data-x>class2</code>with styles for the first paragraph:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.class2 {
 	color: orangered;
 	font-weight: bold;
 }</code>
 </div>
-<p>
-	Класс <code data-gs="comd/z" data-x>class3</code> со 
-	стилями для второго абзаца:
-</p>
+<p>Class<code data-gs="comd/z" data-x>class3</code>with styles for the second paragraph:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.class3 {
 	font-style: italic;
 	color: brown;
 }</code>
 </div>
-<p>
-	И, наконец создадим класс <code data-gs="comd/z" data-x>class4</code> для 
-	последнего абзаца:
-</p>
+<p>And finally, let's create a class<code data-gs="comd/z" data-x>class4</code>for the last paragraph:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.class4 {
 	background-color: orange;
@@ -103,35 +81,17 @@
 	color: white;
 }		 </code>
 </div>
-<p>
-	С CSS файлом мы закончили. Осталось 
-	применить наши CSS стили, которые 
-	мы написали для тегов. Вернемся к 
-	нашему файлу <code data-gs="comd/p" data-x>App.js</code> с компонентом.
-</p>
-<p>
-	Первое, что мы должны обязательно сделать -
-	добавить в начало файла строку импорта 
-	нашего файла стилей <code data-gs="comd/p" data-x>styles.css</code>:
+<p>We're done with the CSS file. All that remains is to apply our CSS styles that we wrote for the tags. Let's go back to our file<code data-gs="comd/p" data-x>App.js</code>with the component.</p>
+<p>The first thing we must do is add the import line of our style file to the beginning of the file<code data-gs="comd/p" data-x>styles.css</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import './styles.css';</code>
 </div>
-<p>
-	Теперь, чтобы применить в компоненте  
-	CSS классы из файла, воспользуемся 
-	атрибутом <code data-gs="comd/c" data-x>class</code>. Для первого
-	абзаца у нас был класс <code data-gs="comd/z" data-x>class2</code>,
-	применим его:
-</p>
+<p>Now, to apply the CSS classes from the file to the component, we will use the attribute<code data-gs="comd/c" data-x>class</code>. For the first paragraph we had a class<code data-gs="comd/z" data-x>class2</code>, apply it:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p class="class2"&gt;text&lt;/p&gt;</code>
 </div>
-<p>
-	Подобным образом добавим классы для 
-	остальных тегов. В результате получим 
-	следующий код:
-</p>
+<p>Let's add classes for the remaining tags in a similar way. As a result, we get the following code:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;div class="class1"&gt;
 	&lt;p class="class2"&gt;text&lt;/p&gt;
@@ -140,25 +100,19 @@
 &lt;/div&gt;			 </code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Создайте React компонент, который будет
-		содержать див, а в диве будет две
-		кнопки. Создайте файл <code data-gs="comd/p" data-x>styles.css</code>
-		с CSS стилями к вашим тегам. Примените
-		к тегам компонента написанные стили.
-	</p>
+	<p>Create a React component that will contain a div, and the div will have two buttons. Create a file<code data-gs="comd/p" data-x>styles.css</code>with CSS styles for your tags. Apply the written styles to the component tags.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Способы стилизации в React">← Способы стилизации в React</a>
-      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../object-to-style/index.html" class="lesson-nav-btn lesson-nav-next" title="Вставка данных в атрибут style из объекта">Вставка данных в атрибут style из объекта →</a>
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Styling Methods in React">← Styling methods in React</a>
+      <a href="../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../object-to-style/index.html" class="lesson-nav-btn lesson-nav-next" title="Inserting data into the style attribute from an object">Inserting data into the style attribute from an object →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

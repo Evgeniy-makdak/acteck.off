@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Классы элементов в CSS — acteck.off</title>
-  <meta name="description" content="Классы элементов в CSS — учебные материалы по программированию.">
+  <title>Element classes in CSS - acteck.off</title>
+  <meta name="description" content="Element classes in CSS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,29 +33,14 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Классы элементов в CSS</h1>
-    <p>
-	В предыдущих уроках мы выбирали элементы
-	страницы по имени тега, задавая стили, к
-	примеру, одновременно всем абзацам. На странице,
-	однако, могут быть абзацы разных типов, к
-	которым нужно применять разные стили. Для
-	решения такой проблемы можно разные абзацы
-	отнести к разным CSS <dfn data-gs="comd/d" data-x>классам</dfn>.
+    <h1>Element classes in CSS</h1>
+    <p>In previous lessons, we selected page elements by tag name, setting styles, for example, for all paragraphs at the same time. On a page, however, there may be different types of paragraphs to which you need to apply different styles. To solve this problem, you can assign different paragraphs to different CSS<dfn data-gs="comd/d" data-x>classes</dfn>.
 </p>
-<p>
-	Чтобы отнести тег какому-нибудь классу, нужно
-	этому тегу написать атрибут <code data-gs="comd/c" data-x>class</code>,
-	а в нем - придуманное вами название класса,
-	состоящее из букв, цифр, символов подчеркивания
-	и дефиса.
-</p>
-<p>
-	Давайте посмотрим на примере. Сделаем абзацы
-	с двумя типами классов - <code data-gs="comd/z" data-x>eee</code> и <code data-gs="comd/z" data-x>zzz</code>:
+<p>To assign a tag to a class, you need to write an attribute to this tag<code data-gs="comd/c" data-x>class</code>, and in it - the class name you came up with, consisting of letters, numbers, underscores and hyphens.</p>
+<p>Let's look at an example. Let's make paragraphs with two types of classes -<code data-gs="comd/z" data-x>eee</code>And<code data-gs="comd/z" data-x>zzz</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="eee"&gt;
@@ -71,27 +56,10 @@
 	paragraph with class zzz
 &lt;/p&gt;</code>
 </div>
-<p>
-	Давайте теперь обратимся в CSS к абзацам
-	с различными классами и зададим им какие-нибудь
-	стили. К примеру, покрасим абзацы с классом
-	<code data-gs="comd/z" data-x>zzz</code> в красный цвет, а абзацы с классом
-	<code data-gs="comd/z" data-x>eee</code> - в зеленый.
+<p>Let's now take a look at the paragraphs with the various classes in CSS and give them some styling. For example, let's color paragraphs with the class<code data-gs="comd/z" data-x>zzz</code>in red, and paragraphs with class<code data-gs="comd/z" data-x>eee</code>- in green.</p>
+<p>To do this, you need to refer to our classes in the CSS file. The call has the following syntax: first comes the dot symbol, and then the class name we invented. That is, to access the class<code data-gs="comd/z" data-x>eee</code>need to write<code data-gs="comd/z" data-x>.eee</code>, and for the class<code data-gs="comd/z" data-x>zzz</code>- write<code data-gs="comd/z" data-x>.zzz</code>.
 </p>
-<p>
-	Для этого в CSS файле нужно обратиться к
-	нашим классам. Обращение имеет следующий
-	синтаксис: сначала идет символ точка, а затем
-	придуманное нами имя класса. To есть для
-	обращения к классу <code data-gs="comd/z" data-x>eee</code> нужно написать
-	<code data-gs="comd/z" data-x>.eee</code>, а для класса <code data-gs="comd/z" data-x>zzz</code> - написать
-	<code data-gs="comd/z" data-x>.zzz</code>.
-</p>
-<p>
-	Итак, сделаем описанное. Добавим к нашему
-	HTML еще и CSS стили для введенных
-	нами классов:
-</p>
+<p>So, let's do what is described. Let's add CSS styles to our HTML for the classes we introduced:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.eee {
 	color: green;
@@ -100,10 +68,7 @@
 	color: red;
 }</code>
 </div>
-<p>
-	Если запустить наш код, то в результате получится
-	следующее:
-</p>
+<p>If we run our code, the result will be the following:</p>
 <div data-p="bock/pane">
 					<div data-w="bock/tain">
 						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
@@ -148,9 +113,7 @@
 					</div>
 				</div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий код:
-	</p>
+	<p>The following code is given:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li class="odd"&gt;text&lt;/li&gt;
@@ -161,16 +124,11 @@
 	&lt;li class="eve"&gt;text&lt;/li&gt;
 &lt;/ul&gt;</code>
 	</div>
-	<p>
-		Покрасьте в красный цвет элементы с классом
-		<code data-gs="comd/z" data-x>odd</code> и в зеленый цвет - элементы с
-		классом <code data-gs="comd/z" data-x>eve</code>.
+	<p>Color elements with class red<code data-gs="comd/z" data-x>odd</code>and in green - elements with a class<code data-gs="comd/z" data-x>eve</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий код:
-	</p>
+	<p>The following code is given:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;h2 class="eee"&gt;Title&lt;/h2&gt;
 &lt;p class="eee"&gt;
@@ -191,29 +149,24 @@
 	&lt;li&gt;text&lt;/li&gt;
 &lt;/ul&gt;</code>
 	</div>
-	<p>
-		Покрасьте в красный цвет все элементы с классом
-		<code data-gs="comd/z" data-x>eee</code>.
+	<p>Color all elements with a class red<code data-gs="comd/z" data-x>eee</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Объясните, почему в предыдущей задаче в красный
-		цвет красятся теги <code data-gs="comd/c" data-x>li</code>, хотя класс,
-		задающий цвет, назначен тегу <code data-gs="comd/c" data-x>ul</code>.
+	<p>Explain why in the previous problem the tags are painted red<code data-gs="comd/c" data-x>li</code>, although the class that specifies the color is assigned to the tag<code data-gs="comd/c" data-x>ul</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../child-selector/index.html" class="lesson-nav-btn lesson-nav-prev" title="Дочерний селектор">← Дочерний селектор</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../tag-span/index.html" class="lesson-nav-btn lesson-nav-next" title="Тег span">Тег span →</a>
+      <a href="../child-selector/index.html" class="lesson-nav-btn lesson-nav-prev" title="Child selector">← Child selector</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../tag-span/index.html" class="lesson-nav-btn lesson-nav-next" title="span tag">span tag →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

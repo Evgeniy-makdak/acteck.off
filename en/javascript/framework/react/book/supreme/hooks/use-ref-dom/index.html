@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Применение хука useRef для DOM в React — acteck.off</title>
-  <meta name="description" content="Применение хука useRef для DOM в React — учебные материалы по программированию.">
+  <title>Using the useRef hook for the DOM in React - acteck.off</title>
+  <meta name="description" content="Using the useRef DOM Hook in React - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,26 +36,10 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Применение хука useRef для DOM в React</h1>
-    <p>
-	На одном из предыдущих занятий мы упоминали,
-	что наиболее часто рефы применяются для
-	доступа к DOM элементам.
-</p>
-<p>
-	Рефы придут на помощь тогда, когда вам,
-	например, нужно сфокусироваться на элементе,
-	сделать скрол или вычислить его размеры
-	и позицию, а возможно воспользоваться
-	какими-то его методами или свойствами,
-	ведь для таких вещей в React нет встроенных
-	методов.
-</p>
-<p>
-	Давайте посмотрим на примере с инпутом,
-	как это делается. Создадим компонент с
-	инпутом и кнопкой:
-</p>
+    <h1>Using the useRef hook on the DOM in React</h1>
+    <p>In one of the previous lessons, we mentioned that refs are most often used to access DOM elements.</p>
+<p>Refs will come to the rescue when, for example, you need to focus on an element, scroll or calculate its size and position, or perhaps use some of its methods or properties, because there are no built-in methods for such things in React.</p>
+<p>Let's look at an example with an input to see how this is done. Let's create a component with an input and a button:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">return (
 	&lt;div&gt;
@@ -64,77 +48,46 @@
 	&lt;/div&gt;
 );</code>
 </div>
-<p>
-	Для начала, импортируем в компонент
-	<code data-gs="comd/c" data-x>useRef</code>:
+<p>First, let's import it into the component<code data-gs="comd/c" data-x>useRef</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useRef } from 'react';</code>
 </div>
-<p>
-	И заведем реф <code data-gs="comd/c" data-x>ref</code> в компоненте.
-	Инициализируем его значением <code data-gs="comd/n" data-x>null</code>:
+<p>And let's start a ref<code data-gs="comd/c" data-x>ref</code>in the component. We initialize it with the value<code data-gs="comd/n" data-x>null</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const ref = useRef(null);</code>
 </div>
-<p>
-	Навесим на кнопочку обработчик
-	клика:
-</p>
+<p>Let's attach a click handler to the button:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;button onClick={handleClick}&gt;focus&lt;/button&gt;</code>
 </div>
-<p>
-	Чтобы иметь доступ к инпуту, запишем наш
-	реф <code data-gs="comd/c" data-x>ref</code> в атрибут <code data-gs="comd/c" data-x>ref</code> инпута.
-	Таким образом, когда React будет создавать
-	DOM узел для этого инпута, он положит ссылку
-	на него в <code data-gs="comd/c" data-x>ref.current</code> и мы сможем
-	пользоваться методами инпута:
-</p>
+<p>To have access to input, let’s write down our ref<code data-gs="comd/c" data-x>ref</code>to attribute<code data-gs="comd/c" data-x>ref</code>input. This way, when React creates a DOM node for this input, it will put a reference to it in<code data-gs="comd/c" data-x>ref.current</code>and we can use input methods:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;input ref={ref} /&gt;</code>
 </div>
-<p>
-	И наконец, добавим функцию обработки клика,
-	чтобы при клике на кнопку, на инпут
-	наводился фокус. Теперь мы можем это
-	сделать через реф, в котором лежит
-	ссылка на наш инпут, обратившись к его
-	методу <code data-gs="comd/c" data-x>focus</code>:
+<p>And finally, we’ll add a click processing function so that when you click on the button, the input gets focus. Now we can do this through the ref, which contains a link to our input, by accessing its method<code data-gs="comd/c" data-x>focus</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function handleClick() {
 	ref.current.focus();
 }</code>
 </div>
-<p>
-	Понажимайте кнопочку и убедитесь,
-	что на инпут наводится фокус.
-</p>
+<p>Press the button and make sure that the input has focus.</p>
 <div data-w="cont/task">
-	<p>
-		Возьмите код компонента <code data-gs="comd/c" data-x>App</code>,
-		который мы написали на этом уроке и
-		сделайте так, чтобы по клику на кнопку
-		в инпуте кроме наведения фокуса
-		происходило еще и очищение поля ввода.
-		Воспользуйтесь для этого свойством
-		<code data-gs="comd/c" data-x>value</code> инпута.
-	</p>
+	<p>Take the component code<code data-gs="comd/c" data-x>App</code>, which we wrote in this lesson and make sure that when you click on a button in the input, in addition to setting focus, the input field is also cleared. Use the property for this<code data-gs="comd/c" data-x>value</code>input.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../use-ref/index.html" class="lesson-nav-btn lesson-nav-prev" title="Хук рефа useRef">← Хук рефа useRef</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../use-memo/index.html" class="lesson-nav-btn lesson-nav-next" title="Хук производительности useMemo">Хук производительности useMemo →</a>
+      <a href="../use-ref/index.html" class="lesson-nav-btn lesson-nav-prev" title="Ref hook useRef">← Ref hook useRef</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../use-memo/index.html" class="lesson-nav-btn lesson-nav-next" title="useMemo performance hook">useMemo performance hook →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

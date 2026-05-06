@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Инструкция continue в JavaScript — acteck.off</title>
-  <meta name="description" content="Инструкция continue в JavaScript — учебные материалы по программированию.">
+  <title>The continue statement in JavaScript is acteck.off</title>
+  <meta name="description" content="The continue statement in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,23 +36,9 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Инструкция continue в JavaScript</h1>
-    <p>
-	Существует также инструкция <code data-gs="comd/c" data-x>continue</code>,
-	запускающая новую итерацию цикла. Данная
-	инструкция иногда может быть полезна для
-	упрощения кода, хотя практически всегда задачу
-	можно решить и без нее. Давайте посмотрим
-	на практическом примере.
-</p>
-<p>
-	Пусть у нас дан массив с числами. Давайте
-	переберем его циклом и числа, которые делятся
-	на <code data-gs="comd/n" data-x>2</code>, возведем в квадрат и выведем
-	в консоль, а числа, которые делятся на <code data-gs="comd/n" data-x>3</code>,
-	возведем в куб и выведем в консоль. Вот решение
-	описанной задачи:
-</p>
+    <h1>The continue statement in JavaScript</h1>
+    <p>There is also an instruction<code data-gs="comd/c" data-x>continue</code>, which starts a new iteration of the loop. This instruction can sometimes be useful for simplifying the code, although almost always the problem can be solved without it. Let's look at a practical example.</p>
+<p>Let us be given an array with numbers. Let's loop through it and the numbers that are divisible by<code data-gs="comd/n" data-x>2</code>, square it and output it to the console, and the numbers that are divisible by<code data-gs="comd/n" data-x>3</code>, cube it and output it to the console. Here is the solution to the described problem:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -70,11 +56,7 @@ for (let elem of arr) {
 	}
 }</code>
 </div>
-<p>
-	Как вы видите, строчка <code data-gs="comd/c" data-x>console.log(result)</code>
-	повторяется два раза. Давайте вынесем ее
-	за <code data-gs="comd/c" data-x>if</code>, вот так:
-</p>
+<p>As you can see, the line<code data-gs="comd/c" data-x>console.log(result)</code>repeated twice. Let's take her out<code data-gs="comd/c" data-x>if</code>, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -90,22 +72,8 @@ for (let elem of arr) {
 	console.log(result); // вынесли вывод за условие
 }</code>
 </div>
-<p>
-	Теперь наш скрипт, однако, работает немного
-	не так: получится, что и для обычных элементов,
-	не обработанных через наш <code data-gs="comd/c" data-x>if</code> будет
-	выполнятся вывод переменной <code data-gs="comd/c" data-x>result</code>
-	в консоль, что по условию нашей задачи нам
-	не нужно.
-</p>
-<p>
-	Поправим проблему, добавив к нашему <code data-gs="comd/c" data-x>if</code>
-	еще условие <code data-gs="comd/c" data-x>else</code>, которое будет срабатывать
-	для элементов, не делящихся на <code data-gs="comd/n" data-x>2</code> и
-	<code data-gs="comd/n" data-x>3</code>, и вызовем там инструкцию <code data-gs="comd/c" data-x>continue</code>,
-	которая сразу же будет перебрасывать нас
-	на новую итерацию цикла:
-</p>
+<p>Now our script, however, works a little differently: it turns out that for ordinary elements not processed through our<code data-gs="comd/c" data-x>if</code>the variable output will be executed<code data-gs="comd/c" data-x>result</code>to the console, which according to the conditions of our task we do not need.</p>
+<p>Let's fix the problem by adding to our<code data-gs="comd/c" data-x>if</code>another condition<code data-gs="comd/c" data-x>else</code>, which will fire for elements not divisible by<code data-gs="comd/n" data-x>2</code>And<code data-gs="comd/n" data-x>3</code>, and call the instruction there<code data-gs="comd/c" data-x>continue</code>, which will immediately transfer us to a new iteration of the loop:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -124,24 +92,21 @@ for (let elem of arr) {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Напишите цикл, который выведет только
-		чётные числа от <code data-gs="comd/n" data-x>1</code> до <code data-gs="comd/n" data-x>100</code>,
-		пропуская нечётные с помощью <code data-gs="comd/c" data-x>continue</code>.
+	<p>Write a loop that will print only even numbers from<code data-gs="comd/n" data-x>1</code>to<code data-gs="comd/n" data-x>100</code>, skipping odd ones using<code data-gs="comd/c" data-x>continue</code>.
 	</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../break/index.html" class="lesson-nav-btn lesson-nav-prev" title="Инструкция break">← Инструкция break</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../nested/index.html" class="lesson-nav-btn lesson-nav-next" title="Вложенные циклы">Вложенные циклы →</a>
+      <a href="../break/index.html" class="lesson-nav-btn lesson-nav-prev" title="break instruction">← Break instruction</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../nested/index.html" class="lesson-nav-btn lesson-nav-next" title="Nested Loops">Nested loops →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

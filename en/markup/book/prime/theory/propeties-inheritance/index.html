@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Наследование CSS свойств — acteck.off</title>
-  <meta name="description" content="Наследование CSS свойств — учебные материалы по программированию.">
+  <title>Inheriting CSS properties - acteck.off</title>
+  <meta name="description" content="Inheriting CSS properties - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,30 +33,24 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Наследование CSS свойств</h1>
-    <p>
-	Пусть у нас есть абзац, а в нем какой-то
-	текст в теге <code data-gs="comd/c" data-x>i</code>:
+    <h1>Inheriting CSS properties</h1>
+    <p>Suppose we have a paragraph, and there is some text in it in a tag<code data-gs="comd/c" data-x>i</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
 	This is some &lt;i&gt;text&lt;/i&gt; in paragraph.
 &lt;/p&gt;</code>
 </div>
-<p>
-	Давайте покрасим абзацы в красный цвет:
-</p>
+<p>Let's color the paragraphs red:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
 	color: red;
 }</code>
 </div>
-<p>
-	В результате покрасится не только текст абзаца,
-	но и текст тега <code data-gs="comd/c" data-x>i</code>:
+<p>As a result, not only the paragraph text, but also the tag text will be colored<code data-gs="comd/c" data-x>i</code>:
 </p>
 <div data-p="bock/pane">
 					<div data-w="bock/tain">
@@ -89,20 +83,9 @@
 </html>"></iframe>
 					</div>
 				</div>
-<p>
-	Все дело в том, что свойство <code data-gs="comd/c" data-x>color</code>
-	<dfn data-gs="comd/d" data-x>наследуется</dfn>. Это значит, что если
-	у родительского тега задан какой-то цвет,
-	то такой цвет будет и потомков. Наследуются
-	не все CSS свойства, но многие (из тех, что
-	вы уже знаете - все наследуются).
-</p>
-<p>
-	При желании, однако, можно переопределить
-	свойство родителя, задав селектор потомка.
-	Например, давайте абзацу зададим красный
-	цвет, а курсиву - голубой:
-</p>
+<p>The whole point is that the property<code data-gs="comd/c" data-x>color</code>
+	<dfn data-gs="comd/d" data-x>inherited</dfn>. This means that if a parent tag has a certain color, then its descendants will have the same color. Not all CSS properties are inherited, but many are inherited (of those you already know, all are inherited).</p>
+<p>If you wish, however, you can override the parent property by specifying a child selector. For example, let's set the paragraph color to red and the italics color to blue:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
 	This is some &lt;i&gt;text&lt;/i&gt; in paragraph.
@@ -151,12 +134,7 @@ i {
 </html>"></iframe>
 					</div>
 				</div>
-<p>
-	Порядок селекторов в CSS коде в таком случае
-	не имеет значения. Если переставить местами
-	селектор <code data-gs="comd/z" data-x>i</code> и селектор <code data-gs="comd/z" data-x>p</code>, все будет работать
-	так же:
-</p>
+<p>The order of the selectors in the CSS code does not matter in this case. If you rearrange the selector<code data-gs="comd/z" data-x>i</code>and selector<code data-gs="comd/z" data-x>p</code>, everything will work the same:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
 	This is some &lt;i&gt;text&lt;/i&gt; in paragraph.
@@ -206,9 +184,7 @@ p {
 					</div>
 				</div>
 <div data-w="cont/task">
-	<p>
-		Изучив код, скажите какой цвет будет иметь
-		текст в теге <code data-gs="comd/c" data-x>b</code>:
+	<p>After studying the code, tell me what color the text in the tag will have<code data-gs="comd/c" data-x>b</code>:
 	</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
@@ -220,9 +196,7 @@ p {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Изучив код, скажите какой цвет будет иметь
-		текст в теге <code data-gs="comd/c" data-x>b</code>:
+	<p>After studying the code, tell me what color the text in the tag will have<code data-gs="comd/c" data-x>b</code>:
 	</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
@@ -237,9 +211,7 @@ b {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Изучив код, скажите какой цвет будет иметь
-		текст в теге <code data-gs="comd/c" data-x>b</code>:
+	<p>After studying the code, tell me what color the text in the tag will have<code data-gs="comd/c" data-x>b</code>:
 	</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;
@@ -254,9 +226,7 @@ p {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Изучив код, скажите какой цвет будет иметь
-		текст в теге <code data-gs="comd/c" data-x>li</code>:
+	<p>After studying the code, tell me what color the text in the tag will have<code data-gs="comd/c" data-x>li</code>:
 	</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
@@ -270,9 +240,7 @@ p {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Изучив код, скажите какой цвет будет иметь
-		текст в теге <code data-gs="comd/c" data-x>li</code>:
+	<p>After studying the code, tell me what color the text in the tag will have<code data-gs="comd/c" data-x>li</code>:
 	</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
@@ -289,9 +257,7 @@ li {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Изучив код, скажите какой цвет будет иметь
-		текст в теге <code data-gs="comd/c" data-x>i</code>:
+	<p>After studying the code, tell me what color the text in the tag will have<code data-gs="comd/c" data-x>i</code>:
 	</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
@@ -311,9 +277,7 @@ i {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Изучив код, скажите какой размер будет иметь
-		текст в теге <code data-gs="comd/c" data-x>i</code>:
+	<p>After studying the code, tell me what size the text in the tag will be<code data-gs="comd/c" data-x>i</code>:
 	</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
@@ -334,16 +298,16 @@ li {
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../tags-relationship/index.html" class="lesson-nav-btn lesson-nav-prev" title="Родственные связи тегов">← Родственные связи тегов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../selectors-grouping/index.html" class="lesson-nav-btn lesson-nav-next" title="Группировка селекторов">Группировка селекторов →</a>
+      <a href="../tags-relationship/index.html" class="lesson-nav-btn lesson-nav-prev" title="Tag relationships">← Tag relationships</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../selectors-grouping/index.html" class="lesson-nav-btn lesson-nav-next" title="Grouping selectors">Selector grouping →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

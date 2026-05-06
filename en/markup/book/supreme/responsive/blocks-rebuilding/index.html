@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Перестроение блоков через медиазапросы в CSS — acteck.off</title>
-  <meta name="description" content="Перестроение блоков через медиазапросы в CSS — учебные материалы по программированию.">
+  <title>Rebuilding blocks using media queries in CSS - acteck.off</title>
+  <meta name="description" content="Rebuilding Blocks Using Media Queries in CSS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,15 +33,11 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Перестроение блоков через медиазапросы в CSS</h1>
-    <p>
-	Давайте научимся выполнять перестроения блоков
-	на различной ширине экрана. Для примера реализуем
-	вот такое поведение:
-</p>
+    <h1>Rebuilding blocks using media queries in CSS</h1>
+    <p>Let's learn how to rebuild blocks on different screen widths. For example, let's implement the following behavior:</p>
 <div data-p="bock/pane">
 					<div data-w="bock/open" data-m-type="W">
 						<a href="" data-e="link" data-x>
@@ -101,19 +97,14 @@
 						</a>
 					</div>
 				</div>
-<p>
-	Для начала напишем HTML код наших блоков:
-</p>
+<p>First, let's write the HTML code for our blocks:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
 	&lt;div class="child"&gt;1&lt;/div&gt;
 	&lt;div class="child"&gt;2&lt;/div&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Теперь давайте напишем стили родителю наших
-	блоков:
-</p>
+<p>Now let's style the parent of our blocks:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
 	display: flex;
@@ -122,11 +113,7 @@
 	border: 1px solid red;
 }</code>
 </div>
-<p>
-	Теперь напишем стили самим блокам, не указывая
-	тех свойств, которые будут меняться
-	медиазапросами:
-</p>
+<p>Now let’s write styles for the blocks themselves, without specifying those properties that will be changed by media queries:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.child {
 	box-sizing: border-box;
@@ -134,11 +121,7 @@
 	border: 1px solid green;
 }</code>
 </div>
-<p>
-	На большой ширине экрана пусть промежуток
-	между блоками рассчитывается
-	автоматически:
-</p>
+<p>On a large screen width, let the gap between blocks be calculated automatically:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 500px) {
 	.parent {
@@ -146,11 +129,7 @@
 	}
 }</code>
 </div>
-<p>
-	Поставим ширину нашим блокам чуть меньше
-	<code data-gs="comd/u" data-x>50%</code>, чтобы оставить мест
-	под отступ:
-</p>
+<p>Let's set the width of our blocks a little smaller<code data-gs="comd/u" data-x>50%</code>to leave space for indentation:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (min-width: 500px) {
 	.child {
@@ -158,10 +137,7 @@
 	}
 }</code>
 </div>
-<p>
-	На маленькой ширине экрана поставим наши
-	блоки в колонку:
-</p>
+<p>On a small screen width we will place our blocks in a column:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (max-width: 500px) {
 	.parent {
@@ -169,9 +145,7 @@
 	}
 }</code>
 </div>
-<p>
-	Зададим им нижний отступ:
-</p>
+<p>Let's give them a bottom margin:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">@media (max-width: 500px) {
 	.child {
@@ -179,9 +153,7 @@
 	}
 }</code>
 </div>
-<p>
-	Соберем все вместе и получим следующий код:
-</p>
+<p>Let's put everything together and get the following code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.parent {
 	display: flex;
@@ -212,9 +184,7 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Повторите пример, приведенный ниже:
-	</p>
+	<p>Repeat the example below:</p>
 	<div data-p="bock/pane">
 					<div data-w="bock/open" data-m-type="W">
 						<a href="" data-e="link" data-x>
@@ -279,9 +249,7 @@
 				</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Повторите пример, приведенный ниже:
-	</p>
+	<p>Repeat the example below:</p>
 	<div data-p="bock/pane">
 					<div data-w="bock/open" data-m-type="W">
 						<a href="" data-e="link" data-x>
@@ -350,9 +318,7 @@
 				</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Повторите пример, приведенный ниже:
-	</p>
+	<p>Repeat the example below:</p>
 	<div data-p="bock/pane">
 					<div data-w="bock/open" data-m-type="W">
 						<a href="" data-e="link" data-x>
@@ -437,9 +403,7 @@
 				</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Повторите пример, приведенный ниже:
-	</p>
+	<p>Repeat the example below:</p>
 	<div data-p="bock/pane">
 					<div data-w="bock/open" data-m-type="W">
 						<a href="" data-e="link" data-x>
@@ -536,16 +500,16 @@
 				</div>
 </div>
     <div class="lesson-nav">
-      <a href="../mediaqueries/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction в медиазапросы">← Introduction в медиазапросы</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../tiles/index.html" class="lesson-nav-btn lesson-nav-next" title="Плиточка без отступов">Плиточка без отступов →</a>
+      <a href="../mediaqueries/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction to Media Queries">← Introduction to Media Queries</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../tiles/index.html" class="lesson-nav-btn lesson-nav-next" title="Tiles without indents">Tiles without indents →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

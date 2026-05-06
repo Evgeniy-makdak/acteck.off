@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Форматирование чисел с помощью каналов в Angular — acteck.off</title>
-  <meta name="description" content="Форматирование чисел с помощью каналов в Angular — учебные материалы по программированию.">
+  <title>Formatting Numbers Using Channels in Angular - acteck.off</title>
+  <meta name="description" content="Formatting Numbers Using Channels in Angular - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,233 +36,156 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Форматирование чисел с помощью каналов в Angular</h1>
-    <p>
-	С помощью канала <code data-gs="comd/c" data-x>DecimalPipe</code> можно
-	форматировать числа. В первом параметре
-	канала мы передаем минимальное количество
-	цифр в целой части. Во втором параметре
-	указываем минимальное количество цифр в
-	дробной части. В третьем необязательным
-	параметре задаем максимальное количество
-	цифр в дробной части. 
+    <h1>Formatting Numbers Using Channels in Angular</h1>
+    <p>Using the channel<code data-gs="comd/c" data-x>DecimalPipe</code>numbers can be formatted. In the first channel parameter we pass the minimum number of digits in the integer part. In the second parameter we indicate the minimum number of digits in the fractional part. In the third optional parameter we set the maximum number of digits in the fractional part.</p>
+<p>Despite the fact that our channel is called<code data-gs="comd/c" data-x>DecimalPipe</code>, to call it we write like this:<code data-gs="comd/c" data-x>number</code>. 
 </p>
-<p>
-	Несмотря на то, что наш канал называется
-	<code data-gs="comd/c" data-x>DecimalPipe</code>, для его вызова мы пишем
-	так: <code data-gs="comd/c" data-x>number</code>. 
-</p>
-<p>
-	Давайте попробуем на практике. В классе
-	компонента зададим следующее число: 
-</p>
+<p>Let's try it in practice. In the component class, set the following number:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	num: number = 18;
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте выведем наше число так, чтобы в
-	его целой части были две цифры. При этом
-	минимальное количество цифр в дробной части
-	будет составлять <code data-gs="comd/n" data-x>1</code>: 
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's output our number so that its integer part contains two digits. In this case, the minimum number of digits in the fractional part will be<code data-gs="comd/n" data-x>1</code>: 
 </p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;{{ num | number:'2.1' }}&lt;/div&gt;</code>
 </div>
-<p>
-	Результат выполнения кода: 
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;18.0&lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь давайте зададим, чтобы в дробной
-	части нашего числа отображались две цифры: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's set the fractional part of our number to display two digits:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;{{ num | number:'2.2' }}&lt;/div&gt;</code>
 </div>
-<p>
-	Результат выполнения кода: 
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;18.00&lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте зададим новое число: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's set a new number:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export class AppComponent {
 	num: number = 18.67899;
 }</code>
 </div>
-<p>
-	И выведем его в HTML-шаблоне так, чтобы в
-	дробной части отображались максимально две
-	цифры: 
-</p>
+<p>And display it in the HTML template so that the fractional part displays a maximum of two digits:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;{{ num | number:'2.1-2' }}&lt;/div&gt;</code>
 </div>
-<p>
-	Результат выполнения кода: 
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;18.68&lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь отформатируем нашего число так,
-	чтобы в его целой части были три цифры. А
-	в дробной части отобразилось пять цифр: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's format our number so that its integer part contains three digits. And five digits were displayed in the fractional part:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;{{ num | number:'3.5-6' }}&lt;/div&gt;</code>
 </div>
-<p>
-	Результат выполнения кода: 
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;018.67899&lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте попробуем вывести минимальное
-	количество цифр в дробной части, превышающее
-	заданное количество в числе. В нашем случае
-	выведем шесть цифр: 
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's try to output the minimum number of digits in the fractional part that exceeds the specified number in the number. In our case, we will output six digits:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;{{ num | number:'3.6-8' }}&lt;/div&gt;</code>
 </div>
-<p>
-	В результате выполнения кода мы увидим,
-	что канал <code data-gs="comd/c" data-x>DecimalPipe</code> добавил ноль
-	к дробной части: 
-</p>
+<p>As a result of executing the code, we will see that the channel<code data-gs="comd/c" data-x>DecimalPipe</code>added a zero to the fractional part:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div&gt;018.678990&lt;/div&gt;</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Дано число: 
-	</p>
+	<p>Given number:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 15;</code>
 	</div>
-	<p>
-		Отформатируйте его в следующем виде: 
-	</p>
+	<p>Format it as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'015.000'</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дано число: 
-	</p>
+	<p>Given number:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 12.345;</code>
 	</div>
-	<p>
-		Отформатируйте его в следующем виде: 
-	</p>
+	<p>Format it as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'0012.345'</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дано число: 
-	</p>
+	<p>Given number:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 12.345;</code>
 	</div>
-	<p>
-		Отформатируйте его в следующем виде: 
-	</p>
+	<p>Format it as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'12.3'</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дано число: 
-	</p>
+	<p>Given number:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 12.345;</code>
 	</div>
-	<p>
-		Отформатируйте его в следующем виде: 
-	</p>
+	<p>Format it as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'012.34500'</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дано число: 
-	</p>
+	<p>Given number:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = -7.261;</code>
 	</div>
-	<p>
-		Отформатируйте его в следующем виде: 
-	</p>
+	<p>Format it as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'-007.3'</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дано число: 
-	</p>
+	<p>Given number:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 100.261923;</code>
 	</div>
-	<p>
-		Отформатируйте его в следующем виде: 
-	</p>
+	<p>Format it as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'100.9226130'</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дано число: 
-	</p>
+	<p>Given number:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">num: number = 100.926613;</code>
 	</div>
-	<p>
-		Отформатируйте его в следующем виде: 
-	</p>
+	<p>Format it as follows:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="typescript">'0100.93'</code>
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../dates/index.html" class="lesson-nav-btn lesson-nav-prev" title="Форматирование дат">← Форматирование дат</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../currencies/index.html" class="lesson-nav-btn lesson-nav-next" title="Форматирование валюты">Форматирование валюты →</a>
+      <a href="../dates/index.html" class="lesson-nav-btn lesson-nav-prev" title="Formatting Dates">← Date formatting</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../currencies/index.html" class="lesson-nav-btn lesson-nav-next" title="Currency formatting">Currency formatting →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

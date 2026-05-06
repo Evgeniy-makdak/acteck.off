@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Заполнение многомерных массивов по порядку в JavaScript — acteck.off</title>
-  <meta name="description" content="Заполнение многомерных массивов по порядку в JavaScript — учебные материалы по программированию.">
+  <title>Filling multidimensional arrays in order in JavaScript - acteck.off</title>
+  <meta name="description" content="Filling Multidimensional Arrays in Order in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,22 +36,12 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Заполнение многомерных массивов по порядку в JavaScript</h1>
-    <p>
-	В предыдущих примерах все числа в подмассивах
-	были одинаковыми. Давайте теперь сделаем
-	так, чтобы числа возрастали, вот так:
-</p>
+    <h1>Filling multidimensional arrays in order in JavaScript</h1>
+    <p>In the previous examples, all numbers in the subarrays were the same. Let's now make the numbers increase, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
 </div>
-<p>
-	Для этого нужно сделать специальную переменную-счетчик,
-	которая будет увеличивать свое значение на
-	<code data-gs="comd/n" data-x>1</code> при каждой итерации внутреннего
-	цикла. Значение этого счетчика мы и будем
-	записывать в массив, вот так:
-</p>
+<p>To do this, you need to make a special counter variable that will increase its value by<code data-gs="comd/n" data-x>1</code>at each iteration of the inner loop. We will write the value of this counter into an array, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 let k = 1; // счетчик
@@ -67,10 +57,7 @@ for (let i = 0; i &lt; 3; i++) {
 
 console.log(arr);</code>
 </div>
-<p>
-	Можно упростить код, сделав увеличение
-	счетчика после присваивания:
-</p>
+<p>You can simplify the code by incrementing the counter after the assignment:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 
@@ -84,55 +71,34 @@ for (let i = 0, k = 1; i &lt; 3; i++) {
 
 console.log(arr);</code>
 </div>
-<p>
-	Обратите внимание на то, что в данном случае
-	должно быть обязательно <code data-gs="comd/c" data-x>k++</code>, а не
-	<code data-gs="comd/c" data-x>++k</code>, так как второй вариант сначала
-	выполнит увеличение счетчика, а уже потом
-	запись в массив (то есть в результате массив
-	начнется с двойки, а не с единицы, вот так:
-</p>
+<p>Please note that in this case it must be<code data-gs="comd/c" data-x>k++</code>, not<code data-gs="comd/c" data-x>++k</code>, since the second option will first increment the counter, and only then write to the array (that is, as a result, the array will start from two, not from one, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[2, 3, 4], [5, 6, 7], [8, 9, 10]])</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сформируйте с помощью двух вложенных циклов
-		следующий массив:
-	</p>
+	<p>Form the following array using two nested loops:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2], [3, 4], [5, 6], [7, 8]]</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сформируйте с помощью двух вложенных циклов
-		следующий массив:
-	</p>
+	<p>Form the following array using two nested loops:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[2, 4, 6], [8, 10, 12], [14, 16, 18], [20, 22, 24]]</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сформируйте с помощью трех вложенных циклов
-		следующий трехмерный массив:
-	</p>
+	<p>Use three nested loops to form the following three-dimensional array:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[[1, 2], [3, 4]], [[5, 6], [7, 8]]]</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор следующего кода хотел сделать вот такой
-		массив:
-	</p>
+	<p>The author of the following code wanted to make an array like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
 	</div>
-	<p>
-		Для этого был написан следующий код:
-	</p>
+	<p>The following code was written for this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 
@@ -147,22 +113,14 @@ for (let i = 0; i &lt; 3; i++) {
 
 console.log(arr);</code>
 	</div>
-	<p>
-		Написанный код, однако, не делает задуманного.
-		Найдите и исправьте ошибку автора.
-	</p>
+	<p>The written code, however, does not do what is intended. Find and correct the author's mistake.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор следующего кода хотел сделать вот такой
-		массив:
-	</p>
+	<p>The author of the following code wanted to make an array like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript"> [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
 	</div>
-	<p>
-		Для этого был написан следующий код:
-	</p>
+	<p>The following code was written for this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 let k = 1;
@@ -177,22 +135,14 @@ for (let i = 0; i &lt; 3; i++) {
 
 console.log(arr);</code>
 	</div>
-	<p>
-		Написанный код, однако, не делает задуманного.
-		Найдите и исправьте ошибку автора.
-	</p>
+	<p>The written code, however, does not do what is intended. Find and correct the author's mistake.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор следующего кода хотел сделать вот такой
-		массив:
-	</p>
+	<p>The author of the following code wanted to make an array like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
 	</div>
-	<p>
-		Для этого был написан следующий код:
-	</p>
+	<p>The following code was written for this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 let k = 1;
@@ -208,22 +158,14 @@ for (let i = 0; i &lt; 3; i++) {
 
 console.log(arr);</code>
 	</div>
-	<p>
-		Написанный код, однако, не делает задуманного.
-		Найдите и исправьте ошибку автора.
-	</p>
+	<p>The written code, however, does not do what is intended. Find and correct the author's mistake.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор следующего кода хотел сделать вот такой
-		массив:
-	</p>
+	<p>The author of the following code wanted to make an array like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
 	</div>
-	<p>
-		Для этого был написан следующий код:
-	</p>
+	<p>The following code was written for this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 let k;
@@ -239,22 +181,14 @@ for (let i = 0; i &lt; 3; i++) {
 
 console.log(arr);</code>
 	</div>
-	<p>
-		Написанный код, однако, не делает задуманного.
-		Найдите и исправьте ошибку автора.
-	</p>
+	<p>The written code, however, does not do what is intended. Find and correct the author's mistake.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор следующего кода хотел сделать вот такой
-		массив:
-	</p>
+	<p>The author of the following code wanted to make an array like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
 	</div>
-	<p>
-		Для этого был написан следующий код:
-	</p>
+	<p>The following code was written for this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 
@@ -268,22 +202,14 @@ for (let i = 0, k = 1; i &lt; 3; i++) {
 
 console.log(arr);</code>
 	</div>
-	<p>
-		Написанный код, однако, не делает задуманного.
-		Найдите и исправьте ошибку автора.
-	</p>
+	<p>The written code, however, does not do what is intended. Find and correct the author's mistake.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор следующего кода хотел сделать вот такой
-		массив:
-	</p>
+	<p>The author of the following code wanted to make an array like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
 	</div>
-	<p>
-		Для этого был написан следующий код:
-	</p>
+	<p>The following code was written for this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 
@@ -297,22 +223,14 @@ for (let i = 0, k = 1; i &lt; 3; i++) {
 
 console.log(arr);</code>
 	</div>
-	<p>
-		Написанный код, однако, не делает задуманного.
-		Найдите и исправьте ошибку автора.
-	</p>
+	<p>The written code, however, does not do what is intended. Find and correct the author's mistake.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор следующего кода хотел сделать вот такой
-		массив:
-	</p>
+	<p>The author of the following code wanted to make an array like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
 	</div>
-	<p>
-		Для этого был написан следующий код:
-	</p>
+	<p>The following code was written for this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 
@@ -326,22 +244,14 @@ for (let i = 0, k = 1; i &lt; 3; i++) {
 
 console.log(arr);</code>
 	</div>
-	<p>
-		Написанный код, однако, не делает задуманного.
-		Найдите и исправьте ошибку автора.
-	</p>
+	<p>The written code, however, does not do what is intended. Find and correct the author's mistake.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор следующего кода хотел сделать вот такой
-		массив:
-	</p>
+	<p>The author of the following code wanted to make an array like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
 	</div>
-	<p>
-		Для этого был написан следующий код:
-	</p>
+	<p>The following code was written for this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 
@@ -355,22 +265,14 @@ for (let i = 0, k = 1; i &lt; 3; i++) {
 
 console.log(arr);</code>
 	</div>
-	<p>
-		Написанный код, однако, не делает задуманного.
-		Найдите и исправьте ошибку автора.
-	</p>
+	<p>The written code, however, does not do what is intended. Find and correct the author's mistake.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор следующего кода хотел сделать вот такой
-		массив:
-	</p>
+	<p>The author of the following code wanted to make an array like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
 	</div>
-	<p>
-		Для этого был написан следующий код:
-	</p>
+	<p>The following code was written for this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 let k = 1;
@@ -386,22 +288,14 @@ for (let i = 0; i &lt; 3; i++) {
 
 console.log(arr);</code>
 	</div>
-	<p>
-		Написанный код, однако, не делает задуманного.
-		Найдите и исправьте ошибку автора.
-	</p>
+	<p>The written code, however, does not do what is intended. Find and correct the author's mistake.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор следующего кода хотел сделать вот такой
-		массив:
-	</p>
+	<p>The author of the following code wanted to make an array like this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>
 	</div>
-	<p>
-		Для этого был написан следующий код:
-	</p>
+	<p>The following code was written for this:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [];
 
@@ -415,23 +309,20 @@ for (let i = 0, k = 1; i &lt; 3; i++) {
 
 console.log(arr);</code>
 	</div>
-	<p>
-		Написанный код, однако, не делает задуманного.
-		Найдите и исправьте ошибку автора.
-	</p>
+	<p>The written code, however, does not do what is intended. Find and correct the author's mistake.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../arrays-filling-ploblems/index.html" class="lesson-nav-btn lesson-nav-prev" title="Проблемы при заполнении многомерных массивов">← Проблемы при заполнении многомерных массивов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../objects/index.html" class="lesson-nav-btn lesson-nav-next" title="Многомерные объекты">Многомерные объекты →</a>
+      <a href="../arrays-filling-ploblems/index.html" class="lesson-nav-btn lesson-nav-prev" title="Problems when filling multidimensional arrays">← Problems when filling multidimensional arrays</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../objects/index.html" class="lesson-nav-btn lesson-nav-next" title="Multidimensional objects">Multidimensional objects →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Создание маршрута для редактирования данных в React Router — acteck.off</title>
-  <meta name="description" content="Создание маршрута для редактирования данных в React Router — учебные материалы по программированию.">
+  <title>Creating a route for editing data in React Router - acteck.off</title>
+  <meta name="description" content="Creating a Data Editing Route in React Router - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,20 +36,10 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Создание маршрута для редактирования данных в React Router</h1>
-    <p>
-	На прошлом уроке мы создали форму
-	для редактирования в отдельном React
-	компоненте <code data-gs="comd/c" data-x>EditProduct</code>.
+    <h1>Creating a Data Editing Route in React Router</h1>
+    <p>In the last lesson we created a form for editing in a separate React component<code data-gs="comd/c" data-x>EditProduct</code>.
 </p>
-<p>
-	Давайте теперь напишем функцию загрузчика
-	для нового маршрута сразу после импорта
-	и перед функцией <code data-gs="comd/c" data-x>EditProduct</code>. Она
-	будет такой же, как и в <code data-gs="comd/p" data-x>product.jsx</code>. В
-	функцию будут передаваться URL параметры
-	и далее мы будем получать продукт по его
-	<code data-gs="comd/c" data-x>id</code>:
+<p>Let's now write a loader function for the new route just after the import and before the function<code data-gs="comd/c" data-x>EditProduct</code>. It will be the same as in<code data-gs="comd/p" data-x>product.jsx</code>. URL parameters will be passed to the function and then we will receive the product by its<code data-gs="comd/c" data-x>id</code>:
 </p>
 <div data-p="bock/pane" data-p-file="routes/edit.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function loader({ params }) {
@@ -57,26 +47,16 @@
 	return { product };
 }</code>
 </div>
-<p>
-	Импортируем <code data-gs="comd/c" data-x>getProduct</code> из
-	<code data-gs="comd/p" data-x>forStorage.js</code>:		
+<p>We import<code data-gs="comd/c" data-x>getProduct</code>from<code data-gs="comd/p" data-x>forStorage.js</code>:		
 </p>
 <div data-p="bock/pane" data-p-file="routes/edit.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { getProduct } from '../forStorage';</code>
 </div>
-<p>
-	А сейчас мы откроем наш <code data-gs="comd/p" data-x>main.jsx</code>
-	и импортируем созданный нами компонент
-	<code data-gs="comd/c" data-x>EditProduct</code> и загрузчик:
-</p>
+<p>And now we will open our<code data-gs="comd/p" data-x>main.jsx</code>and import the component we created<code data-gs="comd/c" data-x>EditProduct</code>and bootloader:</p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import EditProduct, { loader as editProductLoader } from './routes/edit';</code>
 </div>
-<p>
-	Затем добавим в массив <code data-gs="comd/c" data-x>children</code>
-	объект маршрута для редактирования сразу
-	после маршрута для продукта:
-</p>
+<p>Then add it to the array<code data-gs="comd/c" data-x>children</code>route object to edit immediately after the route for the product:</p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">children: [
 	{
@@ -91,37 +71,18 @@
 	},
 ],</code>
 </div>
-<p>
-	Теперь запустим приложение, создадим
-	продукт, кликнем по нему, а затем по
-	кнопке редактирования и увидим нашу
-	формочку.
-</p>
-<p>
-	Единственное, еще нам нужно сделать
-	так, чтобы в полях формы перед
-	редактированием были загружены текущие
-	данные. Для этого мы импортируем
-	в <code data-gs="comd/p" data-x>edit.jsx</code> хук
-	<code data-gs="comd/c" data-x>useLoaderData</code>:
+<p>Now let’s launch the application, create a product, click on it, and then on the edit button and see our form.</p>
+<p>The only thing we still need to do is to ensure that the current data is loaded in the form fields before editing. To do this we import into<code data-gs="comd/p" data-x>edit.jsx</code>hook<code data-gs="comd/c" data-x>useLoaderData</code>:
 </p>
 <div data-p="bock/pane" data-p-file="routes/edit.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { Form, useLoaderData } from 'react-router-dom';</code>
 </div>	
-<p>
-	И применим его для получения данных
-	из загрузчика в функции <code data-gs="comd/c" data-x>EditProduct</code>.
-	Добавим его перед командой <code data-gs="comd/c" data-x>return</code>:
+<p>And use it to receive data from the loader in a function<code data-gs="comd/c" data-x>EditProduct</code>. Let's add it before the command<code data-gs="comd/c" data-x>return</code>:
 </p>
 <div data-p="bock/pane" data-p-file="routes/edit.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const { product } = useLoaderData();</code>
 </div>
-<p>
-	Теперь добавим в каждый тег инпут атрибут
-	<code data-gs="comd/c" data-x>defaultValue</code> с соответствующими
-	значениями для каждого инпута. Например,
-	первый инпут теперь будет выглядеть так:
-</p>
+<p>Now let’s add an input attribute to each tag<code data-gs="comd/c" data-x>defaultValue</code>with corresponding values ​​for each input. For example, the first input will now look like this:</p>
 <div data-p="bock/pane" data-p-file="routes/edit.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;input
 	placeholder="name"
@@ -130,36 +91,19 @@
 	defaultValue={product.name}
 /&gt;</code>
 </div>
-<p>
-	Для двух оставшихся инпутов значения будут
-	соответственно <code data-gs="comd/s" data-x>'product.cost'</code> и
-	<code data-gs="comd/s" data-x>'product.amount'</code>. Правда пока что
-	данных в форме у нас нет.
-</p>
+<p>For the two remaining inputs the values ​​will be respectively<code data-gs="comd/s" data-x>'product.cost'</code>And<code data-gs="comd/s" data-x>'product.amount'</code>. However, we don’t have any data in the form yet.</p>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, создайте функцию
-		<code data-gs="comd/c" data-x>loader</code> в <code data-gs="comd/p" data-x>edit.jsx</code> для
-		маршрута редактирования данных студента.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, create a function<code data-gs="comd/c" data-x>loader</code>V<code data-gs="comd/p" data-x>edit.jsx</code>for the student data editing route.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Добавьте в массив <code data-gs="comd/c" data-x>children</code> объект
-		маршрута для редактирования.
-	</p>
+	<p>Add to array<code data-gs="comd/c" data-x>children</code>route object to edit.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Добавьте для вашей функции <code data-gs="comd/c" data-x>EditStudent</code>
-		требуемый в уроке код.
-	</p>
+	<p>Add for your function<code data-gs="comd/c" data-x>EditStudent</code>the code required in the lesson.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -167,7 +111,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

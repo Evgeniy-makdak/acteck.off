@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Проблемы плиточки на флексах в CSS — acteck.off</title>
-  <meta name="description" content="Проблемы плиточки на флексах в CSS — учебные материалы по программированию.">
+  <title>Problems with flex tiles in CSS - acteck.off</title>
+  <meta name="description" content="Flex Tile Problems in CSS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,24 +33,13 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Проблемы плиточки на флексах в CSS</h1>
-    <p>
-	Первая проблема плиточки в общем-то очевидна сразу
-	- очень не удобно то, что родителю приходится
-	явно задавать высоту. Ведь у нас вполне может
-	быть такое, что количество блоков будет меняться
-	динамически и их количество будет то меньше,
-	то больше, чем <code data-gs="comd/n" data-x>9</code>.
+    <h1>Problems with flex tiles in CSS</h1>
+    <p>The first problem with the tile is, in general, immediately obvious - it is very inconvenient that the parent has to explicitly set the height. After all, we may well have such a situation that the number of blocks will change dynamically and their number will be either less or more than<code data-gs="comd/n" data-x>9</code>.
 </p>
-<p>
-	А вот вторая проблема возникнет, если количество
-	блоков такое, что в последнем ряду будет
-	недостаточное количество блоков. В этом случае
-	последний ряд будет выглядеть отвратительно:
-</p>
+<p>But the second problem will arise if the number of blocks is such that there is an insufficient number of blocks in the last row. In this case, the last row will look disgusting:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="parent"&gt;
 	&lt;div class="child"&gt;1&lt;/div&gt;
@@ -129,45 +118,27 @@
 </html>"></iframe>
 					</div>
 				</div>
-<p>
-	Получается, что даже по горизонтали значение
-	<code data-gs="comd/v" data-x>space-between</code> работает плохо в нашем
-	случае.
-</p>
-<p>
-	Резюмируем: если количество ваших потомков
-	всегда постоянно и нормально помещается в
-	родителя, то плиточка на <code data-gs="comd/v" data-x>space-between</code>
-	достаточно удобная вещь. В противном случае
-	придется придумывать что-то еще.
-</p>
+<p>It turns out that even horizontally the value<code data-gs="comd/v" data-x>space-between</code>doesn't work well in our case.</p>
+<p>To summarize: if the number of your children always fits normally into the parent, then the tile on<code data-gs="comd/v" data-x>space-between</code>quite a convenient thing. Otherwise, you'll have to come up with something else.</p>
 <div data-w="cont/task">
-	<p>
-		Даны <code data-gs="comd/n" data-x>12</code> элементов. Сделайте из них
-		плиточку по <code data-gs="comd/n" data-x>4</code> элемента в ряд с шириной
-		каждого элемента в <code data-gs="comd/u" data-x>100px</code> и расстоянием
-		между ними в <code data-gs="comd/u" data-x>20px</code>.
+	<p>Dans<code data-gs="comd/n" data-x>12</code>elements. Make them into tiles<code data-gs="comd/n" data-x>4</code>elements in a row with the width of each element in<code data-gs="comd/u" data-x>100px</code>and the distance between them in<code data-gs="comd/u" data-x>20px</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны <code data-gs="comd/n" data-x>12</code> элементов. Сделайте из них
-		плиточку по <code data-gs="comd/n" data-x>3</code> элемента в ряд с шириной
-		каждого элемента в <code data-gs="comd/u" data-x>150px</code> и расстоянием
-		между ними в <code data-gs="comd/u" data-x>10px</code>.
+	<p>Dans<code data-gs="comd/n" data-x>12</code>elements. Make them into tiles<code data-gs="comd/n" data-x>3</code>elements in a row with the width of each element in<code data-gs="comd/u" data-x>150px</code>and the distance between them in<code data-gs="comd/u" data-x>10px</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../flex-tiles/index.html" class="lesson-nav-btn lesson-nav-prev" title="Плиточка на флексах">← Плиточка на флексах</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../tiles-correct-gaps/index.html" class="lesson-nav-btn lesson-nav-next" title="Плиточка с корректными отступами">Плиточка с корректными отступами →</a>
+      <a href="../flex-tiles/index.html" class="lesson-nav-btn lesson-nav-prev" title="Flex tiles">← Tiles on flex</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../tiles-correct-gaps/index.html" class="lesson-nav-btn lesson-nav-next" title="Tile with correct indents">Tile with correct indents →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

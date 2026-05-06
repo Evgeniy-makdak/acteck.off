@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод animate в jQuery — acteck.off</title>
-  <meta name="description" content="Метод animate в jQuery — учебные материалы по программированию.">
+  <title>jQuery animate method - acteck.off</title>
+  <meta name="description" content="jQuery animate method - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,30 +36,16 @@
       <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод animate в jQuery</h1>
-    <p>
-	Все методы, которые мы разбирали в предыдущих
-	уроках, несколько ограничены - они делают именно
-	то, для чего созданы. Если вам нужно больше
-	контроля за анимацией - используйте универсальный
-	метод <a href="../../../../manual/animate/index.html"><code data-gs="comd/c" data-x>animate</code></a>.
+    <h1>jQuery animate method</h1>
+    <p>All the methods that we discussed in previous lessons are somewhat limited - they do exactly what they are designed to do. If you need more control over the animation - use the universal method<a href="../../../../manual/animate/index.html"><code data-gs="comd/c" data-x>animate</code></a>.
 </p>
-<p>
-	Первым параметром этот метод принимает объект,
-	в котором следует задать новые значения CSS
-	свойств, которые вы хотите анимировать. А
-	вторым параметром - время выполнения анимации.
-</p>
-<p>
-	Давайте реализуем данный метод на следующем HTML коде:
-</p>
+<p>As the first parameter, this method takes an object in which to set the new values ​​of the CSS properties that you want to animate. And the second parameter is the animation execution time.</p>
+<p>Let's implement this method using the following HTML code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="button"&gt;click me&lt;/button&gt;
 &lt;div id="elem"&gt;text...&lt;/div&gt;</code>
 </div>
-<p>
-	Пусть CSS выглядит так:
-</p>
+<p>Let the CSS look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#elem {
 	width: 150px;
@@ -68,40 +54,25 @@
 	border: 1px solid green;
 }</code>
 </div>
-<p>
-	Давайте сделаем так, чтобы по нажатию на
-	кнопку элемент сжался до следующих размеров:
-	высота - <code data-gs="comd/u" data-x>50px</code>, ширина - <code data-gs="comd/u" data-x>100px</code>:
+<p>Let's make sure that when the button is pressed, the element shrinks to the following dimensions: height -<code data-gs="comd/u" data-x>50px</code>, width -<code data-gs="comd/u" data-x>100px</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#button').click(function() {
 	$('#elem').animate({height: 50, width: 100}, 1000);
 });</code>
 </div>
-<p>
-	Если указать значение в таком формате
-	<span data-gs="comd/f" data-x>height: '+=50'</span>, то анимация будет работать
-	так: к текущему значению высоты будет прибавлено
-	<code data-gs="comd/u" data-x>50px</code> (в нашем случае) и элемент будет
-	плавно анимирован до нового значения. Посмотрим
-	на примере:
-</p>
+<p>If you specify a value in this format<span data-gs="comd/f" data-x>height: '+=50'</span>, then the animation will work like this: the current height value will be added<code data-gs="comd/u" data-x>50px</code>(in our case) and the element will smoothly animate to the new value. Let's look at an example:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#button').click(function() {
 	$('#elem').animate({height: '+=50', width: '+=50'}, 1000);
 });</code>
 </div>
-<p>
-	Подробнее про метод animate смотрите в справочнике
-	jQuery.
-</p>
+<p>For more information about the animate method, see the jQuery reference book.</p>
 <div data-w="cont/teor">
 	<a href="../../../../manual/animate/index.html"><code data-gs="comd/c" data-x>animate</code></a>
 </div>
 <div data-w="cont/task">
-	<p>
-		Есть такая вёрстка:
-	</p>
+	<p>There is such a layout:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;body&gt;
 	&lt;div id="block"&gt;&lt;/div&gt;
@@ -114,53 +85,32 @@
 	margin-bottom: 20px;
 }</code>
 	</div>
-	<p>
-		Сделайте так, чтобы при нажатии на див с
-		<code data-gs="comd/z" data-x>#block</code> его ширина увеличилась до
-		<code data-gs="comd/u" data-x>200px</code> за <code data-gs="comd/u" data-x>1100мс</code>.
+	<p>Make it so that when you click on the div with<code data-gs="comd/z" data-x>#block</code>its width increased to<code data-gs="comd/u" data-x>200px</code>for<code data-gs="comd/u" data-x>1100мс</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Используйте вёрстку из первой задачи. Сделайте
-		так, чтобы при каждом нажатии
-		на див с <code data-gs="comd/z" data-x>#block</code> его ширина
-		увеличивалась на <code data-gs="comd/u" data-x>200px</code> и каждое
-		такое увеличение происходило бы за
-		<code data-gs="comd/u" data-x>900px</code>.
+	<p>Use the layout from the first task. Make it so that every time you click on a div with<code data-gs="comd/z" data-x>#block</code>its width increased by<code data-gs="comd/u" data-x>200px</code>and each such increase would occur in<code data-gs="comd/u" data-x>900px</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Используйте вёрстку из первой задачи. Сделайте
-		так, чтобы при каждом нажатии
-		на див с <code data-gs="comd/z" data-x>#block</code> его ширина и
-		высота увеличивались бы на <code data-gs="comd/u" data-x>100px</code> и
-		каждое такое увеличение происходило бы за
-		<code data-gs="comd/u" data-x>950px</code>.
+	<p>Use the layout from the first task. Make it so that every time you click on a div with<code data-gs="comd/z" data-x>#block</code>its width and height would increase by<code data-gs="comd/u" data-x>100px</code>and each such increase would occur in<code data-gs="comd/u" data-x>950px</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Используйте вёрстку из первой задачи. Сделайте
-		так, чтобы при каждом нажатии
-		на див с <code data-gs="comd/z" data-x>#block</code>, он перемещался бы
-		вправо на <code data-gs="comd/u" data-x>100px</code> и каждое
-		такое перемещение происходило бы за
-		<code data-gs="comd/u" data-x>700px</code>.
+	<p>Use the layout from the first task. Make it so that every time you click on a div with<code data-gs="comd/z" data-x>#block</code>, it would move to the right by<code data-gs="comd/u" data-x>100px</code>and each such movement would take place<code data-gs="comd/u" data-x>700px</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../fadeto-method/index.html" class="lesson-nav-btn lesson-nav-prev" title="Метод fadeTo">← Метод fadeTo</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../action-after-effect-ends/index.html" class="lesson-nav-btn lesson-nav-next" title="Действие после окончания эффекта">Действие после окончания эффекта →</a>
+      <a href="../fadeto-method/index.html" class="lesson-nav-btn lesson-nav-prev" title="fadeTo method">← fadeTo method</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../action-after-effect-ends/index.html" class="lesson-nav-btn lesson-nav-next" title="Action after the effect ends">Action after the effect ends →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

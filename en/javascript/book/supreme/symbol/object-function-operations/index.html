@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Операции с объектами в функции в JavaScript — acteck.off</title>
-  <meta name="description" content="Операции с объектами в функции в JavaScript — учебные материалы по программированию.">
+  <title>Operations with objects in functions in JavaScript - acteck.off</title>
+  <meta name="description" content="Operations on objects in functions in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,48 +36,29 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Операции с объектами в функции в JavaScript</h1>
-    <p>
-	Давайте добавим в объект функцию,
-	которая будет выполнять некоторую
-	полезную операцию. Например,
-	будет находить сумму элементов
-	объекта.
-</p>
-<p>
-	Пусть у нас есть объект:
-</p>
+    <h1>Operations on objects in functions in JavaScript</h1>
+    <p>Let's add a function to the object that will perform some useful operation. For example, it will find the sum of the elements of an object.</p>
+<p>Let us have an object:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let obj = {a: 1, b: 2, c: 3};</code>
 </div>
-<p>
-	Создадим символ:
-</p>
+<p>Let's create a symbol:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let sym = Symbol();</code>
 </div>
-<p>
-	Запишем функцию:
-</p>
+<p>Let's write the function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">obj[sym] = function() {
 	
 };</code>
 </div>
-<p>
-	В функции, привязанной к объекту
-	<code data-gs="comd/c" data-x>this</code> будет указывать на сам
-	объект:
-</p>
+<p>In a function bound to an object<code data-gs="comd/c" data-x>this</code>will point to the object itself:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">obj[sym] = function() {
 	console.log(this); // {a: 1, b: 2, c: 3}
 };</code>
 </div>
-<p>
-	Найдем с помощью нашей функции
-	сумму элементов объекта:
-</p>
+<p>Let's find the sum of the elements of an object using our function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">obj[sym] = function() {
 	let sum = 0;
@@ -89,53 +70,36 @@
 	return sum;
 };</code>
 </div>
-<p>
-	Вызовем нашу функцию, получив
-	сумму элементов объекта:
-</p>
+<p>Let's call our function, receiving the sum of the object's elements:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let sum = obj[sym]();
 console.log(sum); // выведет 6</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан массив:
-	</p>
+	<p>Given an array:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = [1, 2, 3];</code>
 	</div>
-	<p>
-		Описанным в уроке способом добавьте
-		в массив функцию, которая будет
-		возвращать сумму элементов массива.
-	</p>
+	<p>Using the method described in the lesson, add a function to the array that will return the sum of the array elements.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Вызовите созданную функцию и убедитесь,
-		что она верно находит сумму.
-	</p>
+	<p>Call the created function and make sure that it finds the sum correctly.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Добавьте в массив несколько элементов
-		с помощью метода <code data-gs="comd/c" data-x>push</code>.
-		Убедитесь, что функция будет находить
-		сумму с учетом новых элементов.
-	</p>
+	<p>Add multiple elements to an array using the method<code data-gs="comd/c" data-x>push</code>. Make sure that the function will find the sum taking into account the new elements.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../object-function/index.html" class="lesson-nav-btn lesson-nav-prev" title="Функция в объекте">← Функция в объекте</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../global/index.html" class="lesson-nav-btn lesson-nav-next" title="Глобальные символы">Глобальные символы →</a>
+      <a href="../object-function/index.html" class="lesson-nav-btn lesson-nav-prev" title="Function in object">← Function in object</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../global/index.html" class="lesson-nav-btn lesson-nav-next" title="Global symbols">Global symbols →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

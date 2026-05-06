@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Применение коллекций Map — acteck.off</title>
-  <meta name="description" content="Применение коллекций Map — учебные материалы по программированию.">
+  <title>Using Map collections - acteck.off</title>
+  <meta name="description" content="Using Map Collections - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Применение коллекций Map</h1>
-    <p>
-	Пусть у нас есть абзацы:
-</p>
+    <h1>Using Map Collections</h1>
+    <p>Let us have paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;aaa&lt;/p&gt;
 &lt;p&gt;bbb&lt;/p&gt;
@@ -47,40 +45,25 @@
 &lt;p&gt;ddd&lt;/p&gt;
 &lt;p&gt;eee&lt;/p&gt;</code>
 </div>
-<p>
-	Давайте сделаем так, чтобы по клику на каждый
-	абзац ему в конец записывался его порядковый
-	номер в списке абзацев. Решим задачу через
-	<code data-gs="comd/c" data-x>Map</code>.
+<p>Let's make sure that when you click on each paragraph, its serial number in the list of paragraphs is written at the end. Let's solve the problem through<code data-gs="comd/c" data-x>Map</code>.
 </p>
-<p>
-	Приступим. Для начала получим наши абзацы
-	в переменную:
-</p>
+<p>Let's get started. First, let's put our paragraphs into a variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elems = document.querySelectorAll('p');</code>
 </div>
-<p>
-	Создадим новую коллекцию <code data-gs="comd/c" data-x>Map</code>:
+<p>Let's create a new collection<code data-gs="comd/c" data-x>Map</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let map = new Map;</code>
 </div>
-<p>
-	Заполним нашу коллекцию так, чтобы ключами
-	были наши абзацы, а их значениями - порядковые
-	номера:
-</p>
+<p>Let's fill our collection so that the keys are our paragraphs, and their values ​​are the ordinal numbers:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let i = 1;
 for (let elem of elems) {
 	map.set(elem, i++);
 }</code>
 </div>
-<p>
-	Переберем абзацы циклом и повесим на них
-	обработчик клика:
-</p>
+<p>Let's loop through the paragraphs and attach a click handler to them:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of elems) {
 	elem.addEventListener('click', function() {
@@ -88,11 +71,7 @@ for (let elem of elems) {
 	});
 }</code>
 </div>
-<p>
-	Давайте теперь по клику будем добавлять порядковый
-	номер в конец текста абзаца. При этом будем
-	получать этот номер из нашей коллекции:
-</p>
+<p>Let's now click to add a serial number to the end of the paragraph text. In this case, we will receive this number from our collection:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let elem of elems) {
 	elem.addEventListener('click', function() {
@@ -101,29 +80,15 @@ for (let elem of elems) {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны инпуты. Переберите эти инпуты циклом
-		и создайте коллекцию <code data-gs="comd/c" data-x>Map</code>, ключами
-		в которой будут инпуты, а значением - их
-		порядковый номер на странице. Сделайте так,
-		чтобы по клику на любой инпут ему в <code data-gs="comd/c" data-x>value</code>
-		записывался его порядковый номер.
-	</p>
+	<p>Inputs are given. Loop through these inputs and create a collection<code data-gs="comd/c" data-x>Map</code>, the keys of which will be inputs, and the value will be their serial number on the page. Make it so that when you click on any input, it will<code data-gs="comd/c" data-x>value</code>its serial number was recorded.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны инпуты. В каждый инпут можно ввести
-		число. Пусть по нажатию на <code data-gs="comd/k" data-x>Enter</code> инпут
-		запоминает введенное число. Сделайте так,
-		чтобы по потери фокуса в инпуте в консоль
-		выводился массив всех введенных ранее в инпут
-		чисел.
-	</p>
+	<p>Inputs are given. You can enter a number into each input. Let by clicking on<code data-gs="comd/k" data-x>Enter</code>input remembers the entered number. Make sure that when you lose focus in the input, an array of all numbers entered earlier in the input is displayed in the console.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../keys-values/index.html" class="lesson-nav-btn lesson-nav-prev" title="Ключи и значения">← Ключи и значения</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../keys-values/index.html" class="lesson-nav-btn lesson-nav-prev" title="Keys and values">← Keys and values</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../../set/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
     </div>
   </section>
@@ -131,7 +96,7 @@ for (let elem of elems) {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

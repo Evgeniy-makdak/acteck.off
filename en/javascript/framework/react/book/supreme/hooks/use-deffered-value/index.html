@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Хук оптимизации производительности useDeferredValue в React — acteck.off</title>
-  <meta name="description" content="Хук оптимизации производительности useDeferredValue в React — учебные материалы по программированию.">
+  <title>UseDeferredValue performance optimization hook in React - acteck.off</title>
+  <meta name="description" content="UseDeferredValue performance optimization hook in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,32 +36,10 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Хук оптимизации производительности useDeferredValue в React</h1>
-    <p>
-	Хук оптимизации производительности
-	<code data-gs="comd/c" data-x>useDeferredValue</code>, также как и
-	<code data-gs="comd/c" data-x>useTransition</code>, помогает ускорить
-	работу графического интерфейса, но делает
-	это немного по-другому.
-</p>
-<p>
-	Взгляните на прошлый
-	<a href="../use-transition/index.html">урок</a>
-	и посмотрите, как в случае с <code data-gs="comd/c" data-x>useTransition</code>
-	мы оборачивали функцию обновления
-	<code data-gs="comd/c" data-x>setFilterTerm</code>. Так вот, код обновления
-	стейта не всегда может быть доступен. Он
-	может быть скрыт, например, в библиотеке,
-	которую вы подключили. В этом случае мы
-	можем воспользоваться хуком
-	<code data-gs="comd/c" data-x>useDeferredValue</code>. Toгда нам нужно
-	обернуть либо сам стейт, либо результат,
-	вычисляемый с помощью этого стейта, тем
-	самым снизив его приоритет.
-</p>
-<p>
-	Давайте проанализируем следующий кусочек
-	кода дочернего компонета <code data-gs="comd/c" data-x>ProductList</code>:
+    <h1>UseDeferredValue performance optimization hook in React</h1>
+    <p>Performance optimization hook<code data-gs="comd/c" data-x>useDeferredValue</code>, as well as<code data-gs="comd/c" data-x>useTransition</code>, helps speed up the GUI, but does it a little differently.</p>
+<p>Take a look at the past<a href="../use-transition/index.html">lesson</a>and see how it is with<code data-gs="comd/c" data-x>useTransition</code>we wrapped the update function<code data-gs="comd/c" data-x>setFilterTerm</code>. So, the state update code may not always be available. It may be hidden, for example, in a library that you have included. In this case we can use the hook<code data-gs="comd/c" data-x>useDeferredValue</code>. Then we need to wrap either the state itself or the result calculated using this state, thereby reducing its priority.</p>
+<p>Let's analyze the following piece of child component code<code data-gs="comd/c" data-x>ProductList</code>:
 </p>
 <div data-p="bock/pane" data-p-file="ProductList.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import {useDeferredValue} from 'react'
@@ -78,45 +56,28 @@ function ProductList({ products }) {
 	);
 }</code>
 </div>
-<p>
-	Обратите внимание, что здесь мы обернули
-	в <code data-gs="comd/c" data-x>useDeferredValue</code> саму переменную
-	<code data-gs="comd/c" data-x>products</code>, которую мы взяли из
-	пропсов компонента. Затем мы записали
-	результат в <code data-gs="comd/c" data-x>deferredProducts</code>,
-	с которой и будем работать далее:
-</p>
+<p>Note that here we have wrapped in<code data-gs="comd/c" data-x>useDeferredValue</code>the variable itself<code data-gs="comd/c" data-x>products</code>, which we took from the component props. We then wrote the result in<code data-gs="comd/c" data-x>deferredProducts</code>, with which we will work further:</p>
 <div data-p="bock/pane" data-p-file="ProductList.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const deferredProducts = useDeferredValue(products);</code>
 </div>
-<p>
-	Теперь, если в кусочке коде главного
-	компонента, который мы рассматривали
-	на прошлом уроке, убрать строчку:
-</p>
+<p>Now, if in the piece of code of the main component that we looked at in the last lesson, remove the line:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const [isPending, startTransition] = useTransition();</code>
 </div>
-<p>
-	И строчку с использованием
-	<code data-gs="comd/c" data-x>isPending</code>:
+<p>And a line using<code data-gs="comd/c" data-x>isPending</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">{isPending && &lt;p&gt;updating ...&lt;/p&gt;}</code>
 </div>
-<p>
-	А также снять обертку с функции
-	<code data-gs="comd/c" data-x>setFilterTerm</code>, то мы получим тот
-	же результат, что и на прошлом уроке:
-</p>
+<p>And also remove the wrapper from the function<code data-gs="comd/c" data-x>setFilterTerm</code>, then we will get the same result as in the last lesson:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function updateFilterHandler(event) {
 	setFilterTerm(event.target.value);
 }</code>
 </div>
     <div class="lesson-nav">
-      <a href="../use-transition/index.html" class="lesson-nav-btn lesson-nav-prev" title="Хук производительности useTransition">← Хук производительности useTransition</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../use-transition/index.html" class="lesson-nav-btn lesson-nav-prev" title="useTransition performance hook">← useTransition performance hook</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../../router/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
     </div>
   </section>
@@ -124,7 +85,7 @@ function ProductList({ products }) {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

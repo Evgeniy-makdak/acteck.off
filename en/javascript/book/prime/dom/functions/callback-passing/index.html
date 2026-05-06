@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Передача коллбэка для работы с DOM на JavaScript — acteck.off</title>
-  <meta name="description" content="Передача коллбэка для работы с DOM на JavaScript — учебные материалы по программированию.">
+  <title>Passing a callback to work with the DOM in JavaScript - acteck.off</title>
+  <meta name="description" content="Passing a callback to work with the DOM in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Передача коллбэка для работы с DOM на JavaScript</h1>
-    <p>
-	Пусть у нас есть некоторая группа DOM элементов:
-</p>
+    <h1>Passing a callback to work with the DOM in JavaScript</h1>
+    <p>Let us have some group of DOM elements:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p class="elem"&gt;1&lt;/p&gt;
 &lt;p class="elem"&gt;2&lt;/p&gt;
@@ -47,42 +45,26 @@
 &lt;p class="elem"&gt;4&lt;/p&gt;
 &lt;p class="elem"&gt;5&lt;/p&gt;</code>
 </div>
-<p>
-	Давайте сделаем функцию <code data-gs="comd/c" data-x>forEach</code>, которая
-	первым параметром будет принимать селектор
-	группы элементов, а вторым параметром - <a
-	href="../../../functions/nested/callbacks/index.html">функцию-коллбэк</a>,
-	которая применится по очереди к каждому из
-	найденных элементов:
-</p>
+<p>Let's make a function<code data-gs="comd/c" data-x>forEach</code>, which will take the element group selector as the first parameter, and the second parameter -<a
+	href="../../../functions/nested/callbacks/index.html">callback function</a>, which will be applied in turn to each of the found elements:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">forEach('.elem', function() {
 	// функция применится к каждому элементу
 });</code>
 </div>
-<p>
-	Пусть элементы, попавшие под селектор, по
-	очереди попадают в первый параметр коллбэка:
-</p>
+<p>Let the elements that fall under the selector, in turn, fall into the first callback parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">forEach('.elem', function(elem) {
 	console.log(elem); // выведет по очереди найденные элементы
 });</code>
 </div>
-<p>
-	Давайте с помощью нашей функции найдем все
-	элементы с классом <code data-gs="comd/z" data-x>elem</code> и для каждого
-	найденного элемента применим коллбэк, который
-	возведет в квадрат текст каждого элемента:
-</p>
+<p>Let's use our function to find all elements with the class<code data-gs="comd/z" data-x>elem</code>and for each element found, apply a callback that will square the text of each element:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">forEach('.elem', function(elem) {
 	elem.textContent = elem.textContent ** 2;
 });</code>
 </div>
-<p>
-	Давайте теперь напишем реализацию задуманной
-	нами функции <code data-gs="comd/c" data-x>forEach</code>:
+<p>Let's now write the implementation of the function we have in mind<code data-gs="comd/c" data-x>forEach</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function forEach(selector, func) {
@@ -94,24 +76,20 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Даны абзацы. С помощью созданной нами функции
-		forEach для каждого абзаца добавьте в конец
-		его текста восклицательный знак.
-	</p>
+	<p>Paragraphs are given. Using the forEach function we created, for each paragraph, add an exclamation point to the end of its text.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../elements-group-functions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Функции для работы с группой элементов">← Функции для работы с группой элементов</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../callback-sequence-number-passing/index.html" class="lesson-nav-btn lesson-nav-next" title="Передача порядкового номера в коллбэк">Передача порядкового номера в коллбэк →</a>
+      <a href="../elements-group-functions/index.html" class="lesson-nav-btn lesson-nav-prev" title="Functions for working with a group of elements">← Functions for working with a group of elements</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../callback-sequence-number-passing/index.html" class="lesson-nav-btn lesson-nav-next" title="Passing the sequence number to the callback">Passing the sequence number to the callback →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

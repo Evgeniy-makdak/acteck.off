@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Объект event — acteck.off</title>
-  <meta name="description" content="Объект event — учебные материалы по программированию.">
+  <title>event object - acteck.off</title>
+  <meta name="description" content="The event object is programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,224 +36,106 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Объект event</h1>
-    <p>
-	Объект <code data-gs="comd/c" data-x>event</code> генерируется при срабатывании
-	события и содержит информацию о нем. При появлении
-	события объект <code data-gs="comd/c" data-x>event</code> передается в
-	функцию-обработчик.
-</p>
+    <h1>event object</h1>
+    <p>Object<code data-gs="comd/c" data-x>event</code>generated when an event is triggered and contains information about it. When an event occurs, the object<code data-gs="comd/c" data-x>event</code>passed to the handler function.</p>
 
-<h2>Свойства и методы объекта event</h2>
-<p>
-	Ниже в таблице указаны свойства и методы
-	объекта <code data-gs="comd/c" data-x>event</code> и их описание:
-</p>
+<h2>Properties and methods of the event object</h2>
+<p>The table below shows the properties and methods of the object<code data-gs="comd/c" data-x>event</code>and their description:</p>
 <table data-w="cont/desc">
 	<tr>
-		<th>Название</th>
-		<th>Описание</th>
+		<th>Name</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.currentTarget</code></th>
-		<td>
-			Текущий DOM элемент на стадии всплытия события. Обычно
-			это свойство эквивалентно <code data-gs="comd/c" data-x>this</code> функции.
-		</td>
+		<td>The current DOM element at the event bubbling stage. Typically this property is equivalent<code data-gs="comd/c" data-x>this</code>functions.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.data</code></th>
-		<td>
-			Необязательный параметр. Объект данных, передаваемый 
-			в метод события при прикреплении исполняемого обработчика.
-		</td>
+		<td>Optional parameter. The data object passed to the event method when attaching an executable handler.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.delegateTarget</code></th>
-		<td>
-			Элемент, к которому был прикреплен только что вызванный
-			jQuery обработчик события. Это свойство наиболее полезно
-			в делегированных событиях, когда обработчик привязан к
-			предку обрабатываемого элемента. Для неделегированных
-			обработчиков, привязанных непосредственно к элементу,
-			значение <code data-gs="comd/c" data-x>event.delegateTarget</code> соотвествует
-			значению <code data-gs="comd/c" data-x>event.currentTarget</code>.
+		<td>The element to which the jQuery event handler that was just called was attached. This property is most useful in delegated events, where the handler is bound to an ancestor of the element being processed. For undelegated handlers bound directly to an element, the value<code data-gs="comd/c" data-x>event.delegateTarget</code>corresponds to the value<code data-gs="comd/c" data-x>event.currentTarget</code>.
 		</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.isDefaultPrevented</code></th>
-		<td>
-			Метод проверяет был ли вызван метод
-			<code data-gs="comd/c" data-x>event.preventDefault</code>
-			для этого объекта события.
-		</td>
+		<td>The method checks whether the method has been called<code data-gs="comd/c" data-x>event.preventDefault</code>for this event object.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.isImmediatePropagationStopped</code></th>
-		<td>
-			Метод проверяет был ли вызван метод
-			<code data-gs="comd/c" data-x>event.stopImmediatePropagation</code>
-			для этого объекта события.
-		</td>
+		<td>The method checks whether the method has been called<code data-gs="comd/c" data-x>event.stopImmediatePropagation</code>for this event object.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.isPropagationStopped</code></th>
-		<td>
-			Метод проверяет был ли вызван метод
-			<code data-gs="comd/c" data-x>event.stopPropagation</code>
-			для этого объекта события.
-		</td>
+		<td>The method checks whether the method has been called<code data-gs="comd/c" data-x>event.stopPropagation</code>for this event object.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.isPropagationStopped</code></th>
-		<td>
-			Метод проверяет был ли вызван метод
-			<code data-gs="comd/c" data-x>event.stopPropagation</code>
-			для этого объекта события.
-		</td>
+		<td>The method checks whether the method has been called<code data-gs="comd/c" data-x>event.stopPropagation</code>for this event object.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.metaKey</code></th>
-		<td>
-			Метод проверяет была ли нажата клавиша
-			<code data-gs="comd/k" data-x>META</code> на момент срабатывания
-			события. В зависимости от платформы клавиша
-			может отличаться. Возвращает <code data-gs="comd/c" data-x>true</code> или
-			<code data-gs="comd/c" data-x>false</code>.
+		<td>The method checks whether a key has been pressed<code data-gs="comd/k" data-x>META</code>at the time the event is triggered. The key may differ depending on the platform. Returns<code data-gs="comd/c" data-x>true</code>or<code data-gs="comd/c" data-x>false</code>.
 		</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.namespace</code></th>
-		<td>
-			Пространство имен, указанное на момент
-			вызова события. Данное свойство окажется
-			полезным для авторов плагинов, задачи
-			которых зависят от используемого
-			пространства имен.
-		</td>
+		<td>The namespace specified at the time the event was raised. This property will be useful for plugin authors whose tasks depend on the namespace used.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.pageX</code></th>
-		<td>
-			Показывает позицию мыши относительно
-			левого края документа.
-		</td>
+		<td>Shows the mouse position relative to the left edge of the document.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.pageY</code></th>
-		<td>
-			Показывает позицию мыши относительно
-			верхнего края документа.
-		</td>
+		<td>Shows the mouse position relative to the top edge of the document.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.preventDefault</code></th>
-		<td>
-			Если данный метод вызван, то действие по
-			умолчанию для данного события не будет
-			выполняться. К примеру нажатие на ссылку
-			не приведет к переходу на новый URL. Для
-			того, чтобы проверить был ли вызван этот
-			метод, можно использовать метод
-			<code data-gs="comd/c" data-x>event.isDefaultPrevented</code>.
+		<td>If this method is called, the default action for this event will not be performed. For example, clicking on a link will not take you to a new URL. To check whether this method was called, you can use the method<code data-gs="comd/c" data-x>event.isDefaultPrevented</code>.
 		</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.relatedTarget</code></th>
-		<td>
-			Возвращает другой DOM элемент, учавствующий
-			в событии, если таковой имеется. Для
-			<code data-gs="comd/c" data-x>mouseout</code> показывает на какой
-			элемент наведена мышь, для <code data-gs="comd/c" data-x>mouseover</code>
-			с какого элемента курсор мыши был отведен.
-		</td>
+		<td>Returns the other DOM element involved in the event, if there is one. For<code data-gs="comd/c" data-x>mouseout</code>shows which element the mouse is hovering over, for<code data-gs="comd/c" data-x>mouseover</code>from which element the mouse cursor was moved away.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.result</code></th>
-		<td>
-			Последнее значение, которое вернул обработчик
-			сработавшего события, не равное
-			<code data-gs="comd/c" data-x>undefined</code>. Свойство может быть полезно
-			для получения значений собственных событий.
-		</td>
+		<td>The last value returned by the triggered event handler is not equal to<code data-gs="comd/c" data-x>undefined</code>. The property can be useful for getting the values ​​of your own events.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.stopImmediatePropagation</code></th>
-		<td>
-			Отменяет работу всех оставшихся обработчиков
-			событий, связанных с элементом и предотращает
-			всплытие события вверх по DOM дереву. Чтобы
-			просто запретить событию всплывать до
-			элементов-предков, но разрешить работу других
-			обработчиков событий, можно использовать метод
-			<code data-gs="comd/c" data-x>event.stopPropagation</code>. Используйте метод
-			<code data-gs="comd/c" data-x>event.isImmediatePropagationStopped</code>, чтобы
-			проверить был ли вызван
-			<code data-gs="comd/c" data-x>event.stopImmediatePropagation</code> для данного
-			объекта события.
-		</td>
+		<td>Cancels all remaining event handlers associated with the element and prevents the event from bubbling up the DOM tree. To simply prevent an event from bubbling to ancestor elements, but allow other event handlers to work, you can use the method<code data-gs="comd/c" data-x>event.stopPropagation</code>. Use method<code data-gs="comd/c" data-x>event.isImmediatePropagationStopped</code>to check whether it was called<code data-gs="comd/c" data-x>event.stopImmediatePropagation</code>for a given event object.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.stopPropagation</code></th>
-		<td>
-			Предотвращает всплытие события вверх по DOM
-			дереву. Помните, что другие обработчики
-			продолжат работать для данного элемента. Этот
-			метод работает для собственных событий, вызванных
-			с помощью метода
-			<a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>.
-			Чтобы проверить был ли вызван этот метод,
-			используйте <code data-gs="comd/c" data-x>event.isPropagationStopped</code>.
+		<td>Prevents an event from bubbling up the DOM tree. Remember that other handlers will continue to work for this element. This method works for native events raised using the method<a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>. To check if this method has been called, use<code data-gs="comd/c" data-x>event.isPropagationStopped</code>.
 		</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.target</code></th>
-		<td>
-			DOM элемент, инициировавший событие. Это может
-			быть элемент зарегистрированный для события или
-			его потомок. Очень полезно сравнивать
-			<code data-gs="comd/c" data-x>event.target</code> и <code data-gs="comd/c" data-x>this</code>, для определения
-			всплытия события. Свойство полезно при делегировании
-			события, когда события всплывают.
-		</td>
+		<td>The DOM element that triggered the event. This can be an element registered for the event or its descendant. Very useful to compare<code data-gs="comd/c" data-x>event.target</code>And<code data-gs="comd/c" data-x>this</code>, to determine the event bubbling. The property is useful when delegating events when events bubble up.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.timeStamp</code></th>
-		<td>
-			Разница во времени в миллисекундах между
-			моментами создания события браузером и
-			1 Января 1970 года. Свойство может быть
-			полезным при определении производительности
-			события путем получения разницы значений
-			<code data-gs="comd/c" data-x>event.timeStamp</code> для двух моментов
-			времени в коде. Если вы просто хотите
-			получить текущее время внутри обработчика
-			события, используйте метод
-			<a href="../../../../manual/time/getTime/index.html"><code data-gs="comd/c" data-x>getTime</code></a>.
+		<td>The time difference in milliseconds between the time the browser generated the event and January 1, 1970. The property can be useful in determining the performance of an event by obtaining the difference in values<code data-gs="comd/c" data-x>event.timeStamp</code>for two points in time in the code. If you just want to get the current time inside an event handler, use the method<a href="../../../../manual/time/getTime/index.html"><code data-gs="comd/c" data-x>getTime</code></a>.
 		</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.type</code></th>
-		<td>
-			В данном свойстве указан тип события.
-		</td>
+		<td>This property specifies the event type.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>event.which</code></th>
-		<td>
-			Данное свойство указывает какая клавиша
-			клавиатуры или мыши была нажата. Для мыши:
-			<code data-gs="comd/n" data-x>1</code> - левая кнопка, <code data-gs="comd/n" data-x>2</code> - колесико,
-			<code data-gs="comd/n" data-x>3</code> - правая кнопка. Используйте
-			<code data-gs="comd/c" data-x>event.which</code> вместо <code data-gs="comd/c" data-x>event.button</code>.
+		<td>This property indicates which keyboard or mouse key was pressed. For mouse:<code data-gs="comd/n" data-x>1</code>- left button,<code data-gs="comd/n" data-x>2</code>- wheel,<code data-gs="comd/n" data-x>3</code>- right button. Use<code data-gs="comd/c" data-x>event.which</code>instead of<code data-gs="comd/c" data-x>event.button</code>.
 		</td>
 	</tr>
 </table>
 
-<h2>Другие свойства объекта event</h2>
-<p>
-	Есть и другие свойства, которые копируются
-	в объект <code data-gs="comd/c" data-x>event</code>:
+<h2>Other properties of the event object</h2>
+<p>There are other properties that are copied to the object<code data-gs="comd/c" data-x>event</code>:
 </p>
 <p>
 	<code data-gs="comd/c" data-x>altKey</code>, <code data-gs="comd/c" data-x>button</code>, <code data-gs="comd/c" data-x>buttons</code>, <code data-gs="comd/c" data-x>cancelable</code>,
@@ -263,16 +145,11 @@
 	<code data-gs="comd/c" data-x>screenX</code>, <code data-gs="comd/c" data-x>screenY</code>, <code data-gs="comd/c" data-x>shiftKey</code>,
 	<code data-gs="comd/c" data-x>toElement</code>, <code data-gs="comd/c" data-x>view</code>.
 </p>
-<p>
-	Чтобы получить доступ к свойствам, не перечисленным выше,
-	можно воспользоваться объектом <code data-gs="comd/c" data-x>event.originalEvent</code>.
+<p>To access properties not listed above, you can use the object<code data-gs="comd/c" data-x>event.originalEvent</code>.
 </p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте будем выводить в див - какие клавиши были
-	нажаты:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's display in a div which keys were pressed:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="test" value="type something"&gt;
 &lt;div id="text"&gt;&lt;/div&gt;</code>
@@ -281,11 +158,8 @@
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте будем выводить в див - на какой тег мы
-	будем кликать:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's display in a div - which tag we will click on:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;body&gt;
 	&lt;div id="text"&gt;&lt;/div&gt;
@@ -305,25 +179,14 @@
 });</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
+		<li>method<a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>, <br>which allows you to bind an event handler to an element</li>
+		<li>method<a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>, <br>which allows you to run all event handlers bound to an element for events of a given type</li>
+		<li>method<a href="../triggerHandler/index.html"><code data-gs="comd/c" data-x>triggerHandler</code></a>, <br>which allows you to run all event handlers bound to an element</li>
 		<li>
-			метод <a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>, <br>
-			который позволяет привязать обработчик событий к элементу
-		</li>
-		<li>
-			метод <a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>, <br>
-			который позволяет запустить все обработчики событий, 
-			привязанные к элементу для событий заданного типа
-		</li>
-		<li>
-			метод <a href="../triggerHandler/index.html"><code data-gs="comd/c" data-x>triggerHandler</code></a>, <br>
-			который позволяет запустить все обработчики событий, 
-			привязанные к элементу
-		</li>
-		<li>
-			<a href="../events/index.html">события jQuery</a>
+			<a href="../events/index.html">jQuery events</a>
 		</li>
 	</ul>
 </div>
@@ -332,7 +195,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Директива @for в SASS — acteck.off</title>
-  <meta name="description" content="Директива @for в SASS — учебные материалы по программированию.">
+  <title>@for directive in SASS - acteck.off</title>
+  <meta name="description" content="The @for directive in SASS - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,35 +33,16 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Директива @for в SASS</h1>
-    <p>
-	С помощью директивы <code data-gs="comd/c" data-x>@for</code>
-	можно вывести определенные стили
-	в количестве, указанном
-	переменной-счетчиком.
-	Первый вариант записи <code data-gs="comd/c" data-x>@for</code> выглядит так:
-</p>
+    <h1>@for directive in SASS</h1>
+    <p>Using a directive<code data-gs="comd/c" data-x>@for</code>You can output certain styles in the amount specified by the counter variable. First recording option<code data-gs="comd/c" data-x>@for</code>looks like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $var from (begin) through (end)</code>
 </div>
-<p>
-	В этом случае в диапазон строго включаются
-	значения (begin) и (end).
-	Стоит обратить внимание на то, что
-	(begin) и (end) - должны возвращать
-	целые числа, поскольку они задают
-	направление счёта, т.е. если (begin)
-	меньше, чем (end), счётчик будет расти
-	и соответственно, если наоборот - убывать.
-</p>
-<p>
-	Рассмотрим работу директивы <code data-gs="comd/c" data-x>@for</code>
-	в первом варианте синтаксиса
-	на следующем примере:
-</p>
+<p>In this case, the range strictly includes the values ​​(begin) and (end). It is worth paying attention to the fact that (begin) and (end) must return integers, since they specify the direction of counting, i.e. if (begin) is less than (end), the counter will increase and, accordingly, if on the contrary, it will decrease.</p>
+<p>Let's look at how the directive works<code data-gs="comd/c" data-x>@for</code>in the first version of the syntax using the following example:</p>
 <div data-p="bock/pane" data-p-file="styles.scss">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $count from 1 through 5 {
 	.li-#{$count} {
@@ -69,9 +50,7 @@
 	}
 }</code>
 </div>
-<p>
-	Результат компиляции:
-</p>
+<p>Compilation result:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.li-1 {
 	width: 1px; 
@@ -89,21 +68,12 @@
 	width: 5px; 
 }</code>
 </div>
-<p>
-	Во втором варианте запись
-	выглядит следующим образом:
-</p>
+<p>In the second version, the entry looks like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $var from (begin) to (end)</code>
 </div>
-<p>
-	Причем здесь значение (end)
-	отбрасывается.
-</p>
-<p>
-	Возьмем предыдущий пример и запишем
-	его во втором варианте:
-</p>
+<p>And here the value (end) is discarded.</p>
+<p>Let's take the previous example and write it in the second version:</p>
 <div data-p="bock/pane" data-p-file="styles.scss">
 	<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $count from 1 to 5 {
 	.li-#{$count} {
@@ -111,10 +81,7 @@
 	}
 }</code>
 </div>
-<p>
-	Теперь обратите внимание
-	на получившийся код:
-</p>
+<p>Now pay attention to the resulting code:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.li-1 {
 	width: 1px; 
@@ -133,10 +100,7 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.scss">
 		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $var from 5 through 1 {
 	li-#{$var} {
@@ -146,10 +110,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.scss">
 		<code data-w="bock/code" data-lo="high" data-m-lang="scss">@for $var from 1 to 3 {
 	.navbar-link-#{$var} {
@@ -160,16 +121,16 @@
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../if-directive/index.html" class="lesson-nav-btn lesson-nav-prev" title="Директива @if">← Директива @if</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../each-directive/index.html" class="lesson-nav-btn lesson-nav-next" title="Директива @each">Директива @each →</a>
+      <a href="../if-directive/index.html" class="lesson-nav-btn lesson-nav-prev" title="@if directive">← @if directive</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../each-directive/index.html" class="lesson-nav-btn lesson-nav-next" title="@each directive">@each directive →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Псевдокласс :has в jQuery — acteck.off</title>
-  <meta name="description" content="Псевдокласс :has в jQuery — учебные материалы по программированию.">
+  <title>The :has pseudo-class in jQuery is acteck.off</title>
+  <meta name="description" content="The :has pseudo-class in jQuery - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,67 +36,44 @@
       <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Псевдокласс :has в jQuery</h1>
-    <p>
-	Псевдокласс 
-	<a href="../../../../manual/selector/has/index.html"><code data-gs="comd/z" data-x>has</code></a>
-	выбирает элементы по их содержимому. Рассмотрим пример.
-	Пусть у нас есть следующий HTML код:
-</p>
+    <h1>The :has pseudo-class in jQuery</h1>
+    <p>Pseudo-class<a href="../../../../manual/selector/has/index.html"><code data-gs="comd/z" data-x>has</code></a>selects elements based on their content. Let's look at an example. Let's say we have the following HTML code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text with &lt;b&gt;b&lt;/b&gt; tag&lt;/p&gt;
 &lt;p&gt;text with &lt;i&gt;&lt;b&gt;b&lt;/b&gt;&lt;/i&gt; tag&lt;/p&gt;
 &lt;p&gt;text&lt;/p&gt;</code>
 </div>
-<p>
-	К примеру,
-	выберем все абзацы, внутри которых есть теги
-	<code data-gs="comd/c" data-x>b</code>:
+<p>For example, let's select all paragraphs that have tags inside them<code data-gs="comd/c" data-x>b</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('p:has(b)');</code>
 </div>
-<p>
-	Обратите внимание на то, что в примере выберется
-	как первый абзац, так и второй, не смотря
-	на то, что во втором абзаце тег <code data-gs="comd/c" data-x>b</code>
-	не лежит непосредственно внутри <code data-gs="comd/c" data-x>p</code>,
-	а лежит сначала в <code data-gs="comd/c" data-x>i</code>.
+<p>Please note that in the example, both the first paragraph and the second will be selected, despite the fact that in the second paragraph the tag<code data-gs="comd/c" data-x>b</code>does not lie directly inside<code data-gs="comd/c" data-x>p</code>, but lies first in<code data-gs="comd/c" data-x>i</code>.
 </p>
-<p>
-	Если же вам нужна непосредственная вложенность,
-	то следует сделать так:
-</p>
+<p>If you need direct nesting, then you should do this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('p:has(&gt;b)');</code>
 </div>
-<p>
-	В этом случае будет выбран только первый абзац.
-</p>
+<p>In this case, only the first paragraph will be selected.</p>
 <div data-w="cont/task">
-	<p>
-		Получите и покрасьте в красный цвет все
-		<code data-gs="comd/c" data-x>h2</code>, внутри которых есть тег <code data-gs="comd/c" data-x>i</code>.
+	<p>Get and paint everything red<code data-gs="comd/c" data-x>h2</code>, inside of which there is a tag<code data-gs="comd/c" data-x>i</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Получите и покрасьте в красный цвет все
-		<code data-gs="comd/c" data-x>h2</code>, которые непосредственно содержат
-		тег <code data-gs="comd/c" data-x>i</code>.
+	<p>Get and paint everything red<code data-gs="comd/c" data-x>h2</code>, which directly contain the tag<code data-gs="comd/c" data-x>i</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../pseudo-class-not/index.html" class="lesson-nav-btn lesson-nav-prev" title="Псевдокласс :not">← Псевдокласс :not</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../pseudo-class-contains/index.html" class="lesson-nav-btn lesson-nav-next" title="Псевдокласс :contains">Псевдокласс :contains →</a>
+      <a href="../pseudo-class-not/index.html" class="lesson-nav-btn lesson-nav-prev" title="Pseudo-class :not">← Pseudo-class :not</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../pseudo-class-contains/index.html" class="lesson-nav-btn lesson-nav-next" title="Pseudo-class :contains">Pseudo-class :contains →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

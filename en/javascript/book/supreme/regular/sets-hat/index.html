@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Символ шляпки внутри наборов в регулярках JavaScript — acteck.off</title>
-  <meta name="description" content="Символ шляпки внутри наборов в регулярках JavaScript — учебные материалы по программированию.">
+  <title>Hat character inside sets in JavaScript regular expressions - acteck.off</title>
+  <meta name="description" content="The cap symbol inside sets in JavaScript regular expressions - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,119 +36,81 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Символ шляпки внутри наборов в регулярках JavaScript</h1>
-    <p>
-	Как вы знаете, шляпка внутри <code data-gs="comd/c" data-x>[ ]</code> делает
-	отрицание, будучи написанной в начале скобок.
-	Значит, она является спецсимволом внутри
-	этих скобок. Чтобы получить шляпку как символ,
-	нужно или заэкранировать ее, или убрать с
-	первого места.
-</p>
+    <h1>The cap character inside sets in JavaScript regular expressions</h1>
+    <p>As you know, the hat is inside<code data-gs="comd/c" data-x>[ ]</code>makes a negation when written at the beginning of parentheses. This means that it is a special character inside these brackets. To get a hat as a symbol, you need to either screen it or remove it from the first place.</p>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	В следующем примере шаблон поиска такой:
-	<span data-gs="comd/r" data-x>первый символ - это все кроме <code data-gs="comd/s" data-x>'d'</code>,
-	потом две буквы <code data-gs="comd/s" data-x>'x'</code></span>.
+<h2>Example<span data-gn="sect"></span></h2>
+<p>In the following example, the search pattern is:<span data-gs="comd/r" data-x>the first character is everything except<code data-gs="comd/s" data-x>'d'</code>, then two letters<code data-gs="comd/s" data-x>'x'</code></span>.
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'axx bxx ^xx dxx';
 let res = str.replace(/[^d]xx/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'! ! ! dxx'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	А теперь шаблон поиска такой: <span data-gs="comd/r" data-x>первый символ
-	- это <code data-gs="comd/s" data-x>'d'</code> или <code data-gs="comd/s" data-x>'^'</code>, потом две
-	буквы <code data-gs="comd/s" data-x>'x'</code></span>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>And now the search template is like this:<span data-gs="comd/r" data-x>the first character is<code data-gs="comd/s" data-x>'d'</code>or<code data-gs="comd/s" data-x>'^'</code>, then two letters<code data-gs="comd/s" data-x>'x'</code></span>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'axx bxx ^xx dxx';
 let res = str.replace(/[d^]xx/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'axx bxx ! !'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Можно не убирать шляпку с первого места,
-	а просто заэкранировать ее с помощью обратного
-	слеша, и она станет обозначать саму себя:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>You can not remove the hat from the first place, but simply escape it using a backslash, and it will begin to represent itself:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'axx bxx ^xx dxx';
 let res = str.replace(/[\^d]xx/g, '!');</code>
 </div>
-<p>
-	В результате в переменную запишется следующее:
-</p>
+<p>As a result, the following will be written to the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'axx bxx ! !'</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '^xx axx ^zz bkk @ss';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая найдет строки
-		по шаблону: <span data-gs="comd/r" data-x>шляпка или собака, а затем
-		две латинских буквы</span>.
+	<p>Write a regular expression that finds strings using the pattern:<span data-gs="comd/r" data-x>a hat or a dog, and then two Latin letters</span>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '^xx axx ^zz bkk @ss';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая найдет строки
-		по шаблону: <span data-gs="comd/r" data-x>НЕ шляпка и не собака, а затем
-		две латинских буквы</span>.
+	<p>Write a regular expression that finds strings using the pattern:<span data-gs="comd/r" data-x>NOT a hat and not a dog, and then two Latin letters</span>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана строка:
-	</p>
+	<p>Given the line:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = '^xx axx ^zz bkk';</code>
 	</div>
-	<p>
-		Напишите регулярку, которая найдет строки
-		по шаблону: <span data-gs="comd/r" data-x>не шляпка и не пробел, а затем
-		две латинских буквы</span>.
+	<p>Write a regular expression that finds strings using the pattern:<span data-gs="comd/r" data-x>not a cap and not a space, and then two Latin letters</span>.
 	</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../sets-special-exclusion/index.html" class="lesson-nav-btn lesson-nav-prev" title="Спецсимволы-исключения внутри наборов">← Спецсимволы-исключения внутри наборов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../sets-hyphen/index.html" class="lesson-nav-btn lesson-nav-next" title="Особенности дефиса внутри наборов">Особенности дефиса внутри наборов →</a>
+      <a href="../sets-special-exclusion/index.html" class="lesson-nav-btn lesson-nav-prev" title="Exception special characters within sets">← Exception special characters within sets</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../sets-hyphen/index.html" class="lesson-nav-btn lesson-nav-next" title="Features of hyphens within sets">Features of hyphens within sets →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

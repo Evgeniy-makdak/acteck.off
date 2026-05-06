@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свойство overflow — acteck.off</title>
-  <meta name="description" content="Свойство overflow — учебные материалы по программированию.">
+  <title>overflow property - acteck.off</title>
+  <meta name="description" content="Overflow property - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,66 +33,47 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Свойство overflow</h1>
-    <p>
-	Свойство <code data-gs="comd/c" data-x>overflow</code> указывает браузеру,
-	как поступать с содержимым (текст, картинки,
-	другие блоки), которое вылазит за границы
-	блока (за его ширину или высоту). Browser
-	может скрыть вылезающую часть, добавить полосы
-	прокрутки или ничего не делать (оставить
-	как есть - вылезшим за границы).
-</p>
+    <h1>overflow property</h1>
+    <p>Property<code data-gs="comd/c" data-x>overflow</code>tells the browser what to do with content (text, pictures, other blocks) that extends beyond the boundaries of the block (beyond its width or height). The browser can hide the crawling part, add scroll bars, or do nothing (leave it as it is - it crawls out of bounds).</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
 	overflow: hidden | scroll | auto | visible;
 }</code>
 </div>
 
-<h2>Значения</h2>
+<h2>Values</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Значение</th>
-		<th>Описание</th>
+		<th>Meaning</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>hidden</code></th>
-		<td>Скрывает то содержимое, которое вылезло за границы блока.</td>
+		<td>Hides the content that extends beyond the boundaries of the block.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>scroll</code></th>
-		<td>
-			Добавляет полосы прокрутки, причем всегда,
-			даже если ничего не вылазит (в этом случае они будут неактивными).
-		</td>
+		<td>Adds scroll bars, and always, even if nothing pops up (in this case they will be inactive).</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>auto</code></th>
-		<td>
-			Добавляет полосы прокрутки при необходимости: если содержимое не
-			помещается - они появятся, если все помещается - их не будет.
-		</td>
+		<td>Adds scrollbars if necessary: ​​if the content does not fit, they will appear, if everything fits, they will not appear.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/v" data-x>visible</code></th>
-		<td>Не скрывает то содержимое, которое вылезло за границы блока.</td>
+		<td>Does not hide content that extends beyond the boundaries of the block.</td>
 	</tr>
 </table>
-<p>
-	Значение по умолчанию: <code data-gs="comd/v" data-x>visible</code>.
+<p>Default value:<code data-gs="comd/v" data-x>visible</code>.
 </p>
 
-<h2>Пример <span data-gn="sect"></span>. Значение visible</h2>
-<p>
-	В данном примере очень длинное слово не поместится
-	в контейнер и вылезет за его границы. Обрезания
-	не происходит:
-</p>
+<h2>Example<span data-gn="sect"></span>. visible value</h2>
+<p>In this example, a very long word will not fit into the container and will fall outside its boundaries. No cutting occurs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet
@@ -144,11 +125,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение visible</h2>
-<p>
-	А сейчас ограничена не только ширина, но
-	и высота (текст вылезет за блок и по высоте):
-</p>
+<h2>Example<span data-gn="sect"></span>. visible value</h2>
+<p>And now not only the width is limited, but also the height (the text will extend beyond the block in height):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet
@@ -204,15 +182,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение hidden</h2>
-<p>
-	Сейчас все, что вылезло за границы контейнера
-	просто обрежется (и по высоте тоже). Обратите
-	внимание на то, что обрезание по высоте происходит
-	только тогда, когда она задана явно. В противном
-	случае текст расширяет контейнер по
-	высоте - и никакого обрезания не будет:
-</p>
+<h2>Example<span data-gn="sect"></span>. Hidden meaning</h2>
+<p>Now everything that has gone beyond the boundaries of the container will simply be cut off (and in height too). Please note that height trimming occurs only when it is explicitly specified. Otherwise, the text expands the container in height - and there will be no clipping:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet
@@ -266,14 +237,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение scroll</h2>
-<p>
-	При значении <code data-gs="comd/v" data-x>scroll</code> полосы прокрутки
-	будут всегда, даже если ничего не вылазит
-	(в этом случае они будут неактивными). Сейчас
-	текст не вылазит ни по ширине, ни по высоте,
-	но полосы прокрутки все равно есть (неактивные):
-</p>
+<h2>Example<span data-gn="sect"></span>. Scroll value</h2>
+<p>When value<code data-gs="comd/v" data-x>scroll</code>The scroll bars will always be there, even if nothing is displayed (in which case they will be inactive). Now the text does not extend either in width or height, but the scroll bars are still there (inactive):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet
@@ -327,13 +292,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение auto</h2>
-<p>
-	При значении <code data-gs="comd/v" data-x>auto</code> полосы прокрутки
-	добавляются только, если содержимое вылазит
-	за контейнер. Сейчас их нет, так как все
-	помещается:
-</p>
+<h2>Example<span data-gn="sect"></span>. Auto value</h2>
+<p>When value<code data-gs="comd/v" data-x>auto</code>Scrollbars are added only if the content extends beyond the container. Now they are gone, as everything fits:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet
@@ -387,11 +347,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Значение auto</h2>
-<p>
-	А теперь ограничим ширину - появится горизонтальная
-	полоса прокрутки:
-</p>
+<h2>Example<span data-gn="sect"></span>. Auto value</h2>
+<p>Now let’s limit the width - a horizontal scroll bar will appear:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet
@@ -445,30 +402,18 @@
 					</div>
 				</div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			свойство <a href="../word-break/index.html"><code data-gs="comd/c" data-x>word-break</code></a>, <br>
-			переносящее буквы длинного слова на новую строку
-		</li>
-		<li>
-			свойство <a href="../overflow-wrap/index.html"><code data-gs="comd/c" data-x>overflow-wrap</code></a>, <br>
-			переносящее буквы длинного слова на новую строку
-		</li>
-		<li>
-			свойство <a href="../overflow-x/index.html"><code data-gs="comd/c" data-x>overflow-x</code></a>, <br>
-			которое обрезает вылезающие по горизонтали части
-		</li>
-		<li>
-			свойство <a href="../overflow-y/index.html"><code data-gs="comd/c" data-x>overflow-y</code></a>, <br>
-			которое обрезает вылезающие по вертикали части
-		</li>
+		<li>property<a href="../word-break/index.html"><code data-gs="comd/c" data-x>word-break</code></a>, <br>wrapping letters of a long word to a new line</li>
+		<li>property<a href="../overflow-wrap/index.html"><code data-gs="comd/c" data-x>overflow-wrap</code></a>, <br>wrapping letters of a long word to a new line</li>
+		<li>property<a href="../overflow-x/index.html"><code data-gs="comd/c" data-x>overflow-x</code></a>, <br>which cuts off the parts that protrude horizontally</li>
+		<li>property<a href="../overflow-y/index.html"><code data-gs="comd/c" data-x>overflow-y</code></a>, <br>which cuts off vertically protruding parts</li>
 	</ul>
 </div>
     <div class="lesson-nav">
       <a href="../outline-width/index.html" class="lesson-nav-btn lesson-nav-prev" title="outline-width">← outline-width</a>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list">☰</a>
       <a href="../overflow-wrap/index.html" class="lesson-nav-btn lesson-nav-next" title="overflow-wrap">overflow-wrap →</a>
     </div>
   </section>
@@ -476,7 +421,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

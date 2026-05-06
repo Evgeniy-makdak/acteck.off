@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Настройка сборки CSS в бандл в Webpack — acteck.off</title>
-  <meta name="description" content="Настройка сборки CSS в бандл в Webpack — учебные материалы по программированию.">
+  <title>Setting up CSS assembly in a bundle in Webpack - acteck.off</title>
+  <meta name="description" content="Setting up a CSS bundle in Webpack - programming tutorials.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../en/index.html" class="logo">
+      <a href="../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,29 +36,17 @@
       <a href="../../../../en/webpack/index.html">Webpack</a>
     </div>
 
-    <h1>Настройка сборки CSS в бандл в Webpack</h1>
-    <p>
-	Изученный способ добавления CSS на страницу
-	может быть не очень удачным. Зачастую более
-	удобно собрать все CSS файлы в отдельный
-	бандл со стилями.
-</p>
-<p>
-	Для этого нужен плагин
-	<a href="https://webpack.js.org/plugins/mini-css-extract-plugin/">mini-css-extract-plugin</a>.
-	Давайте его установим:
-</p>
+    <h1>Setting up CSS bundle assembly in Webpack</h1>
+    <p>The method you learned to add CSS to a page may not be very successful. It is often more convenient to collect all CSS files into a separate bundle with styles.</p>
+<p>For this you need a plugin<a href="https://webpack.js.org/plugins/mini-css-extract-plugin/">mini-css-extract-plugin</a>. Let's install it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install mini-css-extract-plugin --save-dev</code>
 </div>
-<p>
-	Импортируем его:
-</p>
+<p>Let's import it:</p>
 <div data-p="bock/pane" data-p-file="webpack.config.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import MiniCssExtractPlugin from 'mini-css-extract-plugin';</code>
 </div>
-<p>
-	Добавим в настройку <code data-gs="comd/s" data-x>plugins</code>:
+<p>Let's add it to the settings<code data-gs="comd/s" data-x>plugins</code>:
 </p>
 <div data-p="bock/pane" data-p-file="webpack.config.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
@@ -66,10 +54,7 @@
 	plugins: [new MiniCssExtractPlugin()],
 };</code>
 </div>
-<p>
-	Теперь заменим style-loader на лоадер
-	из нашего плагина:
-</p>
+<p>Now let's replace style-loader with the loader from our plugin:</p>
 <div data-p="bock/pane" data-p-file="webpack.config.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
 	entry: './src/index.js',
@@ -85,21 +70,19 @@
 };</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Выполните описанные настройки.
-	</p>
+	<p>Perform the settings described.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../../css/import-styles-test/index.html" class="lesson-nav-btn lesson-nav-prev" title="Тестирование импорта CSS стилей">← Тестирование импорта CSS стилей</a>
-      <a href="../../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../css/css-bundle-test/index.html" class="lesson-nav-btn lesson-nav-next" title="Тестирование сборки CSS в бандл">Тестирование сборки CSS в бандл →</a>
+      <a href="../../css/import-styles-test/index.html" class="lesson-nav-btn lesson-nav-prev" title="Testing import of CSS styles">← Testing import of CSS styles</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../css/css-bundle-test/index.html" class="lesson-nav-btn lesson-nav-next" title="Testing CSS assembly in a bundle">Testing CSS assembly in a bundle →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

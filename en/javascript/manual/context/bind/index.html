@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод bind — acteck.off</title>
-  <meta name="description" content="Метод bind — учебные материалы по программированию.">
+  <title>bind method - acteck.off</title>
+  <meta name="description" content="The bind method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,63 +36,42 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод bind</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>bind</code> привязать контекст к функции.
-	В качестве первого параметра следует передавать
-	контекст, а последующими параметрами - параметры
-	функции. Метод возвращает новую функцию,
-	внутри которой <code data-gs="comd/c" data-x>this</code> будет равным переданному
-	контексту.
-</p>
+    <h1>bind method</h1>
+    <p>Method<code data-gs="comd/c" data-x>bind</code>bind context to function. The context should be passed as the first parameter, and the function parameters as subsequent parameters. The method returns a new function, inside which<code data-gs="comd/c" data-x>this</code>will be equal to the passed context.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">функция.bind(контекст, параметр1, параметр2...);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть у нас есть инпут:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let us have an input:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="elem" value="text"&gt;</code>
 </div>
-<p>
-	Пусть ссылка на этот инпут записана в переменную
-	<code data-gs="comd/c" data-x>elem</code>:
+<p>Let the link to this input be written into a variable<code data-gs="comd/c" data-x>elem</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');</code>
 </div>
-<p>
-	Пусть у нас также есть следующая функция
-	<code data-gs="comd/c" data-x>func</code>:
+<p>Let us also have the following function<code data-gs="comd/c" data-x>func</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(param1, param2) {
 	console.log(this.value + param1 + param2);
 }</code>
 </div>
-<p>
-	Давайте с помощью <code data-gs="comd/c" data-x>bind</code> сделаем новую
-	функцию, которая будет копией функции <code data-gs="comd/c" data-x>func</code>,
-	но <code data-gs="comd/c" data-x>this</code> в ней всегда будет равен <code data-gs="comd/c" data-x>elem</code>:
+<p>Let's use<code data-gs="comd/c" data-x>bind</code>let's make a new function that will be a copy of the function<code data-gs="comd/c" data-x>func</code>, But<code data-gs="comd/c" data-x>this</code>it will always be equal<code data-gs="comd/c" data-x>elem</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let newFunc = func.bind(elem);</code>
 </div>
-<p>
-	Теперь в переменной <code data-gs="comd/c" data-x>newFunc</code> лежит
-	функция. Давайте вызовем ее, передав в первый
-	параметр <code data-gs="comd/s" data-x>'1'</code>, а во второй <code data-gs="comd/s" data-x>'2'</code>:
+<p>Now in the variable<code data-gs="comd/c" data-x>newFunc</code>lies the function. Let's call it by passing it as the first parameter<code data-gs="comd/s" data-x>'1'</code>, and in the second<code data-gs="comd/s" data-x>'2'</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">newFunc('1', '2');</code>
 </div>
-<p>
-	Давайте соберем все вместе:
-</p>
+<p>Let's put it all together:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.getElementById('elem');
 
@@ -104,27 +83,18 @@ let newFunc = func.bind(elem);
 newFunc('1', '2'); // выведет 'text12'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Не обязательно записывать результат работы
-	<code data-gs="comd/c" data-x>bind</code> в новую функцию <code data-gs="comd/c" data-x>newFunc</code>,
-	можно просто перезаписать <code data-gs="comd/c" data-x>func</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>It is not necessary to write down the result of the work<code data-gs="comd/c" data-x>bind</code>to a new function<code data-gs="comd/c" data-x>newFunc</code>, you can just rewrite<code data-gs="comd/c" data-x>func</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let func = func.bind(elem);</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../call/index.html"><code data-gs="comd/c" data-x>call</code></a>, <br>
-			который вызывает функцию с контекстом
-		</li>
-		<li>
-			метод <a href="../apply/index.html"><code data-gs="comd/c" data-x>apply</code></a>, <br>
-			который вызывает функцию с контекстом
-		</li>
+		<li>method<a href="../call/index.html"><code data-gs="comd/c" data-x>call</code></a>, <br>which calls a function with context</li>
+		<li>method<a href="../apply/index.html"><code data-gs="comd/c" data-x>apply</code></a>, <br>which calls a function with context</li>
 	</ul>
 </div>
   </section>
@@ -132,7 +102,7 @@ newFunc('1', '2'); // выведет 'text12'</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отправка форм в JavaScript — acteck.off</title>
-  <meta name="description" content="Отправка форм в JavaScript — учебные материалы по программированию.">
+  <title>Submitting forms in JavaScript - acteck.off</title>
+  <meta name="description" content="Submitting Forms in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,32 +36,16 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Отправка форм в JavaScript</h1>
-    <p>
-	Вы уже умеете работать с элементами форм
-	на JavaScript, обрабатывая их в браузере.
-	Формы, однако, можно также отправлять на
-	сервер, чтобы их обработала серверная часть
-	сайта, написанная на PHP или NodeJS.
-</p>
-<p>
-	Это нужно для того, чтобы добавлять и изменять
-	данные сайта, хранящиеся на сервере.
-</p>
-<p>
-	Давайте посмотрим, как это делается. Пусть
-	у нас есть несколько инпутов и кнопка:
-</p>
+    <h1>Submitting Forms in JavaScript</h1>
+    <p>You already know how to work with form elements in JavaScript, processing them in the browser. Forms, however, can also be submitted to the server to be processed by the site's backend, written in PHP or NodeJS.</p>
+<p>This is necessary in order to add and change site data stored on the server.</p>
+<p>Let's see how it's done. Let's say we have several inputs and a button:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input&gt;
 &lt;input&gt;
 &lt;input type="submit"&gt;</code>
 </div>
-<p>
-	Обернем наши элементы в тег <code data-gs="comd/c" data-x>form</code>.
-	В этом случае у нас получится форма, которая
-	по нажатию на кнопку будет отправляться на сервер:
-</p>
+<p>Let's wrap our elements in a tag<code data-gs="comd/c" data-x>form</code>. In this case, we will get a form that, when the button is clicked, will be sent to the server:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form&gt;
 	&lt;input&gt;
@@ -69,10 +53,7 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	Чтобы на сервере можно было получить данные
-	формы, необходимо каждому инпуту дать свое имя:
-</p>
+<p>In order to receive form data on the server, you need to give each input its own name:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form&gt;
 	&lt;input name="test1"&gt;
@@ -80,32 +61,11 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	В этом случае на сервер данные формы придут
-	в виде пар <span data-gs="comd/f" data-x>ключ-значение</span>, где ключами будут
-	имена элементов формы, а значениями - введенные
-	данные.
+<p>In this case, the form data will arrive to the server in the form of pairs<span data-gs="comd/f" data-x>key-value</span>, where the keys are the names of the form elements, and the values ​​are the entered data.</p>
+<p>There is no need for a server to submit the form. You can copy the form code provided to any file, run it in your browser and click on the submit button - the form will be sent and the browser page will reload.</p>
+<p>If there is no server, however, the form data will not go anywhere. Therefore, let's check the operation of the form together with the server. You don’t know any server-side languages ​​yet, so let’s practice sending the form using our<a href="../../test-server/intro/index.html">training HTTP server</a>.
 </p>
-<p>
-	Для того, чтобы отправить форму, нет необходимости
-	в сервере. Вы можете скопировать приведенный
-	код формы в любой файл, запустить его в браузер
-	и нажать на кнопку отправки - форма отправится
-	и страница браузера перезагрузится.
-</p>
-<p>
-	При отсутствии сервера, однако, данные формы
-	никуда не попадут. Поэтому давайте будем
-	проверять работу формы вместе с сервером.
-	Пока вы не знаете никаких серверных языков,
-	поэтому потренируемся отправлять форму с
-	помощью нашего <a href="../../test-server/intro/index.html">учебного
-	HTTP сервера</a>.
-</p>
-<p>
-	Давайте разместим нашу форму в некотором
-	файле так, чтобы она была доступна по адресу
-	<code data-gs="comd/p" data-x>http://localhost:3001/form.html</code>:
+<p>Let's place our form in a file so that it can be accessed at<code data-gs="comd/p" data-x>http://localhost:3001/form.html</code>:
 </p>
 <div data-p="bock/pane" data-p-file="public/form.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form&gt;
@@ -114,10 +74,7 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	Добавим нашей форме атрибут <code data-gs="comd/c" data-x>action</code>,
-	указывающий адрес отправки нашей формы:
-</p>
+<p>Let's add an attribute to our form<code data-gs="comd/c" data-x>action</code>, indicating the sending address of our form:</p>
 <div data-p="bock/pane" data-p-file="public/form.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="/handler/"&gt;
 	&lt;input name="test1"&gt;
@@ -125,10 +82,7 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	Теперь в файле <code data-gs="comd/p" data-x>server.js</code> напишем обработчик
-	адреса отправки формы:
-</p>
+<p>Now in file<code data-gs="comd/p" data-x>server.js</code>Let's write a handler for the form's sending address:</p>
 <div data-p="bock/pane" data-p-file="server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
 	'/handler/': function() {
@@ -136,10 +90,7 @@
 	}
 }</code>
 </div>
-<p>
-	В параметр нашего обработчика попадут отправленные
-	данные формы:
-</p>
+<p>The parameter of our handler will contain the submitted form data:</p>
 <div data-p="bock/pane" data-p-file="server.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export default {
 	'/handler/': function(data) {
@@ -149,24 +100,20 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Создайте форму и файл для ее обработки. Отправьте
-		форму и проверьте, что данные действительно
-		пришли на сервер.
-	</p>
+	<p>Create a form and a file to process it. Submit the form and check that the data actually arrived on the server.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../../test-server/multi-launching/index.html" class="lesson-nav-btn lesson-nav-prev" title="Множественный запуск">← Множественный запуск</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../methods/index.html" class="lesson-nav-btn lesson-nav-next" title="Методы отправки форм">Методы отправки форм →</a>
+      <a href="../../test-server/multi-launching/index.html" class="lesson-nav-btn lesson-nav-prev" title="Multiple launch">← Multiple launches</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../methods/index.html" class="lesson-nav-btn lesson-nav-next" title="Form submission methods">Form submission methods →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

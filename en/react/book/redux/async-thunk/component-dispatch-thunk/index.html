@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отправка thunk из компонента в Redux — acteck.off</title>
-  <meta name="description" content="Отправка thunk из компонента в Redux — учебные материалы по программированию.">
+  <title>Sending a thunk from a component to Redux - acteck.off</title>
+  <meta name="description" content="Sending a thunk from a component in Redux - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,57 +36,28 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Отправка thunk из компонента в Redux</h1>
-    <p>
-	На этом уроке мы отправим thunk для получения
-	продуктов из из React-компонента <code data-gs="comd/c" data-x>ProductsList</code>.
+    <h1>Sending a thunk from a component in Redux</h1>
+    <p>In this tutorial we will send a thunk to get products from a React component<code data-gs="comd/c" data-x>ProductsList</code>.
 </p>
-<p>
-	Давайте теперь откроем наше приложение с
-	продуктами, а в нем файл <code data-gs="comd/p" data-x>ProductsList.jsx</code>.
-	Для начала добавим к импорту thunk <code data-gs="comd/c" data-x>fetchProducts</code>,
-	который мы создали:
-</p>
+<p>Let's now open our product application, and in it there is a file<code data-gs="comd/p" data-x>ProductsList.jsx</code>. First, let's add thunk to the import<code data-gs="comd/c" data-x>fetchProducts</code>, which we created:</p>
 <div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { selectAllProducts, fetchProducts } from './productsSlice'</code>
 </div>
-<p>
-	Также нам понадобится хук <code data-gs="comd/c" data-x>useDispatch</code>
-	для отправки нашего action creator
-	и хук <code data-gs="comd/c" data-x>useEffect</code> потому что здесь у нас
-	<a href="../../../../../javascript/framework/react/book/supreme/hooks/effects/index.html">побочный эффект</a>,
-	поскольку мы имеем дело с сеткой, а это
-	уже внешний API:
-</p>
+<p>We also need a hook<code data-gs="comd/c" data-x>useDispatch</code>to send our action creator and hook<code data-gs="comd/c" data-x>useEffect</code>because here we have<a href="../../../../../javascript/framework/react/book/supreme/hooks/effects/index.html">side effect</a>, since we are dealing with a grid, and this is an external API:</p>
 <div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'</code>
 </div>
-<p>
-	Теперь первой строчкой в коде функции
-	<code data-gs="comd/c" data-x>ProductsList</code> перед объявлением
-	<code data-gs="comd/c" data-x>products</code> добавим:
-</p>
+<p>Now the first line in the function code<code data-gs="comd/c" data-x>ProductsList</code>before the announcement<code data-gs="comd/c" data-x>products</code>let's add:</p>
 <div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const dispatch = useDispatch()</code>
 </div>
-<p>
-	Далее при получении продуктов из стейта
-	мы еще будем извлекать статус запроса:
-</p>
+<p>Next, when receiving products from the state, we will also retrieve the request status:</p>
 <div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const products = useSelector(selectAllProducts)
 const productStatus = useSelector((state) =&gt; state.products.status)</code>
 </div>
-<p>
-	И сразу после этого скажем React
-	при помощи хука <code data-gs="comd/c" data-x>useEffect</code>,
-	что нам после отрисовки компонента
-	необходимо получить продукты. Здесь
-	нам и понадобится статус запроса, ведь
-	нам важно, чтобы такой запрос отправлялся
-	только один раз:
-</p>
+<p>And immediately after that we will tell React using a hook<code data-gs="comd/c" data-x>useEffect</code>, that after rendering the component we need to get the products. This is where we need the request status, because it is important for us that such a request is sent only once:</p>
 <div data-p="bock/pane" data-p-file="products/ProductsList.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">useEffect(() =&gt; {
 	if (productStatus === 'idle') {
@@ -94,69 +65,29 @@ const productStatus = useSelector((state) =&gt; state.products.status)</code>
 	}
 }, [productStatus, dispatch])</code>
 </div>
-<p>
-	Сейчас мы можем запустить наше приложение,
-	кликнуть в нем по <code data-gs="comd/s" data-x>'Products'</code> в меню слева.
-	Список продуктов мы пока не увидим, но если
-	мы зайдем в наш Redux DevTools, то в левой
-	части окошечка у нас появятся сгенерированные
-	автоматически (как я и говорил в прошлом уроке)
-	экшены <code data-gs="comd/c" data-x>products/fetchProducts/pending</code> и
-	<span data-gs="comd/y" data-x>fulfilled</span>. Теперь давайте кликнем по action
-	<code data-gs="comd/c" data-x>products/fetchProducts/fulfilled</code> и по его полю
-	<code data-gs="comd/c" data-x>payload</code> - вот и наш списочек продуктов! Ура,
-	все наши звенья в цепочке - сервер, база, клиент
-	и Redux - приложение работают слаженно и сообща.
-	Кстати, как видите здесь еще есть свойство <code data-gs="comd/c" data-x>meta</code>,
-	в котором мы видим статус запроса.
-</p>
-<p>
-	Обратим внимание на еще одну вещь, у вас
-	может случиться так, что <span data-gs="comd/y" data-x>pending</span> и,
-	следовательно, <span data-gs="comd/y" data-x>fulfilled</span> будут
-	отображаться по два раза. Если это так,
-	то не огорчайтесь, мы поговорим об этом
-	позже.
-</p>
+<p>Now we can launch our application, click on<code data-gs="comd/s" data-x>'Products'</code>in the menu on the left. We won’t see the list of products yet, but if we go to our Redux DevTools, then on the left side of the window we will have automatically generated actions (as I said in the last lesson)<code data-gs="comd/c" data-x>products/fetchProducts/pending</code>And<span data-gs="comd/y" data-x>fulfilled</span>. Now let's click on action<code data-gs="comd/c" data-x>products/fetchProducts/fulfilled</code>and across his field<code data-gs="comd/c" data-x>payload</code>- here is our list of products! Hurray, all our links in the chain - server, database, client and Redux - application work harmoniously and together. By the way, as you can see, there is also a property<code data-gs="comd/c" data-x>meta</code>, in which we see the status of the request.</p>
+<p>Let's pay attention to one more thing, it may happen to you that<span data-gs="comd/y" data-x>pending</span>and therefore<span data-gs="comd/y" data-x>fulfilled</span>will be displayed twice. If so, don't worry, we'll talk about it later.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами.
-		Откройте в нем файл <code data-gs="comd/p" data-x>StudentsList.jsx</code>.
-		Импортируйте в него необходимые хуки и
-		thunk согласно материалу из урока.
+	<p>Open your application with students. Open the file in it<code data-gs="comd/p" data-x>StudentsList.jsx</code>. Import the necessary hooks and thunks into it according to the material from the lesson.</p>
+</div>
+<div data-w="cont/task">
+	<p>After studying the lesson materials, get the request status<code data-gs="comd/c" data-x>studentStatus</code>and then using<code data-gs="comd/c" data-x>useEffect</code>, send<code data-gs="comd/c" data-x>fetchStudents</code>only if the value<code data-gs="comd/c" data-x>studentStatus</code> - <code data-gs="comd/v" data-x>'idle'</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Изучив материалы урока, получите
-		статус запроса <code data-gs="comd/c" data-x>studentStatus</code>, а затем,
-		используя <code data-gs="comd/c" data-x>useEffect</code>, отправьте
-		<code data-gs="comd/c" data-x>fetchStudents</code> только при условии, что
-		значение <code data-gs="comd/c" data-x>studentStatus</code> - <code data-gs="comd/v" data-x>'idle'</code>.
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		Запустите ваше приложение, кликните
-		в меню приложения слева по <code data-gs="comd/s" data-x>'Students'</code>,
-		а затем запустите в браузере расширение
-		Redux DevTools, как и в данном уроке
-		вы должны увидеть экшены с <span data-gs="comd/y" data-x>pending</span>
-		и <span data-gs="comd/y" data-x>fulfilled</span> (а в нем <code data-gs="comd/c" data-x>payload</code> со
-		студентами). Полазьте по вкладкам расширения.
-	</p>
+	<p>Launch your application, click on the application menu on the left<code data-gs="comd/s" data-x>'Students'</code>, and then launch the Redux DevTools extension in your browser, as in this lesson, you should see actions with<span data-gs="comd/y" data-x>pending</span>And<span data-gs="comd/y" data-x>fulfilled</span>(and in it<code data-gs="comd/c" data-x>payload</code>with students). Navigate through the extension tabs.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../create-async-thunk-advantage/index.html" class="lesson-nav-btn lesson-nav-prev" title="Польза применения createAsyncThunk">← Польза применения createAsyncThunk</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../extra-reducer/index.html" class="lesson-nav-btn lesson-nav-next" title="Дополнительные редьюсеры">Дополнительные редьюсеры →</a>
+      <a href="../create-async-thunk-advantage/index.html" class="lesson-nav-btn lesson-nav-prev" title="Benefits of using createAsyncThunk">← Benefits of using createAsyncThunk</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../extra-reducer/index.html" class="lesson-nav-btn lesson-nav-next" title="Additional reducers">Additional reducers →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

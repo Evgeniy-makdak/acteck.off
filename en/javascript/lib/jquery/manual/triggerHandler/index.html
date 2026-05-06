@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод triggerHandler — acteck.off</title>
-  <meta name="description" content="Метод triggerHandler — учебные материалы по программированию.">
+  <title>triggerHandler method - acteck.off</title>
+  <meta name="description" content="triggerHandler method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,56 +36,23 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод triggerHandler</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>triggerHandler</code> позволяет запустить
-	все обработчики событий, привязанные к элементу. Он
-	работает аналогично методу
-	<a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>,
-	но между ними существуют отличия:
-	Обработчик событий сработает, но стандартное
-	событие не будет вызвано. К примеру
-	<code data-gs="comd/c" data-x>triggerHandler('submit')</code>,
-	сработав, не вызовет <code data-gs="comd/c" data-x>submit</code>.
-	Метод <code data-gs="comd/c" data-x>triggerHandler</code> действует
-	только на первый элемент в наборе.
-	События, запущенные <code data-gs="comd/c" data-x>triggerHandler</code>
-	не в сплывают в иерархии DOM-элементов.
-	<code data-gs="comd/c" data-x>triggerHandler</code> не возвращает объект jQuery,
-	он возвращает значение, полученное последним
-	вызванным обработчиком. Если никакие обработчики не
-	запускаются, то возвращает <code data-gs="comd/c" data-x>undefined</code>.
+    <h1>triggerHandler method</h1>
+    <p>Method<code data-gs="comd/c" data-x>triggerHandler</code>allows you to run all event handlers bound to an element. It works similar to the method<a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>, but there are differences between them: The event handler will fire, but the standard event will not be called. For example<code data-gs="comd/c" data-x>triggerHandler('submit')</code>, when triggered, will not cause<code data-gs="comd/c" data-x>submit</code>. Method<code data-gs="comd/c" data-x>triggerHandler</code>only affects the first element in the set. Events triggered<code data-gs="comd/c" data-x>triggerHandler</code>do not float down the hierarchy of DOM elements.<code data-gs="comd/c" data-x>triggerHandler</code>does not return a jQuery object, it returns the value received by the last handler called. If no handlers are run, then returns<code data-gs="comd/c" data-x>undefined</code>.
 </p>
 
-<h2>Синтаксис</h2>
-<p>
-	В качестве первого параметра мы можем
-	передать тип события в виде строки, вторым
-	необязательным массив или объект, содержащим
-	дополнительные параметры для передачи
-	обработчику:
-</p>
+<h2>Syntax</h2>
+<p>As the first parameter we can pass the event type as a string, the second optional is an array or object containing additional parameters to be passed to the handler:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).triggerHandler(тип события, [дополнительные параметры]);</code>
 </div>
-<p>
-	Можно первым параметром передать событие
-	в виде объекта <code data-gs="comd/c" data-x>jQuery.Event</code>:
+<p>You can pass the event as an object as the first parameter<code data-gs="comd/c" data-x>jQuery.Event</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$(селектор).trigger(событие, [дополнительные параметры]);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте сделаем так, что при нажатии на кнопку
-	с <code data-gs="comd/z" data-x>#test1</code> наш инпут получит фокус и в
-	консоли выведется <code data-gs="comd/s" data-x>'Focused'</code>, другими
-	словами - сработает и функция-обработчик и
-	событие фокуса. При нажатии на вторую кнопку
-	с <code data-gs="comd/z" data-x>#test2</code> сработает только функция-обработчик,
-	но инпут не получит фокус:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's make it so that when you click on the button with<code data-gs="comd/z" data-x>#test1</code>our input will receive focus and be displayed in the console<code data-gs="comd/s" data-x>'Focused'</code>, in other words, both the handler function and the focus event will work. When you press the second button with<code data-gs="comd/z" data-x>#test2</code>Only the handler function will work, but the input will not receive focus:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button id="test1"&gt;button1&lt;/button&gt;
 &lt;button id="test2"&gt;button2&lt;/button&gt;
@@ -103,18 +70,11 @@ $('input').focus(function() {
 });</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>, <br>
-			который позволяет запустить все обработчики событий,
-			привязанные к элементу для событий заданного типа
-		</li>
-		<li>
-			метод <a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>, <br>
-			который позволяет привязать обработчик событий к элементу
-		</li>
+		<li>method<a href="../trigger/index.html"><code data-gs="comd/c" data-x>trigger</code></a>, <br>which allows you to run all event handlers bound to an element for events of a given type</li>
+		<li>method<a href="../on/index.html"><code data-gs="comd/c" data-x>on</code></a>, <br>which allows you to bind an event handler to an element</li>
 	</ul>
 </div>
   </section>
@@ -122,7 +82,7 @@ $('input').focus(function() {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

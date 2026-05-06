@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Асинхронная передача результата в коллбэк в JavaScript — acteck.off</title>
-  <meta name="description" content="Асинхронная передача результата в коллбэк в JavaScript — учебные материалы по программированию.">
+  <title>Asynchronously passing the result to a callback in JavaScript - acteck.off</title>
+  <meta name="description" content="Asynchronously passing a result to a callback in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,16 +36,8 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Асинхронная передача результата в коллбэк в JavaScript</h1>
-    <p>
-	Пусть теперь асинхронная операция после своего
-	завершения не выводит ничего в консоль, а
-	получает некий результат. Пусть это будет
-	массив с данными, который, например, мог
-	бы быть получен через AJAX. Но так как с
-	AJAX мы работать пока не умеем, то просто
-	сымитируем это получение:
-</p>
+    <h1>Asynchronously passing the result to a callback in JavaScript</h1>
+    <p>Now suppose that the asynchronous operation, after its completion, does not output anything to the console, but receives a certain result. Let this be an array of data, which, for example, could be obtained via AJAX. But since we don’t know how to work with AJAX yet, we’ll simply simulate this receipt:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function make() {
 	setTimeout(function() {
@@ -53,10 +45,7 @@
 	}, 3000);
 }</code>
 </div>
-<p>
-	Сделаем так, чтобы массив с результатом передавался
-	в параметр коллбэка:
-</p>
+<p>Let's make sure that the array with the result is passed to the callback parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function make(callback) {
 	setTimeout(function() {
@@ -65,35 +54,27 @@
 	}, 3000);
 }</code>
 </div>
-<p>
-	Теперь, при передаче коллбэка в вызов функции
-	<code data-gs="comd/c" data-x>make</code> мы можем написать в нем параметр
-	- и в этот параметр попадет результат асинхронной
-	операции:
-</p>
+<p>Now, when passing the callback to the function call<code data-gs="comd/c" data-x>make</code>we can write a parameter in it - and the result of the asynchronous operation will go into this parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">make(function(res) {
 	console.log(res); // наш массив
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Допишите код коллбэка так, чтобы он находил
-		сумму элементов массива с результатом.
-	</p>
+	<p>Add the callback code so that it finds the sum of the array elements with the result.</p>
 </div>
   
     <div class="lesson-nav">
       <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction">← Introduction</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../passing-arguments/index.html" class="lesson-nav-btn lesson-nav-next" title="Передача параметров в асинхронный коллбэк">Передача параметров в асинхронный коллбэк →</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../passing-arguments/index.html" class="lesson-nav-btn lesson-nav-next" title="Passing parameters to an asynchronous callback">Passing parameters to an asynchronous callback →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

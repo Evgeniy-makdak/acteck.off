@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод toggle — acteck.off</title>
-  <meta name="description" content="Метод toggle — учебные материалы по программированию.">
+  <title>toggle method - acteck.off</title>
+  <meta name="description" content="Toggle method - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,90 +36,49 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод toggle</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>toggle</code> чередует плавный показ/скрытие
-	элементов. Если элемент показан, то он будет скрыт
-	и наоборот.
-</p>
+    <h1>toggle method</h1>
+    <p>Method<code data-gs="comd/c" data-x>toggle</code>alternates smooth showing/hiding of elements. If an element is shown, it will be hidden and vice versa.</p>
 
-<h2>Синтаксис</h2>
-<p>
-	Показ за заданное время в миллисекундах,
-	<code data-gs="comd/u" data-x>400мс</code> по умолчанию:
-</p>
+<h2>Syntax</h2>
+<p>Display for a specified time in milliseconds,<code data-gs="comd/u" data-x>400мс</code>default:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.toggle(длительность);</code>
 </div>
-<p>
-	Время можно задавать не только в миллисекундах,
-	но и ключевыми словами <code data-gs="comd/v" data-x>slow</code> (<code data-gs="comd/u" data-x>600мс</code>)
-	и <code data-gs="comd/v" data-x>fast</code> (<code data-gs="comd/u" data-x>200мс</code>), чем больше значение,
-	тем медленней анимация:
-</p>
+<p>Time can be set not only in milliseconds, but also with keywords<code data-gs="comd/v" data-x>slow</code> (<code data-gs="comd/u" data-x>600мс</code>) And<code data-gs="comd/v" data-x>fast</code> (<code data-gs="comd/u" data-x>200мс</code>), the higher the value, the slower the animation:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.toggle('slow' или 'fast');</code>
 </div>
-<p>
-	Можно параметром <code data-gs="comd/c" data-x>display</code> передавать значение
-	<code data-gs="comd/c" data-x>true</code> или <code data-gs="comd/c" data-x>false</code>. Если <code data-gs="comd/c" data-x>true</code>, то элемент
-	будет только показываться, <code data-gs="comd/c" data-x>false</code> - скрываться:
-</p>
+<p>You can use the parameter<code data-gs="comd/c" data-x>display</code>pass value<code data-gs="comd/c" data-x>true</code>or<code data-gs="comd/c" data-x>false</code>. If<code data-gs="comd/c" data-x>true</code>, then the element will only be shown,<code data-gs="comd/c" data-x>false</code>- hide:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.toggle(display);</code>
 </div>
-<p>
-	Если не указывать параметры - анимации
-	не будет, элементы будут показываться/скрываться
-	мгновенно:
-</p>
+<p>If you do not specify parameters, there will be no animation, elements will be shown/hidden instantly:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.toggle();</code>
 </div>
-<p>
-	Можно также вторым параметром передать функцию
-	плавности, а также третьим callback-функцию - сработает
-	после выполнения анимации. Оба параметра необязательны:
-</p>
+<p>You can also pass the smoothness function as the second parameter, as well as a callback function as the third - it will work after the animation is completed. Both parameters are optional:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.toggle(длительность, [функция плавности], [callback-функция]);</code>
 </div>
-<p>
-	Можно просто вторым необязательным параметром передать
-	callback-функцию - сработает после выполнения анимации:
-</p>
+<p>You can simply pass a callback function as the second optional parameter - it will work after the animation is completed:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.toggle(длительность, [callback-функция]);</code>
 </div>
-<p>
-	Можно передать методу различные опции,
-	в виде JavaScript объекта, содержащего
-	пары <span data-gs="comd/f" data-x>ключ: значение</span>:
+<p>You can pass various options to the method, in the form of a JavaScript object containing pairs<span data-gs="comd/f" data-x>key: value</span>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.toggle(options);</code>
 </div>
-<p>
-	Такой объект может передавать следующие
-	параметры и функции - <code data-gs="comd/c" data-x>duration</code>, <code data-gs="comd/c" data-x>easing</code>,
+<p>Such an object can pass the following parameters and functions -<code data-gs="comd/c" data-x>duration</code>, <code data-gs="comd/c" data-x>easing</code>,
 	<code data-gs="comd/c" data-x>queue</code>, <code data-gs="comd/c" data-x>specialEasing</code>, <code data-gs="comd/c" data-x>step</code>,
 	<code data-gs="comd/c" data-x>progress</code>, <code data-gs="comd/c" data-x>complete</code>, <code data-gs="comd/c" data-x>start</code>,
-	<code data-gs="comd/c" data-x>done</code>, <code data-gs="comd/c" data-x>fail</code>, <code data-gs="comd/c" data-x>always</code>. Описание
-	этих параметров вы можете посмотреть для метода
-	<a href="../animate/index.html"><code data-gs="comd/c" data-x>animate</code></a>. Например,
-	установим длительность и функцию плавности:
-</p>
+	<code data-gs="comd/c" data-x>done</code>, <code data-gs="comd/c" data-x>fail</code>, <code data-gs="comd/c" data-x>always</code>. You can see the description of these parameters for the method<a href="../animate/index.html"><code data-gs="comd/c" data-x>animate</code></a>. For example, let's set the duration and smoothness function:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">.toggle( {duration: 800, easing: easeInSine} );</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте после нажатия кнопки, будем плавно показывать
-	скрытый абзац с помощью метода <code data-gs="comd/c" data-x>toggle</code>. Передав
-	ключевое слово <code data-gs="comd/v" data-x>slow</code>, мы установим скорость
-	на <code data-gs="comd/u" data-x>600мс</code>. По повторному нажатию - скрывать:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's smoothly show the hidden paragraph after pressing the button using the method<code data-gs="comd/c" data-x>toggle</code>. By passing the keyword<code data-gs="comd/v" data-x>slow</code>, we will set the speed to<code data-gs="comd/u" data-x>600мс</code>. Click again to hide:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;button&gt;show text&lt;/button&gt;
 &lt;p style="display: none"&gt;text&lt;/p&gt;</code>
@@ -128,25 +87,13 @@
 });</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../slideToggle/index.html"><code data-gs="comd/c" data-x>fadeToggle</code></a>, <br>
-			который меняет прозрачность элементов
-		</li>
-		<li>
-			метод <a href="../slideToggle/index.html"><code data-gs="comd/c" data-x>slideToggle</code></a>, <br>
-			который чередует плавный показ/скрытие элементов
-		</li>
-		<li>
-			метод <a href="../show/index.html"><code data-gs="comd/c" data-x>show</code></a>, <br>
-			который плавно показывает элементы
-		</li>
-		<li>
-			метод <a href="../hide/index.html"><code data-gs="comd/c" data-x>hide</code></a>, <br>
-			который плавно скрывает элементы
-		</li>
+		<li>method<a href="../slideToggle/index.html"><code data-gs="comd/c" data-x>fadeToggle</code></a>, <br>which changes the transparency of elements</li>
+		<li>method<a href="../slideToggle/index.html"><code data-gs="comd/c" data-x>slideToggle</code></a>, <br>which alternates between smoothly showing/hiding elements</li>
+		<li>method<a href="../show/index.html"><code data-gs="comd/c" data-x>show</code></a>, <br>which smoothly shows the elements</li>
+		<li>method<a href="../hide/index.html"><code data-gs="comd/c" data-x>hide</code></a>, <br>which smoothly hides elements</li>
 	</ul>
 </div>
   </section>
@@ -154,7 +101,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ошибка дублирования функции редактирования DOM элементов в JavaScript — acteck.off</title>
-  <meta name="description" content="Ошибка дублирования функции редактирования DOM элементов в JavaScript — учебные материалы по программированию.">
+  <title>Error duplicating the function of editing DOM elements in JavaScript - acteck.off</title>
+  <meta name="description" content="Error duplicating the function of editing DOM elements in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../en/index.html" class="logo">
+      <a href="../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Ошибка дублирования функции редактирования DOM элементов в JavaScript</h1>
-    <p>
-	Пусть у нас есть некоторый список:
-</p>
+    <h1>Error duplicating the function of editing DOM elements in JavaScript</h1>
+    <p>Let us have some list:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li&gt;1&lt;/li&gt;
@@ -47,19 +45,12 @@
 	&lt;li&gt;3&lt;/li&gt;
 &lt;/ul&gt;</code>
 </div>
-<p>
-	Получим сам список и его пункты
-	в отдельные переменные:
-</p>
+<p>Let's get the list itself and its items into separate variables:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let ul    = document.querySelector('ul');
 let lis   = document.querySelectorAll('li');</code>
 </div>
-<p>
-	Сделаем так, чтобы пункты нашего
-	списка можно было редактировать
-	появляющимся инпутом:
-</p>
+<p>Let's make it so that the items in our list can be edited using the input that appears:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let li of lis) {
 	li.addEventListener('click', function func() {
@@ -78,26 +69,15 @@ let lis   = document.querySelectorAll('li');</code>
 	});
 }</code>
 </div>
-<p>
-	Пусть теперь мы хотим, чтобы в список
-	можно было добавлять новые пункты.
-	Пусть для этого под списком у нас
-	будет соответствующий инпут:
-</p>
+<p>Suppose now we want to be able to add new items to the list. For this purpose, let us have the corresponding input under the list:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;input id="adder"&gt;</code>
 </div>
-<p>
-	Получим ссылку на этот инпут в переменную:
-</p>
+<p>Let's get a link to this input into the variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let adder = document.querySelector('#adder');</code>
 </div>
-<p>
-	Сделаем так, чтобы по потери фокуса инпута
-	в в список добавился новый пункт с текстом,
-	взятым из нашего инпута:
-</p>
+<p>Let's make sure that when the input loses focus, a new item with text taken from our input is added to the list:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">adder.addEventListener('blur', function() {
 	let li = document.createElement('li');
@@ -106,24 +86,11 @@ let lis   = document.querySelectorAll('li');</code>
 	ul.append(li);
 });</code>
 </div>
-<p>
-	Пусть теперь мы хотим, чтобы и вновь добавленные
-	пункты также можно было редактировать. Само
-	по себе для них редактирование не заработает,
-	ведь когда мы навешивали обработчик клика
-	на пункты списка, этих пунктов еще не было.
-</p>
-<p>
-	Давайте посмотрим на возможные варианты
-	решения этой проблемы.
-</p>
+<p>Suppose now we want the newly added items to also be editable. Editing by itself will not work for them, because when we attached a click handler to the list items, these items did not yet exist.</p>
+<p>Let's look at possible solutions to this problem.</p>
 
-<h2>Решение первое</h2>
-<p>
-	Самое простое решение - это сдублировать
-	код функции <code data-gs="comd/c" data-x>func</code>, привязав ее
-	и для вновь созданных пунктов:
-</p>
+<h2>Solution one</h2>
+<p>The simplest solution is to duplicate the function code<code data-gs="comd/c" data-x>func</code>, linking it to newly created items:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">adder.addEventListener('blur', function() {
 	let li = document.createElement('li');
@@ -136,17 +103,10 @@ let lis   = document.querySelectorAll('li');</code>
 	ul.append(li);
 });</code>
 </div>
-<p>
-	Конечно, в этом решении мы сразу видим
-	недостаток - дублировать код не правильно.
-</p>
+<p>Of course, we immediately see a drawback in this solution - duplicating the code is not correct.</p>
 
-<h2>Решение второе</h2>
-<p>
-	Для решения проблемы дублирования
-	логично вынести функцию <code data-gs="comd/c" data-x>func</code>
-	наружу, сделав ее Function Declaration:
-</p>
+<h2>Solution two</h2>
+<p>To solve the duplication problem, it is logical to add the function<code data-gs="comd/c" data-x>func</code>outwards, making it a Function Declaration:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func() {
 	let input = document.createElement('input');
@@ -163,18 +123,8 @@ let lis   = document.querySelectorAll('li');</code>
 	li.removeEventListener('click', func);
 }</code>
 </div>
-<p>
-	Тут-то нас и поджидает проблема.
-	Дело в том, что наша функция использовала
-	переменную <code data-gs="comd/c" data-x>li</code>, полученную
-	из внешней области видимости.
-	Но после вынесения функции эта
-	переменная теперь не видна!
-</p>
-<p>
-	Для решения проблемы будем передавать
-	нашу <code data-gs="comd/c" data-x>li</code> параметром:
-</p>
+<p>This is where the problem awaits us. The fact is that our function used a variable<code data-gs="comd/c" data-x>li</code>, obtained from the outer scope. But after removing the function, this variable is no longer visible!</p>
+<p>To solve the problem we will transfer our<code data-gs="comd/c" data-x>li</code>parameter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function func(li) {
 	let input = document.createElement('input');
@@ -191,21 +141,13 @@ let lis   = document.querySelectorAll('li');</code>
 	li.removeEventListener('click', func);
 }</code>
 </div>
-<p>
-	И тут наше решение порождает еще
-	одну проблему. Дело в том, что
-	нельзя просто так передать параметр
-	в обработчик события:
-</p>
+<p>And here our solution gives rise to another problem. The point is that you can’t just pass a parameter to an event handler:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let li in lis) {
 	li.addEventListener('click', func(li)); // не работает!
 }</code>
 </div>
-<p>
-	Для решения этой проблемы просто вызовем
-	нашу функцию внутри анонимного обработчика:
-</p>
+<p>To solve this problem, simply call our function inside the anonymous handler:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">for (let li of lis) {
 	li.addEventListener('click', function() {
@@ -213,10 +155,7 @@ let lis   = document.querySelectorAll('li');</code>
 	});
 }</code>
 </div>
-<p>
-	И аналогичным образом поступим
-	при создании нового пункта списка:
-</p>
+<p>And we’ll do the same when creating a new list item:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">adder.addEventListener('blur', function() {
 	let li = document.createElement('li');
@@ -230,14 +169,8 @@ let lis   = document.querySelectorAll('li');</code>
 });</code>
 </div>
 
-<h2>Решение третье</h2>
-<p>
-	Существует более изящное решение.
-	Можно просто воспользоваться
-	<a href="../../book/prime/dom/object-Event/events-delegation/index.html">делегированием</a>. В этом
-	случае проблема с новыми пунктами
-	списка просто не возникнет:
-</p>
+<h2>Solution three</h2>
+<p>There is a more elegant solution. You can just use<a href="../../book/prime/dom/object-Event/events-delegation/index.html">delegation</a>. In this case, the problem with new list items simply will not arise:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">ul.addEventListener('click', function(event) {
 	if (event.target.tagName === 'LI') { // ловим именно клик на li, не на инпут
@@ -255,12 +188,7 @@ let lis   = document.querySelectorAll('li');</code>
 	}
 });</code>
 </div>
-<p>
-	В этом случае цикл по пунктам списка
-	нам вообще будет и не нужен, а код
-	для создания нового пункта списка
-	сократиться до такого:
-</p>
+<p>In this case, we won’t need a loop through list items at all, and the code for creating a new list item will be reduced to this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">adder.addEventListener('blur', function() {
 	let li = document.createElement('li');
@@ -273,7 +201,7 @@ let lis   = document.querySelectorAll('li');</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

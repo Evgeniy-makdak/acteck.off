@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Клиент для приложения в Redux — acteck.off</title>
-  <meta name="description" content="Клиент для приложения в Redux — учебные материалы по программированию.">
+  <title>Client for an application in Redux - acteck.off</title>
+  <meta name="description" content="Client for an application in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,33 +36,13 @@
       <a href="../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Клиент для приложения в Redux</h1>
-    <p>
-	На прошлых занятиях мы практически завершили
-	работу с серверной частью для нашего приложения,
-	мы немного дополним ее по мере необходимости
-	в следующих уроках. Теперь нам необходимо
-	создать клиента для приложения, который
-	будет отправлять HTTP-запросы на сервер.
-</p>
-<p>
-	Откроем наше приложение с продуктами и
-	в папке <code data-gs="comd/p" data-x>api</code> создадим файл <code data-gs="comd/p" data-x>client.js</code>.
-	Для начала мы напишем саму функцию <code data-gs="comd/c" data-x>client</code>,
-	которая будет работать и для GET и для
-	POST запросов. Параметрами она будет получать
-	путь, тип и тело запроса (в случае POST), если
-	таковое имеется:
-</p>
+    <h1>Client for an application in Redux</h1>
+    <p>In the last lessons we almost completed the work with the server part for our application, we will add a little to it as needed in the following lessons. Now we need to create a client for the application that will send HTTP requests to the server.</p>
+<p>Let's open our application with products and in the folder<code data-gs="comd/p" data-x>api</code>let's create a file<code data-gs="comd/p" data-x>client.js</code>. First, we'll write the function itself<code data-gs="comd/c" data-x>client</code>, which will work for both GET and POST requests. As parameters it will receive the path, type and body of the request (in the case of POST), if any:</p>
 <div data-p="bock/pane" data-p-file="api/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function client(url, method, body = {}) {}</code>
 </div>
-<p>
-	Далее нам нужно сформировать объект
-	<code data-gs="comd/c" data-x>options</code>, в котором мы будем передавать
-	различную информацию для запроса. Это
-	будет тип запроса и заголовки:
-</p>
+<p>Next we need to create an object<code data-gs="comd/c" data-x>options</code>, in which we will pass various information for the request. This will be the request type and headers:</p>
 <div data-p="bock/pane" data-p-file="api/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function client(url, method, body = {}) {
 	const options = {
@@ -73,26 +53,13 @@
 	}
 }</code>
 </div>
-<p>
-	Свойство <code data-gs="comd/c" data-x>body</code> у нас опционально, мы должны
-	передавать его, если у нас POST-запрос. Для
-	этого внутри <code data-gs="comd/c" data-x>client</code> после кода для объекта
-	<code data-gs="comd/c" data-x>options</code> добавим его в <code data-gs="comd/c" data-x>options</code> с телом
-	запроса в формате JSON, если выбран метод
-	POST:
-</p>
+<p>Property<code data-gs="comd/c" data-x>body</code>We have it optional, we must pass it if we have a POST request. For this inside<code data-gs="comd/c" data-x>client</code>after the code for the object<code data-gs="comd/c" data-x>options</code>let's add it to<code data-gs="comd/c" data-x>options</code>with the request body in JSON format if the POST method is selected:</p>
 <div data-p="bock/pane" data-p-file="api/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">if (method === 'POST') {
 	options.body = JSON.stringify(body)
 }</code>
 </div>
-<p>
-	Затем ниже в коде <code data-gs="comd/c" data-x>client</code> организуем блок
-	<code data-gs="comd/c" data-x>try</code>, в первой строчке которого с помощью
-	<code data-gs="comd/c" data-x>fetch</code> получим ответ от сервера. В случае
-	неудачи мы традиционно вернем промис с
-	ошибкой:
-</p>
+<p>Then below in code<code data-gs="comd/c" data-x>client</code>let's organize a block<code data-gs="comd/c" data-x>try</code>, in the first line of which, using<code data-gs="comd/c" data-x>fetch</code>We will receive a response from the server. In case of failure, we will traditionally return the promise with an error:</p>
 <div data-p="bock/pane" data-p-file="api/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">let data
 try {
@@ -101,17 +68,7 @@ try {
 	return Promise.reject(err.message ? err.message : data)
 }</code>
 </div>
-<p>
-	Теперь давайте допишем код в блоке
-	<code data-gs="comd/c" data-x>try</code>. После получения <code data-gs="comd/c" data-x>response</code>, нам
-	нужно его обработать. Извлечем из
-	него данные в JSON и если статус ответа
-	сигнализирует нам, что все в порядке, то
-	вернем объект с данными и информацией:
-	статусом, заголовками и адресом. Если
-	же статус не <code data-gs="comd/s" data-x>'ok'</code>, то выбросим исключение
-	с текстом статуса:
-</p>
+<p>Now let's add the code in the block<code data-gs="comd/c" data-x>try</code>. After receiving<code data-gs="comd/c" data-x>response</code>, we need to process it. Let's extract data from it in JSON and if the response status signals to us that everything is in order, then we will return an object with data and information: status, headers and address. If the status is not<code data-gs="comd/s" data-x>'ok'</code>, then we’ll throw an exception with the status text:</p>
 <div data-p="bock/pane" data-p-file="api/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">try {
 	const response = await window.fetch(url, options)
@@ -127,51 +84,30 @@ try {
 	throw new Error(response.statusText)
 }</code>
 </div>
-<p>
-	Код для функции <code data-gs="comd/c" data-x>client</code> у нас готов, осталось
-	только написать как будут работать наши методы
-	GET и POST при вызове. Давайте
-	напишем код для них после функции <code data-gs="comd/c" data-x>client</code>.
-	Метод <code data-gs="comd/c" data-x>client.get</code> будет принимать в качестве
-	параметра путь и вызывать функцию <code data-gs="comd/c" data-x>client</code>,
-	передавая ей этот путь и тип запроса GET:
-</p>
+<p>Code for the function<code data-gs="comd/c" data-x>client</code>We have it ready, all that remains is to write how our GET and POST methods will work when called. Let's write the code for them after the function<code data-gs="comd/c" data-x>client</code>. Method<code data-gs="comd/c" data-x>client.get</code>will take a path as a parameter and call the function<code data-gs="comd/c" data-x>client</code>, passing it this path and GET request type:</p>
 <div data-p="bock/pane" data-p-file="api/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">client.get = (url) =&gt; client(url, 'GET')</code>
 </div>
-<p>
-	А <code data-gs="comd/c" data-x>client.post</code> должен передавать для
-	<code data-gs="comd/c" data-x>client</code> путь, тип запроса POST и
-	тело запроса:
-</p>
+<p>A<code data-gs="comd/c" data-x>client.post</code>must transmit for<code data-gs="comd/c" data-x>client</code>path, POST request type and request body:</p>
 <div data-p="bock/pane" data-p-file="api/client.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">client.post = (url, body) =&gt; client(url, 'POST', body)</code>
 </div>
-<p>
-	На этом все, наш маленький клиент готов к
-	работе с сервером.
-</p>
+<p>That's all, our little client is ready to work with the server.</p>
 <div data-w="cont/task">
-	<p>
-		Откройте ваше приложение со студентами,
-		создайте в нем в папке <code data-gs="comd/p" data-x>api</code> файл
-		<code data-gs="comd/p" data-x>client.js</code>. Ознакомившись с материалами
-		урока напишите (скопируйте) код функции
-		<code data-gs="comd/c" data-x>client</code> и двух ее методов <code data-gs="comd/c" data-x>client.get</code>
-		и <code data-gs="comd/c" data-x>client.post</code>.
+	<p>Open your application with students, create a folder in it<code data-gs="comd/p" data-x>api</code>file<code data-gs="comd/p" data-x>client.js</code>. After reading the lesson materials, write (copy) the function code<code data-gs="comd/c" data-x>client</code>and its two methods<code data-gs="comd/c" data-x>client.get</code>And<code data-gs="comd/c" data-x>client.post</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../get-request-server/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отправка данных с сервера по GET-запросу">← Отправка данных с сервера по GET-запросу</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../async-thunk/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction в thunks">Introduction в thunks →</a>
+      <a href="../get-request-server/index.html" class="lesson-nav-btn lesson-nav-prev" title="Sending data from the server using a GET request">← Sending data from the server using a GET request</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../async-thunk/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction to thunks">Introduction to thunks →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

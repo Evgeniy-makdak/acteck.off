@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Настройка базового роутинга в Angular — acteck.off</title>
-  <meta name="description" content="Настройка базового роутинга в Angular — учебные материалы по программированию.">
+  <title>Setting up basic routing in Angular - acteck.off</title>
+  <meta name="description" content="Setting up basic routing in Angular - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,63 +36,36 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Настройка базового роутинга в Angular</h1>
-    <p>
-	Давайте теперь настроим роутинг. Сделаем
-	так, чтобы если в адресной строке браузера
-	вбит URL <code data-gs="comd/p" data-x>/aaaa/</code>, то показывался
-	первый компонент, а если вбит <code data-gs="comd/p" data-x>/bbbb/</code>,
-	то второй. 
-</p>
-<p>
-	Такая настройка делается в файле
-	<code data-gs="comd/p" data-x>app.routes.ts</code>. Для начала нужно
-	импортировать наши компоненты: 
-</p>
+    <h1>Setting up basic routing in Angular</h1>
+    <p>Let's now configure the routing. Let's make sure that if a URL is typed into the address bar of the browser<code data-gs="comd/p" data-x>/aaaa/</code>, then the first component was shown, and if it was driven in<code data-gs="comd/p" data-x>/bbbb/</code>, then the second one.</p>
+<p>This setting is made in the file<code data-gs="comd/p" data-x>app.routes.ts</code>. First we need to import our components:</p>
 <div data-p="bock/pane" data-p-file="app/app.routes.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { AaaaComponent } from './aaaa/aaaa.component';
 import { BbbbComponent } from './bbbb/bbbb.component';</code>
 </div>
-<p>
-	А теперь нужно сказать, какой URL какому
-	компоненту соответствует. Для этого нужно
-	сделать специальный массив объектов в
-	маршрутами (<dfn data-gs="comd/d" data-x>роутами</dfn>). В каждом
-	объекте будет ключ <code data-gs="comd/c" data-x>path</code>, в котором
-	задается URL (без концевых слешей), и ключ
-	<code data-gs="comd/c" data-x>component</code>, в котором задается
-	компонент, который показывается по этому
-	URL: 
-</p>
+<p>Now we need to tell which URL corresponds to which component. To do this, you need to make a special array of objects in routes (<dfn data-gs="comd/d" data-x>routes</dfn>). Each object will have a key<code data-gs="comd/c" data-x>path</code>, which specifies the URL (without trailing slashes), and the key<code data-gs="comd/c" data-x>component</code>, which specifies the component that is shown at this URL:</p>
 <div data-p="bock/pane" data-p-file="app/app.routes.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">export const routes: Routes = [
 	{ path: 'aaaa', component: AaaaComponent },
 	{ path: 'bbbb', component: BbbbComponent },
 ];</code>
 </div>
-<p>
-	Настройки роутинга, однако, недостаточно.
-	Нужно в родительском компоненте указать
-	место, в которое будут выводиться наши
-	компоненты. Этим мы займемся в следующем
-	уроке. 
-</p>
+<p>Setting up routing, however, is not enough. We need to specify in the parent component the place where our components will be displayed. We'll do this in the next lesson.</p>
 <div data-w="cont/task">
-	<p>
-		Настройте роутинг в файле <code data-gs="comd/p" data-x>app.routes.ts</code>. 
+	<p>Configure routing in the file<code data-gs="comd/p" data-x>app.routes.ts</code>. 
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../components-creating/index.html" class="lesson-nav-btn lesson-nav-prev" title="Создание компонентов">← Создание компонентов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../tag/index.html" class="lesson-nav-btn lesson-nav-next" title="Тег для роутинга">Тег для роутинга →</a>
+      <a href="../components-creating/index.html" class="lesson-nav-btn lesson-nav-prev" title="Creating Components">← Creating components</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../tag/index.html" class="lesson-nav-btn lesson-nav-next" title="Tag for routing">Routing tag →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

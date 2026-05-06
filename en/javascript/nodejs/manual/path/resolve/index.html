@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод resolve — acteck.off</title>
-  <meta name="description" content="Метод resolve — учебные материалы по программированию.">
+  <title>Resolve method - acteck.off</title>
+  <meta name="description" content="The resolve method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,97 +36,62 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Метод resolve</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>resolve</code> преобразует
-	последовательность сегментов пути
-	в абсолютный путь. Метод обрабатывает
-	последовательность путей справа налево,
-	добавляя каждый из путей перед созданием
-	абсолютного пути. Возвращаемый путь нормализуется,
-	при этом по мере необходимости удаляются слеши.
-	Если в качестве параметров не заданы сегменты пути,
-	то метод вернет абсолютный путь
-	текущего рабочего каталога.
-</p>
+    <h1>resolve method</h1>
+    <p>Method<code data-gs="comd/c" data-x>resolve</code>converts a sequence of path segments to an absolute path. The method processes a sequence of paths from right to left, appending each path before creating an absolute path. The returned path is normalized, with slashes removed as necessary. If no path segments are specified as parameters, the method will return the absolute path of the current working directory.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">path.resolve([сегменты путей]);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте преобразуем сегменты в абсолютный путь
-	на платформе Windows:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's convert the segments to an absolute path on the Windows platform:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import path from 'path';
 
 console.log(path.resolve('/dir', './file.txt'));</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'C:\dir\file.txt'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	А теперь пропишем более сложные сегменты
-	пути:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let’s write more complex path segments:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import path from 'path';
 
 console.log(path.resolve('/folder/dir', '././file.txt'));</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'C:\folder\dir\file.txt'</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь давайте пропишем сегменты, чтобы внутри папки
-	<code data-gs="comd/p" data-x>dir1</code> находилась папка <code data-gs="comd/p" data-x>dir1</code> с файлом
-	<code data-gs="comd/p" data-x>file.txt</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's write the segments so that inside the folder<code data-gs="comd/p" data-x>dir1</code>there was a folder<code data-gs="comd/p" data-x>dir1</code>with file<code data-gs="comd/p" data-x>file.txt</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import path from 'path';
 
 console.log(path.resolve('/folder/dir1', './dir2/file.txt'));</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'C:\folder\dir1\dir2\file.txt'</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../join/index.html"><code data-gs="comd/c" data-x>join</code></a>, <br>
-			который объединяет сегменты пути
-		</li>
-		<li>
-			метод <a href="../normalize/index.html"><code data-gs="comd/c" data-x>normalize</code></a>, <br>
-			который нормализует путь
-		</li>
-		<li>
-			метод <a href="../toNamespacedPath/index.html"><code data-gs="comd/c" data-x>toNamespacedPath</code></a>, <br>
-			который возвращает эквивалентный путь с префиксом из заданного пути
-		</li>
+		<li>method<a href="../join/index.html"><code data-gs="comd/c" data-x>join</code></a>, <br>which combines path segments</li>
+		<li>method<a href="../normalize/index.html"><code data-gs="comd/c" data-x>normalize</code></a>, <br>which normalizes the path</li>
+		<li>method<a href="../toNamespacedPath/index.html"><code data-gs="comd/c" data-x>toNamespacedPath</code></a>, <br>which returns the equivalent path with a prefix from the given path</li>
 	</ul>
 </div>
         <div class="lesson-nav">
       <a href="../relative/index.html" class="lesson-nav-btn lesson-nav-prev" title="relative">← relative</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../sep/index.html" class="lesson-nav-btn lesson-nav-next" title="sep">sep →</a>
     </div>
   </section>
@@ -134,7 +99,7 @@ console.log(path.resolve('/folder/dir1', './dir2/file.txt'));</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

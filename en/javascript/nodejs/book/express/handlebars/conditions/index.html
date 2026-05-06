@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Условия в Handlebars Express — acteck.off</title>
-  <meta name="description" content="Условия в Handlebars Express — учебные материалы по программированию.">
+  <title>Conditions in Handlebars Express – acteck.off</title>
+  <meta name="description" content="Terms in Handlebars Express - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,18 +36,9 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Условия в Handlebars Express</h1>
-    <p>
-	С помощью команды <code data-gs="comd/c" data-x>{{#if}}</code> можно сделать
-	так, чтобы определенный текст был показан,
-	если некоторая переменная имеет значение
-	<code data-gs="comd/c" data-x>true</code>, и скрыт, если <code data-gs="comd/c" data-x>false</code>.
-	Давайте посмотрим на примере.
-</p>
-<p>
-	Пусть в представление передается некоторая
-	логическая переменная:
-</p>
+    <h1>Conditions in Handlebars Express</h1>
+    <p>Using the command<code data-gs="comd/c" data-x>{{#if}}</code>it is possible to make certain text to be shown if some variable has a value<code data-gs="comd/c" data-x>true</code>, and hidden if<code data-gs="comd/c" data-x>false</code>. Let's look at an example.</p>
+<p>Let some logical variable be passed to the view:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/', function(req, res) {
 	res.render('page', {
@@ -55,9 +46,7 @@
 	});
 });</code>
 </div>
-<p>
-	Давайте покажем некоторый текст, если значение
-	нашей переменной равно <code data-gs="comd/c" data-x>true</code>:
+<p>Let's show some text if the value of our variable is<code data-gs="comd/c" data-x>true</code>:
 </p>
 <div data-p="bock/pane" data-p-file="views/page.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
@@ -67,11 +56,8 @@
 &lt;/div&gt;</code>
 </div>
 
-<h2>Команда else</h2>
-<p>
-	Можно также использовать команду <code data-gs="comd/c" data-x>{{else}}</code>,
-	чтобы показать или один, или второй текст:
-</p>
+<h2>else command</h2>
+<p>You can also use the command<code data-gs="comd/c" data-x>{{else}}</code>to show either one or the second text:</p>
 <div data-p="bock/pane" data-p-file="views/page.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
 	{{#if show}}
@@ -82,12 +68,8 @@
 &lt;/div&gt;</code>
 </div>
 
-<h2>Команда unless</h2>
-<p>
-	Команда <code data-gs="comd/c" data-x>{{#unless}}</code> обратна команде
-	<code data-gs="comd/c" data-x>{{#if}}</code>, то есть показывает текст,
-	если значение переменной ложно:
-</p>
+<h2>unless command</h2>
+<p>Team<code data-gs="comd/c" data-x>{{#unless}}</code>reverse command<code data-gs="comd/c" data-x>{{#if}}</code>, that is, shows text if the value of the variable is false:</p>
 <div data-p="bock/pane" data-p-file="views/page.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
 	{{#unless show}}
@@ -96,12 +78,9 @@
 &lt;/div&gt;</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Пусть в представление передаются следующие
-		переменные:
-	</p>
+	<p>Let the following variables be passed to the view:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">res.render('page', {
 	show1: true,
@@ -109,9 +88,7 @@
 	show3: true,
 });</code>
 	</div>
-	<p>
-		Пусть у нас есть три блока:
-	</p>
+	<p>Let us have three blocks:</p>
 	<div data-p="bock/pane" data-p-file="views/page.hbs">
 		<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
 	block 1
@@ -123,26 +100,19 @@
 	block 3
 &lt;/div&gt;</code>
 	</div>
-	<p>
-		Сделайте так, чтобы каждый блок был видимым,
-		если соответствующая ему переменная истинна.
-	</p>
+	<p>Make each block visible if its corresponding variable is true.</p>
 </div>
 
-<h2>Замечание</h2>
+<h2>Comment</h2>
 <div data-w="cont/nott">
-	<p>
-		Описанные команды могут проверять переменные
-		только на истину или ложь. Более сложные
-		условия недоступны.
-	</p>
+	<p>The commands described can only test variables for true or false. More complex conditions are not available.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

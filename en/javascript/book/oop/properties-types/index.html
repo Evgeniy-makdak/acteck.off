@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свойства-аксессоры в ООП в JavaScript — acteck.off</title>
-  <meta name="description" content="Свойства-аксессоры в ООП в JavaScript — учебные материалы по программированию.">
+  <title>Accessor properties in OOP in JavaScript - acteck.off</title>
+  <meta name="description" content="Accessor Properties in OOP in JavaScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,28 +36,11 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Свойства-аксессоры в ООП в JavaScript</h1>
-    <p>
-	Есть два типа свойств объекта.
-</p>
-<p>
-	Первый тип это свойства-данные (<span data-gs="lang/e" data-x>data properties</span>).
-	Мы уже знаем, как работать с ними. Все свойства,
-	которые мы использовали до текущего момента,
-	были свойствами-данными.
-</p>
-<p>
-	Второй тип свойств мы ещё не рассматривали.
-	Это свойства-аксессоры (<span data-gs="lang/e" data-x>accessor properties</span>).
-	По своей сути это функции, которые используются
-	для присвоения и получения значения, но во внешнем
-	коде они выглядят как обычные свойства объекта.
-</p>
-<p>
-	Свойства-аксессоры создаются с помощью
-	ключевых слов <code data-gs="comd/c" data-x>get</code> и <code data-gs="comd/c" data-x>set</code> написанных
-	при объявлении методов:
-</p>
+    <h1>Accessor properties in OOP in JavaScript</h1>
+    <p>There are two types of object properties.</p>
+<p>The first type is data properties (<span data-gs="lang/e" data-x>data properties</span>). We already know how to work with them. All the properties we have used up to now have been data properties.</p>
+<p>We have not yet considered the second type of properties. These are accessor properties (<span data-gs="lang/e" data-x>accessor properties</span>). At their core, these are functions that are used to assign and get a value, but in external code they look like ordinary object properties.</p>
+<p>Accessor properties are created using keywords<code data-gs="comd/c" data-x>get</code>And<code data-gs="comd/c" data-x>set</code>written when declaring methods:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class User {
 	get name() {
@@ -68,27 +51,18 @@
 	}
 }</code>
 </div>
-<p>
-	В результате такого объявления
-	наш класс будет обладать свойством
-	<code data-gs="comd/c" data-x>name</code>. При этом при попытке чтения
-	этого свойства будет вызван метод,
-	объявленный через <code data-gs="comd/c" data-x>get</code>:
+<p>As a result of such a declaration, our class will have the property<code data-gs="comd/c" data-x>name</code>. In this case, when trying to read this property, the method declared via<code data-gs="comd/c" data-x>get</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let name = user.name;</code>
 </div>
-<p>
-	При попытке записи будет вызван метод,
-	объявленный через <code data-gs="comd/c" data-x>set</code>:
+<p>When you try to write, the method declared via<code data-gs="comd/c" data-x>set</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">user.name = 'john';</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий класс:
-	</p>
+	<p>Given the following class:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">class Employee {
 	get name() {
@@ -99,24 +73,21 @@
 	}
 }</code>
 	</div>
-	<p>
-		Создайте объект этого класса
-		и попробуйте записать и прочитать
-		данные из свойства <code data-gs="comd/c" data-x>name</code>.
+	<p>Create an object of this class and try to write and read data from the property<code data-gs="comd/c" data-x>name</code>.
 	</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../classes-modules-inheritance/index.html" class="lesson-nav-btn lesson-nav-prev" title="Классы, модули и наследование">← Классы, модули и наследование</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../accessors-getters/index.html" class="lesson-nav-btn lesson-nav-next" title="Геттеры аксессоров">Геттеры аксессоров →</a>
+      <a href="../classes-modules-inheritance/index.html" class="lesson-nav-btn lesson-nav-prev" title="Classes, modules and inheritance">← Classes, modules and inheritance</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../accessors-getters/index.html" class="lesson-nav-btn lesson-nav-next" title="Accessor getters">Accessor getters →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

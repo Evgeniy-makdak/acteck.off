@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ошибка получения элемента в JavaScript — acteck.off</title>
-  <meta name="description" content="Ошибка получения элемента в JavaScript — учебные материалы по программированию.">
+  <title>Error getting element in JavaScript - acteck.off</title>
+  <meta name="description" content="Error getting element in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../en/index.html" class="logo">
+      <a href="../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,82 +36,37 @@
       <a href="../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Ошибка получения элемента в JavaScript</h1>
-    <p>
-	Иногда начинающие программисты совершают ошибку,
-	используя для получения одного DOM элемента
-	метод <code data-gs="comd/c" data-x>querySelectorAll</code> вместо метода
-	<code data-gs="comd/c" data-x>querySelector</code>.
+    <h1>Error getting element in JavaScript</h1>
+    <p>Sometimes novice programmers make the mistake of using the method<code data-gs="comd/c" data-x>querySelectorAll</code>instead of a method<code data-gs="comd/c" data-x>querySelector</code>.
 </p>
-<p>
-	Давайте посмотрим на характерные
-	особенности данной ошибки. Пусть
-	дан абзац: 
-</p>
+<p>Let's look at the characteristic features of this error. Let's be given a paragraph:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;text&lt;/p&gt;</code>
 </div>
-<p>
-	Некий программист решил получить
-	и изменить текст этого абзаца.
-	Для этого он получил ссылку на этот
-	элемент в переменную, ошибочно использовав
-	не тот метод:
-</p>
+<p>A certain programmer decided to obtain and change the text of this paragraph. To do this, he received a reference to this element in a variable by mistakenly using the wrong method:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelectorAll('p');</code>
 </div>
-<p>
-	Затем программист попытался изменить
-	текст абзаца. Однако, текст абзаца не поменялся:
-</p>
+<p>The programmer then tried to change the text of the paragraph. However, the text of the paragraph has not changed:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">elem.textContent = '!!!'; // не сработало</code>
 </div>
-<p>
-	При этом никакой ошибки в консоли
-	не появилось. Дело в том, что была выполнена
-	допустимая операция, но не над одним
-	элементом, а над группой. А прочитать
-	или изменить текст группы элементов
-	просто так нельзя - только перебрав
-	их циклом и обратившись к каждому
-	элементу по отдельности.
-</p>
+<p>However, no error appeared in the console. The fact is that a valid operation was performed, but not on one element, but on a group. But you can’t just read or change the text of a group of elements - only by going through them in a loop and accessing each element separately.</p>
 
-<h2>Как обнаружить ошибку</h2>
-<p>
-	Давайте посмотрим, как программист
-	должен действовать, чтобы обнаружить
-	эту ошибку. На самом деле, обладая некоторым
-	опытом, ее легко обнаружить
-	по характерным признакам.
-</p>
-<p>
-	Пусть этого, однако, не произошло. Toгда
-	первым действием программиста при поиске ошибок
-	должен быть вывод значений переменных
-	в консоль. В его случае есть только
-	одна переменная - <code data-gs="comd/c" data-x>elem</code>. Нужно вывести значение
-	этой переменной и посмотреть, что
-	в ней лежит: 
-</p>
+<h2>How to detect an error</h2>
+<p>Let's see how a programmer should act to detect this error. In fact, with some experience, it is easy to detect by its characteristic features.</p>
+<p>Let this not happen, however. Then the first action of the programmer when searching for errors should be to output variable values ​​to the console. In his case there is only one variable -<code data-gs="comd/c" data-x>elem</code>. You need to display the value of this variable and see what lies in it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelectorAll('p');
 console.log(elem); // выведет массив, а не один элемент</code>
 </div>
-<p>
-	В консоли сразу видно, что в переменной
-	не один элемент, а массив. Это сразу дает
-	очевидную подсказку о том, что допущена
-	ошибка в методе для получения элемента.
-</p>
+<p>In the console you can immediately see that the variable contains not one element, but an array. This immediately gives an obvious clue that there is an error in the method for obtaining the element.</p>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

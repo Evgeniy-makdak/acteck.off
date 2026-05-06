@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Тег для роутинга в Angular — acteck.off</title>
-  <meta name="description" content="Тег для роутинга в Angular — учебные материалы по программированию.">
+  <title>Tag for routing in Angular - acteck.off</title>
+  <meta name="description" content="Angular routing tag - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,27 +36,14 @@
       <a href="../../../../../../../../en/javascript/index.html">javascript</a>
     </div>
 
-    <h1>Тег для роутинга в Angular</h1>
-    <p>
-	В предыдущем уроке мы настроили маршруты.
-	Теперь нам нужно в родительском компоненте
-	указать место, в которое будут выводиться
-	наши дочерние компоненты. 
-</p>
-<p>
-	Это место указывается с помощью специального
-	тега <code data-gs="comd/c" data-x>router-outlet</code>, который мы пишем
-	в родительском компоненте. 
-</p>
-<p>
-	Для начала этот тег нужно подключить: 
-</p>
+    <h1>Angular routing tag</h1>
+    <p>In the previous lesson we configured routes. Now we need to specify in the parent component the location where our child components will be displayed.</p>
+<p>This location is indicated using a special tag<code data-gs="comd/c" data-x>router-outlet</code>, which we write in the parent component.</p>
+<p>First you need to connect this tag:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">import { RouterOutlet } from '@angular/router';</code>
 </div>
-<p>
-	Прописать в ключе <code data-gs="comd/c" data-x>imports</code> декоратора: 
-</p>
+<p>Register in the key<code data-gs="comd/c" data-x>imports</code>decorator:</p>
 <div data-p="bock/pane" data-p-file="app/app.component.ts">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">@Component({
 	......
@@ -64,43 +51,28 @@
 	......
 })</code>
 </div>
-<p>
-	Теперь в родительском компоненте мы можем
-	написать тег <code data-gs="comd/c" data-x>router-outlet</code>: 
+<p>Now in the parent component we can write a tag<code data-gs="comd/c" data-x>router-outlet</code>: 
 </p>
 <div data-p="bock/pane" data-p-file="app/app.component.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">parent
 &lt;router-outlet&gt;&lt;/router-outlet&gt;</code>
 </div>
-<p>
-	В этот тег будет выводится один из дочерних
-	компонентов, в зависимости от того, какой
-	URL вбит в адресной строке. 
-</p>
-<p>
-	Обратите внимание на то, что в родительский
-	компонент дочерние компоненты импортировать
-	не нужно. Мы импортируем их в файл с
-	роутами. 
-</p>
+<p>One of the child components will be displayed in this tag, depending on which URL is entered in the address bar.</p>
+<p>Please note that you do not need to import child components into the parent component. We import them into a file with routes.</p>
 <div data-w="cont/task">
-	<p>
-		Поочередно вбейте в адресную строку урлы
-		<code data-gs="comd/p" data-x>/aaaa/</code> и <code data-gs="comd/p" data-x>/bbbb/</code>. Убедитесь,
-		что подключаются соответствующие компоненты. 
-	</p>
+	<p>Enter the URLs one by one into the address bar<code data-gs="comd/p" data-x>/aaaa/</code>And<code data-gs="comd/p" data-x>/bbbb/</code>. Make sure the correct components are connected.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../basic-routing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Настройка базового роутинга">← Настройка базового роутинга</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../links/index.html" class="lesson-nav-btn lesson-nav-next" title="Links для роутинга">Links для роутинга →</a>
+      <a href="../basic-routing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Setting up basic routing">← Setting up basic routing</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../links/index.html" class="lesson-nav-btn lesson-nav-next" title="Routing links">Links for routing →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

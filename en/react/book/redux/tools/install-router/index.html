@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Установка React Router в Redux приложение — acteck.off</title>
-  <meta name="description" content="Установка React Router в Redux приложение — учебные материалы по программированию.">
+  <title>Installing React Router in a Redux application - acteck.off</title>
+  <meta name="description" content="Installing React Router in a Redux application - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,40 +36,15 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Установка React Router в Redux приложение</h1>
-    <p>
-	На прошлых уроках мы установили основные
-	инструменты для работы с Redux. Часто
-	бывает так, что приложению нужен
-	маршрутизатор для навигации по
-	его web-страницам и наше приложение
-	не станет исключением. Для этого
-	мы установим библиотеку
-	<a href="https://reactrouter.com/en/main">React Router</a>.
+    <h1>Installing React Router in a Redux application</h1>
+    <p>In previous lessons, we installed the basic tools for working with Redux. It often happens that an application needs a router to navigate its web pages, and our application is no exception. To do this we will install the library<a href="https://reactrouter.com/en/main">React Router</a>.
 </p>
-<p>
-	Откроем наш проект и наберем в терминале
-	следующую команду:
-</p>
+<p>Let's open our project and type the following command in the terminal:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install react-router-dom</code>
 </div>
-<p>
-	Забегая немного вперед, скажу, что наше
-	Redux приложение традиционно посвящено
-	продуктам, информация о которых выкладывается
-	некими продавцами. Поэтому сейчас мы немного
-	переделаем главный компонент <code data-gs="comd/c" data-x>App</code>, а
-	также добавим в приложение функционал для
-	осуществления маршрутизации.
-</p>
-<p>
-	Для начала зайдем в папку <code data-gs="comd/p" data-x>src</code>, а затем
-	в <code data-gs="comd/p" data-x>app</code> и создадим здесь файл <code data-gs="comd/p" data-x>root.jsx</code>. Это
-	будет корень нашего сайта: cлева у нас будет менюшка,
-	а справа - контент (пока же у нас здесь
-	только заголовок):
-</p>
+<p>Looking ahead a little, I will say that our Redux application is traditionally dedicated to products, information about which is posted by certain sellers. Therefore, now we will slightly rework the main component<code data-gs="comd/c" data-x>App</code>, and also add routing functionality to the application.</p>
+<p>First, let's go to the folder<code data-gs="comd/p" data-x>src</code>, and then in<code data-gs="comd/p" data-x>app</code>and create a file here<code data-gs="comd/p" data-x>root.jsx</code>. This will be the root of our site: on the left we will have a menu, and on the right - content (for now we only have the title here):</p>
 <div data-p="bock/pane" data-p-file="app/root.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Root() {
 	return (
@@ -90,29 +65,17 @@
 
 export default Root</code>
 </div>
-<p>
-	А компонент <code data-gs="comd/c" data-x>App</code> мы переделаем. Для начала
-	полностью удалим его содержимое. Затем
-	импортируем две функции для роутера и наш
-	корневой компонент <code data-gs="comd/c" data-x>Root</code>:
+<p>A component<code data-gs="comd/c" data-x>App</code>we'll redo it. First, let's completely delete its contents. Then we import two functions for the router and our root component<code data-gs="comd/c" data-x>Root</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './app/root'</code>
 </div>
-<p>
-	Ниже после импорта создадим роутер,
-	и пропишем первый маршрут, передав ему
-	наш <code data-gs="comd/c" data-x>Root</code> в качестве отображаемого элемента
-	и, соответсвенно, установив путь в <code data-gs="comd/v" data-x>'/'</code>.
-	В дальнейшем в <code data-gs="comd/c" data-x>App</code> мы будем добавлять и
-	другие необходимые маршруты:
-</p>
+<p>Below, after import, we will create a router and register the first route, passing it our<code data-gs="comd/c" data-x>Root</code>as a display element and, accordingly, setting the path to<code data-gs="comd/v" data-x>'/'</code>. In the future in<code data-gs="comd/c" data-x>App</code>we will add other necessary routes:</p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const router = createBrowserRouter([{ path: '/', element: &lt;Root /&gt; }])</code>
 </div>
-<p>
-	Ниже напишем код функции <code data-gs="comd/c" data-x>App</code>:
+<p>Below we write the function code<code data-gs="comd/c" data-x>App</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
@@ -121,14 +84,8 @@ import Root from './app/root'</code>
 
 export default App</code>
 </div>
-<p>
-	Все. Запускаем. В следующем разделе мы будем
-	реализовывать компоненты для работы Redux
-	приложения.
-</p>
-<p>
-	Напоследок добавим немного красоты, прописав для
-	этого стили в <code data-gs="comd/p" data-x>index.css</code>:
+<p>All. Let's launch. In the next section, we will implement the components for running the Redux application.</p>
+<p>Finally, let's add a little beauty by writing styles for this in<code data-gs="comd/p" data-x>index.css</code>:
 </p>
 <div data-p="bock/pane" data-p-file="index.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">body {
@@ -170,31 +127,22 @@ a {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Добавьте React Router в ваше приложение.
-	</p>
+	<p>Add React Router to your application.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть ваше приложение будет касаться
-		студентов, информацию о которых будут
-		выкладывать преподаватели. Учитывая это,
-		создайте корневой компонент <code data-gs="comd/c" data-x>Root</code>.
-		Переделайте	компонент <code data-gs="comd/c" data-x>App</code> как
-		описано в уроке.
-	</p>
+	<p>Let your application concern students, information about which will be posted by teachers. With this in mind, create a root component<code data-gs="comd/c" data-x>Root</code>. Rework the component<code data-gs="comd/c" data-x>App</code>as described in the lesson.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../install-devtools/index.html" class="lesson-nav-btn lesson-nav-prev" title="Установка Redux DevTools Extension">← Установка Redux DevTools Extension</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../workflow/slices/index.html" class="lesson-nav-btn lesson-nav-next" title="Добавление слайса">Добавление слайса →</a>
+      <a href="../install-devtools/index.html" class="lesson-nav-btn lesson-nav-prev" title="Installing Redux DevTools Extension">← Installing Redux DevTools Extension</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../workflow/slices/index.html" class="lesson-nav-btn lesson-nav-next" title="Adding a slice">Adding a slice →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

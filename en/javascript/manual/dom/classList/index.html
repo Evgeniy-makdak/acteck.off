@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свойство classList — acteck.off</title>
-  <meta name="description" content="Свойство classList — учебные материалы по программированию.">
+  <title>classList property - acteck.off</title>
+  <meta name="description" content="The classList property is programming educational materials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,31 +36,17 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Свойство classList</h1>
-    <p>
-	Свойство <code data-gs="comd/c" data-x>classList</code> содержит <a href="../../../book/supreme/pseudoarrays/intro/index.html">псевдомассив</a>
-	CSS классов элемента, а также позволяет добавлять
-	и удалять классы элемента, проверять наличие
-	определенного класса среди классов элемента.
-</p>
-<p>
-	Речь идет об атрибуте <a href="../../../../markup/manual/html/attr/class/index.html"><code data-gs="comd/c" data-x>class</code></a>,
-	внутри которого можно писать несколько классов
-	через пробел, например <code data-gs="comd/z" data-x>www ggg zzz</code>.
-	С помощью <code data-gs="comd/c" data-x>classList</code> можно удалить,
-	к примеру, класс <code data-gs="comd/z" data-x>ggg</code>, не затронув
-	остальные классы.
-</p>
+    <h1>classList property</h1>
+    <p>Property<code data-gs="comd/c" data-x>classList</code>contains<a href="../../../book/supreme/pseudoarrays/intro/index.html">pseudo-array</a>CSS element classes, and also allows you to add and remove element classes, check the presence of a certain class among the element classes.</p>
+<p>It's about the attribute<a href="../../../../markup/manual/html/attr/class/index.html"><code data-gs="comd/c" data-x>class</code></a>, inside which you can write several classes separated by a space, for example<code data-gs="comd/z" data-x>www ggg zzz</code>. By using<code data-gs="comd/c" data-x>classList</code>you can delete, for example, the class<code data-gs="comd/z" data-x>ggg</code>without affecting other classes.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">элемент.classList;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span>. Количество классов</h2>
-<p>
-	Узнаем количество классов элемента:
-</p>
+<h2>Example<span data-gn="sect"></span>. Number of classes</h2>
+<p>Let's find out the number of element classes:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="elem" class="www ggg zzz"&gt;&lt;/p&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
@@ -68,17 +54,13 @@
 let length = elem.classList.length;
 console.log(length);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">3</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span>. Перебираем классы</h2>
-<p>
-	Выведем по очереди классы элемента:
-</p>
+<h2>Example<span data-gn="sect"></span>. Let's go through the classes</h2>
+<p>Let's display the element classes one by one:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p id="elem" class="www ggg zzz"&gt;&lt;/p&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem = document.querySelector('#elem');
@@ -88,34 +70,20 @@ for (let className of classNames) {
 	console.log(className);
 }</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'www'
 'ggg'
 'zzz'</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="add/index.html"><code data-gs="comd/c" data-x>classList.add</code></a>, <br>
-			который добавляет заданный класс
-		</li>
-		<li>
-			метод <a href="remove/index.html"><code data-gs="comd/c" data-x>classList.remove</code></a>, <br>
-			который удаляет заданный класс
-		</li>
-		<li>
-			метод <a href="contains/index.html"><code data-gs="comd/c" data-x>classList.contains</code></a>, <br>
-			который проверяет заданный класс
-		</li>
-		<li>
-			метод <a href="toggle/index.html"><code data-gs="comd/c" data-x>classList.toggle</code></a>, <br>
-			который чередует заданный класс
-		</li>
+		<li>method<a href="add/index.html"><code data-gs="comd/c" data-x>classList.add</code></a>, <br>which adds the given class</li>
+		<li>method<a href="remove/index.html"><code data-gs="comd/c" data-x>classList.remove</code></a>, <br>which removes the given class</li>
+		<li>method<a href="contains/index.html"><code data-gs="comd/c" data-x>classList.contains</code></a>, <br>which tests a given class</li>
+		<li>method<a href="toggle/index.html"><code data-gs="comd/c" data-x>classList.toggle</code></a>, <br>which alternates a given class</li>
 	</ul>
 </div>
   </section>
@@ -123,7 +91,7 @@ for (let className of classNames) {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

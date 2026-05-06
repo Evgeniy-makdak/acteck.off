@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Параметры с запятыми в LESS — acteck.off</title>
-  <meta name="description" content="Параметры с запятыми в LESS — учебные материалы по программированию.">
+  <title>Comma parameters in LESS - acteck.off</title>
+  <meta name="description" content="Comma Parameters in LESS - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,69 +33,48 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Параметры с запятыми в LESS</h1>
-    <p>
-	Пусть у нас есть функция, создающая тень блока:
-</p>
+    <h1>Comma Parameters in LESS</h1>
+    <p>Let's say we have a function that creates a block shadow:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">.shadow(@s) {
 	box-shadow: @s;
 }</code>
 </div>
-<p>
-	Как вы видите, в нашей функции один параметр.
-	Это значит, что мы будем передавать в этот
-	параметр все значения нашей тени через пробел,
-	вот так:
-</p>
+<p>As you can see, our function has one parameter. This means that we will pass all the values ​​of our shadow into this parameter, separated by a space, like this:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
 	.shadow(1px 1px red);
 }</code>
 </div>
-<p>
-	В CSS, однако, можно задавать несколько теней,
-	записывая их через запятую. В нашем случае
-	такое, увы, не получится, так как запятая
-	будет воспринята компилятором как разделитель
-	между параметрами функции:
-</p>
+<p>In CSS, however, you can specify multiple shadows by separating them with commas. In our case, this, alas, will not work, since the comma will be perceived by the compiler as a separator between function parameters:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
 	.shadow(1px 1px red, 1px 1px blue); // выдаст ошибку
 }</code>
 </div>
-<p>
-	Выход, однако, есть. Мы можем заставить LESS
-	воспринять нашу строку с запятой как один
-	параметр. Для этого нужно завершить перечисление
-	наших значений точкой с запятой:
-</p>
+<p>However, there is a way out. We can force LESS to treat our semicolon string as a single parameter. To do this, we need to end the listing of our values ​​with a semicolon:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">div {
 	.shadow(1px 1px red, 1px 1px blue;);
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте функцию, добавляющую фон. С помощью
-		этой функции добавьте блоку несколько фонов.
-	</p>
+	<p>Make a function that adds a background. Use this function to add multiple backgrounds to a block.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../all-function-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="Все параметры функции">← Все параметры функции</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../merging-with-comma/index.html" class="lesson-nav-btn lesson-nav-next" title="Объединение через запятую">Объединение через запятую →</a>
+      <a href="../all-function-parameters/index.html" class="lesson-nav-btn lesson-nav-prev" title="All function parameters">← All function parameters</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../merging-with-comma/index.html" class="lesson-nav-btn lesson-nav-next" title="Concatenation separated by commas">Concatenation separated by commas →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

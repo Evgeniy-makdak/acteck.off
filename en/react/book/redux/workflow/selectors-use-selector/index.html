@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Селекторы и хук useSelector в Redux — acteck.off</title>
-  <meta name="description" content="Селекторы и хук useSelector в Redux — учебные материалы по программированию.">
+  <title>Selectors and the useSelector hook in Redux - acteck.off</title>
+  <meta name="description" content="Selectors and the useSelector hook in Redux - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,59 +36,31 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Селекторы и хук useSelector в Redux</h1>
-    <p>
-	На прошлых уроках мы записали в store
-	данные продуктов. Как же нам получать их
-	из store?
-</p>
-<p>
-	Для того, чтобы это сделать, нам необходимо
-	написать <dfn data-gs="comd/d" data-x>функцию-селектор</dfn>. Эта функция
-	знает, как извлечь определенный кусок
-	информации из значения стейта, хранящегося в store
-	и помогает избежать написания повторяющегося
-	кода при разрастании приложения. На вход
-	эта функция принимает state, а на выходе
-	выдает необходимый слайс стейта. Например
-	так:
-</p>
+    <h1>Selectors and the useSelector hook in Redux</h1>
+    <p>In previous lessons, we recorded product data in the store. How can we get them from the store?</p>
+<p>In order to do this, we need to write<dfn data-gs="comd/d" data-x>selector function</dfn>. This function knows how to extract a specific piece of information from a state value stored in the store and helps avoid writing repetitive code as the application grows. This function takes state as input, and outputs the required state slice. For example like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const selectValue = state =&gt; state.some.value</code>
 </div>
-<p>
-	В самом начале учебника упоминалось о том,
-	что у store есть метод <code data-gs="comd/c" data-x>getState</code>. И мы
-	бы легко могли им воспользоваться для
-	получения значения стейта:
-</p>
+<p>At the very beginning of the tutorial it was mentioned that store has a method<code data-gs="comd/c" data-x>getState</code>. And we could easily use it to get the state value:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const value = selectValue(store.getState())</code>
 </div>
-<p>
-	Проблема заключается в том, что наши React
-	компоненты не могут напрямую обращаться к
-	store, поскольку его запрещено импортировать
-	в файл компонента. Но у нас есть возможность
-	получить данные в компоненте с помощью
-	React-Redux хука <code data-gs="comd/c" data-x>useSelector</code>. К тому же,
-	с этим хуком наши компоненты будут всегда получать
-	только актуальные данные:
-</p>
+<p>The problem is that our React components cannot directly access the store because it is not allowed to be imported into the component file. But we have the opportunity to get the data in the component using the React-Redux hook<code data-gs="comd/c" data-x>useSelector</code>. In addition, with this hook our components will always receive only current data:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const count = useSelector(selectValue)</code>
 </div>
     <div class="lesson-nav">
-      <a href="../reducers/index.html" class="lesson-nav-btn lesson-nav-prev" title="Редьюсеры">← Редьюсеры</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../read-store-data/index.html" class="lesson-nav-btn lesson-nav-next" title="Получение данных из store в компоненте">Получение данных из store в компоненте →</a>
+      <a href="../reducers/index.html" class="lesson-nav-btn lesson-nav-prev" title="Reducers">← Reducers</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../read-store-data/index.html" class="lesson-nav-btn lesson-nav-next" title="Retrieving data from store in a component">Receiving data from store in a component →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

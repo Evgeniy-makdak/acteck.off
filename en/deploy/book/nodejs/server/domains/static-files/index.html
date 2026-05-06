@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Статичные файлы домена через Nginx на VPS сервере — acteck.off</title>
-  <meta name="description" content="Статичные файлы домена через Nginx на VPS сервере — учебные материалы по программированию.">
+  <title>Static domain files via Nginx on a VPS server - acteck.off</title>
+  <meta name="description" content="Static domain files via Nginx on a VPS server - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,25 +36,9 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Статичные файлы домена через Nginx на VPS сервере</h1>
-    <p>
-	Для отдачи статичных файлов на
-	NodeJS или на Express делается
-	static-сервер. На самом деле, так
-	делать не рекомендуется, так как
-	это медленно работает.
-</p>
-<p>
-	Более оптимально отдавать статику
-	через Nginx. Для этого для домена
-	делается специальная настройка,
-	содержащая регулярку и путь к
-	папке со статикой. Пусть для примера
-	в нашем домене папкой со статикой
-	будет папка <code data-gs="comd/p" data-x>public</code>.
-	В этом случае мы пропишем
-	следующие настройки:
-</p>
+    <h1>Static domain files via Nginx on a VPS server</h1>
+    <p>To serve static files on NodeJS or Express, a static server is created. In fact, it is not recommended to do this because it is slow.</p>
+<p>It is more optimal to serve static files via Nginx. To do this, a special setting is made for the domain, containing the regular sequence and the path to the folder with statics. Let, for example, in our domain, the folder with static content be the folder<code data-gs="comd/p" data-x>public</code>. In this case, we will specify the following settings:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="conf">server_name test1.com;
 
@@ -62,14 +46,7 @@ location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|js|swf|txt|ico)$ {
 	root /var/www/test1.com/public;
 }</code>
 </div>
-<p>
-	При этом не очень удобно, что имя
-	домена мы должны написать два раза,
-	если это имя совпадает с папкой сайта
-	(а у нас для удобства совпадает).
-	Проблему можно решить следующим
-	образом:
-</p>
+<p>At the same time, it is not very convenient that we have to write the domain name twice if this name coincides with the site folder (and for our convenience it does). The problem can be solved as follows:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="conf">server_name test1.com;
 
@@ -77,10 +54,7 @@ location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|js|swf|txt|ico)$ {
 	root /var/www/$server_name/public;
 }</code>
 </div>
-<p>
-	Давайте соберем все наши настройки
-	вместе и получим следующее:
-</p>
+<p>Let's put all our settings together and get the following:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="conf">server {
 	listen 80;
@@ -101,19 +75,14 @@ location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|js|swf|txt|ico)$ {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Настройте отдачу статики для
-		обоих тестовых сайтов.
-		Потестируйте
-		ее через браузер.
-	</p>
+	<p>Configure static output for both test sites. Test it through your browser.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

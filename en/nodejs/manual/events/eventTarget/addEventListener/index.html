@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод addEventListener — acteck.off</title>
-  <meta name="description" content="Метод addEventListener — учебные материалы по программированию.">
+  <title>addEventListener method - acteck.off</title>
+  <meta name="description" content="addEventListener Method - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,62 +36,44 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Метод addEventListener</h1>
-    <p>
-	Конструктор <code data-gs="comd/c" data-x>addEventListener</code> объекта <code data-gs="comd/c" data-x>EventTarget</code>
-	добавляет слушателя для события. В первом параметре
-	метода указывается тип события, во втором
-	параметре - слушатель. В третьем необязательном
-	параметре указываем объект с опциями.
-</p>
+    <h1>addEventListener method</h1>
+    <p>Constructor<code data-gs="comd/c" data-x>addEventListener</code>object<code data-gs="comd/c" data-x>EventTarget</code>adds a listener for the event. The first parameter of the method specifies the event type, and the second parameter specifies the listener. In the third optional parameter we specify an object with options.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">eventTarget.addEventListener(тип события, слушатель, [опции]);</code>
 </div>
 
-<h2>Объект с опциями</h2>
+<h2>Object with options</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Опция</th>
-		<th>Описание</th>
+		<th>Option</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/s" data-x>once</code></th>
-		<td>
-			Если задается <code data-gs="comd/c" data-x>true</code>, то сразу после добавления
-			слушатель удаляется (по умолчанию значение <code data-gs="comd/c" data-x>false</code>).
+		<td>If specified<code data-gs="comd/c" data-x>true</code>, then immediately after adding the listener is removed (default value<code data-gs="comd/c" data-x>false</code>).
 		</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/s" data-x>passive</code></th>
-		<td>
-			Если задается <code data-gs="comd/c" data-x>true</code>, то слушатель не сможет
-			вызвать метод <code data-gs="comd/c" data-x>preventDefault</code> для события,
-			(по умолчанию значение <code data-gs="comd/c" data-x>false</code>).
+		<td>If specified<code data-gs="comd/c" data-x>true</code>, then the listener will not be able to call the method<code data-gs="comd/c" data-x>preventDefault</code>for the event, (default value<code data-gs="comd/c" data-x>false</code>).
 		</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/s" data-x>capture</code></th>
-		<td>
-			Напрямую не используется NodeJS, но входит в стек
-			опций (по умолчанию значение <code data-gs="comd/c" data-x>false</code>).
+		<td>Not directly used by NodeJS, but included in the options stack (default value<code data-gs="comd/c" data-x>false</code>).
 		</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/s" data-x>signal</code></th>
-		<td>
-			Обозначает, что слушатель будет
-			удален при вызове метода <code data-gs="comd/c" data-x>abort</code>.
+		<td>Indicates that the listener will be removed when the method is called<code data-gs="comd/c" data-x>abort</code>.
 		</td>
 	</tr>
 </table>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте добавим слушателя к
-	нашему событию:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's add a listener to our event:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let listener = () =&gt; {
 	console.log('text');
@@ -101,26 +83,17 @@ const target = new EventTarget();
 target.addEventListener('event', listener);</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			конструктор <a href="../../../../../javascript/nodejs/manual/events/eventTarget/index.html"><code data-gs="comd/c" data-x>eventTarget</code></a>, <br>
-			который создает события и слушателей для них
-		</li>
-		<li>
-			метод <a href="../../../../../javascript/nodejs/manual/events/eventTarget/dispatchEvent/index.html"><code data-gs="comd/c" data-x>dispatchEvent</code></a>, <br>
-			который отправляет событие в список обработчиков
-		</li>
-		<li>
-			метод <a href="../../../../../javascript/nodejs/manual/events/eventTarget/removeEventListener/index.html"><code data-gs="comd/c" data-x>removeEventListener</code></a>, <br>
-			который удаляет слушателя для события
-		</li>
+		<li>constructor<a href="../../../../../javascript/nodejs/manual/events/eventTarget/index.html"><code data-gs="comd/c" data-x>eventTarget</code></a>, <br>which creates events and listeners for them</li>
+		<li>method<a href="../../../../../javascript/nodejs/manual/events/eventTarget/dispatchEvent/index.html"><code data-gs="comd/c" data-x>dispatchEvent</code></a>, <br>which sends an event to a list of handlers</li>
+		<li>method<a href="../../../../../javascript/nodejs/manual/events/eventTarget/removeEventListener/index.html"><code data-gs="comd/c" data-x>removeEventListener</code></a>, <br>which removes the listener for the event</li>
 	</ul>
 </div>
     <div class="lesson-nav">
       <a href="../../errorMonitor/index.html" class="lesson-nav-btn lesson-nav-prev" title="errorMonitor">← errorMonitor</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../dispatchEvent/index.html" class="lesson-nav-btn lesson-nav-next" title="dispatchEvent">dispatchEvent →</a>
     </div>
   </section>
@@ -128,7 +101,7 @@ target.addEventListener('event', listener);</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

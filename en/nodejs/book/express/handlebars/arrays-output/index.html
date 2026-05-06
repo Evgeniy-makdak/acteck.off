@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вывод массивов в Handlebars Express — acteck.off</title>
-  <meta name="description" content="Вывод массивов в Handlebars Express — учебные материалы по программированию.">
+  <title>Outputting arrays in Handlebars Express - acteck.off</title>
+  <meta name="description" content="Outputting arrays in Handlebars Express - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,19 +36,15 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Вывод массивов в Handlebars Express</h1>
-    <p>
-	Пусть у нас есть некоторая страница <code data-gs="comd/p" data-x>page.hbs</code>:
+    <h1>Displaying Arrays in Handlebars Express</h1>
+    <p>Let us have some page<code data-gs="comd/p" data-x>page.hbs</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/', function(req, res) {
 	res.render('page');
 });</code>
 </div>
-<p>
-	Пусть на эту страницу передается массив с
-	некоторыми данными:
-</p>
+<p>Let an array with some data be passed to this page:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/page/', function(req, res) {
 	res.render('page', {
@@ -56,36 +52,25 @@
 	});
 });</code>
 </div>
-<p>
-	Пусть у нас есть страница контента:
-</p>
+<p>Let's say we have a content page:</p>
 <div data-p="bock/pane" data-p-file="views/page.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
 	page
 &lt;/div&gt;</code>
 </div>
-<p>
-	Давайте выведем на ней наш массив с юзерами,
-	написав его в фигурных скобках:
-</p>
+<p>Let's display our array with users on it, writing it in curly brackets:</p>
 <div data-p="bock/pane" data-p-file="views/page.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
 	{{users}}
 &lt;/div&gt;</code>
 </div>
-<p>
-	В этом случае результатом рендеринга будет
-	строковое представление массива:
-</p>
+<p>In this case, the rendering result will be a string representation of the array:</p>
 <div data-p="bock/pane" data-p-file="views/page.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
 	user1,user2,user3
 &lt;/div&gt;</code>
 </div>
-<p>
-	Давайте теперь выведем каждый элемент массива
-	в своем теге:
-</p>
+<p>Let's now output each element of the array in its own tag:</p>
 <div data-p="bock/pane" data-p-file="views/page.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;div&gt;
 	&lt;span&gt;{{user.[0]}}&lt;/span&gt;
@@ -94,22 +79,18 @@
 &lt;/div&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан следующий массив:
-	</p>
+	<p>Given the following array:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let products = ['prod1', 'prod2', 'prod3'];</code>
 	</div>
-	<p>
-		Выведите данные этого массива в представлении.
-	</p>
+	<p>Print the data of this array in a view.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

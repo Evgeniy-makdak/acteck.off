@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод parent в jQuery — acteck.off</title>
-  <meta name="description" content="Метод parent в jQuery — учебные материалы по программированию.">
+  <title>jQuery parent method - acteck.off</title>
+  <meta name="description" content="Parent Method in jQuery - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,22 +36,9 @@
       <a href="../../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод parent в jQuery</h1>
-    <p>
-	Мы с вами уже немного разбирали метод
-	<a href="../../../../manual/parent/index.html"><code data-gs="comd/c" data-x>parent</code></a>,
-	когда обсуждали псевдокласс
-	<a href="../../../../manual/selector/parent/index.html"><code data-gs="comd/z" data-x>parent</code></a>.
-	Напоминаю, что метод <code data-gs="comd/c" data-x>parent</code> и селектор <code data-gs="comd/z" data-x>parent</code>
-	делают разные вещи, первый находит родителя элемента, а
-	второй все непустые элементы (являющиеся родителями).
-</p>
-<p>
-	В следующем примере мы найдем элемент <code data-gs="comd/c" data-x>#test</code>,
-	затем найдем его родителя с помощью <code data-gs="comd/c" data-x>parent</code>
-	и поставим ему текст <code data-gs="comd/s" data-x>'!'</code>. Пусть у нас есть
-	следующий HTML код:
-</p>
+    <h1>jQuery parent method</h1>
+    <p>We have already discussed the method a little<a href="../../../../manual/parent/index.html"><code data-gs="comd/c" data-x>parent</code></a>when discussing pseudo-class<a href="../../../../manual/selector/parent/index.html"><code data-gs="comd/z" data-x>parent</code></a>. I remind you that the method<code data-gs="comd/c" data-x>parent</code>and selector<code data-gs="comd/z" data-x>parent</code>do different things, the first one finds the parent of the element, and the second one finds all non-empty elements (which are the parents).</p>
+<p>In the following example we will find the element<code data-gs="comd/c" data-x>#test</code>, then find its parent using<code data-gs="comd/c" data-x>parent</code>and give him the text<code data-gs="comd/s" data-x>'!'</code>. Let's say we have the following HTML code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;p&gt;outside&lt;/p&gt;
 &lt;div&gt;
@@ -63,49 +50,31 @@
 &lt;/div&gt;
 &lt;p&gt;outside&lt;/p&gt;</code>
 </div>
-<p>
-	А теперь мы прописываем метод <code data-gs="comd/c" data-x>parent</code> в
-	Javascript код:
-</p>
+<p>And now we write the method<code data-gs="comd/c" data-x>parent</code>in Javascript code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">$('#test').parent().html('!');</code>
 </div>
-<p>
-	Не забывайте про то, что в этот метод
-	можно передавать селектор, для дополнительной
-	фильтрации родителей.
-</p>
+<p>Don't forget that you can pass a selector to this method for additional filtering of parents.</p>
 <div data-w="cont/task">
-	<p>
-		Найдите родителя элемента с классом
-		<code data-gs="comd/z" data-x>www</code> и покрасьте его в красный
-		цвет.  
-	</p>
+	<p>Find the parent of an element with a class<code data-gs="comd/z" data-x>www</code>and paint it red.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Найдите родителей всех тегов <code data-gs="comd/c" data-x>b</code>
-		и сделайте их красным цветом.
-	</p>
+	<p>Find the parents of all tags<code data-gs="comd/c" data-x>b</code>and make them red.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Найдите родителей всех тегов <code data-gs="comd/c" data-x>b</code>, и те,
-		которые имеют класс <code data-gs="comd/z" data-x>test</code>
-		покрасьте в красный цвет.
-	</p>
+	<p>Find the parents of all tags<code data-gs="comd/c" data-x>b</code>, and those that have a class<code data-gs="comd/z" data-x>test</code>paint it red.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../other-neighbor-methods/index.html" class="lesson-nav-btn lesson-nav-prev" title="Другие методы работы с соседями в jQuery">← Другие методы работы с соседями в jQuery</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../all-parents-searching/index.html" class="lesson-nav-btn lesson-nav-next" title="Поиск всех родителей">Поиск всех родителей →</a>
+      <a href="../other-neighbor-methods/index.html" class="lesson-nav-btn lesson-nav-prev" title="Other methods for working with neighbors in jQuery">← Other methods of working with neighbors in jQuery</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../all-parents-searching/index.html" class="lesson-nav-btn lesson-nav-next" title="Search all parents">Search all parents →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

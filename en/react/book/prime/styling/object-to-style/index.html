@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вставка данных в атрибут style из объекта в React — acteck.off</title>
-  <meta name="description" content="Вставка данных в атрибут style из объекта в React — учебные материалы по программированию.">
+  <title>Inserting data into the style attribute from an object in React - acteck.off</title>
+  <meta name="description" content="Inserting data into the style attribute from an object in React - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,24 +36,11 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Вставка данных в атрибут style из объекта в React</h1>
-    <p>
-	CSS стили элементам можно также добавлять 
-	и с помощью атрибута <code data-gs="comd/c" data-x>style</code>.
-	В этом и нескольких последующих уроках мы 
-	рассмотрим способы <dfn data-gs="comd/d" data-x>инлайновой стилизации</dfn>. 
+    <h1>Inserting data into the style attribute from an object in React</h1>
+    <p>You can also add CSS styles to elements using the attribute<code data-gs="comd/c" data-x>style</code>. In this and several subsequent lessons we will look at ways<dfn data-gs="comd/d" data-x>inline styling</dfn>. 
 </p>
-<p>
-	Теперь мы не будем подключать файл
-	<code data-gs="comd/p" data-x>styles.css</code>, а передадим соответствующие 
-	значения в атрибут <code data-gs="comd/c" data-x>style</code> в виде объекта 
-	со стилями для каждого тега, которые мы
-	будем писать прямо в файле компонента.  
-</p>
-<p>
-	Итак, возьмем наш компонент без CSS стилей,
-	который мы делали на прошлом уроке:
-</p>
+<p>Now we will not include the file<code data-gs="comd/p" data-x>styles.css</code>, and pass the corresponding values ​​to the attribute<code data-gs="comd/c" data-x>style</code>in the form of an object with styles for each tag, which we will write directly in the component file.</p>
+<p>So, let's take our component without CSS styles, which we made in the last lesson:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return (
@@ -65,16 +52,7 @@
 	);
 }</code>
 </div>
-<p>
-	Давайте в файле <code data-gs="comd/p" data-x>App.js</code> перед
-	командой <code data-gs="comd/c" data-x>return</code> создадим объект
-	с CSS стилями для дива в переменной
-	<code data-gs="comd/c" data-x>class1</code>. Помните, что названия
-	свойств здесь пишутся в
-	<a href="../../../../../theory/glossary/camel-case/index.html">camelCase</a>
-	нотации, а значения свойств нужно
-	взять в кавычки:
-</p>
+<p>Let's file<code data-gs="comd/p" data-x>App.js</code>in front of the team<code data-gs="comd/c" data-x>return</code>let's create an object with CSS styles for the div in a variable<code data-gs="comd/c" data-x>class1</code>. Remember that property names here are written in<a href="../../../../../theory/glossary/camel-case/index.html">camelCase</a>notation, and property values ​​must be enclosed in quotes:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const class1 = {
 	width: '200px',
@@ -83,30 +61,21 @@
 	textAlign: 'center'
 };</code>
 </div>
-<p>
-	Теперь добавим объект <code data-gs="comd/c" data-x>class2</code> со 
-	стилями для первого абзаца:
-</p>
+<p>Now let's add an object<code data-gs="comd/c" data-x>class2</code>with styles for the first paragraph:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">const class2 = {
 	color: 'orangered',
 	fontWeight: 'bold'
 }</code>
 </div>
-<p>
-	Объект <code data-gs="comd/c" data-x>class3</code> со 
-	стилями для второго абзаца:
-</p>
+<p>Object<code data-gs="comd/c" data-x>class3</code>with styles for the second paragraph:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">const class3 = {
 	fontStyle: 'italic',
 	color: 'brown',
 }</code>
 </div>
-<p>
-	И, наконец <code data-gs="comd/c" data-x>class4</code> для 
-	последнего:
-</p>
+<p>And finally<code data-gs="comd/c" data-x>class4</code>for the last one:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">const class4 = {
 	backgroundColor: 'orange',
@@ -114,24 +83,12 @@
 	color: 'white',
 }		 </code>
 </div>
-<p>
-	Теперь, чтобы применить в компоненте  
-	CSS классы, воспользуемся атрибутом
-	<code data-gs="comd/c" data-x>style</code>. Для первого абзаца 
-	у нас была переменная <code data-gs="comd/c" data-x>class2</code>,
-	передадим ее в качестве значения:
-</p>
+<p>Now, to apply CSS classes in the component, we will use the attribute<code data-gs="comd/c" data-x>style</code>. For the first paragraph we had a variable<code data-gs="comd/c" data-x>class2</code>, pass it as a value:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p style={class2}&gt;text&lt;/p&gt;</code>
 </div>
-<p>
-	Подобным образом добавим стили из 
-	объектов для остальных тегов.
-</p>
-<p>
-	В результате, код компонента будет
-	выглядеть следующим образом:
-</p>
+<p>Similarly, we will add styles from objects for the remaining tags.</p>
+<p>As a result, the component code will look like this:</p>
 <div data-p="bock/pane" data-p-file="App.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const class1 = {
@@ -167,12 +124,7 @@
 } </code>
 </div>	
 <div data-w="cont/task">
-	<p>
-		Возьмите React компонент, который вы 
-		делали в задаче к прошлому уроку, 
-		создайте объекты с CSS стилями к
-		вашим тегам, проставьте их в
-		соответствующих атрибутах <code data-gs="comd/c" data-x>style</code>.
+	<p>Take the React component that you made in the task for the last lesson, create objects with CSS styles for your tags, put them in the appropriate attributes<code data-gs="comd/c" data-x>style</code>.
 	</p>
 </div>
   </section>
@@ -180,7 +132,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

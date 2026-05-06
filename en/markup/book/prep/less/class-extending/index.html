@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Расширение классов в LESS — acteck.off</title>
-  <meta name="description" content="Расширение классов в LESS — учебные материалы по программированию.">
+  <title>Extending classes in LESS - acteck.off</title>
+  <meta name="description" content="Extending Classes in LESS - Programming Educational Materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,18 +33,12 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Расширение классов в LESS</h1>
-    <p>
-	Недостаток миксинов в том, что получается
-	дублирование кода. Давайте посмотрим на примере,
-	что имеется ввиду.
-</p>
-<p>
-	Пусть у нас есть следующий код:
-</p>
+    <h1>Extending Classes in LESS</h1>
+    <p>The disadvantage of mixins is that they result in code duplication. Let's look at an example to see what this means.</p>
+<p>Let's say we have the following code:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix {
 	width: 100px;
@@ -55,10 +49,7 @@ p {
 	color: red;
 }</code>
 </div>
-<p>
-	Этот код скомпилируется следующим образом,
-	породив дублирование:
-</p>
+<p>This code will compile as follows, causing duplication:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.mix {
 	width: 100px;
@@ -70,10 +61,7 @@ p {
 	color: red;
 }</code>
 </div>
-<p>
-	Более компактно было бы, если бы этот код
-	скомпилировался следующим образом:
-</p>
+<p>It would be more compact if this code were compiled like this:</p>
 <div data-p="bock/pane" data-p-file="styles.css">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">.mix, p {
 	width: 100px;
@@ -83,12 +71,7 @@ p {
 	color: red;
 }</code>
 </div>
-<p>
-	Этого можно добиться, используя команду <code data-gs="comd/c" data-x>&:extend</code>,
-	которая не вставляет примешивание прям в
-	код, а расширяет заданный класс. Давайте
-	исправим наш код:
-</p>
+<p>This can be achieved using the command<code data-gs="comd/c" data-x>&:extend</code>, which does not insert mixing directly into the code, but extends a given class. Let's fix our code:</p>
 <div data-p="bock/pane" data-p-file="styles.less">
 	<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix {
 	width: 100px;
@@ -100,10 +83,7 @@ p {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix {
 	color: red;
@@ -116,10 +96,7 @@ p {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix {
 	color: red;
@@ -132,10 +109,7 @@ p {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix {
 	color: red;
@@ -148,10 +122,7 @@ p {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix {
 	color: red;
@@ -172,10 +143,7 @@ p {
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, каким будет результат компиляции
-		следующего кода:
-	</p>
+	<p>Tell us what the result of compiling the following code will be:</p>
 	<div data-p="bock/pane" data-p-file="styles.less">
 		<code data-w="bock/code" data-lo="high" data-m-lang="less">.mix1 {
 	color: red;
@@ -191,16 +159,16 @@ div {
 	</div>
 </div>
     <div class="lesson-nav">
-      <a href="../uncompiling-mixing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отмена компиляции примешивания">← Отмена компиляции примешивания</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../namespaces/index.html" class="lesson-nav-btn lesson-nav-next" title="Пространства имен">Пространства имен →</a>
+      <a href="../uncompiling-mixing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Cancel mix-in compilation">← Cancel mix-in compilation</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../namespaces/index.html" class="lesson-nav-btn lesson-nav-next" title="Namespaces">Namespaces →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

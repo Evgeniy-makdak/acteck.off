@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Работа с checkbox в React — acteck.off</title>
-  <meta name="description" content="Работа с checkbox в React — учебные материалы по программированию.">
+  <title>Working with checkboxes in React — acteck.off</title>
+  <meta name="description" content="Working with checkboxes in React - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,15 +36,8 @@
       <a href="../../../../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Работа с checkbox в React</h1>
-    <p>
-	Работа с <a href="../../../../../../../../markup/manual/html/tag/input/checkbox/index.html"><code data-gs="comd/c" data-x>checkbox</code></a>
-	также осуществляется по схожему принципу,
-	только вместо атрибута <code data-gs="comd/c" data-x>value</code> мы указываем
-	атрибут <code data-gs="comd/c" data-x>checked</code>. Если в этот атрибут передать
-	<code data-gs="comd/c" data-x>true</code> - то чекбокс будет отмечен, а если <code data-gs="comd/c" data-x>false</code>
-	- не будет отмечен:
-</p>
+    <h1>Working with checkboxes in React</h1>
+    <p>Working with<a href="../../../../../../../../markup/manual/html/tag/input/checkbox/index.html"><code data-gs="comd/c" data-x>checkbox</code></a>is also carried out according to a similar principle, only instead of the attribute<code data-gs="comd/c" data-x>value</code>we specify the attribute<code data-gs="comd/c" data-x>checked</code>. If you pass this attribute<code data-gs="comd/c" data-x>true</code>- then the checkbox will be checked, and if<code data-gs="comd/c" data-x>false</code>- will not be marked:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	return &lt;div&gt;
@@ -53,10 +46,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Обычно в атрибут <code data-gs="comd/c" data-x>checked</code> передается стейт,
-	содержащий логическое значение:
-</p>
+<p>Usually in attribute<code data-gs="comd/c" data-x>checked</code>a state containing a logical value is transmitted:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [checked, setChecked] = useState(true);
@@ -66,14 +56,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Так же, как и при работе с инпутами, если
-	жестко задать значение атрибута <code data-gs="comd/c" data-x>checked</code>
-	- состояние чекбокса нельзя будет сменить.
-	Для корректной работы будем по изменению
-	чекбокса менять его стейт на противоположное
-	ему значение:
-</p>
+<p>The same as when working with inputs, if you rigidly set the attribute value<code data-gs="comd/c" data-x>checked</code>- the state of the checkbox cannot be changed. For correct operation, when changing the checkbox, we will change its state to the opposite value:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [checked, setChecked] = useState(true);
@@ -87,9 +70,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Можем упростить:
-</p>
+<p>We can simplify:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [checked, setChecked] = useState(true);
@@ -99,10 +80,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Давайте выведем состояние чекбокса в абзац,
-	используя тернарный оператор:
-</p>
+<p>Let's output the checkbox's state into a paragraph using the ternary operator:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function App() {
 	const [checked, setChecked] = useState(true);
@@ -114,32 +92,22 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан чекбокс, кнопка и абзац. По клику на
-		кнопку, если чекбокс отмечен, выведите в
-		абзац текст приветствия с пользователем,
-		а если не отмечен - текст прощания.
-	</p>
+	<p>Given a checkbox, a button and a paragraph. By clicking on the button, if the checkbox is checked, display the greeting text with the user in a paragraph, and if it is not checked, the farewell text.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		С помощью трех чекбоксов попросите пользователя
-		выбрать языки, которые он знает: html, css
-		и js. Результат выбора по каждому языку выводите
-		в отдельные абзацы.
-	</p>
+	<p>Using three checkboxes, ask the user to select the languages ​​he knows: html, css and js. Display the selection results for each language in separate paragraphs.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../../textarea/index.html" class="lesson-nav-btn lesson-nav-prev" title="Работа с textarea">← Работа с textarea</a>
-      <a href="../../../../../../../../../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../conditional-rendering/index.html" class="lesson-nav-btn lesson-nav-next" title="Чекбоксы и условный рендеринг">Чекбоксы и условный рендеринг →</a>
+      <a href="../../textarea/index.html" class="lesson-nav-btn lesson-nav-prev" title="Working with textarea">← Working with textarea</a>
+      <a href="../../../../../../../../../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../conditional-rendering/index.html" class="lesson-nav-btn lesson-nav-next" title="Checkboxes and conditional rendering">Checkboxes and conditional rendering →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

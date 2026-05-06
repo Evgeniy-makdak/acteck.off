@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Перечисление как тип в TypeScript — acteck.off</title>
-  <meta name="description" content="Перечисление как тип в TypeScript — учебные материалы по программированию.">
+  <title>Enum as a type in TypeScript - acteck.off</title>
+  <meta name="description" content="Enumeration as a Type in TypeScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,64 +36,41 @@
       <a href="../../../../../../en/typescript/index.html">TypeScript</a>
     </div>
 
-    <h1>Перечисление как тип в TypeScript</h1>
-    <p>
-	Каждое перечисление создает свой собственный
-	тип данных. Давайте для примера для
-	переменной, хранящей текущий сезон присвоим
-	тип <code data-gs="comd/c" data-x>Season</code>: 
+    <h1>Enum as a type in TypeScript</h1>
+    <p>Each enum creates its own data type. For example, let's assign the type to a variable storing the current season<code data-gs="comd/c" data-x>Season</code>: 
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let current: Season;</code>
 </div>
-<p>
-	Запишем в нашу переменную номер сезона: 
-</p>
+<p>Let's write the season number into our variable:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let current: Season = Season.Winter;
 console.log(current); // 0</code>
 </div>
-<p>
-	Можно указать номер сезона вручную: 
-</p>
+<p>You can specify the season number manually:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let current: Season = 3;</code>
 </div>
-<p>
-	А вот если попытаться записать данные
-	другого типа, например, строку, то будет
-	ошибка: 
-</p>
+<p>But if you try to write data of a different type, for example, a string, you will get an error:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let current: Season = 'str'; // будет ошибка</code>
 </div>
-<p>
-	К сожалению, диапазон значений не отслеживается
-	и можно записать номер, отсутствующий в
-	нашем перечислении: 
-</p>
+<p>Unfortunately, the range of values ​​is not tracked and it is possible to write down a number that is not in our enumeration:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let current: Season = 7; // ошибки не будет</code>
 </div>
-<p>
-	При проверке через оператор <code data-gs="comd/c" data-x>typeof</code>
-	наша переменная отдаст числовой тип: 
-</p>
+<p>When checking through an operator<code data-gs="comd/c" data-x>typeof</code>our variable will give a numeric type:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="typescript">let current: Season = 3;
 console.log(typeof current); // "number"</code>
 </div>
-<p>
-	Подведя итог можно сказать, что такой тип
-	проверяется не сильно строго и от этого
-	его ценность сомнительна. 
-</p>
+<p>To summarize, we can say that this type is not checked very strictly and this makes its value questionable.</p>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

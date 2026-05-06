@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Создание ES модуля в JavaScript — acteck.off</title>
-  <meta name="description" content="Создание ES модуля в JavaScript — учебные материалы по программированию.">
+  <title>Creating an ES module in JavaScript - acteck.off</title>
+  <meta name="description" content="Creating an ES module in JavaScript - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,34 +36,12 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Создание ES модуля в JavaScript</h1>
-    <p>
-	Приступим теперь к изучению модулей.
-	Каждый модуль должен представлять
-	собой отдельный файл. Переменные
-	и функции, которые мы разместим
-	в этом файле, не будут доступны
-	снаружи файла. В этом преимущество
-	модулей - мы можем создавать любые
-	переменные и функции, не боясь конфликта
-	с именами из других библиотек.
+    <h1>Creating an ES module in JavaScript</h1>
+    <p>Let's now start studying the modules. Each module must be a separate file. The variables and functions that we will place in this file will not be accessible from outside the file. This is the advantage of modules - we can create any variables and functions without fear of conflict with names from other libraries.</p>
+<p>Those variables and functions that we want to make visible externally, we must export using the command<code data-gs="comd/c" data-x>export</code>.
 </p>
-<p>
-	Те переменные и функции, которые
-	мы хотим сделать видимыми снаружи,
-	мы должны экспортировать с помощью
-	команды <code data-gs="comd/c" data-x>export</code>.
-</p>
-<p>
-	Давайте попробуем на примере.
-	Сделаем модуль <code data-gs="comd/c" data-x>math</code>, который
-	будет предоставлять библиотеку функций
-	для математических операций.
-</p>
-<p>
-	Разместим наш модуль в файле <code data-gs="comd/p" data-x>math.js</code>
-	и сделаем в нем несколько функций:
-</p>
+<p>Let's try it with an example. Let's make a module<code data-gs="comd/c" data-x>math</code>, which will provide a library of functions for mathematical operations.</p>
+<p>Let's place our module in the file<code data-gs="comd/p" data-x>math.js</code>and make several functions in it:</p>
 <div data-p="bock/pane" data-p-file="src/math.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function root2(num) {
 	return round(num ** (1 / 2));
@@ -75,13 +53,7 @@ function round(num) {
 	return num.toFixed(2);
 }</code>
 </div>
-<p>
-	Пусть функции для извлечения корней
-	будут основными и будут экспортироваться
-	наружу, а функция для округления -
-	вспомогательной и не будет экспортироваться.
-	Давайте напишем нужным функциям 
-	команду <code data-gs="comd/c" data-x>export</code>:
+<p>Let the functions for extracting roots be the main ones and will be exported outside, and the function for rounding will be auxiliary and will not be exported. Let's write the command to the necessary functions<code data-gs="comd/c" data-x>export</code>:
 </p>
 <div data-p="bock/pane" data-p-file="src/math.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export function root2(num) {
@@ -95,26 +67,20 @@ function round(num) {
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте модуль, содержащий
-		функцию <code data-gs="comd/c" data-x>pow2</code> для возведения числа
-		во вторую степень, <code data-gs="comd/c" data-x>pow3</code> для возведения
-		в третью и <code data-gs="comd/c" data-x>pow4</code> для возведения
-		в четвертую.
-	</p>
+	<p>Make a module containing a function<code data-gs="comd/c" data-x>pow2</code>to raise a number to the second power,<code data-gs="comd/c" data-x>pow3</code>for construction into the third and<code data-gs="comd/c" data-x>pow4</code>for construction into the fourth.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../markup-bundle/index.html" class="lesson-nav-btn lesson-nav-prev" title="Подключение бандла к верстке">← Подключение бандла к верстке</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../import/index.html" class="lesson-nav-btn lesson-nav-next" title="Подключение ES модуля">Подключение ES модуля →</a>
+      <a href="../markup-bundle/index.html" class="lesson-nav-btn lesson-nav-prev" title="Connecting the bundle to the layout">← Connecting the bundle to the layout</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../import/index.html" class="lesson-nav-btn lesson-nav-next" title="Connecting the ES module">Connecting the ES module →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Оператор spread и слияние массивов — acteck.off</title>
-  <meta name="description" content="Оператор spread и слияние массивов — учебные материалы по программированию.">
+  <title>Spread operator and array merging - acteck.off</title>
+  <meta name="description" content="Spread operator and array merging - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,32 +36,19 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Оператор spread и слияние массивов</h1>
-    <p>
-	Пусть у нас есть два массива:
-</p>
+    <h1>The spread operator and array merging</h1>
+    <p>Let's say we have two arrays:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = ['a', 'b', 'c'];
 let arr2 = [1, 2, 3];</code>
 </div>
-<p>
-	Давайте сделаем так, чтобы между первым и
-	вторым элементами массива <code data-gs="comd/c" data-x>arr2</code> вставились
-	элементы массива <code data-gs="comd/c" data-x>arr1</code>.
+<p>Let's make it so that between the first and second elements of the array<code data-gs="comd/c" data-x>arr2</code>array elements inserted<code data-gs="comd/c" data-x>arr1</code>.
 </p>
-<p>
-	Говоря другими словами, мы хотим написать
-	код, который из текущего массива <code data-gs="comd/c" data-x>arr2</code>
-	сделает следующий массив:
-</p>
+<p>In other words, we want to write code that from the current array<code data-gs="comd/c" data-x>arr2</code>will make the following array:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">[1, 'a', 'b', 'c', 2, 3]</code>
 </div>
-<p>
-	Задача, в общем-то, решаема через метод <code data-gs="comd/c" data-x>splice</code>.
-	Однако, гораздо проще эта задача решается
-	через spread:
-</p>
+<p>The problem, in general, can be solved using the method<code data-gs="comd/c" data-x>splice</code>. However, this problem can be solved much easier using spread:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = ['a', 'b', 'c'];
 let arr2 = [1, ...arr1, 2, 3];
@@ -69,10 +56,7 @@ let arr2 = [1, ...arr1, 2, 3];
 console.log(arr2); // выведет [1, 'a', 'b', 'c', 2, 3]</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		в консоль:
-	</p>
+	<p>Without running the code, determine what will be printed to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = [1, 2, 3];
 let arr2 = [4, 5, 6];
@@ -82,10 +66,7 @@ console.log(arr);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		в консоль:
-	</p>
+	<p>Without running the code, determine what will be printed to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = [1, 2, 3];
 let arr2 = [4, 5, 6];
@@ -95,10 +76,7 @@ console.log(arr);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		в консоль:
-	</p>
+	<p>Without running the code, determine what will be printed to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = [1, 2, 3];
 let arr2 = [...arr1, 4, 5, 6];
@@ -108,10 +86,7 @@ console.log(arr);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		в консоль:
-	</p>
+	<p>Without running the code, determine what will be printed to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = [1, 2, 3];
 let arr2 = [...arr1, 4, 5, 6];
@@ -122,10 +97,7 @@ console.log(arr);</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Не запуская код, определите, что выведется
-		в консоль:
-	</p>
+	<p>Without running the code, determine what will be printed to the console:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr1 = [1, 2, 3];
 let arr2 = [...arr1];
@@ -135,16 +107,16 @@ console.log(arr2);</code>
 </div>
   
     <div class="lesson-nav">
-      <a href="../extreme-array-values/index.html" class="lesson-nav-btn lesson-nav-prev" title="Экстремальные значения массива">← Экстремальные значения массива</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../strings-splitting/index.html" class="lesson-nav-btn lesson-nav-next" title="Разбиение строк">Разбиение строк →</a>
+      <a href="../extreme-array-values/index.html" class="lesson-nav-btn lesson-nav-prev" title="Extreme Array Values">← Extreme values ​​of the array</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../strings-splitting/index.html" class="lesson-nav-btn lesson-nav-next" title="Line splitting">Line splitting →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

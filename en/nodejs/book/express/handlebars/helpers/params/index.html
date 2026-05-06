@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Передача параметров в хелперы в Handlebars — acteck.off</title>
-  <meta name="description" content="Передача параметров в хелперы в Handlebars — учебные материалы по программированию.">
+  <title>Passing parameters to helpers in Handlebars - acteck.off</title>
+  <meta name="description" content="Passing parameters to helpers in Handlebars - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,14 +36,8 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Передача параметров в хелперы в Handlebars</h1>
-    <p>
-	Хелперы могут получать параметры и возвращать
-	результат на основе этого параметров. Давайте
-	например, сделаем хелпер, который параметром
-	будет получать число и возвращать квадрат
-	этого числа:
-</p>
+    <h1>Passing parameters to helpers in Handlebars</h1>
+    <p>Helpers can receive parameters and return a result based on those parameters. For example, let's make a helper that will receive a number as a parameter and return the square of this number:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">helpers: {
 	square: function(num) {
@@ -51,38 +45,21 @@
 	}
 }</code>
 </div>
-<p>
-	Воспользуемся созданными хелпером в представлении,
-	передав ему параметром число. Параметр передается
-	через пробел после имени хелпера:
-</p>
+<p>Let's use the ones created by the helper in the view, passing it a number as a parameter. The parameter is passed separated by a space after the helper name:</p>
 <div data-p="bock/pane" data-p-file="views/test.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;p&gt;
 	{{square 3}}
 &lt;/p&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте хелпер, который параметрами будет
-		принимать число и возвращать квадратный корень
-		из этого числа.
-	</p>
+	<p>Make a helper that will take a number as parameters and return the square root of that number.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте хелпер, который параметрами будет
-		принимать дробь и округлять ее до одного
-		знака в дробной части.
-	</p>
+	<p>Make a helper that will take a fraction as parameters and round it to one digit in the fractional part.</p>
 </div>
 
-<h2>Несколько параметров</h2>
-<p>
-	В хелпер можно передавать несколько параметров.
-	Давайте для примера сделаем хелпер, который
-	параметрами будет получать два числа и возвращать
-	их сумму:
-</p>
+<h2>Multiple options</h2>
+<p>You can pass several parameters to the helper. For example, let's make a helper that will receive two numbers as parameters and return their sum:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">helpers: {
 	sum: function(num1, num2) {
@@ -90,28 +67,18 @@
 	}
 }</code>
 </div>
-<p>
-	Воспользуемся созданными хелпером в представлении,
-	передав ему параметрами два числа:
-</p>
+<p>Let's use the ones created by the helper in the view, passing two numbers as parameters:</p>
 <div data-p="bock/pane" data-p-file="views/test.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;p&gt;
 	{{square 3 4}}
 &lt;/p&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте хелпер, который параметрами будет
-		принимать три числа и возвращать сумму этих чисел.
-	</p>
+	<p>Make a helper that will take three numbers as parameters and return the sum of these numbers.</p>
 </div>
 
-<h2>Параметр строка</h2>
-<p>
-	Давайте сделаем хелпер, который параметром
-	будет получать строку, а возвращать эту строку
-	в верхнем регистре:
-</p>
+<h2>Parameter string</h2>
+<p>Let's make a helper that will receive a string as a parameter and return this string in uppercase:</p>
 <div data-p="bock/pane" data-p-file="index.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">helpers: {
 	upper: function(str) {
@@ -119,43 +86,28 @@
 	}
 }</code>
 </div>
-<p>
-	Воспользуемся созданными хелпером в представлении,
-	передав ему параметром строку:
-</p>
+<p>Let's use the ones created by the helper in the view, passing it the string as a parameter:</p>
 <div data-p="bock/pane" data-p-file="views/test.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;p&gt;
 	{{upper 'abcde'}}
 &lt;/p&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте хелпер, который параметром будет
-		принимать строку и возвращать эту строку
-		с заглавной первой буквой.
+	<p>Make a helper that takes a string as a parameter and returns that string with the first letter capitalized.</p>
+</div>
+<div data-w="cont/task">
+	<p>Make a helper that will accept a date in the format as a parameter<i>year-month-day</i>and return this date in the format<i>day-month-year</i>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте хелпер, который параметром будет
-		принимать дату в формате <i>год-месяц-день</i>
-		и возвращать эту дату в формате <i>день-месяц-год</i>.
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		Сделайте хелпер, который параметром будет
-		принимать дату в формате <i>год-месяц-день</i>
-		и возвращать день недели, на которую приходится
-		эта дата.
-	</p>
+	<p>Make a helper that will accept a date in the format as a parameter<i>year-month-day</i>and return the day of the week on which this date falls.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Работа с radio в Vue — acteck.off</title>
-  <meta name="description" content="Работа с radio в Vue — учебные материалы по программированию.">
+  <title>Working with radio in Vue - acteck.off</title>
+  <meta name="description" content="Working with radio in Vue - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,13 +36,8 @@
       <a href="../../index.html">Vue</a>
     </div>
 
-    <h1>Работа с radio в Vue</h1>
-    <p>
-	Работа с <a href="../../../../../../../markup/manual/html/tag/input/radio/index.html"><code data-gs="comd/c" data-x>radio</code></a>
-	происходит аналогичным образом. Давайте посмотрим
-	на практике. Для начала сделаем свойство
-	<code data-gs="comd/c" data-x>choice</code>, которое мы будем привязывать
-	к группе <code data-gs="comd/c" data-x>radio</code>:
+    <h1>Working with radio in Vue</h1>
+    <p>Working with<a href="../../../../../../../markup/manual/html/tag/input/radio/index.html"><code data-gs="comd/c" data-x>radio</code></a>happens in a similar way. Let's see in practice. First, let's create a property<code data-gs="comd/c" data-x>choice</code>, which we will bind to the group<code data-gs="comd/c" data-x>radio</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">data() {
@@ -51,8 +46,7 @@
 	}
 }</code>
 </div>
-<p>
-	Сделаем теперь группу <code data-gs="comd/c" data-x>radio</code>:
+<p>Let's make a group now<code data-gs="comd/c" data-x>radio</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
@@ -61,9 +55,7 @@
 	&lt;input name="radio" type="radio"&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Напишем каждой из них директиву <code data-gs="comd/c" data-x>v-model</code>
-	и привяжем к ней свойство <code data-gs="comd/c" data-x>choice</code>:
+<p>Let's write a directive for each of them<code data-gs="comd/c" data-x>v-model</code>and bind the property to it<code data-gs="comd/c" data-x>choice</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
@@ -72,8 +64,7 @@
 	&lt;input name="radio" type="radio" v-model="choice"&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Дадим также каждой из них свой <code data-gs="comd/c" data-x>value</code>:
+<p>Let's also give each of them their own<code data-gs="comd/c" data-x>value</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
@@ -82,9 +73,7 @@
 	&lt;input name="radio" type="radio" v-model="choice" value="v3"&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Теперь в свойстве <code data-gs="comd/c" data-x>choice</code> всегда будет
-	лежать <code data-gs="comd/c" data-x>value</code> отмеченного <code data-gs="comd/c" data-x>radio</code>:
+<p>Now in property<code data-gs="comd/c" data-x>choice</code>will always lie<code data-gs="comd/c" data-x>value</code>noted<code data-gs="comd/c" data-x>radio</code>:
 </p>
 <div data-p="bock/pane" data-p-file="App.vue">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
@@ -92,32 +81,22 @@
 &lt;/template&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Спросите у пользователя с помощью группы <code data-gs="comd/c" data-x>radio</code>,
-		какой язык для него родной. Сделайте так, чтобы
-		выбранный язык вывелся в абзаце
-	</p>
+	<p>Ask a user using a group<code data-gs="comd/c" data-x>radio</code>, what language is his native language. Make the selected language appear in a paragraph</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте предыдущую задачу следующим
-		образом: пусть у нас есть три абзаца
-		с текстом на разном языке. В зависимости
-		от выбора пользователя выведите фразу на
-		выбранном им языке.
-	</p>
+	<p>Modify the previous problem as follows: let us have three paragraphs with text in different languages. Depending on the user's choice, display the phrase in the user's chosen language.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../checkboxes-values-array/index.html" class="lesson-nav-btn lesson-nav-prev" title="Массив значений чекбоксов">← Массив значений чекбоксов</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../select/index.html" class="lesson-nav-btn lesson-nav-next" title="Работа с селектами">Работа с селектами →</a>
+      <a href="../checkboxes-values-array/index.html" class="lesson-nav-btn lesson-nav-prev" title="Array of checkbox values">← Array of checkbox values</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../select/index.html" class="lesson-nav-btn lesson-nav-next" title="Working with selects">Working with selects →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод cloneNode — acteck.off</title>
-  <meta name="description" content="Метод cloneNode — учебные материалы по программированию.">
+  <title>cloneNode method - acteck.off</title>
+  <meta name="description" content="cloneNode method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,34 +36,21 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод cloneNode</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>cloneNode</code> позволяет клонировать
-	элемент и получить его точную копию. Эту
-	копию затем можно вставить на страницу с
-	помощью методов <a href="../prepend/index.html"><code data-gs="comd/c" data-x>prepend</code></a>,
+    <h1>cloneNode method</h1>
+    <p>Method<code data-gs="comd/c" data-x>cloneNode</code>allows you to clone an element and get its exact copy. This copy can then be inserted into the page using the methods<a href="../prepend/index.html"><code data-gs="comd/c" data-x>prepend</code></a>,
 	<a href="../append/index.html"><code data-gs="comd/c" data-x>append</code></a>,
 	<a href="../appendChild/index.html"><code data-gs="comd/c" data-x>appendChild</code></a>,
-	<a href="../insertBefore/index.html"><code data-gs="comd/c" data-x>insertBefore</code></a>
-	или <a href="../insertAdjacentElement/index.html"><code data-gs="comd/c" data-x>insertAdjacentElement</code></a>.
+	<a href="../insertBefore/index.html"><code data-gs="comd/c" data-x>insertBefore</code></a>or<a href="../insertAdjacentElement/index.html"><code data-gs="comd/c" data-x>insertAdjacentElement</code></a>.
 </p>
-<p>
-	В параметре метод получает <code data-gs="comd/c" data-x>true</code> либо <code data-gs="comd/c" data-x>false</code>.
-	Если передан true, то элемент клонируется
-	полностью, вместе со всем атрибутами и дочерними
-	элементами, а если <code data-gs="comd/c" data-x>false</code> - только сам элемент
-	(без дочерних элементов).
-</p>
+<p>In the parameter the method receives<code data-gs="comd/c" data-x>true</code>or<code data-gs="comd/c" data-x>false</code>. If true is passed, then the element is cloned completely, along with all attributes and child elements, and if<code data-gs="comd/c" data-x>false</code>- only the element itself (without child elements).</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">элемент.cloneNode(true или false);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Сделаем копию блока с классом <code data-gs="comd/z" data-x>elem</code>
-	и вставим его в конец блока <code data-gs="comd/z" data-x>#parent</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's make a copy of the block with the class<code data-gs="comd/z" data-x>elem</code>and insert it at the end of the block<code data-gs="comd/z" data-x>#parent</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
@@ -78,9 +65,7 @@ let elem = parent.querySelector('.elem');
 let clone = elem.cloneNode(true);
 parent.appendChild(clone);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div class="elem"&gt;
@@ -94,11 +79,8 @@ parent.appendChild(clone);</code>
 &lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	С полученным клоном можно работать как с
-	обычным элементом:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>You can work with the resulting clone as with a regular element:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div class="elem"&gt;
@@ -115,9 +97,7 @@ clone.children[1].textContent = 'new text2';
 
 parent.appendChild(clone);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;div class="elem"&gt;
@@ -131,13 +111,10 @@ parent.appendChild(clone);</code>
 &lt;/div&gt;</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../createElement/index.html"><code data-gs="comd/c" data-x>createElement</code></a>, <br>
-			с помощью которого можно создать новый элемент
-		</li>
+		<li>method<a href="../createElement/index.html"><code data-gs="comd/c" data-x>createElement</code></a>, <br>with which you can create a new element</li>
 	</ul>
 </div>
   </section>
@@ -145,7 +122,7 @@ parent.appendChild(clone);</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

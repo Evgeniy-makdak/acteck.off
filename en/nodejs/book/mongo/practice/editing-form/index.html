@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Форма для редактирования документа — acteck.off</title>
-  <meta name="description" content="Форма для редактирования документа — учебные материалы по программированию.">
+  <title>Form for editing a document - acteck.off</title>
+  <meta name="description" content="Document editing form - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,30 +36,21 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Форма для редактирования документа</h1>
-    <p>
-	Давайте теперь реализуем редактирование юзера.
-	Сделаем для этого соответствующий маршрут:
-</p>
+    <h1>Form for editing a document</h1>
+    <p>Let's now implement user editing. Let's make the appropriate route for this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/user/edit/:name', function(req, res) {
 	
 });</code>
 </div>
-<p>
-	В обработчике маршрута загрузим из базы
-	данные юзера и отправим их в представление:
-</p>
+<p>In the route handler, we will load the user data from the database and send it to the view:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/user/edit/:name', function(req, res) {
 	let user = await coll.findOne({name: name});
 	res.render('edit', user);
 });</code>
 </div>
-<p>
-	В представлении сделаем форму и покажем
-	в ней данные юзера:
-</p>
+<p>In the view, we’ll create a form and show the user’s data in it:</p>
 <div data-p="bock/pane" data-p-file="views/edit.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;form action="" method="POST"&gt;
 	&lt;input name="name" value="{{user.name}}"&gt;
@@ -68,10 +59,7 @@
 	&lt;input type="submit"&gt;
 &lt;/form&gt;</code>
 </div>
-<p>
-	После отправки формы обновим юзера
-	в базе данных:
-</p>
+<p>After submitting the form, update the user in the database:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.post('/user/edit/:name', function(req, res) {
 	let user = req.body;
@@ -81,31 +69,23 @@
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		добавление в таблице с продуктами
-	</p>
+	<p>adding to the table with products</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		404 если не найден
-	</p>
+	<p>404 if not found</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		редирект на таблицу
-	</p>
+	<p>redirect to table</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		флеш сообщение
-	</p>
+	<p>flash message</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Проблема с кешем в браузерах — acteck.off</title>
-  <meta name="description" content="Проблема с кешем в браузерах — учебные материалы по программированию.">
+  <title>Browser cache problem - acteck.off</title>
+  <meta name="description" content="Browser cache problem - programming tutorials.">
   <link rel="stylesheet" href="../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../en/index.html" class="logo">
+      <a href="../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,61 +36,16 @@
       <a href="../../../../en/webpack/index.html">Webpack</a>
     </div>
 
-    <h1>Проблема с кешем в браузерах</h1>
-    <p>
-	Browser <dfn data-gs="comd/d" data-x>кеширует</dfn> подключенные
-	файлы стилей CSS, скриптов JavaScript
-	и картинок. Кеширование означает, что
-	подключенные файлы браузер скачивает только
-	при первом заходе пользователя на сайт.
-	При последующих заходах эти файлы
-	уже не будут скачиваться опять,
-	а возьмутся из <dfn data-gs="comd/d" data-x>кеша</dfn> браузера.
-</p>
-<p>
-	Кеширование полезно. Оно создано для
-	повышения скорости загрузки сайта.
-	Ведь браузеру быстрее взять файл
-	из своего хранилища, чем скачивать
-	его каждый раз из интернета.
-</p>
-<p>
-	Однако, за скорость приходится платить
-	неудобством при разработке. Дело в том,
-	что если вы поменяете что-то в вашем
-	коде и затем выложите изменения
-	на хостинг - все пользователи, которые
-	уже заходили на ваш сайт будут
-	иметь старую кешированную копию кода.
-</p>
+    <h1>Browser cache problem</h1>
+    <p>Browser<dfn data-gs="comd/d" data-x>caches</dfn>included files of CSS styles, JavaScript scripts and images. Caching means that the browser downloads the connected files only the first time the user visits the site. On subsequent visits, these files will no longer be downloaded again, but will be taken from<dfn data-gs="comd/d" data-x>cache</dfn>browser.</p>
+<p>Caching is useful. It was created to increase site loading speed. After all, it is faster for the browser to take a file from its storage than to download it every time from the Internet.</p>
+<p>However, speed comes at the cost of inconvenience during development. The fact is that if you change something in your code and then upload the changes to your hosting, all users who have already visited your site will have an old cached copy of the code.</p>
 
-<h2>Первое решение проблемы</h2>
-<p>
-	Для борьбы с таким поведением нужно каждый
-	раз переименовывать измененные файлы.
-	На практике это не удобно, поэтому
-	используется хитрый прием.
-	Его суть заключается в том,
-	что при подключении файла после имени
-	файла ставим вопрос, знак равно и номер
-	версии вашего скрипта. Такая конструкция
-	называется <dfn data-gs="comd/d" data-x>GET параметром</dfn>.
+<h2>First solution to the problem</h2>
+<p>To combat this behavior, you need to rename the changed files each time. In practice this is not convenient, so a tricky trick is used. Its essence is that when connecting a file, after the file name we put a question, an equal sign and the version number of your script. This design is called<dfn data-gs="comd/d" data-x>GET parameter</dfn>.
 </p>
-<p>
-	Наличие GET параметра в имени файла "не портит"
-	путь с точки зрения сервера, по-прежнему
-	указывая на тот же файл. Но с точки зрения
-	браузера изменение GET параметра заставляет
-	браузер считать путь к файлу изменившимся
-	и скачивать файл заново.
-</p>
-<p>
-	Для борьбы с кешем, когда вы вносите изменения
-	в ваш файл с кодом, вам нужно будет увеличить
-	значение GET параметра на единицу.
-	Смотрите пример применения
-	подобного подхода:
-</p>
+<p>The presence of a GET parameter in the file name does not "spoil" the path from the server's point of view, still pointing to the same file. But from the browser's point of view, changing the GET parameter causes the browser to consider the path to the file to have changed and download the file again.</p>
+<p>To combat the cache, when you make changes to your code file, you will need to increase the value of the GET parameter by one. See an example of this approach:</p>
 <div data-p="bock/pane" data-p-file="index.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -106,13 +61,8 @@
 &lt;/html&gt;</code>
 </div>
 
-<h2>Второе решение проблемы</h2>
-<p>
-	Существует и более продвинутый подход.
-	Он заключается в том, что к именам файлов
-	добавляются случайные строки, например,
-	вот так:
-</p>
+<h2>Second solution to the problem</h2>
+<p>There is also a more advanced approach. It consists of adding random strings to file names, for example, like this:</p>
 <div data-p="bock/pane" data-p-file="index.html">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -127,42 +77,19 @@
 	&lt;/body&gt;
 &lt;/html&gt;</code>
 </div>
-<p>
-	Эти строки называются <dfn data-gs="comd/d" data-x>хешами</dfn>.
-	Хеш представляет собой уникальную строку.
-	Она вычисляется из содержимого файла
-	специальным образом. Это значит, что
-	каждому тексту соответствует свой уникальный
-	хеш. Если текст файла был изменен,
-	то и хеш у него будет другой
-	и нам нужно будет поменять его
-	в имени файла.
-</p>
-<p>
-	Конечно, руками вычислять хеши и 
-	переименовывать файлы так себе занятие.
-	Поэтому этот подход используется
-	только в том случае, если у нас есть
-	некоторый инструмент, позволяющий
-	автоматически рассчитывать хеши и
-	переименовывать файлы, а также
-	изменять имена файлов на новые
-	в HTML файлах.
-	Все это позволяет делать Webpack.
-	Этому мы будем учиться на протяжении
-	всего учебника.
-</p>
+<p>These lines are called<dfn data-gs="comd/d" data-x>hashes</dfn>. The hash is a unique string. It is calculated from the contents of the file in a special way. This means that each text has its own unique hash. If the file text has been changed, then its hash will be different and we will need to change it in the file name.</p>
+<p>Of course, calculating hashes and renaming files by hand is not a task. Therefore, this approach is only used if we have some tool that allows us to automatically calculate hashes and rename files, as well as change file names to new ones in HTML files. Webpack allows you to do all this. We will learn this throughout the tutorial.</p>
     <div class="lesson-nav">
-      <a href="../../basis/intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Принцип работы">← Принцип работы</a>
-      <a href="../../book/prime/index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../basis/es-modules/index.html" class="lesson-nav-btn lesson-nav-next" title="ES модули">ES модули →</a>
+      <a href="../../basis/intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Operating principle">← Operating principle</a>
+      <a href="../../book/prime/index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../basis/es-modules/index.html" class="lesson-nav-btn lesson-nav-next" title="ES modules">ES modules →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

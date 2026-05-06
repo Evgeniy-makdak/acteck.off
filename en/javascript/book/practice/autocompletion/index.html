@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Автодополнение на JavaScript — acteck.off</title>
-  <meta name="description" content="Автодополнение на JavaScript — учебные материалы по программированию.">
+  <title>Autocompletion in JavaScript - acteck.off</title>
+  <meta name="description" content="Autocompletion in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,27 +36,9 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Автодополнение на JavaScript</h1>
-    <p>
-	Сейчас мы реализуем автодополнение.
-	Под этим термином понимается выпадающая подсказка
-	при вводе текста в инпут. Давайте посмотрим
-	на примере. Ниже я сделал инпут, в который
-	можно ввести название страны. При этом, если
-	ввести какие-то буквы, то под инпутом появится
-	список стран, которые начинаются на введенную
-	строку.
-</p>
-<p>
-	При желании можно, чтобы не вводить целиком
-	имя страны, кликнуть мышкой на любую страну
-	и она появится в инпуте. Для этого, в общем-то,
-	автодополнение и нужно. В примере для простоты
-	я сделал только три страны: Belarus, Belgium
-	и Bulgaria. Введите в приведенный ниже инпут
-	сначала символ <code data-gs="comd/s" data-x>'В'</code> английское, а потом
-	<code data-gs="comd/s" data-x>'e'</code> и посмотрите, что будет:
-</p>
+    <h1>Autocompletion in JavaScript</h1>
+    <p>Now we are implementing autocompletion. This term refers to the drop-down hint when entering text into the input. Let's look at an example. Below I have made an input in which you can enter the name of the country. At the same time, if you enter some letters, a list of countries that begin with the entered line will appear under the input.</p>
+<p>If you wish, you can, in order not to enter the entire country name, click on any country and it will appear in the input. For this, in general, autocompletion is needed. In the example, for simplicity, I made only three countries: Belarus, Belgium and Bulgaria. First enter the symbol in the input below<code data-gs="comd/s" data-x>'В'</code>English and then<code data-gs="comd/s" data-x>'e'</code>and see what happens:</p>
 <div data-p="bock/pane">
 					<div data-w="bock/tain">
 						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
@@ -137,33 +119,15 @@
 					</div>
 				</div>
 
-<h2>Обсуждение</h2>
-<p>
-	Давайте обсудим, как решать задачу. Нужно
-	сделать массив с названиями стран. У меня
-	он вот такой:
-</p>
+<h2>Discussion</h2>
+<p>Let's discuss how to solve the problem. We need to make an array with the names of countries. I have it like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr  = ['Belarus', 'Belgium', 'Bulgaria'];</code>
 </div>
-<p>
-	При вводе текста в инпут нужно по вводу каждого
-	символа перебирать массив со странами и получать
-	страны, которые начинаются на введенную строку.
-	Это удобно делать с помощью методов <a href="../../../manual/array/filter/index.html"><code data-gs="comd/c" data-x>filter</code></a>
-	и <a href="../../../manual/string/startsWith/index.html"><code data-gs="comd/c" data-x>startsWith</code></a>.
+<p>When entering text into the input, you need to iterate through the array with countries after entering each character and get countries that begin with the entered line. This can be conveniently done using the methods<a href="../../../manual/array/filter/index.html"><code data-gs="comd/c" data-x>filter</code></a>And<a href="../../../manual/string/startsWith/index.html"><code data-gs="comd/c" data-x>startsWith</code></a>.
 </p>
-<p>
-	С помощью <code data-gs="comd/c" data-x>filter</code> можно получить массив
-	стран, начинающихся с введенной строки. Затем
-	нужно перебрать этот массив циклом и заполнить
-	список <code data-gs="comd/c" data-x>ul</code> лишками со странами. И так
-	нужно делать на каждый ввод символа, предварительно
-	удаляя из улки ранее созданные лишки.
-</p>
-<p>
-	Для вашего удобства привожу готовую верстку:
-</p>
+<p>By using<code data-gs="comd/c" data-x>filter</code>you can get an array of countries starting with the entered string. Then you need to loop through this array and fill the list<code data-gs="comd/c" data-x>ul</code>surplus with countries. And this should be done for each character input, first removing previously created excesses from the trick.</p>
+<p>For your convenience, I present the finished layout:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;input id="elem"&gt;
@@ -196,24 +160,20 @@ text text text text text</code>
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Скопируйте себе приведенный HTML и CSS коды.
-		Реализуйте автодополнение согласно описанному
-		алгоритму.
-	</p>
+	<p>Copy the given HTML and CSS codes for yourself. Implement autocompletion according to the described algorithm.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../prediction/index.html" class="lesson-nav-btn lesson-nav-prev" title="Сайт предсказания">← Сайт предсказания</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../spoiler/index.html" class="lesson-nav-btn lesson-nav-next" title="Спойлер">Спойлер →</a>
+      <a href="../prediction/index.html" class="lesson-nav-btn lesson-nav-prev" title="Prediction site">← Prediction site</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../spoiler/index.html" class="lesson-nav-btn lesson-nav-next" title="Spoiler">Spoiler →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

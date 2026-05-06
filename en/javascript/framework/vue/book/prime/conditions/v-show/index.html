@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Директива v-show в Vue — acteck.off</title>
-  <meta name="description" content="Директива v-show в Vue — учебные материалы по программированию.">
+  <title>v-show directive in Vue - acteck.off</title>
+  <meta name="description" content="The v-show directive in Vue - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,12 +36,8 @@
       <a href="../../index.html">Vue</a>
     </div>
 
-    <h1>Директива v-show в Vue</h1>
-    <p>
-	Ещё одним вариантом условного отображения
-	является директива <code data-gs="comd/c" data-x>v-show</code>.
-	Используется очень похоже:
-</p>
+    <h1>v-show directive in Vue</h1>
+    <p>Another option for conditional display is the directive<code data-gs="comd/c" data-x>v-show</code>. It's used very similarly:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;template&gt;
 	&lt;p v-show="isAuth"&gt;
@@ -49,80 +45,42 @@
 	&lt;/p&gt;
 &lt;/template&gt;</code>
 </div>
-<p>
-	Отличия в том, что элемент с <code data-gs="comd/c" data-x>v-show</code> будет всегда
-	отрисовываться и оставаться в DOM, а переключаться
-	будет лишь его CSS свойство <a href="../../../../../../../markup/manual/css/property/display/index.html"><code data-gs="comd/c" data-x>display</code></a>.
+<p>The differences are that the element with<code data-gs="comd/c" data-x>v-show</code>will always be rendered and remain in the DOM, and only its CSS property will be switched<a href="../../../../../../../markup/manual/css/property/display/index.html"><code data-gs="comd/c" data-x>display</code></a>.
 </p>
-<p>
-	Директива <code data-gs="comd/c" data-x>v-if</code> выполняет "настоящую"
-	условную отрисовку, так как гарантирует,
-	что слушатели событий и дочерние компоненты
-	внутри блока должным образом уничтожаются
-	и воссоздаются при переключениях условия.
-</p>
-<p>
-	Директива <code data-gs="comd/c" data-x>v-if</code> также ленивая: если условие
-	ложно на момент первоначальной отрисовки,
-	то она ничего не сделает - условный блок
-	не будет отрисован до тех пор,
-	пока условие не станет истинным.
-</p>
-<p>
-	Для сравнения, <code data-gs="comd/c" data-x>v-show</code> намного проще - элемент
-	всегда отрисовывается, вне зависимости от
-	исходного состояния с переключением на основе CSS.
-</p>
-<p>
-	В целом, у <code data-gs="comd/c" data-x>v-if</code> выше затраты на переключение,
-	в то время как <code data-gs="comd/c" data-x>v-show</code> имеет больше затрат
-	на первичную отрисовку. Так что используйте <code data-gs="comd/c" data-x>v-show</code>,
-	если переключения будут частыми,
-	и предпочитайте <code data-gs="comd/c" data-x>v-if</code>, если условие
-	может и не измениться во время исполнения.
-</p>
+<p>Directive<code data-gs="comd/c" data-x>v-if</code>performs "true" conditional rendering as it ensures that event listeners and child components within the block are properly destroyed and recreated when condition switches.</p>
+<p>Directive<code data-gs="comd/c" data-x>v-if</code>also lazy: if the condition is false at the time of initial rendering, then it will do nothing - the conditional block will not be drawn until the condition becomes true.</p>
+<p>For comparison,<code data-gs="comd/c" data-x>v-show</code>much simpler - the element is always rendered, regardless of the initial state with CSS-based switching.</p>
+<p>Overall,<code data-gs="comd/c" data-x>v-if</code>switching costs are higher, while<code data-gs="comd/c" data-x>v-show</code>has more initial rendering costs. So use<code data-gs="comd/c" data-x>v-show</code>, if switching will be frequent, and prefer<code data-gs="comd/c" data-x>v-if</code>, if the condition may not change during execution.</p>
 <div data-w="cont/nott">
-	<p>
-		Директиву <code data-gs="comd/c" data-x>v-show</code> нельзя использовать на элементе
-		<code data-gs="comd/c" data-x>template</code> и она не работает с <code data-gs="comd/c" data-x>v-else</code>.
+	<p>Directive<code data-gs="comd/c" data-x>v-show</code>cannot be used on an element<code data-gs="comd/c" data-x>template</code>and it doesn't work with<code data-gs="comd/c" data-x>v-else</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дан абзац и кнопка. Сделайте так,
-		чтобы абзац тогглился по нажатию
-		на кнопку.
+	<p>Given a paragraph and a button. Make the paragraph toggleable when you click a button.</p>
+</div>
+<div data-w="cont/task">
+	<p>Tell us how the directives differ<code data-gs="comd/c" data-x>v-show</code>And<code data-gs="comd/c" data-x>v-if</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, в чем отличия директив
-		<code data-gs="comd/c" data-x>v-show</code> и <code data-gs="comd/c" data-x>v-if</code>.
+	<p>Tell us when it is better to use a directive<code data-gs="comd/c" data-x>v-show</code>, and when -<code data-gs="comd/c" data-x>v-if</code>.
 	</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Расскажите, когда лучше использовать
-		директиву <code data-gs="comd/c" data-x>v-show</code>, а когда - <code data-gs="comd/c" data-x>v-if</code>.
-	</p>
-</div>
-<div data-w="cont/task">
-	<p>
-		Расскажите, какие ограничения
-		имеет директива <code data-gs="comd/c" data-x>v-show</code>.
+	<p>Tell us what restrictions the directive has<code data-gs="comd/c" data-x>v-show</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <a href="../conditional-groups/index.html" class="lesson-nav-btn lesson-nav-prev" title="Условные группы">← Условные группы</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../../loops/arrays/index.html" class="lesson-nav-btn lesson-nav-next" title="Перебор массивов">Перебор массивов →</a>
+      <a href="../conditional-groups/index.html" class="lesson-nav-btn lesson-nav-prev" title="Conditional groups">← Conditional groups</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../../loops/arrays/index.html" class="lesson-nav-btn lesson-nav-next" title="Iterating over arrays">Iterating over arrays →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

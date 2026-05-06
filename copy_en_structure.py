@@ -245,6 +245,28 @@ def fix_paths(content):
     # Сначала заменяем явные ссылки на ru/
     content = re.sub(r'(href|src)="([^"]*)/ru/', r'\1="\2/en/', content)
     
+    # Устанавливаем правильный активный класс для переключателя языков
+    # Для английских страниц активной должна быть кнопка EN
+    content = re.sub(
+        r'(<div class="lang-switch">\s*)<a([^>]+)class="lang-btn active">RU</a>',
+        r'\1<a\2class="lang-btn">RU</a>',
+        content,
+        flags=re.DOTALL
+    )
+    content = re.sub(
+        r'(<div class="lang-switch">.*?<a[^>]+>RU</a>\s*)<a([^>]+)class="lang-btn">EN</a>',
+        r'\1<a\2class="lang-btn active">EN</a>',
+        content,
+        flags=re.DOTALL
+    )
+    
+    # Исправляем ссылку кнопки RU (она должна вести на ru/)
+    content = re.sub(
+        r'(<a href="(?:\.\./)+)en/(index\.html" class="lang-btn[^"]*">RU</a>)',
+        r'\1ru/\2',
+        content
+    )
+    
     return content
 
 

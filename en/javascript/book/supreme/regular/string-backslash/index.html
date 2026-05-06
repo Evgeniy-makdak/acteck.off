@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обратный слеш в строках регулярок в JavaScript — acteck.off</title>
-  <meta name="description" content="Обратный слеш в строках регулярок в JavaScript — учебные материалы по программированию.">
+  <title>Backslash in regular expression strings in JavaScript - acteck.off</title>
+  <meta name="description" content="Backslash in regular strings in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,47 +36,30 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Обратный слеш в строках регулярок в JavaScript</h1>
-    <p>
-	В строках с регулярками нужно экранировать
-	(фактически удваивать) обратные слеши.
-	Давайте посмотрим на примере.
-	Пусть у нас есть следующая строка:
-</p>
+    <h1>Backslash in regex strings in JavaScript</h1>
+    <p>In lines with regular expressions, you need to escape (actually double) backslashes. Let's look at an example. Let's say we have the following line:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'xyz';</code>
 </div>
-<p>
-	Пусть у нас есть следующий код
-	с регулярным выражением:
-</p>
+<p>Let's say we have the following code with a regular expression:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let reg = /\w+/;
 let res = str.match(reg);</code>
 </div>
-<p>
-	Давайте переделаем регулярное выражение
-	в строку. В этом случае у нас возникнет
-	проблема с обратным слешем:
-</p>
+<p>Let's convert the regular expression into a string. In this case we have a problem with the backslash:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let reg = new RegExp('\w+'); // не работает
 let res = str.match(reg);</code>
 </div>
-<p>
-	Для решения проблемы удвоим
-	обратный слеш:
-</p>
+<p>To solve the problem, double the backslash:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let reg = new RegExp('\\w+'); // работает
 let res = str.match(reg);</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Переделайте регулярку в строку:
-	</p>
+	<p>Convert the regular expression to a string:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'x1y x12y x123y';
 let reg = /x\d+y/;
@@ -84,9 +67,7 @@ let res = str.replace(reg, '!');</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Переделайте регулярку в строку:
-	</p>
+	<p>Convert the regular expression to a string:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'x.y xay xby';
 let reg = /x\.y/;
@@ -94,9 +75,7 @@ let res = str.replace(reg, '!');</code>
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Переделайте регулярку в строку:
-	</p>
+	<p>Convert the regular expression to a string:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let str = 'x\\y';
 let reg = /x\\y/;
@@ -105,8 +84,8 @@ let res = str.replace(reg, '!');</code>
 </div>
   
     <div class="lesson-nav">
-      <a href="../string-flags/index.html" class="lesson-nav-btn lesson-nav-prev" title="Флаги для строк">← Флаги для строк</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../string-flags/index.html" class="lesson-nav-btn lesson-nav-prev" title="Flags for strings">← Flags for strings</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../../exceptions/intro/index.html" class="lesson-nav-btn lesson-nav-next" title="Introduction">Introduction →</a>
     </div>
   </section>
@@ -114,7 +93,7 @@ let res = str.replace(reg, '!');</code>
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

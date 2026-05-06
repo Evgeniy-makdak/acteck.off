@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Область видимости переменных в if-else в JavaScript — acteck.off</title>
-  <meta name="description" content="Область видимости переменных в if-else в JavaScript — учебные материалы по программированию.">
+  <title>Scope of variables in if-else in JavaScript - acteck.off</title>
+  <meta name="description" content="Variable Scope in If-Else in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,19 +36,14 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Область видимости переменных в if-else в JavaScript</h1>
-    <p>
-	Пусть для простоты у нас есть всегда выполняющееся
-	условие:
-</p>
+    <h1>Variable scope in if-else in JavaScript</h1>
+    <p>For simplicity, let us have a condition that is always met:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">if (true) {
 	
 }</code>
 </div>
-<p>
-	Давайте рассмотрим следующий код:
-</p>
+<p>Let's look at the following code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">if (true) {
 	let res = '!';
@@ -56,25 +51,10 @@
 
 console.log(res);</code>
 </div>
-<p>
-	Как вы видите, в переменную <code data-gs="comd/c" data-x>res</code>
-	должно записаться значение <code data-gs="comd/s" data-x>'!'</code>. Однако,
-	если запустить этот код, то в консоль выведется
-	ошибка!
+<p>As you can see, into the variable<code data-gs="comd/c" data-x>res</code>the value should be written<code data-gs="comd/s" data-x>'!'</code>. However, if you run this code, an error will be displayed in the console!</p>
+<p>The point is that the variables<i>declared inside curly braces are visible only inside those braces, and not visible outside</i>. Scientifically speaking, we are talking about<dfn data-gs="comd/d" data-x>Variable scopes</dfn>.
 </p>
-<p>
-	Дело в том, что переменные, <i>объявленные
-	внутри фигурных скобок, видны только внутри
-	этих скобок, и не видны снаружи</i>. По-научному
-	здесь идет речь об <dfn data-gs="comd/d" data-x>области видимости переменных</dfn>.
-</p>
-<p>
-	Можно говорить о том, что областью видимости
-	переменных, объявленных внутри фигурных скобок,
-	являются только эти фигурные скобки. Однако,
-	если переменная объявлена снаружи фигурных
-	скобок, то видна и внутри них, и снаружи:
-</p>
+<p>We can say that the scope of variables declared inside curly braces is only those curly braces. However, if a variable is declared outside the curly braces, it is visible both inside and outside them:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let res; // переменная объявлена снаружи
 
@@ -84,10 +64,7 @@ if (true) {
 
 console.log(res); // выведет '!'</code>
 </div>
-<p>
-	В следующем примере в переменную <code data-gs="comd/c" data-x>res</code>
-	в зависимости от условия записывается либо
-	значение <code data-gs="comd/n" data-x>1</code>, либо значение <code data-gs="comd/n" data-x>2</code>:
+<p>In the following example, into a variable<code data-gs="comd/c" data-x>res</code>Depending on the condition, either the value is written<code data-gs="comd/n" data-x>1</code>, or value<code data-gs="comd/n" data-x>2</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let num = 5;
@@ -100,12 +77,7 @@ if (num &gt;= 0) {
 
 console.log(res);</code>
 </div>
-<p>
-	Однако, если запустить этот код, то в консоль
-	выведется ошибка. Как вы теперь уже понимаете,
-	все дело в видимости переменных. Для решения
-	проблемы объявим переменную снаружи условия:
-</p>
+<p>However, if you run this code, an error will be displayed in the console. As you now understand, it's all about the visibility of variables. To solve the problem, let's declare a variable outside the condition:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let test = true;
 let res; // объявим переменную снаружи условия
@@ -119,12 +91,7 @@ if (test) {
 console.log(res); // выведет 1</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Автор приведенного ниже кода хотел выполнить
-		проверку возраста на достижение <code data-gs="comd/n" data-x>18</code>
-		лет. Код, однако, не работает. Исправьте
-		ошибку автора кода. Вот проблемный код:
-	</p>
+	<p>The author of the code below wanted to perform an age check on reaching<code data-gs="comd/n" data-x>18</code>years. The code, however, doesn't work. Fix the code author's mistake. Here is the problematic code:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let age = 17;
 
@@ -139,16 +106,16 @@ console.log(adult);</code>
 </div>
   
     <div class="lesson-nav">
-      <a href="../confirm/index.html" class="lesson-nav-btn lesson-nav-prev" title="Функция confirm">← Функция confirm</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../scope-nuances/index.html" class="lesson-nav-btn lesson-nav-next" title="Нюансы области видимости">Нюансы области видимости →</a>
+      <a href="../confirm/index.html" class="lesson-nav-btn lesson-nav-prev" title="confirm function">← Function confirm</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../scope-nuances/index.html" class="lesson-nav-btn lesson-nav-next" title="Scope considerations">Scope nuances →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

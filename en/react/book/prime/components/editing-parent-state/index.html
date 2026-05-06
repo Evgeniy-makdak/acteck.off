@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Редактирование стейта родителя в дочернем компоненте в React — acteck.off</title>
-  <meta name="description" content="Редактирование стейта родителя в дочернем компоненте в React — учебные материалы по программированию.">
+  <title>Editing the state of a parent in a child component in React - acteck.off</title>
+  <meta name="description" content="Editing the State of a Parent in a Child Component in React - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,23 +36,10 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Редактирование стейта родителя в дочернем компоненте в React</h1>
-    <p>
-	Давайте теперь будем редактировать наши продукты
-	с помощью инпутов. Для этого в дочернем компоненте
-	сделаем кнопку.
-</p>
-<p>
-	По первому нажатию на эту кнопку пусть вместо
-	названия и цены с продуктом появятся инпуты
-	для их редактирования, а по второму нажатию
-	вместо инпутов опять появятся тексты.
-</p>
-<p>
-	Внесем изменение в массив с продуктами, добавив
-	свойство <code data-gs="comd/c" data-x>isEdit</code> (а работу с корзиной
-	для простоты уберем):
-</p>
+    <h1>Editing the state of a parent in a child component in React</h1>
+    <p>Let's now edit our products using inputs. To do this, we will create a button in the child component.</p>
+<p>By the first click on this button, instead of the name and price with the product, inputs for editing them will appear, and by the second click, instead of inputs, texts will appear again.</p>
+<p>Let's make a change to the array with products by adding the property<code data-gs="comd/c" data-x>isEdit</code>(we’ll remove the work with the basket for simplicity):</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const initProds = [
 	{id: id(), name: 'product1', cost: 100, isEdit: false},
@@ -61,10 +48,8 @@
 ];</code>
 </div>
 
-<h2>Компонент Product</h2>
-<p>
-	Сделаем в продукте кнопку для редактирования:
-</p>
+<h2>Product Component</h2>
+<p>Let's create a button for editing in the product:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, isEdit }) {
 	return &lt;div&gt;
@@ -74,11 +59,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Сделаем так, чтобы по клику на эту кнопку
-	вызвалась некоторая функция <code data-gs="comd/c" data-x>toggleMode</code>,
-	переданная из родительского компонента:
-</p>
+<p>Let's make sure that when this button is clicked, a certain function is called.<code data-gs="comd/c" data-x>toggleMode</code>passed from the parent component:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, isEdit, toggleMode }) {
 	return &lt;div&gt;
@@ -91,17 +72,8 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Пока у нас нет реализации <code data-gs="comd/c" data-x>toggleMode</code>,
-	но мы знаем, что она будет располагаться
-	в компоненте-родителе, параметром принимать
-	<code data-gs="comd/c" data-x>id</code> продукта и изменять свойство <code data-gs="comd/c" data-x>isEdit</code>
-	продукта на противоположное.
-</p>
-<p>
-	Сделаем также так, чтобы текст кнопки менялся
-	каждое нажатие:
-</p>
+<p>We don't have any implementation yet<code data-gs="comd/c" data-x>toggleMode</code>, but we know that it will be located in the parent component, the parameter will be<code data-gs="comd/c" data-x>id</code>product and change the property<code data-gs="comd/c" data-x>isEdit</code>product to the opposite.</p>
+<p>Let's also make the button text change every click:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, isEdit, toggleMode }) {
 	return &lt;div&gt;
@@ -114,11 +86,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Давайте теперь сделаем так, чтобы в режиме
-	редактирования у нас были инпуты с данными,
-	а в обычном режиме - спены:
-</p>
+<p>Let's now make sure that in edit mode we have inputs with data, and in normal mode - spans:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, isEdit, toggleMode }) {
 	return &lt;div&gt;
@@ -131,10 +99,7 @@
 	&lt;/div&gt;;
 }</code>
 </div>
-<p>
-	Привяжем к нашим инпутам событие <code data-gs="comd/c" data-x>onChange</code>,
-	в котором будем вызывать некоторую родительскую
-	функцию <code data-gs="comd/c" data-x>editProd</code>:
+<p>Let's bind an event to our inputs<code data-gs="comd/c" data-x>onChange</code>, in which we will call some parent function<code data-gs="comd/c" data-x>editProd</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Product({ id, name, cost, isEdit, toggleMode, editProd }) {
@@ -157,10 +122,8 @@
 }</code>
 </div>
 
-<h2>Компонент Products</h2>
-<p>
-	Давайте теперь перейдем в компонент <code data-gs="comd/c" data-x>Products</code>.
-	Реализуем в нем функцию <code data-gs="comd/c" data-x>toggleMode</code>:
+<h2>Products Component</h2>
+<p>Let's now go to the component<code data-gs="comd/c" data-x>Products</code>. Let's implement the function in it<code data-gs="comd/c" data-x>toggleMode</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function toggleMode(id) {
@@ -173,8 +136,7 @@
 	}));
 }</code>
 </div>
-<p>
-	Также реализуем в нем функцию <code data-gs="comd/c" data-x>editProd</code>:
+<p>We also implement the function in it<code data-gs="comd/c" data-x>editProd</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function editProd(id, field, event) {
@@ -187,9 +149,7 @@
 	}));
 }</code>
 </div>
-<p>
-	В тег с продуктом атрибутами передадим наши
-	функции <code data-gs="comd/c" data-x>toggleMode</code> и <code data-gs="comd/c" data-x>editProd</code>:
+<p>We will transfer our functions to the tag with the product attributes<code data-gs="comd/c" data-x>toggleMode</code>And<code data-gs="comd/c" data-x>editProd</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const items = prods.map(prod =&gt; {
@@ -204,10 +164,7 @@
 	/&gt;;
 });</code>
 </div>
-<p>
-	Окончательный код компонента <code data-gs="comd/c" data-x>Products</code>
-	получится следующим:
-</p>
+<p>Final component code<code data-gs="comd/c" data-x>Products</code>it will turn out like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">function Products() {
 	const [prods, setProds] = useState(initProds);
@@ -250,20 +207,16 @@
 }</code>
 </div>
 
-<h2>Практические задачи</h2>
+<h2>Practical problems</h2>
 <div data-w="cont/task">
-	<p>
-		Проделайте аналогичные операции с компонентами
-		<code data-gs="comd/c" data-x>Users</code> и <code data-gs="comd/c" data-x>User</code>, созданными вами
-		в предыдущих уроках.
-	</p>
+	<p>Perform similar operations with the components<code data-gs="comd/c" data-x>Users</code>And<code data-gs="comd/c" data-x>User</code>, created by you in previous lessons.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

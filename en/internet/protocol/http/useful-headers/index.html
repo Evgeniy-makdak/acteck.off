@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Полезные HTTP Headers — acteck.off</title>
-  <meta name="description" content="Полезные HTTP Headers — учебные материалы по программированию.">
+  <title>Useful HTTP headers - acteck.off</title>
+  <meta name="description" content="Useful HTTP headers - programming educational materials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,94 +33,63 @@
     <div class="breadcrumbs">
       <a href="../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../en/internet/index.html">Интернет</a>
+      <a href="../../../../../en/internet/index.html">Internet</a>
     </div>
 
-    <h1>Полезные HTTP Headers</h1>
-    <p>
-	В данном уроке мы рассмотрим значения
-	некоторых полезных заголовков.
-</p>
+    <h1>Useful HTTP headers</h1>
+    <p>In this tutorial we'll look at the meanings of some useful headers.</p>
 
-<h2>Заголовок Host</h2>
-<p>
-	Заголовок <code data-gs="comd/s" data-x>Host</code> содержит в себе имя домена,
-	на который осуществляется запрос:
-</p>
+<h2>Host header</h2>
+<p>Heading<code data-gs="comd/s" data-x>Host</code>contains the name of the domain to which the request is made:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="http">Host: example.com</code>
 </div>
-<p>
-	Вместе со стартовой строкой, содержащей URI,
-	и заголовком <code data-gs="comd/s" data-x>Host</code>, содержащим имя домена,
-	получается URL запрошенной страницы:
-</p>
+<p>Along with a start line containing the URI and a title<code data-gs="comd/s" data-x>Host</code>containing the domain name, the URL of the requested page is obtained:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="http">GET /test/ HTTP/1.1
 Host: example.com</code>
 </div>
 
-<h2>Заголовок Date</h2>
-<p>
-	Заголовок <code data-gs="comd/s" data-x>Date</code> содержит в себе
-	момент времени, в который было
-	создано HTTP сообщение:
-</p>
+<h2>Header Date</h2>
+<p>Heading<code data-gs="comd/s" data-x>Date</code>contains the point in time at which the HTTP message was created:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="http">Date: Wed, 21 Oct 2020 07:28:00 GMT</code>
 </div>
 
-<h2>Заголовок Last-Modified</h2>
-<p>
-	Заголовок <code data-gs="comd/s" data-x>Last-Modified</code> в ответе HTTP содержит
-	дату и время, в которую, по мнению сервера,
-	запрашиваемый ресурс был изменён. Он используется
-	в качестве средства проверки для определения
-	того, остался ли ресурс неизменным.
-	Пример:
-</p>
+<h2>Last-Modified header</h2>
+<p>Heading<code data-gs="comd/s" data-x>Last-Modified</code>in the HTTP response contains the date and time at which, according to the server, the requested resource was changed. It is used as a checker to determine whether a resource has remained unchanged. Example:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="http">Last-Modified: Sat, 16 Jan 2020 21:16:42 GMT</code>
 </div>
 
-<h2>Заголовок Content-Type</h2>
-<p>
-	Заголовок <code data-gs="comd/s" data-x>Content-Type</code> задает тип
-	отданного содержимого и его кодировку:
-</p>
+<h2>Content-Type header</h2>
+<p>Heading<code data-gs="comd/s" data-x>Content-Type</code>specifies the type of content sent and its encoding:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="http">Content-Type: text/html; charset=utf-8</code>
 </div>
 
-<h2>Заголовок Content-Language</h2>
-<p>
-	Заголовок <code data-gs="comd/s" data-x>Content-Language</code> задает
-	язык, на котором написан отданный
-	документ:
-</p>
+<h2>Header Content-Language</h2>
+<p>Heading<code data-gs="comd/s" data-x>Content-Language</code>specifies the language in which the submitted document is written:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="http">Content-Language: ru</code>
 </div>
 
-<h2>Заголовок Content-Length</h2>
-<p>
-	Заголовок <code data-gs="comd/s" data-x>Content-Length</code> указывает размер
-	отправленного получателю тела объекта в байтах:
-</p>
+<h2>Header Content-Length</h2>
+<p>Heading<code data-gs="comd/s" data-x>Content-Length</code>indicates the size of the object body sent to the recipient in bytes:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="http">Content-Length: 10000</code>
 </div>
         <div class="lesson-nav">
-      <a href="../headers-groups/index.html" class="lesson-nav-btn lesson-nav-prev" title="HTTP Header Groups">← HTTP Header Groups</a>
-      <a href="../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../custom-headers/index.html" class="lesson-nav-btn lesson-nav-next" title="Свои HTTP Headers">Свои HTTP Headers →</a>
+      <a href="../headers-groups/index.html" class="lesson-nav-btn lesson-nav-prev" title="HTTP header groups">← Groups of HTTP headers</a>
+      <a href="../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../custom-headers/index.html" class="lesson-nav-btn lesson-nav-next" title="Custom HTTP headers">Custom HTTP headers →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

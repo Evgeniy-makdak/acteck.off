@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод unlink — acteck.off</title>
-  <meta name="description" content="Метод unlink — учебные материалы по программированию.">
+  <title>unlink method - acteck.off</title>
+  <meta name="description" content="unlink method - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,29 +36,18 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Метод unlink</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>unlink</code> удаляет символическую ссылку
-	или файл по пути, указанном в первом
-	параметре метода. Во втором необязательном
-	параметре задаем коллбэк.
-</p>
+    <h1>unlink method</h1>
+    <p>Method<code data-gs="comd/c" data-x>unlink</code>deletes a symbolic link or file at the path specified in the first parameter of the method. In the second optional parameter we set the callback.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">fs.unlink(путь к символической ссылке или файлу, [коллбэк]);</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Пусть у нас есть следующая
-	файловая структура:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's say we have the following file structure:</p>
 <div data-p="bock/pane"><div data-w="bock/truc"><ul><li data-s-type="D">/dir/<ul><li data-s-type="F">file.txt</li></ul></li></ul></div></div>
-<p>
-	Давайте сначала асинхронно создадим
-	символическую ссылку. А затем удалим
-	ее через <code data-gs="comd/c" data-x>await</code>:
+<p>Let's first create a symbolic link asynchronously. And then we will delete it via<code data-gs="comd/c" data-x>await</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -73,16 +62,12 @@ try {
 	console.log(err);
 }</code>
 </div>
-<p>
-	Результат выполненного кода:
-</p>
+<p>Result of the executed code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">'symlink created'
 'symlink deleted'</code>
 </div>
-<p>
-	Теперь давайте асинхронно удалим
-	файл через <code data-gs="comd/c" data-x>await</code>:
+<p>Now let's delete the file asynchronously via<code data-gs="comd/c" data-x>await</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -95,11 +80,8 @@ try {
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь давайте асинхронно
-	удалим символическую ссылку
-	через <code data-gs="comd/c" data-x>then</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's asynchronously remove the symbolic link via<code data-gs="comd/c" data-x>then</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -113,9 +95,7 @@ fs.unlink('./dir/symlink').then(() =&gt; {
 	console.log(err);
 });</code>
 </div>
-<p>
-	Теперь давайте асинхронно удалим
-	файл через <code data-gs="comd/c" data-x>then</code>:
+<p>Now let's delete the file asynchronously via<code data-gs="comd/c" data-x>then</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs/promises';
@@ -127,12 +107,8 @@ fs.unlink('./dir/file.txt').then(() =&gt; {
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте асинхронно удалим
-	символическую ссылку
-	через коллбэк:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's remove the symbolic link asynchronously via a callback:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
 
@@ -146,10 +122,7 @@ fs.unlink('./dir/symlink', err =&gt; {
 	}
 });</code>
 </div>
-<p>
-	Теперь давайте асинхронно удалим
-	файл через коллбэк:
-</p>
+<p>Now let's delete the file asynchronously via a callback:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
 
@@ -162,11 +135,8 @@ fs.unlink('./dir/file.txt', err =&gt; {
 });</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Теперь давайте синхронно удалим
-	символическую ссылку через
-	<code data-gs="comd/c" data-x>unlinkSync</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Now let's synchronously remove the symbolic link via<code data-gs="comd/c" data-x>unlinkSync</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
@@ -181,9 +151,7 @@ try {
 	console.log(err);
 }</code>
 </div>
-<p>
-	Давайте синхронно удалим
-	файл через <code data-gs="comd/c" data-x>unlinkSync</code>:
+<p>Let's synchronously delete the file via<code data-gs="comd/c" data-x>unlinkSync</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import fs from 'fs';
@@ -196,26 +164,17 @@ try {
 }</code>
 </div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			метод <a href="../symlink/index.html"><code data-gs="comd/c" data-x>symlink</code></a>, <br>
-			который создает символическую ссылку
-		</li>
-			<li>
-			метод <a href="../rmdir/index.html"><code data-gs="comd/c" data-x>rmdir</code></a>, <br>
-			который удаляет папку
-		</li>
-		<li>
-			метод <a href="../rm/index.html"><code data-gs="comd/c" data-x>rm</code></a>, <br>
-			который удаляет файлы и папки
-		</li>
+		<li>method<a href="../symlink/index.html"><code data-gs="comd/c" data-x>symlink</code></a>, <br>which creates a symbolic link</li>
+			<li>method<a href="../rmdir/index.html"><code data-gs="comd/c" data-x>rmdir</code></a>, <br>which deletes the folder</li>
+		<li>method<a href="../rm/index.html"><code data-gs="comd/c" data-x>rm</code></a>, <br>which deletes files and folders</li>
 	</ul>
 </div>
         <div class="lesson-nav">
       <a href="../truncate/index.html" class="lesson-nav-btn lesson-nav-prev" title="truncate">← truncate</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <a href="../unwatchFile/index.html" class="lesson-nav-btn lesson-nav-next" title="unwatchFile">unwatchFile →</a>
     </div>
   </section>
@@ -223,7 +182,7 @@ try {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

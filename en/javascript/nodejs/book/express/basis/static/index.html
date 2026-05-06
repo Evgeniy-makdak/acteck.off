@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Статические файлы в Express — acteck.off</title>
-  <meta name="description" content="Статические файлы в Express — учебные материалы по программированию.">
+  <title>Static files in Express - acteck.off</title>
+  <meta name="description" content="Static files in Express - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,52 +36,24 @@
       <a href="../../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Статические файлы в Express</h1>
-    <p>
-	С помощью Express можно объявить одну из
-	ваших папок корнем сайта. В этой папке будут
-	автоматически искаться файлы, запрошенные
-	браузером.
-</p>
-<p>
-	Давайте посмотрим, как это работает. Пусть,
-	к примеру, корнем сайта будет папка <code data-gs="comd/p" data-x>public</code>.
-	Пусть в ней лежит файл <code data-gs="comd/p" data-x>test.html</code>.
-	Toгда, если вбить в браузер урл <code data-gs="comd/p" data-x>/test.html</code>,
-	то Express автоматически отдаст этот файл.
-</p>
-<p>
-	При этом в урле не будет фигурировать имя
-	папки <code data-gs="comd/p" data-x>public</code>, так как поиск запрошенного
-	файла начинается внутри этой папки.
-</p>
-<p>
-	Аналогичным образом будут отдаваться CSS
-	файлы, картинки, файлы клиентского JS и другие
-	статические ресурсы.
-</p>
-<p>
-	Итак, давайте объявим корнем нашу папку <code data-gs="comd/p" data-x>public</code>.
-	Используем для этого следующую команду:
-</p>
+    <h1>Static files in Express</h1>
+    <p>With Express, you can declare one of your folders to be the root of your site. This folder will be automatically searched for files requested by the browser.</p>
+<p>Let's see how it works. Let, for example, the root of the site be the folder<code data-gs="comd/p" data-x>public</code>. Let there be a file in it<code data-gs="comd/p" data-x>test.html</code>. Then, if you enter the URL into the browser<code data-gs="comd/p" data-x>/test.html</code>, then Express will automatically serve the file.</p>
+<p>In this case, the folder name will not appear in the URL.<code data-gs="comd/p" data-x>public</code>, since the search for the requested file starts inside this folder.</p>
+<p>Similarly, CSS files, images, client JS files and other static resources will be provided.</p>
+<p>So let's declare our folder as the root<code data-gs="comd/p" data-x>public</code>. For this we use the following command:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.use(express.static(__dirname + '/public/'))</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте папку для отдачи статического содержимого.
-		Разместите в ней файлы стилей CSS файлы,
-		файлы клиентского JS, картинки и фавикон.
-		содержимым. Проверьте, как эти файлы отдаются
-		в браузер.
-	</p>
+	<p>Make a folder to serve static content. Place CSS style files, client JS files, images and a favicon in it. content. Check how these files are sent to the browser.</p>
 </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

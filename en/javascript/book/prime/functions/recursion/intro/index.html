@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Работа с рекурсией в JavaScript — acteck.off</title>
-  <meta name="description" content="Работа с рекурсией в JavaScript — учебные материалы по программированию.">
+  <title>Working with recursion in JavaScript - acteck.off</title>
+  <meta name="description" content="Working with recursion in JavaScript - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,13 +36,8 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Работа с рекурсией в JavaScript</h1>
-    <p>
-	В программировании есть такое понятие, как
-	<dfn data-gs="comd/d" data-x>рекурсия</dfn> - это когда функция вызывает
-	сама себя. Давайте посмотрим на примере.
-	Выведем с помощью рекурсии числа от <code data-gs="comd/n" data-x>1</code>
-	до <code data-gs="comd/n" data-x>10</code>:
+    <h1>Working with Recursion in JavaScript</h1>
+    <p>In programming there is such a thing as<dfn data-gs="comd/d" data-x>recursion</dfn>- this is when a function calls itself. Let's look at an example. Using recursion, we will derive the numbers from<code data-gs="comd/n" data-x>1</code>to<code data-gs="comd/n" data-x>10</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let i = 1;
@@ -57,45 +52,26 @@ function func(){
 }
 func();</code>
 </div>
-<p>
-	Давайте обсудим, как работает этот код.
+<p>Let's discuss how this code works.</p>
+<p>We have a global variable<code data-gs="comd/c" data-x>i</code>and function<code data-gs="comd/c" data-x>func</code>, inside which the contents of the variable are output to the console<code data-gs="comd/c" data-x>i</code>and then done<code data-gs="comd/c" data-x>++</code>.
 </p>
-<p>
-	У нас есть глобальная переменная <code data-gs="comd/c" data-x>i</code>
-	и функция <code data-gs="comd/c" data-x>func</code>, внутри которой в консоль
-	выводится содержимое переменной <code data-gs="comd/c" data-x>i</code>,
-	а затем делается <code data-gs="comd/c" data-x>++</code>.
+<p>If our variable<code data-gs="comd/c" data-x>i</code>less than or equal to<code data-gs="comd/n" data-x>10</code>, then the function is called again. Since the variable<code data-gs="comd/c" data-x>i</code>- global, then with each new function call it will contain the value of the variable specified in the previous call<code data-gs="comd/c" data-x>i</code>.
 </p>
-<p>
-	Если наша переменная <code data-gs="comd/c" data-x>i</code> меньше или
-	равна <code data-gs="comd/n" data-x>10</code>, то функция вызывается повторно.
-	Так как переменная <code data-gs="comd/c" data-x>i</code> - глобальная,
-	то при каждом новом вызове функции в ней
-	будет заданное при предыдущем вызове значение
-	переменной <code data-gs="comd/c" data-x>i</code>.
+<p>It turns out that the function will call itself until<code data-gs="comd/c" data-x>i</code>it won't get any bigger<code data-gs="comd/n" data-x>10</code>.
 </p>
-<p>
-	Получится, что функция будет вызывать сама
-	себя до тех пор, пока <code data-gs="comd/c" data-x>i</code> не станет
-	больше <code data-gs="comd/n" data-x>10</code>.
-</p>
-<p>
-	Учтите, что в нашем случае нельзя функцию
-	запустить без <code data-gs="comd/c" data-x>if</code> - если это сделать,
-	то получится бесконечный вызов функций.
-</p>
+<p>Please note that in our case we cannot run the function without<code data-gs="comd/c" data-x>if</code>- if you do this, you will end up with an endless function call.</p>
   
     <div class="lesson-nav">
-      <a href="../../IIFE/closures/index.html" class="lesson-nav-btn lesson-nav-prev" title="Замыкания и IIFE">← Замыкания и IIFE</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../example-parameter/index.html" class="lesson-nav-btn lesson-nav-next" title="Пример с параметром">Пример с параметром →</a>
+      <a href="../../IIFE/closures/index.html" class="lesson-nav-btn lesson-nav-prev" title="Closures and IIFE">← Closures and IIFE</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../example-parameter/index.html" class="lesson-nav-btn lesson-nav-next" title="Example with parameter">Example with parameter →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

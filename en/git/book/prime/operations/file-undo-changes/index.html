@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отмена изменений в файле в Git — acteck.off</title>
-  <meta name="description" content="Отмена изменений в файле в Git — учебные материалы по программированию.">
+  <title>Undoing changes to a file in Git - acteck.off</title>
+  <meta name="description" content="Undoing Changes to a File in Git - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,55 +36,33 @@
       <a href="../../../../../../en/git/index.html">Git</a>
     </div>
 
-    <h1>Отмена изменений в файле в Git</h1>
-    <p>
-	В случае, когда нам нужно отменить изменения
-	в файле, и вернуть его в исходный вид,
-	нужно использовать команду <code data-gs="comd/c" data-x>restore</code>.
-	Давайте сначала внесем изменения в файл
-	<code data-gs="comd/p" data-x>file.txt</code> и отследим его статус:
-<p>
+    <h1>Reverting changes to a file in Git</h1>
+    <p>In the case when we need to undo changes to a file and return it to its original form, we need to use the command<code data-gs="comd/c" data-x>restore</code>. Let's make changes to the file first<code data-gs="comd/p" data-x>file.txt</code>and track its status:<p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git status</code>
 </div>
-<p>
-	В сообщении мы увидим, что файл <code data-gs="comd/p" data-x>file.txt</code>
-	получил статус <span data-gs="comd/y" data-x>modified</span>.
+<p>In the message we will see that the file<code data-gs="comd/p" data-x>file.txt</code>received the status<span data-gs="comd/y" data-x>modified</span>.
 </p>
-<p>
-	Теперь вернем файл в исходное состояние
-	командой <code data-gs="comd/c" data-x>restore</code>:
+<p>Now let's return the file to its original state with the command<code data-gs="comd/c" data-x>restore</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">git restore file.txt</code>
 </div>
-<p>
-	После проверки статуса мы увидим сообщение
-	о том, что коммитить нечего.
-	Если вы проверите содержимое файла,
-	то оно действительно вернется к версии до изменений.
-	Необходимо быть острожными с этой командой,
-	потому что Git заменяет файл его предыдущей версией
-	и все промежуточные изменения стираются.
-</p>
+<p>After checking the status, we will see a message stating that there is nothing to commit. If you check the contents of the file, it will indeed revert to the version before the changes. You need to be careful with this command because Git replaces the file with its previous version and any changes in between are erased.</p>
 <div data-w="cont/task">
-	<p>
-		Внесите изменения в файл в вашем Git
-		репозитории, а затем верните его
-		в исходное состояние.
-	</p>
+	<p>Make changes to a file in your Git repository and then revert it to its original state.</p>
 </div>
     <div class="lesson-nav">
-      <a href="../file-unindexing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отмена индексации файла">← Отмена индексации файла</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../command-aliases/index.html" class="lesson-nav-btn lesson-nav-next" title="Псевдонимы команд">Псевдонимы команд →</a>
+      <a href="../file-unindexing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Cancel file indexing">← Cancel file indexing</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../command-aliases/index.html" class="lesson-nav-btn lesson-nav-next" title="Command aliases">Command aliases →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

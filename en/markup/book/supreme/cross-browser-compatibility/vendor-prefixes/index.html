@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вендорные префиксы в CSS — acteck.off</title>
-  <meta name="description" content="Вендорные префиксы в CSS — учебные материалы по программированию.">
+  <title>Vendor prefixes in CSS - acteck.off</title>
+  <meta name="description" content="Vendor Prefixes in CSS - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,49 +33,28 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Вендорные префиксы в CSS</h1>
-    <p>
-	В прошлом среди браузеров сложилась следующая
-	ситуация: до того, как свойство CSS появится
-	в спецификации, браузеры реализовывали пробную
-	версию этого свойства со специальной приставкой,
-	которая называется <dfn data-gs="comd/d" data-x>вендорным префиксом</dfn>.
+    <h1>Vendor prefixes in CSS</h1>
+    <p>In the past, the situation among browsers was that before a CSS property appeared in the specification, browsers would implement a trial version of that property with a special prefix called<dfn data-gs="comd/d" data-x>vendor prefix</dfn>.
 </p>
-<p>
-	Давайте на примере свойства
-	<a href="../../../../manual/css/property/box-sizing/index.html"><code data-gs="comd/c" data-x>box-sizing</code></a>
-	посмотрим как это выглядит:
-</p>
+<p>Let's use the property as an example<a href="../../../../manual/css/property/box-sizing/index.html"><code data-gs="comd/c" data-x>box-sizing</code></a>Let's see what it looks like:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
 	box-sizing: border-box;
 }</code>
 </div>
-<p>
-	Это свойство начало поддерживаться только
-	с Firefox29, однако уже с версии Firefox2
-	оно было доступно с префиксом <code data-gs="comd/c" data-x>-moz</code>:
+<p>This property began to be supported only with Firefox29, but since Firefox2 it was available with the prefix<code data-gs="comd/c" data-x>-moz</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
 	-moz-box-sizing: border-box;
 }</code>
 </div>
-<p>
-	Остальные браузеры имели аналогичные приставки:
-	<code data-gs="comd/c" data-x>-moz</code> - Mozilla Firefox, <code data-gs="comd/c" data-x>-webkit</code>
-	- браузеры на движке Webkit и Blink, <code data-gs="comd/c" data-x>-o</code>
-	- Opera на движке Presto, <code data-gs="comd/c" data-x>-ms</code> - IE.
+<p>Other browsers had similar prefixes:<code data-gs="comd/c" data-x>-moz</code> - Mozilla Firefox, <code data-gs="comd/c" data-x>-webkit</code>- browsers based on the Webkit and Blink engines,<code data-gs="comd/c" data-x>-o</code>- Opera on the Presto engine,<code data-gs="comd/c" data-x>-ms</code> - IE.
 </p>
-<p>
-	Таким образом, наиболее кроссбраузерный вариант
-	свойства <code data-gs="comd/c" data-x>box-sizing</code>, с использованием
-	вендорных префиксов имел примерно
-	следующий вид:
-</p>
+<p>Thus, the most cross-browser option for the property is<code data-gs="comd/c" data-x>box-sizing</code>, using vendor prefixes, looked something like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">p {
 	-webkit-box-sizing: border-box;
@@ -85,29 +64,18 @@
 	box-sizing: border-box;
 }</code>
 </div>
-<p>
-	В настоящее время браузеры решили отказаться
-	от префиксов в связи с их неудобностью. И
-	сейчас вместо них используют так называемые
-	<dfn data-gs="comd/d" data-x>флаги</dfn>. Свойства теперь внедряются
-	в браузер, но по умолчанию отключены, однако
-	их можно включить в настройках браузера,
-	поставив соответствующий флажок в настройках.
-	Это сделано для того, чтобы разработчики
-	имели возможность поиграться с новым свойством
-	до его официального появления.
-</p>
+<p>Currently, browsers have decided to abandon prefixes due to their inconvenience. And now instead of them they use the so-called<dfn data-gs="comd/d" data-x>flags</dfn>. The properties are now embedded in the browser but are disabled by default, however they can be enabled in the browser settings by checking the appropriate box in the preferences. This is done so that developers have the opportunity to play with the new property before its official release.</p>
     <div class="lesson-nav">
-      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction в кроссбраузерность">← Introduction в кроссбраузерность</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../support/index.html" class="lesson-nav-btn lesson-nav-next" title="Проверка поддержки">Проверка поддержки →</a>
+      <a href="../intro/index.html" class="lesson-nav-btn lesson-nav-prev" title="Introduction to cross-browser compatibility">← Introduction to cross-browser compatibility</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../support/index.html" class="lesson-nav-btn lesson-nav-next" title="Support check">Check support →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

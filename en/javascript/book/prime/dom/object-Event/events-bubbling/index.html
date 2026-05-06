@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Всплытие событий в JavaScript — acteck.off</title>
-  <meta name="description" content="Всплытие событий в JavaScript — учебные материалы по программированию.">
+  <title>Bubbling Events in JavaScript - acteck.off</title>
+  <meta name="description" content="Event Bubbling in JavaScript - Programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,11 +36,8 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Всплытие событий в JavaScript</h1>
-    <p>
-	Представьте себе, что у вас есть несколько
-	вложенных друг в друга блоков:
-</p>
+    <h1>Bubbling Events in JavaScript</h1>
+    <p>Imagine that you have several blocks nested inside each other:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem1"&gt;
 	&lt;div id="elem2"&gt;
@@ -48,17 +45,13 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Получим ссылки на наши дивы в переменные:
-</p>
+<p>Let's get links to our divs into variables:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let elem1 = document.querySelector('#elem1');
 let elem2 = document.querySelector('#elem2');
 let elem3 = document.querySelector('#elem3');</code>
 </div>
-<p>
-	А теперь навесим на них обработчики кликов:
-</p>
+<p>Now let’s attach click handlers to them:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">elem1.addEventListener('click', function() {
 	alert('зеленый');
@@ -70,10 +63,7 @@ elem3.addEventListener('click', function() {
 	alert('красный');
 });</code>
 </div>
-<p>
-	Выведем наши блоки на экран, добавив им некоторый
-	CSS:
-</p>
+<p>Let's display our blocks on the screen by adding some CSS to them:</p>
 <div data-p="bock/pane">
 					<div data-w="bock/tain">
 						<iframe data-e="iframe" data-x srcdoc="<!DOCTYPE html>
@@ -137,55 +127,28 @@ elem3.addEventListener('click', function() {
 </html>"></iframe>
 					</div>
 				</div>
-<p>
-	Нажмите теперь на самый внутренний красный
-	блок - и вы увидите, как событие сначала
-	сработает в красном блоке, потом в голубом,
-	потом в зеленом. И это логично, ведь кликая
-	на внутренний блок, вы одновременно кликаете
-	на все внешние.
-</p>
-<p>
-	To есть получается, что когда вы кликаете
-	на самый внутренний блок, событие клика возникает
-	сначала в нем, затем срабатывает в его родителе,
-	в родителе его родителя и так далее, пока
-	не дойдет до самого верха.
-</p>
-<p>
-	Такое поведение называется <dfn data-gs="comd/d" data-x>всплытием</dfn>
-	(<span data-gs="lang/e" data-x>bubbling</span>) событий - по аналогии
-	со всплытием пузырька воздуха со дна. Так
-	же, как и пузырек, наше событие как будто
-	выплывает наверх, каждый раз срабатывая на
-	более высоких блоках.
-</p>
+<p>Now click on the innermost red block - and you will see how the event will first fire in the red block, then in the blue, then in the green. And this is logical, because when you click on the internal block, you simultaneously click on all external ones.</p>
+<p>That is, it turns out that when you click on the innermost block, the click event occurs first in it, then fires in its parent, in the parent of its parent, and so on until it reaches the very top.</p>
+<p>This behavior is called<dfn data-gs="comd/d" data-x>by surfacing</dfn>
+	(<span data-gs="lang/e" data-x>bubbling</span>) events - by analogy with the ascent of an air bubble from the bottom. Just like the bubble, our event seems to float to the top, each time triggering on higher blocks.</p>
 <div data-w="cont/task">
-	<p>
-		Самостоятельно напишите код, который будет
-		демонстрировать всплытие событий. Проверьте
-		на нем всплытие различных типов событий.
-	</p>
+	<p>Write your own code that will demonstrate the bubbling of events. Check for different types of events to pop up on it.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Всплывать могут не все события. Экспериментально
-		найдите хотя бы одно событие, которое не
-		будет всплывать.
-	</p>
+	<p>Not all events may pop up. Experimentally find at least one event that will not pop up.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../cancel-default-action/index.html" class="lesson-nav-btn lesson-nav-prev" title="Отмена действия по умолчанию">← Отмена действия по умолчанию</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../bubbling-target-element/index.html" class="lesson-nav-btn lesson-nav-next" title="Целевой элемент при всплытии">Целевой элемент при всплытии →</a>
+      <a href="../cancel-default-action/index.html" class="lesson-nav-btn lesson-nav-prev" title="Cancel default action">← Cancel default action</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../bubbling-target-element/index.html" class="lesson-nav-btn lesson-nav-next" title="Target element upon ascent">Target element upon ascent →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

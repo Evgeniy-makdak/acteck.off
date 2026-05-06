@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свойство min-height — acteck.off</title>
-  <meta name="description" content="Свойство min-height — учебные материалы по программированию.">
+  <title>min-height property - acteck.off</title>
+  <meta name="description" content="min-height property - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,50 +33,25 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Свойство min-height</h1>
-    <p>
-	Свойство <code data-gs="comd/c" data-x>min-height</code> устанавливает
-	минимальную высоту элемента. Значением свойства
-	служат любые <a href="../../reference/units/sizes/index.html">единицы
-	для размеров</a> либо ключевое слово <code data-gs="comd/v" data-x>none</code>,
-	означающее отсутствие значения.
+    <h1>min-height property</h1>
+    <p>Property<code data-gs="comd/c" data-x>min-height</code>sets the minimum height of the element. The property value is any<a href="../../reference/units/sizes/index.html">units for sizes</a>or keyword<code data-gs="comd/v" data-x>none</code>, meaning no value.</p>
+<p>Typically set for an element with a floating width (the height is set as a percentage or not set at all, and the element’s height is expanded by its content).</p>
+<p>If a minimum height is specified, then the element cannot become smaller than this height. If there is less text than needed for<code data-gs="comd/c" data-x>min-height</code>, the element will have a height<code data-gs="comd/c" data-x>min-height</code>.
 </p>
-<p>
-	Обычно задается для элемента с плавающей
-	шириной (высота задана в процентах или не
-	задана вообще, а элемент по высоте раздвигается
-	своим содержимым).
-</p>
-<p>
-	Если задана минимальная высота - то меньше
-	этой высоты элемент не сможет стать. Если
-	текста меньше, чем нужно для <code data-gs="comd/c" data-x>min-height</code>,
-	элемент будет иметь высоту <code data-gs="comd/c" data-x>min-height</code>.
-</p>
-<p>
-	Если же текста больше - высота элемента вычислится
-	в зависимости от количества текста.
-</p>
+<p>If there is more text, the height of the element will be calculated depending on the amount of text.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
 	min-height: значение;
 }</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	В данном примере высота не установлена вообще
-	и будет рассчитана браузером самостоятельно
-	в зависимости от количества текста. Однако,
-	так как установлено свойство <code data-gs="comd/c" data-x>min-height</code>,
-	то высота меньше этого значения не уменьшится,
-	даже если текста в нем совсем не будет:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>In this example, the height is not set at all and will be calculated by the browser itself depending on the amount of text. However, since the property is set<code data-gs="comd/c" data-x>min-height</code>, then the height will not decrease below this value, even if there is no text at all:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	Lorem ipsum dolor sit amet.
@@ -124,13 +99,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте добавим элементу больше текста -
-	так, чтобы произошло переполнение блока по
-	высоте. В этом случае наш блок просто увеличит
-	свою высоту:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's add more text to the element so that the block's height overflows. In this case, our block will simply increase its height:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
 	some long text
@@ -195,11 +165,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Для сравнения давайте посмотрим, что будет
-	с блоком, если убрать ему минимальную высоту,
-	а вместо нее задать свойство <a href="../height/index.html"><code data-gs="comd/c" data-x>height</code></a>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>For comparison, let's see what will happen to the block if we remove its minimum height and instead set the property<a href="../height/index.html"><code data-gs="comd/c" data-x>height</code></a>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="elem"&gt;
@@ -267,26 +234,17 @@
 					</div>
 				</div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			свойство <a href="../max-height/index.html"><code data-gs="comd/c" data-x>max-height</code></a>, <br>
-			которое задает максимальную высоту элемента
-		</li>
-		<li>
-			свойство <a href="../max-width/index.html"><code data-gs="comd/c" data-x>max-width</code></a>, <br>
-			которое задает максимальную ширину элемента
-		</li>
-		<li>
-			свойство <a href="../min-width/index.html"><code data-gs="comd/c" data-x>min-width</code></a>, <br>
-			которое задает минимальную ширину элемента
-		</li>
+		<li>property<a href="../max-height/index.html"><code data-gs="comd/c" data-x>max-height</code></a>, <br>which sets the maximum height of the element</li>
+		<li>property<a href="../max-width/index.html"><code data-gs="comd/c" data-x>max-width</code></a>, <br>which sets the maximum width of the element</li>
+		<li>property<a href="../min-width/index.html"><code data-gs="comd/c" data-x>min-width</code></a>, <br>which sets the minimum width of the element</li>
 	</ul>
 </div>
     <div class="lesson-nav">
       <a href="../max-width/index.html" class="lesson-nav-btn lesson-nav-prev" title="max-width">← max-width</a>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list">☰</a>
       <a href="../min-width/index.html" class="lesson-nav-btn lesson-nav-next" title="min-width">min-width →</a>
     </div>
   </section>
@@ -294,7 +252,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

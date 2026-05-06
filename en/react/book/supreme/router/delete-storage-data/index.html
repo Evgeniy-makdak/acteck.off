@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Удаление данных из хранилища в React Router — acteck.off</title>
-  <meta name="description" content="Удаление данных из хранилища в React Router — учебные материалы по программированию.">
+  <title>Removing data from storage in React Router - acteck.off</title>
+  <meta name="description" content="Removing data from storage in React Router - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,32 +36,14 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Удаление данных из хранилища в React Router</h1>
-    <p>
-	Наше приложение может добавлять новые
-	продукты, редактировать данные, осталось только
-	добавить удаление данных. Для этого
-	мы пройдем снова знакомые нам из
-	предыдуших уроков шаги.
-</p>
-<p>
-	Для начала откроем файл <code data-gs="comd/p" data-x>forStorage.js</code>
-	и добавим последнюю функцию для удаления
-	определенного продукта <code data-gs="comd/c" data-x>deleteProduct</code>
-	по его <code data-gs="comd/c" data-x>id</code>:
+    <h1>Removing data from storage in React Router</h1>
+    <p>Our application can add new products, edit data, all that remains is to add data deletion. To do this, we will go through the steps familiar to us from previous lessons.</p>
+<p>First, let's open the file<code data-gs="comd/p" data-x>forStorage.js</code>and add the last function to remove a specific product<code data-gs="comd/c" data-x>deleteProduct</code>according to him<code data-gs="comd/c" data-x>id</code>:
 </p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function deleteProduct(id) {}</code>
 </div>
-<p>
-	Затем мы получим список продуктов из хранилища
-	и найдем индекс продукта, который хотим удалить,
-	если такой продукт имеется, то удалим его из
-	списка с помощью <a href="../../../../../javascript/manual/array/splice/index.html"><code data-gs="comd/c" data-x>splice</code></a>.
-	Далее мы вызовем <code data-gs="comd/c" data-x>setProducts</code> и
-	зальем новый список продуктов
-	в хранилище:
-</p>
+<p>Then we will get the list of products from the store and find the index of the product that we want to remove, if there is such a product, we will remove it from the list using<a href="../../../../../javascript/manual/array/splice/index.html"><code data-gs="comd/c" data-x>splice</code></a>. Next we will call<code data-gs="comd/c" data-x>setProducts</code>and upload a new list of products to the storage:</p>
 <div data-p="bock/pane" data-p-file="forStorage.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">export async function deleteProduct(id) {
 	let products = await localforage.getItem('products');
@@ -75,17 +57,12 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, напишите функцию
-		<code data-gs="comd/c" data-x>deleteStudent</code> для удаления данных
-		студента из хранилища по <code data-gs="comd/c" data-x>id</code>.
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, write a function<code data-gs="comd/c" data-x>deleteStudent</code>to delete student data from storage by<code data-gs="comd/c" data-x>id</code>.
 	</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -93,7 +70,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

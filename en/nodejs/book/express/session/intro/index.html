@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Работа с сессиями в Express — acteck.off</title>
-  <meta name="description" content="Работа с сессиями в Express — учебные материалы по программированию.">
+  <title>Working with sessions in Express - acteck.off</title>
+  <meta name="description" content="Working with sessions in Express - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,49 +36,28 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Работа с сессиями в Express</h1>
+    <h1>Working with sessions in Express</h1>
     <p>
-	<dfn data-gs="comd/d" data-x>Sessions</dfn> позволяют сохранять на сервере
-	данные при перемещении пользователя по сайту.
-	Мы можем записывать какую-либо информацию
-	при заходе на одну страницу и считывать ее
-	оттуда при заходе на другую страницу.
-</p>
-<p>
-	Для работы с сессиями используется библиотека
-	<code data-gs="comd/c" data-x>express-session</code>. Давайте ее установим:
-</p>
+	<dfn data-gs="comd/d" data-x>Sessions</dfn>allow you to save data on the server as the user moves around the site. We can record some information when visiting one page and read it from there when visiting another page.</p>
+<p>A library is used to work with sessions<code data-gs="comd/c" data-x>express-session</code>. Let's install it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="terminal">npm install express-session</code>
 </div>
-<p>
-	Подключим установленную библиотеку:
-</p>
+<p>Let's connect the installed library:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import expressSession from 'express-session';</code>
 </div>
-<p>
-	Для работы библиотеки нужен секретный ключ,
-	как и для работы кук. Сделаем его:
-</p>
+<p>A secret key is needed for the library to work, just like for a cookie to work. Let's make it:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let secret = 'qwerty';</code>
 </div>
-<p>
-	Инициализируем библиотеку указав ей в настройках
-	наш секретный ключ:
-</p>
+<p>We initialize the library by specifying our secret key in the settings:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.use(expressSession({
 	secret: secret,
 }));</code>
 </div>
-<p>
-	Для работы нашей библиотеки необходима библиотека
-	<code data-gs="comd/c" data-x>cookie-parser</code>, так как в основе сессий
-	лежат куки. Можно использовать один секретный
-	ключ как для куки, так и для сессий:
-</p>
+<p>Our library requires a library to operate.<code data-gs="comd/c" data-x>cookie-parser</code>, since sessions are based on cookies. You can use one secret key for both cookies and sessions:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let secret = 'qwerty';
 app.use(cookieParser(secret));
@@ -86,9 +65,7 @@ app.use(expressSession({
 	secret: secret,
 }));</code>
 </div>
-<p>
-	Полный код будет выглядеть следующим образом:
-</p>
+<p>The complete code will look like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">import express from 'express';
 import cookieParser from 'cookie-parser';
@@ -107,8 +84,7 @@ app.get('/', function(req, res) {
 });</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Установите и подключите библиотеку <code data-gs="comd/c" data-x>express-session</code>.
+	<p>Install and connect the library<code data-gs="comd/c" data-x>express-session</code>.
 	</p>
 </div>
   </section>
@@ -116,7 +92,7 @@ app.get('/', function(req, res) {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

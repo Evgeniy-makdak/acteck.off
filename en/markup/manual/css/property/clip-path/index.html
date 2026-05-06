@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свойство clip-path — acteck.off</title>
-  <meta name="description" content="Свойство clip-path — учебные материалы по программированию.">
+  <title>clip-path property - acteck.off</title>
+  <meta name="description" content="The clip-path property is a programming tutorial.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -33,78 +33,73 @@
     <div class="breadcrumbs">
       <a href="../../../../../../en/index.html">Home</a>
       <span class="separator">/</span>
-      <a href="../../../../../../en/markup/index.html">Markup</a>
+      <a href="../../../../../../en/markup/index.html">Layout</a>
     </div>
 
-    <h1>Свойство clip-path</h1>
-    <p>
-	Свойство <code data-gs="comd/c" data-x>clip-path</code> определяет область отображения элемента, обрезая его по заданной форме.
-	В качестве параметра принимает функцию обрезки или путь SVG.
-</p>
+    <h1>clip-path property</h1>
+    <p>Property<code data-gs="comd/c" data-x>clip-path</code>defines the display area of ​​an element, cropping it to a specified shape. Takes a trim function or SVG path as a parameter.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">селектор {
 	clip-path: функция обрезки;
 }</code>
 </div>
 
-<h2>Значения</h2>
+<h2>Values</h2>
 <table data-w="cont/desc">
 	<tr>
-		<th>Значение</th>
-		<th>Описание</th>
+		<th>Meaning</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>circle</code></th>
-		<td>Обрезает элемент по кругу. Параметры: радиус и позиция центра.</td>
+		<td>Trims an element in a circle. Parameters: radius and center position.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>ellipse</code></th>
-		<td>Обрезает элемент по эллипсу. Параметры: радиусы по X/Y и позиция центра.</td>
+		<td>Trims an element to an ellipse. Parameters: X/Y radii and center position.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>polygon</code></th>
-		<td>Обрезает элемент по многоугольнику. Параметры: координаты точек через запятую.</td>
+		<td>Clips an element to a polygon. Parameters: coordinates of points separated by commas.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>url</code></th>
-		<td>Использует SVG-путь для обрезки. Параметр: ID пути в SVG.</td>
+		<td>Uses the SVG path for trimming. Parameter: SVG path ID.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>path</code></th>
-		<td>Обрезает элемент по пути SVG с использованием строки данных пути. Параметр: строка пути SVG.</td>
+		<td>Trims an element along an SVG path using the path data string. Parameter: SVG path string.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>inset</code></th>
-		<td>Обрезает элемент прямоугольником с возможностью скругления углов. Параметры: отступы сверху, справа, снизу, слева и радиус скругления.</td>
+		<td>Trims the element into a rectangle with the option of rounding the corners. Parameters: top, right, bottom, left margins and rounding radius.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>margin-box</code></th>
-		<td>Использует внешний отступ (margin) элемента как область обрезки.</td>
+		<td>Uses the outer margin of the element as the cropping area.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>border-box</code></th>
-		<td>Использует границу (border) элемента как область обрезки.</td>
+		<td>Uses the element's border as the cropping area.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>padding-box</code></th>
-		<td>Использует внутренний отступ (padding) элемента как область обрезки.</td>
+		<td>Uses the element's padding as the clipping area.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>content-box</code></th>
-		<td>Использует содержимое (content) элемента как область обрезки.</td>
+		<td>Uses the element's content as the clipping area.</td>
 	</tr>
 	<tr>
 		<th><code data-gs="comd/c" data-x>none</code></th>
-		<td>Отключает обрезку (значение по умолчанию).</td>
+		<td>Disables cropping (default).</td>
 	</tr>
 </table>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Обрежем элемент по шестиугольнику:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's cut the element to a hexagon:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="hexagon"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#hexagon {
@@ -150,10 +145,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Обрежем элемент по кругу:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's cut the element in a circle:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="circle"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#circle {
@@ -199,10 +192,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Обрежем элемент по эллипсу:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's cut the element to an ellipse:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="ellipse"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#ellipse {
@@ -248,10 +239,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Обрежем элемент со скруглением углов:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's cut the element with rounded corners:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="inset"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#inset {
@@ -297,10 +286,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Обрежем элемент по кругу:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's cut the element in a circle:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="path"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#path {
@@ -346,10 +333,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Использование SVG-пути для сложной обрезки:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Using SVG Path for Complex Trimming:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;svg width="0" height="0"&gt;
 	&lt;clipPath id="star-path"&gt;
@@ -405,10 +390,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Треугольник</h2>
-<p>
-	Обрежем в форме треугольника:
-</p>
+<h2>Example<span data-gn="sect"></span>. Triangle</h2>
+<p>Cut it into a triangle shape:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="triangle"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#triangle {
@@ -454,10 +437,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Комбинированные фигуры</h2>
-<p>
-	Создание сложной формы:
-</p>
+<h2>Example<span data-gn="sect"></span>. Combined figures</h2>
+<p>Creating a complex shape:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="combined"&gt;&lt;/div&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="css">#combined {
@@ -511,10 +492,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Текст с обрезкой</h2>
-<p>
-	Обрежем текстовый блок:
-</p>
+<h2>Example<span data-gn="sect"></span>. Trimmed text</h2>
+<p>Let's cut the text block:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="text-clip"&gt;
 	&lt;p&gt;CSS clip-path creates amazing effects!&lt;/p&gt;
@@ -568,10 +547,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Круговая обрезка картинки</h2>
-<p>
-	Обрезка изображения по кругу:
-</p>
+<h2>Example<span data-gn="sect"></span>. Circular cropping pictures</h2>
+<p>Cropping an image in a circle:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="image-clip-circle"&gt;
 	&lt;img src="img.png"&gt;
@@ -621,10 +598,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Звездообразная обрезка картинки</h2>
-<p>
-	Обрезка изображения в форме пятиконечной звезды:
-</p>
+<h2>Example<span data-gn="sect"></span>. Star clipping pictures</h2>
+<p>To crop an image into a five-pointed star shape:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="image-clip-star"&gt;
 	&lt;img src="img.png"&gt;
@@ -696,10 +671,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Шестиугольная обрезка картинки</h2>
-<p>
-	Обрезка изображения в форме шестиугольника:
-</p>
+<h2>Example<span data-gn="sect"></span>. Hexagonal cropping pictures</h2>
+<p>To crop an image into a hexagon shape:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="image-clip-hexagon"&gt;
 	&lt;img src="img.png"&gt;
@@ -763,10 +736,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Обрезка в форме сердца</h2>
-<p>
-	Обрезка изображения в форме сердца:
-</p>
+<h2>Example<span data-gn="sect"></span>. Heart shaped trim</h2>
+<p>Crop an image into a heart shape:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="image-clip-heart"&gt;
 	&lt;img src="img.png"&gt;
@@ -838,10 +809,8 @@
 					</div>
 				</div>
 
-<h2>Пример <span data-gn="sect"></span>. Обрезка картинки по наведению</h2>
-<p>
-	Изменение формы обрезки при наведении:
-</p>
+<h2>Example<span data-gn="sect"></span>. Cropping a picture on hover</h2>
+<p>Changing the crop shape on hover:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div class="image-clip"&gt;
 	&lt;img src="img.png"&gt;
@@ -921,30 +890,18 @@
 					</div>
 				</div>
 
-<h2>Смотрите также</h2>
+<h2>See also</h2>
 <div data-w="cont/also">
 	<ul>
-		<li>
-			свойство <a href="../clip/index.html"><code data-gs="comd/c" data-x>clip</code></a>, <br>
-			позволяющее обрезать прямоугольник
-		</li>
-		<li>
-			свойство <a href="../mask/index.html"><code data-gs="comd/c" data-x>mask</code></a>, <br>
-			позволяющее создавать сложные маски для элементов
-		</li>
-		<li>
-			свойство <a href="../shape-outside/index.html"><code data-gs="comd/c" data-x>shape-outside</code></a>, <br>
-			определяющее форму обтекания текстом
-		</li>
-		<li>
-			свойство <a href="../filter/index.html"><code data-gs="comd/c" data-x>filter</code></a>, <br>
-			применяющее графические эффекты к элементам
-		</li>
+		<li>property<a href="../clip/index.html"><code data-gs="comd/c" data-x>clip</code></a>, <br>allows you to crop a rectangle</li>
+		<li>property<a href="../mask/index.html"><code data-gs="comd/c" data-x>mask</code></a>, <br>allowing you to create complex masks for elements</li>
+		<li>property<a href="../shape-outside/index.html"><code data-gs="comd/c" data-x>shape-outside</code></a>, <br>defining the shape of text wrapping</li>
+		<li>property<a href="../filter/index.html"><code data-gs="comd/c" data-x>filter</code></a>, <br>applying graphic effects to elements</li>
 	</ul>
 </div>
     <div class="lesson-nav">
       <a href="../clip/index.html" class="lesson-nav-btn lesson-nav-prev" title="clip">← clip</a>
-      <a href="../../index.html" class="lesson-nav-up" title="К списку">☰</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list">☰</a>
       <a href="../color/index.html" class="lesson-nav-btn lesson-nav-next" title="color">color →</a>
     </div>
   </section>
@@ -952,7 +909,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

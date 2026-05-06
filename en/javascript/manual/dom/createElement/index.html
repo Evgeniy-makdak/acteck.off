@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Метод createElement — acteck.off</title>
-  <meta name="description" content="Метод createElement — учебные материалы по программированию.">
+  <title>createElement method - acteck.off</title>
+  <meta name="description" content="createElement method - programming tutorials.">
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../en/index.html" class="logo">
+      <a href="../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,40 +36,21 @@
       <a href="../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Метод createElement</h1>
-    <p>
-	Метод <code data-gs="comd/c" data-x>createElement</code> позволяет создать
-	новый элемент, передав в параметре имя тега.
-	После создания с элементом можно работать
-	как с обычным элементом, а также его можно
-	добавить на страницу методами <a href="../prepend/index.html"><code data-gs="comd/c" data-x>prepend</code></a>,
+    <h1>createElement method</h1>
+    <p>Method<code data-gs="comd/c" data-x>createElement</code>allows you to create a new element by passing the tag name as a parameter. After creation, the element can be worked with as with a regular element, and it can also be added to the page using the methods<a href="../prepend/index.html"><code data-gs="comd/c" data-x>prepend</code></a>,
 	<a href="../append/index.html"><code data-gs="comd/c" data-x>append</code></a>,
 	<a href="../appendChild/index.html"><code data-gs="comd/c" data-x>appendChild</code></a>,
-	<a href="../insertBefore/index.html"><code data-gs="comd/c" data-x>insertBefore</code></a>
-	или <a href="../insertAdjacentElement/index.html"><code data-gs="comd/c" data-x>insertAdjacentElement</code></a>.
+	<a href="../insertBefore/index.html"><code data-gs="comd/c" data-x>insertBefore</code></a>or<a href="../insertAdjacentElement/index.html"><code data-gs="comd/c" data-x>insertAdjacentElement</code></a>.
 </p>
-<p>
-	Если записать результат работы <code data-gs="comd/c" data-x>createElement</code>
-	в переменную, то в этой переменной будет
-	такой элемент, как будто бы мы получили его
-	через <a href="../querySelector/index.html"><code data-gs="comd/c" data-x>querySelector</code></a>
-	или <a href="../getElementById/index.html"><code data-gs="comd/c" data-x>getElementById</code></a>.
-	Единственное отличие - наш элемент не будет
-	размещен на странице. А так мы можем менять
-	ему innerHTML, атрибуты, навешивать обработчики
-	событий и в конце концов разместить его на
-	странице.
-</p>
+<p>If you write down the result of the work<code data-gs="comd/c" data-x>createElement</code>into a variable, then this variable will contain an element as if we had received it through<a href="../querySelector/index.html"><code data-gs="comd/c" data-x>querySelector</code></a>or<a href="../getElementById/index.html"><code data-gs="comd/c" data-x>getElementById</code></a>. The only difference is that our element will not be placed on the page. And so we can change its innerHTML, attributes, attach event handlers and ultimately place it on the page.</p>
 
-<h2>Синтаксис</h2>
+<h2>Syntax</h2>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">document.createElement('имя тега');</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте создадим абзац, установим ему текст
-	и поместим на страницу в конец блока <code data-gs="comd/z" data-x>#parent</code>:
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's create a paragraph, set its text and place it on the page at the end of the block<code data-gs="comd/z" data-x>#parent</code>:
 </p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
@@ -84,9 +65,7 @@ p.textContent = '!';
 
 parent.appendChild(p);</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;p&gt;1&lt;/p&gt;
@@ -96,12 +75,8 @@ parent.appendChild(p);</code>
 &lt;/div&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Дан <a href="../../../../markup/manual/html/tag/ul/index.html"><code data-gs="comd/c" data-x>ul</code></a>.
-	Давайте разместим в нем <code data-gs="comd/n" data-x>9</code> тегов <a href="../../../../markup/manual/html/tag/li/index.html"><code data-gs="comd/c" data-x>li</code></a>,
-	при этом их текстом сделаем порядковые номера:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Dan<a href="../../../../markup/manual/html/tag/ul/index.html"><code data-gs="comd/c" data-x>ul</code></a>. Let's put it in<code data-gs="comd/n" data-x>9</code>tags<a href="../../../../markup/manual/html/tag/li/index.html"><code data-gs="comd/c" data-x>li</code></a>, and in this case we will use serial numbers as their text:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul id="parent"&gt;&lt;/ul&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let parent = document.querySelector('#parent');
@@ -112,9 +87,7 @@ for (let i = 1; i &lt;= 9; i++) {
 	parent.appendChild(li);
 }</code>
 </div>
-<p>
-	Результат выполнения кода:
-</p>
+<p>Result of executing the code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul id="parent"&gt;
 	&lt;li&gt;1&lt;/li&gt;
@@ -129,11 +102,8 @@ for (let i = 1; i &lt;= 9; i++) {
 &lt;/ul&gt;</code>
 </div>
 
-<h2>Пример <span data-gn="sect"></span></h2>
-<p>
-	Давайте при вставке элементов будем привязывать
-	к ним обработчики событий:
-</p>
+<h2>Example<span data-gn="sect"></span></h2>
+<p>Let's bind event handlers to them when inserting elements:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul id="parent"&gt;&lt;/ul&gt;</code>
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let parent = document.querySelector('#parent');
@@ -209,7 +179,7 @@ for (let i = 1; i &lt;= 9; i++) {
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Автор: <a href="https://t.me/Acteck37" target="_blank">Евгений Волков</a></p>
     </div>
   </footer>
 

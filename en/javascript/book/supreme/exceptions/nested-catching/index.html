@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Перехват исключений во вложенном коде в JavaScript — acteck.off</title>
-  <meta name="description" content="Перехват исключений во вложенном коде в JavaScript — учебные материалы по программированию.">
+  <title>Catching exceptions in nested code in JavaScript - acteck.off</title>
+  <meta name="description" content="Catching Nested Exceptions in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,26 +36,14 @@
       <a href="../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Перехват исключений во вложенном коде в JavaScript</h1>
-    <p>
-	Особенность и удобство исключений заключаются
-	в том, что их можно ловить при любом уровне
-	вложенности кода. Посмотрим на примере. Пусть
-	у нас есть функция, сохраняющая данные в
-	локальное хранилище:
-</p>
+    <h1>Catching exceptions in nested code in JavaScript</h1>
+    <p>The peculiarity and convenience of exceptions is that they can be caught at any level of code nesting. Let's look at an example. Let's say we have a function that saves data to local storage:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function save(str) {
 	localStorage.setItem('key', str);
 }</code>
 </div>
-<p>
-	Как вы уже знаете, при переполнении хранилища,
-	метод <code data-gs="comd/c" data-x>setItem</code> выбросит исключение.
-	Не обязательно, однако, это исключение ловить
-	внутри функции <code data-gs="comd/c" data-x>save</code>. Можно обернуть
-	в <code data-gs="comd/c" data-x>try</code> каждый вызов самой функции:
-</p>
+<p>As you already know, when the storage is full, the method<code data-gs="comd/c" data-x>setItem</code>will throw an exception. It is not necessary, however, to catch this exception inside the function<code data-gs="comd/c" data-x>save</code>. Can be wrapped in<code data-gs="comd/c" data-x>try</code>each call to the function itself:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">try {
 	save('некая строка');
@@ -64,37 +52,32 @@
 }</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Дана функция, преобразующая JSON в массив:
-	</p>
+	<p>Given a function that converts JSON to an array:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">function getArr(json) {
 	return JSON.parse(json);
 }</code>
 	</div>
-	<p>
-		В следующем коде из JSON получают массив:
-	</p>
+	<p>The following code gets an array from JSON:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let arr = getArr('[1,2,3,4,5]');
 console.log(arr);</code>
 	</div>
-	<p>
-		Оберните вызов функции в конструкцию <code data-gs="comd/c" data-x>try-catch</code>.
+	<p>Wrap the function call in a construct<code data-gs="comd/c" data-x>try-catch</code>.
 	</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../try-catch-development/index.html" class="lesson-nav-btn lesson-nav-prev" title="Разработка с try-catch">← Разработка с try-catch</a>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../error-object/index.html" class="lesson-nav-btn lesson-nav-next" title="Объект с исключением">Объект с исключением →</a>
+      <a href="../try-catch-development/index.html" class="lesson-nav-btn lesson-nav-prev" title="Development with try-catch">← Development with try-catch</a>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../error-object/index.html" class="lesson-nav-btn lesson-nav-next" title="Object with exception">Object with exception →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

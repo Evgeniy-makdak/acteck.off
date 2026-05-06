@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Получение данных загрузчика по URL параметрам в React Router — acteck.off</title>
-  <meta name="description" content="Получение данных загрузчика по URL параметрам в React Router — учебные материалы по программированию.">
+  <title>Getting loader data by URL parameters in React Router - acteck.off</title>
+  <meta name="description" content="Retrieving loader data by URL parameters in React Router - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,76 +36,47 @@
       <a href="../../../../../../en/react/index.html">React</a>
     </div>
 
-    <h1>Получение данных загрузчика по URL параметрам в React Router</h1>
-    <p>
-	На прошлом уроке мы написали функцию для
-	получения данных странички продукта, давайте
-	импортируем <code data-gs="comd/c" data-x>getProduct</code> в файле
-	<code data-gs="comd/p" data-x>product.jsx</code>:
+    <h1>Getting loader data by URL parameters in React Router</h1>
+    <p>In the last lesson we wrote a function to get product page data, let's import<code data-gs="comd/c" data-x>getProduct</code>in the file<code data-gs="comd/p" data-x>product.jsx</code>:
 </p>
 <div data-p="bock/pane" data-p-file="routes/product.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { getProduct } from '../forStorage';</code>
 </div>
-<p>
-	Напишем функцию загрузчика <code data-gs="comd/c" data-x>loader</code>
-	сразу после импорта и перед функцией
-	<code data-gs="comd/c" data-x>Product</code>. Передадим в нее URL
-	параметры:
-</p>
+<p>Let's write a loader function<code data-gs="comd/c" data-x>loader</code>immediately after import and before the function<code data-gs="comd/c" data-x>Product</code>. Let's pass URL parameters to it:</p>
 <div data-p="bock/pane" data-p-file="routes/product.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">export async function loader({ params }) {
 	const product = await getProduct(params.productId);
 	return { product };
 }</code>
 </div>
-<p>
-	Также импортируем хук <code data-gs="comd/c" data-x>useLoaderData</code> для
-	использования данных, полученных загрузчиком:
-</p>
+<p>We also import the hook<code data-gs="comd/c" data-x>useLoaderData</code>to use the data received by the bootloader:</p>
 <div data-p="bock/pane" data-p-file="routes/product.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import { useLoaderData } from 'react-router-dom';</code>
 </div>	
-<p>
-	Применим <code data-gs="comd/c" data-x>useLoaderData</code>, соответственно
-	заменив строку с созданием объекта <code data-gs="comd/c" data-x>product</code>
-	в начале функции <code data-gs="comd/c" data-x>Product</code> на следующую:
-</p>
+<p>Applicable<code data-gs="comd/c" data-x>useLoaderData</code>, respectively replacing the line with the creation of the object<code data-gs="comd/c" data-x>product</code>at the beginning of the function<code data-gs="comd/c" data-x>Product</code>to the next one:</p>
 <div data-p="bock/pane" data-p-file="routes/product.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">const { product } = useLoaderData();</code>
 </div>
-<p>
-	И, конечно же, поменяем немного нашу
-	верстку, поскольку мы убрали старый объект
-	<code data-gs="comd/c" data-x>product</code>. Заменим содержимое абзацев:
-</p>
+<p>And, of course, we’ll change our layout a little, since we’ve removed the old object<code data-gs="comd/c" data-x>product</code>. Let's replace the contents of the paragraphs:</p>
 <div data-p="bock/pane" data-p-file="routes/product.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p&gt;Name: {product.name}&lt;/p&gt;
 &lt;p&gt;Cost: {product.cost}&lt;/p&gt;
 &lt;p&gt;Amount: {product.amount}&lt;/p&gt;</code>
 </div>
-<p>
-	На следующее:
-</p>
+<p>To the following:</p>
 <div data-p="bock/pane" data-p-file="routes/product.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">&lt;p&gt;Name: {product.name ? product.name : &lt;i&gt;unnamed&lt;/i&gt;}&lt;/p&gt;
 &lt;p&gt;Cost: {product.cost ? product.cost : &lt;i&gt;unknown&lt;/i&gt;}&lt;/p&gt;
 &lt;p&gt;Amount: {product.amount ? product.amount : &lt;i&gt;unknown&lt;/i&gt;}&lt;/p&gt;</code>
 </div>
-<p>
-	Нам осталось открыть <code data-gs="comd/p" data-x>main.jsx</code>
-	и добавить туда импорт <code data-gs="comd/c" data-x>loader</code>,
-	назовем его <code data-gs="comd/c" data-x>productLoader</code>:
+<p>We just have to open<code data-gs="comd/p" data-x>main.jsx</code>and add import there<code data-gs="comd/c" data-x>loader</code>, let's call it<code data-gs="comd/c" data-x>productLoader</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">import Product, {
 	loader as productLoader,
 } from './routes/product';</code>
 </div>
-<p>
-	И прописать его в качестве загрузчика
-	для объекта маршрута страницы с продуктом,
-	добавив его в <code data-gs="comd/c" data-x>children</code> после свойства
-	<code data-gs="comd/c" data-x>element</code>:
+<p>And register it as a loader for the route object of the product page, adding it to<code data-gs="comd/c" data-x>children</code>after property<code data-gs="comd/c" data-x>element</code>:
 </p>
 <div data-p="bock/pane" data-p-file="main.jsx">
 	<code data-w="bock/code" data-lo="high" data-m-lang="jsx">children: [
@@ -116,26 +87,13 @@
 	},
 ],</code>
 </div>
-<p>
-	Все, с загрузкой данных для страницы
-	продукта мы разобрались! Правда,
-	загружать нам пока нечего. Запустите
-	приложение, подобавляйте продукты и
-	покликайте на них в списке, чтобы
-	убедиться, что все работает.
-</p>
+<p>That's it, we've sorted out loading data for the product page! True, we have nothing to upload yet. Launch the application, add products and click on them in the list to make sure everything works.</p>
 <div data-w="cont/task">
-	<p>
-		Возьмите приложение, созданное вами в
-		заданиях к прошлым урокам. Пользуясь
-		материалами урока, реализуйте
-		<code data-gs="comd/c" data-x>loader</code>, подключите его, воспользуйтесь
-		данными из него для страницы со студентом.
-	</p>
+	<p>Take the application you created in the assignments for previous lessons. Using the lesson materials, implement<code data-gs="comd/c" data-x>loader</code>, connect it, use the data from it for the page with the student.</p>
 </div>
     <div class="lesson-nav">
-      <span class="lesson-nav-btn lesson-nav-prev disabled">← Start</span>
-      <a href="../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
+      <span class="lesson-nav-btn lesson-nav-prev disabled">← Home</span>
+      <a href="../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
       <span class="lesson-nav-btn lesson-nav-next disabled">End →</span>
     </div>
   </section>
@@ -143,7 +101,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

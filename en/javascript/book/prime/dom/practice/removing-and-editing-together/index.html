@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Одновременное редактирование и удаление элементов — acteck.off</title>
-  <meta name="description" content="Одновременное редактирование и удаление элементов — учебные материалы по программированию.">
+  <title>Simultaneously editing and deleting elements - acteck.off</title>
+  <meta name="description" content="Simultaneously editing and deleting elements - programming tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,10 +36,8 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Одновременное редактирование и удаление элементов</h1>
-    <p>
-	Пусть у нас есть некоторый набор абзацев:
-</p>
+    <h1>Simultaneous editing and deleting of elements</h1>
+    <p>Let us have a certain set of paragraphs:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;p&gt;text1&lt;/p&gt;
@@ -47,22 +45,9 @@
 	&lt;p&gt;text3&lt;/p&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Давайте для этих абзацев сделаем так, чтобы
-	можно было редактировать текст каждого абзаца
-	и при этом в конце каждого абзаца стояла
-	ссылка на удаление.
-</p>
-<p>
-	При реализации описанной задачи нас ждет
-	некоторая проблема.
-</p>
-<p>
-	Для того, чтобы понять суть проблемы, давайте
-	посмотрим на HTML код, который получится,
-	когда в конец каждого абзаца будут добавлены
-	ссылки на удаление:
-</p>
+<p>For these paragraphs, let's make it so that you can edit the text of each paragraph and at the end of each paragraph there is a link to delete.</p>
+<p>When implementing the described task, we are faced with some problem.</p>
+<p>In order to understand the essence of the problem, let's look at the HTML code that will be produced when delete links are added to the end of each paragraph:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;p&gt;text1&lt;a href=""&gt;remove&lt;/a&gt;&lt;/p&gt;
@@ -70,19 +55,9 @@
 	&lt;p&gt;text3&lt;a href=""&gt;remove&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Представим теперь, что по клику на любой
-	абзац в нем будет появляться инпут для редактирования
-	текста. В этом случае в инпут будет попадать
-	весь текст абзаца - вместе со ссылкой на удаление!
-</p>
-<p>
-	Это, конечно же, не правильно.
-</p>
-<p>
-	Более удачным решение будет обернуть тексты
-	абзацев в теги <code data-gs="comd/c" data-x>span</code>, вот так:
-</p>
+<p>Now imagine that by clicking on any paragraph, an input for editing text will appear in it. In this case, the entire text of the paragraph will be included in the input - along with a link to delete!</p>
+<p>This is, of course, not correct.</p>
+<p>A better solution would be to wrap paragraph texts in tags<code data-gs="comd/c" data-x>span</code>, like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;p&gt;&lt;span&gt;text1&lt;/span&gt;&lt;a href=""&gt;remove&lt;/a&gt;&lt;/p&gt;
@@ -90,18 +65,9 @@
 	&lt;p&gt;&lt;span&gt;text3&lt;/span&gt;&lt;a href=""&gt;remove&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</code>
 </div>
-<p>
-	Для такого кода можно просто навесить событие
-	для редактирования не на сам абзац, а на
-	<code data-gs="comd/c" data-x>span</code> с текстом. В этом случае инпут
-	для редактирования будет появляться в теге
-	<code data-gs="comd/c" data-x>span</code>, и наша ссылка для удаления останется
-	нетронутой.
-</p>
+<p>For such code, you can simply attach an editing event not to the paragraph itself, but to<code data-gs="comd/c" data-x>span</code>with text. In this case, the input for editing will appear in the tag<code data-gs="comd/c" data-x>span</code>, and our delete link will remain intact.</p>
 <div data-w="cont/task">
-	<p>
-		Дан следующий HTML код:
-	</p>
+	<p>Given the following HTML code:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;p&gt;&lt;span&gt;text1&lt;/span&gt;&lt;/p&gt;
@@ -109,19 +75,11 @@
 	&lt;p&gt;&lt;span&gt;text3&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;</code>
 	</div>
-	<p>
-		Добавьте ссылку на удаление в конец каждого
-		абзаца.
-	</p>
-	<p>
-		Сделайте так, чтобы по клику на <code data-gs="comd/c" data-x>span</code>
-		в нем появлялся инпут для редактирования.
-	</p>
+	<p>Add a delete link to the end of each paragraph.</p>
+	<p>Make it so that by clicking on<code data-gs="comd/c" data-x>span</code>an input for editing appeared in it.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Пусть теперь изначально тегов <code data-gs="comd/c" data-x>span</code> нет:
-	</p>
+	<p>Let now initially tags<code data-gs="comd/c" data-x>span</code>No:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;div id="parent"&gt;
 	&lt;p&gt;text1&lt;/p&gt;
@@ -129,25 +87,20 @@
 	&lt;p&gt;text3&lt;/p&gt;
 &lt;/div&gt;</code>
 	</div>
-	<p>
-		Оберните сначала текст абзаца в теги <code data-gs="comd/c" data-x>span</code>,
-		добавьте к этим тегам возможность редактирования,
-		а затем добавьте в конец каждого абзаца ссылку
-		на удаление.
-	</p>
+	<p>Wrap paragraph text in tags first<code data-gs="comd/c" data-x>span</code>, add editability to these tags, and then add a delete link at the end of each paragraph.</p>
 </div>
   
     <div class="lesson-nav">
-      <a href="../elements-group-editing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Редактирование в наборе элементов">← Редактирование в наборе элементов</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../elements-stylization/index.html" class="lesson-nav-btn lesson-nav-next" title="Стилизация элементов">Стилизация элементов →</a>
+      <a href="../elements-group-editing/index.html" class="lesson-nav-btn lesson-nav-prev" title="Editing in a stencil">← Editing in a set of elements</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../elements-stylization/index.html" class="lesson-nav-btn lesson-nav-next" title="Styling elements">Styling elements →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

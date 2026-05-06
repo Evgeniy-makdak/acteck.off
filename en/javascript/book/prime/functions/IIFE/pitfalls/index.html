@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Подводные камни IIFE в JavaScript — acteck.off</title>
-  <meta name="description" content="Подводные камни IIFE в JavaScript — учебные материалы по программированию.">
+  <title>IIFE pitfalls in JavaScript - acteck.off</title>
+  <meta name="description" content="IIFE Pitfalls in JavaScript - Programming Tutorials.">
   <link rel="stylesheet" href="../../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,13 +36,9 @@
       <a href="../../../../../../../en/javascript/index.html">JavaScript</a>
     </div>
 
-    <h1>Подводные камни IIFE в JavaScript</h1>
-    <p>
-	Давайте рассмотрим два кусочка кода.
-</p>
-<p>
-	Первый:
-</p>
+    <h1>IIFE Pitfalls in JavaScript</h1>
+    <p>Let's look at two pieces of code.</p>
+<p>First:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = 1
 +function() {
@@ -51,9 +47,7 @@
 
 console.log(result);</code>
 </div>
-<p>
-	Второй:
-</p>
+<p>Second:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = 1;
 +function() {
@@ -62,28 +56,11 @@ console.log(result);</code>
 
 console.log(result);</code>
 </div>
-<p>
-	Эти два кусочка кода практически одинаковы,
-	но если их запустить - результат будет отличаться.
-	Первый код выведет в консоль число <code data-gs="comd/n" data-x>3</code>,
-	а второй - число <code data-gs="comd/n" data-x>1</code>.
+<p>These two pieces of code are almost the same, but if you run them, the result will be different. The first code will print a number to the console<code data-gs="comd/n" data-x>3</code>, and the second is a number<code data-gs="comd/n" data-x>1</code>.
 </p>
-<p>
-	Почему получилась такая разница: все дело
-	в том, что в одном случае в первой строке
-	кода в конце отсутствует точка с запятой,
-	а во втором случае - присутствует.
-</p>
-<p>
-	Вы можете спросить: как же так, ведь в JavaScript
-	точка с запятой в конце команды не является
-	обязательной! На самом деле это не совсем
-	так. Давайте разберемся, что у нас на самом
-	деле происходит.
-</p>
-<p>
-	Первый код можно переписать вот так:
-</p>
+<p>Why is there such a difference: the whole point is that in one case there is no semicolon at the end in the first line of code, and in the second case there is a semicolon.</p>
+<p>You may ask: how can this be, since in JavaScript the semicolon at the end of the command is optional! In fact, this is not entirely true. Let's figure out what's really going on here.</p>
+<p>The first code can be rewritten like this:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = 1 + function() {
 	return 2;
@@ -91,16 +68,9 @@ console.log(result);</code>
 
 console.log(result); // выведет 3</code>
 </div>
-<p>
-	Теперь сразу становится очевидным, что к
-	единице прибавляется результат вызова функции
-	на месте, то есть <code data-gs="comd/n" data-x>2</code>. Поэтому итоговый
-	результат будет <code data-gs="comd/n" data-x>3</code>.
+<p>Now it immediately becomes obvious that the result of calling the function in place is added to one, that is<code data-gs="comd/n" data-x>2</code>. Therefore the final result will be<code data-gs="comd/n" data-x>3</code>.
 </p>
-<p>
-	Если же после единицы поставить точку с запятой,
-	то код будет воспринят интерпретатором по-другому:
-</p>
+<p>If you put a semicolon after the unit, the code will be interpreted differently by the interpreter:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">// Первая команда:
 let result = 1;
@@ -113,60 +83,28 @@ let result = 1;
 // Третья команда:
 console.log(result); // выведет 1</code>
 </div>
-<p>
-	To есть присваивание в переменную и вызов
-	функции на месте станут разными командами.
-	И все из-за наличия точки с запятой!
+<p>That is, assigning to a variable and calling a function in place will become different commands. And all because of the presence of a semicolon!</p>
+<p>It turns out that in this case calling the function in place does nothing at all - it just returns a number to nowhere<code data-gs="comd/n" data-x>2</code>, which has no effect on the variable<code data-gs="comd/c" data-x>result</code>.
 </p>
-<p>
-	Получается, что в данном случае вызов функции
-	на месте вообще ничего не делает - просто
-	вникуда возвращает число <code data-gs="comd/n" data-x>2</code>, которое
-	никак не влияет на переменную <code data-gs="comd/c" data-x>result</code>.
-</p>
-<p>
-	Давайте тогда разберемся, а почему мы вообще
-	можем не писать точку с запятой в JavaScript.
-	Пусть у нас есть такой код без точек с запятыми:
-</p>
+<p>Let's then figure out why we can't write semicolons in JavaScript at all. Let's say we have code like this without semicolons:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = 1 // в result запишется 1
 let test = 2   // в test запишется 2</code>
 </div>
-<p>
-	Он работает корректно, так как интерпретатор
-	сам расставил в конце каждой строки точку
-	с запятой.
-</p>
-<p>
-	Но посмотрите на такой код:
-</p>
+<p>It works correctly because the interpreter itself placed a semicolon at the end of each line.</p>
+<p>But look at this code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = 1
 + 2; // в result запишется 3</code>
 </div>
-<p>
-	Теперь точка с запятой в конце первой строки
-	не поставится автоматически, так как интерпретатор
-	понимает, что команда второй строки - это
-	часть команды первой строки.
-</p>
-<p>
-	Но если мы сами поставим точку с запятой
-	- результат будет совсем другим:
-</p>
+<p>Now the semicolon at the end of the first line will not be placed automatically, since the interpreter understands that the second line command is part of the first line command.</p>
+<p>But if we put a semicolon ourselves, the result will be completely different:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = 1; // в result запишется 1
 + 2; // команда ничего не делает, но и ошибки не будет</code>
 </div>
-<p>
-	Получается, что интерпретатор сам ставит
-	точку с запятой, только если следующая команда
-	не является частью предыдущей.
-</p>
-<p>
-	А теперь посмотрите на этот код:
-</p>
+<p>It turns out that the interpreter itself puts a semicolon only if the next command is not part of the previous one.</p>
+<p>Now look at this code:</p>
 <div data-p="bock/pane">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">let result = 1
 +function() {
@@ -175,29 +113,20 @@ let test = 2   // в test запишется 2</code>
 
 console.log(result);</code>
 </div>
-<p>
-	Действительно, вторая строка - просто продолжение
-	команды первой строки и интерпретатор не
-	ставит точку с запятой автоматически.
-	Именно поэтому, если мы сами напишем точку
-	с запятой в конце первой строки - результат
-	будет совсем другим.
-	Это говорит о том, что <i>лучше всего всегда
-	ставить точку с запятой в нужных местах,
-	во избежание проблем</i>.
+<p>Indeed, the second line is simply a continuation of the command on the first line and the interpreter does not automatically insert a semicolon. That is why, if we ourselves write a semicolon at the end of the first line, the result will be completely different. This suggests that<i>It's best to always put semicolons in the right places to avoid problems</i>.
 </p>
   
     <div class="lesson-nav">
-      <a href="../multiple-calling/index.html" class="lesson-nav-btn lesson-nav-prev" title="Множественные вызовы">← Множественные вызовы</a>
-      <a href="../../../index.html" class="lesson-nav-up" title="Back to lessons">☰</a>
-      <a href="../protective-semicolon/index.html" class="lesson-nav-btn lesson-nav-next" title="Toчка с запятой для безопасности">Toчка с запятой для безопасности →</a>
+      <a href="../multiple-calling/index.html" class="lesson-nav-btn lesson-nav-prev" title="Multiple calls">← Multiple calls</a>
+      <a href="../../../index.html" class="lesson-nav-up" title="To the list of lessons">☰</a>
+      <a href="../protective-semicolon/index.html" class="lesson-nav-btn lesson-nav-next" title="Semicolon for safety">Semicolon for safety →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 

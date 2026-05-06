@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Удаление данных из БД — acteck.off</title>
-  <meta name="description" content="Удаление данных из БД — учебные материалы по программированию.">
+  <title>Deleting data from the database - acteck.off</title>
+  <meta name="description" content="Removing data from a database - programming educational materials.">
   <link rel="stylesheet" href="../../../../../../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="../../../../../../en/index.html" class="logo">
+      <a href="../../../../../../ru/index.html" class="logo">
         <div class="logo-icon">A</div>
         <div>
           <div class="logo-text"><span>acteck</span>.off</div>
-          <div class="logo-slogan">programming education</div>
+          <div class="logo-slogan">programming training</div>
         </div>
       </a>
       <div class="header-actions">
         <div class="lang-switch">
-          <a href="../../../../../../en/index.html" class="lang-btn active">RU</a>
-          <a href="../../../../../../../en/index.html" class="lang-btn">EN</a>
+          <a href="../../../../../../ru/index.html" class="lang-btn">RU</a>
+          <a href="../../../../../../../en/index.html" class="lang-btn active">EN</a>
         </div>
       </div>
     </div>
@@ -36,29 +36,16 @@
       <a href="../../../../../../en/nodejs/index.html">Node.js</a>
     </div>
 
-    <h1>Удаление данных из БД</h1>
-    <p>
-	Давайте теперь удалим запись из БД,
-	указав в параметре
-	маршрута ее
-	<code data-gs="comd/s" data-x>id</code>.
+    <h1>Removing data from the database</h1>
+    <p>Let's now delete the entry from the database by specifying it in the route parameter<code data-gs="comd/s" data-x>id</code>.
 </p>
-<p>
-	Пусть у нас есть маршрут, в котором переменная
-	<code data-gs="comd/c" data-x>del</code> передается как параметр:
-</p>
+<p>Let us have a route in which the variable<code data-gs="comd/c" data-x>del</code>passed as a parameter:</p>
 <div data-p="bock/pane" data-p-file="app.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/remove/:del', async function(req, res) {
 	res.render('delete');
 });</code>
 </div>
-<p>
-	Пусть этот параметр будет содержать информацию
-	о <code data-gs="comd/s" data-x>id</code> юзера, которого нужно удалить.
-	После объявления переменной <code data-gs="comd/c" data-x>del</code>
-	передадим ее в SQL запрос
-	через интерполяцию как
-	<code data-gs="comd/c" data-x>${del}</code>:
+<p>Let this parameter contain information about<code data-gs="comd/s" data-x>id</code>the user to be deleted. After declaring a variable<code data-gs="comd/c" data-x>del</code>let's pass it to the SQL query through interpolation as<code data-gs="comd/c" data-x>${del}</code>:
 </p>
 <div data-p="bock/pane" data-p-file="app.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/remove/:del', async function(req, res) {
@@ -68,19 +55,7 @@
 	res.render('delete');
 });</code>
 </div>
-<p>
-	Было бы удобно вывести на страницу с представлением
-	сообщение об успешном удалении или появлении
-	ошибки. Для этого объявим переменную
-	<code data-gs="comd/c" data-x>message</code>, которая сначала будет пустой.
-	Далее пропишем конструкцию <code data-gs="comd/c" data-x>try-catch</code>.
-	В блоке <code data-gs="comd/c" data-x>try</code> будут объявлены переменные
-	<code data-gs="comd/c" data-x>results</code> и <code data-gs="comd/c" data-x>fields</code>. При успешном выполнении
-	операции в сообщение передастся информация
-	о том, с каким <code data-gs="comd/s" data-x>id</code> был удален юзер.
-	В случае возникновения ошибки, ее текст также
-	передастся в представление:
-</p>
+<p>It would be convenient to display a message on the page with the view indicating successful deletion or an error. To do this, let's declare a variable<code data-gs="comd/c" data-x>message</code>, which will be empty at first. Next we write the construction<code data-gs="comd/c" data-x>try-catch</code>. In the block<code data-gs="comd/c" data-x>try</code>variables will be declared<code data-gs="comd/c" data-x>results</code>And<code data-gs="comd/c" data-x>fields</code>. If the operation is successful, the message will contain information about which<code data-gs="comd/s" data-x>id</code>the user has been deleted. If an error occurs, its text will also be sent to the view:</p>
 <div data-p="bock/pane" data-p-file="app.js">
 	<code data-w="bock/code" data-lo="high" data-m-lang="javascript">app.get('/remove/:del', async function(req, res) {
 	let del = Number(req.params.del);
@@ -98,42 +73,25 @@
 	res.render('delete', {message: message});
 });</code>
 </div>
-<p>
-	В файле представления <code data-gs="comd/p" data-x>delete.hbs</code>
-	пропишем код с переменной
-	<code data-gs="comd/c" data-x>message</code>:
+<p>In the view file<code data-gs="comd/p" data-x>delete.hbs</code>let's write the code with a variable<code data-gs="comd/c" data-x>message</code>:
 </p>
 <div data-p="bock/pane" data-p-file="views/delete.hbs">
 	<code data-w="bock/code" data-lo="high" data-m-lang="hbs">&lt;p&gt;{{ message }}&lt;/p&gt;</code>
 </div>
 <div data-w="cont/task">
-	<p>
-		Сделайте так, чтобы в адресной строке можно
-		было отправить <code data-gs="comd/q" data-x>GET</code> запрос с <code data-gs="comd/c" data-x>id</code>
-		юзера и этот юзер удалялся из БД.
-	</p>
+	<p>Make it possible to send in the address bar<code data-gs="comd/q" data-x>GET</code>request from<code data-gs="comd/c" data-x>id</code>user and this user was deleted from the database.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте предыдущую задачу так, чтобы
-		на странице были ссылки для удаления каждого
-		юзера:
-	</p>
+	<p>Modify the previous task so that the page has links to delete each user:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;a href="/remove/1"&gt;user1&lt;/a&gt;
 &lt;a href="/remove/2"&gt;user2&lt;/a&gt;
 &lt;a href="/remove/3"&gt;user3&lt;/a&gt;</code>
 	</div>
-	<p>
-		Links, конечно же, должны формироваться
-		в цикле из полученных из БД данных.
-	</p>
+	<p>Links, of course, must be formed in a cycle from data received from the database.</p>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте предыдущую задачу так, чтобы
-		у вас был следующий HTML код:
-	</p>
+	<p>Modify the previous task so that you have the following HTML code:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;ul&gt;
 	&lt;li&gt;user1 &lt;a href="/remove/1"&gt;удалить&lt;/a&gt;&lt;/li&gt;
@@ -143,10 +101,7 @@
 	</div>
 </div>
 <div data-w="cont/task">
-	<p>
-		Модифицируйте предыдущую задачу так, чтобы
-		у вас был следующий HTML код:
-	</p>
+	<p>Modify the previous task so that you have the following HTML code:</p>
 	<div data-p="bock/pane">
 		<code data-w="bock/code" data-lo="high" data-m-lang="html">&lt;table&gt;
 	&lt;tr&gt;
@@ -185,7 +140,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© <span class="copyright-year">2025</span> — <span class="copyright-year">2026</span> acteck.off</p>
-      <p>Author: <a href="https://t.me/Acteck37" target="_blank">Evgeniy Acteck</a></p>
+      <p>Author:<a href="https://t.me/Acteck37" target="_blank">Evgeniy Volkov</a></p>
     </div>
   </footer>
 
