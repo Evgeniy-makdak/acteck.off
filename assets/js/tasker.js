@@ -226,7 +226,159 @@ const TASKS = {
             { input: [5, 500], expected: true }
         ]
     },
+    '116': {
+        id: '116',
+        title: { ru: 'Чётное или нечётное', en: 'Even or Odd' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает целое число и возвращает "Even" если число чётное, и "Odd" если нечётное.',
+            en: 'Write a function that takes an integer and returns "Even" if the number is even, and "Odd" if it is odd.'
+        },
+        initialCode: 'function evenOrOdd(number) {\n  // Your code here\n}',
+        tests: [
+            { input: [2], expected: 'Even' },
+            { input: [7], expected: 'Odd' },
+            { input: [0], expected: 'Even' },
+            { input: [-3], expected: 'Odd' }
+        ]
+    },
+    '117': {
+        id: '117',
+        title: { ru: 'Обратный порядок чисел', en: 'Reverse Sequence' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает положительное число n и возвращает массив чисел от n до 1 в обратном порядке.',
+            en: 'Write a function that takes a positive integer n and returns an array of numbers from n down to 1.'
+        },
+        initialCode: 'function reverseSeq(n) {\n  // Your code here\n}',
+        tests: [
+            { input: [5], expected: [5, 4, 3, 2, 1] },
+            { input: [1], expected: [1] },
+            { input: [3], expected: [3, 2, 1] }
+        ]
+    },
+    '118': {
+        id: '118',
+        title: { ru: 'Сумма положительных', en: 'Sum of Positives' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает массив чисел и возвращает сумму всех положительных чисел. Если положительных чисел нет, верните 0.',
+            en: 'Write a function that takes an array of numbers and returns the sum of all positive numbers. If there are no positive numbers, return 0.'
+        },
+        initialCode: 'function positiveSum(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, -4, 7, 12]], expected: 20 },
+            { input: [[-1, -2, -3]], expected: 0 },
+            { input: [[0, 0, 0]], expected: 0 }
+        ]
+    },
+    '119': {
+        id: '119',
+        title: { ru: 'Квадраты чисел', en: 'Square Numbers' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает массив чисел и возвращает новый массив, где каждое число возведено в квадрат.',
+            en: 'Write a function that takes an array of numbers and returns a new array where each number is squared.'
+        },
+        initialCode: 'function squareNumbers(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 3, 4]], expected: [1, 4, 9, 16] },
+            { input: [[0, -1, -2]], expected: [0, 1, 4] },
+            { input: [[]], expected: [] }
+        ]
+    },
+    '120': {
+        id: '120',
+        title: { ru: 'Удвоение элементов', en: 'Double Elements' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает массив чисел и возвращает новый массив, где каждый элемент умножен на 2.',
+            en: 'Write a function that takes an array of numbers and returns a new array where each element is multiplied by 2.'
+        },
+        initialCode: 'function double(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 3]], expected: [2, 4, 6] },
+            { input: [[0, -1, 5]], expected: [0, -2, 10] },
+            { input: [[]], expected: [] }
+        ]
+    },
+    '121': {
+        id: '121',
+        title: { ru: 'Количество гласных', en: 'Vowel Count' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите функцию, которая принимает строку и возвращает количество гласных букв (a, e, i, o, u) в ней. Регистр не важен.',
+            en: 'Write a function that takes a string and returns the number of vowels (a, e, i, o, u) in it. Case insensitive.'
+        },
+        initialCode: 'function getCount(str) {\n  // Your code here\n}',
+        tests: [
+            { input: ['abracadabra'], expected: 5 },
+            { input: ['HELLO WORLD'], expected: 3 },
+            { input: ['xyz'], expected: 0 }
+        ]
+    },
+    '122': {
+        id: '122',
+        title: { ru: 'Среднее арифметическое', en: 'Average' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает массив чисел и возвращает их среднее арифметическое. Если массив пуст, верните 0.',
+            en: 'Write a function that takes an array of numbers and returns their average. If the array is empty, return 0.'
+        },
+        initialCode: 'function findAverage(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 3, 4]], expected: 2.5 },
+            { input: [[10, 20, 30]], expected: 20 },
+            { input: [[]], expected: 0 }
+        ]
+    },
+    '123': {
+        id: '123',
+        title: { ru: 'Удаление пробелов', en: 'Remove Spaces' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает строку и возвращает её без всех пробелов.',
+            en: 'Write a function that takes a string and returns it with all spaces removed.'
+        },
+        initialCode: 'function noSpace(x) {\n  // Your code here\n}',
+        tests: [
+            { input: ['8 j 8   mBliB8g  imjB8B8  jl  B'], expected: '8j8mBliB8gimjB8B8jlB' },
+            { input: ['hello world'], expected: 'helloworld' },
+            { input: ['   '], expected: '' }
+        ]
+    },
+    '124': {
+        id: '124',
+        title: { ru: 'Противоположное число', en: 'Opposite Number' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает число и возвращает его противоположное значение (с обратным знаком).',
+            en: 'Write a function that takes a number and returns its opposite value (with the opposite sign).'
+        },
+        initialCode: 'function opposite(number) {\n  // Your code here\n}',
+        tests: [
+            { input: [1], expected: -1 },
+            { input: [-34], expected: 34 },
+            { input: [0], expected: 0 }
+        ]
+    },
+    '125': {
+        id: '125',
+        title: { ru: 'Сумма без максимума и минимума', en: 'Sum Without Extremes' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает массив чисел и возвращает сумму всех элементов, исключая минимальное и максимальное значения. Если массив пуст или содержит 1 элемент, верните 0.',
+            en: 'Write a function that takes an array of numbers and returns the sum of all elements excluding the minimum and maximum values. If the array is empty or has 1 element, return 0.'
+        },
+        initialCode: 'function sumWithoutExtremes(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[6, 2, 1, 8, 10]], expected: 16 },
+            { input: [[1, 1, 11, 2, 3]], expected: 6 },
+            { input: [[5]], expected: 0 }
+        ]
+    },
     '201': {
+
         id: '201',
         title: { ru: 'Самое короткое слово', en: 'Shortest Word' },
         difficulty: 'easy',
@@ -413,6 +565,154 @@ const TASKS = {
             { input: ["walter"], expected: false }
         ]
     },
+    '224': {
+        id: '224',
+        title: { ru: 'Количество вхождений', en: 'Count Occurrences' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает массив и значение, и возвращает количество раз, которое значение встречается в массиве.',
+            en: 'Write a function that takes an array and a value, and returns the number of times the value occurs in the array.'
+        },
+        initialCode: 'function countOccurrences(arr, val) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 2, 3, 2], 2], expected: 3 },
+            { input: [['a', 'b', 'a'], 'a'], expected: 2 },
+            { input: [[1, 2, 3], 4], expected: 0 }
+        ]
+    },
+    '225': {
+        id: '225',
+        title: { ru: 'Удаление дубликатов', en: 'Remove Duplicates' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает массив и возвращает новый массив без дубликатов, сохраняя порядок.',
+            en: 'Write a function that takes an array and returns a new array without duplicates, preserving order.'
+        },
+        initialCode: 'function removeDuplicates(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 2, 3, 1, 4]], expected: [1, 2, 3, 4] },
+            { input: [['a', 'a', 'b']], expected: ['a', 'b'] },
+            { input: [[]], expected: [] }
+        ]
+    },
+    '226': {
+        id: '226',
+        title: { ru: 'Пересечение массивов', en: 'Array Intersection' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите функцию, которая принимает два массива и возвращает массив их общих элементов (без дубликатов).',
+            en: 'Write a function that takes two arrays and returns an array of their common elements (no duplicates).'
+        },
+        initialCode: 'function intersection(arr1, arr2) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 2, 3], [2, 3, 4]], expected: [2, 3] },
+            { input: [[1, 2], [3, 4]], expected: [] },
+            { input: [[], [1, 2]], expected: [] }
+        ]
+    },
+    '227': {
+        id: '227',
+        title: { ru: 'Объединение массивов', en: 'Array Union' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите функцию, которая принимает два массива и возвращает массив всех уникальных элементов из обоих массивов.',
+            en: 'Write a function that takes two arrays and returns an array of all unique elements from both arrays.'
+        },
+        initialCode: 'function union(arr1, arr2) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 3], [2, 3, 4]], expected: [1, 2, 3, 4] },
+            { input: [[1, 2], [3, 4]], expected: [1, 2, 3, 4] },
+            { input: [[], [1, 2]], expected: [1, 2] }
+        ]
+    },
+    '228': {
+        id: '228',
+        title: { ru: 'Разделение строки', en: 'Split String' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает строку и разделитель, и возвращает массив подстрок.',
+            en: 'Write a function that takes a string and a separator, and returns an array of substrings.'
+        },
+        initialCode: 'function splitString(str, separator) {\n  // Your code here\n}',
+        tests: [
+            { input: ['a,b,c', ','], expected: ['a', 'b', 'c'] },
+            { input: ['hello world', ' '], expected: ['hello', 'world'] },
+            { input: ['abc', ''], expected: ['a', 'b', 'c'] }
+        ]
+    },
+    '229': {
+        id: '229',
+        title: { ru: 'Смена регистра', en: 'Swap Case' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает строку и меняет регистр каждого символа на противоположный.',
+            en: 'Write a function that takes a string and swaps the case of each character.'
+        },
+        initialCode: 'function swapCase(str) {\n  // Your code here\n}',
+        tests: [
+            { input: ['Hello World'], expected: 'hELLO wORLD' },
+            { input: ['ABC'], expected: 'abc' },
+            { input: ['123'], expected: '123' }
+        ]
+    },
+    '230': {
+        id: '230',
+        title: { ru: 'Повторение строки', en: 'Repeat String' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает строку и число n, и возвращает строку, повторённую n раз.',
+            en: 'Write a function that takes a string and a number n, and returns the string repeated n times.'
+        },
+        initialCode: 'function repeat(str, n) {\n  // Your code here\n}',
+        tests: [
+            { input: ['abc', 3], expected: 'abcabcabc' },
+            { input: ['x', 5], expected: 'xxxxx' },
+            { input: ['test', 0], expected: '' }
+        ]
+    },
+    '231': {
+        id: '231',
+        title: { ru: 'Обрезка строки', en: 'Truncate String' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая обрезает строку до указанной длины и добавляет "..." в конце, если строка была обрезана.',
+            en: 'Write a function that truncates a string to the specified length and adds "..." at the end if it was truncated.'
+        },
+        initialCode: 'function truncate(str, maxLength) {\n  // Your code here\n}',
+        tests: [
+            { input: ['Hello World', 5], expected: 'Hello...' },
+            { input: ['Hi', 5], expected: 'Hi' },
+            { input: ['JavaScript', 10], expected: 'JavaScript' }
+        ]
+    },
+    '232': {
+        id: '232',
+        title: { ru: 'Каждое слово с заглавной', en: 'Capitalize Words' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает строку и возвращает её с заглавной первой буквой каждого слова.',
+            en: 'Write a function that takes a string and returns it with the first letter of each word capitalized.'
+        },
+        initialCode: 'function capitalizeWords(str) {\n  // Your code here\n}',
+        tests: [
+            { input: ['hello world'], expected: 'Hello World' },
+            { input: ['javaScript is fun'], expected: 'JavaScript Is Fun' },
+            { input: ['hello'], expected: 'Hello' }
+        ]
+    },
+    '233': {
+        id: '233',
+        title: { ru: 'Перемешивание массива', en: 'Shuffle Array' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите функцию, которая перемешивает элементы массива в случайном порядке (алгоритм Фишера-Йетса).',
+            en: 'Write a function that shuffles array elements in random order (Fisher-Yates algorithm).'
+        },
+        initialCode: 'function shuffle(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 3, 4, 5]], expected: 'shuffled' }
+        ]
+    },
     '301': {
         id: '301',
         title: { ru: 'Плюс один год', en: 'Plus One Year' },
@@ -566,13 +866,151 @@ const TASKS = {
         title: { ru: 'Анаграммы', en: 'Anagrams' },
         difficulty: 'medium',
         description: {
-            ru: 'Напишите функцию, которая проверяет, являются ли две строки анаграммами.',
+            ru: 'Напишите функция, которая проверяет, являются ли две строки анаграммами.',
             en: 'Write a function that checks if two strings are anagrams.'
         },
         initialCode: 'function isAnagram(test, original) {\n  // Your code here\n}',
         tests: [
             { input: ["foefet", "toffee"], expected: true },
             { input: ["Buckethead", "DeathCubeK"], expected: true }
+        ]
+    },
+    '317': {
+        id: '317',
+        title: { ru: 'Поиск по свойству', en: 'Find by Property' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает массив объектов и имя свойства, и возвращает массив значений этого свойства.',
+            en: 'Write a function that takes an array of objects and a property name, and returns an array of values for that property.'
+        },
+        initialCode: 'function pluck(arr, prop) {\n  // Your code here\n}',
+        tests: [
+            { input: [[{ name: 'Alice', age: 25 }, { name: 'Bob', age: 30 }], 'name'], expected: ['Alice', 'Bob'] },
+            { input: [[{ a: 1 }, { a: 2 }], 'a'], expected: [1, 2] }
+        ]
+    },
+    '318': {
+        id: '318',
+        title: { ru: 'Частота элементов', en: 'Frequency Counter' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите функцию, которая принимает массив и возвращает объект, где ключи — элементы массива, а значения — количество их вхождений.',
+            en: 'Write a function that takes an array and returns an object where keys are array elements and values are their counts.'
+        },
+        initialCode: 'function frequency(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [['a', 'b', 'a', 'c', 'b', 'a']], expected: { a: 3, b: 2, c: 1 } },
+            { input: [[1, 2, 1, 1, 3]], expected: { 1: 3, 2: 1, 3: 1 } },
+            { input: [[]], expected: {} }
+        ]
+    },
+    '319': {
+        id: '319',
+        title: { ru: 'Трансформация объекта', en: 'Transform Object' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите функцию, которая принимает объект и трансформирует его, удваивая все числовые значения.',
+            en: 'Write a function that takes an object and transforms it by doubling all numeric values.'
+        },
+        initialCode: 'function doubleValues(obj) {\n  // Your code here\n}',
+        tests: [
+            { input: [{ a: 2, b: 3, c: 'test' }], expected: { a: 4, b: 6, c: 'test' } },
+            { input: [{ x: 0, y: -1 }], expected: { x: 0, y: -2 } }
+        ]
+    },
+    '320': {
+        id: '320',
+        title: { ru: 'Слияние с проверкой', en: 'Merge with Check' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите функцию, которая объединяет два объекта, но не перезаписывает существующие ключи.',
+            en: 'Write a function that merges two objects but does not overwrite existing keys.'
+        },
+        initialCode: 'function mergeDefaults(obj, defaults) {\n  // Your code here\n}',
+        tests: [
+            { input: [{ a: 1, b: 2 }, { b: 3, c: 4 }], expected: { a: 1, b: 2, c: 4 } },
+            { input: [{}, { x: 1 }], expected: { x: 1 } }
+        ]
+    },
+    '321': {
+        id: '321',
+        title: { ru: 'Сортировка по нескольким полям', en: 'Multi-field Sort' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Напишите функцию, которая сортирует массив объектов сначала по полю age (возрастание), а при равенстве — по полю name (алфавит).',
+            en: 'Write a function that sorts an array of objects first by age (ascending), then by name (alphabetical).'
+        },
+        initialCode: 'function sortByAgeThenName(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[{ name: 'John', age: 25 }, { name: 'Alice', age: 25 }, { name: 'Bob', age: 30 }]], expected: [{ name: 'Alice', age: 25 }, { name: 'John', age: 25 }, { name: 'Bob', age: 30 }] }
+        ]
+    },
+    '322': {
+        id: '322',
+        title: { ru: 'Фильтрация по диапазону', en: 'Filter by Range' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает массив объектов с полем age и возвращает только тех, чей возраст между min и max (включительно).',
+            en: 'Write a function that filters objects by age between min and max (inclusive).'
+        },
+        initialCode: 'function filterByAge(people, min, max) {\n  // Your code here\n}',
+        tests: [
+            { input: [[{ name: 'A', age: 20 }, { name: 'B', age: 30 }, { name: 'C', age: 40 }], 25, 35], expected: [{ name: 'B', age: 30 }] }
+        ]
+    },
+    '323': {
+        id: '323',
+        title: { ru: 'Сумма числовых полей', en: 'Sum Numeric Fields' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает объект и возвращает сумму всех его числовых значений.',
+            en: 'Write a function that takes an object and returns the sum of all its numeric values.'
+        },
+        initialCode: 'function sumNumeric(obj) {\n  // Your code here\n}',
+        tests: [
+            { input: [{ a: 10, b: 20, c: 'hello' }], expected: 30 },
+            { input: [{ x: 5, y: -3, z: 0 }], expected: 2 }
+        ]
+    },
+    '324': {
+        id: '324',
+        title: { ru: 'Переименование ключей', en: 'Rename Keys' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите функцию, которая принимает объект и объект с маппингом старых ключей на новые, и возвращает новый объект с переименованными ключами.',
+            en: 'Write a function that renames object keys according to a mapping object.'
+        },
+        initialCode: 'function renameKeys(obj, mapping) {\n  // Your code here\n}',
+        tests: [
+            { input: [{ name: 'Alice', age: 25 }, { name: 'fullName', age: 'years' }], expected: { fullName: 'Alice', years: 25 } }
+        ]
+    },
+    '325': {
+        id: '325',
+        title: { ru: 'Проверка на пустоту', en: 'Is Empty Object' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая проверяет, является ли объект пустым (не имеет собственных свойств).',
+            en: 'Write a function that checks if an object is empty (has no own properties).'
+        },
+        initialCode: 'function isEmpty(obj) {\n  // Your code here\n}',
+        tests: [
+            { input: [{}], expected: true },
+            { input: [{ a: 1 }], expected: false }
+        ]
+    },
+    '326': {
+        id: '326',
+        title: { ru: 'Значения по умолчанию', en: 'Default Values' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию, которая принимает объект и возвращает новый объект, где отсутствующие ключи заполняются значениями по умолчанию.',
+            en: 'Write a function that fills missing keys with default values.'
+        },
+        initialCode: 'function defaults(obj, defaultObj) {\n  // Your code here\n}',
+        tests: [
+            { input: [{ a: 1 }, { a: 0, b: 0 }], expected: { a: 1, b: 0 } },
+            { input: [{}, { x: 10, y: 20 }], expected: { x: 10, y: 20 } }
         ]
     },
     '401': {
@@ -710,6 +1148,136 @@ const TASKS = {
         initialCode: 'function unzip(pairs) {\n  // Your code here\n}',
         tests: [{ input: [[[1, 'a'], [2, 'b']]], expected: [[1, 2], ['a', 'b']] }]
     },
+    '416': {
+        id: '416',
+        title: { ru: 'Throttle', en: 'Throttle' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте функцию throttle, которая вызывает переданную функцию не чаще одного раза в указанный интервал времени.',
+            en: 'Implement a throttle function that calls the passed function at most once per specified time interval.'
+        },
+        initialCode: 'function throttle(fn, delay) {\n  // Your code here\n}',
+        tests: []
+    },
+    '417': {
+        id: '417',
+        title: { ru: 'Debounce', en: 'Debounce' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте функцию debounce, которая откладывает вызов функции до тех пор, пока не пройдёт указанное время после последнего вызова.',
+            en: 'Implement a debounce function that delays the function call until the specified time has passed since the last call.'
+        },
+        initialCode: 'function debounce(fn, delay) {\n  // Your code here\n}',
+        tests: []
+    },
+    '418': {
+        id: '418',
+        title: { ru: 'Negate', en: 'Negate' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию negate, которая принимает функцию-предикат и возвращает её отрицание.',
+            en: 'Write a negate function that takes a predicate function and returns its negation.'
+        },
+        initialCode: 'function negate(fn) {\n  // Your code here\n}',
+        tests: [
+            { input: [(x) => x > 0, 5], expected: false },
+            { input: [(x) => x > 0, -1], expected: true }
+        ]
+    },
+    '419': {
+        id: '419',
+        title: { ru: 'Identity', en: 'Identity' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию identity, которая возвращает переданный ей аргумент.',
+            en: 'Write an identity function that returns the argument passed to it.'
+        },
+        initialCode: 'function identity(x) {\n  // Your code here\n}',
+        tests: [
+            { input: [42], expected: 42 },
+            { input: ['hello'], expected: 'hello' }
+        ]
+    },
+    '420': {
+        id: '420',
+        title: { ru: 'Constant', en: 'Constant' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию constant, которая принимает значение и возвращает функцию, которая всегда возвращает это значение.',
+            en: 'Write a constant function that takes a value and returns a function that always returns that value.'
+        },
+        initialCode: 'function constant(val) {\n  // Your code here\n}',
+        tests: []
+    },
+    '421': {
+        id: '421',
+        title: { ru: 'Tap', en: 'Tap' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Реализуйте функцию tap, которая принимает значение и функцию, вызывает функцию с этим значением, а затем возвращает значение.',
+            en: 'Implement a tap function that takes a value and a function, calls the function with the value, then returns the value.'
+        },
+        initialCode: 'function tap(val, fn) {\n  // Your code here\n}',
+        tests: [
+            { input: [5, (x) => x * 2], expected: 5 }
+        ]
+    },
+    '422': {
+        id: '422',
+        title: { ru: 'Chunk', en: 'Chunk' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите функцию chunk, которая разбивает массив на группы указанного размера.',
+            en: 'Write a chunk function that splits an array into groups of the specified size.'
+        },
+        initialCode: 'function chunk(arr, size) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 3, 4, 5], 2], expected: [[1, 2], [3, 4], [5]] },
+            { input: [[1, 2, 3], 1], expected: [[1], [2], [3]] }
+        ]
+    },
+    '423': {
+        id: '423',
+        title: { ru: 'Flatten Depth', en: 'Flatten Depth' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите функцию flattenDepth, которая разворачивает массив до указанной глубины.',
+            en: 'Write a flattenDepth function that flattens an array up to the specified depth.'
+        },
+        initialCode: 'function flattenDepth(arr, depth) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, [2, [3, [4]]]], 2], expected: [1, 2, 3, [4]] },
+            { input: [[1, [2, [3]]], 1], expected: [1, 2, [3]] }
+        ]
+    },
+    '424': {
+        id: '424',
+        title: { ru: 'Difference', en: 'Difference' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите функцию difference, которая возвращает элементы из первого массива, которых нет во втором.',
+            en: 'Write a difference function that returns elements from the first array not present in the second.'
+        },
+        initialCode: 'function difference(arr1, arr2) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2, 3], [2, 3]], expected: [1] },
+            { input: [[1, 2], [3, 4]], expected: [1, 2] }
+        ]
+    },
+    '425': {
+        id: '425',
+        title: { ru: 'Sorted Index', en: 'Sorted Index' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Напишите функцию sortedIndex, которая возвращает индекс, по которому значение должно быть вставлено в отсортированный массив для сохранения порядка.',
+            en: 'Write a sortedIndex function that returns the index at which a value should be inserted into a sorted array to maintain order.'
+        },
+        initialCode: 'function sortedIndex(arr, val) {\n  // Your code here\n}',
+        tests: [
+            { input: [[10, 20, 30, 40], 25], expected: 2 },
+            { input: [[1, 2, 3], 4], expected: 3 }
+        ]
+    },
     '501': {
         id: '501',
         title: { ru: 'Http Router', en: 'Http Router' },
@@ -836,6 +1404,118 @@ const TASKS = {
         difficulty: 'easy',
         description: { ru: 'Реализуйте класс Point(x, y) с методом distanceTo(otherPoint).', en: 'Implement a Point class with distanceTo method.' },
         initialCode: 'class Point {\n  // Your code here\n}',
+        tests: []
+    },
+    '522': {
+        id: '522',
+        title: { ru: 'Класс Книга', en: 'Book Class' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Создайте класс Book с полями title, author, year. Добавьте метод getInfo(), возвращающий строку "title - author (year)".',
+            en: 'Create a Book class with title, author, year fields. Add getInfo() method returning "title - author (year)".'
+        },
+        initialCode: 'class Book {\n  constructor(title, author, year) {\n    this.title = title;\n    this.author = author;\n    this.year = year;\n  }\n  getInfo() {\n    // Your code here\n  }\n}',
+        tests: [
+            { input: ['1984', 'George Orwell', 1949], expected: '1984 - George Orwell (1949)', isClass: true, checkMethod: 'getInfo' }
+        ]
+    },
+    '523': {
+        id: '523',
+        title: { ru: 'Класс Студент', en: 'Student Class' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Создайте класс Student, наследующий от User. Добавьте поле grade и метод getGrade().',
+            en: 'Create a Student class inheriting from User. Add a grade field and getGrade() method.'
+        },
+        initialCode: 'class User {\n  constructor(name) { this.name = name; }\n  getName() { return this.name; }\n}\n\nclass Student extends User {\n  // Your code here\n}',
+        tests: []
+    },
+    '524': {
+        id: '524',
+        title: { ru: 'Полиморфизм', en: 'Polymorphism' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Создайте классы Shape, Circle и Rectangle. У каждого должен быть метод getArea(). Circle принимает радиус, Rectangle — ширину и высоту.',
+            en: 'Create Shape, Circle and Rectangle classes. Each should have getArea(). Circle takes radius, Rectangle takes width and height.'
+        },
+        initialCode: 'class Shape {\n  getArea() { return 0; }\n}\n\nclass Circle extends Shape {\n  constructor(radius) {\n    super();\n    this.radius = radius;\n  }\n  getArea() {\n    // Your code here\n  }\n}\n\nclass Rectangle extends Shape {\n  constructor(w, h) {\n    super();\n    this.w = w;\n    this.h = h;\n  }\n  getArea() {\n    // Your code here\n  }\n}',
+        tests: []
+    },
+    '525': {
+        id: '525',
+        title: { ru: 'Класс Банк', en: 'Bank Class' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Реализуйте класс Bank с методами createAccount(owner, initialBalance), deposit(accountId, amount), withdraw(accountId, amount) и getBalance(accountId).',
+            en: 'Implement a Bank class with createAccount, deposit, withdraw, and getBalance methods.'
+        },
+        initialCode: 'class Bank {\n  constructor() {\n    this.accounts = {};\n    this.nextId = 1;\n  }\n  createAccount(owner, initialBalance) {\n    // Your code here\n  }\n  deposit(accountId, amount) {\n    // Your code here\n  }\n  withdraw(accountId, amount) {\n    // Your code here\n  }\n  getBalance(accountId) {\n    // Your code here\n  }\n}',
+        tests: []
+    },
+    '526': {
+        id: '526',
+        title: { ru: 'Класс Таймер', en: 'Timer Class' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Реализуйте класс Timer с методами start(), stop(), reset() и getElapsed(). Используйте Date.now() для отсчёта времени.',
+            en: 'Implement a Timer class with start(), stop(), reset() and getElapsed() methods. Use Date.now() for timing.'
+        },
+        initialCode: 'class Timer {\n  constructor() {\n    this.startTime = null;\n    this.elapsed = 0;\n    this.running = false;\n  }\n  start() {\n    // Your code here\n  }\n  stop() {\n    // Your code here\n  }\n  reset() {\n    // Your code here\n  }\n  getElapsed() {\n    // Your code here\n  }\n}',
+        tests: []
+    },
+    '527': {
+        id: '527',
+        title: { ru: 'Класс Стек', en: 'Stack Class' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Реализуйте класс Stack с методами push(item), pop(), peek() и isEmpty().',
+            en: 'Implement a Stack class with push, pop, peek and isEmpty methods.'
+        },
+        initialCode: 'class Stack {\n  constructor() {\n    this.items = [];\n  }\n  push(item) {\n    // Your code here\n  }\n  pop() {\n    // Your code here\n  }\n  peek() {\n    // Your code here\n  }\n  isEmpty() {\n    // Your code here\n  }\n}',
+        tests: []
+    },
+    '528': {
+        id: '528',
+        title: { ru: 'Класс Очередь', en: 'Queue Class' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Реализуйте класс Queue с методами enqueue(item), dequeue(), front() и isEmpty().',
+            en: 'Implement a Queue class with enqueue, dequeue, front and isEmpty methods.'
+        },
+        initialCode: 'class Queue {\n  constructor() {\n    this.items = [];\n  }\n  enqueue(item) {\n    // Your code here\n  }\n  dequeue() {\n    // Your code here\n  }\n  front() {\n    // Your code here\n  }\n  isEmpty() {\n    // Your code here\n  }\n}',
+        tests: []
+    },
+    '529': {
+        id: '529',
+        title: { ru: 'Класс Комплексное число', en: 'Complex Number' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте класс ComplexNumber для работы с комплексными числами. Добавьте методы add(other), subtract(other), multiply(other) и toString().',
+            en: 'Implement a ComplexNumber class. Add add, subtract, multiply and toString methods.'
+        },
+        initialCode: 'class ComplexNumber {\n  constructor(real, imag) {\n    this.real = real;\n    this.imag = imag;\n  }\n  add(other) {\n    // Your code here\n  }\n  subtract(other) {\n    // Your code here\n  }\n  multiply(other) {\n    // Your code here\n  }\n  toString() {\n    // Your code here\n  }\n}',
+        tests: []
+    },
+    '530': {
+        id: '530',
+        title: { ru: 'Класс Синглтон', en: 'Singleton' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте класс Singleton, который гарантирует, что может быть создан только один экземпляр.',
+            en: 'Implement a Singleton class that ensures only one instance can be created.'
+        },
+        initialCode: 'class Singleton {\n  // Your code here\n}',
+        tests: []
+    },
+    '531': {
+        id: '531',
+        title: { ru: 'Класс Вектор', en: 'Vector Class' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Реализуйте класс Vector для работы с n-мерными векторами. Добавьте методы add(other), dot(other) и norm().',
+            en: 'Implement a Vector class for n-dimensional vectors. Add add, dot and norm methods.'
+        },
+        initialCode: 'class Vector {\n  constructor(components) {\n    this.components = components;\n  }\n  add(other) {\n    // Your code here\n  }\n  dot(other) {\n    // Your code here\n  }\n  norm() {\n    // Your code here\n  }\n}',
         tests: []
     },
     '601': {
@@ -987,6 +1667,144 @@ const TASKS = {
         initialCode: 'function product(arr) {\n  // Your code here\n}',
         tests: [{ input: [[1, 2, 3, 4]], expected: 24 }]
     },
+    '616': {
+        id: '616',
+        title: { ru: 'Степень двойки', en: 'Power of Two' },
+        difficulty: 'easy',
+        description: {
+            ru: 'Напишите рекурсивную функцию, которая проверяет, является ли число степенью двойки.',
+            en: 'Write a recursive function that checks if a number is a power of two.'
+        },
+        initialCode: 'function isPowerOfTwo(n) {\n  // Your code here\n}',
+        tests: [
+            { input: [16], expected: true },
+            { input: [6], expected: false },
+            { input: [1], expected: true }
+        ]
+    },
+    '617': {
+        id: '617',
+        title: { ru: 'Бинарный поиск', en: 'Binary Search' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте рекурсивный бинарный поиск в отсортированном массиве. Верните индекс элемента или -1, если элемент не найден.',
+            en: 'Implement recursive binary search in a sorted array. Return the index or -1 if not found.'
+        },
+        initialCode: 'function binarySearch(arr, target, left = 0, right = arr.length - 1) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 3, 5, 7, 9], 5], expected: 2 },
+            { input: [[1, 3, 5, 7, 9], 2], expected: -1 }
+        ]
+    },
+    '618': {
+        id: '618',
+        title: { ru: 'Сортировка слиянием', en: 'Merge Sort' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте рекурсивную сортировку слиянием (merge sort).',
+            en: 'Implement recursive merge sort.'
+        },
+        initialCode: 'function mergeSort(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[3, 1, 4, 1, 5, 9]], expected: [1, 1, 3, 4, 5, 9] },
+            { input: [[5, 4, 3, 2, 1]], expected: [1, 2, 3, 4, 5] }
+        ]
+    },
+    '619': {
+        id: '619',
+        title: { ru: 'Обход дерева в глубину', en: 'DFS Tree' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте рекурсивный обход дерева в глубину (pre-order). Верните массив значений узлов.',
+            en: 'Implement recursive depth-first tree traversal (pre-order). Return an array of node values.'
+        },
+        initialCode: 'function dfs(root) {\n  // Your code here\n}',
+        tests: [
+            { input: [{ value: 1, children: [{ value: 2, children: [] }, { value: 3, children: [] }] }], expected: [1, 2, 3] }
+        ]
+    },
+    '620': {
+        id: '620',
+        title: { ru: 'Ханойские башни', en: 'Tower of Hanoi' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте рекурсивное решение задачи Ханойские башни. Верните массив строк вида "from->to".',
+            en: 'Implement recursive Tower of Hanoi solution. Return an array of "from->to" strings.'
+        },
+        initialCode: 'function towerOfHanoi(n, from = "A", to = "C", aux = "B") {\n  // Your code here\n}',
+        tests: [
+            { input: [1], expected: ['A->C'] },
+            { input: [2], expected: ['A->B', 'A->C', 'B->C'] }
+        ]
+    },
+    '621': {
+        id: '621',
+        title: { ru: 'Количество путей', en: 'Count Paths' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Подсчитайте количество способов добраться из верхнего левого угла сетки m×n в правый нижний, двигаясь только вправо или вниз.',
+            en: 'Count the number of ways to reach the bottom-right corner of an m×n grid moving only right or down.'
+        },
+        initialCode: 'function countPaths(m, n) {\n  // Your code here\n}',
+        tests: [
+            { input: [2, 3], expected: 3 },
+            { input: [3, 3], expected: 6 }
+        ]
+    },
+    '622': {
+        id: '622',
+        title: { ru: 'Подмножества', en: 'Subsets' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Напишите рекурсивную функцию, которая возвращает все возможные подмножества массива.',
+            en: 'Write a recursive function that returns all possible subsets of an array.'
+        },
+        initialCode: 'function subsets(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2]], expected: [[], [1], [2], [1, 2]] }
+        ]
+    },
+    '623': {
+        id: '623',
+        title: { ru: 'Перестановки', en: 'Permutations' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Напишите рекурсивную функцию, которая возвращает все перестановки элементов массива.',
+            en: 'Write a recursive function that returns all permutations of array elements.'
+        },
+        initialCode: 'function permutations(arr) {\n  // Your code here\n}',
+        tests: [
+            { input: [[1, 2]], expected: [[1, 2], [2, 1]] }
+        ]
+    },
+    '624': {
+        id: '624',
+        title: { ru: 'Скобочные последовательности', en: 'Generate Parentheses' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Напишите рекурсивную функцию, которая генерирует все правильные скобочные последовательности из n пар скобок.',
+            en: 'Write a recursive function that generates all valid parentheses combinations for n pairs.'
+        },
+        initialCode: 'function generateParenthesis(n) {\n  // Your code here\n}',
+        tests: [
+            { input: [3], expected: ['((()))', '(()())', '(())()', '()(())', '()()()'] }
+        ]
+    },
+    '625': {
+        id: '625',
+        title: { ru: 'Числа Каталана', en: 'Catalan Numbers' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Напишите рекурсивную функцию для вычисления n-го числа Каталана.',
+            en: 'Write a recursive function to calculate the n-th Catalan number.'
+        },
+        initialCode: 'function catalan(n) {\n  // Your code here\n}',
+        tests: [
+            { input: [0], expected: 1 },
+            { input: [3], expected: 5 },
+            { input: [5], expected: 42 }
+        ]
+    },
     '701': {
         id: '701',
         title: { ru: 'Сумма двух промисов', en: 'Add Promises' },
@@ -1110,6 +1928,116 @@ const TASKS = {
         description: { ru: 'Реализуйте аналог Promise.any.', en: 'Implement a Promise.any-like function.' },
         initialCode: 'function any(promises) {\n  // Your code here\n}',
         tests: []
+    },
+    '723': {
+        id: '723',
+        title: { ru: 'Асинхронный each', en: 'Async Each' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Реализуйте функцию asyncEach, которая принимает массив и асинхронную функцию, и применяет её к каждому элементу последовательно.',
+            en: 'Implement asyncEach that takes an array and an async function, applying it to each element sequentially.'
+        },
+        initialCode: 'async function asyncEach(arr, fn) {\n  // Your code here\n}',
+        tests: []
+    },
+    '724': {
+        id: '724',
+        title: { ru: 'Асинхронный some', en: 'Async Some' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Реализуйте асинхронную версию Array.some.',
+            en: 'Implement an async version of Array.some.'
+        },
+        initialCode: 'async function asyncSome(arr, predicate) {\n  // Your code here\n}',
+        tests: []
+    },
+    '725': {
+        id: '725',
+        title: { ru: 'Асинхронный every', en: 'Async Every' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Реализуйте асинхронную версию Array.every.',
+            en: 'Implement an async version of Array.every.'
+        },
+        initialCode: 'async function asyncEvery(arr, predicate) {\n  // Your code here\n}',
+        tests: []
+    },
+    '726': {
+        id: '726',
+        title: { ru: 'Лимитированный параллелизм', en: 'Limited Parallelism' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте функцию, которая выполняет массив асинхронных функций с ограничением на количество одновременно выполняемых (не более limit).',
+            en: 'Implement a function that runs an array of async functions with a concurrency limit.'
+        },
+        initialCode: 'async function parallelLimit(tasks, limit) {\n  // Your code here\n}',
+        tests: []
+    },
+    '727': {
+        id: '727',
+        title: { ru: 'Асинхронный waterfall', en: 'Async Waterfall' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте функцию waterfall, которая передаёт результат каждой асинхронной функции в следующую.',
+            en: 'Implement a waterfall function that passes each async function result to the next.'
+        },
+        initialCode: 'async function waterfall(fns) {\n  // Your code here\n}',
+        tests: []
+    },
+    '728': {
+        id: '728',
+        title: { ru: 'Промис с отменой', en: 'Cancellable Promise' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте функцию, которая возвращает промис с методом cancel() для отмены выполнения.',
+            en: 'Implement a function that returns a promise with a cancel() method.'
+        },
+        initialCode: 'function cancellablePromise(executor) {\n  // Your code here\n}',
+        tests: []
+    },
+    '729': {
+        id: '729',
+        title: { ru: 'Асинхронный flatMap', en: 'Async FlatMap' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Реализуйте асинхронную версию flatMap.',
+            en: 'Implement an async version of flatMap.'
+        },
+        initialCode: 'async function asyncFlatMap(arr, fn) {\n  // Your code here\n}',
+        tests: []
+    },
+    '730': {
+        id: '730',
+        title: { ru: 'Таймер с уведомлением', en: 'Timer with Notification' },
+        difficulty: 'medium',
+        description: {
+            ru: 'Реализуйте функцию timer(seconds, callback), которая вызывает callback каждую секунду с оставшимся временем, а по завершению возвращает промис.',
+            en: 'Implement a timer function that calls a callback every second with remaining time and returns a promise on completion.'
+        },
+        initialCode: 'function timer(seconds, callback) {\n  // Your code here\n}',
+        tests: []
+    },
+    '731': {
+        id: '731',
+        title: { ru: 'Асинхронный мемоизатор', en: 'Async Memoize' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте функцию asyncMemoize, которая кеширует результаты асинхронных вызовов.',
+            en: 'Implement asyncMemoize that caches results of async function calls.'
+        },
+        initialCode: 'function asyncMemoize(fn) {\n  // Your code here\n}',
+        tests: []
+    },
+    '732': {
+        id: '732',
+        title: { ru: 'Асинхронный пул', en: 'Async Pool' },
+        difficulty: 'hard',
+        description: {
+            ru: 'Реализуйте класс AsyncPool с методами add(task) и waitAll(). Пул должен выполнять не более limit задач одновременно.',
+            en: 'Implement an AsyncPool class with add(task) and waitAll() methods. The pool should run at most limit tasks concurrently.'
+        },
+        initialCode: 'class AsyncPool {\n  constructor(limit) {\n    this.limit = limit;\n    this.running = 0;\n    this.queue = [];\n    this.promises = [];\n  }\n  add(task) {\n    // Your code here\n  }\n  waitAll() {\n    // Your code here\n  }\n}',
+        tests: []
     }
 };
 
@@ -1117,37 +2045,37 @@ const TOPICS = [
     {
         id: 'logic',
         title: { ru: 'Условия и циклы', en: 'Conditions and Loops' },
-        taskIds: ['101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115']
+        taskIds: ['101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124', '125']
     },
     {
         id: 'arrays',
         title: { ru: 'Массивы и строки', en: 'Arrays and Strings' },
-        taskIds: ['201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '215', '223']
+        taskIds: ['201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '215', '223', '224', '225', '226', '227', '228', '229', '230', '231', '232', '233']
     },
     {
         id: 'objects',
         title: { ru: 'Объекты и сортировки', en: 'Objects and Sorting' },
-        taskIds: ['301', '302', '303', '304', '305', '306', '307', '308', '309', '310', '311', '312', '313', '314', '315', '316']
+        taskIds: ['301', '302', '303', '304', '305', '306', '307', '308', '309', '310', '311', '312', '313', '314', '315', '316', '317', '318', '319', '320', '321', '322', '323', '324', '325', '326']
     },
     {
         id: 'fp',
         title: { ru: 'Функциональное программирование', en: 'Functional Programming' },
-        taskIds: ['401', '402', '403', '404', '405', '406', '407', '408', '409', '410', '411', '412', '413', '414', '415']
+        taskIds: ['401', '402', '403', '404', '405', '406', '407', '408', '409', '410', '411', '412', '413', '414', '415', '416', '417', '418', '419', '420', '421', '422', '423', '424', '425']
     },
     {
         id: 'oop',
         title: { ru: 'ООП: this, классы, прототипы', en: 'OOP: this, classes, prototypes' },
-        taskIds: ['501', '509', '510', '511', '512', '513', '514', '515', '516', '517', '518', '519', '520', '521']
+        taskIds: ['501', '509', '510', '511', '512', '513', '514', '515', '516', '517', '518', '519', '520', '521', '522', '523', '524', '525', '526', '527', '528', '529', '530', '531']
     },
     {
         id: 'recursion',
         title: { ru: 'Рекурсия', en: 'Recursion' },
-        taskIds: ['601', '602', '603', '604', '605', '606', '607', '608', '609', '610', '611', '612', '613', '614', '615']
+        taskIds: ['601', '602', '603', '604', '605', '606', '607', '608', '609', '610', '611', '612', '613', '614', '615', '616', '617', '618', '619', '620', '621', '622', '623', '624', '625']
     },
     {
         id: 'async',
         title: { ru: 'Асинхронность', en: 'Asynchrony' },
-        taskIds: ['701', '710', '711', '712', '713', '714', '715', '716', '717', '718', '719', '720', '721', '722']
+        taskIds: ['701', '710', '711', '712', '713', '714', '715', '716', '717', '718', '719', '720', '721', '722', '723', '724', '725', '726', '727', '728', '729', '730', '731', '732']
     }
 ];
 
