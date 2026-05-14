@@ -1,0 +1,352 @@
+[
+  {
+    "id": 1,
+    "question_en": "What are the possible ways to create objects in JavaScript",
+    "answer_en": "There are many ways to create objects in javascript as below\ni. Object constructor:\nThe simplest way to create an empty object is using the Object constructor. Currently this\napproach is not recommended.\nvar object = new Object(); \nii. Object's create method:\nThe create method of Object creates a new object by passing the prototype object as a\nparameter\nvar object = Object.create(null); \niii. Object literal syntax:\nThe object literal syntax is equivalent to create method when it passes null as parameter\nvar object = {}; \niv. Function constructor:\nCreate any function and apply the new operator to create object instances,\nfunction Person(name){ \n   var object = {}; \n\n\n\n\n   object.name=name; \n   object.age=21; \n   return object; \n} \nvar object = new Person(\"Sudheer\"); \nv. Function constructor with prototype:\nThis is similar to function constructor but it uses prototype for their properties and methods,\nfunction Person(){} \nPerson.prototype.name = \"Sudheer\"; \nvar object = new Person(); \nThis is equivalent to an instance created with an object create method with a function\nprototype and then call that function with an instance and parameters as arguments.\nfunction func {}; \nnew func(x, y, z); \n(OR)\nvi. ES6 Class syntax:\nES6 introduces class feature to create the objects\nclass Person { \n   constructor(name) { \n      this.name = name; \n   } \n} \nvar object = new Person(\"Sudheer\"); \nvii. Singleton pattern:\n// Create a new instance using function prototype. \nvar newInstance = Object.create(func.prototype) \n// Call the function \nvar result = func.call(newInstance, x, y, z), \n// If the result is a non-null object then use it otherwise just use the new instance\nconsole.log(result && typeof result === 'object' ? result : newInstance); \n\n\n\n\nA Singleton is an object which can only be instantiated one time. Repeated calls to its\nconstructor return the same instance and this way one can ensure that they don't\naccidentally create multiple instances.\nvar object = new function(){ \n   this.name = \"Sudheer\"; \n}",
+    "question_ru": "[Перевод] What are the possible ways to create objects in JavaScript",
+    "answer_ru": "[Перевод] There are many ways to create objects in javascript as below\ni. Object constructor:\nThe simplest way to create an empty object is using the Object constructor. Currently this\napproach is not recommended.\nvar object = new Object(); \nii. Object's create method:\nThe create method of Object creates a new object by passing the prototype object as a\nparameter\nvar object = Object.create(null); \niii. Object literal syntax:\nThe object literal syntax is equivalent to create method when it passes null as parameter\nvar object = {}; \niv. Function constructor:\nCreate any function and apply the new operator to create object instances,\nfunction Person(name){ \n   var object = {}; \n\n\n\n\n   object.name=name; \n   object.age=21; \n   return object; \n} \nvar object = new Person(\"Sudheer\"); \nv. Function constructor with prototype:\nThis is similar to function constructor but it uses prototype for their properties and methods,\nfunction Person(){} \nPerson.prototype.name = \"Sudheer\"; \nvar object = new Person(); \nThis is equivalent to an instance created with an object create method with a function\nprototype and then call that function with an instance and parameters as arguments.\nfunction func {}; \nnew func(x, y, z); \n(OR)\nvi. ES6 Class syntax:\nES6 introduces class feature to create the objects\nclass Person { \n   constructor(name) { \n      this.name = name; \n   } \n} \nvar object = new Person(\"Sudheer\"); \nvii. Singleton pattern:\n// Create a new instance using function prototype. \nvar newInstance = Object.create(func.prototype) \n// Call the function \nvar result = func.call(newInstance, x, y, z), \n// If the result is a non-null object then use it otherwise just use the new instance\nconsole.log(result && typeof result === 'object' ? result : newInstance); \n\n\n\n\nA Singleton is an object which can only be instantiated one time. Repeated calls to its\nconstructor return the same instance and this way one can ensure that they don't\naccidentally create multiple instances.\nvar object = new function(){ \n   this.name = \"Sudheer\"; \n}"
+  },
+  {
+    "id": 2,
+    "question_en": "What is a prototype chain",
+    "answer_en": "Prototype chaining is used to build new types of objects based on existing ones. It is similar to\ninheritance in a class based language.\nThe prototype on object instance is available through Object.getPrototypeOf(object) or proto\nproperty whereas prototype on constructors function is available through Object.prototype.",
+    "question_ru": "[Перевод] What is a prototype chain",
+    "answer_ru": "[Перевод] Prototype chaining is used to build new types of objects based on existing ones. It is similar to\ninheritance in a class based language.\nThe prototype on object instance is available through Object.getPrototypeOf(object) or proto\nproperty whereas prototype on constructors function is available through Object.prototype."
+  },
+  {
+    "id": 3,
+    "question_en": "What is the difference between Call, Apply and Bind",
+    "answer_en": "The difference between Call, Apply and Bind can be explained with below examples,\nCall: The call() method invokes a function with a given this value and arguments provided one\nby one\nApply: Invokes the function with a given this value and allows you to pass in arguments as an\narray\nvar employee1 = {firstName: 'John', lastName: 'Rodson'}; \nvar employee2 = {firstName: 'Jimmy', lastName: 'Baily'}; \nfunction invite(greeting1, greeting2) { \n    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2); \n} \ninvite.call(employee1, 'Hello', 'How are you?'); // Hello John Rodson, How are you? \ninvite.call(employee2, 'Hello', 'How are you?'); // Hello Jimmy Baily, How are you? \nvar employee1 = {firstName: 'John', lastName: 'Rodson'}; \nvar employee2 = {firstName: 'Jimmy', lastName: 'Baily'}; \nfunction invite(greeting1, greeting2) { \n    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2); \n} \n\n\n\n\nbind: returns a new function, allowing you to pass any number of arguments\nCall and apply are pretty interchangeable. Both execute the current function immediately. You\nneed to decide whether it’s easier to send in an array or a comma separated list of arguments.\nYou can remember by treating Call is for comma (separated list) and Apply is for Array.\nWhereas Bind creates a new function that will have this set to the first parameter passed to\nbind().",
+    "question_ru": "[Перевод] What is the difference between Call, Apply and Bind",
+    "answer_ru": "[Перевод] The difference between Call, Apply and Bind can be explained with below examples,\nCall: The call() method invokes a function with a given this value and arguments provided one\nby one\nApply: Invokes the function with a given this value and allows you to pass in arguments as an\narray\nvar employee1 = {firstName: 'John', lastName: 'Rodson'}; \nvar employee2 = {firstName: 'Jimmy', lastName: 'Baily'}; \nfunction invite(greeting1, greeting2) { \n    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2); \n} \ninvite.call(employee1, 'Hello', 'How are you?'); // Hello John Rodson, How are you? \ninvite.call(employee2, 'Hello', 'How are you?'); // Hello Jimmy Baily, How are you? \nvar employee1 = {firstName: 'John', lastName: 'Rodson'}; \nvar employee2 = {firstName: 'Jimmy', lastName: 'Baily'}; \nfunction invite(greeting1, greeting2) { \n    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2); \n} \n\n\n\n\nbind: returns a new function, allowing you to pass any number of arguments\nCall and apply are pretty interchangeable. Both execute the current function immediately. You\nneed to decide whether it’s easier to send in an array or a comma separated list of arguments.\nYou can remember by treating Call is for comma (separated list) and Apply is for Array.\nWhereas Bind creates a new function that will have this set to the first parameter passed to\nbind()."
+  },
+  {
+    "id": 4,
+    "question_en": "What is JSON and its common operations",
+    "answer_en": "JSON is a text-based data format following JavaScript object syntax, which was popularized by\nDouglas Crockford. It is useful when you want to transmit data across a network and it is\nbasically just a text file with an extension of .json, and a MIME type of application/json\nParsing: Converting a string to a native object\nJSON.parse(text) \nStringification: converting a native object to a string so it can be transmitted across the network\nJSON.stringify(object)",
+    "question_ru": "[Перевод] What is JSON and its common operations",
+    "answer_ru": "[Перевод] JSON is a text-based data format following JavaScript object syntax, which was popularized by\nDouglas Crockford. It is useful when you want to transmit data across a network and it is\nbasically just a text file with an extension of .json, and a MIME type of application/json\nParsing: Converting a string to a native object\nJSON.parse(text) \nStringification: converting a native object to a string so it can be transmitted across the network\nJSON.stringify(object)"
+  },
+  {
+    "id": 5,
+    "question_en": "What is the purpose of the array slice method",
+    "answer_en": "The slice() method returns the selected elements in an array as a new array object. It selects the\nelements starting at the given start argument, and ends at the given optional end argument\nwithout including the last element. If you omit the second argument then it selects till the end.\ninvite.apply(employee1, ['Hello', 'How are you?']); // Hello John Rodson, How are you?\ninvite.apply(employee2, ['Hello', 'How are you?']); // Hello Jimmy Baily, How are you?\nvar employee1 = {firstName: 'John', lastName: 'Rodson'}; \nvar employee2 = {firstName: 'Jimmy', lastName: 'Baily'}; \nfunction invite(greeting1, greeting2) { \n    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2); \n} \nvar inviteEmployee1 = invite.bind(employee1); \nvar inviteEmployee2 = invite.bind(employee2); \ninviteEmployee1('Hello', 'How are you?'); // Hello John Rodson, How are you? \ninviteEmployee2('Hello', 'How are you?'); // Hello Jimmy Baily, How are you? \n\n\n\n\nSome of the examples of this method are,\nlet arrayIntegers = [1, 2, 3, 4, 5]; \nlet arrayIntegers1 = arrayIntegers.slice(0,2); // returns [1,2]\nlet arrayIntegers2 = arrayIntegers.slice(2,3); // returns [3] \nlet arrayIntegers3 = arrayIntegers.slice(4); //returns [5] \nNote: Slice method won't mutate the original array but it returns the subset as a new array.",
+    "question_ru": "[Перевод] What is the purpose of the array slice method",
+    "answer_ru": "[Перевод] The slice() method returns the selected elements in an array as a new array object. It selects the\nelements starting at the given start argument, and ends at the given optional end argument\nwithout including the last element. If you omit the second argument then it selects till the end.\ninvite.apply(employee1, ['Hello', 'How are you?']); // Hello John Rodson, How are you?\ninvite.apply(employee2, ['Hello', 'How are you?']); // Hello Jimmy Baily, How are you?\nvar employee1 = {firstName: 'John', lastName: 'Rodson'}; \nvar employee2 = {firstName: 'Jimmy', lastName: 'Baily'}; \nfunction invite(greeting1, greeting2) { \n    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2); \n} \nvar inviteEmployee1 = invite.bind(employee1); \nvar inviteEmployee2 = invite.bind(employee2); \ninviteEmployee1('Hello', 'How are you?'); // Hello John Rodson, How are you? \ninviteEmployee2('Hello', 'How are you?'); // Hello Jimmy Baily, How are you? \n\n\n\n\nSome of the examples of this method are,\nlet arrayIntegers = [1, 2, 3, 4, 5]; \nlet arrayIntegers1 = arrayIntegers.slice(0,2); // returns [1,2]\nlet arrayIntegers2 = arrayIntegers.slice(2,3); // returns [3] \nlet arrayIntegers3 = arrayIntegers.slice(4); //returns [5] \nNote: Slice method won't mutate the original array but it returns the subset as a new array."
+  },
+  {
+    "id": 6,
+    "question_en": "What is the purpose of the array splice method",
+    "answer_en": "The splice() method is used either adds/removes items to/from an array, and then returns the\nremoved item. The first argument specifies the array position for insertion or deletion whereas\nthe option second argument indicates the number of elements to be deleted. Each additional\nargument is added to the array.\nSome of the examples of this method are,\nNote: Splice method modifies the original array and returns the deleted array.",
+    "question_ru": "[Перевод] What is the purpose of the array splice method",
+    "answer_ru": "[Перевод] The splice() method is used either adds/removes items to/from an array, and then returns the\nremoved item. The first argument specifies the array position for insertion or deletion whereas\nthe option second argument indicates the number of elements to be deleted. Each additional\nargument is added to the array.\nSome of the examples of this method are,\nNote: Splice method modifies the original array and returns the deleted array."
+  },
+  {
+    "id": 7,
+    "question_en": "What is the difference between slice and splice",
+    "answer_en": "Some of the major difference in a tabular form\nSlice Splice\nDoesn't modify the original\narray(immutable) Modifies the original array(mutable)\nReturns the subset of original array Returns the deleted elements as array\nUsed to pick the elements from arrayUsed to insert or delete elements to/from\narray",
+    "question_ru": "[Перевод] What is the difference between slice and splice",
+    "answer_ru": "[Перевод] Some of the major difference in a tabular form\nSlice Splice\nDoesn't modify the original\narray(immutable) Modifies the original array(mutable)\nReturns the subset of original array Returns the deleted elements as array\nUsed to pick the elements from arrayUsed to insert or delete elements to/from\narray"
+  },
+  {
+    "id": 8,
+    "question_en": "How do you compare Object and Map",
+    "answer_en": "let arrayIntegersOriginal1 = [1, 2, 3, 4, 5]; \nlet arrayIntegersOriginal2 = [1, 2, 3, 4, 5]; \nlet arrayIntegersOriginal3 = [1, 2, 3, 4, 5]; \nlet arrayIntegers1 = arrayIntegersOriginal1.splice(0,2); // returns [1, 2]; original array\nlet arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: \nlet arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, \"a\", \"b\", \"c\"); //returns [4]; or\n\n\n\n\nObjects are similar to Maps in that both let you set keys to values, retrieve those values, delete\nkeys, and detect whether something is stored at a key. Due to this reason, Objects have been\nused as Maps historically. But there are important differences that make using a Map preferable\nin certain cases.\ni. The keys of an Object are Strings and Symbols, whereas they can be any value for a Map,\nincluding functions, objects, and any primitive.\nii. The keys in Map are ordered while keys added to Object are not. Thus, when iterating over\nit, a Map object returns keys in order of insertion.\niii. You can get the size of a Map easily with the size property, while the number of properties in\nan Object must be determined manually.\niv. A Map is an iterable and can thus be directly iterated, whereas iterating over an Object\nrequires obtaining its keys in some fashion and iterating over them.\nv. An Object has a prototype, so there are default keys in the map that could collide with your\nkeys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null),\nbut this is seldom done.\nvi. A Map may perform better in scenarios involving frequent addition and removal of key pairs.",
+    "question_ru": "[Перевод] How do you compare Object and Map",
+    "answer_ru": "[Перевод] let arrayIntegersOriginal1 = [1, 2, 3, 4, 5]; \nlet arrayIntegersOriginal2 = [1, 2, 3, 4, 5]; \nlet arrayIntegersOriginal3 = [1, 2, 3, 4, 5]; \nlet arrayIntegers1 = arrayIntegersOriginal1.splice(0,2); // returns [1, 2]; original array\nlet arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: \nlet arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, \"a\", \"b\", \"c\"); //returns [4]; or\n\n\n\n\nObjects are similar to Maps in that both let you set keys to values, retrieve those values, delete\nkeys, and detect whether something is stored at a key. Due to this reason, Objects have been\nused as Maps historically. But there are important differences that make using a Map preferable\nin certain cases.\ni. The keys of an Object are Strings and Symbols, whereas they can be any value for a Map,\nincluding functions, objects, and any primitive.\nii. The keys in Map are ordered while keys added to Object are not. Thus, when iterating over\nit, a Map object returns keys in order of insertion.\niii. You can get the size of a Map easily with the size property, while the number of properties in\nan Object must be determined manually.\niv. A Map is an iterable and can thus be directly iterated, whereas iterating over an Object\nrequires obtaining its keys in some fashion and iterating over them.\nv. An Object has a prototype, so there are default keys in the map that could collide with your\nkeys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null),\nbut this is seldom done.\nvi. A Map may perform better in scenarios involving frequent addition and removal of key pairs."
+  },
+  {
+    "id": 9,
+    "question_en": "What is the difference between == and === operators",
+    "answer_en": "JavaScript provides both strict(===, !==) and type-converting(==, !=) equality comparison. The\nstrict operators take type of variable in consideration, while non-strict operators make type\ncorrection/conversion based upon values of variables. The strict operators follow the below\nconditions for different types,\ni. Two strings are strictly equal when they have the same sequence of characters, same length,\nand same characters in corresponding positions.\nii. Two numbers are strictly equal when they are numerically equal. i.e, Having the same\nnumber value. There are two special cases in this,\na. NaN is not equal to anything, including NaN.\nb. Positive and negative zeros are equal to one another.\niii. Two Boolean operands are strictly equal if both are true or both are false.\niv. Two objects are strictly equal if they refer to the same Object.\nv. Null and Undefined types are not equal with ===, but equal with ==. i.e, null===undefined\n--> false but null==undefined --> true\nSome of the example which covers the above cases,\n0 == false   // true \n0 === false  // false \n1 == \"1\"     // true \n1 === \"1\"    // false \nnull == undefined // true \nnull === undefined // false \n\n\n\n\n'0' == false // true \n'0' === false // false \n[]==[] or []===[] //false, refer different objects in memory \n{}=={} or {}==={} //false, refer different objects in memory",
+    "question_ru": "[Перевод] What is the difference between == and === operators",
+    "answer_ru": "[Перевод] JavaScript provides both strict(===, !==) and type-converting(==, !=) equality comparison. The\nstrict operators take type of variable in consideration, while non-strict operators make type\ncorrection/conversion based upon values of variables. The strict operators follow the below\nconditions for different types,\ni. Two strings are strictly equal when they have the same sequence of characters, same length,\nand same characters in corresponding positions.\nii. Two numbers are strictly equal when they are numerically equal. i.e, Having the same\nnumber value. There are two special cases in this,\na. NaN is not equal to anything, including NaN.\nb. Positive and negative zeros are equal to one another.\niii. Two Boolean operands are strictly equal if both are true or both are false.\niv. Two objects are strictly equal if they refer to the same Object.\nv. Null and Undefined types are not equal with ===, but equal with ==. i.e, null===undefined\n--> false but null==undefined --> true\nSome of the example which covers the above cases,\n0 == false   // true \n0 === false  // false \n1 == \"1\"     // true \n1 === \"1\"    // false \nnull == undefined // true \nnull === undefined // false \n\n\n\n\n'0' == false // true \n'0' === false // false \n[]==[] or []===[] //false, refer different objects in memory \n{}=={} or {}==={} //false, refer different objects in memory"
+  },
+  {
+    "id": 10,
+    "question_en": "What are lambda or arrow functions",
+    "answer_en": "An arrow function is a shorter syntax for a function expression and does not have its own this,\narguments, super, or new.target. These functions are best suited for non-method functions, and\nthey cannot be used as constructors.",
+    "question_ru": "[Перевод] What are lambda or arrow functions",
+    "answer_ru": "[Перевод] An arrow function is a shorter syntax for a function expression and does not have its own this,\narguments, super, or new.target. These functions are best suited for non-method functions, and\nthey cannot be used as constructors."
+  },
+  {
+    "id": 11,
+    "question_en": "What is a first class function",
+    "answer_en": "In Javascript, functions are first class objects. First-class functions means when functions in that\nlanguage are treated like any other variable.\nFor example, in such a language, a function can be passed as an argument to other functions,\ncan be returned by another function and can be assigned as a value to a variable. For example, in\nthe below example, handler functions assigned to a listener\nconst handler = () => console.log ('This is a click handler function'); \ndocument.addEventListener ('click', handler);",
+    "question_ru": "[Перевод] What is a first class function",
+    "answer_ru": "[Перевод] In Javascript, functions are first class objects. First-class functions means when functions in that\nlanguage are treated like any other variable.\nFor example, in such a language, a function can be passed as an argument to other functions,\ncan be returned by another function and can be assigned as a value to a variable. For example, in\nthe below example, handler functions assigned to a listener\nconst handler = () => console.log ('This is a click handler function'); \ndocument.addEventListener ('click', handler);"
+  },
+  {
+    "id": 12,
+    "question_en": "What is a first order function",
+    "answer_en": "First-order function is a function that doesn’t accept another function as an argument and\ndoesn’t return a function as its return value.\nconst firstOrder = () => console.log ('I am a first order function!');",
+    "question_ru": "[Перевод] What is a first order function",
+    "answer_ru": "[Перевод] First-order function is a function that doesn’t accept another function as an argument and\ndoesn’t return a function as its return value.\nconst firstOrder = () => console.log ('I am a first order function!');"
+  },
+  {
+    "id": 13,
+    "question_en": "What is a higher order function",
+    "answer_en": "Higher-order function is a function that accepts another function as an argument or returns a\nfunction as a return value or both.\nconst firstOrderFunc = () => console.log ('Hello, I am a First order function'); \nconst higherOrder = ReturnFirstOrderFunc => ReturnFirstOrderFunc(); \nhigherOrder(firstOrderFunc);",
+    "question_ru": "[Перевод] What is a higher order function",
+    "answer_ru": "[Перевод] Higher-order function is a function that accepts another function as an argument or returns a\nfunction as a return value or both.\nconst firstOrderFunc = () => console.log ('Hello, I am a First order function'); \nconst higherOrder = ReturnFirstOrderFunc => ReturnFirstOrderFunc(); \nhigherOrder(firstOrderFunc);"
+  },
+  {
+    "id": 14,
+    "question_en": "What is a unary function",
+    "answer_en": "Unary function (i.e. monadic) is a function that accepts exactly one argument. It stands for a\nsingle argument accepted by a function.\n\n\n\n\nLet us take an example of unary function,",
+    "question_ru": "[Перевод] What is a unary function",
+    "answer_ru": "[Перевод] Unary function (i.e. monadic) is a function that accepts exactly one argument. It stands for a\nsingle argument accepted by a function.\n\n\n\n\nLet us take an example of unary function,"
+  },
+  {
+    "id": 15,
+    "question_en": "What is the currying function",
+    "answer_en": "Currying is the process of taking a function with multiple arguments and turning it into a\nsequence of functions each with only a single argument. Currying is named after a\nmathematician Haskell Curry. By applying currying, a n-ary function turns it into a unary\nfunction.\nLet's take an example of n-ary function and how it turns into a currying function,\nconst multiArgFunction = (a, b, c) => a + b + c; \nconsole.log(multiArgFunction(1,2,3));// 6 \nconst curryUnaryFunction = a => b => c => a + b + c; \ncurryUnaryFunction (1); // returns a function: b => c =>  1 + b + c \ncurryUnaryFunction (1) (2); // returns a function: c => 3 + c \ncurryUnaryFunction (1) (2) (3); // returns the number 6 \nCurried functions are great to improve code reusability and functional composition.",
+    "question_ru": "[Перевод] What is the currying function",
+    "answer_ru": "[Перевод] Currying is the process of taking a function with multiple arguments and turning it into a\nsequence of functions each with only a single argument. Currying is named after a\nmathematician Haskell Curry. By applying currying, a n-ary function turns it into a unary\nfunction.\nLet's take an example of n-ary function and how it turns into a currying function,\nconst multiArgFunction = (a, b, c) => a + b + c; \nconsole.log(multiArgFunction(1,2,3));// 6 \nconst curryUnaryFunction = a => b => c => a + b + c; \ncurryUnaryFunction (1); // returns a function: b => c =>  1 + b + c \ncurryUnaryFunction (1) (2); // returns a function: c => 3 + c \ncurryUnaryFunction (1) (2) (3); // returns the number 6 \nCurried functions are great to improve code reusability and functional composition."
+  },
+  {
+    "id": 16,
+    "question_en": "What is a pure function",
+    "answer_en": "A Pure function is a function where the return value is only determined by its arguments without\nany side effects. i.e, If you call a function with the same arguments 'n' number of times and 'n'\nnumber of places in the application then it will always return the same value.\nLet's take an example to see the difference between pure and impure functions,\n//Impure \nlet numberArray = [];\nconst impureAddNumber = number => numberArray.push(number); \n//Pure \nconst pureAddNumber = number => argNumberArray => \n  argNumberArray.concat([number]); \n//Display the results \nconsole.log (impureAddNumber(6)); // returns 1 \nconsole.log (numberArray); // returns [6] \nconsole.log (pureAddNumber(7) (numberArray)); // returns [6, 7] \nconsole.log (numberArray); // returns [6] \nconst unaryFunction = a => console.log (a + 10); // Add 10 to the given argument and displ\n\n\n\n\nAs per above code snippets, Push function is impure itself by altering the array and returning an\npush number index which is independent of parameter value. Whereas Concat on the other hand\ntakes the array and concatenates it with the other array producing a whole new array without\nside effects. Also, the return value is a concatenation of the previous array.\nRemember that Pure functions are important as they simplify unit testing without any side effects\nand no need for dependency injection. They also avoid tight coupling and make it harder to\nbreak your application by not having any side effects. These principles are coming together with\nImmutability concept of ES6 by giving preference to const over let usage.",
+    "question_ru": "[Перевод] What is a pure function",
+    "answer_ru": "[Перевод] A Pure function is a function where the return value is only determined by its arguments without\nany side effects. i.e, If you call a function with the same arguments 'n' number of times and 'n'\nnumber of places in the application then it will always return the same value.\nLet's take an example to see the difference between pure and impure functions,\n//Impure \nlet numberArray = [];\nconst impureAddNumber = number => numberArray.push(number); \n//Pure \nconst pureAddNumber = number => argNumberArray => \n  argNumberArray.concat([number]); \n//Display the results \nconsole.log (impureAddNumber(6)); // returns 1 \nconsole.log (numberArray); // returns [6] \nconsole.log (pureAddNumber(7) (numberArray)); // returns [6, 7] \nconsole.log (numberArray); // returns [6] \nconst unaryFunction = a => console.log (a + 10); // Add 10 to the given argument and displ\n\n\n\n\nAs per above code snippets, Push function is impure itself by altering the array and returning an\npush number index which is independent of parameter value. Whereas Concat on the other hand\ntakes the array and concatenates it with the other array producing a whole new array without\nside effects. Also, the return value is a concatenation of the previous array.\nRemember that Pure functions are important as they simplify unit testing without any side effects\nand no need for dependency injection. They also avoid tight coupling and make it harder to\nbreak your application by not having any side effects. These principles are coming together with\nImmutability concept of ES6 by giving preference to const over let usage."
+  },
+  {
+    "id": 17,
+    "question_en": "What is the purpose of the let keyword",
+    "answer_en": "The let statement declares a block scope local variable. Hence the variables defined with let\nkeyword are limited in scope to the block, statement, or expression on which it is used. Whereas\nvariables declared with the var keyword used to define a variable globally, or locally to an\nentire function regardless of block scope.\nLet's take an example to demonstrate the usage,\nlet counter = 30; \nif (counter === 30) {\n  let counter = 31; \n  console.log(counter); // 31 \n} \nconsole.log(counter); // 30 (because the variable in if block won't exist here)",
+    "question_ru": "[Перевод] What is the purpose of the let keyword",
+    "answer_ru": "[Перевод] The let statement declares a block scope local variable. Hence the variables defined with let\nkeyword are limited in scope to the block, statement, or expression on which it is used. Whereas\nvariables declared with the var keyword used to define a variable globally, or locally to an\nentire function regardless of block scope.\nLet's take an example to demonstrate the usage,\nlet counter = 30; \nif (counter === 30) {\n  let counter = 31; \n  console.log(counter); // 31 \n} \nconsole.log(counter); // 30 (because the variable in if block won't exist here)"
+  },
+  {
+    "id": 18,
+    "question_en": "What is the difference between let and var",
+    "answer_en": "You can list out the differences in a tabular format\nvar let\nIt is been available from the beginning of JavaScriptIntroduced as part of ES6\nIt has function scope It has block scope\nVariables will be hoisted Hoisted but not initialized\nLet's take an example to see the difference,\nfunction userDetails(username) { \n   if(username) { \n     console.log(salary); // undefined due to hoisting \n     console.log(age); // ReferenceError: Cannot access 'age' before initialization \n     let age = 30; \n     var salary = 10000; \n   } \n\n\n\n\n   console.log(salary); //10000 (accessible to due function scope) \n   console.log(age); //error: age is not defined(due to block scope) \n} \nuserDetails('John');",
+    "question_ru": "[Перевод] What is the difference between let and var",
+    "answer_ru": "[Перевод] You can list out the differences in a tabular format\nvar let\nIt is been available from the beginning of JavaScriptIntroduced as part of ES6\nIt has function scope It has block scope\nVariables will be hoisted Hoisted but not initialized\nLet's take an example to see the difference,\nfunction userDetails(username) { \n   if(username) { \n     console.log(salary); // undefined due to hoisting \n     console.log(age); // ReferenceError: Cannot access 'age' before initialization \n     let age = 30; \n     var salary = 10000; \n   } \n\n\n\n\n   console.log(salary); //10000 (accessible to due function scope) \n   console.log(age); //error: age is not defined(due to block scope) \n} \nuserDetails('John');"
+  },
+  {
+    "id": 19,
+    "question_en": "What is the reason to choose the name let as a keyword",
+    "answer_en": "let is a mathematical statement that was adopted by early programming languages like\nScheme and Basic. It has been borrowed from dozens of other languages that use let already\nas a traditional keyword as close to var as possible.",
+    "question_ru": "[Перевод] What is the reason to choose the name let as a keyword",
+    "answer_ru": "[Перевод] let is a mathematical statement that was adopted by early programming languages like\nScheme and Basic. It has been borrowed from dozens of other languages that use let already\nas a traditional keyword as close to var as possible."
+  },
+  {
+    "id": 20,
+    "question_en": "How do you redeclare variables in switch block without an error",
+    "answer_en": "If you try to redeclare variables in a switch block then it will cause errors because there is only\none block. For example, the below code block throws a syntax error as below,\nlet counter = 1; \nswitch(x) { \n  case 0: \n    let name; \n    break; \n  case 1: \n    let name; // SyntaxError for redeclaration. \n    break; \n} \nTo avoid this error, you can create a nested block inside a case clause and create a new block\nscoped lexical environment.\nlet counter = 1; \n    switch(x) { \n      case 0: { \n        let name; \n        break; \n      } \n      case 1: { \n        let name; // No SyntaxError for redeclaration. \n        break; \n      } \n    }",
+    "question_ru": "[Перевод] How do you redeclare variables in switch block without an error",
+    "answer_ru": "[Перевод] If you try to redeclare variables in a switch block then it will cause errors because there is only\none block. For example, the below code block throws a syntax error as below,\nlet counter = 1; \nswitch(x) { \n  case 0: \n    let name; \n    break; \n  case 1: \n    let name; // SyntaxError for redeclaration. \n    break; \n} \nTo avoid this error, you can create a nested block inside a case clause and create a new block\nscoped lexical environment.\nlet counter = 1; \n    switch(x) { \n      case 0: { \n        let name; \n        break; \n      } \n      case 1: { \n        let name; // No SyntaxError for redeclaration. \n        break; \n      } \n    }"
+  },
+  {
+    "id": 21,
+    "question_en": "What is the Temporal Dead Zone",
+    "answer_en": "The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with\nthe let and const keywords, but not with var. In ECMAScript 6, accessing a let or const\nvariable before its declaration (within its scope) causes a ReferenceError. The time span when\n\n\n\n\nthat happens, between the creation of a variable’s binding and its declaration, is called the\ntemporal dead zone.\nLet's see this behavior with an example,\nfunction somemethod() { \n  console.log(counter1); // undefined \n  console.log(counter2); // ReferenceError \n  var counter1 = 1; \n  let counter2 = 2; \n}",
+    "question_ru": "[Перевод] What is the Temporal Dead Zone",
+    "answer_ru": "[Перевод] The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with\nthe let and const keywords, but not with var. In ECMAScript 6, accessing a let or const\nvariable before its declaration (within its scope) causes a ReferenceError. The time span when\n\n\n\n\nthat happens, between the creation of a variable’s binding and its declaration, is called the\ntemporal dead zone.\nLet's see this behavior with an example,\nfunction somemethod() { \n  console.log(counter1); // undefined \n  console.log(counter2); // ReferenceError \n  var counter1 = 1; \n  let counter2 = 2; \n}"
+  },
+  {
+    "id": 22,
+    "question_en": "What is IIFE(Immediately Invoked Function Expression)",
+    "answer_en": "IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is\ndefined. The signature of it would be as below,\n(function () \n    { \n      // logic here \n    } \n ) \n(); \nThe primary reason to use an IIFE is to obtain data privacy because any variables declared within\nthe IIFE cannot be accessed by the outside world. i.e, If you try to access variables with IIFE then\nit throws an error as below,\n(function () \n        { \n          var message = \"IIFE\"; \n          console.log(message); \n        } \n ) \n(); \nconsole.log(message); //Error: message is not defined",
+    "question_ru": "[Перевод] What is IIFE(Immediately Invoked Function Expression)",
+    "answer_ru": "[Перевод] IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is\ndefined. The signature of it would be as below,\n(function () \n    { \n      // logic here \n    } \n ) \n(); \nThe primary reason to use an IIFE is to obtain data privacy because any variables declared within\nthe IIFE cannot be accessed by the outside world. i.e, If you try to access variables with IIFE then\nit throws an error as below,\n(function () \n        { \n          var message = \"IIFE\"; \n          console.log(message); \n        } \n ) \n(); \nconsole.log(message); //Error: message is not defined"
+  },
+  {
+    "id": 23,
+    "question_en": "What is the benefit of using modules",
+    "answer_en": "There are a lot of benefits to using modules in favour of a sprawling. Some of the benefits are,\ni. Maintainability\nii. Reusability\niii. Namespacing",
+    "question_ru": "[Перевод] What is the benefit of using modules",
+    "answer_ru": "[Перевод] There are a lot of benefits to using modules in favour of a sprawling. Some of the benefits are,\ni. Maintainability\nii. Reusability\niii. Namespacing"
+  },
+  {
+    "id": 24,
+    "question_en": "What is memoization",
+    "answer_en": "Memoization is a programming technique which attempts to increase a function’s performance\nby caching its previously computed results. Each time a memoized function is called, its\nparameters are used to index the cache. If the data is present, then it can be returned, without\nexecuting the entire function. Otherwise the function is executed and then the result is added to\nthe cache. Let's take an example of adding function with memoization,",
+    "question_ru": "[Перевод] What is memoization",
+    "answer_ru": "[Перевод] Memoization is a programming technique which attempts to increase a function’s performance\nby caching its previously computed results. Each time a memoized function is called, its\nparameters are used to index the cache. If the data is present, then it can be returned, without\nexecuting the entire function. Otherwise the function is executed and then the result is added to\nthe cache. Let's take an example of adding function with memoization,"
+  },
+  {
+    "id": 25,
+    "question_en": "What is Hoisting",
+    "answer_en": "Hoisting is a JavaScript mechanism where variables and function declarations are moved to the\ntop of their scope before code execution. Remember that JavaScript only hoists declarations, not\ninitialisation. Let's take a simple example of variable hoisting,\nconsole.log(message); //output : undefined \nvar message = 'The variable Has been hoisted'; \nThe above code looks like as below to the interpreter,\nvar message; \nconsole.log(message);\nmessage = 'The variable Has been hoisted';",
+    "question_ru": "[Перевод] What is Hoisting",
+    "answer_ru": "[Перевод] Hoisting is a JavaScript mechanism where variables and function declarations are moved to the\ntop of their scope before code execution. Remember that JavaScript only hoists declarations, not\ninitialisation. Let's take a simple example of variable hoisting,\nconsole.log(message); //output : undefined \nvar message = 'The variable Has been hoisted'; \nThe above code looks like as below to the interpreter,\nvar message; \nconsole.log(message);\nmessage = 'The variable Has been hoisted';"
+  },
+  {
+    "id": 26,
+    "question_en": "What are classes in ES6",
+    "answer_en": "const memoizAddition = () => { \n  let cache = {}; \n return (value) => { \n  if (value in cache) { \n   console.log('Fetching from cache'); \n   return cache[value]; // Here, cache.value cannot be used as property name starts with t\n  } \n  else { \n   console.log('Calculating result'); \n   let result = value + 20; \n   cache[value] = result; \n   return result; \n  } \n } \n} \n// returned function from memoizAddition \nconst addition = memoizAddition(); \nconsole.log(addition(20)); //output: 40 calculated \nconsole.log(addition(20)); //output: 40 cached \n\n\n\n\nIn ES6, Javascript classes are primarily syntactic sugar over JavaScript’s existing prototype-based\ninheritance. For example, the prototype based inheritance written in function expression as\nbelow,\nfunction Bike(model,color) { \n    this.model = model; \n    this.color = color; \n} \nBike.prototype.getDetails = function() { \n    return this.model + ' bike has' + this.color + ' color'; \n}; \nWhereas ES6 classes can be defined as an alternative\nclass Bike{ \n  constructor(color, model) { \n    this.color= color; \n    this.model= model; \n  } \n  getDetails() { \n    return this.model + ' bike has' + this.color + ' color'; \n  } \n}",
+    "question_ru": "[Перевод] What are classes in ES6",
+    "answer_ru": "[Перевод] const memoizAddition = () => { \n  let cache = {}; \n return (value) => { \n  if (value in cache) { \n   console.log('Fetching from cache'); \n   return cache[value]; // Here, cache.value cannot be used as property name starts with t\n  } \n  else { \n   console.log('Calculating result'); \n   let result = value + 20; \n   cache[value] = result; \n   return result; \n  } \n } \n} \n// returned function from memoizAddition \nconst addition = memoizAddition(); \nconsole.log(addition(20)); //output: 40 calculated \nconsole.log(addition(20)); //output: 40 cached \n\n\n\n\nIn ES6, Javascript classes are primarily syntactic sugar over JavaScript’s existing prototype-based\ninheritance. For example, the prototype based inheritance written in function expression as\nbelow,\nfunction Bike(model,color) { \n    this.model = model; \n    this.color = color; \n} \nBike.prototype.getDetails = function() { \n    return this.model + ' bike has' + this.color + ' color'; \n}; \nWhereas ES6 classes can be defined as an alternative\nclass Bike{ \n  constructor(color, model) { \n    this.color= color; \n    this.model= model; \n  } \n  getDetails() { \n    return this.model + ' bike has' + this.color + ' color'; \n  } \n}"
+  },
+  {
+    "id": 27,
+    "question_en": "What are closures",
+    "answer_en": "A closure is the combination of a function and the lexical environment within which that function\nwas declared. i.e, It is an inner function that has access to the outer or enclosing function’s\nvariables. The closure has three scope chains\ni. Own scope where variables defined between its curly brackets\nii. Outer function’s variables\niii. Global variables\nLet's take an example of closure concept,\nfunction Welcome(name){ \n  var greetingInfo = function(message){ \n   console.log(message+' '+name); \n  } \nreturn greetingInfo; \n} \nvar myFunction = Welcome('John'); \nmyFunction('Welcome '); //Output: Welcome John \nmyFunction('Hello Mr.'); //output: Hello Mr.John \n\n\n\n\nAs per the above code, the inner function(i.e, greetingInfo) has access to the variables in the\nouter function scope(i.e, Welcome) even after the outer function has returned.",
+    "question_ru": "[Перевод] What are closures",
+    "answer_ru": "[Перевод] A closure is the combination of a function and the lexical environment within which that function\nwas declared. i.e, It is an inner function that has access to the outer or enclosing function’s\nvariables. The closure has three scope chains\ni. Own scope where variables defined between its curly brackets\nii. Outer function’s variables\niii. Global variables\nLet's take an example of closure concept,\nfunction Welcome(name){ \n  var greetingInfo = function(message){ \n   console.log(message+' '+name); \n  } \nreturn greetingInfo; \n} \nvar myFunction = Welcome('John'); \nmyFunction('Welcome '); //Output: Welcome John \nmyFunction('Hello Mr.'); //output: Hello Mr.John \n\n\n\n\nAs per the above code, the inner function(i.e, greetingInfo) has access to the variables in the\nouter function scope(i.e, Welcome) even after the outer function has returned."
+  },
+  {
+    "id": 28,
+    "question_en": "What are modules",
+    "answer_en": "Modules refer to small units of independent, reusable code and also act as the foundation of\nmany JavaScript design patterns. Most of the JavaScript modules export an object literal, a\nfunction, or a constructor",
+    "question_ru": "[Перевод] What are modules",
+    "answer_ru": "[Перевод] Modules refer to small units of independent, reusable code and also act as the foundation of\nmany JavaScript design patterns. Most of the JavaScript modules export an object literal, a\nfunction, or a constructor"
+  },
+  {
+    "id": 29,
+    "question_en": "Why do you need modules",
+    "answer_en": "Below are the list of benefits using modules in javascript ecosystem\ni. Maintainability\nii. Reusability\niii. Namespacing",
+    "question_ru": "[Перевод] Why do you need modules",
+    "answer_ru": "[Перевод] Below are the list of benefits using modules in javascript ecosystem\ni. Maintainability\nii. Reusability\niii. Namespacing"
+  },
+  {
+    "id": 30,
+    "question_en": "What is scope in javascript",
+    "answer_en": "Scope is the accessibility of variables, functions, and objects in some particular part of your code\nduring runtime. In other words, scope determines the visibility of variables and other resources in\nareas of your code.",
+    "question_ru": "[Перевод] What is scope in javascript",
+    "answer_ru": "[Перевод] Scope is the accessibility of variables, functions, and objects in some particular part of your code\nduring runtime. In other words, scope determines the visibility of variables and other resources in\nareas of your code."
+  },
+  {
+    "id": 31,
+    "question_en": "What is a service worker",
+    "answer_en": "A Service worker is basically a script (JavaScript file) that runs in the background, separate from a\nweb page and provides features that don't need a web page or user interaction. Some of the\nmajor features of service workers are Rich offline experiences(offline first web application\ndevelopment), periodic background syncs, push notifications, intercept and handle network\nrequests and programmatically managing a cache of responses.",
+    "question_ru": "[Перевод] What is a service worker",
+    "answer_ru": "[Перевод] A Service worker is basically a script (JavaScript file) that runs in the background, separate from a\nweb page and provides features that don't need a web page or user interaction. Some of the\nmajor features of service workers are Rich offline experiences(offline first web application\ndevelopment), periodic background syncs, push notifications, intercept and handle network\nrequests and programmatically managing a cache of responses."
+  },
+  {
+    "id": 32,
+    "question_en": "How do you manipulate DOM using a service worker",
+    "answer_en": "Service worker can't access the DOM directly. But it can communicate with the pages it controls\nby responding to messages sent via the postMessage interface, and those pages can manipulate\nthe DOM.",
+    "question_ru": "[Перевод] How do you manipulate DOM using a service worker",
+    "answer_ru": "[Перевод] Service worker can't access the DOM directly. But it can communicate with the pages it controls\nby responding to messages sent via the postMessage interface, and those pages can manipulate\nthe DOM."
+  },
+  {
+    "id": 33,
+    "question_en": "How do you reuse information across service worker restarts",
+    "answer_en": "The problem with service worker is that it gets terminated when not in use, and restarted when\nit's next needed, so you cannot rely on global state within a service worker's onfetch and\nonmessage handlers. In this case, service workers will have access to IndexedDB API in order to\npersist and reuse across restarts.",
+    "question_ru": "[Перевод] How do you reuse information across service worker restarts",
+    "answer_ru": "[Перевод] The problem with service worker is that it gets terminated when not in use, and restarted when\nit's next needed, so you cannot rely on global state within a service worker's onfetch and\nonmessage handlers. In this case, service workers will have access to IndexedDB API in order to\npersist and reuse across restarts."
+  },
+  {
+    "id": 34,
+    "question_en": "What is IndexedDB",
+    "answer_en": "IndexedDB is a low-level API for client-side storage of larger amounts of structured data,\nincluding files/blobs. This API uses indexes to enable high-performance searches of this data.",
+    "question_ru": "[Перевод] What is IndexedDB",
+    "answer_ru": "[Перевод] IndexedDB is a low-level API for client-side storage of larger amounts of structured data,\nincluding files/blobs. This API uses indexes to enable high-performance searches of this data."
+  },
+  {
+    "id": 35,
+    "question_en": "What is web storage",
+    "answer_en": "Web storage is an API that provides a mechanism by which browsers can store key/value pairs\nlocally within the user's browser, in a much more intuitive fashion than using cookies. The web\nstorage provides two mechanisms for storing data on the client.\ni. Local storage: It stores data for current origin with no expiration date.\nii. Session storage: It stores data for one session and the data is lost when the browser tab is\nclosed.",
+    "question_ru": "[Перевод] What is web storage",
+    "answer_ru": "[Перевод] Web storage is an API that provides a mechanism by which browsers can store key/value pairs\nlocally within the user's browser, in a much more intuitive fashion than using cookies. The web\nstorage provides two mechanisms for storing data on the client.\ni. Local storage: It stores data for current origin with no expiration date.\nii. Session storage: It stores data for one session and the data is lost when the browser tab is\nclosed."
+  },
+  {
+    "id": 36,
+    "question_en": "What is a post message",
+    "answer_en": "Post message is a method that enables cross-origin communication between Window objects.\n(i.e, between a page and a pop-up that it spawned, or between a page and an iframe embedded\nwithin it). Generally, scripts on different pages are allowed to access each other if and only if the\npages follow same-origin policy(i.e, pages share the same protocol, port number, and host).",
+    "question_ru": "[Перевод] What is a post message",
+    "answer_ru": "[Перевод] Post message is a method that enables cross-origin communication between Window objects.\n(i.e, between a page and a pop-up that it spawned, or between a page and an iframe embedded\nwithin it). Generally, scripts on different pages are allowed to access each other if and only if the\npages follow same-origin policy(i.e, pages share the same protocol, port number, and host)."
+  },
+  {
+    "id": 37,
+    "question_en": "What is a Cookie",
+    "answer_en": "A cookie is a piece of data that is stored on your computer to be accessed by your browser.\nCookies are saved as key/value pairs. For example, you can create a cookie named username as\nbelow,\ndocument.cookie = \"username=John\";",
+    "question_ru": "[Перевод] What is a Cookie",
+    "answer_ru": "[Перевод] A cookie is a piece of data that is stored on your computer to be accessed by your browser.\nCookies are saved as key/value pairs. For example, you can create a cookie named username as\nbelow,\ndocument.cookie = \"username=John\";"
+  },
+  {
+    "id": 38,
+    "question_en": "Why do you need a Cookie",
+    "answer_en": "Cookies are used to remember information about the user profile(such as username). It basically\ninvolves two steps,\ni. When a user visits a web page, the user profile can be stored in a cookie.\nii. Next time the user visits the page, the cookie remembers the user profile.",
+    "question_ru": "[Перевод] Why do you need a Cookie",
+    "answer_ru": "[Перевод] Cookies are used to remember information about the user profile(such as username). It basically\ninvolves two steps,\ni. When a user visits a web page, the user profile can be stored in a cookie.\nii. Next time the user visits the page, the cookie remembers the user profile."
+  },
+  {
+    "id": 39,
+    "question_en": "What are the options in a cookie",
+    "answer_en": "There are few below options available for a cookie,\n\n\n\n\ni. By default, the cookie is deleted when the browser is closed but you can change this\nbehavior by setting expiry date (in UTC time).\ndocument.cookie = \"username=John; expires=Sat, 8 Jun 2019 12:00:00 UTC\"; \ni. By default, the cookie belongs to a current page. But you can tell the browser what path the\ncookie belongs to using a path parameter.\ndocument.cookie = \"username=John; path=/services\";",
+    "question_ru": "[Перевод] What are the options in a cookie",
+    "answer_ru": "[Перевод] There are few below options available for a cookie,\n\n\n\n\ni. By default, the cookie is deleted when the browser is closed but you can change this\nbehavior by setting expiry date (in UTC time).\ndocument.cookie = \"username=John; expires=Sat, 8 Jun 2019 12:00:00 UTC\"; \ni. By default, the cookie belongs to a current page. But you can tell the browser what path the\ncookie belongs to using a path parameter.\ndocument.cookie = \"username=John; path=/services\";"
+  },
+  {
+    "id": 40,
+    "question_en": "How do you delete a cookie",
+    "answer_en": "You can delete a cookie by setting the expiry date as a passed date. You don't need to specify a\ncookie value in this case. For example, you can delete a username cookie in the current page as\nbelow.\ndocument.cookie = \"username=; expires=Fri, 07 Jun 2019 00:00:00 UTC; path=/;\"; \nNote: You should define the cookie path option to ensure that you delete the right cookie. Some\nbrowsers doesn't allow to delete a cookie unless you specify a path parameter.",
+    "question_ru": "[Перевод] How do you delete a cookie",
+    "answer_ru": "[Перевод] You can delete a cookie by setting the expiry date as a passed date. You don't need to specify a\ncookie value in this case. For example, you can delete a username cookie in the current page as\nbelow.\ndocument.cookie = \"username=; expires=Fri, 07 Jun 2019 00:00:00 UTC; path=/;\"; \nNote: You should define the cookie path option to ensure that you delete the right cookie. Some\nbrowsers doesn't allow to delete a cookie unless you specify a path parameter."
+  },
+  {
+    "id": 41,
+    "question_en": "What are the differences between cookie, local storage and session storage",
+    "answer_en": "Below are some of the differences between cookie, local storage and session storage,\nFeature Cookie Local\nstorage\nSession\nstorage\nAccessed on client or\nserver side\nBoth server-side & client-\nside\nclient-side\nonly\nclient-side\nonly\nLifetime As configured using Expires\noption\nuntil\ndeleted\nuntil tab is\nclosed\nSSL support Supported Not\nsupported\nNot\nsupported\nMaximum data size 4KB 5 MB 5MB",
+    "question_ru": "[Перевод] What are the differences between cookie, local storage and session storage",
+    "answer_ru": "[Перевод] Below are some of the differences between cookie, local storage and session storage,\nFeature Cookie Local\nstorage\nSession\nstorage\nAccessed on client or\nserver side\nBoth server-side & client-\nside\nclient-side\nonly\nclient-side\nonly\nLifetime As configured using Expires\noption\nuntil\ndeleted\nuntil tab is\nclosed\nSSL support Supported Not\nsupported\nNot\nsupported\nMaximum data size 4KB 5 MB 5MB"
+  },
+  {
+    "id": 42,
+    "question_en": "What is the main difference between localStorage and sessionStorage",
+    "answer_en": "LocalStorage is the same as SessionStorage but it persists the data even when the browser is\nclosed and reopened(i.e it has no expiration time) whereas in sessionStorage data gets cleared\nwhen the page session ends.",
+    "question_ru": "[Перевод] What is the main difference between localStorage and sessionStorage",
+    "answer_ru": "[Перевод] LocalStorage is the same as SessionStorage but it persists the data even when the browser is\nclosed and reopened(i.e it has no expiration time) whereas in sessionStorage data gets cleared\nwhen the page session ends."
+  },
+  {
+    "id": 43,
+    "question_en": "How do you access web storage",
+    "answer_en": "The Window object implements the WindowLocalStorage and WindowSessionStorage objects\nwhich has localStorage(window.localStorage) and sessionStorage(window.sessionStorage)\nproperties respectively. These properties create an instance of the Storage object, through which\ndata items can be set, retrieved and removed for a specific domain and storage type (session or\nlocal). For example, you can read and write on local storage objects as below\nlocalStorage.setItem('logo', document.getElementById('logo').value); \nlocalStorage.getItem('logo');",
+    "question_ru": "[Перевод] How do you access web storage",
+    "answer_ru": "[Перевод] The Window object implements the WindowLocalStorage and WindowSessionStorage objects\nwhich has localStorage(window.localStorage) and sessionStorage(window.sessionStorage)\nproperties respectively. These properties create an instance of the Storage object, through which\ndata items can be set, retrieved and removed for a specific domain and storage type (session or\nlocal). For example, you can read and write on local storage objects as below\nlocalStorage.setItem('logo', document.getElementById('logo').value); \nlocalStorage.getItem('logo');"
+  },
+  {
+    "id": 44,
+    "question_en": "What are the methods available on session storage",
+    "answer_en": "The session storage provided methods for reading, writing and clearing the session data\n// Save data to sessionStorage \nsessionStorage.setItem('key', 'value'); \n// Get saved data from sessionStorage \nlet data = sessionStorage.getItem('key'); \n// Remove saved data from sessionStorage \nsessionStorage.removeItem('key'); \n// Remove all saved data from sessionStorage\nsessionStorage.clear();",
+    "question_ru": "[Перевод] What are the methods available on session storage",
+    "answer_ru": "[Перевод] The session storage provided methods for reading, writing and clearing the session data\n// Save data to sessionStorage \nsessionStorage.setItem('key', 'value'); \n// Get saved data from sessionStorage \nlet data = sessionStorage.getItem('key'); \n// Remove saved data from sessionStorage \nsessionStorage.removeItem('key'); \n// Remove all saved data from sessionStorage\nsessionStorage.clear();"
+  },
+  {
+    "id": 45,
+    "question_en": "What is a storage event and its event handler",
+    "answer_en": "The StorageEvent is an event that fires when a storage area has been changed in the context of\nanother document. Whereas onstorage property is an EventHandler for processing storage\nevents. The syntax would be as below\n window.onstorage = functionRef; \nLet's take the example usage of onstorage event handler which logs the storage key and it's\nvalues\nwindow.onstorage = function(e) { \n  console.log('The ' + e.key + \n    ' key has been changed from ' + e.oldValue + \n    ' to ' + e.newValue + '.'); \n};",
+    "question_ru": "[Перевод] What is a storage event and its event handler",
+    "answer_ru": "[Перевод] The StorageEvent is an event that fires when a storage area has been changed in the context of\nanother document. Whereas onstorage property is an EventHandler for processing storage\nevents. The syntax would be as below\n window.onstorage = functionRef; \nLet's take the example usage of onstorage event handler which logs the storage key and it's\nvalues\nwindow.onstorage = function(e) { \n  console.log('The ' + e.key + \n    ' key has been changed from ' + e.oldValue + \n    ' to ' + e.newValue + '.'); \n};"
+  },
+  {
+    "id": 46,
+    "question_en": "Why do you need web storage",
+    "answer_en": "Web storage is more secure, and large amounts of data can be stored locally, without affecting\nwebsite performance. Also, the information is never transferred to the server. Hence this is a\nmore recommended approach than Cookies.",
+    "question_ru": "[Перевод] Why do you need web storage",
+    "answer_ru": "[Перевод] Web storage is more secure, and large amounts of data can be stored locally, without affecting\nwebsite performance. Also, the information is never transferred to the server. Hence this is a\nmore recommended approach than Cookies."
+  },
+  {
+    "id": 47,
+    "question_en": "How do you check web storage browser support",
+    "answer_en": "You need to check browser support for localStorage and sessionStorage before using web\nstorage,\nif (typeof(Storage) !== \"undefined\") { \n  // Code for localStorage/sessionStorage. \n} else { \n  // Sorry! No Web Storage support.. \n}",
+    "question_ru": "[Перевод] How do you check web storage browser support",
+    "answer_ru": "[Перевод] You need to check browser support for localStorage and sessionStorage before using web\nstorage,\nif (typeof(Storage) !== \"undefined\") { \n  // Code for localStorage/sessionStorage. \n} else { \n  // Sorry! No Web Storage support.. \n}"
+  },
+  {
+    "id": 48,
+    "question_en": "How do you check web workers browser support",
+    "answer_en": "You need to check browser support for web workers before using it\nif (typeof(Worker) !== \"undefined\") { \n  // code for Web worker support. \n} else { \n  // Sorry! No Web Worker support.. \n}",
+    "question_ru": "[Перевод] How do you check web workers browser support",
+    "answer_ru": "[Перевод] You need to check browser support for web workers before using it\nif (typeof(Worker) !== \"undefined\") { \n  // code for Web worker support. \n} else { \n  // Sorry! No Web Worker support.. \n}"
+  },
+  {
+    "id": 49,
+    "question_en": "Give an example of a web worker",
+    "answer_en": "You need to follow below steps to start using web workers for counting example\ni. Create a Web Worker File: You need to write a script to increment the count value. Let's\nname it as counter.js\nlet i = 0; \nfunction timedCount() { \n  i = i + 1; \n  postMessage(i); \n  setTimeout(\"timedCount()\",500); \n} \ntimedCount(); \nHere postMessage() method is used to post a message back to the HTML page\n\n\n\n\ni. Create a Web Worker Object: You can create a web worker object by checking for browser\nsupport. Let's name this file as web_worker_example.js\nif (typeof(w) == \"undefined\") { \n  w = new Worker(\"counter.js\"); \n} \nand we can receive messages from web worker\nw.onmessage = function(event){ \n  document.getElementById(\"message\").innerHTML = event.data; \n}; \ni. Terminate a Web Worker: Web workers will continue to listen for messages (even after the\nexternal script is finished) until it is terminated. You can use the terminate() method to\nterminate listening to the messages.\nw.terminate(); \ni. Reuse the Web Worker: If you set the worker variable to undefined you can reuse the code\nw = undefined;",
+    "question_ru": "[Перевод] Give an example of a web worker",
+    "answer_ru": "[Перевод] You need to follow below steps to start using web workers for counting example\ni. Create a Web Worker File: You need to write a script to increment the count value. Let's\nname it as counter.js\nlet i = 0; \nfunction timedCount() { \n  i = i + 1; \n  postMessage(i); \n  setTimeout(\"timedCount()\",500); \n} \ntimedCount(); \nHere postMessage() method is used to post a message back to the HTML page\n\n\n\n\ni. Create a Web Worker Object: You can create a web worker object by checking for browser\nsupport. Let's name this file as web_worker_example.js\nif (typeof(w) == \"undefined\") { \n  w = new Worker(\"counter.js\"); \n} \nand we can receive messages from web worker\nw.onmessage = function(event){ \n  document.getElementById(\"message\").innerHTML = event.data; \n}; \ni. Terminate a Web Worker: Web workers will continue to listen for messages (even after the\nexternal script is finished) until it is terminated. You can use the terminate() method to\nterminate listening to the messages.\nw.terminate(); \ni. Reuse the Web Worker: If you set the worker variable to undefined you can reuse the code\nw = undefined;"
+  },
+  {
+    "id": 50,
+    "question_en": "What are the restrictions of web workers on DOM",
+    "answer_en": "WebWorkers don't have access to below javascript objects since they are defined in an external\nfiles\ni. Window object\nii. Document object\niii. Parent object",
+    "question_ru": "[Перевод] What are the restrictions of web workers on DOM",
+    "answer_ru": "[Перевод] WebWorkers don't have access to below javascript objects since they are defined in an external\nfiles\ni. Window object\nii. Document object\niii. Parent object"
+  }
+]
