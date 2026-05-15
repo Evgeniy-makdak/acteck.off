@@ -346,6 +346,8 @@ a:hover {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px 80px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .page-content h1 {
@@ -404,6 +406,39 @@ a:hover {
   background: none;
   padding: 0;
   color: var(--text);
+}
+
+/* Table wrapper for horizontal scroll on mobile */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 16px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.page-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+.page-content th,
+.page-content td {
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.page-content th {
+  background: var(--bg-card);
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.page-content td {
+  background: var(--bg-card);
 }
 
 .page-content blockquote {
@@ -564,6 +599,44 @@ a:hover {
   .logo-slogan {
     display: none;
   }
+  
+  .page-content h1 {
+    font-size: 28px;
+  }
+  
+  .page-content h2 {
+    font-size: 20px;
+  }
+  
+  .page-content h3 {
+    font-size: 18px;
+  }
+  
+  .page-content pre {
+    padding: 14px;
+  }
+  
+  .page-content table {
+    font-size: 13px;
+  }
+  
+  .page-content th,
+  .page-content td {
+    padding: 8px 10px;
+  }
+  
+  .glossary-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .lesson-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .lesson-nav a {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -576,6 +649,10 @@ a:hover {
   }
   
   .page-content h1 {
-    font-size: 28px;
+    font-size: 24px;
+  }
+  
+  .page-content {
+    padding: 24px 16px 60px;
   }
 }

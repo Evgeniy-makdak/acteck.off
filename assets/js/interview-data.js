@@ -3,7 +3,7 @@
  * 70 вопросов по JavaScript с https://habr.com/ru/articles/486820/
  */
 
-const INTERVIEW_QUESTIONS = [
+const INTERVIEW_QUESTIONS_RU = [
   {
     id: 1,
     question: "В чем разница между null и undefined?",

@@ -115,6 +115,18 @@
   }, { capture: true });
 
   document.addEventListener('DOMContentLoaded', function() {
+    // Wrap tables for horizontal scroll on mobile
+    document.querySelectorAll('table').forEach(function(table) {
+      // Skip tables already inside a wrapper or inside iframes
+      if (table.closest('.table-wrapper') || table.closest('iframe')) {
+        return;
+      }
+      var wrapper = document.createElement('div');
+      wrapper.className = 'table-wrapper';
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    });
+
     // Initial sync
     syncLanguageUi(preferredLocale);
     normalizeInternalLinks(preferredLocale);

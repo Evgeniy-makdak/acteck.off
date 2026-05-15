@@ -6,15 +6,40 @@
 (function() {
   'use strict';
 
-  const questions = INTERVIEW_QUESTIONS;
+  // Detect locale from URL path
+  const pathLocale = window.location.pathname.match(/\/(ru|en)(?=\/)/i)?.[1].toLowerCase() || 'ru';
+  const isEn = pathLocale === 'en';
+
+  // Select questions based on locale
+  const questions = isEn && typeof INTERVIEW_QUESTIONS_EN !== 'undefined'
+    ? INTERVIEW_QUESTIONS_EN
+    : (typeof INTERVIEW_QUESTIONS_RU !== 'undefined' ? INTERVIEW_QUESTIONS_RU : INTERVIEW_QUESTIONS);
 
   const questionsListEl = document.getElementById('questionsList');
   const searchInputEl = document.getElementById('searchInput');
 
+  // Localized strings
+  const i18n = {
+    noResults: isEn ? 'No questions found' : 'Вопросы не найдены',
+    loading: isEn ? 'Loading questions...' : 'Загрузка вопросов...'
+  };
+
+  // Wrap tables for mobile horizontal scroll
+  function wrapTables() {
+    document.querySelectorAll('.answer-content table').forEach(table => {
+      if (!table.parentElement.classList.contains('table-wrapper')) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-wrapper';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      }
+    });
+  }
+
   // Render questions list
   function renderQuestions(filteredQuestions) {
     if (!filteredQuestions.length) {
-      questionsListEl.innerHTML = `<div class="no-results">Вопросы не найдены</div>`;
+      questionsListEl.innerHTML = `<div class="no-results">${i18n.noResults}</div>`;
       return;
     }
 
@@ -34,6 +59,9 @@
     }).join('');
 
     questionsListEl.innerHTML = html;
+
+    // Wrap tables for horizontal scrolling
+    wrapTables();
 
     // Add click handlers for accordion
     document.querySelectorAll('.question-item').forEach(item => {
